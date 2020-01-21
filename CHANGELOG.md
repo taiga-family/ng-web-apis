@@ -4,8 +4,5 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## 1.0.0 (2020-01-21)
 
-### 0.0.6 (2020-01-21)
-
-# Changelog
-
-All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+-   Add `WINDOW` token
+-   Add `NAVIGATOR` token
