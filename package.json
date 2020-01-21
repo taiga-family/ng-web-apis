@@ -1,0 +1,105 @@
+{
+    "name": "@ng-web-apis/common",
+    "version": "0.0.5",
+    "scripts": {
+        "build": "ng build",
+        "postbuild": "node scripts/postbuild.js",
+        "test": "ng test",
+        "posttest": "node scripts/coveralls.js",
+        "lint": "ng lint",
+        "typecheck": "tsc --noEmit --skipLibCheck",
+        "release": "standard-version",
+        "release:patch": "npm run release -- --release-as patch",
+        "release:minor": "npm run release -- --release-as minor",
+        "release:major": "npm run release -- --release-as major",
+        "publish": "npm run build && npm publish ./dist/common"
+    },
+    "description": "A set of common utils for consuming Web APIs with Angular",
+    "keywords": ["angular", "ng", "window", "api", "web api", "navigator", "user agent"],
+    "license": "MIT",
+    "author": {
+        "name": "Alex Inkin",
+        "email": "alexander@inkin.ru"
+    },
+    "contributors": ["Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"],
+    "repository": "https://github.com/ng-web-apis/common",
+    "bugs": "https://github.com/ng-web-apis/common/issues",
+    "homepage": "https://github.com/ng-web-apis/common#README",
+    "schematics": "./schematics/collection.json",
+    "dependencies": {
+        "@angular/animations": "^7.2.15",
+        "@angular/common": "^7.2.15",
+        "@angular/compiler": "^7.2.15",
+        "@angular/core": "^7.2.15",
+        "@angular/forms": "^7.2.15",
+        "@angular/http": "^7.2.15",
+        "@angular/platform-browser": "^7.2.15",
+        "@angular/platform-browser-dynamic": "^7.2.15",
+        "@angular/platform-server": "^7.2.15",
+        "@angular/router": "^7.2.15",
+        "@nguniversal/common": "^7.1.1",
+        "@nguniversal/express-engine": "^7.1.1",
+        "@nguniversal/module-map-ngfactory-loader": "^7.1.1",
+        "core-js": "^2.5.4",
+        "rxjs": "^6.5.2",
+        "tslib": "^1.10.0",
+        "zone.js": "~0.8.29"
+    },
+    "devDependencies": {
+        "@angular-devkit/build-angular": "~0.13.9",
+        "@angular-devkit/build-ng-packagr": "~0.13.9",
+        "@angular-devkit/core": "^7.3.9",
+        "@angular-devkit/schematics": "^7.3.9",
+        "@angular-devkit/schematics-cli": "~0.13.9",
+        "@angular/cli": "^7.3.9",
+        "@angular/compiler-cli": "^7.2.15",
+        "@angular/language-service": "^7.2.15",
+        "@tinkoff/linters": "^0.4.0",
+        "@types/express": "4.16.1",
+        "@types/express-serve-static-core": "4.16.2",
+        "@types/jasmine": "^3.3.16",
+        "@types/jasminewd2": "^2.0.6",
+        "@types/node": "~8.9.4",
+        "codelyzer": "^5.1.0",
+        "coveralls": "^3.0.5",
+        "ecstatic": "^4.1.2",
+        "express": "^4.17.1",
+        "http-server": "^0.11.1",
+        "husky": "^3.0.2",
+        "jasmine-core": "~3.5.0",
+        "jasmine-spec-reporter": "~4.2.1",
+        "karma": "^4.2.0",
+        "karma-chrome-launcher": "^3.0.0",
+        "karma-coverage-istanbul-reporter": "^2.1.0",
+        "karma-jasmine": "~2.0.1",
+        "karma-jasmine-html-reporter": "^1.4.2",
+        "lint-staged": "^9.2.1",
+        "lodash": "^4.17.15",
+        "ng-packagr": "4.7.1",
+        "prettier": "^1.18.2",
+        "standard-version": "^7.0.0",
+        "ts-node": "^8.3.0",
+        "tsickle": "0.34.0",
+        "tslint": "^5.18.0",
+        "tsutils": "^3.17.1",
+        "typescript": "3.1.6"
+    },
+    "husky": {
+        "hooks": {
+            "pre-commit": "lint-staged && npm run typecheck"
+        }
+    },
+    "lint-staged": {
+        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
+        "*.ts": "tslint"
+    },
+    "standard-version": {
+        "scripts": {
+            "postbump": "node scripts/syncVersions.js && git add **/package.json"
+        }
+    },
+    "engines": {
+        "node": ">= 10",
+        "npm": ">= 3"
+    }
+}

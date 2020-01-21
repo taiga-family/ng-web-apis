@@ -1,0 +1,19 @@
+{
+    "name": "@ng-web-apis/common",
+    "version": "0.0.5",
+    "peerDependencies": {
+        "@angular/common": ">=6.0.0",
+        "@angular/core": ">=6.0.0"
+    },
+    "description": "A set of common utils for consuming Web APIs with Angular",
+    "keywords": ["angular", "ng", "window", "api", "web api", "navigator", "user agent"],
+    "license": "MIT",
+    "author": {
+        "name": "Alex Inkin",
+        "email": "alexander@inkin.ru"
+    },
+    "contributors": ["Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"],
+    "repository": "https://github.com/ng-web-apis/common",
+    "bugs": "https://github.com/ng-web-apis/common/issues",
+    "homepage": "https://github.com/ng-web-apis/common#README"
+}

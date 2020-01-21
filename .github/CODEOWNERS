@@ -1,0 +1,14 @@
+
+# ==================================================================================
+# ==================================================================================
+#                            @ng-web-apis/common codeowners
+# ==================================================================================
+# ==================================================================================
+#
+#  Configuration of code ownership and review approvals for the @ng-web-apis/common repo.
+#
+#  More info: https://help.github.com/articles/about-codeowners/
+#
+
+* @waterplea
+# will be requested for review when someone opens a pull request
