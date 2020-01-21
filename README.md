@@ -1,4 +1,4 @@
-# @ng-web-apis/common
+# ![logo](logo.svg) Common utils for Web APIs
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/common.svg)](https://npmjs.com/package/@ng-web-apis/common)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/common)
