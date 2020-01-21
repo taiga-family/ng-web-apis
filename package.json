@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "0.0.6",
+    "version": "1.0.0",
     "scripts": {
         "build": "ng build",
         "postbuild": "node scripts/postbuild.js",
