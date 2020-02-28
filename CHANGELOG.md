@@ -2,12 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-### [1.0.1](https://github.com/ng-web-apis/common/compare/v1.0.0...v1.0.1) (2020-01-21)
+## [1.1.0](https://github.com/ng-web-apis/common/compare/v1.0.1...v1.1.0) (2020-02-28)
 
+### Features
+
+-   **ANIMATION_FRAME:** add new token ([89e393e](https://github.com/ng-web-apis/common/commit/89e393e2ed900c9a39a3218fefef69e39eb8a403))
+-   **ANIMATION_FRAME:** add new token ([d2f58a2](https://github.com/ng-web-apis/common/commit/d2f58a23f4fbf301ec67cb7a4c589981fb6f8eee))
+
+### [1.0.1](https://github.com/ng-web-apis/common/compare/v1.0.0...v1.0.1) (2020-01-21)
 
 ### Bug Fixes
 
-* **README:** fix badges ([7e02824](https://github.com/ng-web-apis/common/commit/7e028245ca4e512c8d9d1b1ac102b816f15e749a))
+-   **README:** fix badges ([7e02824](https://github.com/ng-web-apis/common/commit/7e028245ca4e512c8d9d1b1ac102b816f15e749a))
 
 ## 1.0.0 (2020-01-21)
 
