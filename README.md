@@ -11,3 +11,5 @@ A set of common utils for consuming Web APIs with Angular
 
 -   `WINDOW` — provides access to global `window` object
 -   `NAVIGATOR` — provides access to `window.navigator` object
+-   `PERFORMANCE` — provides access to `window.performance` object
+-   `ANIMATION_FRAME` — shared Observable based on `window.requestAnimationFrame`
