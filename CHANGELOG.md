@@ -7,7 +7,6 @@ All notable changes to this project will be documented in this file. See [standa
 ### Features
 
 -   **ANIMATION_FRAME:** add new token ([89e393e](https://github.com/ng-web-apis/common/commit/89e393e2ed900c9a39a3218fefef69e39eb8a403))
--   **ANIMATION_FRAME:** add new token ([d2f58a2](https://github.com/ng-web-apis/common/commit/d2f58a23f4fbf301ec67cb7a4c589981fb6f8eee))
 
 ### [1.0.1](https://github.com/ng-web-apis/common/compare/v1.0.0...v1.0.1) (2020-01-21)
 
