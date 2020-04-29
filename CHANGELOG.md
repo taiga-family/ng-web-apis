@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.3.0](https://github.com/ng-web-apis/common/compare/v1.2.0...v1.3.0) (2020-04-29)
+
+
+### Features
+
+* **tokens:** `LOCAL_STORAGE`, `LOCATION`, `USER_AGENT` add new tokens ([07c7bda](https://github.com/ng-web-apis/common/commit/07c7bda84d65826fd8d120dee4b99408f2e9c25f))
+
 ## [1.2.0](https://github.com/ng-web-apis/common/compare/v1.1.0...v1.2.0) (2020-04-29)
 
 
