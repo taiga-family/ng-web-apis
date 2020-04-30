@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.4.0](https://github.com/ng-web-apis/common/compare/v1.3.0...v1.4.0) (2020-04-30)
+
+
+### Features
+
+* **CSS:** inject mock object when CSS is not available, i.e. in IE or SSR ([acea44c](https://github.com/ng-web-apis/common/commit/acea44c7174acad3735cecfd4d41b00652a864a3))
+
 ## [1.3.0](https://github.com/ng-web-apis/common/compare/v1.2.0...v1.3.0) (2020-04-29)
 
 
