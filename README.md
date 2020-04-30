@@ -14,6 +14,6 @@ A set of common utils for consuming Web APIs with Angular
 -   `USER_AGENT` — provides access to `window.navigator.userAgent` string
 -   `PERFORMANCE` — provides access to `window.performance` object
 -   `ANIMATION_FRAME` — shared Observable based on `window.requestAnimationFrame`
--   `CSS` — provides access to `window.CSS` object
+-   `CSS` — provides access to `window.CSS` object or mock object if it's not available (i.e. in IE)
 -   `LOCATION` — provides access to `window.location` object
 -   `LOCAL_STORAGE` — provides access to `window.localStorage` object
