@@ -8,5 +8,9 @@ declare global {
 }
 
 export const CSS = new InjectionToken<CSS>('An abstraction over window.CSS object', {
-    factory: () => inject(WINDOW).CSS,
+    factory: () =>
+        inject(WINDOW).CSS || {
+            escape: v => v,
+            supports: () => false,
+        },
 });
