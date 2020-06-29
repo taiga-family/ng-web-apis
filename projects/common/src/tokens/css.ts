@@ -1,15 +1,18 @@
 import {inject, InjectionToken} from '@angular/core';
 import {WINDOW} from './window';
 
-declare global {
-    interface Window {
-        CSS: CSS;
-    }
+/**
+ * Use Window['CSS'], this is a workaround to support Angular 6+
+ */
+interface Css {
+    escape(ident: string): string;
+    supports(property: string, value: string): boolean;
+    supports(conditionText: string): boolean;
 }
 
-export const CSS = new InjectionToken<CSS>('An abstraction over window.CSS object', {
+export const CSS = new InjectionToken<Css>('An abstraction over window.CSS object', {
     factory: () =>
-        inject(WINDOW).CSS || {
+        (inject(WINDOW) as any).CSS || {
             escape: v => v,
             supports: () => false,
         },
