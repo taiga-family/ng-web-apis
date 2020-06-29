@@ -6,6 +6,7 @@ describe('CSS', () => {
     it('injects window.CSS object', () => {
         TestBed.configureTestingModule({});
 
+        // @ts-ignore
         expect(TestBed.get(CSS)).toBe(window.CSS);
     });
 
