@@ -2,26 +2,29 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.4.0](https://github.com/ng-web-apis/common/compare/v1.3.0...v1.4.0) (2020-04-30)
+### [1.4.1](https://github.com/ng-web-apis/common/compare/v1.4.0...v1.4.1) (2020-06-29)
 
+### Bug Fixes
+
+-   **CSS:** fix for TypeScript 3.9+ ([a203936](https://github.com/ng-web-apis/common/commit/a203936d56efcc926233260d913d56500a6535ba))
+
+## [1.4.0](https://github.com/ng-web-apis/common/compare/v1.3.0...v1.4.0) (2020-04-30)
 
 ### Features
 
-* **CSS:** inject mock object when CSS is not available, i.e. in IE or SSR ([acea44c](https://github.com/ng-web-apis/common/commit/acea44c7174acad3735cecfd4d41b00652a864a3))
+-   **CSS:** inject mock object when CSS is not available, i.e. in IE or SSR ([acea44c](https://github.com/ng-web-apis/common/commit/acea44c7174acad3735cecfd4d41b00652a864a3))
 
 ## [1.3.0](https://github.com/ng-web-apis/common/compare/v1.2.0...v1.3.0) (2020-04-29)
 
-
 ### Features
 
-* **tokens:** `LOCAL_STORAGE`, `LOCATION`, `USER_AGENT` add new tokens ([07c7bda](https://github.com/ng-web-apis/common/commit/07c7bda84d65826fd8d120dee4b99408f2e9c25f))
+-   **tokens:** `LOCAL_STORAGE`, `LOCATION`, `USER_AGENT` add new tokens ([07c7bda](https://github.com/ng-web-apis/common/commit/07c7bda84d65826fd8d120dee4b99408f2e9c25f))
 
 ## [1.2.0](https://github.com/ng-web-apis/common/compare/v1.1.0...v1.2.0) (2020-04-29)
 
-
 ### Features
 
-* **CSS:** add new token ([e07ce9b](https://github.com/ng-web-apis/common/commit/e07ce9b1711ea7a5798c5eaf9cb1ef358e8df69e))
+-   **CSS:** add new token ([e07ce9b](https://github.com/ng-web-apis/common/commit/e07ce9b1711ea7a5798c5eaf9cb1ef358e8df69e))
 
 ## [1.1.0](https://github.com/ng-web-apis/common/compare/v1.0.1...v1.1.0) (2020-02-28)
 
