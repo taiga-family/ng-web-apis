@@ -7,11 +7,11 @@ export const PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
     'Shared Observable based on `document visibility changed`',
     {
         factory: () => {
-            const document = inject(DOCUMENT);
+            const documentRef = inject(DOCUMENT);
 
-            return fromEvent(document, 'visibilitychange').pipe(
-                startWith(true),
-                map(() => !document.hidden),
+            return fromEvent(documentRef, 'visibilitychange').pipe(
+                startWith(!documentRef.hidden),
+                map(() => !documentRef.hidden),
                 distinctUntilChanged(),
                 share(),
             );
