@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.5.0](https://github.com/ng-web-apis/common/compare/v1.4.1...v1.5.0) (2020-07-24)
+
+### Features
+
+-   **page-visibility:** add a new token ([5779d4f](https://github.com/ng-web-apis/common/commit/5779d4fd341dc1e4a7bfb9d4bb1e4b3b3509b122))
+
 ### [1.4.1](https://github.com/ng-web-apis/common/compare/v1.4.0...v1.4.1) (2020-06-29)
 
 ### Bug Fixes
