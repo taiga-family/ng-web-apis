@@ -7,5 +7,6 @@ export * from './tokens/local-storage';
 export * from './tokens/location';
 export * from './tokens/navigator';
 export * from './tokens/performance';
+export * from './tokens/session-storage';
 export * from './tokens/user-agent';
 export * from './tokens/window';

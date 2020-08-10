@@ -19,4 +19,5 @@ A set of common utils for consuming Web APIs with Angular
 -   `CSS` — provides access to `window.CSS` object or mock object if it's not available (i.e. in IE)
 -   `LOCATION` — provides access to `window.location` object
 -   `LOCAL_STORAGE` — provides access to `window.localStorage` object
+-   `SESSION_STORAGE` — provides access to `window.sessionStorage` object
 -   `PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
