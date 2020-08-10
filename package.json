@@ -87,7 +87,7 @@
         "lodash": "^4.17.15",
         "ng-packagr": "4.7.1",
         "prettier": "^1.18.2",
-        "standard-version": "^7.0.0",
+        "standard-version": "^8.0.1",
         "ts-node": "^8.3.0",
         "tsickle": "0.34.0",
         "tslint": "^5.18.0",
