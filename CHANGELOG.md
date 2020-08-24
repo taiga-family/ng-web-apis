@@ -2,12 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.6.0](https://github.com/ng-web-apis/common/compare/v1.5.0...v1.6.0) (2020-08-10)
+### [1.6.1](https://github.com/ng-web-apis/common/compare/v1.6.0...v1.6.1) (2020-08-24)
 
+### Bug Fixes
+
+-   **public-api:** add page-visibility ([90c91b1](https://github.com/ng-web-apis/common/commit/90c91b1b306776f8b988d392381efb8122d341ec))
+
+## [1.6.0](https://github.com/ng-web-apis/common/compare/v1.5.0...v1.6.0) (2020-08-10)
 
 ### Features
 
-* **SESSION_STORAGE:** add new token ([#10](https://github.com/ng-web-apis/common/issues/10)) ([a4c39d9](https://github.com/ng-web-apis/common/commit/a4c39d9dd93b96e8577bbed0b5428b19db1dc69c))
+-   **SESSION_STORAGE:** add new token ([#10](https://github.com/ng-web-apis/common/issues/10)) ([a4c39d9](https://github.com/ng-web-apis/common/commit/a4c39d9dd93b96e8577bbed0b5428b19db1dc69c))
 
 ## [1.5.0](https://github.com/ng-web-apis/common/compare/v1.4.1...v1.5.0) (2020-07-24)
 
