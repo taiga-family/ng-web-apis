@@ -17,6 +17,7 @@
         "noUnusedLocals": true,
         "target": "es2015",
         "typeRoots": ["node_modules/@types"],
+        "types": ["jasmine", "node", "network-information-types"],
         "lib": ["es2018", "dom"],
         "paths": {
             "@ng-web-apis/common": ["projects/common/src/public-api"]

@@ -6,6 +6,7 @@ export * from './tokens/css';
 export * from './tokens/local-storage';
 export * from './tokens/location';
 export * from './tokens/navigator';
+export * from './tokens/network-information';
 export * from './tokens/page-visibility';
 export * from './tokens/performance';
 export * from './tokens/session-storage';
