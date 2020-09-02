@@ -1,3 +1,5 @@
+/// <reference types="network-information-types" />
+
 import {inject, InjectionToken} from '@angular/core';
 import {NAVIGATOR} from './navigator';
 
