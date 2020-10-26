@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.8.1](https://github.com/ng-web-apis/common/compare/v1.8.0...v1.8.1) (2020-10-26)
+
+
+### Bug Fixes
+
+* **SPEECH_SYNTHESIS:** fix type ([516438d](https://github.com/ng-web-apis/common/commit/516438d984e6cc62858dedb8ee93a5338e3e5a42))
+
 ## [1.8.0](https://github.com/ng-web-apis/common/compare/v1.7.0...v1.8.0) (2020-10-26)
 
 
