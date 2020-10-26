@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.8.0](https://github.com/ng-web-apis/common/compare/v1.7.0...v1.8.0) (2020-10-26)
+
+
+### Features
+
+* **SPEECH_SYNTHESIS:** add new token ([d7dd1a5](https://github.com/ng-web-apis/common/commit/d7dd1a594d2a4b0c9bcb5df256e7b61627f63909))
+
 ## [1.7.0](https://github.com/ng-web-apis/common/compare/v1.6.1...v1.7.0) (2020-09-02)
 
 ### Features
