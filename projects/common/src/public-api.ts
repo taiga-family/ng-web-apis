@@ -10,5 +10,6 @@ export * from './tokens/network-information';
 export * from './tokens/page-visibility';
 export * from './tokens/performance';
 export * from './tokens/session-storage';
+export * from './tokens/speech-synthesis';
 export * from './tokens/user-agent';
 export * from './tokens/window';

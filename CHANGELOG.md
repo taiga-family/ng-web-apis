@@ -4,16 +4,15 @@ All notable changes to this project will be documented in this file. See [standa
 
 ## [1.7.0](https://github.com/ng-web-apis/common/compare/v1.6.1...v1.7.0) (2020-09-02)
 
-
 ### Features
 
-* **NETWORK_INFORMATION:** add new token ([492018e](https://github.com/ng-web-apis/common/commit/492018e48cc3408837ee950fbb84b3f8103c203f))
+-   **NETWORK_INFORMATION:** add new token ([492018e](https://github.com/ng-web-apis/common/commit/492018e48cc3408837ee950fbb84b3f8103c203f))
 
 ### [1.6.1](https://github.com/ng-web-apis/common/compare/v1.6.0...v1.6.1) (2020-08-24)
 
 ### Bug Fixes
 
--   **public-api:** add page-visibility ([90c91b1](https://github.com/ng-web-apis/common/commit/90c91b1b306776f8b988d392381efb8122d341ec))
+-   **public-api:** add missing `PAGE_VISIBILITY` token ([90c91b1](https://github.com/ng-web-apis/common/commit/90c91b1b306776f8b988d392381efb8122d341ec))
 
 ## [1.6.0](https://github.com/ng-web-apis/common/compare/v1.5.0...v1.6.0) (2020-08-10)
 
@@ -25,7 +24,7 @@ All notable changes to this project will be documented in this file. See [standa
 
 ### Features
 
--   **page-visibility:** add a new token ([5779d4f](https://github.com/ng-web-apis/common/commit/5779d4fd341dc1e4a7bfb9d4bb1e4b3b3509b122))
+-   **PAGE_VISIBILITY:** add a new token ([5779d4f](https://github.com/ng-web-apis/common/commit/5779d4fd341dc1e4a7bfb9d4bb1e4b3b3509b122))
 
 ### [1.4.1](https://github.com/ng-web-apis/common/compare/v1.4.0...v1.4.1) (2020-06-29)
 
