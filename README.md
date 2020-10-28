@@ -21,6 +21,6 @@ A set of common utils for consuming Web APIs with Angular
 -   `LOCATION` — provides access to `window.location` object
 -   `LOCAL_STORAGE` — provides access to `window.localStorage` object
 -   `SESSION_STORAGE` — provides access to `window.sessionStorage` object
--   `SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or return `null` if browser does not support it
+-   `SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or returns `null` if browser does not support it
 -   `SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
 -   `PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
