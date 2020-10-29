@@ -24,3 +24,17 @@ A set of common utils for consuming Web APIs with Angular
 -   `SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or returns `null` if browser does not support it
 -   `SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
 -   `PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
+
+## How to use
+
+Just inject a token you need. You can also take a look at [Stackblitz sample](https://stackblitz.com/edit/ng-web-apis)
+
+## What advantages do we get from abstract entities in our app?
+
+-   It is easy to understand: you see all dependencies of your entity in its constructor
+-   It is easy to test: you can just mock any of your dependencies to test
+-   It is easy to reuse: your components and directives can be used in any context if it has dependencies that they need to be created
+
+## See also
+
+Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
