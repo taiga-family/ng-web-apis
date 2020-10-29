@@ -34,6 +34,7 @@ Just inject a token you need. You can also take a look at [Stackblitz sample](ht
 -   It is easy to understand: you see all dependencies of your entity in its constructor
 -   It is easy to test: you can just mock any of your dependencies to test
 -   It is easy to reuse: your components and directives can be used in any context if it has dependencies that they need to be created
+-   It is enviroment agnostic: you can start your app in SSR or other environments (see also [@ng-web-apis/universal](https://github.com/ng-web-apis/universal))
 
 ## See also
 
