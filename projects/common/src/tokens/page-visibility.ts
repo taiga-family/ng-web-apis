@@ -11,7 +11,7 @@ export const PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
 
             return fromEvent(documentRef, 'visibilitychange').pipe(
                 startWith(0),
-                map(() => !documentRef.hidden),
+                map(() => documentRef.visibilityState !== 'hidden'),
                 distinctUntilChanged(),
                 share(),
             );
