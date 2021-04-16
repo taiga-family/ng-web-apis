@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "1.9.0",
+    "version": "1.10.0",
     "scripts": {
         "build": "ng build",
         "postbuild": "node scripts/postbuild.js",
@@ -15,15 +15,7 @@
         "publish": "npm run build && npm publish ./dist/common"
     },
     "description": "A set of common utils for consuming Web APIs with Angular",
-    "keywords": [
-        "angular",
-        "ng",
-        "window",
-        "api",
-        "web api",
-        "navigator",
-        "user agent"
-    ],
+    "keywords": ["angular", "ng", "window", "api", "web api", "navigator", "user agent"],
     "license": "MIT",
     "author": {
         "name": "Alex Inkin",
@@ -103,10 +95,7 @@
         }
     },
     "lint-staged": {
-        "*.{js,ts,html,md,less,json}": [
-            "prettier --write",
-            "git add"
-        ],
+        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
         "*.ts": "tslint"
     },
     "standard-version": {

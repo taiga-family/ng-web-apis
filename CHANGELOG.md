@@ -2,26 +2,37 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
-## [1.9.0](https://github.com/ng-web-apis/common/compare/v1.8.1...v1.9.0) (2020-10-28)
-
+## [1.10.0](https://github.com/ng-web-apis/common/compare/v1.6.1...v1.10.0) (2021-04-16)
 
 ### Features
 
-* **SPEECH_RECOGNITION:** add new token ([#13](https://github.com/ng-web-apis/common/issues/13)) ([ad0f627](https://github.com/ng-web-apis/common/commit/ad0f627f4cadba1439e668da8b4947fd3e7625d6))
-
-### [1.8.1](https://github.com/ng-web-apis/common/compare/v1.8.0...v1.8.1) (2020-10-26)
-
+-   **CACHES:** add new token ([#19](https://github.com/ng-web-apis/common/issues/19)) ([b49a270](https://github.com/ng-web-apis/common/commit/b49a270020d973bfc583f41840fea9e4dee27e82))
+-   **NETWORK_INFORMATION:** add new token ([492018e](https://github.com/ng-web-apis/common/commit/492018e48cc3408837ee950fbb84b3f8103c203f))
+-   **page-visibility:** document.hidden -> document.visibilityState ([#18](https://github.com/ng-web-apis/common/issues/18)) ([244ede0](https://github.com/ng-web-apis/common/commit/244ede09cbb6698b28dfaeda889a87a880f9f0f3))
+-   **SPEECH_RECOGNITION:** add new token ([#13](https://github.com/ng-web-apis/common/issues/13)) ([ad0f627](https://github.com/ng-web-apis/common/commit/ad0f627f4cadba1439e668da8b4947fd3e7625d6))
+-   **SPEECH_SYNTHESIS:** add new token ([d7dd1a5](https://github.com/ng-web-apis/common/commit/d7dd1a594d2a4b0c9bcb5df256e7b61627f63909))
 
 ### Bug Fixes
 
-* **SPEECH_SYNTHESIS:** fix type ([516438d](https://github.com/ng-web-apis/common/commit/516438d984e6cc62858dedb8ee93a5338e3e5a42))
+-   **SPEECH_SYNTHESIS:** fix type ([516438d](https://github.com/ng-web-apis/common/commit/516438d984e6cc62858dedb8ee93a5338e3e5a42))
 
-## [1.8.0](https://github.com/ng-web-apis/common/compare/v1.7.0...v1.8.0) (2020-10-26)
-
+## [1.9.0](https://github.com/ng-web-apis/common/compare/v1.8.1...v1.9.0) (2020-10-28)
 
 ### Features
 
-* **SPEECH_SYNTHESIS:** add new token ([d7dd1a5](https://github.com/ng-web-apis/common/commit/d7dd1a594d2a4b0c9bcb5df256e7b61627f63909))
+-   **SPEECH_RECOGNITION:** add new token ([#13](https://github.com/ng-web-apis/common/issues/13)) ([ad0f627](https://github.com/ng-web-apis/common/commit/ad0f627f4cadba1439e668da8b4947fd3e7625d6))
+
+### [1.8.1](https://github.com/ng-web-apis/common/compare/v1.8.0...v1.8.1) (2020-10-26)
+
+### Bug Fixes
+
+-   **SPEECH_SYNTHESIS:** fix type ([516438d](https://github.com/ng-web-apis/common/commit/516438d984e6cc62858dedb8ee93a5338e3e5a42))
+
+## [1.8.0](https://github.com/ng-web-apis/common/compare/v1.7.0...v1.8.0) (2020-10-26)
+
+### Features
+
+-   **SPEECH_SYNTHESIS:** add new token ([d7dd1a5](https://github.com/ng-web-apis/common/commit/d7dd1a594d2a4b0c9bcb5df256e7b61627f63909))
 
 ## [1.7.0](https://github.com/ng-web-apis/common/compare/v1.6.1...v1.7.0) (2020-09-02)
 
