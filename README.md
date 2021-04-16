@@ -16,7 +16,8 @@ A set of common utils for consuming Web APIs with Angular
 -   `NETWORK_INFORMATION` — provides access to `window.navigator.connection` object
 -   `USER_AGENT` — provides access to `window.navigator.userAgent` string
 -   `PERFORMANCE` — provides access to `window.performance` object
--   `ANIMATION_FRAME` — shared Observable based on `window.requestAnimationFrame`
+-   `ANIMATION_FRAME` — shared `Observable` based on `window.requestAnimationFrame`
+-   `CACHES` — provides access to `window.caches` object
 -   `CSS` — provides access to `window.CSS` object or mock object if it's not available (i.e. in IE)
 -   `LOCATION` — provides access to `window.location` object
 -   `LOCAL_STORAGE` — provides access to `window.localStorage` object
@@ -34,7 +35,7 @@ Just inject a token you need. You can also take a look at [Stackblitz sample](ht
 -   It is easy to understand: you see all dependencies of your entity in its constructor
 -   It is easy to test: you can just mock any of your dependencies to test
 -   It is easy to reuse: your components and directives can be used in any context if it has dependencies that they need to be created
--   It is enviroment agnostic: you can start your app in SSR or other environments (see also [@ng-web-apis/universal](https://github.com/ng-web-apis/universal))
+-   It is environment agnostic: you can start your app in SSR or other environments (see also [@ng-web-apis/universal](https://github.com/ng-web-apis/universal))
 
 ## See also
 

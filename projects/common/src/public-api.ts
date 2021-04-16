@@ -2,6 +2,7 @@
  * Public API Surface of @ng-web-apis/common
  */
 export * from './tokens/animation-frame';
+export * from './tokens/caches';
 export * from './tokens/css';
 export * from './tokens/local-storage';
 export * from './tokens/location';
