@@ -1,14 +1,9 @@
 name: Web APIs CI
 
-on:
-  push:
-    - master
-  pull_request:
-    branches:
-      - master
+on: push
 
 jobs:
-  build:
+  ci:
     # Setup part
     runs-on: ubuntu-latest
     steps:

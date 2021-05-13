@@ -4,7 +4,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/common.svg)](https://npmjs.com/package/@ng-web-apis/common)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/common)](https://bundlephobia.com/result?p=@ng-web-apis/common)
-[![Travis (.org)](https://img.shields.io/travis/ng-web-apis/common)](https://travis-ci.org/ng-web-apis/common)
+[![.github/workflows/ci.yml](https://github.com/ng-web-apis/common/actions/workflows/ci.yml/badge.svg?branch=master)](https://github.com/ng-web-apis/common/actions/workflows/ci.yml)
 [![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/common)](https://coveralls.io/github/ng-web-apis/common?branch=master)
 
 A set of common utils for consuming Web APIs with Angular
@@ -32,13 +32,13 @@ Just inject a token you need. You can also take a look at [Stackblitz sample](ht
 
 ## What advantages do we get from abstract entities in our app?
 
-👨‍🎓   **It is easy to understand:** you see all dependencies of your entity in its constructor
+👨‍🎓 **It is easy to understand:** you see all dependencies of your entity in its constructor
 
-🧞   **It is easy to test:** you can just mock any of your dependencies to test
+🧞 **It is easy to test:** you can just mock any of your dependencies to test
 
-🧩  **It is easy to reuse:** your components and directives can be used in any context if it has dependencies that they need to be created
+🧩 **It is easy to reuse:** your components and directives can be used in any context if it has dependencies that they need to be created
 
-♻️   **It is environment agnostic:** you can start your app in SSR or other environments (see also [@ng-web-apis/universal](https://github.com/ng-web-apis/universal))
+♻️ **It is environment agnostic:** you can start your app in SSR or other environments (see also [@ng-web-apis/universal](https://github.com/ng-web-apis/universal))
 
 ## See also
 
