@@ -5,7 +5,6 @@
         "build": "ng build",
         "postbuild": "node scripts/postbuild.js",
         "test": "ng test",
-        "posttest": "node scripts/coveralls.js",
         "lint": "ng lint",
         "typecheck": "tsc --noEmit --skipLibCheck",
         "release": "standard-version",
