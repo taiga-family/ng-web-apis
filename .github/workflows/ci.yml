@@ -1,6 +1,8 @@
 name: Web APIs CI
 
 on:
+  push:
+    - master
   pull_request:
     branches:
       - master
