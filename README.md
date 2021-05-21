@@ -46,9 +46,9 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
 
 ## Core team
 
-<table width="250">
+<table>
     <tr>
-       <td align="center">
+       <td align="center" width="150">
             <a href="https://twitter.com/waterplea"
                 ><img
                     src="https://github.com/waterplea.png?size=100"
@@ -81,7 +81,7 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
                 /></a>
             </div>
         </td>
-        <td align="center">
+        <td align="center" width="150">
             <a href="http://marsibarsi.me"
                 ><img
                     src="https://github.com/marsibarsi.png?size=100"
