@@ -104,8 +104,8 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
                     href="https://github.com/marsibarsi"
                     title="GitHub"
                     ><img
-                        width="16px"
-                        src="https://taiga-ui.dev/assets/taiga-ui/icons/tuiIconWifiOffLarge.svg"
+                        width="24"
+                        src="https://github.com/feathericons/feather/blob/master/icons/github.svg"
                 /></a>
                 <a
                     style="margin-left: 8px"
