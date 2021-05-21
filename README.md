@@ -46,7 +46,7 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
 
 ## Core team
 
-<table>
+<table style="max-width: 100%">
     <tr>
        <td align="center">
             <a href="https://twitter.com/waterplea"
