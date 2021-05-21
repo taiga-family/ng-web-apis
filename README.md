@@ -102,7 +102,7 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
                 <a href="https://github.com/marsibarsi" title="Github"
                     ><img
                         width="16"
-                        src="https://image.flaticon.com/icons/svg/2111/2111425.svg"
+                        src="https://simpleicons.org/icons/github.svg"
                 /></a>
                 <a
                     style="margin-left: 8px"
