@@ -99,11 +99,7 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
                         width="16"
                         src="https://image.flaticon.com/icons/svg/733/733579.svg"
                 /></a>
-                <a href="https://github.com/marsibarsi" title="Github"
-                    ><img
-                        width="16"
-                        src="https://simpleicons.org/icons/github.svg"
-                /></a>
+                [![GitHub](https://simpleicons.org/icons/github.svg)](https://github.com/marsibarsi)
                 <a
                     style="margin-left: 8px"
                     href="https://t.me/marsibarsi"
