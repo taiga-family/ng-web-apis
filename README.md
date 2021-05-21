@@ -62,20 +62,20 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
                     href="https://twitter.com/waterplea"
                     title="Twitter"
                     ><img
-                        width="24"
-                        src="https://github.com/feathericons/feather/blob/master/icons/twitter.svg"
+                        width="16"
+                        src="https://raw.githubusercontent.com/feathericons/feather/master/icons/twitter.svg"
                 /></a>
                 <a href="https://github.com/waterplea" title="Github"
                     ><img
-                        width="24"
-                        src="https://github.com/feathericons/feather/blob/master/icons/github.svg"
+                        width="16"
+                        src="https://raw.githubusercontent.com/feathericons/feather/master/icons/github.svg"
                 /></a>
                 <a
                     href="https://t.me/waterplea"
                     title="Telegram"
                     ><img
-                        width="24"
-                        src="https://github.com/feathericons/feather/blob/master/icons/send.svg"
+                        width="16"
+                        src="https://raw.githubusercontent.com/feathericons/feather/master/icons/send.svg"
                 /></a>
             </div>
         </td>
@@ -93,22 +93,22 @@ Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](h
                     href="https://twitter.com/marsibarsi"
                     title="Twitter"
                     ><img
-                        width="24"
-                        src="https://github.com/feathericons/feather/blob/master/icons/twitter.svg"
+                        width="16"
+                        src="https://raw.githubusercontent.com/feathericons/feather/master/icons/twitter.svg"
                 /></a>
                 <a
                     href="https://github.com/marsibarsi"
                     title="GitHub"
                     ><img
-                        width="24"
-                        src="https://github.com/feathericons/feather/blob/master/icons/github.svg"
+                        width="16"
+                        src="https://raw.githubusercontent.com/feathericons/feather/master/icons/github.svg"
                 /></a>
                 <a
                     href="https://t.me/marsibarsi"
                     title="Telegram"
                     ><img
-                        width="24"
-                        src="https://github.com/feathericons/feather/blob/master/icons/send.svg"
+                        width="16"
+                        src="https://raw.githubusercontent.com/feathericons/feather/master/icons/send.svg"
                 /></a>
             </div>
         </td>
