@@ -25,6 +25,7 @@ A set of common utils for consuming Web APIs with Angular
 -   `SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or returns `null` if browser does not support it
 -   `SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
 -   `PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
+-   `HISTORY` — provides access to `window.history` object
 
 ## How to use
 
