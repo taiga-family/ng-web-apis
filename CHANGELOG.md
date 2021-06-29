@@ -2,6 +2,14 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.11.0](https://github.com/ng-web-apis/common/compare/v1.9.0...v1.11.0) (2021-06-29)
+
+### Features
+
+-   **CACHES:** add new token ([#19](https://github.com/ng-web-apis/common/issues/19)) ([b49a270](https://github.com/ng-web-apis/common/commit/b49a270020d973bfc583f41840fea9e4dee27e82))
+-   **HISTORY:** add new token ([#23](https://github.com/ng-web-apis/common/issues/23)) ([4ca7c33](https://github.com/ng-web-apis/common/commit/4ca7c33c2f9e4a16fd37938938f63c8258bc5eea))
+-   **page-visibility:** document.hidden -> document.visibilityState ([#18](https://github.com/ng-web-apis/common/issues/18)) ([244ede0](https://github.com/ng-web-apis/common/commit/244ede09cbb6698b28dfaeda889a87a880f9f0f3))
+
 ## [1.10.0](https://github.com/ng-web-apis/common/compare/v1.9.0...v1.10.0) (2021-04-16)
 
 ### Features
