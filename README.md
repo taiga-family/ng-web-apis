@@ -19,6 +19,7 @@ A set of common utils for consuming Web APIs with Angular
 -   `ANIMATION_FRAME` — shared `Observable` based on `window.requestAnimationFrame`
 -   `CACHES` — provides access to `window.caches` object
 -   `CSS` — provides access to `window.CSS` object or mock object if it's not available (i.e. in IE)
+-   `CRYPTO` — provides access to `window.crypto` object
 -   `LOCATION` — provides access to `window.location` object
 -   `LOCAL_STORAGE` — provides access to `window.localStorage` object
 -   `SESSION_STORAGE` — provides access to `window.sessionStorage` object
