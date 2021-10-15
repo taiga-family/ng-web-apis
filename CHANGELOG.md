@@ -2,6 +2,12 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [1.12.1](https://github.com/ng-web-apis/common/compare/v1.12.0...v1.12.1) (2021-10-15)
+
+### Bug Fixes
+
+-   **types:** compatibility issues with modern TypeScript ([#26](https://github.com/ng-web-apis/common/issues/26)) ([1c43f38](https://github.com/ng-web-apis/common/commit/1c43f383cfef81c8ccf7ce98921496ac7091fcac))
+
 ## [1.12.0](https://github.com/ng-web-apis/common/compare/v1.11.0...v1.12.0) (2021-07-12)
 
 ### Features
