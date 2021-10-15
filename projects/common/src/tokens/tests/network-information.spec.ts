@@ -6,7 +6,9 @@ describe('NETWORK_INFORMATION', () => {
     it('injects window.navigator.connection object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(NETWORK_INFORMATION)).toBe(window.navigator.connection);
+        expect(TestBed.get(NETWORK_INFORMATION)).toBe(
+            (window.navigator as any).connection,
+        );
     });
 
     it('injects null in unsupported browsers', () => {
