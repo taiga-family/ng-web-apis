@@ -1,5 +1,6 @@
 const fs = require('fs');
 const glob = require('glob');
+
 const JSON_INDENTATION_LEVEL = 4;
 const {version} = require('../package.json');
 

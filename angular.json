@@ -9,7 +9,7 @@
             "sourceRoot": "projects/common/src",
             "architect": {
                 "build": {
-                    "builder": "@angular-devkit/build-ng-packagr:build",
+                    "builder": "@angular-devkit/build-angular:ng-packagr",
                     "options": {
                         "tsConfig": "projects/common/tsconfig.lib.json",
                         "project": "projects/common/ng-package.json"
@@ -23,16 +23,6 @@
                         "karmaConfig": "projects/common/karma.conf.js",
                         "codeCoverage": true,
                         "browsers": "ChromeHeadless"
-                    }
-                },
-                "lint": {
-                    "builder": "@angular-devkit/build-angular:tslint",
-                    "options": {
-                        "tsConfig": [
-                            "projects/common/tsconfig.lib.json",
-                            "projects/common/tsconfig.spec.json"
-                        ],
-                        "exclude": ["**/node_modules/**"]
                     }
                 }
             }

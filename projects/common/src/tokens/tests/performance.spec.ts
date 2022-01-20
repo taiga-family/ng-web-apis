@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {PERFORMANCE} from '../performance';
 
 describe('PERFORMANCE', () => {

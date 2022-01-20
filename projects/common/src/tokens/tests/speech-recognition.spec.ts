@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {SPEECH_RECOGNITION} from '../speech-recognition';
 
 describe('SPEECH_RECOGNITION', () => {

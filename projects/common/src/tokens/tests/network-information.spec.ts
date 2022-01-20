@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {NAVIGATOR} from '../navigator';
 import {NETWORK_INFORMATION} from '../network-information';
 

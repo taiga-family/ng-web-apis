@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {USER_AGENT} from '../user-agent';
 
 describe('USER_AGENT', () => {

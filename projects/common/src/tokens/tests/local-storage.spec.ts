@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {LOCAL_STORAGE} from '../local-storage';
 
 describe('LOCAL_STORAGE', () => {
