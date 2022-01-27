@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "1.12.1",
+    "version": "1.13.0",
     "peerDependencies": {
         "@angular/common": ">=6.0.0",
         "@angular/core": ">=6.0.0"
@@ -15,7 +15,8 @@
     "contributors": [
         "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)",
         "Dmitryi Khirnyi",
-        "Andrew Grekov <hr@thekiba.io>"
+        "Andrew Grekov <hr@thekiba.io>",
+        "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>"
     ],
     "repository": "https://github.com/ng-web-apis/common",
     "bugs": "https://github.com/ng-web-apis/common/issues",
