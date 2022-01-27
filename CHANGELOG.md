@@ -2,6 +2,13 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [1.13.0](https://github.com/ng-web-apis/common/compare/v1.12.1...v1.13.0) (2022-01-27)
+
+
+### Features
+
+* **MEDIA_DEVICES:** added new token ([#33](https://github.com/ng-web-apis/common/issues/33)) ([2c05446](https://github.com/ng-web-apis/common/commit/2c05446e85dc5d4f861a56f86687deb9a0e341c9))
+
 ### [1.12.1](https://github.com/ng-web-apis/common/compare/v1.12.0...v1.12.1) (2021-10-15)
 
 ### Bug Fixes
