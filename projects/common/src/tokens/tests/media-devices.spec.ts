@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {MEDIA_DEVICES} from '../media-devices';
 
 describe('MEDIA_DEVICES', () => {

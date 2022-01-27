@@ -1,5 +1,6 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
+
 import {WINDOW} from '../window';
 
 describe('WINDOW', () => {

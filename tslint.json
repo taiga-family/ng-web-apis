@@ -1,7 +1,0 @@
-{
-    "extends": ["@tinkoff/linters/tslint/bases/prettier.tslint.json"],
-    "rules": {
-        "ordered-imports": true,
-        "interface-name": false
-    }
-}

@@ -1,4 +1,5 @@
 import {inject, InjectionToken} from '@angular/core';
+
 import {NAVIGATOR} from './navigator';
 
 export const NETWORK_INFORMATION = new InjectionToken<

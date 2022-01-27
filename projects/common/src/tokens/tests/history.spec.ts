@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+
 import {HISTORY} from '../history';
 
 describe('HISTORY', () => {
