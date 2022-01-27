@@ -1,0 +1,10 @@
+import {TestBed} from '@angular/core/testing';
+import {MEDIA_DEVICES} from '../media-devices';
+
+describe('MEDIA_DEVICES', () => {
+    it('injects window.navigator object', () => {
+        TestBed.configureTestingModule({});
+
+        expect(TestBed.get(MEDIA_DEVICES)).toBe(window.navigator.mediaDevices);
+    });
+});

@@ -15,6 +15,7 @@ A set of common utils for consuming Web APIs with Angular
 -   `NAVIGATOR` — provides access to `window.navigator` object
 -   `NETWORK_INFORMATION` — provides access to `window.navigator.connection` object
 -   `USER_AGENT` — provides access to `window.navigator.userAgent` string
+-   `MEDIA_DEVICES` — provides access to `window.navigator.mediaDevices` object
 -   `PERFORMANCE` — provides access to `window.performance` object
 -   `ANIMATION_FRAME` — shared `Observable` based on `window.requestAnimationFrame`
 -   `CACHES` — provides access to `window.caches` object
