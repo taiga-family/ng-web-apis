@@ -3,7 +3,8 @@
     "version": "2.0.0",
     "peerDependencies": {
         "@angular/common": ">=12.0.0",
-        "@angular/core": ">=12.0.0"
+        "@angular/core": ">=12.0.0",
+        "rxjs": ">=6.4.0"
     },
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": ["angular", "ng", "window", "api", "web api", "navigator", "user agent"],
