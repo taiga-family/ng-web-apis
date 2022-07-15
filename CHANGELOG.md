@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [2.0.1](https://github.com/ng-web-apis/common/compare/v2.0.0...v2.0.1) (2022-07-15)
+
+### Bug Fixes
+
+- **PAGE_VISIBILITY:** share replay of page visibility ([#45](https://github.com/ng-web-apis/common/issues/45))
+  ([09b0956](https://github.com/ng-web-apis/common/commit/09b09569660b74102ef19aec089a1e67fb8de2c7))
+
 ## [2.0.0](https://github.com/ng-web-apis/common/compare/v1.13.0...v2.0.0) (2022-01-27)
 
 ### Features
