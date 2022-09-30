@@ -13,6 +13,7 @@ export * from './tokens/navigator';
 export * from './tokens/network-information';
 export * from './tokens/page-visibility';
 export * from './tokens/performance';
+export * from './tokens/screen';
 export * from './tokens/session-storage';
 export * from './tokens/speech-recognition';
 export * from './tokens/speech-synthesis';
