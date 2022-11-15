@@ -23,6 +23,7 @@ A set of common utils for consuming Web APIs with Angular
 -   `CRYPTO` — provides access to `window.crypto` object
 -   `LOCATION` — provides access to `window.location` object
 -   `LOCAL_STORAGE` — provides access to `window.localStorage` object
+-   `SCREEN` — provides access to `window.screen` object
 -   `SESSION_STORAGE` — provides access to `window.sessionStorage` object
 -   `SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or returns `null` if browser does not support it
 -   `SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
