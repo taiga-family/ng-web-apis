@@ -3,6 +3,13 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+## [2.1.0](https://github.com/ng-web-apis/common/compare/v2.0.1...v2.1.0) (2022-11-15)
+
+### Features
+
+- **screen:** added new token ([#48](https://github.com/ng-web-apis/common/issues/48))
+  ([865a4bc](https://github.com/ng-web-apis/common/commit/865a4bc71bc698f224e42426fd79e8b93798067a))
+
 ### [2.0.1](https://github.com/ng-web-apis/common/compare/v2.0.0...v2.0.1) (2022-07-15)
 
 ### Bug Fixes
