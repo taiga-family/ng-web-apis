@@ -6,11 +6,11 @@ module.exports = {
         'plugin:@typescript-eslint/eslint-recommended',
         '@tinkoff/eslint-config-angular',
     ],
-    ignorePatterns: ['projects/**/test.ts'],
+    ignorePatterns: ['*.js'],
     parserOptions: {
-        ecmaVersion: 2020,
+        ecmaVersion: 'latest',
         sourceType: 'module',
-        project: [require.resolve('./tsconfig.eslint.json')],
+        project: ['tsconfig.eslint.json'],
     },
     parser: '@typescript-eslint/parser',
     rules: {

@@ -1,0 +1,86 @@
+body,
+html {
+    margin: 0;
+    height: 100%;
+    font-family: Roboto, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
+    color: #444;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+}
+
+header {
+    display: flex;
+    margin: 0 auto;
+    padding: 40px 10px;
+    border-bottom: 1px solid gainsboro;
+}
+
+main {
+    flex: 1;
+    padding: 40px 0;
+    margin: auto;
+}
+
+header,
+main {
+    max-width: 1200px;
+}
+
+footer {
+    padding: 16px;
+    font-size: 12px;
+    border-top: 1px solid gainsboro;
+    text-align: center;
+}
+
+a {
+    color: #1976d2;
+    text-decoration: none;
+}
+
+.logo {
+    margin-right: 20px;
+}
+
+.link {
+    display: flex;
+    max-width: 380px;
+    color: #444;
+    border-radius: 4px;
+    border: 1px solid gainsboro;
+    font-size: 14px;
+    padding: 0 16px 16px;
+    margin: 10px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s;
+}
+
+.link:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.not-supported {
+    opacity: 0.5;
+}
+
+.not-supported h2:after {
+    content: 'Not supported by your browser';
+    display: block;
+    font-size: 0.6em;
+    color: red;
+}
+
+.wip h2:after {
+    content: 'Work in Progress';
+    display: block;
+    font-size: 0.6em;
+    color: red;
+}
+
+.icon {
+    flex-shrink: 0;
+    margin: 24px 6px 0 20px;
+}

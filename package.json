@@ -3,6 +3,7 @@
     "private": true,
     "scripts": {
         "postinstall": "husky install && ngcc --async",
+        "start": "nx serve demo --open",
         "build": "nx build",
         "postbuild": "node scripts/postbuild.js",
         "release": "standard-version",
@@ -27,7 +28,7 @@
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
-    "workspaces": ["projects/*"],
+    "workspaces": ["apps/*", "projects/*"],
     "contributors": [
         "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)",
         "Dmitryi Khirnyi",
@@ -38,14 +39,27 @@
     "bugs": "https://github.com/ng-web-apis/common/issues",
     "homepage": "https://github.com/ng-web-apis/common#README",
     "devDependencies": {
+        "@angular-builders/custom-webpack": "12.1.3",
         "@angular/common": "12.2.15",
         "@angular/compiler": "12.2.15",
         "@angular/core": "12.2.15",
+        "@angular/animations": "12.2.15",
+        "@angular/router": "12.2.15",
         "@angular/platform-browser": "12.2.15",
         "@angular/platform-browser-dynamic": "12.2.15",
+        "@ng-web-apis/resize-observer": "2.0.0",
+        "@ng-web-apis/midi": "1.2.0",
+        "@ng-web-apis/geolocation": "2.0.0",
+        "@ng-web-apis/audio": "1.5.1",
+        "@ng-web-apis/intersection-observer": "3.0.0",
+        "@ng-web-apis/payment-request": "1.0.1",
+        "@ng-web-apis/permissions": "2.0.0",
+        "@ng-web-apis/universal": "2.1.0",
         "core-js": "3.20.3",
         "rxjs": "7.5.2",
         "tslib": "1.14.1",
+        "webpack": "5.80.0",
+        "babel-loader": "9.1.2",
         "zone.js": "0.11.4",
         "@angular-devkit/build-angular": "12.2.15",
         "@angular-devkit/core": "12.2.15",
@@ -74,7 +88,6 @@
         "karma-coverage-istanbul-reporter": "3.0.3",
         "karma-jasmine": "4.0.1",
         "karma-jasmine-html-reporter": "1.7.0",
-        "lerna": "6.6.1",
         "lint-staged": "12.2.1",
         "ng-packagr": "12.2.6",
         "prettier": "2.5.1",
@@ -91,6 +104,10 @@
         "scripts": {
             "postbump": "node scripts/syncVersions.js && git add **/package.json"
         }
+    },
+    "overrides": {
+        "webpack": "$webpack",
+        "babel-loader": "$babel-loader"
     },
     "engines": {
         "node": ">= 16.14",

@@ -15,7 +15,7 @@
         "default": {
             "runner": "@nrwl/nx-cloud",
             "options": {
-                "cacheableOperations": ["build"],
+                "cacheableOperations": ["test", "build"],
                 "parallel": 1
             }
         }
@@ -25,6 +25,6 @@
     },
     "workspaceLayout": {
         "libsDir": "projects",
-        "appsDir": "projects"
+        "appsDir": "apps"
     }
 }
