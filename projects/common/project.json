@@ -1,0 +1,26 @@
+{
+    "name": "common",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "root": "projects/common",
+    "sourceRoot": "projects/common",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "main": "projects/common/src/test.ts",
+                "tsConfig": "projects/common/tsconfig.spec.json",
+                "karmaConfig": "projects/common/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "tsConfig": "projects/common/tsconfig.lib.json",
+                "project": "projects/common/ng-package.json"
+            }
+        }
+    }
+}

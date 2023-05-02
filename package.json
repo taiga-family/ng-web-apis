@@ -1,18 +1,24 @@
 {
-    "name": "@ng-web-apis/common",
-    "version": "2.1.0",
+    "name": "ng-web-apis",
+    "private": true,
     "scripts": {
-        "postinstall": "husky install",
-        "build": "ng build",
+        "postinstall": "husky install && ngcc --async",
+        "build": "nx build",
         "postbuild": "node scripts/postbuild.js",
-        "test": "ng test",
-        "lint": "eslint . --fix",
-        "typecheck": "tsc --noEmit --skipLibCheck",
         "release": "standard-version",
         "release:patch": "npm run release -- --release-as patch",
         "release:minor": "npm run release -- --release-as minor",
         "release:major": "npm run release -- --release-as major",
-        "publish": "npm run build && npm publish ./dist/common"
+        "publish": "npm run build && npm publish ./dist/common",
+        "*** Workflow ***": "",
+        "lint": "eslint . --fix",
+        "typecheck": "tsc --noEmit --skipLibCheck",
+        "test": "nx run-many --target test --all --output-style=stream --parallel=1",
+        "*** CI ***": "",
+        "affected:test:libs": "nx affected --target test --output-style=stream",
+        "affected:build:libs": "nx affected --target build --output-style=stream",
+        "run-many:build:libs": "nx run-many --target build --all --output-style=stream",
+        "run-many:publish:libs": "nx run-many --target publish --all --output-style=stream"
     },
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": ["angular", "ng", "window", "api", "web api", "navigator", "user agent"],
@@ -21,6 +27,7 @@
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
+    "workspaces": ["projects/*"],
     "contributors": [
         "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)",
         "Dmitryi Khirnyi",
@@ -30,7 +37,7 @@
     "repository": "https://github.com/ng-web-apis/common",
     "bugs": "https://github.com/ng-web-apis/common/issues",
     "homepage": "https://github.com/ng-web-apis/common#README",
-    "dependencies": {
+    "devDependencies": {
         "@angular/common": "12.2.15",
         "@angular/compiler": "12.2.15",
         "@angular/core": "12.2.15",
@@ -39,9 +46,7 @@
         "core-js": "3.20.3",
         "rxjs": "7.5.2",
         "tslib": "1.14.1",
-        "zone.js": "0.11.4"
-    },
-    "devDependencies": {
+        "zone.js": "0.11.4",
         "@angular-devkit/build-angular": "12.2.15",
         "@angular-devkit/core": "12.2.15",
         "@angular/cli": "12.2.15",
@@ -49,6 +54,11 @@
         "@angular/language-service": "12.2.15",
         "@commitlint/cli": "^11.0.0",
         "@commitlint/config-conventional": "^11.0.0",
+        "@nrwl/cli": "15.9.3",
+        "@nrwl/node": "15.9.3",
+        "@nrwl/nx-cloud": "15.3.5",
+        "@nrwl/tao": "15.9.3",
+        "@nrwl/workspace": "15.9.3",
         "@tinkoff/eslint-config": "^1.22.0",
         "@tinkoff/eslint-config-angular": "^1.23.0",
         "@tinkoff/prettier-config": "^1.22.0",
@@ -64,6 +74,7 @@
         "karma-coverage-istanbul-reporter": "3.0.3",
         "karma-jasmine": "4.0.1",
         "karma-jasmine-html-reporter": "1.7.0",
+        "lerna": "6.6.1",
         "lint-staged": "12.2.1",
         "ng-packagr": "12.2.6",
         "prettier": "2.5.1",
@@ -82,7 +93,8 @@
         }
     },
     "engines": {
-        "node": ">= 10",
-        "npm": ">= 3"
+        "node": ">= 16.14",
+        "npm": ">= 8.3",
+        "yarn": "Please use npm instead of yarn to install dependencies"
     }
 }
