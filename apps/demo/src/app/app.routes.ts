@@ -1,7 +1,6 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-
-import {DemoPath} from './demo-path';
+import {DemoPath} from '@demo/constants';
 
 export const appRoutes: Routes = [
     {
@@ -13,6 +12,12 @@ export const appRoutes: Routes = [
         path: DemoPath.CommonPage,
         loadChildren: async () =>
             (await import(`../pages/common/common-page.module`)).CommonPageModule,
+    },
+    {
+        path: DemoPath.ResizeObserverPage,
+        loadChildren: async () =>
+            (await import(`../pages/resize-observer/resize-observer-page.module`))
+                .ResizeObserverPageModule,
     },
     {
         path: '**',

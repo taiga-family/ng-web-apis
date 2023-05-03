@@ -1,0 +1,29 @@
+name: 🚀 Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+      - name: Setup Node.js and Cache
+        uses: ./.github/actions/nodejs
+
+      - name: Build demo
+        run: npx nx build-gh-pages demo
+
+      - name: Deploy
+        uses: JamesIves/github-pages-deploy-action@v4.4.1
+        with:
+          branch: gh-pages
+          folder: dist/demo
+          silent: false
+          clean: true
+
+concurrency:
+  group: deploy-${{ github.head_ref }}
+  cancel-in-progress: true

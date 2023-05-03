@@ -58,7 +58,17 @@
         "tsBuildInfoFile": "node_modules/.cache/tsbuildinfo",
         "noImplicitOverride": true,
         "paths": {
-            "@ng-web-apis/common": ["./projects/common/src/index.ts"]
+            "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
+            "@ng-web-apis/common": ["./projects/common/src/index.ts"],
+            "@ng-web-apis/resize-observer": ["./projects/resize-observer/src/index.ts"]
+        }
+    },
+    "ts-node": {
+        "files": true,
+        "transpileOnly": true,
+        "compilerOptions": {
+            "types": ["node"],
+            "module": "commonjs"
         }
     }
 }
