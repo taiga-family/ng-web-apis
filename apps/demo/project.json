@@ -38,6 +38,22 @@
                     "sourceMap": true,
                     "namedChunks": true
                 },
+                "github": {
+                    "baseHref": "/common/",
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/demo/src/environments/environment.ts",
+                            "with": "apps/demo/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "optimization": true,
+                    "outputHashing": "all",
+                    "sourceMap": false,
+                    "namedChunks": false,
+                    "buildOptimizer": true,
+                    "statsJson": false,
+                    "progress": false
+                },
                 "production": {
                     "fileReplacements": [
                         {
@@ -56,6 +72,20 @@
             },
             "defaultConfiguration": "production"
         },
+        "build-gh-pages": {
+            "executor": "nx:run-commands",
+            "options": {
+                "parallel": false,
+                "commands": [
+                    "echo 'Github pages require special baseHref + 404.html'",
+                    "echo 'Read more: https://angular.io/guide/deployment#deploy-to-github-pages'",
+                    "echo ------",
+                    "nx build demo -c github",
+                    "cp dist/demo/index.html dist/demo/404.html",
+                    "nx run demo:prerender -c github"
+                ]
+            }
+        },
         "serve": {
             "executor": "@angular-builders/custom-webpack:dev-server",
             "options": {
@@ -67,6 +97,61 @@
                 }
             },
             "defaultConfiguration": "development"
+        },
+        "generate-routes-file": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "ts-node ./scripts/generate-demo-routes-file.ts"
+            },
+            "configurations": {
+                "github": {}
+            },
+            "defaultConfiguration": "github"
+        },
+        "server": {
+            "executor": "@angular-builders/custom-webpack:server",
+            "options": {
+                "customWebpackConfig": {
+                    "path": "apps/demo/webpack.config.ts"
+                },
+                "outputPath": "dist/demo/server",
+                "main": "apps/demo/server.ts",
+                "tsConfig": "apps/demo/tsconfig.server.json",
+                "sourceMap": true,
+                "optimization": false
+            },
+            "configurations": {
+                "production": {
+                    "outputHashing": "media",
+                    "sourceMap": false,
+                    "optimization": true
+                },
+                "development": {}
+            },
+            "defaultConfiguration": "production"
+        },
+        "prerender": {
+            "executor": "@nguniversal/builders:prerender",
+            "options": {
+                "browserTarget": "demo:build:production",
+                "serverTarget": "demo:server:production",
+                "routesFile": "./apps/demo/routesFile.txt"
+            },
+            "configurations": {
+                "production": {
+                    "browserTarget": "demo:build:production"
+                },
+                "github": {
+                    "browserTarget": "demo:build:github"
+                }
+            },
+            "dependsOn": [
+                {
+                    "target": "generate-routes-file",
+                    "projects": "self",
+                    "params": "ignore"
+                }
+            ]
         }
     }
 }

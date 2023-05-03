@@ -1,0 +1,25 @@
+<section *ngIf="support; else not" class="wrapper">
+    <h1
+        waResizeBox="content-box"
+        class="element"
+        [attr.data-ratio]="ratio"
+        [style.width.%]="widthPercent"
+        (waResizeObserver)="onResize($event)"
+    >
+        Resizable box
+    </h1>
+    <label class="width-slider">
+        Adjust width:
+        <input
+            type="range"
+            value="50"
+            min="5"
+            max="100"
+            class="slider"
+            [(ngModel)]="widthPercent"
+        />
+    </label>
+</section>
+<ng-template #not>
+    Your browser does not support Resize Observer API
+</ng-template>

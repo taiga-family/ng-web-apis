@@ -8,7 +8,8 @@
         "inlineSourceMap": true,
         "inlineSources": true,
         "paths": {
-            "@ng-web-apis/common": ["./dist/common"]
+            "@ng-web-apis/common": ["./dist/common"],
+            "@ng-web-apis/resize-observer": ["./dist/resize-observer"],
         }
     }
 }
