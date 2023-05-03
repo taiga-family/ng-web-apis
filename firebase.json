@@ -1,0 +1,15 @@
+{
+    "projects": {
+        "default": "ng-web-apis-common"
+    },
+    "hosting": {
+        "public": "dist/demo",
+        "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
+        "rewrites": [
+            {
+                "source": "**",
+                "destination": "/index.html"
+            }
+        ]
+    }
+}

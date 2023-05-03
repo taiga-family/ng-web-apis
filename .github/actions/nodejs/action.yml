@@ -1,4 +1,4 @@
-name: Taiga-UI action for Node.js
+name: Action for Node.js
 description: Node.js setup cache
 
 inputs:
