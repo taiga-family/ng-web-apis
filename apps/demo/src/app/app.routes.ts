@@ -26,8 +26,14 @@ export const appRoutes: Routes = [
                 .ResizeObserverPageModule,
     },
     {
+        path: '',
+        redirectTo: DemoPath.HomePage,
+        pathMatch: 'full',
+    },
+    {
         path: '**',
-        redirectTo: `/`,
+        pathMatch: 'full',
+        redirectTo: DemoPath.HomePage,
     },
 ];
 

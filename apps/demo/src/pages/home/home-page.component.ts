@@ -26,8 +26,4 @@ export class HomePageComponent {
         @Inject(WEB_AUDIO_SUPPORT) readonly audioSupport: boolean,
         @Inject(PERMISSIONS_SUPPORT) readonly permissionsSupport: boolean,
     ) {}
-
-    $string(val: DemoPath): string {
-        return val as string;
-    }
 }
