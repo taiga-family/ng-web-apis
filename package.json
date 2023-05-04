@@ -27,7 +27,7 @@
     ],
     "workspaces": [
         "apps/*",
-        "projects/*"
+        "libs/*"
     ],
     "scripts": {
         "postinstall": "husky install && ngcc --async",
