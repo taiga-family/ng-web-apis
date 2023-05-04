@@ -1,0 +1,27 @@
+:host {
+    perspective: 150vw;
+    user-select: none;
+    flex-direction: column;
+    align-items: center;
+
+    @media (max-width: 600px) {
+        & {
+            perspective: 250vw;
+        }
+    }
+}
+
+.start {
+    display: block;
+    margin: 0 auto;
+    background: gainsboro;
+    border: none;
+    padding: 1em 2em;
+    border-radius: 0.5em;
+    cursor: pointer;
+    transition: background 0.3s;
+
+    &:hover {
+        background: whitesmoke;
+    }
+}

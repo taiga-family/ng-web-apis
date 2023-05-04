@@ -9,7 +9,9 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
+      - uses: actions/checkout@v3.5.2
+        with:
+          fetch-depth: 0
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 

@@ -3,7 +3,7 @@
     "files": ["src/main.ts", "src/polyfills.ts"],
     "compilerOptions": {
         "outDir": "./out-tsc/app",
-        "types": []
+        "types": ["webmidi"]
     },
     "include": ["**/*.d.ts"],
     "angularCompilerOptions": {

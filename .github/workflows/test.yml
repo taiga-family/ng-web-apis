@@ -11,10 +11,12 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [common, resize-observer, universal, audio, canvas, geolocation]
+        project: [common, resize-observer, universal, audio, canvas, geolocation, intersection-observer, midi]
     name: ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3.5.2
+        with:
+          fetch-depth: 0
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
@@ -65,6 +67,16 @@ jobs:
           directory: ./coverage/geolocation/
           flags: summary,geolocation
           name: geolocation
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/midi/
+          flags: summary,midi
+          name: midi
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/intersection-observer/
+          flags: summary,intersection-observer
+          name: intersection-observer
       - uses: codecov/codecov-action@v3.1.3
         with:
           directory: ./coverage/resize-observer/

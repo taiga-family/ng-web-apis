@@ -19,12 +19,7 @@ function getArray<T>() {
     })();
 }
 
-/** For older version of TS and Angular that do not support all properties from Navigator */
-interface NavigatorLike extends Navigator {
-    [key: string]: any;
-}
-
-export const NAVIGATOR_MOCK: NavigatorLike = {
+export const NAVIGATOR_MOCK = {
     appCodeName: '',
     appName: '',
     appVersion: '',
@@ -127,9 +122,9 @@ export const NAVIGATOR_MOCK: NavigatorLike = {
     msLaunchUri: emptyFunction,
     requestMediaKeySystemAccess: alwaysRejected,
     vibrate: alwaysFalse,
-};
+} as unknown as Navigator;
 
-export function navigatorFactory(userAgent: string | null): NavigatorLike {
+export function navigatorFactory(userAgent: string | null): Navigator {
     return {
         ...NAVIGATOR_MOCK,
         userAgent: userAgent || '',

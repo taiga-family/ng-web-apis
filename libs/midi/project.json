@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "midi",
+    "root": "libs/midi",
+    "sourceRoot": "libs/midi",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/midi"],
+            "options": {
+                "main": "libs/midi/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/midi/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/midi"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/midi/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}

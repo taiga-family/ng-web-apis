@@ -3,6 +3,6 @@
     "exclude": [],
     "compilerOptions": {
         "outDir": "out-tsc/spec",
-        "types": ["jasmine", "node"]
+        "types": ["jasmine", "node", "webmidi"]
     }
 }

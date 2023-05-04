@@ -36,11 +36,11 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
 
     @Input('detune')
     @audioParam('detune')
-    detuneParam?: AudioParamInput;
+    detuneParam?: AudioParamInput | string;
 
     @Input('frequency')
     @audioParam('frequency')
-    frequencyParam?: AudioParamInput;
+    frequencyParam?: AudioParamInput | string;
 
     @Output()
     ended?: EventEmitter<void>;

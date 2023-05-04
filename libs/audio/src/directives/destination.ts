@@ -22,7 +22,7 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioDestination extends AnalyserNode implements OnDestroy {
     @Output()
-    quiet?: Observable<unknown>;
+    quiet!: Observable<unknown>;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,

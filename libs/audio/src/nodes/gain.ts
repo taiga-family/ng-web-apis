@@ -30,13 +30,13 @@ import {parse} from '../utils/parse';
 export class WebAudioGain extends GainNode implements OnDestroy {
     @Input('gain')
     @audioParam('gain')
-    gainParam?: AudioParamInput;
+    gainParam?: AudioParamInput | string;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute('gain') gainArg: string | null,
+        @Attribute('gain') gainArg: AudioParamInput | string | null,
     ) {
         const gain = parse(gainArg, 1);
 
