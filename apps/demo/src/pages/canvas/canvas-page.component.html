@@ -1,0 +1,156 @@
+<h2>Basic example</h2>
+<section>
+    <fieldset>
+        <label for="file">Image:</label>
+        <input
+            #file
+            id="file"
+            type="file"
+            accept="image/*"
+            (input)="onFile(file)"
+        />
+        <label>
+            <span>dX:</span>
+            <input type="range" min="0" max="300" [(ngModel)]="dX" />
+        </label>
+        <label>
+            <span>dY:</span>
+            <input type="range" min="0" max="150" [(ngModel)]="dY" />
+        </label>
+        <label>
+            <span>dWidth:</span>
+            <input type="range" min="0" max="300" [(ngModel)]="dWidth" />
+        </label>
+        <label>
+            <span>dHeight:</span>
+            <input type="range" min="0" max="150" [(ngModel)]="dHeight" />
+        </label>
+    </fieldset>
+    <fieldset>
+        <label>
+            <span>x:</span>
+            <input type="range" min="0" max="300" [(ngModel)]="x1" />
+        </label>
+        <label>
+            <span>y:</span>
+            <input type="range" min="0" max="150" [(ngModel)]="y1" />
+        </label>
+        <label>
+            <span>width:</span>
+            <input type="range" min="0" max="300" [(ngModel)]="w1" />
+        </label>
+        <label>
+            <span>height:</span>
+            <input type="range" min="0" max="150" [(ngModel)]="h1" />
+        </label>
+        <label>
+            <span>color:</span>
+            <input type="color" [(ngModel)]="c1" />
+        </label>
+    </fieldset>
+    <fieldset>
+        <label>
+            <span>x:</span>
+            <input type="range" min="0" max="300" [(ngModel)]="x2" />
+        </label>
+        <label>
+            <span>y:</span>
+            <input type="range" min="0" max="150" [(ngModel)]="y2" />
+        </label>
+        <label>
+            <span>width:</span>
+            <input type="range" min="0" max="300" [(ngModel)]="w2" />
+        </label>
+        <label>
+            <span>height:</span>
+            <input type="range" min="0" max="150" [(ngModel)]="h2" />
+        </label>
+        <label>
+            <span>color:</span>
+            <input type="color" [(ngModel)]="c2" />
+        </label>
+        <label>
+            <span>overlay:</span>
+            <select [(ngModel)]="globalCompositeOperation">
+                <option ngValue="source-over">source-over</option>
+                <option ngValue="multiply">multiply</option>
+                <option ngValue="screen">screen</option>
+            </select>
+        </label>
+    </fieldset>
+</section>
+<canvas waCanvas2d>
+    <canvas-draw-image
+        [image]="image"
+        [dX]="dX"
+        [dY]="dY"
+        [dWidth]="dWidth"
+        [dHeight]="dHeight"
+    ></canvas-draw-image>
+    <canvas-path [fillStyle]="c1">
+        <canvas-rect [x]="x1" [y]="y1" [width]="w1" [height]="h1"></canvas-rect>
+    </canvas-path>
+    <canvas-path
+        [fillStyle]="c2"
+        [globalCompositeOperation]="globalCompositeOperation"
+    >
+        <canvas-rect [x]="x2" [y]="y2" [width]="w2" [height]="h2"></canvas-rect>
+    </canvas-path>
+</canvas>
+<h2>Path example</h2>
+
+<section>
+    <fieldset>
+        <label>
+            <span>Pac-Man mouth:</span>
+            <input type="range" min="0.01" max="45" [(ngModel)]="mouth" />
+        </label>
+        <label>
+            <span>Pac-Man shadow blur:</span>
+            <input type="range" min="0" max="10" [(ngModel)]="blur" />
+        </label>
+        <label>
+            <span>Pac-Man shadow distance:</span>
+            <input type="range" min="0" max="10" [(ngModel)]="offset" />
+        </label>
+    </fieldset>
+    <fieldset>
+        <label>
+            <span>Text:</span>
+            <input type="text" [(ngModel)]="text" />
+        </label>
+        <label>
+            <span>Font:</span>
+            <input type="text" [(ngModel)]="font" />
+        </label>
+        <label>
+            <span>color:</span>
+            <input type="color" [(ngModel)]="color" />
+        </label>
+    </fieldset>
+</section>
+<canvas waCanvas2d>
+    <canvas-path
+        fillStyle="gold"
+        shadowColor="grey"
+        [shadowBlur]="blur"
+        [shadowOffsetY]="offset"
+    >
+        <canvas-arc
+            [x]="50"
+            [y]="75"
+            [radius]="30"
+            [startAngle]="mouth | rad"
+            [endAngle]="-mouth | rad"
+        ></canvas-arc>
+        <canvas-line-to [x]="50" [y]="75"></canvas-line-to>
+    </canvas-path>
+    <canvas-text
+        [fillStyle]="color"
+        [maxWidth]="200"
+        [text]="text"
+        [font]="font"
+        [x]="90"
+        [y]="90"
+    ></canvas-text>
+</canvas>

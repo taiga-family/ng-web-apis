@@ -64,6 +64,7 @@
             "@ng-web-apis/universal/*": ["./projects/universal/src/*"],
             "@ng-web-apis/audio": ["./projects/audio/src/index.ts"],
             "@ng-web-apis/audio/*": ["./projects/audio/src/*"],
+            "@ng-web-apis/canvas": ["./projects/canvas/src/index.ts"],
             "@ng-web-apis/resize-observer": ["./projects/resize-observer/src/index.ts"]
         }
     },

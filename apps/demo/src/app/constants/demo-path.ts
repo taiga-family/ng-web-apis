@@ -4,4 +4,5 @@ export enum DemoPath {
     UniversalPage = `universal`,
     AudioPage = `audio`,
     ResizeObserverPage = `resize-observer`,
+    CanvasPage = `canvas`,
 }
