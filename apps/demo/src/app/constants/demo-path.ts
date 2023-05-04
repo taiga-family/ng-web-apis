@@ -13,4 +13,5 @@ export enum DemoPath {
     MidiPage = `midi`,
     PermissionsPage = `permissions`,
     StoragePage = `storage`,
+    WorkersPage = `workers`,
 }

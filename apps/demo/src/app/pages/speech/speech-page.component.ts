@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
 import {
     continuous,
     isSaid,
@@ -11,6 +11,7 @@ import {
 import {TuiContextWithImplicit, tuiPure} from '@taiga-ui/cdk';
 import {merge, Observable, repeat, retry} from 'rxjs';
 import {filter, mapTo, share} from 'rxjs/operators';
+import {isPlatformBrowser} from '@angular/common';
 
 @Component({
     selector: `speech-page`,
@@ -19,6 +20,7 @@ import {filter, mapTo, share} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpeechPageComponent {
+    readonly isBrowser = isPlatformBrowser(this.platformId);
     paused = true;
 
     voice = null;
@@ -30,6 +32,7 @@ export class SpeechPageComponent {
     }: TuiContextWithImplicit<SpeechSynthesisVoice>) => $implicit.name;
 
     constructor(
+        @Inject(PLATFORM_ID) readonly platformId: Record<any, any>,
         @Inject(SPEECH_SYNTHESIS_VOICES)
         readonly voices$: Observable<readonly SpeechSynthesisVoice[]>,
         @Inject(SpeechRecognitionService)

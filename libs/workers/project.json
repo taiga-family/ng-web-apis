@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "workers",
+    "root": "libs/workers",
+    "sourceRoot": "libs/workers",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/workers"],
+            "options": {
+                "main": "libs/workers/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/workers/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/workers"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/workers/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}

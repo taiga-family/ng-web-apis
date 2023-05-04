@@ -1,0 +1,14 @@
+<ng-container *ngIf="isBrowser">
+    <app-clock></app-clock>
+
+    <div class="example">
+        <button (click)="workerThread.postMessage()">
+            Run in worker process
+        </button>
+        <p>Execution time: {{ workerData$ | async }}</p>
+    </div>
+    <div class="example">
+        <button (click)="emitter.next()">Run in main process</button>
+        <p>Execution time: {{ result$ | async }}</p>
+    </div>
+</ng-container>

@@ -39,6 +39,8 @@
     global.DynamicsCompressorNode = class {};
     global.GainNode = class {};
     global.IIRFilterNode = class {};
+    global.speechSynthesis = class {};
+    global.SpeechSynthesisUtterance = class {};
     global.PannerNode = class {};
     global.ScriptProcessorNode = class {};
     global.StereoPannerNode = class {};
