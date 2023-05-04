@@ -1,0 +1,30 @@
+{
+    "name": "@ng-web-apis/canvas",
+    "version": "1.1.0",
+    "description": "A library for declarative use of Canvas API with Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "canvas",
+        "svg",
+        "2d",
+        "3d",
+        "webgl",
+        "graphic"
+    ],
+    "homepage": "https://github.com/ng-web-apis/canvas#README",
+    "bugs": "https://github.com/ng-web-apis/canvas/issues",
+    "repository": "https://github.com/ng-web-apis/canvas",
+    "license": "MIT",
+    "author": {
+        "name": "Alexander Inkin",
+        "email": "alexander@inkin.ru"
+    },
+    "contributors": [
+        "Roman Sedov <79601794011@ya.ru>"
+    ],
+    "peerDependencies": {
+        "@angular/core": ">=6.0.0",
+        "@ng-web-apis/common": ">=1.1.0"
+    }
+}

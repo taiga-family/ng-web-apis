@@ -25,6 +25,11 @@ export const appRoutes: Routes = [
             (await import(`../pages/audio/audio-page.module`)).AudioPageModule,
     },
     {
+        path: DemoPath.CanvasPage,
+        loadChildren: async () =>
+            (await import(`../pages/canvas/canvas-page.module`)).CanvasPageModule,
+    },
+    {
         path: DemoPath.ResizeObserverPage,
         loadChildren: async () =>
             (await import(`../pages/resize-observer/resize-observer-page.module`))

@@ -13,7 +13,7 @@ jobs:
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
-      - name: Build demo
+      - name: Build demo by prerender
         run: npx nx build-gh-pages demo
 
       - name: Deploy

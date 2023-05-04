@@ -13,6 +13,7 @@
             "@ng-web-apis/universal/*": ["./dist/universal/*"],
             "@ng-web-apis/audio": ["./dist/universal"],
             "@ng-web-apis/audio/*": ["./dist/universal/*"],
+            "@ng-web-apis/canvas": ["./dist/universal"],
             "@ng-web-apis/resize-observer": ["./dist/resize-observer"]
         }
     }
