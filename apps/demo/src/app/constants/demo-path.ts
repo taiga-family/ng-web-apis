@@ -5,6 +5,7 @@ export enum DemoPath {
     AudioPage = `audio`,
     ResizeObserverPage = `resize-observer`,
     CanvasPage = `canvas`,
+    SpeechPage = `speech`,
     GeolocationPage = `geolocation`,
     IntersectionObserverPage = `intersection-observer`,
     MutationObserverPage = `mutation-observer`,

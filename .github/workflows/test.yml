@@ -24,6 +24,7 @@ jobs:
             mutation-observer,
             payment-request,
             permissions,
+            speech,
           ]
     name: ${{ matrix.project }}
     steps:
@@ -110,6 +111,11 @@ jobs:
           directory: ./coverage/permissions/
           flags: summary,permissions
           name: permissions
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/speech/
+          flags: summary,speech
+          name: speech
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}

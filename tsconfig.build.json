@@ -14,6 +14,7 @@
             "@ng-web-apis/audio": ["./dist/universal"],
             "@ng-web-apis/audio/*": ["./dist/universal/*"],
             "@ng-web-apis/canvas": ["./dist/universal"],
+            "@ng-web-apis/speech": ["./dist/speech"],
             "@ng-web-apis/geolocation": ["./dist/geolocation"],
             "@ng-web-apis/mutation-observer": ["./dist/mutation-observer"],
             "@ng-web-apis/payment-request": ["./dist/payment-request"],

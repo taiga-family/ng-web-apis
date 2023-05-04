@@ -20,7 +20,12 @@
                 "main": "apps/demo/src/main.ts",
                 "polyfills": "apps/demo/src/polyfills.ts",
                 "tsConfig": "apps/demo/tsconfig.app.json",
-                "styles": ["apps/demo/src/styles.css"],
+                "styles": [
+                    "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
+                    "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+                    "node_modules/@taiga-ui/styles/taiga-ui-global.less",
+                    "apps/demo/src/styles.css"
+                ],
                 "assets": [
                     {
                         "glob": "**/*",
