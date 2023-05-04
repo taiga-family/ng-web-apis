@@ -53,7 +53,9 @@ export class WebAudioConstantSource extends ConstantSourceNode implements OnDest
     ngOnDestroy() {
         try {
             this.stop();
-        } catch (_) {}
+        } catch {
+            // noop
+        }
 
         this.disconnect();
     }

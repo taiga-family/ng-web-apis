@@ -91,7 +91,9 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
 
         try {
             this.stop();
-        } catch (_) {}
+        } catch {
+            // noop
+        }
 
         this.disconnect();
     }

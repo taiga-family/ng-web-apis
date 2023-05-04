@@ -78,7 +78,9 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     ngOnDestroy() {
         try {
             this.stop();
-        } catch (_) {}
+        } catch {
+            // noop
+        }
 
         this.disconnect();
     }

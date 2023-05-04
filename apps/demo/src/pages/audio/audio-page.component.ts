@@ -82,7 +82,7 @@ export class AudioPageComponent {
 
         canvasCtx.beginPath();
 
-        const sliceWidth = (canvas.width * 1.0) / array.length;
+        const sliceWidth = Number(canvas.width) / array.length;
         let x = 0;
 
         for (let i = 0; i < array.length; i++) {

@@ -47,9 +47,8 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
         const pan = parse(panArg, 0);
 
         try {
-            // @ts-ignore
-            const _test = new StereoPannerNode(context);
-        } catch (_) {
+            new StereoPannerNode(context);
+        } catch {
             const result = context.createPanner() as unknown as WebAudioStereoPanner;
 
             Object.setPrototypeOf(result, WebAudioStereoPanner.prototype);
