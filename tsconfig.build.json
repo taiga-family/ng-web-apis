@@ -9,7 +9,9 @@
         "inlineSources": true,
         "paths": {
             "@ng-web-apis/common": ["./dist/common"],
-            "@ng-web-apis/resize-observer": ["./dist/resize-observer"],
+            "@ng-web-apis/universal": ["./dist/universal"],
+            "@ng-web-apis/universal/*": ["./dist/universal/*"],
+            "@ng-web-apis/resize-observer": ["./dist/resize-observer"]
         }
     }
 }
