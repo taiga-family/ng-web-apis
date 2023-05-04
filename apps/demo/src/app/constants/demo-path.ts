@@ -8,5 +8,6 @@ export enum DemoPath {
     GeolocationPage = `geolocation`,
     IntersectionObserverPage = `intersection-observer`,
     MutationObserverPage = `mutation-observer`,
+    PaymentRequestPage = `payment-request`,
     MidiPage = `midi`,
 }

@@ -56,6 +56,12 @@ export const appRoutes: Routes = [
                 .MutationObserverPageModule,
     },
     {
+        path: DemoPath.PaymentRequestPage,
+        loadChildren: async () =>
+            (await import(`./pages/payment-request/payment-request-page.module`))
+                .PaymentRequestPageModule,
+    },
+    {
         path: DemoPath.MidiPage,
         loadChildren: async () =>
             (await import(`./pages/midi/midi-page.module`)).MidiPageModule,

@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "payment-request",
+    "root": "libs/payment-request",
+    "sourceRoot": "libs/payment-request",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/payment-request"],
+            "options": {
+                "main": "libs/payment-request/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/payment-request/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/payment-request"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/payment-request/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}
