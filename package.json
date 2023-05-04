@@ -45,10 +45,10 @@
         "test": "nx run-many --target test --all --output-style=stream --parallel=1",
         "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
         "*** CI ***": "",
-        "affected:test:libs": "nx affected --target test --output-style=stream",
-        "affected:build:libs": "nx affected --target build --output-style=stream",
-        "run-many:build:libs": "nx run-many --target build --all --output-style=stream",
-        "run-many:publish:libs": "nx run-many --target publish --all --output-style=stream"
+        "affected:test:libs": "nx affected --target test --exclude $(nx affected:apps --plain) --output-style=stream",
+        "affected:build:libs": "nx affected --target build --exclude $(nx affected:apps --plain) --output-style=stream",
+        "run-many:build:libs": "nx run-many --target build --all --exclude $(nx affected:apps --plain) --output-style=stream",
+        "run-many:publish:libs": "nx run-many --target publish --all --exclude $(nx affected:apps --plain) --output-style=stream"
     },
     "lint-staged": {
         "*.{js,ts,html,md,less,json}": [
