@@ -78,6 +78,11 @@ export const appRoutes: Routes = [
             (await import(`./pages/speech/speech-page.module`)).SpeechPageModule,
     },
     {
+        path: DemoPath.StoragePage,
+        loadChildren: async () =>
+            (await import(`./pages/storage/storage-page.module`)).StoragePageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',

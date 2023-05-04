@@ -12,4 +12,5 @@ export enum DemoPath {
     PaymentRequestPage = `payment-request`,
     MidiPage = `midi`,
     PermissionsPage = `permissions`,
+    StoragePage = `storage`,
 }
