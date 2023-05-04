@@ -83,6 +83,11 @@ export const appRoutes: Routes = [
             (await import(`./pages/storage/storage-page.module`)).StoragePageModule,
     },
     {
+        path: DemoPath.WorkersPage,
+        loadChildren: async () =>
+            (await import(`./pages/workers/workers-page.module`)).WorkersPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',

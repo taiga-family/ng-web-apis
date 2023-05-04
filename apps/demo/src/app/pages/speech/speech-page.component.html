@@ -1,103 +1,109 @@
-<label class="recognition" [tuiLabel]="label">
-    <ng-template #label>
-        Speech recognition
-        <tui-tooltip
-            content="Say «Ok, Angular» to start recording and «Thank you, Angular» to end"
-        ></tui-tooltip>
-    </ng-template>
-    <ng-container *ngIf="record$ | async as result; else placeholder">
-        <span
-            *ngFor="let result of result"
-            class="transcript"
-            [class.transcript_final]="result.isFinal"
-        >
-            {{ result[0].transcript }}
-        </span>
-        &nbsp;
-    </ng-container>
-    <ng-template #placeholder>Say «Ok, Angular»...</ng-template>
-</label>
-<tui-select [valueContent]="nameExtractor" [(ngModel)]="voice">
-    Voice
-    <tui-data-list *tuiDataList>
-        <button
-            *ngFor="let item of voices$ | async; trackBy: voiceByName"
-            tuiOption
-            [value]="item"
-        >
-            {{ item.name }}
+<ng-container *ngIf="isBrowser">
+    <label class="recognition" [tuiLabel]="label">
+        <ng-template #label>
+            Speech recognition
+            <tui-tooltip
+                content="Say «Ok, Angular» to start recording and «Thank you, Angular» to end"
+            ></tui-tooltip>
+        </ng-template>
+        <ng-container *ngIf="record$ | async as result; else placeholder">
+            <span
+                *ngFor="let result of result"
+                class="transcript"
+                [class.transcript_final]="result.isFinal"
+            >
+                {{ result[0].transcript }}
+            </span>
+            &nbsp;
+        </ng-container>
+        <ng-template #placeholder>Say «Ok, Angular»...</ng-template>
+    </label>
+    <tui-select [valueContent]="nameExtractor" [(ngModel)]="voice">
+        Voice
+        <tui-data-list *tuiDataList>
+            <button
+                *ngFor="let item of voices$ | async; trackBy: voiceByName"
+                tuiOption
+                [value]="item"
+            >
+                {{ item.name }}
+            </button>
+        </tui-data-list>
+    </tui-select>
+    <tui-text-area
+        class="textarea"
+        [waTextToSpeech]="text | waUtterance: options"
+        [waTextToSpeechPaused]="paused"
+        [(ngModel)]="text"
+        (waTextToSpeechEnd)="onEnd()"
+    >
+        Text
+    </tui-text-area>
+    <div class="buttons">
+        <button tuiButton type="button" (click)="onClick()">
+            {{ paused ? 'Play' : 'Pause' }}
         </button>
-    </tui-data-list>
-</tui-select>
-<tui-text-area
-    class="textarea"
-    [waTextToSpeech]="text | waUtterance: options"
-    [waTextToSpeechPaused]="paused"
-    [(ngModel)]="text"
-    (waTextToSpeechEnd)="onEnd()"
->
-    Text
-</tui-text-area>
-<div class="buttons">
-    <button tuiButton type="button" (click)="onClick()">
-        {{ paused ? 'Play' : 'Pause' }}
-    </button>
-    Tip: say «Show sidebar»
-</div>
-
-<div *tuiSidebar="(open$ | async) || false">
-    <div class="sidebar">
-        <h2>More from @ng-web-apis</h2>
-
-        <a
-            href="https://github.com/ng-web-apis/workers"
-            target="_blank"
-            class="link"
-        >
-            <h3>Workers</h3>
-            <img
-                src="https://ng-web-apis.github.io/dist/assets/images/workers.svg"
-                width="64"
-                height="64"
-                alt="Worker API logo"
-                class="icon"
-            />
-        </a>
-
-        <a
-            href="https://github.com/ng-web-apis/canvas"
-            target="_blank"
-            class="link"
-        >
-            <h3>Canvas</h3>
-            <img
-                src="https://ng-web-apis.github.io/dist/assets/images/canvas.svg"
-                width="64"
-                height="64"
-                alt="Worker API logo"
-                class="icon"
-            />
-        </a>
-
-        <a
-            href="https://github.com/ng-web-apis/audio"
-            target="_blank"
-            class="link"
-        >
-            <h3>Audio</h3>
-            <img
-                src="https://ng-web-apis.github.io/dist/assets/images/audio.svg"
-                width="64"
-                height="64"
-                alt="Worker API logo"
-                class="icon"
-            />
-        </a>
-
-        <a href="https://ng-web-apis.github.io/" target="_blank" class="link">
-            See all
-        </a>
-
-        Tip: say «Hide sidebar» when you're done
+        Tip: say «Show sidebar»
     </div>
-</div>
+
+    <div *tuiSidebar="(open$ | async) || false">
+        <div class="sidebar">
+            <h2>More from @ng-web-apis</h2>
+
+            <a
+                href="https://github.com/ng-web-apis/workers"
+                target="_blank"
+                class="link"
+            >
+                <h3>Workers</h3>
+                <img
+                    src="https://ng-web-apis.github.io/dist/assets/images/workers.svg"
+                    width="64"
+                    height="64"
+                    alt="Worker API logo"
+                    class="icon"
+                />
+            </a>
+
+            <a
+                href="https://github.com/ng-web-apis/canvas"
+                target="_blank"
+                class="link"
+            >
+                <h3>Canvas</h3>
+                <img
+                    src="https://ng-web-apis.github.io/dist/assets/images/canvas.svg"
+                    width="64"
+                    height="64"
+                    alt="Worker API logo"
+                    class="icon"
+                />
+            </a>
+
+            <a
+                href="https://github.com/ng-web-apis/audio"
+                target="_blank"
+                class="link"
+            >
+                <h3>Audio</h3>
+                <img
+                    src="https://ng-web-apis.github.io/dist/assets/images/audio.svg"
+                    width="64"
+                    height="64"
+                    alt="Worker API logo"
+                    class="icon"
+                />
+            </a>
+
+            <a
+                href="https://ng-web-apis.github.io/"
+                target="_blank"
+                class="link"
+            >
+                See all
+            </a>
+
+            Tip: say «Hide sidebar» when you're done
+        </div>
+    </div>
+</ng-container>

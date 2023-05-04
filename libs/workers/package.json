@@ -1,0 +1,32 @@
+{
+    "name": "@ng-web-apis/workers",
+    "version": "0.0.0-development",
+    "description": "A library for comfortable use of Web Workers API in Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "worker",
+        "web",
+        "service",
+        "shared"
+    ],
+    "homepage": "https://github.com/ng-web-apis/workers#README",
+    "bugs": "https://github.com/ng-web-apis/workers/issues",
+    "repository": "https://github.com/ng-web-apis/workers",
+    "license": "MIT",
+    "author": {
+        "name": "Igor Katsuba",
+        "email": "katsuba.igor@gmail.com"
+    },
+    "contributors": [
+        "Alexander Inkin <alexander@inkin.ru>",
+        "Roman Sedov <79601794011@ya.ru>"
+    ],
+    "peerDependencies": {
+        "@angular/core": ">=6.0.0",
+        "@ng-web-apis/common": ">=1.1.0"
+    },
+    "publishConfig": {
+        "access": "public"
+    }
+}

@@ -26,6 +26,7 @@ jobs:
             permissions,
             speech,
             storage,
+            workers,
           ]
     name: ${{ matrix.project }}
     steps:
@@ -122,6 +123,11 @@ jobs:
           directory: ./coverage/storage/
           flags: summary,storage
           name: storage
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/workers/
+          flags: summary,workers
+          name: workers
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}
