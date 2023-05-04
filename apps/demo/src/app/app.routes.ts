@@ -62,6 +62,12 @@ export const appRoutes: Routes = [
                 .PaymentRequestPageModule,
     },
     {
+        path: DemoPath.PermissionsPage,
+        loadChildren: async () =>
+            (await import(`./pages/permissions/permissions-page.module`))
+                .PermissionsPageModule,
+    },
+    {
         path: DemoPath.MidiPage,
         loadChildren: async () =>
             (await import(`./pages/midi/midi-page.module`)).MidiPageModule,

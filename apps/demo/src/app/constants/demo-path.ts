@@ -10,4 +10,5 @@ export enum DemoPath {
     MutationObserverPage = `mutation-observer`,
     PaymentRequestPage = `payment-request`,
     MidiPage = `midi`,
+    PermissionsPage = `permissions`,
 }

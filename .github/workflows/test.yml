@@ -23,6 +23,7 @@ jobs:
             midi,
             mutation-observer,
             payment-request,
+            permissions,
           ]
     name: ${{ matrix.project }}
     steps:
@@ -104,6 +105,11 @@ jobs:
           directory: ./coverage/payment-request/
           flags: summary,payment-request
           name: payment-request
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/permissions/
+          flags: summary,permissions
+          name: permissions
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}
