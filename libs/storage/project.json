@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "storage",
+    "root": "libs/storage",
+    "sourceRoot": "libs/storage",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/storage"],
+            "options": {
+                "main": "libs/storage/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/storage/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/storage"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/storage/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}

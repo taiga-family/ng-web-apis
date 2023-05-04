@@ -9,14 +9,13 @@ import {TUI_ICONS_PATH, tuiIconsPathFactory, TuiRootModule} from '@taiga-ui/core
 
 @NgModule({
     imports: [
-        AppRoutingModule,
-        HighlightModule,
-        TuiRootModule,
-        BrowserAnimationsModule,
         BrowserModule.withServerTransition({
             appId: 'demo',
         }),
+        BrowserAnimationsModule,
         TuiRootModule,
+        AppRoutingModule,
+        HighlightModule,
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent],

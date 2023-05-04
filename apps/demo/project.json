@@ -31,6 +31,11 @@
                         "glob": "**/*",
                         "input": "apps/demo/src/assets/",
                         "output": "./assets/"
+                    },
+                    {
+                        "glob": "**/*",
+                        "input": "node_modules/@taiga-ui/icons/src",
+                        "output": "assets/taiga-ui/icons"
                     }
                 ]
             },

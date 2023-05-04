@@ -12,6 +12,7 @@
             "@ng-web-apis/universal": ["./dist/universal"],
             "@ng-web-apis/universal/*": ["./dist/universal/*"],
             "@ng-web-apis/audio": ["./dist/universal"],
+            "@ng-web-apis/storage": ["./dist/storage"],
             "@ng-web-apis/audio/*": ["./dist/universal/*"],
             "@ng-web-apis/canvas": ["./dist/universal"],
             "@ng-web-apis/speech": ["./dist/speech"],
