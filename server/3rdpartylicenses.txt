@@ -440,6 +440,7 @@ MIT
    See the License for the specific language governing permissions and
    limitations under the License.
 
+
 @ng-web-apis/resize-observer
 MIT
 MIT License
