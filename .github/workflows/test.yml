@@ -22,6 +22,7 @@ jobs:
             intersection-observer,
             midi,
             mutation-observer,
+            payment-request,
           ]
     name: ${{ matrix.project }}
     steps:
@@ -98,6 +99,11 @@ jobs:
           directory: ./coverage/mutation-observer/
           flags: summary,mutation-observer
           name: mutation-observer
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/payment-request/
+          flags: summary,payment-request
+          name: payment-request
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}

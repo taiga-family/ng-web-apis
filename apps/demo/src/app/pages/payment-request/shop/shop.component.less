@@ -1,0 +1,83 @@
+:host {
+    display: flex;
+}
+
+.items {
+    flex: 2;
+    display: flex;
+    flex-wrap: wrap;
+}
+
+@media (max-width: 800px) {
+    .items {
+        max-width: 50%;
+        justify-content: flex-end;
+    }
+}
+
+.item {
+    width: 150px;
+    margin: 12px;
+    padding: 16px 16px 0 16px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 1px solid gainsboro;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    }
+}
+
+.item-label {
+    cursor: inherit;
+}
+
+.item-price {
+    font-size: smaller;
+}
+
+.item-image {
+    margin-bottom: 12px;
+}
+
+.sticky {
+    position: sticky;
+    top: 16px;
+}
+
+.total {
+    margin-top: 16px;
+}
+
+.shopping-card-item {
+    margin-top: 4px;
+    margin-bottom: 4px;
+}
+
+.shopping-cart {
+    flex: 1;
+    max-width: 168px;
+    background-color: rgb(240, 240, 240);
+    padding: 0 16px;
+    border-radius: 8px;
+}
+
+.buy-button {
+    width: 100%;
+    margin-top: 20px;
+    margin-bottom: 8px;
+    background-color: #fff;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    padding: 4px;
+    cursor: pointer;
+
+    &:disabled {
+        cursor: default;
+        opacity: 0.56;
+    }
+}

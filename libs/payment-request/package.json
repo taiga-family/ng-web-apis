@@ -1,0 +1,33 @@
+{
+    "name": "@ng-web-apis/payment-request",
+    "version": "1.0.1",
+    "description": "This is a library for declarative use of Payment Request API with Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "payment",
+        "payment request api",
+        "apple pay",
+        "google pay",
+        "pwa",
+        "progressive web app"
+    ],
+    "homepage": "https://github.com/ng-web-apis/payment-request#README",
+    "bugs": "https://github.com/ng-web-apis/payment-request/issues",
+    "repository": "https://github.com/ng-web-apis/payment-request",
+    "license": "MIT",
+    "author": {
+        "name": "Roman Sedov",
+        "email": "79601794011@ya.ru",
+        "url": "http://marsibarsi.me/"
+    },
+    "contributors": [
+        "Alex Inkin <alexander@inkin.ru>"
+    ],
+    "peerDependencies": {
+        "@angular/common": ">=6.0.0",
+        "@angular/core": ">=6.0.0",
+        "@ng-web-apis/common": ">=1.0.0",
+        "rxjs": ">=6.0.0"
+    }
+}

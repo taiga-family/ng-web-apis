@@ -10,7 +10,7 @@ export function getPortsStream(ports: 'inputs'): Observable<MIDIInput[]>;
 export function getPortsStream(ports: 'outputs'): Observable<MIDIOutput[]>;
 export function getPortsStream(
     ports: 'inputs' | 'outputs',
-): Observable<(MIDIOutput | MIDIInput)[]> {
+): Observable<Array<MIDIOutput | MIDIInput>> {
     return from(inject(MIDI_ACCESS).catch(() => null)).pipe(
         switchMap(access =>
             access

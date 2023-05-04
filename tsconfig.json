@@ -68,6 +68,7 @@
             "@ng-web-apis/canvas": ["./libs/canvas/src/index.ts"],
             "@ng-web-apis/geolocation": ["./libs/geolocation/src/index.ts"],
             "@ng-web-apis/mutation-observer": ["./libs/mutation-observer/src/index.ts"],
+            "@ng-web-apis/payment-request": ["./libs/payment-request/src/index.ts"],
             "@ng-web-apis/intersection-observer": ["./libs/intersection-observer/src/index.ts"],
             "@ng-web-apis/midi": ["./libs/midi/src/index.ts"],
             "@ng-web-apis/resize-observer": ["./libs/resize-observer/src/index.ts"]

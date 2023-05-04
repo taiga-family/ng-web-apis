@@ -1,0 +1,45 @@
+<div class="items">
+    <div
+        *ngFor="let item of items"
+        class="item"
+        (click)="addToShippintCard(item)"
+    >
+        <img width="64" class="item-image" [src]="item.image" />
+        <label class="item-label">{{ item.label }}</label>
+        <p class="item-price">{{ item.price }} ₽</p>
+    </div>
+</div>
+
+<div waPayment class="shopping-cart" [paymentTotal]="total">
+    <div class="sticky">
+        <h4>Shopping Cart</h4>
+
+        <ng-container *ngIf="shippingCart.length > 0; else noItems">
+            <div
+                *ngFor="let cartItem of shippingCart"
+                waPaymentItem
+                class="shopping-card-item"
+                [paymentLabel]="cartItem.label"
+                [paymentAmount]="cartItem.amount"
+            >
+                {{ cartItem.label }} ({{ cartItem.amount.value }} {{
+                cartItem.amount.currency }})
+            </div>
+        </ng-container>
+        <ng-template #noItems>Nothing added</ng-template>
+
+        <div class="total">
+            <b>Total:</b>
+            {{ totalSum }} ₽
+        </div>
+
+        <button
+            class="buy-button"
+            [disabled]="shippingCart.length === 0"
+            (waPaymentSubmit)="onPayment($event)"
+            (waPaymentError)="onPaymentError($event)"
+        >
+            Buy
+        </button>
+    </div>
+</div>
