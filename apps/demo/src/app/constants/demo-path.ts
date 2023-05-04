@@ -1,5 +1,6 @@
-export const enum DemoPath {
+export enum DemoPath {
     HomePage = ``,
-    CommonPage = `common`,
-    ResizeObserverPage = `resize-observer`,
+    CommonPage = `common-library`,
+    ResizeObserverPage = `resize-observer-library`,
+    UniversalPage = `universal-library`,
 }

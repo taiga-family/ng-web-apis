@@ -1,4 +1,4 @@
-<a routerLink="/common" class="link">
+<a class="link" [routerLink]="$string(link.CommonPage)">
     <div>
         <h2>Common</h2>
         A set of common utils for consuming
@@ -13,7 +13,7 @@
         class="icon"
     />
 </a>
-<a href="https://github.com/ng-web-apis/universal" target="_blank" class="link">
+<a class="link" [routerLink]="$string(link.UniversalPage)">
     <div>
         <h2>Universal</h2>
         A set of fallbacks to seamlessly use
@@ -182,8 +182,8 @@
     />
 </a>
 <a
-    routerLink="/resize-observer"
     class="link"
+    [routerLink]="$string(link.ResizeObserverPage)"
     [class.not-supported]="!resizeSupport"
 >
     <div>

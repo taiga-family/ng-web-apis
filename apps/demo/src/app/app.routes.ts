@@ -14,6 +14,12 @@ export const appRoutes: Routes = [
             (await import(`../pages/common/common-page.module`)).CommonPageModule,
     },
     {
+        path: DemoPath.UniversalPage,
+        loadChildren: async () =>
+            (await import(`../pages/universal/universal-page.module`))
+                .UniversalPageModule,
+    },
+    {
         path: DemoPath.ResizeObserverPage,
         loadChildren: async () =>
             (await import(`../pages/resize-observer/resize-observer-page.module`))

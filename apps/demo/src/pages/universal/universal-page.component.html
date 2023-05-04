@@ -1,0 +1,94 @@
+<h2 id="how-to-use">How to use</h2>
+<p>
+    Add constants imported from this package to providers of your
+    <code>ServerAppModule</code>
+    . Typically, you can also use these mocks for tests. Idea of this package is
+    — you shouldn&#39;t have to mock DOM on the server side or test
+    <code>isPlatformBrowser</code>
+    all the time. Instead, you leverage Angular DI system to abstract from
+    implementation. When possible, this package will provide the same
+    functionality on the server side as you have in browser. In other cases you
+    will get type-safe mocks and you can at least be sure you will not have
+    <code>cannot read property of null</code>
+    or
+    <code>undefined is not a function</code>
+    errors in SSR.
+</p>
+<blockquote>
+    <p>
+        <strong>IMPORTANT:</strong>
+        This library relies on
+        <strong>
+            <em>Node.js</em>
+            v10
+        </strong>
+        and above on your server side
+    </p>
+</blockquote>
+<h2 id="mocks">Mocks</h2>
+<p>
+    Add following line to your
+    <code>server.ts</code>
+    to mock native classes used in other @ng-web-apis packages:
+</p>
+<pre><code class="language-js">import &#39;@ng-web-apis/universal/mocks&#39;;
+</code></pre>
+<blockquote>
+    <p>
+        It is recommended to keep the import statement at the top of your
+        <code>server.ts</code>
+        file
+    </p>
+</blockquote>
+<h2 id="tokens">Tokens</h2>
+<p>
+    You can provide tokens from this package into your
+    <code>app.server.module.ts</code>
+    to have type safe mocks for global objects on server side with
+    <code>UniversalModule</code>
+    :
+</p>
+<pre><code class="language-ts">@NgModule({{ '{' }}
+    imports: [
+      AppBrowserModule,
+      ServerModule,
+      UniversalModule, // &lt;-- add this
+  ],
+  bootstrap: [AppComponent],
+})
+export class AppServerModule {{ '{' }}}
+</code></pre>
+<p>
+    Alternatively, if you have a standalone app that is initialized using the
+    bootstrapApplication function, you can import
+    <code>UniversalModule</code>
+    in the following manner:
+</p>
+<pre><code class="language-ts">const serverConfig: ApplicationConfig = {{ '{' }}
+    providers: [
+      provideServerRendering(),
+      importProvidersFrom(UniversalModule), // &lt;-- add this
+  ],
+};
+
+const config = mergeApplicationConfig(appConfig, serverConfig);
+const bootstrap = () =&gt; bootstrapApplication(AppComponent, config);
+</code></pre>
+<h2 id="special-cases">Special cases</h2>
+<p>
+    When you use plain SSR without prerender you can retrieve some of the
+    information from requests. Use the following helpers to harvest that info:
+</p>
+<p><strong>server.ts:</strong></p>
+<pre><code class="language-typescript">import {{ '{' }}{{ '{' }}provideLocation, provideUserAgent}}
+    from
+    &#39;@ng-web-apis/universal&#39;;
+// ...
+app.get(&#39;/**/*&#39;, (req: Request, res: Response) =&gt; {{ '{' }}
+  res.render(&#39;../dist/index&#39;, {{ '{' }}
+    req,
+        res,
+        providers: [provideLocation(req), provideUserAgent(req)],
+    });
+    });
+</code></pre>

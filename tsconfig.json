@@ -60,6 +60,8 @@
         "paths": {
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
             "@ng-web-apis/common": ["./projects/common/src/index.ts"],
+            "@ng-web-apis/universal": ["./projects/universal/src/index.ts"],
+            "@ng-web-apis/universal/*": ["./projects/universal/src/*"],
             "@ng-web-apis/resize-observer": ["./projects/resize-observer/src/index.ts"]
         }
     },
