@@ -28,7 +28,7 @@
         "outDir": "./dist",
         "target": "es2015",
         "module": "es2020",
-        "lib": ["es2017", "es2018.asynciterable", "dom"],
+        "lib": ["es2018", "dom"],
         "typeRoots": ["node_modules/@types"],
         "skipLibCheck": true,
         "downlevelIteration": true,
@@ -62,6 +62,8 @@
             "@ng-web-apis/common": ["./projects/common/src/index.ts"],
             "@ng-web-apis/universal": ["./projects/universal/src/index.ts"],
             "@ng-web-apis/universal/*": ["./projects/universal/src/*"],
+            "@ng-web-apis/audio": ["./projects/audio/src/index.ts"],
+            "@ng-web-apis/audio/*": ["./projects/audio/src/*"],
             "@ng-web-apis/resize-observer": ["./projects/resize-observer/src/index.ts"]
         }
     },

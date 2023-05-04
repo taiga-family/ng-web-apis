@@ -1,0 +1,89 @@
+/* Web Audio demo specific */
+:host {
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+
+@media (max-width: 1000px) {
+    :host {
+        flex-direction: column;
+        width: 320px;
+        margin: 0 auto;
+    }
+}
+
+button {
+    width: 200px;
+    margin: 15px auto;
+    height: 40px;
+}
+
+section {
+    flex: 1;
+    max-width: 320px;
+    margin: 5px;
+    padding: 1px 10px 10px;
+    box-sizing: border-box;
+    background: whitesmoke;
+    border-radius: 8px;
+}
+
+audio {
+    margin-top: 1em;
+}
+
+label {
+    display: flex;
+    align-items: center;
+}
+
+input,
+select {
+    max-width: 100px;
+    margin-right: 1em;
+}
+
+fieldset {
+    margin-top: 1em;
+    border: none;
+    border-radius: 4px;
+}
+
+legend {
+    background: white;
+    box-shadow: 0 0 2px;
+    padding: 5px 10px;
+    border-radius: 2px;
+}
+
+*[ng-reflect--waoutput] {
+    background: thistle;
+}
+
+*[waGainNode] {
+    background: pink;
+}
+
+*[waDelayNode] {
+    background: lightgreen;
+}
+
+*[waStereoPannerNode] {
+    background: skyblue;
+}
+
+*[waAudioDestinationNode] {
+    background: khaki;
+}
+
+*[waWaveShaperNode] {
+    background: salmon;
+}
+
+*[waBiquadFilterNode] {
+    background: gold;
+}
+
+*[waConvolverNode] {
+    background: aquamarine;
+}

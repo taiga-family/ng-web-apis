@@ -20,6 +20,11 @@ export const appRoutes: Routes = [
                 .UniversalPageModule,
     },
     {
+        path: DemoPath.AudioPage,
+        loadChildren: async () =>
+            (await import(`../pages/audio/audio-page.module`)).AudioPageModule,
+    },
+    {
         path: DemoPath.ResizeObserverPage,
         loadChildren: async () =>
             (await import(`../pages/resize-observer/resize-observer-page.module`))
