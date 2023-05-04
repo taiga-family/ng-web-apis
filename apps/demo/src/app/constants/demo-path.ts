@@ -7,5 +7,6 @@ export enum DemoPath {
     CanvasPage = `canvas`,
     GeolocationPage = `geolocation`,
     IntersectionObserverPage = `intersection-observer`,
+    MutationObserverPage = `mutation-observer`,
     MidiPage = `midi`,
 }

@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "mutation-observer",
+    "root": "libs/mutation-observer",
+    "sourceRoot": "libs/mutation-observer",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/mutation-observer"],
+            "options": {
+                "main": "libs/mutation-observer/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/mutation-observer/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/mutation-observer"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/mutation-observer/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}
