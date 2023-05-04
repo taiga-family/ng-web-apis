@@ -98,6 +98,21 @@
             },
             "defaultConfiguration": "development"
         },
+        "serve-ssr": {
+            "executor": "@nguniversal/builders:ssr-dev-server",
+            "options": {},
+            "configurations": {
+                "production": {
+                    "browserTarget": "demo:build:production",
+                    "serverTarget": "demo:server:production"
+                },
+                "development": {
+                    "serverTarget": "demo:server:development",
+                    "browserTarget": "demo:build:development"
+                }
+            },
+            "defaultConfiguration": "development"
+        },
         "generate-routes-file": {
             "executor": "nx:run-commands",
             "options": {

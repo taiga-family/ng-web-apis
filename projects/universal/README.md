@@ -31,16 +31,13 @@ import '@ng-web-apis/universal/mocks';
 ## Tokens
 
 You can provide tokens from this package into your `app.server.module.ts` to have type safe mocks for global objects on
-server side with `UniversalModule`:
+server side with `UNIVERSAL_PROVIDERS`:
 
 ```ts
 @NgModule({
-  imports: [
-    AppBrowserModule,
-    ServerModule,
-    UniversalModule, // <-- add this
-  ],
+  imports: [AppBrowserModule, ServerModule],
   bootstrap: [AppComponent],
+  providers: UNIVERSAL_PROVIDERS, // <-- add this
 })
 export class AppServerModule {}
 ```
