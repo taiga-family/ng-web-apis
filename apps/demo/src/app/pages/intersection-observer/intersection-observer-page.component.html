@@ -1,0 +1,18 @@
+<section
+    *ngIf="support; else not"
+    waIntersectionRoot
+    waIntersectionObserver
+    waIntersectionThreshold="0.1,0.2,0.3,0.4,0.5,0.6,0.7,0.8,0.9"
+    class="wrapper"
+>
+    <h1
+        class="element"
+        [attr.data-ratio]="ratio"
+        (waIntersectionObservee)="onIntersection($event)"
+    >
+        I'm being observed
+    </h1>
+</section>
+<ng-template #not>
+    Your browser does not support Intersection Observer API
+</ng-template>

@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "intersection-observer",
+    "root": "libs/intersection-observer",
+    "sourceRoot": "libs/intersection-observer",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/intersection-observer"],
+            "options": {
+                "main": "libs/intersection-observer/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/intersection-observer/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/intersection-observer"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/intersection-observer/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}
