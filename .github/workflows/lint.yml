@@ -14,6 +14,7 @@ jobs:
         uses: ./.github/actions/nodejs
 
       - run: |
+          npm run prettier -- --check
           npm run typecheck
           npm run lint
 

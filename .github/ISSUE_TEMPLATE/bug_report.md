@@ -24,9 +24,9 @@ http://www.stackblitz.com/...
 
 ### Versions
 
--   OS: [e.g. iOS]
--   Browser [e.g. chrome, safari]
--   Angular [e.g. 8]
+- OS: [e.g. iOS]
+- Browser [e.g. chrome, safari]
+- Angular [e.g. 8]
 
 ### Additional context
 
