@@ -50,6 +50,12 @@ export const appRoutes: Routes = [
             ).IntersectionObserverPageModule,
     },
     {
+        path: DemoPath.MutationObserverPage,
+        loadChildren: async () =>
+            (await import(`./pages/mutation-observer/mutation-observer-page.module`))
+                .MutationObserverPageModule,
+    },
+    {
         path: DemoPath.MidiPage,
         loadChildren: async () =>
             (await import(`./pages/midi/midi-page.module`)).MidiPageModule,

@@ -11,7 +11,18 @@ jobs:
     strategy:
       fail-fast: false
       matrix:
-        project: [common, resize-observer, universal, audio, canvas, geolocation, intersection-observer, midi]
+        project:
+          [
+            common,
+            resize-observer,
+            universal,
+            audio,
+            canvas,
+            geolocation,
+            intersection-observer,
+            midi,
+            mutation-observer,
+          ]
     name: ${{ matrix.project }}
     steps:
       - uses: actions/checkout@v3.5.2
@@ -82,6 +93,11 @@ jobs:
           directory: ./coverage/resize-observer/
           flags: summary,resize-observer
           name: resize-observer
+      - uses: codecov/codecov-action@v3.1.3
+        with:
+          directory: ./coverage/mutation-observer/
+          flags: summary,mutation-observer
+          name: mutation-observer
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}

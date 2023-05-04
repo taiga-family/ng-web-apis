@@ -1,0 +1,25 @@
+<p>
+    <button type="button" (click)="toggleDOM()">Toggle DOM change</button>
+    <button type="button" (click)="toggleAttr()">Toggle attribute</button>
+    <input type="text" aria-label="title" [(ngModel)]="title" />
+    <input type="text" aria-label="text" [(ngModel)]="text" />
+    <input type="text" aria-label="ignored" [(ngModel)]="ignored" />
+</p>
+<div
+    subtree
+    childList
+    characterData
+    attributeFilter="title, disabled"
+    class="observer"
+    [title]="title"
+    [attr.disabled]="disabled"
+    [attr.aria-label]="ignored"
+    (waMutationObserver)="log($event)"
+>
+    I am being observed for text changes, DOM changes and "title" and "disabled"
+    attributes: {{ text }}
+    <div *ngIf="toggled; else default">I am dynamically added DOM element</div>
+    <ng-template #default>
+        <div>See console for logged mutations</div>
+    </ng-template>
+</div>
