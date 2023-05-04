@@ -1,16 +1,16 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "universal",
-    "root": "projects/universal",
-    "sourceRoot": "projects/universal",
+    "name": "canvas",
+    "root": "libs/canvas",
+    "sourceRoot": "libs/canvas",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
             "options": {
-                "main": "projects/universal/test.ts",
+                "main": "libs/canvas/test.ts",
                 "tsConfig": "tsconfig.spec.json",
-                "karmaConfig": "projects/universal/karma.conf.js",
+                "karmaConfig": "libs/canvas/karma.conf.js",
                 "codeCoverage": true,
                 "browsers": "ChromeHeadless"
             }
@@ -19,7 +19,7 @@
             "executor": "@angular-devkit/build-angular:ng-packagr",
             "options": {
                 "tsConfig": "tsconfig.build.json",
-                "project": "projects/universal/ng-package.json"
+                "project": "libs/canvas/ng-package.json"
             },
             "dependsOn": [
                 {

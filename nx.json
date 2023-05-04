@@ -24,7 +24,7 @@
         "defaultBase": "origin/main"
     },
     "workspaceLayout": {
-        "libsDir": "projects",
+        "libsDir": "libs",
         "appsDir": "apps"
     }
 }

@@ -1,6 +1,6 @@
 {
-    "include": ["apps/**/*", "projects/**/*", "**/*.d.ts"],
-    "exclude": ["**/*.spec.ts", "projects/**/test.ts", "**/schematics/**/*"],
+    "include": ["apps/**/*", "libs/**/*", "**/*.d.ts"],
+    "exclude": ["**/*.spec.ts", "libs/**/test.ts", "**/schematics/**/*"],
     "angularCompilerOptions": {
         "enableIvy": true,
         "compilationMode": "partial",
@@ -59,13 +59,13 @@
         "noImplicitOverride": true,
         "paths": {
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
-            "@ng-web-apis/common": ["./projects/common/src/index.ts"],
-            "@ng-web-apis/universal": ["./projects/universal/src/index.ts"],
-            "@ng-web-apis/universal/*": ["./projects/universal/src/*"],
-            "@ng-web-apis/audio": ["./projects/audio/src/index.ts"],
-            "@ng-web-apis/audio/*": ["./projects/audio/src/*"],
-            "@ng-web-apis/canvas": ["./projects/canvas/src/index.ts"],
-            "@ng-web-apis/resize-observer": ["./projects/resize-observer/src/index.ts"]
+            "@ng-web-apis/common": ["./libs/common/src/index.ts"],
+            "@ng-web-apis/universal": ["./libs/universal/src/index.ts"],
+            "@ng-web-apis/universal/*": ["./libs/universal/src/*"],
+            "@ng-web-apis/audio": ["./libs/audio/src/index.ts"],
+            "@ng-web-apis/audio/*": ["./libs/audio/src/*"],
+            "@ng-web-apis/canvas": ["./libs/canvas/src/index.ts"],
+            "@ng-web-apis/resize-observer": ["./libs/resize-observer/src/index.ts"]
         }
     },
     "ts-node": {
