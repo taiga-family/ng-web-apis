@@ -66,6 +66,7 @@
             "@ng-web-apis/audio/*": ["./libs/audio/src/*"],
             "@ng-web-apis/canvas": ["./libs/canvas/src/index.ts"],
             "@ng-web-apis/geolocation": ["./libs/geolocation/src/index.ts"],
+            "@ng-web-apis/intersection-observer": ["./libs/intersection-observer/src/index.ts"],
             "@ng-web-apis/resize-observer": ["./libs/resize-observer/src/index.ts"]
         }
     },

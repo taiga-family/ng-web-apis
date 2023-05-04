@@ -41,6 +41,15 @@ export const appRoutes: Routes = [
                 .GeolocationPageModule,
     },
     {
+        path: DemoPath.IntersectionObserverPage,
+        loadChildren: async () =>
+            (
+                await import(
+                    `./pages/intersection-observer/intersection-observer-page.module`
+                )
+            ).IntersectionObserverPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',
