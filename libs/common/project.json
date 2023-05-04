@@ -7,6 +7,7 @@
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/common"],
             "options": {
                 "main": "libs/common/test.ts",
                 "tsConfig": "tsconfig.spec.json",
@@ -17,6 +18,7 @@
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/common"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
                 "project": "libs/common/ng-package.json"

@@ -36,6 +36,12 @@ export const appRoutes: Routes = [
                 .ResizeObserverPageModule,
     },
     {
+        path: DemoPath.GeolocationPage,
+        loadChildren: async () =>
+            (await import(`../pages/geolocation/geolocation-page.module`))
+                .GeolocationPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',

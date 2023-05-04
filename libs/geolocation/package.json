@@ -1,0 +1,33 @@
+{
+    "name": "@ng-web-apis/geolocation",
+    "version": "2.0.0",
+    "description": "This is a library for declarative use of Geolocation API with Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "geolocation",
+        "geolocation api",
+        "pwa",
+        "progressive web app"
+    ],
+    "homepage": "https://github.com/ng-web-apis/geolocation#README",
+    "bugs": "https://github.com/ng-web-apis/geolocation/issues",
+    "repository": "https://github.com/ng-web-apis/geolocation",
+    "license": "MIT",
+    "author": {
+        "name": "Vladimir Potekhin",
+        "email": "vladimir.potekh@gmail.com"
+    },
+    "contributors": [
+        "Alex Inkin <alexander@inkin.ru>",
+        "Roman Sedov <79601794011@ya.ru>"
+    ],
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
+    "peerDependencies": {
+        "@angular/common": ">=6.0.0",
+        "@angular/core": ">=6.0.0",
+        "@ng-web-apis/common": ">=1.0.0"
+    }
+}
