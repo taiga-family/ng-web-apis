@@ -1,4 +1,4 @@
-<a class="link" [routerLink]="$string(link.CommonPage)">
+<a class="link" [routerLink]="['/', link.CommonPage]">
     <div>
         <h2>Common</h2>
         A set of common utils for consuming
@@ -13,7 +13,7 @@
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="$string(link.UniversalPage)">
+<a class="link" [routerLink]="['/', link.UniversalPage]">
     <div>
         <h2>Universal</h2>
         A set of fallbacks to seamlessly use
@@ -183,7 +183,7 @@
 </a>
 <a
     class="link"
-    [routerLink]="$string(link.ResizeObserverPage)"
+    [routerLink]="['/', link.ResizeObserverPage]"
     [class.not-supported]="!resizeSupport"
 >
     <div>
