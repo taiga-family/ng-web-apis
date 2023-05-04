@@ -1,0 +1,35 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "speech",
+    "root": "libs/speech",
+    "sourceRoot": "libs/speech",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/speech"],
+            "options": {
+                "main": "libs/speech/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/speech/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/speech"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/speech/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        }
+    }
+}

@@ -202,7 +202,7 @@ describe('PermissionsService is unsupported', () => {
 
     it('should throw an error and .query() should not be called', () => {
         const querySpy = spyOn(permissions, 'query').and.stub();
-        let actualError: string = '';
+        let actualError = '';
 
         service.state('geolocation').subscribe(
             () => {},

@@ -73,6 +73,11 @@ export const appRoutes: Routes = [
             (await import(`./pages/midi/midi-page.module`)).MidiPageModule,
     },
     {
+        path: DemoPath.SpeechPage,
+        loadChildren: async () =>
+            (await import(`./pages/speech/speech-page.module`)).SpeechPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',

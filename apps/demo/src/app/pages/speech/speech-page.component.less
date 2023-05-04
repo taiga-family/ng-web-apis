@@ -1,0 +1,58 @@
+:host {
+    display: block;
+}
+
+.transcript {
+    opacity: 0.5;
+    color: var(--tui-text-01);
+
+    &_final {
+        opacity: 1;
+    }
+}
+
+.form {
+    width: 320px;
+    margin: 0 auto;
+}
+
+.textarea {
+    margin: 16px 0;
+    overflow: visible;
+}
+
+.recognition {
+    margin: 16px 0;
+    box-shadow: inset 0 0 0 1px gainsboro;
+    border-radius: var(--tui-radius);
+    padding: 8px 16px;
+    color: var(--tui-text-02);
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sidebar {
+    padding: 12px 16px;
+}
+
+.link {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    color: #444;
+    border-radius: 4px;
+    border: 1px solid gainsboro;
+    font-size: 14px;
+    padding: 16px;
+    margin: 16px 10px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s;
+
+    &:hover {
+        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    }
+}
