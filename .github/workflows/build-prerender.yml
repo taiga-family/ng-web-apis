@@ -1,11 +1,11 @@
-name: ⚙️ Build prerender
+name: ⚙️ Build
 
 on:
   pull_request:
 
 jobs:
   prerender:
-    name: Packages
+    name: prerender
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.2
@@ -16,5 +16,5 @@ jobs:
         run: npx nx build-gh-pages demo
 
 concurrency:
-  group: build-${{ github.workflow }}-${{ github.ref }}
+  group: build-prerender-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

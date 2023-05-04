@@ -1,4 +1,4 @@
-name: ⚙️ Build demo
+name: ⚙️ Build
 
 on:
   pull_request:
@@ -7,7 +7,7 @@ on:
 
 jobs:
   build:
-    name: Packages
+    name: demo
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3.5.2
@@ -17,5 +17,5 @@ jobs:
       - run: npx nx build demo
 
 concurrency:
-  group: build-${{ github.workflow }}-${{ github.ref }}
+  group: build-demo-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
