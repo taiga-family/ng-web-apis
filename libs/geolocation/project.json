@@ -1,27 +1,27 @@
 {
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "name": "resize-observer",
-    "root": "libs/resize-observer",
-    "sourceRoot": "libs/resize-observer",
+    "name": "geolocation",
+    "root": "libs/geolocation",
+    "sourceRoot": "libs/geolocation",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["coverage/resize-observer"],
+            "outputs": ["coverage/geolocation"],
             "options": {
-                "main": "libs/resize-observer/test.ts",
+                "main": "libs/geolocation/test.ts",
                 "tsConfig": "tsconfig.spec.json",
-                "karmaConfig": "libs/resize-observer/karma.conf.js",
+                "karmaConfig": "libs/geolocation/karma.conf.js",
                 "codeCoverage": true,
                 "browsers": "ChromeHeadless"
             }
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["dist/resize-observer"],
+            "outputs": ["dist/geolocation"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
-                "project": "libs/resize-observer/ng-package.json"
+                "project": "libs/geolocation/ng-package.json"
             },
             "dependsOn": [
                 {
