@@ -50,6 +50,11 @@ export const appRoutes: Routes = [
             ).IntersectionObserverPageModule,
     },
     {
+        path: DemoPath.MidiPage,
+        loadChildren: async () =>
+            (await import(`./pages/midi/midi-page.module`)).MidiPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',
