@@ -1,12 +1,6 @@
 {
     "name": "@ng-web-apis/universal",
     "version": "2.1.0",
-    "peerDependencies": {
-        "@angular/core": ">=12.0.0",
-        "@ng-web-apis/common": ">=2.0.0",
-        "@types/node": ">=10.0.0",
-        "rxjs": ">=6.0.0"
-    },
     "description": "A set of fallback for @ng-web-apis/common for Angular Universal",
     "keywords": [
         "angular",
@@ -20,18 +14,24 @@
         "server side rendering",
         "local storage"
     ],
+    "homepage": "https://github.com/ng-web-apis/universal#README",
+    "bugs": "https://github.com/ng-web-apis/universal/issues",
+    "repository": "https://github.com/ng-web-apis/universal",
     "license": "MIT",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
-    "sideEffects": [
-        "mocks.js"
-    ],
     "contributors": [
         "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
     ],
-    "repository": "https://github.com/ng-web-apis/universal",
-    "bugs": "https://github.com/ng-web-apis/universal/issues",
-    "homepage": "https://github.com/ng-web-apis/universal#README"
+    "sideEffects": [
+        "mocks.js"
+    ],
+    "peerDependencies": {
+        "@angular/core": ">=12.0.0",
+        "@ng-web-apis/common": ">=2.0.0",
+        "@types/node": ">=10.0.0",
+        "rxjs": ">=6.0.0"
+    }
 }

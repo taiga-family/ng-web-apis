@@ -1,13 +1,19 @@
 {
     "name": "@ng-web-apis/common",
     "version": "2.1.0",
-    "peerDependencies": {
-        "@angular/common": ">=12.0.0",
-        "@angular/core": ">=12.0.0",
-        "rxjs": ">=6.4.0"
-    },
     "description": "A set of common utils for consuming Web APIs with Angular",
-    "keywords": ["angular", "ng", "window", "api", "web api", "navigator", "user agent"],
+    "keywords": [
+        "angular",
+        "ng",
+        "window",
+        "api",
+        "web api",
+        "navigator",
+        "user agent"
+    ],
+    "homepage": "https://github.com/ng-web-apis/common#README",
+    "bugs": "https://github.com/ng-web-apis/common/issues",
+    "repository": "https://github.com/ng-web-apis/common",
     "license": "MIT",
     "author": {
         "name": "Alex Inkin",
@@ -19,7 +25,9 @@
         "Andrew Grekov <hr@thekiba.io>",
         "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>"
     ],
-    "repository": "https://github.com/ng-web-apis/common",
-    "bugs": "https://github.com/ng-web-apis/common/issues",
-    "homepage": "https://github.com/ng-web-apis/common#README"
+    "peerDependencies": {
+        "@angular/common": ">=12.0.0",
+        "@angular/core": ">=12.0.0",
+        "rxjs": ">=6.4.0"
+    }
 }
