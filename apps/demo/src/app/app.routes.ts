@@ -6,39 +6,38 @@ export const appRoutes: Routes = [
     {
         path: DemoPath.HomePage,
         loadChildren: async () =>
-            (await import(`../pages/home/home-page.module`)).HomePageModule,
+            (await import(`./pages/home/home-page.module`)).HomePageModule,
     },
     {
         path: DemoPath.CommonPage,
         loadChildren: async () =>
-            (await import(`../pages/common/common-page.module`)).CommonPageModule,
+            (await import(`./pages/common/common-page.module`)).CommonPageModule,
     },
     {
         path: DemoPath.UniversalPage,
         loadChildren: async () =>
-            (await import(`../pages/universal/universal-page.module`))
-                .UniversalPageModule,
+            (await import(`./pages/universal/universal-page.module`)).UniversalPageModule,
     },
     {
         path: DemoPath.AudioPage,
         loadChildren: async () =>
-            (await import(`../pages/audio/audio-page.module`)).AudioPageModule,
+            (await import(`./pages/audio/audio-page.module`)).AudioPageModule,
     },
     {
         path: DemoPath.CanvasPage,
         loadChildren: async () =>
-            (await import(`../pages/canvas/canvas-page.module`)).CanvasPageModule,
+            (await import(`./pages/canvas/canvas-page.module`)).CanvasPageModule,
     },
     {
         path: DemoPath.ResizeObserverPage,
         loadChildren: async () =>
-            (await import(`../pages/resize-observer/resize-observer-page.module`))
+            (await import(`./pages/resize-observer/resize-observer-page.module`))
                 .ResizeObserverPageModule,
     },
     {
         path: DemoPath.GeolocationPage,
         loadChildren: async () =>
-            (await import(`../pages/geolocation/geolocation-page.module`))
+            (await import(`./pages/geolocation/geolocation-page.module`))
                 .GeolocationPageModule,
     },
     {
