@@ -11,17 +11,20 @@
         "navigator",
         "user agent"
     ],
-    "homepage": "https://github.com/ng-web-apis/common#README",
-    "bugs": "https://github.com/ng-web-apis/common/issues",
-    "repository": "https://github.com/ng-web-apis/common",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/ng-web-apis#README",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
     "contributors": [
         "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)",
+        "Vladimir Potekhin <vladimir.potekh@gmail.com>",
+        "Maksim Ivanov <splincodewd@yandex.ru>",
         "Dmitryi Khirnyi",
+        "Dmitry Efimenko",
         "Andrew Grekov <hr@thekiba.io>",
         "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>"
     ],

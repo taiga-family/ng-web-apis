@@ -9,10 +9,10 @@
         "web audio",
         "web audio api"
     ],
-    "homepage": "https://github.com/ng-web-apis/audio#README",
-    "bugs": "https://github.com/ng-web-apis/audio/issues",
-    "repository": "https://github.com/ng-web-apis/audio",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/audio/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"

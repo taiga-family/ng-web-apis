@@ -9,7 +9,7 @@ with Angular.
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/ng-web-apis/common):
+If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
 ```
 npm i @ng-web-apis/common
@@ -93,7 +93,7 @@ messages$.pipe(filterByChannel(1), aftertouch());
 - `programChange`
 - `sustainPedal`
 
-If you believe other operators could be helpful, please [file an issue](https://github.com/ng-web-apis/midi/issues)
+If you believe other operators could be helpful, please [file an issue](https://github.com/tinkoff/ng-web-apis/issues)
 explaining what would you like to be added and why.
 
 ### Operators
@@ -123,7 +123,8 @@ You can [try online demo here](https://stackblitz.com/github/ng-web-apis/midi/tr
 
 ## See also
 
-Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
+Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
 
 ## Open-source
 

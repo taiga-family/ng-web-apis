@@ -8,10 +8,10 @@
         "resize",
         "observer"
     ],
-    "homepage": "https://github.com/ng-web-apis/resize-observer#README",
-    "bugs": "https://github.com/ng-web-apis/resize-observer/issues",
-    "repository": "https://github.com/ng-web-apis/resize-observer",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/resize-observer/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Vladimir Potekhin",
         "email": "vladimir.potekh@gmail.com"
