@@ -9,7 +9,7 @@ This is a library for declarative use of
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/ng-web-apis/common):
+If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
 ```
 npm i @ng-web-apis/common
@@ -73,11 +73,12 @@ export class MyComponent {
 
 ## Demo
 
-You can [try online demo here](https://ng-web-apis.github.io/resize-observer)
+You can [try online demo here](https://tinkoff.github.io/ng-web-apis/resize-observer)
 
 ## See also
 
-Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
+Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
 
 ## Open-source
 

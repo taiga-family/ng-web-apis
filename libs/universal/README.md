@@ -4,8 +4,8 @@
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/universal)](https://bundlephobia.com/result?p=@ng-web-apis/universal)
 [![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/universal)](https://coveralls.io/github/ng-web-apis/universal?branch=master)
 
-A set of fallbacks to seamlessly use [@ng-web-apis/common](https://github.com/ng-web-apis/common) in
-[Angular Universal](https://github.com/angular/universal) apps. These packages have synced versions down to minor.
+A set of fallbacks to seamlessly use [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common)
+in [Angular Universal](https://github.com/angular/universal) apps. These packages have synced versions down to minor.
 
 ## How to use
 

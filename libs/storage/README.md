@@ -9,7 +9,7 @@ Angular.
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/ng-web-apis/common):
+If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
 ```
 npm i @ng-web-apis/common
@@ -31,11 +31,12 @@ Web Storage API consists of storage synthesis and storage recognition.
 3. Native `StorageEvent` only fires when changes are made from another tab. To capture events from the same tab use
    `StorageService` to work with `localStorage`
 
-See [demo](https://ng-web-apis.github.io/storage) for concrete usage example.
+See [demo](https://tinkoff.github.io/ng-web-apis/storage) for concrete usage example.
 
 ## See also
 
-Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
+Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
 
 ## Open-source
 

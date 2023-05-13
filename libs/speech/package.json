@@ -13,10 +13,10 @@
         "speechrecognition",
         "text-to-speech"
     ],
-    "homepage": "https://github.com/ng-web-apis/speech#README",
-    "bugs": "https://github.com/ng-web-apis/speech/issues",
-    "repository": "https://github.com/ng-web-apis/speech",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/speech/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Alexander Inkin",
         "email": "alexander@inkin.ru"

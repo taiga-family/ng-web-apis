@@ -8,7 +8,7 @@ This is a library for declarative use of
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/ng-web-apis/common):
+If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
 ```
 npm i @ng-web-apis/common
@@ -43,7 +43,8 @@ following line to your `setup.ts`:
 import '@ng-web-apis/universal/mocks';
 ```
 
-to use mocks from [@ng-web-apis/universal](https://github.com/ng-web-apis/universal) package.
+to use mocks from [@ng-web-apis/universal](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks)
+package.
 
 ## Examples
 
@@ -118,15 +119,16 @@ export class MyComponent {
 ## Angular Universal
 
 If you want to use this package with SSR, you need to mock `IntersectionObserver` class on the server. You can use our
-Universal package for this, see [this example](https://github.com/ng-web-apis/universal#mocks).
+Universal package for this, see [this example](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks).
 
 ## Demo
 
-You can [try online demo here](https://ng-web-apis.github.io/intersection-observer)
+You can [try online demo here](https://tinkoff.github.io/ng-web-apis/intersection-observer)
 
 ## See also
 
-Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
+Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
 
 ## Open-source
 

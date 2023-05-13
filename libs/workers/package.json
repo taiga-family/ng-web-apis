@@ -10,10 +10,10 @@
         "service",
         "shared"
     ],
-    "homepage": "https://github.com/ng-web-apis/workers#README",
-    "bugs": "https://github.com/ng-web-apis/workers/issues",
-    "repository": "https://github.com/ng-web-apis/workers",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/workers/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Igor Katsuba",
         "email": "katsuba.igor@gmail.com"

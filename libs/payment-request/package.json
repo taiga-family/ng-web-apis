@@ -12,10 +12,10 @@
         "pwa",
         "progressive web app"
     ],
-    "homepage": "https://github.com/ng-web-apis/payment-request#README",
-    "bugs": "https://github.com/ng-web-apis/payment-request/issues",
-    "repository": "https://github.com/ng-web-apis/payment-request",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/payment-request/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Roman Sedov",
         "email": "79601794011@ya.ru",

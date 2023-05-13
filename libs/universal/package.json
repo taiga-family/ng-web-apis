@@ -14,10 +14,10 @@
         "server side rendering",
         "local storage"
     ],
-    "homepage": "https://github.com/ng-web-apis/universal#README",
-    "bugs": "https://github.com/ng-web-apis/universal/issues",
-    "repository": "https://github.com/ng-web-apis/universal",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/universal/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"

@@ -6,7 +6,7 @@
 
 This is a library for declarative use of [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 with Angular 7+. It is a complete conversion to declarative Angular directives, if you find any inconsistencies or
-errors, please [file an issue](https://github.com/ng-web-apis/audio/issues). Watch out for 💡 emoji in this README for
+errors, please [file an issue](https://github.com/tinkoff/ng-web-apis/issues). Watch out for 💡 emoji in this README for
 additional features and special use cases.
 
 ## How to use
@@ -365,15 +365,16 @@ not support it
 ## Angular Universal
 
 If you want to use this package with SSR, you need to mock native Web Audio API classes on the server. You can use our
-Universal package for this, see [this example](https://github.com/ng-web-apis/universal#mocks).
+Universal package for this, see [this example](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks).
 
 ## Demo
 
-You can [try online demo here](https://ng-web-apis.github.io/audio)
+You can [try online demo here](https://tinkoff.github.io/ng-web-apis/audio)
 
 ## See also
 
-Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
+Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
 
 ## Open-source
 

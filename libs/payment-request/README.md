@@ -9,7 +9,7 @@ two ways to use this API with Angular of 6+ version.
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/ng-web-apis/common):
+If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
 ```
 npm i @ng-web-apis/common
@@ -218,7 +218,7 @@ export class YourComponentThatMakesPaymentRequests {
 
 ## See also
 
-All [@ng-web-apis](https://ng-web-apis.github.io/) for your apps
+All [@ng-web-apis](https://tinkoff.github.io/ng-web-apis/) for your apps
 
 ## Open-source
 

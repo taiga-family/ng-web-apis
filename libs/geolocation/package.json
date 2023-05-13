@@ -10,10 +10,10 @@
         "pwa",
         "progressive web app"
     ],
-    "homepage": "https://github.com/ng-web-apis/geolocation#README",
-    "bugs": "https://github.com/ng-web-apis/geolocation/issues",
-    "repository": "https://github.com/ng-web-apis/geolocation",
-    "license": "MIT",
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/geolocation/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
     "author": {
         "name": "Vladimir Potekhin",
         "email": "vladimir.potekh@gmail.com"

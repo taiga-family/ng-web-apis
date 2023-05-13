@@ -1,7 +1,7 @@
 # ![ng-web-apis logo](projects/demo/src/assets/logo.svg) Mutation Observer API for Angular
 
 > Part of <img src="projects/demo/src/assets/web-api.svg" align="top"> >
-> [Web APIs for Angular](https://ng-web-apis.github.io/)
+> [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/)
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/mutation-observer.svg)](https://npmjs.com/package/@ng-web-apis/mutation-observer)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/mutation-observer)](https://bundlephobia.com/result?p=@ng-web-apis/mutation-observer)
@@ -14,7 +14,7 @@ This is a library for declarative use of
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/ng-web-apis/common):
+If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
 ```
 npm i @ng-web-apis/common
@@ -68,15 +68,16 @@ attributes are `boolean` meaning no need to explicitly set them to `true`.
 ## Angular Universal
 
 If you want to use this package with SSR, you need to mock `MutationObserver` class on the server. You can use our
-Universal package for this, see [this example](https://github.com/ng-web-apis/universal#mocks).
+Universal package for this, see [this example](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks).
 
 ## Demo
 
-You can [try online demo here](https://ng-web-apis.github.io/mutation-observer)
+You can [try online demo here](https://tinkoff.github.io/ng-web-apis/mutation-observer)
 
 ## See also
 
-Other [Web APIs for Angular](https://ng-web-apis.github.io/) by [@ng-web-apis](https://github.com/ng-web-apis)
+Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
 
 ## Open-source
 

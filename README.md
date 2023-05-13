@@ -1,8 +1,9 @@
 # ![ng-web-apis logo](apps/demo/src/assets/images/web-api.svg) Web APIs for Angular
 
-[![build.yml](https://github.com/ng-web-apis/common/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/ng-web-apis/common/actions/workflows/build.yml)
+[![build.yml](https://github.com/tinkoff/ng-web-apis/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/tinkoff/ng-web-apis/actions/workflows/build.yml)
 
-High quality lightweight wrappers for native Web APIs for idiomatic use with Angular
+High quality lightweight wrappers for native Web APIs for idiomatic use with Angular. See
+[individual libraries](https://github.com/tinkoff/ng-web-apis/tree/main/libs) for more details.
 
 ## Core team
 
