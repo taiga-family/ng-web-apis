@@ -1,84 +1,110 @@
 <h2>Basic example</h2>
 <section>
     <fieldset>
-        <label for="file">Image:</label>
-        <input
-            #file
-            id="file"
-            type="file"
-            accept="image/*"
-            (input)="onFile(file)"
-        />
-        <label>
-            <span>dX:</span>
-            <input type="range" min="0" max="300" [(ngModel)]="dX" />
+        <label tuiLabel="x" class="child">
+            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="x1" />
         </label>
-        <label>
-            <span>dY:</span>
-            <input type="range" min="0" max="150" [(ngModel)]="dY" />
+        <label tuiLabel="y" class="child">
+            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="y1" />
         </label>
-        <label>
-            <span>dWidth:</span>
-            <input type="range" min="0" max="300" [(ngModel)]="dWidth" />
+        <label tuiLabel="width" class="child">
+            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="w1" />
         </label>
-        <label>
-            <span>dHeight:</span>
-            <input type="range" min="0" max="150" [(ngModel)]="dHeight" />
+        <label tuiLabel="height" class="child">
+            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="h1" />
         </label>
     </fieldset>
+
     <fieldset>
-        <label>
-            <span>x:</span>
-            <input type="range" min="0" max="300" [(ngModel)]="x1" />
+        <label tuiLabel="x" class="child">
+            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="x2" />
         </label>
-        <label>
-            <span>y:</span>
-            <input type="range" min="0" max="150" [(ngModel)]="y1" />
+        <label tuiLabel="y" class="child">
+            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="y2" />
         </label>
-        <label>
-            <span>width:</span>
-            <input type="range" min="0" max="300" [(ngModel)]="w1" />
+        <label tuiLabel="width" class="child">
+            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="w2" />
         </label>
-        <label>
-            <span>height:</span>
-            <input type="range" min="0" max="150" [(ngModel)]="h1" />
+        <label tuiLabel="height" class="child">
+            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="h2" />
         </label>
-        <label>
-            <span>color:</span>
-            <input type="color" [(ngModel)]="c1" />
-        </label>
+        <div class="row">
+            <tui-select
+                tuiTextfieldSize="m"
+                class="child"
+                [(ngModel)]="globalCompositeOperation"
+            >
+                Overlay
+                <tui-data-list-wrapper
+                    *tuiDataList
+                    [items]="items"
+                ></tui-data-list-wrapper>
+            </tui-select>
+            <tui-input-color
+                tuiTextfieldSize="m"
+                class="child"
+                [(ngModel)]="c2"
+            >
+                Color
+            </tui-input-color>
+        </div>
     </fieldset>
+
     <fieldset>
-        <label>
-            <span>x:</span>
-            <input type="range" min="0" max="300" [(ngModel)]="x2" />
-        </label>
-        <label>
-            <span>y:</span>
-            <input type="range" min="0" max="150" [(ngModel)]="y2" />
-        </label>
-        <label>
-            <span>width:</span>
-            <input type="range" min="0" max="300" [(ngModel)]="w2" />
-        </label>
-        <label>
-            <span>height:</span>
-            <input type="range" min="0" max="150" [(ngModel)]="h2" />
-        </label>
-        <label>
-            <span>color:</span>
-            <input type="color" [(ngModel)]="c2" />
-        </label>
-        <label>
-            <span>overlay:</span>
-            <select [(ngModel)]="globalCompositeOperation">
-                <option ngValue="source-over">source-over</option>
-                <option ngValue="multiply">multiply</option>
-                <option ngValue="screen">screen</option>
-            </select>
-        </label>
+        <tui-input-files
+            class="child"
+            [ngModel]="file"
+            (ngModelChange)="onFile($event)"
+        >
+            <input tuiInputFiles accept="image/*" />
+        </tui-input-files>
+
+        <tui-expand class="child" [expanded]="!!file">
+            <div class="controls">
+                <label tuiLabel="dX">
+                    <input
+                        tuiSlider
+                        type="range"
+                        min="0"
+                        max="300"
+                        [(ngModel)]="dX"
+                    />
+                </label>
+
+                <label tuiLabel="dY">
+                    <input
+                        tuiSlider
+                        type="range"
+                        min="0"
+                        max="150"
+                        [(ngModel)]="dY"
+                    />
+                </label>
+
+                <label tuiLabel="dWidth">
+                    <input
+                        tuiSlider
+                        type="range"
+                        min="0"
+                        max="300"
+                        [(ngModel)]="dWidth"
+                    />
+                </label>
+
+                <label tuiLabel="dHeight">
+                    <input
+                        tuiSlider
+                        type="range"
+                        min="0"
+                        max="150"
+                        [(ngModel)]="dHeight"
+                    />
+                </label>
+            </div>
+        </tui-expand>
     </fieldset>
 </section>
+
 <canvas waCanvas2d>
     <canvas-draw-image
         [image]="image"
@@ -87,7 +113,7 @@
         [dWidth]="dWidth"
         [dHeight]="dHeight"
     ></canvas-draw-image>
-    <canvas-path [fillStyle]="c1">
+    <canvas-path fillStyle="#f00">
         <canvas-rect [x]="x1" [y]="y1" [width]="w1" [height]="h1"></canvas-rect>
     </canvas-path>
     <canvas-path
@@ -101,35 +127,46 @@
 
 <section>
     <fieldset>
-        <label>
-            <span>Pac-Man mouth:</span>
-            <input type="range" min="0.01" max="45" [(ngModel)]="mouth" />
+        <label tuiLabel="Pac-Man mouth" class="child">
+            <input
+                tuiSlider
+                type="range"
+                min="0.01"
+                max="45"
+                [(ngModel)]="mouth"
+            />
         </label>
-        <label>
-            <span>Pac-Man shadow blur:</span>
-            <input type="range" min="0" max="10" [(ngModel)]="blur" />
+        <label tuiLabel="Pac-Man shadow blur" class="child">
+            <input tuiSlider type="range" min="0" max="10" [(ngModel)]="blur" />
         </label>
-        <label>
-            <span>Pac-Man shadow distance:</span>
-            <input type="range" min="0" max="10" [(ngModel)]="offset" />
+        <label tuiLabel="Pac-Man shadow distance" class="child">
+            <input
+                tuiSlider
+                type="range"
+                min="0"
+                max="10"
+                [(ngModel)]="offset"
+            />
         </label>
     </fieldset>
     <fieldset>
-        <label>
-            <span>Text:</span>
-            <input type="text" [(ngModel)]="text" />
-        </label>
-        <label>
-            <span>Font:</span>
-            <input type="text" [(ngModel)]="font" />
-        </label>
-        <label>
-            <span>color:</span>
-            <input type="color" [(ngModel)]="color" />
-        </label>
+        <tui-input tuiTextfieldSize="m" class="child" [(ngModel)]="text">
+            Text
+        </tui-input>
+        <tui-input tuiTextfieldSize="m" class="child" [(ngModel)]="font">
+            Font
+        </tui-input>
+        <tui-input-color tuiTextfieldSize="m" class="child" [(ngModel)]="color">
+            color
+        </tui-input-color>
     </fieldset>
 </section>
-<canvas waCanvas2d>
+<canvas
+    waCanvas2d
+    [width]="600"
+    [height]="300"
+    [transform]="'scale(2, 2)' | transform"
+>
     <canvas-path
         fillStyle="gold"
         shadowColor="grey"

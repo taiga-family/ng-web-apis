@@ -15,7 +15,6 @@ import {AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
-// @dynamic
 @Directive({
     selector: '[waAudioDestinationNode]',
     exportAs: 'AudioNode',

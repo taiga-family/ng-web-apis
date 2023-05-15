@@ -3,6 +3,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 @Component({
     selector: `audio-page`,
     templateUrl: `./canvas-page.component.html`,
+    styleUrls: [`./canvas-page.component.css`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CanvasPageComponent {
@@ -10,7 +11,6 @@ export class CanvasPageComponent {
     y1 = 20;
     w1 = 100;
     h1 = 50;
-    c1 = '#ff0000';
 
     x2 = 50;
     y2 = 50;
@@ -33,7 +33,10 @@ export class CanvasPageComponent {
     text = 'PAC-MAN';
     color = '#ffa500';
 
+    file: File | null = null;
+
     readonly image = new Image();
+    readonly items = ['source-over', 'multiply', 'screen'];
 
     constructor() {
         this.image.onload = () => {
@@ -41,9 +44,11 @@ export class CanvasPageComponent {
         };
     }
 
-    onFile(input: HTMLInputElement) {
-        if (input.files) {
-            this.image.src = URL.createObjectURL(input.files[0]);
+    onFile(file: File) {
+        this.file = file;
+
+        if (file) {
+            this.image.src = URL.createObjectURL(file);
         }
     }
 }

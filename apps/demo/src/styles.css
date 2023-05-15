@@ -15,20 +15,18 @@ body {
 
 header {
     display: flex;
-    margin: 0 auto;
-    padding: 40px 10px;
     border-bottom: 1px solid gainsboro;
 }
 
 main {
     flex: 1;
-    padding: 40px 0;
-    margin: auto;
 }
 
 header,
 main {
     max-width: 1200px;
+    padding: 40px 20px;
+    margin: 0 auto;
 }
 
 footer {

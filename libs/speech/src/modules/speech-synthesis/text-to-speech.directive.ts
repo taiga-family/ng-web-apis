@@ -1,7 +1,6 @@
 import {Directive, EventEmitter, Inject, Input, OnChanges, Output} from '@angular/core';
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
-// @dynamic
 @Directive({
     selector: '[waTextToSpeech]',
 })

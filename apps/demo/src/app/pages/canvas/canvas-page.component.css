@@ -4,31 +4,43 @@
     margin: 0 auto;
 }
 
+.row {
+    display: flex;
+    min-width: 100%;
+    gap: 12px;
+}
+
+.child {
+    flex: 1;
+    min-width: 100px;
+}
+
+.controls {
+    display: flex;
+    flex-direction: column;
+    gap: 12px;
+}
+
+input {
+    margin: 0;
+}
+
 fieldset {
     display: flex;
+    flex-wrap: wrap;
     border: none;
     background: whitesmoke;
-    padding: 1px 12px;
-    border-radius: 6px;
-    margin: 12px;
-}
-
-section {
-    display: flex;
-    margin: 12px;
-}
-
-label {
-    display: flex;
-    justify-content: space-between;
-    margin: 4px 0;
+    padding: 12px;
+    margin: 12px 0;
+    gap: 12px;
+    border-radius: 1.25rem;
 }
 
 canvas {
     display: block;
     width: 300px;
     height: 150px;
-    margin: 0 auto;
+    margin: 0 auto 40px;
     border-radius: 6px;
     box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
 }

@@ -2,7 +2,6 @@ import {Directive, Inject, OnDestroy} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
-// @dynamic
 @Directive({
     selector: '[waChannel]',
     exportAs: 'AudioNode',

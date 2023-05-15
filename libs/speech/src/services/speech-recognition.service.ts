@@ -3,7 +3,6 @@ import {SPEECH_RECOGNITION} from '@ng-web-apis/common';
 import {Observable} from 'rxjs';
 import {SPEECH_RECOGNITION_MAX_ALTERNATIVES} from '../tokens/speech-recognition-max-alternatives';
 
-// @dynamic
 @Injectable({
     providedIn: 'root',
 })

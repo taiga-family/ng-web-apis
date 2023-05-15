@@ -1,15 +1,10 @@
-import {Directive, forwardRef, Input} from '@angular/core';
+import {Directive, Input} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
-import {CANVAS_METHOD} from '../tokens/canvas-method';
+import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     selector: 'canvas-bezier-curve-to',
-    providers: [
-        {
-            provide: CANVAS_METHOD,
-            useExisting: forwardRef(() => BezierCurveToDirective),
-        },
-    ],
+    providers: [asCanvasMethod(BezierCurveToDirective)],
 })
 export class BezierCurveToDirective implements CanvasMethod {
     @Input()

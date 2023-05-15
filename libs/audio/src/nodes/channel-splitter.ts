@@ -12,7 +12,6 @@ import {AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
-// @dynamic
 @Directive({
     selector: '[waChannelSplitterNode]',
     exportAs: 'AudioNode',
@@ -25,7 +24,7 @@ import {connect} from '../utils/connect';
     ],
 })
 export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDestroy {
-    @ContentChildren(AUDIO_NODE as any, {descendants: false})
+    @ContentChildren(AUDIO_NODE, {descendants: false})
     set channels(channels: QueryList<AudioNode | null>) {
         this.disconnect();
         channels

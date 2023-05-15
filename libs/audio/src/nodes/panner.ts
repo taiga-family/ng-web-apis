@@ -15,7 +15,6 @@ import {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
-// @dynamic
 @Directive({
     selector: '[waPannerNode]',
     exportAs: 'AudioNode',

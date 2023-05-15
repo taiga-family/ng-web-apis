@@ -14,7 +14,7 @@ export class PathDirective {
     @Input()
     fillRule?: CanvasFillRule;
 
-    @ContentChildren(CANVAS_METHOD as any)
+    @ContentChildren(CANVAS_METHOD)
     private readonly pathSteps: QueryList<CanvasMethod> = new QueryList();
 
     constructor(@Inject(DrawService) method: CanvasMethod) {

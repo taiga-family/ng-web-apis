@@ -90,6 +90,7 @@
         "@nrwl/tao": "15.9.3",
         "@nrwl/workspace": "15.9.3",
         "@taiga-ui/addon-doc": "3.26.0",
+        "@taiga-ui/addon-editor": "3.26.0",
         "@taiga-ui/addon-mobile": "3.26.0",
         "@taiga-ui/cdk": "3.26.0",
         "@taiga-ui/core": "3.26.0",

@@ -1,18 +1,12 @@
 import {Directive, Input} from '@angular/core';
-import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
+import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
         'canvas-draw-image[shadowBlur],canvas-draw-image[shadowColor],canvas-draw-image[shadowOffsetX],canvas-draw-image[shadowOffsetY],' +
         'canvas-path[shadowBlur],canvas-path[shadowColor],canvas-path[shadowOffsetX],canvas-path[shadowOffsetY],' +
         'canvas-text[shadowBlur],canvas-text[shadowColor],canvas-text[shadowOffsetX],canvas-text[shadowOffsetY]',
-    providers: [
-        {
-            provide: CANVAS_PROPERTIES,
-            useExisting: ShadowStylesDirective,
-            multi: true,
-        },
-    ],
+    providers: [asCanvasProperty(ShadowStylesDirective)],
 })
 export class ShadowStylesDirective implements CanvasShadowStyles {
     @Input()

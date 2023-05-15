@@ -1,27 +1,15 @@
 import {Directive, Input} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
-import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
+import {asCanvasProperty} from '../tokens/canvas-properties';
 
-// TODO: Replace Pick with Omit
 @Directive({
     selector:
         'canvas-path[lineCap],canvas-path[lineDashOffset],canvas-path[lineJoin],canvas-path[lineWidth],canvas-path[lineDash],canvas-path[miterLimit],' +
         'canvas-text[lineCap],canvas-text[lineDashOffset],canvas-text[lineJoin],canvas-text[lineWidth],canvas-text[lineDash],canvas-text[miterLimit]',
-    providers: [
-        {
-            provide: CANVAS_PROPERTIES,
-            useExisting: PathDrawingStylesDirective,
-            multi: true,
-        },
-    ],
+    providers: [asCanvasProperty(PathDrawingStylesDirective)],
 })
 export class PathDrawingStylesDirective
-    implements
-        CanvasMethod,
-        Pick<
-            CanvasPathDrawingStyles,
-            Exclude<keyof CanvasPathDrawingStyles, 'getLineDash' | 'setLineDash'>
-        >
+    implements CanvasMethod, Omit<CanvasPathDrawingStyles, 'getLineDash' | 'setLineDash'>
 {
     @Input()
     lineCap: CanvasLineCap = 'butt';

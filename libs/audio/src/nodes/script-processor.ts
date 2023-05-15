@@ -12,7 +12,6 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
 import {connect} from '../utils/connect';
 
-// @dynamic
 @Directive({
     selector: '[waScriptProcessorNode]',
     exportAs: 'AudioNode',

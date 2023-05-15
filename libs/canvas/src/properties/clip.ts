@@ -1,20 +1,14 @@
 import {Directive, Input} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {ClipPathComponent} from '../methods/clip-path';
-import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
+import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
         'canvas-draw-image[clip],canvas-draw-image[clipFillRule],' +
         'canvas-path[clip],canvas-path[clipFillRule],' +
         'canvas-text[clip],canvas-text[clipFillRule]',
-    providers: [
-        {
-            provide: CANVAS_PROPERTIES,
-            useExisting: ClipDirective,
-            multi: true,
-        },
-    ],
+    providers: [asCanvasProperty(ClipDirective)],
 })
 export class ClipDirective implements CanvasMethod {
     @Input()

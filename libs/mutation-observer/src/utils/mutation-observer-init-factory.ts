@@ -4,13 +4,10 @@ import {booleanAttribute} from './boolean-attribute';
 export function mutationObserverInitFactory({
     nativeElement,
 }: ElementRef<Element>): MutationObserverInit {
-    const attributeFilterAttr = nativeElement.getAttribute('attributeFilter');
-    const attributeFilter = attributeFilterAttr
-        ? attributeFilterAttr.split(',').map(attr => attr.trim())
-        : undefined;
+    const attributeFilter = nativeElement.getAttribute('attributeFilter');
 
     return {
-        attributeFilter,
+        attributeFilter: attributeFilter?.split(',').map(attr => attr.trim()),
         attributeOldValue: booleanAttribute(nativeElement, 'attributeOldValue'),
         attributes: booleanAttribute(nativeElement, 'attributes'),
         characterData: booleanAttribute(nativeElement, 'characterData'),

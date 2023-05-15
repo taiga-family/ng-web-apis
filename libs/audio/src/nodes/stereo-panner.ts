@@ -15,7 +15,6 @@ import {fallbackAudioParam} from '../utils/fallback-audio-param';
 import {parse} from '../utils/parse';
 import {processAudioParam} from '../utils/process-audio-param';
 
-// @dynamic
 @Directive({
     selector: '[waStereoPannerNode]',
     exportAs: 'AudioNode',

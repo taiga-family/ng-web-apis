@@ -14,7 +14,6 @@ import {AUDIO_NODE} from '../tokens/audio-node';
 import {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
-// @dynamic
 @Directive({
     selector: '[waConstantSourceNode]',
     exportAs: 'AudioNode',

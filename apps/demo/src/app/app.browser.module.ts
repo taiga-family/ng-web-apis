@@ -5,7 +5,13 @@ import {AppRoutingModule} from './app.routes';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {TUI_ICONS_PATH, tuiIconsPathFactory, TuiRootModule} from '@taiga-ui/core';
+import {
+    TUI_ICONS_PATH,
+    tuiIconsPathFactory,
+    TuiLinkModule,
+    TuiRootModule,
+    TuiSvgModule,
+} from '@taiga-ui/core';
 
 @NgModule({
     imports: [
@@ -16,6 +22,8 @@ import {TUI_ICONS_PATH, tuiIconsPathFactory, TuiRootModule} from '@taiga-ui/core
         TuiRootModule,
         AppRoutingModule,
         HighlightModule,
+        TuiLinkModule,
+        TuiSvgModule,
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent],

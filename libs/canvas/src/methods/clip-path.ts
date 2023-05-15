@@ -7,6 +7,6 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
     template: '<ng-content></ng-content>',
 })
 export class ClipPathComponent {
-    @ContentChildren(CANVAS_METHOD as any)
+    @ContentChildren(CANVAS_METHOD)
     readonly pathSteps: QueryList<CanvasMethod> = new QueryList();
 }

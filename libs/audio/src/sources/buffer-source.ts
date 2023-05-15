@@ -18,7 +18,6 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
-// @dynamic
 @Directive({
     selector: '[waAudioBufferSourceNode]',
     exportAs: 'AudioNode',

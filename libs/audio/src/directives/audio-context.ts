@@ -2,7 +2,6 @@ import {Attribute, Directive, forwardRef, OnDestroy} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {latencyHintFactory} from '../utils/latency-hint-factory';
 
-// @dynamic
 @Directive({
     selector: '[waAudioContext]',
     providers: [

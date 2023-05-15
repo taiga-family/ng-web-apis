@@ -1,18 +1,12 @@
 import {Directive, Input} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
-import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
+import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
         'canvas-path[fillStyle],canvas-path[strokeStyle],' +
         'canvas-text[fillStyle],canvas-text[strokeStyle]',
-    providers: [
-        {
-            provide: CANVAS_PROPERTIES,
-            useExisting: FillStrokeStylesDirective,
-            multi: true,
-        },
-    ],
+    providers: [asCanvasProperty(FillStrokeStylesDirective)],
 })
 export class FillStrokeStylesDirective implements CanvasMethod {
     @Input()

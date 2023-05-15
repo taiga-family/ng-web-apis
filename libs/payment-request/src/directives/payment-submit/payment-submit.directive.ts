@@ -7,7 +7,6 @@ import {PAYMENT_OPTIONS} from '../../tokens/payment-options';
 import {isError} from '../../utils/isError';
 import {PaymentDirective} from '../payment/payment.directive';
 
-// @dynamic
 @Directive({
     selector: '[waPaymentSubmit]',
 })

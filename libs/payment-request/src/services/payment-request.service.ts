@@ -3,7 +3,6 @@ import {PAYMENT_METHODS} from '../tokens/payment-methods';
 import {PAYMENT_OPTIONS} from '../tokens/payment-options';
 import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
-// @dynamic
 @Injectable({
     providedIn: 'root',
 })

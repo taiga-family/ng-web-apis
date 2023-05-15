@@ -1,7 +1,6 @@
 import {Inject, Pipe, PipeTransform} from '@angular/core';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
-// @dynamic
 @Pipe({
     name: 'pattern',
 })

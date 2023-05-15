@@ -57,8 +57,7 @@ These are basic directives to draw things on `canvas`.
 - [`canvas-draw-image`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/drawImage)
 - [`canvas-text`](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_text)
 - [`canvas-path`](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Drawing_shapes)
-  - You can use `path` input to pass [`Path2D`](https://developer.mozilla.org/en-US/docs/Web/API/Path2D) if you do not
-    need IE support
+  - You can use `path` input to pass [`Path2D`](https://developer.mozilla.org/en-US/docs/Web/API/Path2D)
 
 ### Properties
 
@@ -92,6 +91,7 @@ value after drawing is performed so it will not interfere with the rest of pictu
 - [`shadowColor`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowColor)
 - [`shadowOffsetX`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetX)
 - [`shadowOffsetY`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/shadowOffsetY)
+- [`transform`](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/setTransform)
 
 ### Path
 
@@ -155,14 +155,8 @@ operations:
 - `path` to create [Path2D](https://developer.mozilla.org/en-US/docs/Web/API/Path2D)
 - `pattern` to create [CanvasPattern](https://developer.mozilla.org/en-US/docs/Web/API/CanvasPattern)
 - `rad` to convert degrees into radians
-
-## TODO
-
-- [Tranformations](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API/Tutorial/Transformations):
-  - [scale](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/scale)
-  - [rotate](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/rotate)
-  - [translate](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/translate)
-  - [transform](https://developer.mozilla.org/en-US/docs/Web/API/CanvasRenderingContext2D/transform)
+- `transform` to convert CSS transform string into
+  [DOMMatrix](https://developer.mozilla.org/en-US/docs/Web/API/DOMMatrix/DOMMatrix)
 
 ## Notes
 
