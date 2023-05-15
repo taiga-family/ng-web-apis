@@ -5,7 +5,6 @@ import {GEOLOCATION} from '../tokens/geolocation';
 import {POSITION_OPTIONS} from '../tokens/geolocation-options';
 import {GEOLOCATION_SUPPORT} from '../tokens/geolocation-support';
 
-// TODO: Replace type with GeolocationPosition after bumping TS to 4.1.3+
 @Injectable({
     providedIn: 'root',
 })
@@ -13,8 +12,7 @@ export class GeolocationService extends Observable<GeolocationPosition> {
     constructor(
         @Inject(GEOLOCATION) geolocationRef: Geolocation,
         @Inject(GEOLOCATION_SUPPORT) geolocationSupported: boolean,
-        @Inject(POSITION_OPTIONS)
-        positionOptions: PositionOptions,
+        @Inject(POSITION_OPTIONS) positionOptions: PositionOptions,
     ) {
         let watchPositionId = 0;
 

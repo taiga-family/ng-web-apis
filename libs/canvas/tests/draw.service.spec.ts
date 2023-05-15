@@ -14,7 +14,7 @@ describe('DrawService', () => {
     } as unknown as NgZone;
 
     it('calls hooks with context', () => {
-        const service = new DrawService([prop], context, of(0), zone);
+        const service = new DrawService([], [prop], context, of(0), zone);
 
         expect(service).toBeTruthy();
 
