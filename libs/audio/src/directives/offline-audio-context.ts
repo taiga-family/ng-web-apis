@@ -1,7 +1,6 @@
 import {Attribute, Directive, EventEmitter, forwardRef, Output} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
-// @dynamic
 @Directive({
     selector: '[waOfflineAudioContext][length][sampleRate]',
     providers: [

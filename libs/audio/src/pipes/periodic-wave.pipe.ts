@@ -1,7 +1,6 @@
 import {Inject, Pipe, PipeTransform} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
-// @dynamic
 @Pipe({
     name: 'waPeriodicWave',
 })

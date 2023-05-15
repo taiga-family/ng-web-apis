@@ -6,7 +6,6 @@ import {FEEDBACK_COEFFICIENTS} from '../tokens/feedback-coefficients';
 import {FEEDFORWARD_COEFFICIENTS} from '../tokens/feedforward-coefficients';
 import {connect} from '../utils/connect';
 
-// @dynamic
 @Directive({
     selector: '[waIIRFilterNode]',
     exportAs: 'AudioNode',

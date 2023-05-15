@@ -4,7 +4,6 @@ import {AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {MEDIA_STREAM} from '../tokens/media-stream';
 
-// @dynamic
 @Directive({
     selector: '[waMediaStreamAudioSourceNode]',
     exportAs: 'AudioNode',

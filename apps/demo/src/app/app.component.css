@@ -1,3 +1,21 @@
 .logo {
     cursor: pointer;
 }
+
+.back {
+    font-size: 1rem;
+    font-weight: bold;
+    margin-top: 0.5rem;
+    display: block;
+}
+
+.back.active {
+    display: none;
+}
+
+.back tui-svg {
+    height: 1rem;
+    width: 1rem;
+    margin-right: 0.25rem;
+    vertical-align: -0.1rem;
+}

@@ -5,7 +5,6 @@ export function isSaid(phrase: string): (results: SpeechRecognitionResult[]) => 
         !!results.find(
             result =>
                 result.isFinal &&
-                result[0] &&
-                result[0].transcript.toLowerCase().trim() === lowercased,
+                result[0]?.transcript.toLowerCase().trim() === lowercased,
         );
 }

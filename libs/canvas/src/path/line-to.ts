@@ -1,15 +1,10 @@
-import {Directive, forwardRef, Input} from '@angular/core';
+import {Directive, Input} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
-import {CANVAS_METHOD} from '../tokens/canvas-method';
+import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     selector: 'canvas-line-to',
-    providers: [
-        {
-            provide: CANVAS_METHOD,
-            useExisting: forwardRef(() => LineToDirective),
-        },
-    ],
+    providers: [asCanvasMethod(LineToDirective)],
 })
 export class LineToDirective implements CanvasMethod {
     @Input()

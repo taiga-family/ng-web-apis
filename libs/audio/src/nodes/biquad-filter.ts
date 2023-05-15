@@ -15,7 +15,6 @@ import {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
-// @dynamic
 @Directive({
     selector: '[waBiquadFilterNode]',
     exportAs: 'AudioNode',

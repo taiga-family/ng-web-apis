@@ -1,7 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {LOCAL_STORAGE, WINDOW} from '@ng-web-apis/common';
 
-// @dynamic
 @Injectable({
     providedIn: 'root',
 })

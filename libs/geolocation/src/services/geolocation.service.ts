@@ -6,7 +6,6 @@ import {POSITION_OPTIONS} from '../tokens/geolocation-options';
 import {GEOLOCATION_SUPPORT} from '../tokens/geolocation-support';
 
 // TODO: Replace type with GeolocationPosition after bumping TS to 4.1.3+
-// @dynamic
 @Injectable({
     providedIn: 'root',
 })

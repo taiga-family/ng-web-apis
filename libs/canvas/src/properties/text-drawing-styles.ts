@@ -1,17 +1,11 @@
 import {Directive, Input} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
-import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
+import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
         'canvas-text[direction],canvas-text[font],canvas-text[textAlign],canvas-text[textBaseline]',
-    providers: [
-        {
-            provide: CANVAS_PROPERTIES,
-            useExisting: TextDrawingStylesDirective,
-            multi: true,
-        },
-    ],
+    providers: [asCanvasProperty(TextDrawingStylesDirective)],
 })
 export class TextDrawingStylesDirective implements CanvasMethod, CanvasTextDrawingStyles {
     @Input()

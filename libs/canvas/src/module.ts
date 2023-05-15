@@ -17,6 +17,7 @@ import {GradientPipe} from './pipes/gradient.pipe';
 import {PathPipe} from './pipes/path.pipe';
 import {PatternPipe} from './pipes/pattern.pipe';
 import {RadPipe} from './pipes/rad.pipe';
+import {TransformPipe} from './pipes/transform.pipe';
 import {ClipDirective} from './properties/clip';
 import {CompositingDirective} from './properties/compositing';
 import {FillStrokeStylesDirective} from './properties/fill-stroke-styles';
@@ -25,6 +26,7 @@ import {ImageSmoothingDirective} from './properties/image-smoothing';
 import {PathDrawingStylesDirective} from './properties/path-drawing-styles';
 import {ShadowStylesDirective} from './properties/shadow-styles';
 import {TextDrawingStylesDirective} from './properties/text-drawing-styles';
+import {TransformDirective} from './properties/transform';
 
 @NgModule({
     declarations: [
@@ -53,11 +55,13 @@ import {TextDrawingStylesDirective} from './properties/text-drawing-styles';
         PathDrawingStylesDirective,
         ShadowStylesDirective,
         TextDrawingStylesDirective,
+        TransformDirective,
 
         GradientPipe,
         PathPipe,
         PatternPipe,
         RadPipe,
+        TransformPipe,
     ],
     exports: [
         Canvas2dDirective,
@@ -90,6 +94,8 @@ import {TextDrawingStylesDirective} from './properties/text-drawing-styles';
         PathPipe,
         PatternPipe,
         RadPipe,
+        TransformDirective,
+        TransformPipe,
     ],
 })
 export class CanvasModule {}

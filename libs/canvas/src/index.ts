@@ -30,6 +30,7 @@ export * from './pipes/gradient.pipe';
 export * from './pipes/path.pipe';
 export * from './pipes/pattern.pipe';
 export * from './pipes/rad.pipe';
+export * from './pipes/transform.pipe';
 
 /* Properties */
 export * from './properties/compositing';
@@ -40,6 +41,7 @@ export * from './properties/image-smoothing';
 export * from './properties/path-drawing-styles';
 export * from './properties/shadow-styles';
 export * from './properties/text-drawing-styles';
+export * from './properties/transform';
 
 /* Services */
 export * from './services/draw.service';

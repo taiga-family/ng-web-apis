@@ -1,4 +1,4 @@
-import {InjectionToken} from '@angular/core';
+import {ExistingProvider, InjectionToken, Type} from '@angular/core';
 import {CanvasMethod} from '../interfaces/canvas-method';
 
 export const CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
@@ -7,3 +7,11 @@ export const CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
         factory: () => [],
     },
 );
+
+export function asCanvasProperty(useExisting: Type<unknown>): ExistingProvider {
+    return {
+        provide: CANVAS_PROPERTIES,
+        multi: true,
+        useExisting,
+    };
+}

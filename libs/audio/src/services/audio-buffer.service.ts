@@ -1,7 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
-// @dynamic
 @Injectable({
     providedIn: 'root',
 })

@@ -12,7 +12,6 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
-// @dynamic
 @Directive({
     selector: '[waChannelMergerNode]',
     exportAs: 'AudioNode',

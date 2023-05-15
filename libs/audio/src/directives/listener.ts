@@ -5,7 +5,6 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {AudioParamInput} from '../types/audio-param-input';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
-// @dynamic
 @Directive({
     selector: '[waAudioContext],[waOfflineAudioContext][length][sampleRate]',
 })

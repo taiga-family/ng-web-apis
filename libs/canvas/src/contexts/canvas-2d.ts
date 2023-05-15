@@ -21,7 +21,6 @@ export function canvasContextFactory(
     return context as CanvasRenderingContext2D;
 }
 
-// @dynamic
 @Directive({
     selector: 'canvas[waCanvas2d]',
     providers: [
