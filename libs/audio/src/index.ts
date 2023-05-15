@@ -35,7 +35,6 @@ export * from './sources/buffer-source';
 export * from './sources/constant-source';
 export * from './sources/media-source';
 export * from './sources/media-stream-source';
-export * from './sources/media-stream-track-source';
 export * from './sources/oscillator';
 
 export * from './tokens/audio-context';
@@ -46,7 +45,6 @@ export * from './tokens/audio-worklet-support';
 export * from './tokens/feedback-coefficients';
 export * from './tokens/feedforward-coefficients';
 export * from './tokens/media-stream';
-export * from './tokens/media-stream-track';
 export * from './tokens/support';
 
 export * from './types/audio-param-input';

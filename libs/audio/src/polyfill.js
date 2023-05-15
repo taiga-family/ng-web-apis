@@ -26,5 +26,3 @@ windowRef.MediaStreamAudioDestinationNode =
     windowRef.MediaStreamAudioDestinationNode || function () {};
 windowRef.MediaStreamAudioSourceNode =
     windowRef.MediaStreamAudioSourceNode || function () {};
-windowRef.MediaStreamTrackAudioSourceNode =
-    windowRef.MediaStreamTrackAudioSourceNode || function () {};
