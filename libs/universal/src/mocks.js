@@ -27,7 +27,6 @@
     global.ConstantSourceNode = class {};
     global.MediaElementAudioSourceNode = class {};
     global.MediaStreamAudioSourceNode = class {};
-    global.MediaStreamTrackAudioSourceNode = class {};
     global.OscillatorNode = class {};
     global.MediaStreamAudioDestinationNode = class {};
     global.AnalyserNode = class {};

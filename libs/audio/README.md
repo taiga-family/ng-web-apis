@@ -98,7 +98,6 @@ You can use following audio nodes through directives of the same name (**prefixe
 
 - [MediaElementAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaElementAudioSourceNode)
 - [MediaStreamAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode)
-- [MediaStreamTrackAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrackAudioSourceNode)
 - [OscillatorNode](https://developer.mozilla.org/en-US/docs/Web/API/OscillatorNode)
 
   💡 Additionally supports empty `autoplay` attribute similar to `audio` tag so it would start playing immediately
@@ -327,8 +326,6 @@ envelope = [
   [IIRFilterNode](https://developer.mozilla.org/en-US/docs/Web/API/IIRFilterNode)
 - Provide `MEDIA_STREAM` token to be able to create
   [MediaStreamAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode)
-- Provide `MEDIA_STREAM_TRACK` token to be able to create
-  [MediaStreamTrackAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamTrackAudioSourceNode)
 - All node directives provide underlying [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) as
   `AUDIO_NODE` token
 - Use `AUDIO_WORKLET_PROCESSORS` token to declare array of

@@ -26,7 +26,6 @@ import {WebAudioBufferSource} from './sources/buffer-source';
 import {WebAudioConstantSource} from './sources/constant-source';
 import {WebAudioMediaSource} from './sources/media-source';
 import {WebAudioMediaStreamSource} from './sources/media-stream-source';
-import {WebAudioMediaStreamTrackSource} from './sources/media-stream-track-source';
 import {WebAudioOscillator} from './sources/oscillator';
 
 @NgModule({
@@ -42,7 +41,6 @@ import {WebAudioOscillator} from './sources/oscillator';
         WebAudioConstantSource,
         WebAudioMediaSource,
         WebAudioMediaStreamSource,
-        WebAudioMediaStreamTrackSource,
         WebAudioOscillator,
         WebAudioAnalyser,
         WebAudioBiquadFilter,
@@ -73,7 +71,6 @@ import {WebAudioOscillator} from './sources/oscillator';
         WebAudioConstantSource,
         WebAudioMediaSource,
         WebAudioMediaStreamSource,
-        WebAudioMediaStreamTrackSource,
         WebAudioOscillator,
         WebAudioAnalyser,
         WebAudioBiquadFilter,
