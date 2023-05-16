@@ -1,4 +1,7 @@
 :host {
+    position: absolute;
+    width: 100vw;
+    left: 0;
     perspective: 150vw;
     user-select: none;
     flex-direction: column;
@@ -8,20 +11,5 @@
         & {
             perspective: 250vw;
         }
-    }
-}
-
-.start {
-    display: block;
-    margin: 0 auto;
-    background: gainsboro;
-    border: none;
-    padding: 1em 2em;
-    border-radius: 0.5em;
-    cursor: pointer;
-    transition: background 0.3s;
-
-    &:hover {
-        background: whitesmoke;
     }
 }

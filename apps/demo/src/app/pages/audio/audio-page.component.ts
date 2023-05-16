@@ -4,6 +4,7 @@ import {AUDIO_CONTEXT} from '@ng-web-apis/audio';
 @Component({
     selector: `audio-page`,
     templateUrl: `./audio-page.component.html`,
+    styleUrls: [`./audio-page.component.css`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AudioPageComponent {
@@ -37,6 +38,21 @@ export class AudioPageComponent {
 
     started = false;
 
+    fftSize = 2048;
+
+    path = '';
+
+    readonly items = [
+        'lowpass',
+        'highpass',
+        'bandpass',
+        'lowshelf',
+        'highshelf',
+        'peaking',
+        'notch',
+        'allpass',
+    ];
+
     readonly real = [0, 0, 1, 0, 1];
 
     @ViewChild('chain')
@@ -53,6 +69,10 @@ export class AudioPageComponent {
         this.context.resume();
     }
 
+    getTransform({width, height}: HTMLCanvasElement): string {
+        return `scale(${width / this.fftSize}, ${height / 2})`;
+    }
+
     onCurveChange(distortion: number) {
         this.distortion = distortion;
         this.curve = makeDistortionCurve(distortion);
@@ -67,39 +87,11 @@ export class AudioPageComponent {
         }
     }
 
-    onTimeDomain(array: Uint8Array, canvas: HTMLCanvasElement) {
-        const canvasCtx = canvas.getContext('2d');
-
-        if (!canvasCtx) {
-            return;
-        }
-
-        canvasCtx.fillStyle = 'rgb(200, 200, 200)';
-        canvasCtx.fillRect(0, 0, canvas.width, canvas.height);
-
-        canvasCtx.lineWidth = 2;
-        canvasCtx.strokeStyle = 'rgb(0, 0, 0)';
-
-        canvasCtx.beginPath();
-
-        const sliceWidth = Number(canvas.width) / array.length;
-        let x = 0;
-
-        for (let i = 0; i < array.length; i++) {
-            const v = array[i] / 128.0;
-            const y = (v * canvas.height) / 2;
-
-            if (i === 0) {
-                canvasCtx.moveTo(x, y);
-            } else {
-                canvasCtx.lineTo(x, y);
-            }
-
-            x += sliceWidth;
-        }
-
-        canvasCtx.lineTo(canvas.width, canvas.height / 2);
-        canvasCtx.stroke();
+    onTimeDomain(array: Uint8Array) {
+        this.path = array.reduce(
+            (path, value, index) => `${path} L ${index} ${value / 128}`,
+            'M 0 0',
+        );
     }
 }
 

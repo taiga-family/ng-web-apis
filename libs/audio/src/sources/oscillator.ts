@@ -2,7 +2,6 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    forwardRef,
     Inject,
     Input,
     OnDestroy,
@@ -10,7 +9,7 @@ import {
 } from '@angular/core';
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
@@ -20,12 +19,7 @@ import {parse} from '../utils/parse';
     selector: '[waOscillatorNode]',
     exportAs: 'AudioNode',
     inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioOscillator),
-        },
-    ],
+    providers: [asAudioNode(WebAudioOscillator)],
 })
 export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     @Input()

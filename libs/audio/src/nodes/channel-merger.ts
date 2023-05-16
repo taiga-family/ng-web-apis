@@ -2,26 +2,20 @@ import {
     Attribute,
     ContentChildren,
     Directive,
-    forwardRef,
     Inject,
     OnDestroy,
     QueryList,
 } from '@angular/core';
 import {WebAudioChannel} from '../directives/channel';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
     selector: '[waChannelMergerNode]',
     exportAs: 'AudioNode',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioChannelMerger),
-        },
-    ],
+    providers: [asAudioNode(WebAudioChannelMerger)],
 })
 export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestroy {
     @ContentChildren(WebAudioChannel, {descendants: false})

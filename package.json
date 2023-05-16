@@ -127,6 +127,7 @@
         "markdown-it": "12.3.2",
         "ng-packagr": "12.2.6",
         "ngx-highlightjs": "4.1.4",
+        "ngx-markdown": "10.1.1",
         "prettier": "2.5.1",
         "rxjs": "7.5.2",
         "standard-version": "9.3.2",

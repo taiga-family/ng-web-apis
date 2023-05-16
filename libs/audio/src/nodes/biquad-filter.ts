@@ -1,15 +1,7 @@
-import {
-    Attribute,
-    Directive,
-    forwardRef,
-    Inject,
-    Input,
-    OnDestroy,
-    SkipSelf,
-} from '@angular/core';
+import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
@@ -19,12 +11,7 @@ import {parse} from '../utils/parse';
     selector: '[waBiquadFilterNode]',
     exportAs: 'AudioNode',
     inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioBiquadFilter),
-        },
-    ],
+    providers: [asAudioNode(WebAudioBiquadFilter)],
 })
 export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy {
     @Input('detune')

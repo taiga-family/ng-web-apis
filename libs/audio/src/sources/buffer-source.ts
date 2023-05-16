@@ -2,7 +2,6 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    forwardRef,
     Inject,
     Input,
     OnDestroy,
@@ -13,7 +12,7 @@ import {switchMap} from 'rxjs/operators';
 import {audioParam} from '../decorators/audio-param';
 import {AudioBufferService} from '../services/audio-buffer.service';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
@@ -29,12 +28,7 @@ import {parse} from '../utils/parse';
         'channelCountMode',
         'channelInterpretation',
     ],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioBufferSource),
-        },
-    ],
+    providers: [asAudioNode(WebAudioBufferSource)],
 })
 export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDestroy {
     @Input('buffer')

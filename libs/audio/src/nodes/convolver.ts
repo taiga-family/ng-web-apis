@@ -1,9 +1,9 @@
-import {Directive, forwardRef, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
 import {of, Subject} from 'rxjs';
 import {switchMap} from 'rxjs/operators';
 import {AudioBufferService} from '../services/audio-buffer.service';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
@@ -11,12 +11,7 @@ import {connect} from '../utils/connect';
     selector: '[waConvolverNode]',
     exportAs: 'AudioNode',
     inputs: ['normalize', 'channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioConvolver),
-        },
-    ],
+    providers: [asAudioNode(WebAudioConvolver)],
 })
 export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
     @Input('buffer')

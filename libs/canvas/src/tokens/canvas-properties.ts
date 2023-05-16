@@ -8,7 +8,7 @@ export const CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
     },
 );
 
-export function asCanvasProperty(useExisting: Type<unknown>): ExistingProvider {
+export function asCanvasProperty(useExisting: Type<CanvasMethod>): ExistingProvider {
     return {
         provide: CANVAS_PROPERTIES,
         multi: true,

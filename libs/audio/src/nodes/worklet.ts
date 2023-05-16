@@ -2,26 +2,20 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    forwardRef,
     Inject,
     OnDestroy,
     Output,
     SkipSelf,
 } from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {connect} from '../utils/connect';
 
 @Directive({
     selector: '[waAudioWorkletNode][name]',
     exportAs: 'AudioNode',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioWorklet),
-        },
-    ],
+    providers: [asAudioNode(WebAudioWorklet)],
 })
 export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
     @Output()

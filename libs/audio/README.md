@@ -177,12 +177,7 @@ If you need to create your own node with custom
 @Directive({
     selector: '[my-worklet-node]',
     exportAs: 'AudioNode',
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => MyWorklet),
-        },
-    ],
+    providers: [asAudioNode(MyWorklet)],
 })
 export class MyWorklet extends WebAudioWorklet {
     @Input()

@@ -5,16 +5,18 @@ import {CommonModule} from '@angular/common';
 import {FormsModule} from '@angular/forms';
 import {WebAudioModule} from '@ng-web-apis/audio';
 import {FrequencyPipeModule} from '@ng-web-apis/midi';
+import {TuiButtonModule} from '@taiga-ui/core';
 import {DemoComponent} from './demo/demo.component';
 import {AdsrPipe} from './adsr.pipe';
 
 @NgModule({
     imports: [
         CommonModule,
-        RouterModule.forChild([{path: '', component: MidiPageComponent}]),
+        TuiButtonModule,
         FormsModule,
         WebAudioModule,
         FrequencyPipeModule,
+        RouterModule.forChild([{path: '', component: MidiPageComponent}]),
     ],
     declarations: [MidiPageComponent, DemoComponent, AdsrPipe],
 })

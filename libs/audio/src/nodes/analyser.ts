@@ -1,16 +1,8 @@
-import {
-    Attribute,
-    Directive,
-    forwardRef,
-    Inject,
-    OnDestroy,
-    Output,
-    SkipSelf,
-} from '@angular/core';
+import {Attribute, Directive, Inject, OnDestroy, Output, SkipSelf} from '@angular/core';
 import {animationFrameScheduler, interval, Observable} from 'rxjs';
 import {map, share} from 'rxjs/operators';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
@@ -27,12 +19,7 @@ import {parse} from '../utils/parse';
         'channelCountMode',
         'channelInterpretation',
     ],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioAnalyser),
-        },
-    ],
+    providers: [asAudioNode(WebAudioAnalyser)],
 })
 export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
     // '!' because it is actually set in constructor
