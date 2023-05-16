@@ -1,6 +1,6 @@
-import {Directive, forwardRef, Inject, OnDestroy, SkipSelf} from '@angular/core';
+import {Directive, Inject, OnDestroy, SkipSelf} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {FEEDBACK_COEFFICIENTS} from '../tokens/feedback-coefficients';
 import {FEEDFORWARD_COEFFICIENTS} from '../tokens/feedforward-coefficients';
@@ -10,12 +10,7 @@ import {connect} from '../utils/connect';
     selector: '[waIIRFilterNode]',
     exportAs: 'AudioNode',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioIIRFilter),
-        },
-    ],
+    providers: [asAudioNode(WebAudioIIRFilter)],
 })
 export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
     constructor(

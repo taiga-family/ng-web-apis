@@ -1,18 +1,13 @@
-import {Directive, ElementRef, forwardRef, Inject, OnDestroy} from '@angular/core';
+import {Directive, ElementRef, Inject, OnDestroy} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
     selector:
         'audio[waMediaElementAudioSourceNode], video[waMediaElementAudioSourceNode]',
     exportAs: 'AudioNode',
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioMediaSource),
-        },
-    ],
+    providers: [asAudioNode(WebAudioMediaSource)],
 })
 export class WebAudioMediaSource
     extends MediaElementAudioSourceNode

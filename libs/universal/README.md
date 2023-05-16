@@ -16,8 +16,6 @@ provide the same functionality on the server side as you have in browser. In oth
 and you can at least be sure you will not have `cannot read propery of null` or `undefined is not a function` errors in
 SSR.
 
-> **IMPORTANT:** This library relies on **_Node.js_ v10** and above on your server side
-
 ## Mocks
 
 Add following line to your `server.ts` to mock native classes used in other @ng-web-apis packages:
@@ -31,25 +29,28 @@ import '@ng-web-apis/universal/mocks';
 ## Tokens
 
 You can provide tokens from this package into your `app.server.module.ts` to have type safe mocks for global objects on
-server side with `UNIVERSAL_PROVIDERS`:
+server side with `UniversalModule`:
 
 ```ts
 @NgModule({
-  imports: [AppBrowserModule, ServerModule],
+  imports: [
+    AppBrowserModule,
+    ServerModule,
+    UniversalModule, // <-- add this
+  ],
   bootstrap: [AppComponent],
-  providers: UNIVERSAL_PROVIDERS, // <-- add this
 })
 export class AppServerModule {}
 ```
 
 Alternatively, if you have a standalone app that is initialized using the bootstrapApplication function, you can import
-`UniversalModule` in the following manner:
+`UNIVERSAL_PROVIDERS` in the following manner:
 
 ```ts
 const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
-    importProvidersFrom(UniversalModule), // <-- add this
+    UNIVERSAL_PROVIDERS, // <-- add this
   ],
 };
 
@@ -66,7 +67,9 @@ helpers to harvest that info:
 
 ```typescript
 import {provideLocation, provideUserAgent} from '@ng-web-apis/universal';
+
 // ...
+
 app.get('/**/*', (req: Request, res: Response) => {
   res.render('../dist/index', {
     req,

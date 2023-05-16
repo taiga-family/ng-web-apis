@@ -1,5 +1,15 @@
+:host {
+    display: block;
+    height: 100%;
+}
+
 .logo {
+    margin-right: 20px;
     cursor: pointer;
+}
+
+.title {
+    line-height: 1;
 }
 
 .back {
@@ -18,4 +28,41 @@
     width: 1rem;
     margin-right: 0.25rem;
     vertical-align: -0.1rem;
+}
+
+.root {
+    height: 100%;
+}
+
+.wrapper {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;
+}
+
+.header {
+    display: flex;
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+header {
+    display: flex;
+    border-bottom: 1px solid gainsboro;
+}
+
+main {
+    flex: 1;
+}
+
+header,
+main {
+    padding: 40px 20px;
+}
+
+footer {
+    padding: 16px;
+    font-size: 12px;
+    border-top: 1px solid gainsboro;
+    text-align: center;
 }

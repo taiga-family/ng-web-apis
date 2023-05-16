@@ -1,4 +1,4 @@
-import {NgModule} from '@angular/core';
+import {NgModule, SecurityContext} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routes';
@@ -12,6 +12,7 @@ import {
     TuiRootModule,
     TuiSvgModule,
 } from '@taiga-ui/core';
+import {MarkdownModule} from 'ngx-markdown';
 
 @NgModule({
     imports: [
@@ -24,6 +25,9 @@ import {
         HighlightModule,
         TuiLinkModule,
         TuiSvgModule,
+        MarkdownModule.forRoot({
+            sanitize: SecurityContext.NONE,
+        }),
     ],
     declarations: [AppComponent],
     bootstrap: [AppComponent],

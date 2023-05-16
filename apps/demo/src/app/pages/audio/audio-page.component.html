@@ -1,4 +1,9 @@
-<button *ngIf="!started; else graph" (click)="start()">
+<button
+    *ngIf="!started; else graph"
+    tuiButton
+    appearance="secondary"
+    (click)="start()"
+>
     Start AudioContext
 </button>
 <ng-template #graph>
@@ -6,7 +11,7 @@
         <h1>Description</h1>
         <p>
             This is a demo for
-            <code><em>@ng-web-apis/audio</em></code>
+            <strong>@ng-web-apis/audio</strong>
             — a Web Audio API declarative library for Angular. Here you can
             select different audio source options and see AudioNode graph for
             selected configuration. Demo page uses HTML elements as directives
@@ -18,39 +23,27 @@
     <section>
         <h1>Source</h1>
 
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    value="buffer"
-                    name="source"
-                    [(ngModel)]="selectedSource"
-                />
-                AudioBufferSourceNode
-            </label>
-        </p>
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    value="media"
-                    name="source"
-                    [(ngModel)]="selectedSource"
-                />
-                MediaElementAudioSourceNode
-            </label>
-        </p>
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    value="oscillator"
-                    name="source"
-                    [(ngModel)]="selectedSource"
-                />
-                OscillatorNode
-            </label>
-        </p>
+        <tui-radio-labeled
+            item="buffer"
+            name="source"
+            [(ngModel)]="selectedSource"
+        >
+            AudioBufferSourceNode
+        </tui-radio-labeled>
+        <tui-radio-labeled
+            item="media"
+            name="source"
+            [(ngModel)]="selectedSource"
+        >
+            MediaElementAudioSourceNode
+        </tui-radio-labeled>
+        <tui-radio-labeled
+            item="oscillator"
+            name="source"
+            [(ngModel)]="selectedSource"
+        >
+            OscillatorNode
+        </tui-radio-labeled>
 
         <ng-container [ngSwitch]="selectedSource">
             <ng-container *ngSwitchCase="'buffer'">
@@ -58,6 +51,8 @@
                     *ngFor="let _ of buffers"
                     #source="AudioNode"
                     waAudioBufferSourceNode
+                    tuiButton
+                    size="s"
                     buffer="assets/demo.mp3"
                     [loop]="true"
                     (click)="onClick(source, $any($event).target)"
@@ -65,7 +60,8 @@
                     Play
                     <ng-container
                         waAnalyserNode
-                        (timeByte$)="onTimeDomain($event, canvas)"
+                        [fftSize]="fftSize"
+                        (timeByte$)="onTimeDomain($event)"
                     >
                         <ng-container
                             [waOutput]="chain || fallback"
@@ -82,7 +78,8 @@
             >
                 <ng-container
                     waAnalyserNode
-                    (timeByte$)="onTimeDomain($event, canvas)"
+                    [fftSize]="fftSize"
+                    (timeByte$)="onTimeDomain($event)"
                 >
                     <ng-container [waOutput]="chain || fallback"></ng-container>
                 </ng-container>
@@ -92,6 +89,8 @@
                     *ngFor="let _ of buffers"
                     #source="AudioNode"
                     waOscillatorNode
+                    tuiButton
+                    size="s"
                     [frequency]="100"
                     [periodicWave]="real | waPeriodicWave"
                     (click)="onClick(source, $any($event).target)"
@@ -99,7 +98,8 @@
                     Play
                     <ng-container
                         waAnalyserNode
-                        (timeByte$)="onTimeDomain($event, canvas)"
+                        [fftSize]="fftSize"
+                        (timeByte$)="onTimeDomain($event)"
                     >
                         <ng-container
                             [waOutput]="chain || fallback"
@@ -111,60 +111,50 @@
 
         <p>
             <canvas
-                #fallback="AudioNode"
                 #canvas
+                #fallback="AudioNode"
                 waAudioDestinationNode
-            ></canvas>
+                waCanvas2d
+                class="canvas"
+            >
+                <canvas-path
+                    fillStyle="transparent"
+                    strokeStyle="black"
+                    [lineWidth]="4 / canvas.height"
+                    [transform]="getTransform(canvas) | transform"
+                    [path]="path | path"
+                ></canvas-path>
+            </canvas>
         </p>
     </section>
 
     <section>
         <h1>Chain</h1>
 
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    name="chain"
-                    value="dry"
-                    [(ngModel)]="selectedChain"
-                />
-                Dry
-            </label>
-        </p>
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    name="chain"
-                    value="balance"
-                    [(ngModel)]="selectedChain"
-                />
-                Balance
-            </label>
-        </p>
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    name="chain"
-                    value="delay"
-                    [(ngModel)]="selectedChain"
-                />
-                Delay
-            </label>
-        </p>
-        <p>
-            <label>
-                <input
-                    type="radio"
-                    name="chain"
-                    value="complex"
-                    [(ngModel)]="selectedChain"
-                />
-                Complex
-            </label>
-        </p>
+        <tui-radio-labeled item="dry" name="chain" [(ngModel)]="selectedChain">
+            Dry
+        </tui-radio-labeled>
+        <tui-radio-labeled
+            item="balance"
+            name="chain"
+            [(ngModel)]="selectedChain"
+        >
+            Balance
+        </tui-radio-labeled>
+        <tui-radio-labeled
+            item="delay"
+            name="chain"
+            [(ngModel)]="selectedChain"
+        >
+            Delay
+        </tui-radio-labeled>
+        <tui-radio-labeled
+            item="complex"
+            name="chain"
+            [(ngModel)]="selectedChain"
+        >
+            Complex
+        </tui-radio-labeled>
 
         <ng-container [ngSwitch]="selectedChain">
             <ng-container *ngSwitchCase="'balance'">
@@ -175,6 +165,7 @@
                 >
                     <legend>GainNode</legend>
                     <input
+                        tuiSlider
                         type="range"
                         min="0"
                         max="1"
@@ -187,6 +178,7 @@
                     >
                         <legend>StereoPannerNode</legend>
                         <input
+                            tuiSlider
                             type="range"
                             min="-1"
                             max="1"
@@ -215,6 +207,7 @@
                     >
                         <legend>DelayNode</legend>
                         <input
+                            tuiSlider
                             type="range"
                             min="0"
                             max="1"
@@ -224,6 +217,7 @@
                         <fieldset waGainNode [gain]="delayGain">
                             <legend>GainNode</legend>
                             <input
+                                tuiSlider
                                 type="range"
                                 min="0"
                                 max="1"
@@ -255,54 +249,54 @@
                     [detune]="detune | waAudioParam: 0.1"
                 >
                     <legend>BiquadFilterNode</legend>
-                    <label>
-                        <select [(ngModel)]="type">
-                            <option value="lowpass">lowpass</option>
-                            <option value="highpass">highpass</option>
-                            <option value="bandpass">bandpass</option>
-                            <option value="lowshelf">lowshelf</option>
-                            <option value="highshelf">highshelf</option>
-                            <option value="peaking">peaking</option>
-                            <option value="notch">notch</option>
-                            <option value="allpass">allpass</option>
-                        </select>
-                        <code>type</code>
-                    </label>
-                    <label>
+                    <tui-select tuiTextfieldSize="m" [(ngModel)]="type">
+                        Type
+                        <tui-data-list-wrapper
+                            *tuiDataList
+                            [items]="items"
+                        ></tui-data-list-wrapper>
+                    </tui-select>
+                    <label tuiLabel="gain">
                         <input
+                            tuiSlider
                             type="range"
                             min="0"
                             max="1"
                             step="0.01"
                             [(ngModel)]="filterGain"
                         />
-                        <code>gain</code>
                     </label>
-                    <label>
+                    <label tuiLabel="frequence">
                         <input
+                            tuiSlider
                             type="range"
                             min="20"
                             max="5000"
                             [(ngModel)]="frequency"
                         />
-                        <code>frequency</code>
                     </label>
-                    <label>
-                        <input type="range" min="1" max="100" [(ngModel)]="Q" />
-                        <code>Q</code>
-                    </label>
-                    <label>
+                    <label tuiLabel="Q">
                         <input
+                            tuiSlider
+                            type="range"
+                            min="1"
+                            max="100"
+                            [(ngModel)]="Q"
+                        />
+                    </label>
+                    <label tuiLabel="detune">
+                        <input
+                            tuiSlider
                             type="range"
                             min="0"
                             max="100"
                             [(ngModel)]="detune"
                         />
-                        <code>detune</code>
                     </label>
                     <fieldset waWaveShaperNode oversample="4x" [curve]="curve">
                         <legend>WaveShaperNode</legend>
                         <input
+                            tuiSlider
                             type="range"
                             min="0"
                             max="20"

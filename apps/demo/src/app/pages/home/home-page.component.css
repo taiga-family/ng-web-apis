@@ -4,3 +4,36 @@
     align-content: flex-start;
     justify-content: center;
 }
+
+.link {
+    display: flex;
+    max-width: 380px;
+    color: #444;
+    border-radius: 4px;
+    border: 1px solid gainsboro;
+    font-size: 14px;
+    padding: 0 16px 16px;
+    margin: 10px;
+    box-sizing: border-box;
+    transition: box-shadow 0.3s;
+}
+
+.link:hover {
+    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+}
+
+.not-supported {
+    opacity: 0.5;
+}
+
+.not-supported h2:after {
+    content: 'Not supported by your browser';
+    display: block;
+    font-size: 0.6em;
+    color: var(--tui-error-fill);
+}
+
+.icon {
+    flex-shrink: 0;
+    margin: 24px 6px 0 20px;
+}

@@ -1,14 +1,6 @@
-import {
-    Attribute,
-    Directive,
-    forwardRef,
-    Inject,
-    Input,
-    OnDestroy,
-    SkipSelf,
-} from '@angular/core';
+import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
@@ -19,12 +11,7 @@ import {processAudioParam} from '../utils/process-audio-param';
     selector: '[waStereoPannerNode]',
     exportAs: 'AudioNode',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioStereoPanner),
-        },
-    ],
+    providers: [asAudioNode(WebAudioStereoPanner)],
 })
 export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy {
     @Input('pan')

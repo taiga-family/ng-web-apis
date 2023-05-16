@@ -2,7 +2,6 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    forwardRef,
     Inject,
     Input,
     OnDestroy,
@@ -10,7 +9,7 @@ import {
 } from '@angular/core';
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
+import {asAudioNode} from '../tokens/audio-node';
 import {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
@@ -18,12 +17,7 @@ import {parse} from '../utils/parse';
     selector: '[waConstantSourceNode]',
     exportAs: 'AudioNode',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useExisting: forwardRef(() => WebAudioConstantSource),
-        },
-    ],
+    providers: [asAudioNode(WebAudioConstantSource)],
 })
 export class WebAudioConstantSource extends ConstantSourceNode implements OnDestroy {
     @Input('offset')

@@ -24,7 +24,15 @@
                     "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
                     "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
                     "node_modules/@taiga-ui/styles/taiga-ui-global.less",
-                    "apps/demo/src/styles.css"
+                    "apps/demo/src/styles.css",
+                    "node_modules/prismjs/themes/prism-okaidia.css"
+                ],
+                "scripts": [
+                    "node_modules/marked/lib/marked.js",
+                    "node_modules/prismjs/prism.js",
+                    "node_modules/prismjs/components/prism-less.min.js",
+                    "node_modules/prismjs/components/prism-markup.min.js",
+                    "node_modules/prismjs/components/prism-typescript.min.js"
                 ],
                 "assets": [
                     {
