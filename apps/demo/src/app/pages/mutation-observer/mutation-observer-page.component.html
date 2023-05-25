@@ -1,9 +1,15 @@
-<p>
-    <button type="button" (click)="toggleDOM()">Toggle DOM change</button>
-    <button type="button" (click)="toggleAttr()">Toggle attribute</button>
-    <input type="text" aria-label="title" [(ngModel)]="title" />
-    <input type="text" aria-label="text" [(ngModel)]="text" />
-    <input type="text" aria-label="ignored" [(ngModel)]="ignored" />
+<p tuiGroup>
+    <button tuiButton appearance="secondary" size="m" (click)="toggleDOM()">
+        Toggle DOM change
+    </button>
+    <button tuiButton appearance="secondary" size="m" (click)="toggleAttr()">
+        Toggle attribute
+    </button>
+</p>
+<p tuiGroup tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
+    <tui-input aria-label="title" [(ngModel)]="title"></tui-input>
+    <tui-input aria-label="text" [(ngModel)]="text"></tui-input>
+    <tui-input aria-label="ignored" [(ngModel)]="ignored"></tui-input>
 </p>
 <div
     subtree

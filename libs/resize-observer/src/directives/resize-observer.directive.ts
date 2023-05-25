@@ -1,4 +1,4 @@
-import {Attribute, Directive, ElementRef, Inject, Output} from '@angular/core';
+import {Attribute, Directive, ElementRef, Inject} from '@angular/core';
 import {Observable} from 'rxjs';
 
 import {ResizeObserverService} from '../services/resize-observer.service';
@@ -23,6 +23,7 @@ export function boxFactory(
 
 @Directive({
     selector: '[waResizeObserver]',
+    outputs: ['waResizeObserver'],
     providers: [
         ResizeObserverService,
         {
@@ -33,14 +34,9 @@ export function boxFactory(
     ],
 })
 export class ResizeObserverDirective {
-    @Output()
-    readonly waResizeObserver: Observable<ResizeObserverEntry[]>;
-
     constructor(
         @Inject(ResizeObserverService)
-        entries$: Observable<ResizeObserverEntry[]>,
+        readonly waResizeObserver: Observable<ResizeObserverEntry[]>,
         @Attribute('waResizeBox') _box: ResizeObserverBoxOptions,
-    ) {
-        this.waResizeObserver = entries$;
-    }
+    ) {}
 }

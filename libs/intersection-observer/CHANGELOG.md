@@ -3,6 +3,10 @@
 All notable changes to this project will be documented in this file. See
 [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+### [3.0.1](https://github.com/ng-web-apis/intersection-observer/compare/v3.0.0...v3.0.1) (2023-05-25)
+
+- add missing README
+
 ## [3.0.0](https://github.com/ng-web-apis/intersection-observer/compare/v2.1.0...v3.0.0) (2022-07-15)
 
 ### ⚠ BREAKING CHANGES

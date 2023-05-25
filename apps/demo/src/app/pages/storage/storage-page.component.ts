@@ -6,6 +6,7 @@ import {default as example1Html} from './example/example.template.html?raw';
 @Component({
     selector: `common-page`,
     templateUrl: `./storage-page.component.html`,
+    styleUrls: [`./storage-page.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class StoragePageComponent {

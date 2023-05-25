@@ -2,13 +2,25 @@
     <app-clock></app-clock>
 
     <div class="example">
-        <button (click)="workerThread.postMessage()">
+        <button
+            tuiButton
+            appearance="secondary"
+            (click)="workerThread.postMessage()"
+        >
             Run in worker process
         </button>
         <p>Execution time: {{ workerData$ | async }}</p>
+        <tui-notification>
+            This would be calculated in several seconds in a background thread
+        </tui-notification>
     </div>
     <div class="example">
-        <button (click)="emitter.next()">Run in main process</button>
+        <button tuiButton appearance="secondary" (click)="emitter.next()">
+            Run in main process
+        </button>
         <p>Execution time: {{ result$ | async }}</p>
+        <tui-notification>
+            This would freeze your main thread for several seconds
+        </tui-notification>
     </div>
 </ng-container>

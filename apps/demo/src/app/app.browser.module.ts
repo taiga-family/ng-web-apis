@@ -5,14 +5,9 @@ import {AppRoutingModule} from './app.routes';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {
-    TUI_ICONS_PATH,
-    tuiIconsPathFactory,
-    TuiLinkModule,
-    TuiRootModule,
-    TuiSvgModule,
-} from '@taiga-ui/core';
+import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
 import {MarkdownModule} from 'ngx-markdown';
+import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
 
 @NgModule({
     imports: [
@@ -41,8 +36,8 @@ import {MarkdownModule} from 'ngx-markdown';
             useClass: PathLocationStrategy,
         },
         {
-            provide: TUI_ICONS_PATH,
-            useValue: tuiIconsPathFactory('assets/taiga-ui/icons/'),
+            provide: POSITION_OPTIONS,
+            useValue: {enableHighAccuracy: true, timeout: 3000, maximumAge: 1000},
         },
     ],
 })
