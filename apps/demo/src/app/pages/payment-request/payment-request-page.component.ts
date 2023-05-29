@@ -6,6 +6,7 @@ import {DIRECTIVES_SAMPLE} from './samples/directives.sample';
 @Component({
     selector: `payment-request-page`,
     templateUrl: `./payment-request-page.component.html`,
+    styleUrls: [`./payment-request-page.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {

@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/intersection-observer",
-    "version": "3.0.0",
+    "version": "3.0.1",
     "description": "A library for declarative use of Intersection Observer API with Angular",
     "keywords": [
         "angular",

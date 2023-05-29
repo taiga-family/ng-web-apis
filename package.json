@@ -17,12 +17,14 @@
     "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
-        "email": "alexander@inkin.ru"
+        "email": "alexander@inkin.ru",
+        "url": "https://twitter.com/Waterplea"
     },
     "contributors": [
         "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)",
         "Vladimir Potekhin <vladimir.potekh@gmail.com>",
         "Maksim Ivanov <splincodewd@yandex.ru>",
+        "Igor Katsuba <katsuba.igor@gmail.com>",
         "Dmitryi Khirnyi",
         "Dmitry Efimenko",
         "Andrew Grekov <hr@thekiba.io>",

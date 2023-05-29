@@ -12,7 +12,7 @@ High quality lightweight wrappers for native Web APIs for idiomatic use with Ang
        <td align="center">
             <a href="https://twitter.com/waterplea"
                 ><img
-                    src="https://github.com/waterplea.png?size=100"
+                    src="https://github.com/waterplea.png?size=200"
                     width="100"
                     style="margin-bottom: -4px; border-radius: 8px;"
                     alt="Alex Inkin"
@@ -43,7 +43,7 @@ High quality lightweight wrappers for native Web APIs for idiomatic use with Ang
         <td align="center">
             <a href="http://marsibarsi.me"
                 ><img
-                    src="https://github.com/marsibarsi.png?size=100"
+                    src="https://github.com/marsibarsi.png?size=200"
                     width="100"
                     style="margin-bottom: -4px; border-radius: 8px;"
                     alt="Roman Sedov"
