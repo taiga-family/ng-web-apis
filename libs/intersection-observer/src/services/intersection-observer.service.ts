@@ -27,7 +27,7 @@ export class IntersectionObserverService extends Observable<IntersectionObserver
                     subscriber.next(entries);
                 },
                 {
-                    root: root && root.nativeElement,
+                    root: root?.nativeElement,
                     rootMargin,
                     threshold,
                 },
