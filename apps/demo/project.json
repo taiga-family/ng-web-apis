@@ -57,7 +57,7 @@
                     "namedChunks": true
                 },
                 "github": {
-                    "baseHref": "/common/",
+                    "baseHref": "/ng-web-apis/",
                     "fileReplacements": [
                         {
                             "replace": "apps/demo/src/environments/environment.ts",
