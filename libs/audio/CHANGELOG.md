@@ -1,7 +1,10 @@
 # Changelog
 
-All notable changes to this project will be documented in this file. See
-[standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
+This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).
+
+# [1.6.0](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/audio@1.5.1...@ng-web-apis/audio@1.6.0) (2023-06-22)
+
+
 
 ### [1.5.1](https://github.com/ng-web-apis/audio/compare/v1.5.0...v1.5.1) (2021-01-22)
 
