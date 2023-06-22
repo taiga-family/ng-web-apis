@@ -20,6 +20,8 @@ jobs:
   run-release:
     name: Run release
     runs-on: ubuntu-latest
+    env:
+      GH_TOKEN: ${{ secrets.TINKOFF_BOT_PAT }}
     steps:
       - name: Fetch from origin repo
         uses: actions/checkout@v3.5.3
