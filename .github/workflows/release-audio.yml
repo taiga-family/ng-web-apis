@@ -1,4 +1,4 @@
-name: ⚠️ Release
+name: ⚠️ Release @ng-web-apis/audio
 on:
   workflow_dispatch:
     inputs:
@@ -11,48 +11,10 @@ on:
           - patch
           - minor
           - major
-      audio:
+      dryRun:
         type: boolean
         required: false
-      canvas:
-        type: boolean
-        required: false
-      common:
-        type: boolean
-        required: false
-      geolocation:
-        type: boolean
-        required: false
-      intersection-observer:
-        type: boolean
-        required: false
-      midi:
-        type: boolean
-        required: false
-      mutation-observer:
-        type: boolean
-        required: false
-      payment-request:
-        type: boolean
-        required: false
-      permissions':
-        type: boolean
-        required: false
-      resize-observer:
-        type: boolean
-        required: false
-      speech':
-        type: boolean
-        required: false
-      storage:
-        type: boolean
-        required: false
-      universal:
-        type: boolean
-        required: false
-      workers:
-        type: boolean
-        required: false
+        description: --dry-run
 
 jobs:
   run-release:
@@ -79,8 +41,7 @@ jobs:
           echo '//registry.npmjs.org/:_authToken=${${{ secrets.NPM_TOKEN }}}' > .npmrc
 
       - run: npx nx version audio --releaseAs=${{ github.event.inputs.mode }} --dryRun=${{ github.event.inputs.dryRun }}
-        if: ${{ github.event.inputs.audio == 'true' }}
 
 concurrency:
-  group: release-${{ github.workflow }}-${{ github.ref }}
+  group: release-audio-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
