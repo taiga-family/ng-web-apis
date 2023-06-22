@@ -30,6 +30,21 @@
                     "params": "forward"
                 }
             ]
+        },
+        "version": {
+            "executor": "@jscutlery/semver:version",
+            "options": {
+                "skipCommit": true,
+                "syncVersions": false,
+                "noVerify": true,
+                "allowEmptyRelease": true,
+                "skipRootChangelog": true,
+                "preset": "conventional",
+                "skipProjectChangelog": false,
+                "skipCommitTypes": "ci,docs,chore",
+                "tagPrefix": "@ng-web-apis/${projectName}@",
+                "commitMessageFormat": "release: bump ${projectName} to ${version} [skip ci]"
+            }
         }
     }
 }
