@@ -41,9 +41,23 @@
                 "skipRootChangelog": true,
                 "preset": "conventional",
                 "skipProjectChangelog": false,
-                "skipCommitTypes": "ci,docs,chore",
                 "tagPrefix": "@ng-web-apis/${projectName}@",
-                "commitMessageFormat": "release: bump ${projectName} to ${version} [skip ci]"
+                "skipCommitTypes": ["ci", "docs", "test", "refactor", "release", "chore"],
+                "commitMessageFormat": "release: bump ${projectName} to ${version} [skip ci]",
+                "postTargets": ["audio:github", "audio:npm"]
+            }
+        },
+        "github": {
+            "executor": "@jscutlery/semver:github",
+            "options": {
+                "tag": "${tag}"
+            }
+        },
+        "npm": {
+            "executor": "ngx-deploy-npm:deploy",
+            "options": {
+                "access": "public",
+                "dryRun": "${dryRun}"
             }
         }
     }

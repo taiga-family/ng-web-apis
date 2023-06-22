@@ -58,6 +58,8 @@ jobs:
   run-release:
     name: Run release
     runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
     steps:
       - name: Fetch from origin repo
         uses: actions/checkout@v3.5.3
@@ -74,7 +76,7 @@ jobs:
           git config --global user.name "tinkoff-bot"
           git config --global user.email "tinkoff-bot@tinkoff.ru"
           git config --global push.followTags true
-          echo '//registry.npmjs.org/:_authToken=${NPM_TOKEN}' > .npmrc
+          echo '//registry.npmjs.org/:_authToken=${${{ secrets.NPM_TOKEN }}}' > .npmrc
 
       - run: npx nx version audio --releaseAs=${{ github.event.inputs.mode }} --dryRun=${{ github.event.inputs.dryRun }}
         if: ${{ github.event.inputs.audio == 'true' }}

@@ -4,8 +4,6 @@ This file was generated using [@jscutlery/semver](https://github.com/jscutlery/s
 
 # [1.6.0](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/audio@1.5.1...@ng-web-apis/audio@1.6.0) (2023-06-22)
 
-
-
 ### [1.5.1](https://github.com/ng-web-apis/audio/compare/v1.5.0...v1.5.1) (2021-01-22)
 
 ### Bug Fixes
