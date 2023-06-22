@@ -1,0 +1,86 @@
+name: ⚠️ Release
+on:
+  workflow_dispatch:
+    inputs:
+      mode:
+        type: choice
+        description: release type
+        required: true
+        default: 'minor'
+        options:
+          - patch
+          - minor
+          - major
+      audio:
+        type: boolean
+        required: false
+      canvas:
+        type: boolean
+        required: false
+      common:
+        type: boolean
+        required: false
+      geolocation:
+        type: boolean
+        required: false
+      intersection-observer:
+        type: boolean
+        required: false
+      midi:
+        type: boolean
+        required: false
+      mutation-observer:
+        type: boolean
+        required: false
+      payment-request:
+        type: boolean
+        required: false
+      permissions':
+        type: boolean
+        required: false
+      resize-observer:
+        type: boolean
+        required: false
+      speech':
+        type: boolean
+        required: false
+      storage:
+        type: boolean
+        required: false
+      universal:
+        type: boolean
+        required: false
+      workers:
+        type: boolean
+        required: false
+
+jobs:
+  run-release:
+    name: Run release
+    runs-on: ubuntu-latest
+    env:
+      GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+    steps:
+      - name: Fetch from origin repo
+        uses: actions/checkout@v3.5.3
+        with:
+          fetch-depth: 0
+          ref: ${{ github.head_ref }}
+          token: ${{ secrets.TINKOFF_BOT_PAT }}
+
+      - name: Setup Node.js and Cache
+        uses: ./.github/actions/nodejs
+
+      - name: Prepare
+        run: |
+          git config --global user.name "tinkoff-bot"
+          git config --global user.email "tinkoff-bot@tinkoff.ru"
+          git config --global push.followTags true
+          echo '//registry.npmjs.org/:_authToken=${${{ secrets.NPM_TOKEN }}}' > .npmrc
+
+      - run: npx nx version audio --releaseAs=${{ github.event.inputs.mode }} --dryRun=${{ github.event.inputs.dryRun }}
+        if: ${{ github.event.inputs.audio == 'true' }}
+
+concurrency:
+  group: release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
