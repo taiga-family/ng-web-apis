@@ -1,30 +1,30 @@
 {
-  "name": "@ng-web-apis/audio",
-  "version": "1.6.0",
-  "description": "This is a library for declarative use of Web Audio API with Angular",
-  "keywords": [
-    "angular",
-    "ng",
-    "audio",
-    "web audio",
-    "web audio api"
-  ],
-  "homepage": "https://github.com/tinkoff/common/blob/main/libs/audio/README.md",
-  "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
-  "repository": "https://github.com/tinkoff/ng-web-apis",
-  "license": "Apache-2.0",
-  "author": {
-    "name": "Alex Inkin",
-    "email": "alexander@inkin.ru"
-  },
-  "contributors": [
-    "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
-  ],
-  "sideEffects": [
-    "polyfill.js"
-  ],
-  "peerDependencies": {
-    "@angular/core": ">=7.0.0",
-    "rxjs": ">=6.0.0"
-  }
+    "name": "@ng-web-apis/audio",
+    "version": "1.6.0",
+    "description": "This is a library for declarative use of Web Audio API with Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "audio",
+        "web audio",
+        "web audio api"
+    ],
+    "homepage": "https://github.com/tinkoff/common/blob/main/libs/audio/README.md",
+    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
+    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Alex Inkin",
+        "email": "alexander@inkin.ru"
+    },
+    "contributors": [
+        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
+    ],
+    "sideEffects": [
+        "polyfill.js"
+    ],
+    "peerDependencies": {
+        "@angular/core": ">=7.0.0",
+        "rxjs": ">=6.0.0"
+    }
 }
