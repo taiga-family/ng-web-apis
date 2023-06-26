@@ -11,13 +11,13 @@ Angular.
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/canvas
 ```
 
@@ -111,7 +111,7 @@ You can use following directives to draw path on Canvas. They must be children o
 Combining properties, method and path directives can be examined on the following case. Consider drawing two rectangles
 with native commands:
 
-```javascript
+```ts
 function drawTwoRectangles(context) {
   context.beginPath();
   context.fillStyle = 'red';

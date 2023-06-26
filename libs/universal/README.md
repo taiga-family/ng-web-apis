@@ -20,7 +20,7 @@ SSR.
 
 Add following line to your `server.ts` to mock native classes used in other @ng-web-apis packages:
 
-```js
+```ts
 import '@ng-web-apis/universal/mocks';
 ```
 
@@ -65,7 +65,7 @@ helpers to harvest that info:
 
 **server.ts:**
 
-```typescript
+```ts
 import {provideLocation, provideUserAgent} from '@ng-web-apis/universal';
 
 // ...

@@ -10,13 +10,13 @@ Angular.
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/permissions
 ```
 

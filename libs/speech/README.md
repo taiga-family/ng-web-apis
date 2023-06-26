@@ -9,13 +9,13 @@ This is a library to use [Web Speech API](https://developer.mozilla.org/en-US/do
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/speech
 ```
 

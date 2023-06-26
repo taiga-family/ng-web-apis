@@ -10,13 +10,13 @@ This is a library for declarative use of
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/intersection-observer
 ```
 
@@ -80,7 +80,7 @@ Alternatively you can use `Observable`-based services:
 2. `IntersectionObserverService` can be used to observe single element independently. Provide tokens manually to
    configure it:
 
-```typescript
+```ts
 @Component({
   selector: 'my-component',
   providers: [

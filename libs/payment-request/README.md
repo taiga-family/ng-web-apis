@@ -11,13 +11,13 @@ two ways to use this API with Angular of 6+ version.
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/payment-request
 ```
 
@@ -25,7 +25,7 @@ npm i @ng-web-apis/payment-request
 
 As an Angular service:
 
-```js
+```ts
 import {PaymentRequestService} from '@ng-web-apis/payment-request';
 
 ...
@@ -54,7 +54,7 @@ As a set of directives:
 
 Do not forget to import PaymentRequestModule:
 
-```js
+```ts
 import {PaymentRequestModule} from '@ng-web-apis/payment-request';
 ...
 @NgModule({
@@ -158,7 +158,7 @@ The library also provides some tokens to simplify working with Payment Request A
 
 - `PAYMENT_REQUEST_SUPPORT` returns `true` if user's browser supports Payment Request API
 
-```js
+```ts
 export class YourComponent {
     constructor(
         @Inject(PAYMENT_REQUEST_SUPPORT) private readonly canRequest: boolean
@@ -169,7 +169,7 @@ export class YourComponent {
 - You can provide `PAYMENT_METHODS` as an array of supported API methods. It uses `[{supportedMethods: 'basic-card'}]`
   by default
 
-```js
+```ts
 @Component({
     ...
     providers: [
@@ -190,7 +190,7 @@ export class YourComponentThatMakesPaymentRequests {
 
 - You can provide `PAYMENT_OPTIONS` as an object with info that you need about a payer. It uses `{}` by default
 
-```js
+```ts
 @Component({
     ...
     providers: [

@@ -11,13 +11,13 @@ with Angular.
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 You would also need `@types/webmidi` package until it is included in TypeScript. Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/midi
 ```
 
@@ -50,7 +50,7 @@ and utils included with this package:
 
   `inputById`, `inputByName`, `outputById`, `outputByName`:
 
-```typescript
+```ts
 import {Component, Inject} from '@angular/core';
 import {inputById, MIDI_INPUT, MIDI_OUTPUT, outputByName} from '@ng-web-apis/midi';
 
@@ -75,7 +75,7 @@ export class MyComponent {
 These are filtering operators which you can use on `MIDI_MESSAGES` stream to narrow it to your needs. All of them are
 applied like that:
 
-```typescript
+```ts
 messages$.pipe(filterByChannel(1), aftertouch());
 ```
 

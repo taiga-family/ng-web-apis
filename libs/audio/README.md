@@ -131,7 +131,7 @@ browsers. To register your
 [AudioWorkletProcessors](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletProcessor) in a global default
 [AudioContext](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext) you can use tokens:
 
-```cs
+```ts
 @NgModule({
     bootstrap: [AppComponent],
     declarations: [AppComponent],
@@ -146,7 +146,7 @@ browsers. To register your
 export class AppModule {}
 ```
 
-```cs
+```ts
 @Component({
     selector: 'app',
     templateUrl: './app.component.html',
@@ -173,7 +173,7 @@ If you need to create your own node with custom
 [AudioParam](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam) and control it declaratively you can extend
 `WebAudioWorklet` class and add `audioParam` decorator to new component's inputs:
 
-```cs
+```ts
 @Directive({
     selector: '[my-worklet-node]',
     exportAs: 'AudioNode',
@@ -246,7 +246,7 @@ To schedule an audio envelope looking something like this:
 
 You would need to pass the following array of `AudioParamAutomation` items:
 
-```cs
+```ts
 envelope = [
     {
         value: 0,

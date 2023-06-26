@@ -11,13 +11,13 @@ This is an `Observable` based abstraction over
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/geolocation
 ```
 
@@ -30,23 +30,23 @@ npm i @ng-web-apis/geolocation
 
 Import service in your component:
 
-```js
+```ts
 import {GeolocationService} from '@ng-web-apis/geolocation';
 
-...
+// ...
 constructor(private readonly geolocation$: GeolocationService) {}
 ```
 
 Now, to observe user position, you can subscribe to `geolocation$`:
 
-```js
+```ts
 geolocation$.subscribe(position => doSomethingWithPosition(position));
 ```
 
 If you need to get position just once and stop observing user location, you can subscribe to `geolocation$` and use
 `take(1)` RxJs operator:
 
-```js
+```ts
 geolocation$.pipe(take(1)).subscribe(position => doSomethingWithPosition(position));
 ```
 
@@ -68,7 +68,7 @@ The library also provides some tokens to simplify working with
 - `GEOLOCATION_SUPPORT` returns `true` if user's browser supports
   [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
-```js
+```ts
 export class YourComponent {
     constructor(
         @Inject(GEOLOCATION_SUPPORT) private readonly geolocationSupport: boolean
@@ -80,7 +80,7 @@ export class YourComponent {
   `POSITION_OPTIONS` token with optional properties named `enableHighAccuracy`, `timeout` and `maximumAge`. It uses `{}`
   by default.
 
-```js
+```ts
 @NgModule({
     ...
   providers: [

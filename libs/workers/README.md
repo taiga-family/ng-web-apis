@@ -11,13 +11,13 @@ This is a library for comfortable use of
 
 If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
 
-```
+```bash
 npm i @ng-web-apis/common
 ```
 
 Now install the package:
 
-```
+```bash
 npm i @ng-web-apis/workers
 ```
 
@@ -25,7 +25,7 @@ npm i @ng-web-apis/workers
 
 Create a worker and use it in a template with `AsyncPipe`:
 
-```typescript
+```ts
 import {WebWorker} from '@ng-web-apis/workers';
 
 function compute(data: number): number {
@@ -49,7 +49,7 @@ class SomeComponent {
 
 To get data from the worker event, use the toData operator
 
-```typescript
+```ts
 import {toData, WebWorker} from '@ng-web-apis/workers';
 
 function compute(data: number): number {
@@ -73,7 +73,7 @@ class SomeComponent {
 
 It's the same with `WorkerPipe` only:
 
-```typescript
+```ts
 import {WorkerModule} from '@ng-web-apis/workers';
 import {NgModule} from '@angular/core';
 
@@ -84,7 +84,7 @@ import {NgModule} from '@angular/core';
 class SomeModule {}
 ```
 
-```typescript
+```ts
 import {WorkerExecutor, WebWorker} from '@ng-web-apis/workers';
 import {FormControl} from '@angular/forms';
 
