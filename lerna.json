@@ -2,12 +2,15 @@
     "$schema": "node_modules/lerna/schemas/lerna-schema.json",
     "version": "independent",
     "packages": ["libs/*"],
+    "concurrency": 1,
     "stream": true,
     "npmClient": "npm",
     "changelog": true,
     "command": {
         "version": {
             "allowBranch": "main",
+            "conventionalCommits": true,
+            "commitHooks": false,
             "ignoreChanges": [
                 "**/node_modules/**",
                 "**/dist/**",
@@ -24,7 +27,6 @@
         "publish": {
             "yes": true,
             "npmClient": "npm",
-            "force-publish": "*",
             "conventionalCommits": true,
             "registry": "https://registry.npmjs.org",
             "message": "chore(release): update CHANGELOG.md [ci skip]",
