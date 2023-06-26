@@ -30,7 +30,7 @@ and you can at least be sure you will not have <code>cannot read propery of null
 SSR.</p>
 <h2 id="mocks">Mocks</h2>
 <p>Add following line to your <code>server.ts</code> to mock native classes used in other @ng-web-apis packages:</p>
-<pre><code class="language-js">import '@ng-web-apis/universal/mocks';
+<pre><code class="language-ts">import '@ng-web-apis/universal/mocks';
 </code></pre>
 <blockquote>
 <p>It is recommended to keep the import statement at the top of your <code>server.ts</code> file</p>
@@ -64,7 +64,7 @@ const bootstrap = () =&gt; bootstrapApplication(AppComponent, config);
 <p>When you use plain SSR without prerender you can retrieve some of the information from requests. Use the following
 helpers to harvest that info:</p>
 <p><strong>server.ts:</strong></p>
-<pre><code class="language-typescript">import {provideLocation, provideUserAgent} from '@ng-web-apis/universal';
+<pre><code class="language-ts">import {provideLocation, provideUserAgent} from '@ng-web-apis/universal';
 
 // ...
 
@@ -77,7 +77,7 @@ app.get('/**/*', (req: Request, res: Response) =&gt; {
 });
 </code></pre>
 </markdown></universal-page><!----></main><footer _ngcontent-sc80=""> Icons made by <a _ngcontent-sc80="" href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a _ngcontent-sc80="" href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com </a></footer></div></div><tui-dialog-host _nghost-sc60="" class="ng-tns-c60-0 ng-star-inserted"><!----></tui-dialog-host><tui-alert-host class="ng-tns-c61-1 ng-star-inserted"><!----></tui-alert-host><!----></tui-dropdown-host><tui-hints-host aria-live="polite" _nghost-sc76="" class="ng-tns-c76-2"><!----></tui-hints-host></tui-root></app>
-    <script src="runtime.dbb6f900443a0d461792.js" defer=""></script><script src="polyfills.80f0c709b68952faec9e.js" defer=""></script><script src="scripts.19fd84ebf1d0458c0cd6.js" defer=""></script><script src="main.b17e83f36b09a8face66.js" defer=""></script>
+    <script src="runtime.7c8ecf2af13fe6aac3c8.js" defer=""></script><script src="polyfills.80f0c709b68952faec9e.js" defer=""></script><script src="scripts.19fd84ebf1d0458c0cd6.js" defer=""></script><script src="main.b17e83f36b09a8face66.js" defer=""></script>
 
 
 </body><!-- This page was prerendered with Angular Universal --></html>
