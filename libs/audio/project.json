@@ -32,9 +32,9 @@
             ]
         },
         "publish": {
-            "builder": "@nrwl/workspace:run-commands",
+            "executor": "@nrwl/workspace:run-commands",
             "options": {
-                "command": "echo 'test publish'"
+                "command": "npm publish ./dist/audio --ignore-scripts || echo \"already published\""
             }
         }
     }

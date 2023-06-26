@@ -1,4 +1,4 @@
-name: ⚠️ Release @ng-web-apis/audio
+name: ⚠️ Release @ng-web-apis
 on:
   workflow_dispatch:
     inputs:
@@ -11,10 +11,6 @@ on:
           - patch
           - minor
           - major
-      dryRun:
-        type: boolean
-        required: false
-        description: --dry-run
 
 jobs:
   run-release:
@@ -27,20 +23,32 @@ jobs:
         uses: actions/checkout@v3.5.3
         with:
           fetch-depth: 0
+          persist-credentials: false
           ref: ${{ github.head_ref }}
           token: ${{ secrets.TINKOFF_BOT_PAT }}
 
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
 
-      - name: Prepare
+      - name: Setup GIT username and NPM token
         run: |
           git config --global user.name "tinkoff-bot"
           git config --global user.email "tinkoff-bot@tinkoff.ru"
-          git config --global push.followTags true
-          echo '//registry.npmjs.org/:_authToken=${${{ secrets.NPM_TOKEN }}}' > .npmrc
+          git config remote.origin.url https://x-access-token:${{ secrets.TINKOFF_BOT_PAT }}@github.com/$GITHUB_REPOSITORY
+          npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
+          NPM_WHOAMI_OUTPUT=$(npm whoami)
+          echo "::debug::npm whoami: ${NPM_WHOAMI_OUTPUT}"
 
-      - run: npx nx version audio --releaseAs=${{ github.event.inputs.mode }} --dryRun=${{ github.event.inputs.dryRun }}
+      - name: Lerna version
+        if: always()
+        run: npx lerna version
+
+      - name: Build libraries
+        run: npx nx run-many --target=build --parallel
+
+      - name: Publish
+        if: always()
+        run: npx nx run-many --target=publish
 
 concurrency:
   group: release-audio-${{ github.workflow }}-${{ github.ref }}
