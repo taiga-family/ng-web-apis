@@ -2,11 +2,15 @@ name: ⚠️ Release @ng-web-apis
 on:
   workflow_dispatch:
     inputs:
+      forcePush:
+        type: boolean
+        required: false
+        description: --force-push all package
       mode:
         type: choice
-        description: release type
-        required: true
-        default: 'minor'
+        description: type (relevant only for --force-push)
+        required: false
+        default: minor
         options:
           - patch
           - minor
@@ -39,16 +43,21 @@ jobs:
           NPM_WHOAMI_OUTPUT=$(npm whoami)
           echo "::debug::npm whoami: ${NPM_WHOAMI_OUTPUT}"
 
-      - name: Lerna version
+      - name: Lerna update version of packages
         if: always()
-        run: npx lerna version
+        run: |
+          if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
+            npx lerna version ${{ github.event.inputs.type }} --no-private --force-push
+          else
+              npx lerna version --no-private
+          fi
 
       - name: Build libraries
-        run: npx nx run-many --target=build --parallel
+        run: npx nx run-many --target=build --parallel=1
 
       - name: Publish
         if: always()
-        run: npx nx run-many --target=publish
+        run: npx nx run-many --target=publish --parallel=1
 
 concurrency:
   group: release-audio-${{ github.workflow }}-${{ github.ref }}
