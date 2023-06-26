@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Web Audio API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/audio/logo.svg) Web Audio API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/audio.svg)](https://npmjs.com/package/@ng-web-apis/audio)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/audio)](https://bundlephobia.com/result?p=@ng-web-apis/audio)
@@ -242,7 +242,7 @@ through argument binding combined with dynamic property binding as seen above.
 
 To schedule an audio envelope looking something like this:
 
-![Envelope](envelope.png)
+![Envelope](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/envelop/logo.svg)
 
 You would need to pass the following array of `AudioParamAutomation` items:
 
