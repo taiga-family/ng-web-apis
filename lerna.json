@@ -6,42 +6,30 @@
     "stream": true,
     "npmClient": "npm",
     "changelog": true,
+    "private": false,
+    "conventionalCommits": true,
+    "ignoreChanges": [
+        "**/node_modules/**",
+        "**/dist/**",
+        "**/tests/**",
+        "**/*.spec.ts",
+        "**/apps/**",
+        "**/.github/**",
+        "**/scripts/**",
+        "**/CHANGELOG.md",
+        "**/project.json",
+        "**/ng-packages.json"
+    ],
     "command": {
         "version": {
             "allowBranch": "main",
-            "conventionalCommits": true,
             "commitHooks": false,
-            "ignoreChanges": [
-                "**/node_modules/**",
-                "**/dist/**",
-                "**/tests/**",
-                "**/*.spec.ts",
-                "**/apps/**",
-                "**/.github/**",
-                "**/scripts/**",
-                "**/CHANGELOG.md",
-                "**/project.json",
-                "**/ng-packages.json"
-            ]
+            "createRelease": "github"
         },
         "publish": {
             "yes": true,
-            "npmClient": "npm",
-            "conventionalCommits": true,
             "registry": "https://registry.npmjs.org",
-            "message": "chore(release): update CHANGELOG.md [ci skip]",
-            "ignoreChanges": [
-                "**/node_modules/**",
-                "**/dist/**",
-                "**/tests/**",
-                "**/*.spec.ts",
-                "**/apps/**",
-                "**/.github/**",
-                "**/scripts/**",
-                "**/CHANGELOG.md",
-                "**/project.json",
-                "**/ng-packages.json"
-            ]
+            "message": "chore(release): update CHANGELOG.md [ci skip]"
         }
     }
 }
