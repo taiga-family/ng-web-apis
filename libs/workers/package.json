@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/workers",
-    "version": "1.0.0",
+    "version": "1.1.0",
     "description": "A library for comfortable use of Web Workers API in Angular",
     "keywords": [
         "angular",

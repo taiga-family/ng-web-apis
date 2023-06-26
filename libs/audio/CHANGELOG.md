@@ -1,3 +1,21 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.8.0 (2023-06-26)
+
+### Features
+
+- **audio:** remove `MediaStreamTrackAudioSourceNode` ([#91](https://github.com/tinkoff/ng-web-apis/issues/91))
+  ([f49ad49](https://github.com/tinkoff/ng-web-apis/commit/f49ad4937f8bd376c4f439980cb3376c65f408d2))
+- **canvas:** add `transform` property and pipe ([#92](https://github.com/tinkoff/ng-web-apis/issues/92))
+  ([ee37271](https://github.com/tinkoff/ng-web-apis/commit/ee372716bbc5dd0734b474d12102fec1d5ec3321))
+- geolocation ([#79](https://github.com/tinkoff/ng-web-apis/issues/79))
+  ([1f906a8](https://github.com/tinkoff/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
+- midi ([#83](https://github.com/tinkoff/ng-web-apis/issues/83))
+  ([273be2a](https://github.com/tinkoff/ng-web-apis/commit/273be2a946944c463ed475f4d91688cd0f7d8593))
+
 # Changelog
 
 This file was generated using [@jscutlery/semver](https://github.com/jscutlery/semver).

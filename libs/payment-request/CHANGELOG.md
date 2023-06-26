@@ -1,3 +1,17 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.1.0 (2023-06-26)
+
+### Features
+
+- **canvas:** add `transform` property and pipe ([#92](https://github.com/tinkoff/ng-web-apis/issues/92))
+  ([ee37271](https://github.com/tinkoff/ng-web-apis/commit/ee372716bbc5dd0734b474d12102fec1d5ec3321))
+- payment ([#85](https://github.com/tinkoff/ng-web-apis/issues/85))
+  ([0cf8c4b](https://github.com/tinkoff/ng-web-apis/commit/0cf8c4b8b9890013afd1de301d5bd5cd60d5ec18))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See

@@ -1,3 +1,15 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 3.1.0 (2023-06-26)
+
+### Features
+
+- intersection-observer ([#82](https://github.com/tinkoff/ng-web-apis/issues/82))
+  ([32fd540](https://github.com/tinkoff/ng-web-apis/commit/32fd540cc0f50645b1b840cf57e1e5734640234b))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See

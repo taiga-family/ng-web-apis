@@ -1,3 +1,21 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 2.2.0 (2023-06-26)
+
+### Features
+
+- **audio:** remove `MediaStreamTrackAudioSourceNode` ([#91](https://github.com/tinkoff/ng-web-apis/issues/91))
+  ([f49ad49](https://github.com/tinkoff/ng-web-apis/commit/f49ad4937f8bd376c4f439980cb3376c65f408d2))
+- geolocation ([#79](https://github.com/tinkoff/ng-web-apis/issues/79))
+  ([1f906a8](https://github.com/tinkoff/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
+- midi ([#83](https://github.com/tinkoff/ng-web-apis/issues/83))
+  ([273be2a](https://github.com/tinkoff/ng-web-apis/commit/273be2a946944c463ed475f4d91688cd0f7d8593))
+- workers ([#89](https://github.com/tinkoff/ng-web-apis/issues/89))
+  ([7a7a87c](https://github.com/tinkoff/ng-web-apis/commit/7a7a87c3762a19567af35eab7adbf60fd5b647a3))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See

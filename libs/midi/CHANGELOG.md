@@ -1,3 +1,17 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 1.3.0 (2023-06-26)
+
+### Features
+
+- midi ([#83](https://github.com/tinkoff/ng-web-apis/issues/83))
+  ([273be2a](https://github.com/tinkoff/ng-web-apis/commit/273be2a946944c463ed475f4d91688cd0f7d8593))
+- payment ([#85](https://github.com/tinkoff/ng-web-apis/issues/85))
+  ([0cf8c4b](https://github.com/tinkoff/ng-web-apis/commit/0cf8c4b8b9890013afd1de301d5bd5cd60d5ec18))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See

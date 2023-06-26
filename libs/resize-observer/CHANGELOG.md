@@ -1,3 +1,15 @@
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
+# 2.1.0 (2023-06-26)
+
+### Features
+
+- geolocation ([#79](https://github.com/tinkoff/ng-web-apis/issues/79))
+  ([1f906a8](https://github.com/tinkoff/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See
