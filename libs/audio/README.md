@@ -242,7 +242,7 @@ through argument binding combined with dynamic property binding as seen above.
 
 To schedule an audio envelope looking something like this:
 
-![Envelope](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/envelop/logo.svg)
+![Envelope](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/audio/envelope.png)
 
 You would need to pass the following array of `AudioParamAutomation` items:
 
