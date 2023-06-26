@@ -5,10 +5,10 @@ on:
       forcePush:
         type: boolean
         required: false
-        description: --force-push all package
+        description: --force-publish all package
       mode:
         type: choice
-        description: type (relevant only for --force-push)
+        description: force all packages to be versioned (depend --force-publish)
         required: false
         default: minor
         options:
@@ -47,7 +47,7 @@ jobs:
         if: always()
         run: |
           if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
-            npx lerna version ${{ github.event.inputs.type }} --no-private --force-push
+            npx lerna version ${{ github.event.inputs.type }} --no-private --force-publish
           else
               npx lerna version --no-private
           fi
