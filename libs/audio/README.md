@@ -133,32 +133,29 @@ browsers. To register your
 
 ```ts
 @NgModule({
-    bootstrap: [AppComponent],
-    declarations: [AppComponent],
-    providers: [
-        {
-            provide: AUDIO_WORKLET_PROCESSORS,
-            useValue: 'assets/my-processor.js',
-            multi: true,
-        },
-    ],
+  bootstrap: [AppComponent],
+  declarations: [AppComponent],
+  providers: [
+    {
+      provide: AUDIO_WORKLET_PROCESSORS,
+      useValue: 'assets/my-processor.js',
+      multi: true,
+    },
+  ],
 })
 export class AppModule {}
 ```
 
 ```ts
 @Component({
-    selector: 'app',
-    templateUrl: './app.component.html',
+  selector: 'app',
+  templateUrl: './app.component.html',
 })
 export class AppComponent {
-    constructor(
-        @Inject(AUDIO_WORKLET_PROCESSORS_READY) readonly processorsReady: Promise<boolean>,
-    ) {}
+  constructor(@Inject(AUDIO_WORKLET_PROCESSORS_READY) readonly processorsReady: Promise<boolean>) {}
 
-    // ...
+  // ...
 }
-
 ```
 
 You can then instantiate your [AudioWorkletNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletNode):
@@ -175,21 +172,21 @@ If you need to create your own node with custom
 
 ```ts
 @Directive({
-    selector: '[my-worklet-node]',
-    exportAs: 'AudioNode',
-    providers: [asAudioNode(MyWorklet)],
+  selector: '[my-worklet-node]',
+  exportAs: 'AudioNode',
+  providers: [asAudioNode(MyWorklet)],
 })
 export class MyWorklet extends WebAudioWorklet {
-    @Input()
-    @audioParam()
-    customParam?: AudioParamInput;
+  @Input()
+  @audioParam()
+  customParam?: AudioParamInput;
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-    ) {
-        super(context, node, 'my-processor');
-    }
+  constructor(
+    @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
+    @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
+  ) {
+    super(context, node, 'my-processor');
+  }
 }
 ```
 
@@ -247,32 +244,32 @@ To schedule an audio envelope looking something like this:
 You would need to pass the following array of `AudioParamAutomation` items:
 
 ```ts
-envelope = [
-    {
-        value: 0,
-        duration: 0,
-        mode: 'instant',
-    },
-    {
-        value: 1,
-        duration: ATTACK_TIME,
-        mode: 'linear',
-    },
-    {
-        value: SUS,
-        duration: DECAY_TIME,
-        mode: 'linear',
-    },
-    {
-        value: SUS,
-        duration: SUSTAIN_TIME,
-        mode: 'instant',
-    },
-    {
-        value: 0,
-        duration: RELEASE_TIME,
-        mode: 'exponential',
-    },
+const envelope = [
+  {
+    value: 0,
+    duration: 0,
+    mode: 'instant',
+  },
+  {
+    value: 1,
+    duration: ATTACK_TIME,
+    mode: 'linear',
+  },
+  {
+    value: SUS,
+    duration: DECAY_TIME,
+    mode: 'linear',
+  },
+  {
+    value: SUS,
+    duration: SUSTAIN_TIME,
+    mode: 'instant',
+  },
+  {
+    value: 0,
+    duration: RELEASE_TIME,
+    mode: 'exponential',
+  },
 ];
 ```
 
