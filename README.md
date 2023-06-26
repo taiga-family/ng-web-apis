@@ -5,6 +5,23 @@
 High quality lightweight wrappers for native Web APIs for idiomatic use with Angular. See
 [individual libraries](https://github.com/tinkoff/ng-web-apis/tree/main/libs) for more details.
 
+## Review the Change Logs
+
+- [`@ng-web-apis/audio`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/audio/CHANGELOG.md)
+- [`@ng-web-apis/canvas`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/canvas/CHANGELOG.md)
+- [`@ng-web-apis/common`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/common/CHANGELOG.md)
+- [`@ng-web-apis/geolocation`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/geolocation/CHANGELOG.md)
+- [`@ng-web-apis/intersection-observer`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/intersection-observer/CHANGELOG.md)
+- [`@ng-web-apis/midi`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/midi/CHANGELOG.md)
+- [`@ng-web-apis/mutation-observer`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/mutation-observer/CHANGELOG.md)
+- [`@ng-web-apis/payment-request`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/payment-request/CHANGELOG.md)
+- [`@ng-web-apis/permissions`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/permissions/CHANGELOG.md)
+- [`@ng-web-apis/resize-observer`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/resize-observer/CHANGELOG.md)
+- [`@ng-web-apis/speech`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/speech/CHANGELOG.md)
+- [`@ng-web-apis/storage`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/storage/CHANGELOG.md)
+- [`@ng-web-apis/universal`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/universal/CHANGELOG.md)
+- [`@ng-web-apis/workers`](https://github.com/tinkoff/ng-web-apis/blob/main/libs/workers/CHANGELOG.md)
+
 ## Core team
 
 <table>
