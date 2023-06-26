@@ -62,7 +62,7 @@
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
             "@ng-web-apis/common": ["./libs/common/src/index.ts"],
             "@ng-web-apis/universal": ["./libs/universal/src/index.ts"],
-            "@ng-web-apis/universal/*": ["./libs/universal/src/*"],
+            "@ng-web-apis/universal/*": ["./libs/universal/*"],
             "@ng-web-apis/audio": ["./libs/audio/src/index.ts"],
             "@ng-web-apis/audio/*": ["./libs/audio/src/*"],
             "@ng-web-apis/canvas": ["./libs/canvas/src/index.ts"],
