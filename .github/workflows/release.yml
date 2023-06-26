@@ -53,11 +53,11 @@ jobs:
           fi
 
       - name: Build libraries
-        run: npx nx run-many --target=build --parallel=1
+        run: npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo
 
       - name: Publish
         if: always()
-        run: npx nx run-many --target=publish --parallel=1
+        run: npx nx run-many --target=publish --parallel=1 --output-style=stream
 
 concurrency:
   group: release-audio-${{ github.workflow }}-${{ github.ref }}
