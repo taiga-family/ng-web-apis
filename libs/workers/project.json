@@ -30,6 +30,12 @@
                     "params": "forward"
                 }
             ]
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm publish ./dist/workers --ignore-scripts || echo \"already published\""
+            }
         }
     }
 }
