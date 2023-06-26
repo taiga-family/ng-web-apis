@@ -1,0 +1,23 @@
+{
+    "$schema": "node_modules/lerna/schemas/lerna-schema.json",
+    "version": "independent",
+    "packages": ["libs/*"],
+    "stream": true,
+    "npmClient": "npm",
+    "changelog": true,
+    "command": {
+        "version": {
+            "allowBranch": "main",
+            "ignoreChanges": ["**/*.spec.ts", "**/apps/**", "**/.github/**", "**/scripts/**", "**/CHANGELOG.md"]
+        },
+        "publish": {
+            "yes": true,
+            "npmClient": "npm",
+            "force-publish": "*",
+            "conventionalCommits": true,
+            "registry": "https://registry.npmjs.org",
+            "message": "chore(release): update CHANGELOG.md [ci skip]",
+            "ignoreChanges": ["node_modules", "dist", "apps", "CHANGELOG.md"]
+        }
+    }
+}

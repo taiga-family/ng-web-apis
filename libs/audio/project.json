@@ -31,33 +31,10 @@
                 }
             ]
         },
-        "version": {
-            "executor": "@jscutlery/semver:version",
+        "publish": {
+            "builder": "@nrwl/workspace:run-commands",
             "options": {
-                "skipCommit": true,
-                "syncVersions": false,
-                "noVerify": true,
-                "allowEmptyRelease": true,
-                "skipRootChangelog": true,
-                "preset": "conventional",
-                "skipProjectChangelog": false,
-                "tagPrefix": "@ng-web-apis/${projectName}@",
-                "skipCommitTypes": ["ci", "docs", "test", "refactor", "release", "chore"],
-                "commitMessageFormat": "release: bump ${projectName} to ${version} [skip ci]",
-                "postTargets": ["audio:github", "audio:npm"]
-            }
-        },
-        "github": {
-            "executor": "@jscutlery/semver:github",
-            "options": {
-                "tag": "${tag}"
-            }
-        },
-        "npm": {
-            "executor": "ngx-deploy-npm:deploy",
-            "options": {
-                "access": "public",
-                "dryRun": "${dryRun}"
+                "command": "echo 'test publish'"
             }
         }
     }
