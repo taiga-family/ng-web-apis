@@ -1,4 +1,4 @@
-# ![logo](logo.svg) Angular Universal fallbacks
+# ![logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/universal/logo.svg) Angular Universal fallbacks
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/universal.svg)](https://npmjs.com/package/@ng-web-apis/universal)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/universal)](https://bundlephobia.com/result?p=@ng-web-apis/universal)

@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Web Storage API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/storage/logo.svg) Web Storage API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/storage.svg)](https://npmjs.com/package/@ng-web-apis/storage)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/storage)](https://bundlephobia.com/result?p=@ng-web-apis/storage)

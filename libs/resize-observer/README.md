@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Resize Observer API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/resize-observer/logo.svg) Resize Observer API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/resize-observer.svg)](https://npmjs.com/package/@ng-web-apis/resize-observer)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/resize-observer)](https://bundlephobia.com/result?p=@ng-web-apis/resize-observer)

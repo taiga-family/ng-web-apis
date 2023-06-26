@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Web MIDI API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/midi/logo.svg) Web MIDI API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/midi.svg)](https://npmjs.com/package/@ng-web-apis/midi)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/midi)](https://bundlephobia.com/result?p=@ng-web-apis/midi)

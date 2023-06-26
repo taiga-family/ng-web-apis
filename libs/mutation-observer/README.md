@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](projects/demo/src/assets/logo.svg) Mutation Observer API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/mutation-observer/logo.svg) Mutation Observer API for Angular
 
 > Part of <img src="projects/demo/src/assets/web-api.svg" align="top"> >
 > [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/)

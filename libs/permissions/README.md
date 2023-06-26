@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Permissions API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/permissions/logo.svg) Permissions API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/permissions.svg)](https://npmjs.com/package/@ng-web-apis/permissions)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/permissions)](https://bundlephobia.com/result?p=@ng-web-apis/permissions)

@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Geolocation API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/geolocation/logo.svg) Geolocation API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/geolocation.svg)](https://npmjs.com/package/@ng-web-apis/geolocation)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/geolocation)

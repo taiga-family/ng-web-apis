@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](logo.svg) Web Speech API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/speech/logo.svg) Web Speech API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/speech.svg)](https://npmjs.com/package/@ng-web-apis/speech)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/speech)](https://bundlephobia.com/result?p=@ng-web-apis/speech)
