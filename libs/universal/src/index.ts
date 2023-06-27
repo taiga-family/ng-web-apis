@@ -15,7 +15,6 @@ export * from './constants/universal-session-storage';
 export * from './constants/universal-speech-synthesis';
 export * from './constants/universal-user-agent';
 export * from './constants/universal-window';
-
 export * from './constants/universal-providers';
 
 // Utils

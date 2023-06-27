@@ -27,6 +27,7 @@
     global.ConstantSourceNode = class {};
     global.MediaElementAudioSourceNode = class {};
     global.MediaStreamAudioSourceNode = class {};
+    global.MediaStreamTrackAudioSourceNode = class {};
     global.OscillatorNode = class {};
     global.MediaStreamAudioDestinationNode = class {};
     global.AnalyserNode = class {};
@@ -38,8 +39,6 @@
     global.DynamicsCompressorNode = class {};
     global.GainNode = class {};
     global.IIRFilterNode = class {};
-    global.speechSynthesis = class {};
-    global.SpeechSynthesisUtterance = class {};
     global.PannerNode = class {};
     global.ScriptProcessorNode = class {};
     global.StereoPannerNode = class {};

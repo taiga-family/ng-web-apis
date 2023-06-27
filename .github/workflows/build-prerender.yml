@@ -1,5 +1,4 @@
-name: ⚙️ Build
-
+name: ⚙️ Build prerender
 on:
   pull_request:
 
