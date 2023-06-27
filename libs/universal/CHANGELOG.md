@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.2](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.0.1...@ng-web-apis/universal@3.0.2) (2023-06-27)
+
+### Bug Fixes
+
+- **universal:** add secondary entry point for mocks ([#112](https://github.com/tinkoff/ng-web-apis/issues/112))
+  ([9e01f2d](https://github.com/tinkoff/ng-web-apis/commit/9e01f2d8bf2ee1ae2f1a87c5ab7560e23172ed63))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.0.1](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.0.0...@ng-web-apis/universal@3.0.1) (2023-06-26)
 
 **Note:** Version bump only for package @ng-web-apis/universal
