@@ -47,7 +47,7 @@ jobs:
         if: always()
         run: |
           if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
-            npx lerna version ${{ github.event.inputs.type }} --no-private --force-publish
+            npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
           else
               npx lerna version --no-private
           fi
@@ -60,5 +60,5 @@ jobs:
         run: npx nx run-many --target=publish --parallel=1 --output-style=stream
 
 concurrency:
-  group: release-audio-${{ github.workflow }}-${{ github.ref }}
+  group: release-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
