@@ -21,7 +21,7 @@ jobs:
     name: Run release
     runs-on: ubuntu-latest
     env:
-      GH_TOKEN: ${{ secrets.TINKOFF_BOT_PAT }}
+      GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
     steps:
       - name: Fetch from origin repo
         uses: actions/checkout@v3.5.3
@@ -29,7 +29,7 @@ jobs:
           fetch-depth: 0
           persist-credentials: false
           ref: ${{ github.head_ref }}
-          token: ${{ secrets.TINKOFF_BOT_PAT }}
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
       - name: Setup Node.js and Cache
         uses: ./.github/actions/nodejs
@@ -38,7 +38,7 @@ jobs:
         run: |
           git config --global user.name "tinkoff-bot"
           git config --global user.email "tinkoff-bot@tinkoff.ru"
-          git config remote.origin.url https://x-access-token:${{ secrets.TINKOFF_BOT_PAT }}@github.com/$GITHUB_REPOSITORY
+          git config remote.origin.url https://x-access-token:${{ secrets.TAIGA_FAMILY_BOT_PAT }}@github.com/$GITHUB_REPOSITORY
           npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
           NPM_WHOAMI_OUTPUT=$(npm whoami)
           echo "::debug::npm whoami: ${NPM_WHOAMI_OUTPUT}"
