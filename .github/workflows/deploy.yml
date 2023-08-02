@@ -21,6 +21,7 @@ jobs:
       - name: Deploy
         uses: JamesIves/github-pages-deploy-action@v4.4.1
         with:
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           branch: gh-pages
           folder: dist/demo
           silent: false
