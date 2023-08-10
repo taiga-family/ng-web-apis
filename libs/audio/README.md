@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/audio/logo.svg) Web Audio API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/audio/logo.svg) Web Audio API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/audio.svg)](https://npmjs.com/package/@ng-web-apis/audio)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/audio)](https://bundlephobia.com/result?p=@ng-web-apis/audio)
@@ -6,8 +6,8 @@
 
 This is a library for declarative use of [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 with Angular 7+. It is a complete conversion to declarative Angular directives, if you find any inconsistencies or
-errors, please [file an issue](https://github.com/tinkoff/ng-web-apis/issues). Watch out for 💡 emoji in this README for
-additional features and special use cases.
+errors, please [file an issue](https://github.com/taiga-family/ng-web-apis/issues). Watch out for 💡 emoji in this
+README for additional features and special use cases.
 
 ## How to use
 
@@ -239,7 +239,7 @@ through argument binding combined with dynamic property binding as seen above.
 
 To schedule an audio envelope looking something like this:
 
-![Envelope](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/audio/envelope.png)
+![Envelope](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/audio/envelope.png)
 
 You would need to pass the following array of `AudioParamAutomation` items:
 
@@ -354,20 +354,14 @@ not support it
 ## Angular Universal
 
 If you want to use this package with SSR, you need to mock native Web Audio API classes on the server. You can use our
-Universal package for this, see [this example](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks).
+Universal package for this, see
+[this example](https://github.com/taiga-family/ng-web-apis/tree/main/libs/universal#mocks).
 
 ## Demo
 
-You can [try online demo here](https://tinkoff.github.io/ng-web-apis/audio)
+You can [try online demo here](https://taiga-family.github.io/ng-web-apis/audio)
 
 ## See also
 
-Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
-[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
-
-## Open-source
-
-Do you also want to open-source something, but hate the collateral work? Check out this
-[Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter) we’ve created
-for our projects. It got you covered on continuous integration, pre-commit checks, linting, versioning + changelog, code
-coverage and all that jazz.
+Other [Web APIs for Angular](https://taiga-family.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/taiga-family/ng-web-apis)

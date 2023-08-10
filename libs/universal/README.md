@@ -1,11 +1,12 @@
-# ![logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/universal/logo.svg) Angular Universal fallbacks
+# ![logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/universal/logo.svg) Angular Universal fallbacks
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/universal.svg)](https://npmjs.com/package/@ng-web-apis/universal)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/universal)](https://bundlephobia.com/result?p=@ng-web-apis/universal)
 [![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/universal)](https://coveralls.io/github/ng-web-apis/universal?branch=master)
 
-A set of fallbacks to seamlessly use [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common)
-in [Angular Universal](https://github.com/angular/universal) apps. These packages have synced versions down to minor.
+A set of fallbacks to seamlessly use
+[@ng-web-apis/common](https://github.com/taiga-family/ng-web-apis/tree/main/libs/common) in
+[Angular Universal](https://github.com/angular/universal) apps. These packages have synced versions down to minor.
 
 ## How to use
 

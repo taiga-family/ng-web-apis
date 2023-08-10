@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.3](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.0.2...@ng-web-apis/universal@3.0.3) (2023-08-02)
+## [3.0.3](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/universal@3.0.2...@ng-web-apis/universal@3.0.3) (2023-08-02)
 
 **Note:** Version bump only for package @ng-web-apis/universal
 
@@ -12,19 +12,19 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.2](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.0.1...@ng-web-apis/universal@3.0.2) (2023-06-27)
+## [3.0.2](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/universal@3.0.1...@ng-web-apis/universal@3.0.2) (2023-06-27)
 
 ### Bug Fixes
 
-- **universal:** add secondary entry point for mocks ([#112](https://github.com/tinkoff/ng-web-apis/issues/112))
-  ([9e01f2d](https://github.com/tinkoff/ng-web-apis/commit/9e01f2d8bf2ee1ae2f1a87c5ab7560e23172ed63))
+- **universal:** add secondary entry point for mocks ([#112](https://github.com/taiga-family/ng-web-apis/issues/112))
+  ([9e01f2d](https://github.com/taiga-family/ng-web-apis/commit/9e01f2d8bf2ee1ae2f1a87c5ab7560e23172ed63))
 
 # Change Log
 
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.1](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.0.0...@ng-web-apis/universal@3.0.1) (2023-06-26)
+## [3.0.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/universal@3.0.0...@ng-web-apis/universal@3.0.1) (2023-06-26)
 
 **Note:** Version bump only for package @ng-web-apis/universal
 
@@ -37,14 +37,14 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **audio:** remove `MediaStreamTrackAudioSourceNode` ([#91](https://github.com/tinkoff/ng-web-apis/issues/91))
-  ([f49ad49](https://github.com/tinkoff/ng-web-apis/commit/f49ad4937f8bd376c4f439980cb3376c65f408d2))
-- geolocation ([#79](https://github.com/tinkoff/ng-web-apis/issues/79))
-  ([1f906a8](https://github.com/tinkoff/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
-- midi ([#83](https://github.com/tinkoff/ng-web-apis/issues/83))
-  ([273be2a](https://github.com/tinkoff/ng-web-apis/commit/273be2a946944c463ed475f4d91688cd0f7d8593))
-- workers ([#89](https://github.com/tinkoff/ng-web-apis/issues/89))
-  ([7a7a87c](https://github.com/tinkoff/ng-web-apis/commit/7a7a87c3762a19567af35eab7adbf60fd5b647a3))
+- **audio:** remove `MediaStreamTrackAudioSourceNode` ([#91](https://github.com/taiga-family/ng-web-apis/issues/91))
+  ([f49ad49](https://github.com/taiga-family/ng-web-apis/commit/f49ad4937f8bd376c4f439980cb3376c65f408d2))
+- geolocation ([#79](https://github.com/taiga-family/ng-web-apis/issues/79))
+  ([1f906a8](https://github.com/taiga-family/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
+- midi ([#83](https://github.com/taiga-family/ng-web-apis/issues/83))
+  ([273be2a](https://github.com/taiga-family/ng-web-apis/commit/273be2a946944c463ed475f4d91688cd0f7d8593))
+- workers ([#89](https://github.com/taiga-family/ng-web-apis/issues/89))
+  ([7a7a87c](https://github.com/taiga-family/ng-web-apis/commit/7a7a87c3762a19567af35eab7adbf60fd5b647a3))
 
 # Changelog
 

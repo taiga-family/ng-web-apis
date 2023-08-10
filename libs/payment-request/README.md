@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/payment-request/logo.svg) Payment Request API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/payment-request/logo.svg) Payment Request API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/payment-request.svg)](https://npmjs.com/package/@ng-web-apis/payment-request)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/payment-request)](https://bundlephobia.com/result?p=@ng-web-apis/payment-request)
@@ -9,7 +9,7 @@ two ways to use this API with Angular of 6+ version.
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
+If you do not have [@ng-web-apis/common](https://github.com/taiga-family/ng-web-apis/tree/main/libs/common):
 
 ```bash
 npm i @ng-web-apis/common
@@ -218,11 +218,4 @@ export class YourComponentThatMakesPaymentRequests {
 
 ## See also
 
-All [@ng-web-apis](https://tinkoff.github.io/ng-web-apis/) for your apps
-
-## Open-source
-
-Do you also want to open-source something, but hate the collateral work? Check out this
-[Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter) we’ve created
-for our projects. It got you covered on continuous integration, pre-commit checks, linting, versioning + changelog, code
-coverage and all that jazz.
+All [@ng-web-apis](https://taiga-family.github.io/ng-web-apis/) for your apps
