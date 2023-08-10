@@ -10,9 +10,9 @@
         "service",
         "shared"
     ],
-    "homepage": "https://github.com/tinkoff/common/blob/main/libs/workers/README.md",
-    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
-    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/workers/README.md",
+    "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
+    "repository": "https://github.com/taiga-family/ng-web-apis",
     "license": "Apache-2.0",
     "author": {
         "name": "Igor Katsuba",

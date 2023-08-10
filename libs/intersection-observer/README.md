@@ -1,4 +1,4 @@
-# ![ng-web-apis logo](https://raw.githubusercontent.com/Tinkoff/ng-web-apis/main/libs/intersection-observer/logo.svg) Intersection Observer API for Angular
+# ![ng-web-apis logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/intersection-observer/logo.svg) Intersection Observer API for Angular
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/intersection-observer.svg)](https://npmjs.com/package/@ng-web-apis/intersection-observer)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/intersection-observer)](https://bundlephobia.com/result?p=@ng-web-apis/intersection-observer)
@@ -8,7 +8,7 @@ This is a library for declarative use of
 
 ## Install
 
-If you do not have [@ng-web-apis/common](https://github.com/tinkoff/ng-web-apis/tree/main/libs/common):
+If you do not have [@ng-web-apis/common](https://github.com/taiga-family/ng-web-apis/tree/main/libs/common):
 
 ```bash
 npm i @ng-web-apis/common
@@ -43,7 +43,7 @@ following line to your `setup.ts`:
 import '@ng-web-apis/universal/mocks';
 ```
 
-to use mocks from [@ng-web-apis/universal](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks)
+to use mocks from [@ng-web-apis/universal](https://github.com/taiga-family/ng-web-apis/tree/main/libs/universal#mocks)
 package.
 
 ## Examples
@@ -119,20 +119,14 @@ export class MyComponent {
 ## Angular Universal
 
 If you want to use this package with SSR, you need to mock `IntersectionObserver` class on the server. You can use our
-Universal package for this, see [this example](https://github.com/tinkoff/ng-web-apis/tree/main/libs/universal#mocks).
+Universal package for this, see
+[this example](https://github.com/taiga-family/ng-web-apis/tree/main/libs/universal#mocks).
 
 ## Demo
 
-You can [try online demo here](https://tinkoff.github.io/ng-web-apis/intersection-observer)
+You can [try online demo here](https://taiga-family.github.io/ng-web-apis/intersection-observer)
 
 ## See also
 
-Other [Web APIs for Angular](https://tinkoff.github.io/ng-web-apis/) by
-[@ng-web-apis](https://github.com/tinkoff/ng-web-apis)
-
-## Open-source
-
-Do you also want to open-source something, but hate the collateral work? Check out this
-[Angular Open-source Library Starter](https://github.com/TinkoffCreditSystems/angular-open-source-starter) we’ve created
-for our projects. It got you covered on continuous integration, pre-commit checks, linting, versioning + changelog, code
-coverage and all that jazz.
+Other [Web APIs for Angular](https://taiga-family.github.io/ng-web-apis/) by
+[@ng-web-apis](https://github.com/taiga-family/ng-web-apis)

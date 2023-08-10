@@ -14,9 +14,9 @@
         "camera",
         "microphone"
     ],
-    "homepage": "https://github.com/tinkoff/common/blob/main/libs/permissions/README.md",
-    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
-    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/permissions/README.md",
+    "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
+    "repository": "https://github.com/taiga-family/ng-web-apis",
     "license": "Apache-2.0",
     "author": {
         "name": "Dmitry Efimenko"

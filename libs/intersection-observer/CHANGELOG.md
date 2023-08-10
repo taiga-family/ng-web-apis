@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.1.2](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/intersection-observer@3.1.1...@ng-web-apis/intersection-observer@3.1.2) (2023-08-02)
+## [3.1.2](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/intersection-observer@3.1.1...@ng-web-apis/intersection-observer@3.1.2) (2023-08-02)
 
 **Note:** Version bump only for package @ng-web-apis/intersection-observer
 
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.1.1](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/intersection-observer@3.1.0...@ng-web-apis/intersection-observer@3.1.1) (2023-06-26)
+## [3.1.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/intersection-observer@3.1.0...@ng-web-apis/intersection-observer@3.1.1) (2023-06-26)
 
 **Note:** Version bump only for package @ng-web-apis/intersection-observer
 
@@ -25,8 +25,8 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- intersection-observer ([#82](https://github.com/tinkoff/ng-web-apis/issues/82))
-  ([32fd540](https://github.com/tinkoff/ng-web-apis/commit/32fd540cc0f50645b1b840cf57e1e5734640234b))
+- intersection-observer ([#82](https://github.com/taiga-family/ng-web-apis/issues/82))
+  ([32fd540](https://github.com/taiga-family/ng-web-apis/commit/32fd540cc0f50645b1b840cf57e1e5734640234b))
 
 # Changelog
 

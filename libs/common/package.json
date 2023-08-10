@@ -11,9 +11,9 @@
         "navigator",
         "user agent"
     ],
-    "homepage": "https://github.com/tinkoff/common/blob/main/libs/common/README.md",
-    "bugs": "https://github.com/tinkoff/ng-web-apis/issues",
-    "repository": "https://github.com/tinkoff/ng-web-apis",
+    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/common/README.md",
+    "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
+    "repository": "https://github.com/taiga-family/ng-web-apis",
     "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",

@@ -3,7 +3,7 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.2](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/geolocation@3.0.1...@ng-web-apis/geolocation@3.0.2) (2023-08-02)
+## [3.0.2](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/geolocation@3.0.1...@ng-web-apis/geolocation@3.0.2) (2023-08-02)
 
 **Note:** Version bump only for package @ng-web-apis/geolocation
 
@@ -12,7 +12,7 @@ All notable changes to this project will be documented in this file. See
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
-## [3.0.1](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/geolocation@3.0.0...@ng-web-apis/geolocation@3.0.1) (2023-06-26)
+## [3.0.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/geolocation@3.0.0...@ng-web-apis/geolocation@3.0.1) (2023-06-26)
 
 **Note:** Version bump only for package @ng-web-apis/geolocation
 
@@ -25,10 +25,10 @@ All notable changes to this project will be documented in this file. See
 
 ### Features
 
-- **canvas:** add `transform` property and pipe ([#92](https://github.com/tinkoff/ng-web-apis/issues/92))
-  ([ee37271](https://github.com/tinkoff/ng-web-apis/commit/ee372716bbc5dd0734b474d12102fec1d5ec3321))
-- geolocation ([#79](https://github.com/tinkoff/ng-web-apis/issues/79))
-  ([1f906a8](https://github.com/tinkoff/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
+- **canvas:** add `transform` property and pipe ([#92](https://github.com/taiga-family/ng-web-apis/issues/92))
+  ([ee37271](https://github.com/taiga-family/ng-web-apis/commit/ee372716bbc5dd0734b474d12102fec1d5ec3321))
+- geolocation ([#79](https://github.com/taiga-family/ng-web-apis/issues/79))
+  ([1f906a8](https://github.com/taiga-family/ng-web-apis/commit/1f906a8f439ccf31e7c55811889c15f204033c2e))
 
 # Changelog
 
