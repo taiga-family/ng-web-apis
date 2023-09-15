@@ -14,4 +14,5 @@ export enum DemoPath {
     PermissionsPage = `permissions`,
     StoragePage = `storage`,
     WorkersPage = `workers`,
+    ViewTransitionPage = `view-transition`,
 }

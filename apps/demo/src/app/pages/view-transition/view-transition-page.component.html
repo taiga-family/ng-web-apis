@@ -1,0 +1,33 @@
+<h2>How to use</h2>
+<p>
+    Usage is pretty simple: just import service in your component and call
+    <code>startViewTransition</code>
+    on it.
+</p>
+<pre><code [highlight]="codeSample" [languages]="['ts']"></code></pre>
+<h2>Basic example</h2>
+
+<div *ngIf="!showDetails" class="photos">
+    <div
+        *ngFor="let item of data; let index = index"
+        class="photo"
+        (click)="open(index)"
+    >
+        <span class="author">
+            Photo by
+            <a target="_blank" [href]="item.url">{{item.author}}</a>
+        </span>
+        <img
+            [src]="item.src"
+            [style.viewTransitionName]="activeIndex === index ? 'expandable-image' : null"
+        />
+    </div>
+</div>
+
+<div *ngIf="showDetails" class="expanded-photo">
+    <img [src]="detailInfo?.src" (click)="close()" />
+</div>
+
+<a tuiLink href="https://www.pexels.com" target="_blank">
+    Photos provided by Pexels
+</a>
