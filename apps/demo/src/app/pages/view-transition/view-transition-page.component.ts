@@ -1,6 +1,7 @@
 import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {finalize} from 'rxjs';
+import {BehaviorSubject, takeUntil} from 'rxjs';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
+import {TuiDestroyService} from '@taiga-ui/cdk';
 
 interface Photo {
     src: string;
@@ -8,7 +9,7 @@ interface Photo {
     url: string;
 }
 
-const PHOTOS = [
+const PHOTOS: readonly Photo[] = [
     {
         src: 'https://images.pexels.com/photos/16316785/pexels-photo-16316785/free-photo-of-fluffy-cat-on-blooming-tree-background.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1',
         author: 'Peng Louis',
@@ -48,44 +49,39 @@ const USAGE_SAMPLE = `
     templateUrl: `./view-transition-page.component.html`,
     styleUrls: [`./view-transition-page.component.less`],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    providers: [TuiDestroyService],
 })
 export class ViewTransitionPageComponent {
-    codeSample = USAGE_SAMPLE;
-    activeIndex = -1;
-    showDetails = false;
-    detailInfo: Photo | undefined = undefined;
-    data = PHOTOS;
+    readonly codeSample = USAGE_SAMPLE;
+    readonly data = PHOTOS;
+    readonly activeIndex$ = new BehaviorSubject(-1);
+    readonly detailInfo$ = new BehaviorSubject<Photo | undefined>(undefined);
 
     constructor(
         private readonly viewTransitionService: ViewTransitionService,
         private readonly cdr: ChangeDetectorRef,
+        private readonly destroy$: TuiDestroyService,
     ) {}
 
     open(index: number): void {
-        this.activeIndex = index;
-        this.detailInfo = this.data[index];
-        this.cdr.detectChanges();
-
+        this.activeIndex$.next(index);
         this.viewTransitionService
             .startViewTransition(() => {
-                this.showDetails = true;
+                this.detailInfo$.next(this.data[index]);
                 this.cdr.detectChanges();
             })
+            .pipe(takeUntil(this.destroy$))
             .subscribe();
     }
 
     close(): void {
         this.viewTransitionService
             .startViewTransition(() => {
-                this.showDetails = false;
+                this.detailInfo$.next(undefined);
                 this.cdr.detectChanges();
+                this.activeIndex$.next(-1);
             })
-            .pipe(
-                finalize(() => {
-                    this.activeIndex = -1;
-                    this.detailInfo = undefined;
-                }),
-            )
+            .pipe(takeUntil(this.destroy$))
             .subscribe();
     }
 }

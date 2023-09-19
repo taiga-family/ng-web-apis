@@ -7,26 +7,30 @@
 <pre><code [highlight]="codeSample" [languages]="['ts']"></code></pre>
 <h2>Basic example</h2>
 
-<div *ngIf="!showDetails" class="photos">
-    <div
-        *ngFor="let item of data; let index = index"
-        class="photo"
-        (click)="open(index)"
-    >
-        <span class="author">
-            Photo by
-            <a target="_blank" [href]="item.url">{{item.author}}</a>
-        </span>
-        <img
-            [src]="item.src"
-            [style.viewTransitionName]="activeIndex === index ? 'expandable-image' : null"
-        />
+<ng-container
+    *tuiLet="{ detailInfo: detailInfo$ | async, activeIndex: activeIndex$ | async } as context"
+>
+    <div *ngIf="!context.detailInfo" class="photos">
+        <div
+            *ngFor="let item of data; let index = index"
+            class="photo"
+            (click)="open(index)"
+        >
+            <span class="author">
+                Photo by
+                <a target="_blank" [href]="item.url">{{item.author}}</a>
+            </span>
+            <img
+                [src]="item.src"
+                [style.viewTransitionName]="context.activeIndex === index ? 'expandable-image' : null"
+            />
+        </div>
     </div>
-</div>
 
-<div *ngIf="showDetails" class="expanded-photo">
-    <img [src]="detailInfo?.src" (click)="close()" />
-</div>
+    <div *ngIf="context.detailInfo" class="expanded-photo">
+        <img [src]="context.detailInfo.src" (click)="close()" />
+    </div>
+</ng-container>
 
 <a tuiLink href="https://www.pexels.com" target="_blank">
     Photos provided by Pexels
