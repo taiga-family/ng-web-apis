@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/view-transition",
-    "version": "3.0.0",
+    "version": "3.1.0",
     "description": "This is a library for declarative use of View Transition API with Angular",
     "keywords": [
         "angular",
