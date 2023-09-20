@@ -23,7 +23,8 @@
             "@ng-web-apis/intersection-observer": ["./dist/intersection-observer"],
             "@ng-web-apis/midi": ["./dist/midi"],
             "@ng-web-apis/workers": ["./dist/workers"],
-            "@ng-web-apis/resize-observer": ["./dist/resize-observer"]
+            "@ng-web-apis/resize-observer": ["./dist/resize-observer"],
+            "@ng-web-apis/view-transition": ["./dist/view-transition"]
         }
     }
 }

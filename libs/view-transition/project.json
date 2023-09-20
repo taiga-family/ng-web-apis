@@ -1,0 +1,41 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "view-transition",
+    "root": "libs/view-transition",
+    "sourceRoot": "libs/view-transition",
+    "projectType": "library",
+    "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["coverage/view-transition"],
+            "options": {
+                "main": "libs/view-transition/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/view-transition/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/view-transition"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/view-transition/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm publish ./dist/view-transition --ignore-scripts || echo \"already published\""
+            }
+        }
+    }
+}

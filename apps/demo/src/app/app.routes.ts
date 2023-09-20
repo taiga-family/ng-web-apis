@@ -88,6 +88,12 @@ export const appRoutes: Routes = [
             (await import(`./pages/workers/workers-page.module`)).WorkersPageModule,
     },
     {
+        path: DemoPath.ViewTransitionPage,
+        loadChildren: async () =>
+            (await import(`./pages/view-transition/view-transition-page.module`))
+                .ViewTransitionPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',

@@ -1,0 +1,30 @@
+{
+    "name": "@ng-web-apis/view-transition",
+    "version": "3.0.0",
+    "description": "This is a library for declarative use of View Transition API with Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "view transition",
+        "view transition api"
+    ],
+    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/view-transition/README.md",
+    "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
+    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Vsevolod Arutiunov",
+        "email": "sevaru@inbox.ru"
+    },
+    "contributors": [
+        "Alex Inkin <alexander@inkin.ru>",
+        "Roman Sedov <79601794011@ya.ru>"
+    ],
+    "dependencies": {
+        "tslib": "^2.0.0"
+    },
+    "peerDependencies": {
+        "@angular/common": ">=12.0.0",
+        "@angular/core": ">=12.0.0"
+    }
+}

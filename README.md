@@ -21,6 +21,7 @@ High quality lightweight wrappers for native Web APIs for idiomatic use with Ang
 - [`@ng-web-apis/storage`](https://github.com/taiga-family/ng-web-apis/blob/main/libs/storage/CHANGELOG.md)
 - [`@ng-web-apis/universal`](https://github.com/taiga-family/ng-web-apis/blob/main/libs/universal/CHANGELOG.md)
 - [`@ng-web-apis/workers`](https://github.com/taiga-family/ng-web-apis/blob/main/libs/workers/CHANGELOG.md)
+- [`@ng-web-apis/view-transition`](https://github.com/taiga-family/ng-web-apis/blob/main/libs/view-transition/CHANGELOG.md)
 
 ## Core team
 
