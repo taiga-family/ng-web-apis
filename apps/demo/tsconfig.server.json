@@ -3,7 +3,7 @@
     "compilerOptions": {
         "outDir": "./dist/out-tsc-server",
         "target": "es2016",
-        "types": ["node", "webmidi", "dom-view-transitions"]
+        "types": ["node", "webmidi", "dom-view-transitions", "dom-speech-recognition"]
     },
     "files": ["src/typings.d.ts", "src/main.server.ts", "server.ts"],
     "angularCompilerOptions": {
