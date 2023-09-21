@@ -34,7 +34,7 @@
         "publish": {
             "executor": "@nrwl/workspace:run-commands",
             "options": {
-                "command": "npm publish ./dist/view-transition --ignore-scripts || echo \"already published\""
+                "command": "npm publish ./dist/view-transition --ignore-scripts --access=public || echo \"already published\""
             }
         }
     }
