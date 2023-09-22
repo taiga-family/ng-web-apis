@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/audio.svg)](https://npmjs.com/package/@ng-web-apis/audio)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/audio)](https://bundlephobia.com/result?p=@ng-web-apis/audio)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/audio)](https://coveralls.io/github/ng-web-apis/audio?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=audio)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/audio)
 
 This is a library for declarative use of [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API)
 with Angular 7+. It is a complete conversion to declarative Angular directives, if you find any inconsistencies or

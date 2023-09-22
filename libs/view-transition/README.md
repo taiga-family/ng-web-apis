@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/view-transition.svg)](https://npmjs.com/package/@ng-web-apis/view-transition)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/view-transition)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/view-transition)](https://coveralls.io/github/ng-web-apis/view-transition?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=view-transition)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/view-transition)
 
 This service is an abstraction over
 [view transition API](https://developer.mozilla.org/en-US/docs/Web/API/View_Transitions_API) for Angular

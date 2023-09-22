@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/canvas.svg)](https://npmjs.com/package/@ng-web-apis/canvas)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/canvas)](https://bundlephobia.com/result?p=@ng-web-apis/canvas)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/canvas)](https://coveralls.io/github/ng-web-apis/canvas?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=canvas)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/canvas)
 
 This is a library for declarative use of [Canvas API](https://developer.mozilla.org/en-US/docs/Web/API/Canvas_API) with
 Angular.

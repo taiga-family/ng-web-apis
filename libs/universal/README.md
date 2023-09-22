@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/universal.svg)](https://npmjs.com/package/@ng-web-apis/universal)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/universal)](https://bundlephobia.com/result?p=@ng-web-apis/universal)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/universal)](https://coveralls.io/github/ng-web-apis/universal?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=universal)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/universal)
 
 A set of fallbacks to seamlessly use
 [@ng-web-apis/common](https://github.com/taiga-family/ng-web-apis/tree/main/libs/common) in

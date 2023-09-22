@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/speech.svg)](https://npmjs.com/package/@ng-web-apis/speech)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/speech)](https://bundlephobia.com/result?p=@ng-web-apis/speech)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=speech)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/speech)
 
 This is a library to use [Web Speech API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Speech_API) with Angular.
 
