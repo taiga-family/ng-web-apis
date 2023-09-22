@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/speech@3.0.3...@ng-web-apis/speech@3.0.4) (2023-09-22)
+
+### Bug Fixes
+
+- **speech, view-transition:** add peer dependencies on appropriate types
+  ([e862bc8](https://github.com/taiga-family/ng-web-apis/commit/e862bc861394946577232d19ffba553aa388a52e))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.0.3](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/speech@3.0.2...@ng-web-apis/speech@3.0.3) (2023-09-20)
 
 **Note:** Version bump only for package @ng-web-apis/speech
