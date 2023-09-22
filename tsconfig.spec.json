@@ -3,6 +3,6 @@
     "exclude": [],
     "compilerOptions": {
         "outDir": "out-tsc/spec",
-        "types": ["jasmine", "node", "webmidi", "dom-view-transitions"]
+        "types": ["jasmine", "node", "webmidi", "dom-view-transitions", "dom-speech-recognition"]
     }
 }

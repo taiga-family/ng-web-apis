@@ -104,6 +104,7 @@
         "@tinkoff/eslint-config": "^1.22.0",
         "@tinkoff/eslint-config-angular": "^1.23.0",
         "@tinkoff/prettier-config": "^1.22.0",
+        "@types/dom-speech-recognition": "0.0.1",
         "@types/dom-view-transitions": "1.0.1",
         "@types/dompurify": "^2.4.0",
         "@types/estree": "^0.0.51",

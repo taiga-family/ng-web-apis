@@ -30,7 +30,7 @@
         "module": "es2020",
         "lib": ["es2018", "dom"],
         "typeRoots": ["node_modules/@types"],
-        "types": ["node", "webmidi", "dom-view-transitions"],
+        "types": ["node", "webmidi", "dom-view-transitions", "dom-speech-recognition"],
         "skipLibCheck": true,
         "downlevelIteration": true,
         "skipDefaultLibCheck": true,
