@@ -19,7 +19,7 @@ module.exports = function (config) {
             suppressAll: true, // removes the duplicated traces
         },
         coverageIstanbulReporter: {
-            dir: require('path').join(__dirname, '../../coverage/intersection-observer'),
+            dir: require('path').join(__dirname, '../../coverage/permissions'),
             reports: ['html', 'lcovonly'],
             fixWebpackSourcePaths: true,
         },

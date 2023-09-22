@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/payment-request.svg)](https://npmjs.com/package/@ng-web-apis/payment-request)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/payment-request)](https://bundlephobia.com/result?p=@ng-web-apis/payment-request)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=payment-request)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/payment-request)
 
 Angular does not have any abstractions over
 [Payment Request API](https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API). This library provides you

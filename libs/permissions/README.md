@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/permissions.svg)](https://npmjs.com/package/@ng-web-apis/permissions)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/permissions)](https://bundlephobia.com/result?p=@ng-web-apis/permissions)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=permissions)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/permissions)
 
 This is a library to use [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API) with
 Angular.

@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/workers.svg)](https://npmjs.com/package/@ng-web-apis/workers)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/workers)](https://bundlephobia.com/result?p=@ng-web-apis/workers)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/workers)](https://coveralls.io/github/ng-web-apis/workers?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=workers)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/workers)
 
 This is a library for comfortable use of
 [Web Workers API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Workers_API) with Angular.

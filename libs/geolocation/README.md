@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/geolocation.svg)](https://npmjs.com/package/@ng-web-apis/geolocation)
 ![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/geolocation)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/geolocation)](https://coveralls.io/github/ng-web-apis/geolocation?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=geolocation)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/geolocation)
 
 This is an `Observable` based abstraction over
 [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API) to use with Angular

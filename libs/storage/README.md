@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/storage.svg)](https://npmjs.com/package/@ng-web-apis/storage)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/storage)](https://bundlephobia.com/result?p=@ng-web-apis/storage)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/storage)](https://coveralls.io/github/ng-web-apis/storage?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=storage)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/storage)
 
 This is a library to use [Web Storage API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Storage_API) with
 Angular.

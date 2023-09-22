@@ -2,6 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/intersection-observer.svg)](https://npmjs.com/package/@ng-web-apis/intersection-observer)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/intersection-observer)](https://bundlephobia.com/result?p=@ng-web-apis/intersection-observer)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=intersection-observer)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/intersection-observer)
 
 This is a library for declarative use of
 [Intersection Observer API](https://developer.mozilla.org/en-US/docs/Web/API/Intersection_Observer_API) with Angular.

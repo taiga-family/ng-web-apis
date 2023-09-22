@@ -2,7 +2,7 @@
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/midi.svg)](https://npmjs.com/package/@ng-web-apis/midi)
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/midi)](https://bundlephobia.com/result?p=@ng-web-apis/midi)
-[![Coveralls github](https://img.shields.io/coveralls/github/ng-web-apis/midi)](https://coveralls.io/github/ng-web-apis/midi?branch=master)
+[![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=midi)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/midi)
 
 This library contains abstractions and helpful utils to use [Web MIDI API](https://www.w3.org/TR/webmidi) idiomatically
 with Angular.
