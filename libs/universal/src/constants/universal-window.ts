@@ -65,6 +65,10 @@ const WINDOW_HANDLER: ProxyHandler<Window> = {
     },
 };
 
+/**
+ * @deprecated View Engine legacy
+ * TODO: use arrow function for `useFactory` and delete this exported function in future major release
+ */
 export function windowFactory(
     document: Document,
     location: Location | null,

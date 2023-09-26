@@ -3,8 +3,9 @@ import {MIDI_ACCESS} from '../tokens/midi-access';
 import {MIDI_OUTPUT} from '../tokens/midi-output';
 import {MIDI_OUTPUT_QUERY} from '../tokens/midi-output-query';
 
-import MIDIOutput = WebMidi.MIDIOutput;
 import MIDIAccess = WebMidi.MIDIAccess;
+
+import MIDIOutput = WebMidi.MIDIOutput;
 
 /**
  * Provide MIDIOutput by name
@@ -25,6 +26,10 @@ export function outputByName(name: string): Provider[] {
     ];
 }
 
+/**
+ * @deprecated View Engine legacy
+ * TODO: use arrow function for `useFactory` and delete this exported function in future major release
+ */
 export function outputByNameFactory(
     midiAccess: Promise<MIDIAccess>,
     name: string,
