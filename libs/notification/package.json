@@ -1,0 +1,26 @@
+{
+    "name": "@ng-web-apis/notification",
+    "version": "3.0.0",
+    "description": "A library for declarative use of Notification API with Angular",
+    "keywords": [
+        "angular",
+        "ng",
+        "notification"
+    ],
+    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/notification/README.md",
+    "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
+    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "license": "Apache-2.0",
+    "author": {
+        "name": "Nikita Barsukov",
+        "email": "nikita.s.barsukov@gmail.com"
+    },
+    "contributors": [
+        "Nikita Barsukov <nikita.s.barsukov@gmail.com>"
+    ],
+    "peerDependencies": {
+        "@angular/core": ">=12.0.0",
+        "@ng-web-apis/common": ">=3.0.0",
+        "rxjs": ">=6.0.0"
+    }
+}
