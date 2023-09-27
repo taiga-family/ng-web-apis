@@ -3,8 +3,9 @@ import {MIDI_ACCESS} from '../tokens/midi-access';
 import {MIDI_INPUT} from '../tokens/midi-input';
 import {MIDI_INPUT_QUERY} from '../tokens/midi-input-query';
 
-import MIDIInput = WebMidi.MIDIInput;
 import MIDIAccess = WebMidi.MIDIAccess;
+
+import MIDIInput = WebMidi.MIDIInput;
 
 /**
  * Provide MIDIInput by id
@@ -25,6 +26,10 @@ export function inputById(id: string): Provider[] {
     ];
 }
 
+/**
+ * @deprecated View Engine legacy
+ * TODO: use arrow function for `useFactory` and delete this exported function in future major release
+ */
 export function inputByIdFactory(
     midiAccess: Promise<MIDIAccess>,
     id: string,

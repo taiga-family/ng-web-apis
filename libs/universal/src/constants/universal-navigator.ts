@@ -124,6 +124,10 @@ export const NAVIGATOR_MOCK = {
     vibrate: alwaysFalse,
 } as unknown as Navigator;
 
+/**
+ * @deprecated View Engine legacy
+ * TODO: use arrow function for `useFactory` and delete this exported function in future major release
+ */
 export function navigatorFactory(userAgent: string | null): Navigator {
     return {
         ...NAVIGATOR_MOCK,
