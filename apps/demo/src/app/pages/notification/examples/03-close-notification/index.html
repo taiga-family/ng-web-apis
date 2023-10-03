@@ -1,1 +1,7 @@
-<button tuiButton (click)="sendNotification()">Send notification</button>
+<button
+    tuiButton
+    [disabled]="(notificationPermissionState$ | async) === 'denied'"
+    (click)="sendNotification()"
+>
+    Send notification
+</button>

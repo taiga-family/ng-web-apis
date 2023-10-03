@@ -1,5 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
+import {PermissionsService} from '@ng-web-apis/permissions';
 import {timer} from 'rxjs';
 import {filter, switchMap, takeUntil} from 'rxjs/operators';
 
@@ -9,7 +10,13 @@ import {filter, switchMap, takeUntil} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample3 {
-    constructor(private readonly notificationService: NotificationService) {}
+    readonly notificationPermissionState$ =
+        this.permissionsService.state('notifications');
+
+    constructor(
+        private readonly notificationService: NotificationService,
+        private readonly permissionsService: PermissionsService,
+    ) {}
 
     sendNotification(): void {
         this.notificationService

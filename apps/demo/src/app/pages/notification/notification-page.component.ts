@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {PermissionsService} from '@ng-web-apis/permissions';
 import {TuiDocExample} from '@taiga-ui/addon-doc';
 
 @Component({
@@ -8,6 +9,12 @@ import {TuiDocExample} from '@taiga-ui/addon-doc';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageComponent {
+    readonly notificationPermissionState$ =
+        this.permissionsService.state('notifications');
+
+    readonly deniedPermissionNotification =
+        'You have denied notification permission. Please, change it in browser settings.';
+
     readonly gettingPermissionExample: TuiDocExample = {
         'index.ts': import('./examples/01-getting-permission/index.ts?raw'),
         'index.html': import('./examples/01-getting-permission/index.html?raw'),
@@ -27,4 +34,6 @@ export class NotificationPageComponent {
         'index.ts': import('./examples/04-listen-notification-events/index.ts?raw'),
         'index.html': import('./examples/04-listen-notification-events/index.html?raw'),
     };
+
+    constructor(private readonly permissionsService: PermissionsService) {}
 }
