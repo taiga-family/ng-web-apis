@@ -1,4 +1,4 @@
 {
-  "$schema": "https://docs.renovatebot.com/renovate-schema.json",
-  "extends": ["github>taiga-family/renovate-config"]
+    "$schema": "https://docs.renovatebot.com/renovate-schema.json",
+    "extends": ["github>taiga-family/renovate-config"]
 }
