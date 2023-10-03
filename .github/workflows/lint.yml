@@ -9,7 +9,7 @@ jobs:
   lint:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3.5.2
+      - uses: actions/checkout@v3.6.0
       - uses: taiga-family/ci/actions/setup/node@1.20.0
       - run: npm run prettier -- --check
       - run: npm run typecheck
