@@ -77,7 +77,7 @@
         "@angular/compiler": "12.2.17",
         "@angular/compiler-cli": "12.2.15",
         "@angular/core": "12.2.17",
-        "@angular/forms": "12.2.15",
+        "@angular/forms": "12.2.17",
         "@angular/language-service": "12.2.17",
         "@angular/platform-browser": "12.2.15",
         "@angular/platform-browser-dynamic": "12.2.15",
