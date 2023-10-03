@@ -31,17 +31,13 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - name: Setup Node.js and Cache
-        uses: ./.github/actions/nodejs
-
-      - name: Setup GIT username and NPM token
-        run: |
-          git config --global user.name "taiga-family-bot"
-          git config --global user.email "opensource@tinkoff.ru"
-          git config remote.origin.url https://x-access-token:${{ secrets.TAIGA_FAMILY_BOT_PAT }}@github.com/$GITHUB_REPOSITORY
-          npm config set '//registry.npmjs.org/:_authToken' "${{ secrets.NPM_TOKEN }}"
-          NPM_WHOAMI_OUTPUT=$(npm whoami)
-          echo "::debug::npm whoami: ${NPM_WHOAMI_OUTPUT}"
+      - uses: taiga-family/ci/actions/setup/node@1.20.0
+      - uses: taiga-family/ci/actions/setup/config/git@1.20.0
+        with:
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+      - uses: taiga-family/ci/actions/setup/config/npm@1.20.0
+        with:
+          token: ${{ secrets.NPM_TOKEN }}
 
       - name: Lerna update version of packages
         if: always()
@@ -52,12 +48,10 @@ jobs:
               npx lerna version --no-private
           fi
 
-      - name: Build libraries
-        run: npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo
+      - run: npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo
 
-      - name: Publish
+      - run: npx nx run-many --target=publish --parallel=1 --output-style=stream
         if: always()
-        run: npx nx run-many --target=publish --parallel=1 --output-style=stream
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
