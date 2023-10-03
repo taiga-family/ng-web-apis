@@ -82,7 +82,7 @@
         "@angular/platform-browser": "12.2.15",
         "@angular/platform-browser-dynamic": "12.2.15",
         "@angular/platform-server": "12.2.15",
-        "@angular/router": "12.2.15",
+        "@angular/router": "12.2.17",
         "@commitlint/cli": "^11.0.0",
         "@commitlint/config-conventional": "^11.0.0",
         "@nguniversal/builders": "^12.1.3",
