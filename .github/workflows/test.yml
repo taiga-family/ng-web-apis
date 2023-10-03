@@ -52,77 +52,77 @@ jobs:
       - name: Display structure of coverage files
         run: tree -L 2 ./coverage -P 'lcov.info'
 
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/common/
           flags: summary,common
           name: kit
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/universal/
           flags: summary,universal
           name: universal
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/audio/
           flags: summary,audio
           name: audio
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/canvas/
           flags: summary,canvas
           name: canvas
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/geolocation/
           flags: summary,geolocation
           name: geolocation
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/midi/
           flags: summary,midi
           name: midi
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/intersection-observer/
           flags: summary,intersection-observer
           name: intersection-observer
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/resize-observer/
           flags: summary,resize-observer
           name: resize-observer
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/mutation-observer/
           flags: summary,mutation-observer
           name: mutation-observer
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/payment-request/
           flags: summary,payment-request
           name: payment-request
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/permissions/
           flags: summary,permissions
           name: permissions
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/speech/
           flags: summary,speech
           name: speech
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/storage/
           flags: summary,storage
           name: storage
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/workers/
           flags: summary,workers
           name: workers
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/view-transition/
           flags: summary,view-transition
