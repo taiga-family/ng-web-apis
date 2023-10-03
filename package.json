@@ -72,7 +72,7 @@
         "@angular-devkit/core": "12.2.15",
         "@angular/animations": "12.2.15",
         "@angular/cdk": "12.2.13",
-        "@angular/cli": "12.2.15",
+        "@angular/cli": "12.2.18",
         "@angular/common": "12.2.15",
         "@angular/compiler": "12.2.15",
         "@angular/compiler-cli": "12.2.15",
