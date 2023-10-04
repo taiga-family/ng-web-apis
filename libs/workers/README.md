@@ -90,7 +90,7 @@ import {FormControl} from '@angular/forms';
 
 @Component({
   template: `
-    Computed Result: {{ value | waWorker: changeData | async }}
+    Computed Result: {{ value | waWorker : changeData | async }}
 
     <input [(ngModel)]="value" />
   `,

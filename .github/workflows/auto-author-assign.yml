@@ -1,0 +1,16 @@
+name: 🤖 Auto assign
+on:
+  pull_request:
+    types: [opened, reopened]
+
+jobs:
+  assign-author:
+    name: PR author as an assignee
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.1.0
+      - uses: taiga-family/ci/actions/setup/variables@1.20.0
+      - uses: toshimaru/auto-author-assign@v2.0.1
+        if: env.IS_OWNER_MODE == 'true'
+        with:
+          repo-token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
