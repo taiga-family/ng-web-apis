@@ -7,7 +7,7 @@ import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
     selector: 'canvas',
     template: `
         <canvas-path
-            [fillStyle]="grad | gradient: 0:0:1:1"
+            [fillStyle]="grad | gradient : 0 : 0 : 1 : 1"
             [strokeStyle]="img | pattern"
             [closed]="true"
         >

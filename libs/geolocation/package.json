@@ -23,7 +23,7 @@
         "Roman Sedov <79601794011@ya.ru>"
     ],
     "dependencies": {
-        "tslib": "2.5.0"
+        "tslib": "2.6.2"
     },
     "peerDependencies": {
         "@angular/common": ">=6.0.0",

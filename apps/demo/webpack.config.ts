@@ -44,7 +44,7 @@ export default (ngConfigs: Configuration): Configuration => {
         if (
             typeof rule === `object` &&
             DONT_MUTATE_RAW_FILE_CONTENTS.some(
-                pattern => rule.test instanceof RegExp && rule.test?.test(pattern),
+                pattern => rule?.test instanceof RegExp && rule?.test?.test(pattern),
             )
         ) {
             return {...rule, resourceQuery: {not: [RAW_QUERY]}};
