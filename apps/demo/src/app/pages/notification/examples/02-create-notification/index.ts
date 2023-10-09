@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {PermissionsService} from '@ng-web-apis/permissions';
-import {filter, switchMap} from 'rxjs/operators';
+import {filter, map, switchMap} from 'rxjs/operators';
 
 @Component({
     selector: 'notification-page-example-2',
@@ -9,7 +9,9 @@ import {filter, switchMap} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample2 {
-    readonly notificationPermissionState$ = this.permissions.state('notifications');
+    readonly denied$ = this.permissions
+        .state('notifications')
+        .pipe(map(state => state === 'denied'));
 
     constructor(
         private readonly notifications: NotificationService,
