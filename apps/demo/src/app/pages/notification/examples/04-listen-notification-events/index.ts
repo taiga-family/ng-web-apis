@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
-import {PermissionsService} from '@ng-web-apis/permissions';
+import {filterPermission, isDenied, PermissionsService} from '@ng-web-apis/permissions';
 import {fromEvent} from 'rxjs';
-import {filter, map, switchMap} from 'rxjs/operators';
+import {map, switchMap} from 'rxjs/operators';
 
 @Component({
     selector: 'notification-page-example-4',
@@ -10,9 +10,7 @@ import {filter, map, switchMap} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample4 {
-    readonly denied$ = this.permissions
-        .state('notifications')
-        .pipe(map(state => state === 'denied'));
+    readonly denied$ = this.permissions.state('notifications').pipe(map(isDenied));
 
     constructor(
         private readonly notifications: NotificationService,
@@ -23,7 +21,7 @@ export class NotificationPageExample4 {
         this.notifications
             .requestPermission()
             .pipe(
-                filter(permission => permission === 'granted'),
+                filterPermission('granted'),
                 switchMap(() =>
                     this.notifications.open(`Click me, please`, {
                         body: `Then open console and investigate property "target"`,
