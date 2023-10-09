@@ -1,5 +1,5 @@
 import {Inject, Injectable} from '@angular/core';
-import {fromEvent, Observable, throwError} from 'rxjs';
+import {defer, fromEvent, Observable, throwError} from 'rxjs';
 import {takeUntil} from 'rxjs/operators';
 
 import {NOTIFICATION_SUPPORT} from '../tokens/support';
@@ -36,13 +36,15 @@ export class NotificationService {
             return NOT_SUPPORTED_ERROR$;
         }
 
-        const notification = new Notification(title, options);
-        const close$ = fromEvent(notification, 'close');
+        return defer(() => {
+            const notification = new Notification(title, options);
+            const close$ = fromEvent(notification, 'close');
 
-        return new Observable<Notification>(subscriber => {
-            subscriber.next(notification);
+            return new Observable<Notification>(subscriber => {
+                subscriber.next(notification);
 
-            return () => notification.close();
-        }).pipe(takeUntil(close$));
+                return () => notification.close();
+            }).pipe(takeUntil(close$));
+        });
     }
 }
