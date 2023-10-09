@@ -9,21 +9,20 @@ import {filter, switchMap} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample2 {
-    readonly notificationPermissionState$ =
-        this.permissionsService.state('notifications');
+    readonly notificationPermissionState$ = this.permissions.state('notifications');
 
     constructor(
-        private readonly notificationService: NotificationService,
-        private readonly permissionsService: PermissionsService,
+        private readonly notifications: NotificationService,
+        private readonly permissions: PermissionsService,
     ) {}
 
     sendNotification(): void {
-        this.notificationService
+        this.notifications
             .requestPermission()
             .pipe(
                 filter(permission => permission === 'granted'),
                 switchMap(() =>
-                    this.notificationService.open('Web APIs for Angular', {
+                    this.notifications.open('Web APIs for Angular', {
                         body: 'High quality lightweight wrappers for native Web APIs for idiomatic use with Angular',
                         icon: 'assets/images/web-api.svg',
                     }),

@@ -9,8 +9,7 @@ import {TuiDocExample} from '@taiga-ui/addon-doc';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageComponent {
-    readonly notificationPermissionState$ =
-        this.permissionsService.state('notifications');
+    readonly notificationPermissionState$ = this.permissions.state('notifications');
 
     readonly deniedPermissionNotification =
         'You have denied notification permission. Please, change it in browser settings.';
@@ -35,5 +34,5 @@ export class NotificationPageComponent {
         'index.html': import('./examples/04-listen-notification-events/index.html?raw'),
     };
 
-    constructor(private readonly permissionsService: PermissionsService) {}
+    constructor(private readonly permissions: PermissionsService) {}
 }

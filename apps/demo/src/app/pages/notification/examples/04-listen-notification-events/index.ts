@@ -10,24 +10,23 @@ import {filter, switchMap} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample4 {
-    readonly notificationPermissionState$ =
-        this.permissionsService.state('notifications');
+    readonly notificationPermissionState$ = this.permissions.state('notifications');
 
     constructor(
-        private readonly notificationService: NotificationService,
-        private readonly permissionsService: PermissionsService,
+        private readonly notifications: NotificationService,
+        private readonly permissions: PermissionsService,
     ) {}
 
     sendNotification(): void {
-        this.notificationService
+        this.notifications
             .requestPermission()
             .pipe(
                 filter(permission => permission === 'granted'),
                 switchMap(() =>
-                    this.notificationService.open(`Click me, please`, {
+                    this.notifications.open(`Click me, please`, {
                         body: `Then open console and investigate property "target"`,
                         requireInteraction: true,
-                        data: `Randomly generate number: ${Math.random().toFixed(2)}`,
+                        data: `Randomly generated number: ${Math.random().toFixed(2)}`,
                     }),
                 ),
                 switchMap(notification => fromEvent(notification, 'click')),

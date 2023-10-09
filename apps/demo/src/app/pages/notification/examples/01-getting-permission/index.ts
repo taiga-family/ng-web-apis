@@ -8,16 +8,15 @@ import {PermissionsService} from '@ng-web-apis/permissions';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample1 {
-    readonly notificationPermissionState$ =
-        this.permissionsService.state('notifications');
+    readonly notificationPermissionState$ = this.permissions.state('notifications');
 
     constructor(
-        private readonly notificationService: NotificationService,
-        private readonly permissionsService: PermissionsService,
+        private readonly notifications: NotificationService,
+        private readonly permissions: PermissionsService,
     ) {}
 
     requestPermission(): void {
-        this.notificationService.requestPermission().subscribe({
+        this.notifications.requestPermission().subscribe({
             next: permission =>
                 console.info(
                     'Permission status:',

@@ -10,21 +10,20 @@ import {filter, switchMap, takeUntil} from 'rxjs/operators';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample3 {
-    readonly notificationPermissionState$ =
-        this.permissionsService.state('notifications');
+    readonly notificationPermissionState$ = this.permissions.state('notifications');
 
     constructor(
-        private readonly notificationService: NotificationService,
-        private readonly permissionsService: PermissionsService,
+        private readonly notifications: NotificationService,
+        private readonly permissions: PermissionsService,
     ) {}
 
     sendNotification(): void {
-        this.notificationService
+        this.notifications
             .requestPermission()
             .pipe(
                 filter(permission => permission === 'granted'),
                 switchMap(() =>
-                    this.notificationService.open('Close me, please!', {
+                    this.notifications.open('Close me, please!', {
                         requireInteraction: true,
                     }),
                 ),
