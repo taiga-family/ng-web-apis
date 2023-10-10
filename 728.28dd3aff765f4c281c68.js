@@ -1,0 +1,1 @@
+"use strict";(self.webpackChunkng_web_apis=self.webpackChunkng_web_apis||[]).push([[728],{98728:n=>{n.exports='<button tuiButton [disabled]="(denied$ | async)!" (click)="sendNotification()">\n    Send notification\n</button>\n'}}]);
