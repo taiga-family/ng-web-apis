@@ -94,6 +94,12 @@ export const appRoutes: Routes = [
                 .ViewTransitionPageModule,
     },
     {
+        path: DemoPath.Notification,
+        loadChildren: async () =>
+            (await import(`./pages/notification/notification-page.module`))
+                .NotificationPageModule,
+    },
+    {
         path: '',
         redirectTo: DemoPath.HomePage,
         pathMatch: 'full',
