@@ -1,7 +1,7 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
-import {filterPermission, isDenied, PermissionsService} from '@ng-web-apis/permissions';
-import {map, switchMap} from 'rxjs/operators';
+import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
+import {filter, map, switchMap} from 'rxjs/operators';
 
 @Component({
     selector: 'notification-page-example-2',
@@ -20,7 +20,7 @@ export class NotificationPageExample2 {
         this.notifications
             .requestPermission()
             .pipe(
-                filterPermission('granted'),
+                filter(isGranted),
                 switchMap(() =>
                     this.notifications.open('Web APIs for Angular', {
                         body: 'High quality lightweight wrappers for native Web APIs for idiomatic use with Angular',

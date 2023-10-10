@@ -1,8 +1,8 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
-import {filterPermission, isDenied, PermissionsService} from '@ng-web-apis/permissions';
+import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
 import {fromEvent} from 'rxjs';
-import {map, switchMap} from 'rxjs/operators';
+import {filter, map, switchMap} from 'rxjs/operators';
 
 @Component({
     selector: 'notification-page-example-4',
@@ -21,7 +21,7 @@ export class NotificationPageExample4 {
         this.notifications
             .requestPermission()
             .pipe(
-                filterPermission('granted'),
+                filter(isGranted),
                 switchMap(() =>
                     this.notifications.open(`Click me, please`, {
                         body: `Then open console and investigate property "target"`,
