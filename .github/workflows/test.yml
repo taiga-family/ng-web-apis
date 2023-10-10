@@ -129,7 +129,7 @@ jobs:
           directory: ./coverage/view-transition/
           flags: summary,view-transition
           name: view-transition
-      - uses: codecov/codecov-action@v3.1.3
+      - uses: codecov/codecov-action@v3.1.4
         with:
           directory: ./coverage/notification/
           flags: summary,notification
