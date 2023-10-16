@@ -1,13 +1,15 @@
+import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {NgModule, SecurityContext} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
+import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
+import {ServiceWorkerModule} from '@angular/service-worker';
+import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
+import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
+import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
+import {MarkdownModule} from 'ngx-markdown';
+import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routes';
-import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {HighlightModule, HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
-import {LocationStrategy, PathLocationStrategy} from '@angular/common';
-import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
-import {MarkdownModule} from 'ngx-markdown';
-import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
 
 @NgModule({
     imports: [
@@ -22,6 +24,12 @@ import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
         TuiSvgModule,
         MarkdownModule.forRoot({
             sanitize: SecurityContext.NONE,
+        }),
+        ServiceWorkerModule.register('ngsw-worker.js', {
+            enabled: environment.production,
+            // Register the ServiceWorker as soon as the app is stable
+            // or after 30 seconds (whichever comes first).
+            registrationStrategy: 'registerWhenStable:30000',
         }),
     ],
     declarations: [AppComponent],

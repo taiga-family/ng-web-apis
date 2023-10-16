@@ -1,7 +1,6 @@
 {
     "name": "demo",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "root": "libs/demo/",
     "sourceRoot": "libs/demo/src",
     "projectType": "application",
     "prefix": "app",
@@ -49,8 +48,15 @@
                         "glob": "**/logo.svg",
                         "input": "libs/",
                         "output": "assets/logos/"
+                    },
+                    {
+                        "glob": "manifest.webmanifest",
+                        "input": "apps/demo/src/",
+                        "output": "/"
                     }
-                ]
+                ],
+                "serviceWorker": true,
+                "ngswConfigPath": "apps/demo/ngsw-config.json"
             },
             "configurations": {
                 "development": {
@@ -141,6 +147,33 @@
             "options": {
                 "command": "nx mkcert demo && nx serve demo --ssl --open --host 0.0.0.0 --disable-host-check"
             }
+        },
+        "serve-pwa": {
+            "executor": "nx:run-commands",
+            "options": {
+                "parallel": false,
+                "commands": [
+                    "echo \"TODO: delete serve-pwa command (and delete http-server dev-dep) after upgrade to Angular 14.2\"",
+                    "echo \"Learn more: https://github.com/angular/angular-cli/pull/23679\"",
+                    "echo \"Learn more: https://www.bitovi.com/blog/how-to-use-ng-serve-with-service-worker-support\"",
+                    "echo ------",
+                    "echo \"Warning: re-run this command after any code changes\"",
+                    "echo ------",
+                    "http-server dist/demo --ssl --cert=.ssl/localhost.pem --key=.ssl/localhost-key.pem --port=3333"
+                ]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "self",
+                    "params": "ignore"
+                },
+                {
+                    "target": "mkcert",
+                    "projects": "self",
+                    "params": "ignore"
+                }
+            ]
         },
         "generate-routes-file": {
             "executor": "nx:run-commands",
