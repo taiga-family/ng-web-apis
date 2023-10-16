@@ -1,7 +1,6 @@
 {
     "name": "demo",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "root": "libs/demo/",
     "sourceRoot": "libs/demo/src",
     "projectType": "application",
     "prefix": "app",
@@ -49,8 +48,15 @@
                         "glob": "**/logo.svg",
                         "input": "libs/",
                         "output": "assets/logos/"
+                    },
+                    {
+                        "glob": "manifest.webmanifest",
+                        "input": "apps/demo/src/",
+                        "output": "/"
                     }
-                ]
+                ],
+                "serviceWorker": true,
+                "ngswConfigPath": "apps/demo/ngsw-config.json"
             },
             "configurations": {
                 "development": {
