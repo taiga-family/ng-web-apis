@@ -41,6 +41,9 @@ MIT
 @angular/router
 MIT
 
+@angular/service-worker
+MIT
+
 @maskito/angular
 Apache-2.0
 
