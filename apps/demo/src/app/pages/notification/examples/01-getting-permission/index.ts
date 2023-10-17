@@ -2,12 +2,13 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {PermissionsService} from '@ng-web-apis/permissions';
+import {TuiButtonModule} from '@taiga-ui/core';
 import {TuiBadgeModule} from '@taiga-ui/kit';
 
 @Component({
     standalone: true,
     selector: 'notification-page-example-1',
-    imports: [CommonModule, TuiBadgeModule],
+    imports: [CommonModule, TuiBadgeModule, TuiButtonModule],
     templateUrl: './index.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

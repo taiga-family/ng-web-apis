@@ -2,8 +2,7 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {PermissionsService} from '@ng-web-apis/permissions';
 import {TuiAddonDocModule, TuiDocExample} from '@taiga-ui/addon-doc';
-import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
-import {TuiBadgeModule} from '@taiga-ui/kit';
+import {TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 
 import {NotificationPageExample1} from './examples/01-getting-permission';
 import {NotificationPageExample2} from './examples/02-create-notification';
@@ -16,8 +15,6 @@ import {NotificationPageExample4} from './examples/04-listen-notification-events
     imports: [
         CommonModule,
         TuiAddonDocModule,
-        TuiBadgeModule,
-        TuiButtonModule,
         TuiNotificationModule,
         TuiLinkModule,
         NotificationPageExample1,

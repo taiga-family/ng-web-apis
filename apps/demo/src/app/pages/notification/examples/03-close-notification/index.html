@@ -1,6 +1,7 @@
 <button
     tuiButton
     [disabled]="(denied$ | async)!"
+    [showLoader]="(showLoader$ | async)!"
     (click)="sendNotification()"
 >
     Send notification

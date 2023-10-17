@@ -1,14 +1,14 @@
-import {CommonModule} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
-import {fromEvent} from 'rxjs';
+import {TuiButtonModule} from '@taiga-ui/core';
 import {filter, map, switchMap} from 'rxjs/operators';
 
 @Component({
     standalone: true,
     selector: 'notification-page-example-4',
-    imports: [CommonModule],
+    imports: [AsyncPipe, TuiButtonModule],
     templateUrl: './index.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -31,7 +31,9 @@ export class NotificationPageExample4 {
                         data: `Randomly generated number: ${Math.random().toFixed(2)}`,
                     }),
                 ),
-                switchMap(notification => fromEvent(notification, 'click')),
+                switchMap(notification =>
+                    this.notifications.fromEvent(notification, 'click'),
+                ),
             )
             .subscribe(console.info);
     }
