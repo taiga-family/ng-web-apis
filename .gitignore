@@ -45,3 +45,5 @@ Thumbs.db
 
 apps/demo/routesFile.txt
 .ssl
+.angular
+.nx
