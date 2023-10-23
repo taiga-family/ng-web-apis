@@ -11,7 +11,7 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.1.1
-      - uses: taiga-family/ci/actions/setup/node@v1.35.0
+      - uses: taiga-family/ci/actions/setup/node@v1.35.1
       - run: npm run prettier -- --check
       - run: npm run typecheck
       - run: npm run lint
