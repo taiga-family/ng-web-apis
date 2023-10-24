@@ -7,7 +7,7 @@
     "targets": {
         "build": {
             "executor": "@angular-builders/custom-webpack:browser",
-            "outputs": ["dist/demo"],
+            "outputs": ["{workspaceRoot}/dist/demo"],
             "options": {
                 "baseHref": "/",
                 "customWebpackConfig": {
@@ -165,12 +165,10 @@
             "dependsOn": [
                 {
                     "target": "build",
-                    "projects": "self",
                     "params": "ignore"
                 },
                 {
                     "target": "mkcert",
-                    "projects": "self",
                     "params": "ignore"
                 }
             ]
@@ -225,7 +223,6 @@
             "dependsOn": [
                 {
                     "target": "generate-routes-file",
-                    "projects": "self",
                     "params": "ignore"
                 }
             ]

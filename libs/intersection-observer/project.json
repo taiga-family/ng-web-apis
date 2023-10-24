@@ -1,13 +1,12 @@
 {
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "name": "intersection-observer",
-    "root": "libs/intersection-observer",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/intersection-observer",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["coverage/intersection-observer"],
+            "outputs": ["{workspaceRoot}/coverage/intersection-observer"],
             "options": {
                 "main": "libs/intersection-observer/test.ts",
                 "tsConfig": "tsconfig.spec.json",
@@ -18,7 +17,7 @@
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["dist/intersection-observer"],
+            "outputs": ["{workspaceRoot}/dist/intersection-observer"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
                 "project": "libs/intersection-observer/ng-package.json"
@@ -26,13 +25,13 @@
             "dependsOn": [
                 {
                     "target": "build",
-                    "projects": "dependencies",
-                    "params": "forward"
+                    "params": "forward",
+                    "dependencies": true
                 }
             ]
         },
         "publish": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "@nx/workspace:run-commands",
             "options": {
                 "command": "npm publish ./dist/intersection-observer --ignore-scripts || echo \"already published\""
             }

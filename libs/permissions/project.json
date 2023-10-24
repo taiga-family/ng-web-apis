@@ -1,13 +1,12 @@
 {
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "name": "permissions",
-    "root": "libs/permissions",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/permissions",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["coverage/permissions"],
+            "outputs": ["{workspaceRoot}/coverage/permissions"],
             "options": {
                 "main": "libs/permissions/test.ts",
                 "tsConfig": "tsconfig.spec.json",
@@ -18,7 +17,7 @@
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["dist/permissions"],
+            "outputs": ["{workspaceRoot}/dist/permissions"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
                 "project": "libs/permissions/ng-package.json"
@@ -26,13 +25,13 @@
             "dependsOn": [
                 {
                     "target": "build",
-                    "projects": "dependencies",
-                    "params": "forward"
+                    "params": "forward",
+                    "dependencies": true
                 }
             ]
         },
         "publish": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "@nx/workspace:run-commands",
             "options": {
                 "command": "npm publish ./dist/permissions --ignore-scripts || echo \"already published\""
             }

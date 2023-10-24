@@ -1,13 +1,12 @@
 {
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "name": "storage",
-    "root": "libs/storage",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/storage",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["coverage/storage"],
+            "outputs": ["{workspaceRoot}/coverage/storage"],
             "options": {
                 "main": "libs/storage/test.ts",
                 "tsConfig": "tsconfig.spec.json",
@@ -18,7 +17,7 @@
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["dist/storage"],
+            "outputs": ["{workspaceRoot}/dist/storage"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
                 "project": "libs/storage/ng-package.json"
@@ -26,13 +25,13 @@
             "dependsOn": [
                 {
                     "target": "build",
-                    "projects": "dependencies",
-                    "params": "forward"
+                    "params": "forward",
+                    "dependencies": true
                 }
             ]
         },
         "publish": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "@nx/workspace:run-commands",
             "options": {
                 "command": "npm publish ./dist/storage --ignore-scripts || echo \"already published\""
             }

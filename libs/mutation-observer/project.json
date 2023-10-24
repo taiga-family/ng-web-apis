@@ -1,13 +1,12 @@
 {
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "name": "mutation-observer",
-    "root": "libs/mutation-observer",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/mutation-observer",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["coverage/mutation-observer"],
+            "outputs": ["{workspaceRoot}/coverage/mutation-observer"],
             "options": {
                 "main": "libs/mutation-observer/test.ts",
                 "tsConfig": "tsconfig.spec.json",
@@ -18,7 +17,7 @@
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["dist/mutation-observer"],
+            "outputs": ["{workspaceRoot}/dist/mutation-observer"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
                 "project": "libs/mutation-observer/ng-package.json"
@@ -26,13 +25,13 @@
             "dependsOn": [
                 {
                     "target": "build",
-                    "projects": "dependencies",
-                    "params": "forward"
+                    "params": "forward",
+                    "dependencies": true
                 }
             ]
         },
         "publish": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "@nx/workspace:run-commands",
             "options": {
                 "command": "npm publish ./dist/mutation-observer --ignore-scripts || echo \"already published\""
             }
