@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.1.2](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/view-transition@3.1.1...@ng-web-apis/view-transition@3.1.2) (2023-10-24)
+
+### Bug Fixes
+
+- coverage bandges
+  ([3916016](https://github.com/taiga-family/ng-web-apis/commit/39160166d865b37da18aa6358de9966486046969))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.1.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/view-transition@3.1.0...@ng-web-apis/view-transition@3.1.1) (2023-09-22)
 
 ### Bug Fixes

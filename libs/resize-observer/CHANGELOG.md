@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.0.4](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/resize-observer@3.0.3...@ng-web-apis/resize-observer@3.0.4) (2023-10-24)
+
+### Bug Fixes
+
+- coverage bandges
+  ([3916016](https://github.com/taiga-family/ng-web-apis/commit/39160166d865b37da18aa6358de9966486046969))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.0.3](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/resize-observer@3.0.2...@ng-web-apis/resize-observer@3.0.3) (2023-09-20)
 
 **Note:** Version bump only for package @ng-web-apis/resize-observer
