@@ -31,7 +31,7 @@
             ]
         },
         "publish": {
-            "executor": "@nx/workspace:run-commands",
+            "executor": "nx:run-commands",
             "options": {
                 "command": "npm publish ./dist/storage --ignore-scripts || echo \"already published\""
             }
