@@ -41,6 +41,12 @@ export const appRoutes: Routes = [
                 .GeolocationPageModule,
     },
     {
+        path: DemoPath.ScreenOrientation,
+        loadChildren: async () =>
+            (await import(`./pages/screen-orientation/screen-orientation-page.module`))
+                .ScreenOrientationPageModule,
+    },
+    {
         path: DemoPath.IntersectionObserverPage,
         loadChildren: async () =>
             (

@@ -1,0 +1,30 @@
+{
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "name": "screen-orientation",
+    "root": "libs/screen-orientation",
+    "sourceRoot": "libs/screen-orientation",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["dist/screen-orientation"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/screen-orientation/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "projects": "dependencies",
+                    "params": "forward"
+                }
+            ]
+        },
+        "publish": {
+            "executor": "@nrwl/workspace:run-commands",
+            "options": {
+                "command": "npm publish ./dist/screen-orientation --ignore-scripts --access=public || echo \"already published\""
+            }
+        }
+    }
+}
