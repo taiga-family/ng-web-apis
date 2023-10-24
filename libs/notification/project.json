@@ -1,13 +1,12 @@
 {
-    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "name": "notification",
-    "root": "libs/notification",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
     "sourceRoot": "libs/notification",
     "projectType": "library",
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["coverage/notification"],
+            "outputs": ["{workspaceRoot}/coverage/notification"],
             "options": {
                 "main": "libs/notification/test.ts",
                 "tsConfig": "tsconfig.spec.json",
@@ -18,7 +17,7 @@
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["dist/notification"],
+            "outputs": ["{workspaceRoot}/dist/notification"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
                 "project": "libs/notification/ng-package.json"
@@ -26,13 +25,13 @@
             "dependsOn": [
                 {
                     "target": "build",
-                    "projects": "dependencies",
-                    "params": "forward"
+                    "params": "forward",
+                    "dependencies": true
                 }
             ]
         },
         "publish": {
-            "executor": "@nrwl/workspace:run-commands",
+            "executor": "@nx/workspace:run-commands",
             "options": {
                 "command": "npm publish ./dist/notification --ignore-scripts || echo \"already published\""
             }

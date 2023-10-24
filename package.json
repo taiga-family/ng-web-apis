@@ -51,10 +51,10 @@
         "test": "nx run-many --target test --all --output-style=stream --parallel=1",
         "prettier": "prettier '**/*.{svg,yml,js,ts,html,md,less,json}'",
         "*** CI ***": "",
-        "affected:test:libs": "nx affected --target test --exclude $(nx affected:apps --plain) --output-style=stream",
-        "affected:build:libs": "nx affected --target build --exclude $(nx affected:apps --plain) --output-style=stream",
-        "run-many:build:libs": "nx run-many --target build --all --exclude $(nx affected:apps --plain) --output-style=stream",
-        "run-many:publish:libs": "nx run-many --target publish --all --exclude $(nx affected:apps --plain) --output-style=stream"
+        "affected:test:libs": "nx affected --target test --exclude demo --output-style=stream",
+        "affected:build:libs": "nx affected --target build --exclude demo --output-style=stream",
+        "run-many:build:libs": "nx run-many --target build --exclude demo--output-style=stream",
+        "run-many:publish:libs": "nx run-many --target publish --output-style=stream"
     },
     "lint-staged": {
         "*.{js,ts,html,md,less,json}": [
@@ -88,12 +88,9 @@
         "@commitlint/config-conventional": "18.0.0",
         "@nguniversal/builders": "12.1.3",
         "@nguniversal/express-engine": "12.1.3",
-        "@nrwl/cli": "15.9.3",
-        "@nrwl/devkit": "15.9.7",
-        "@nrwl/node": "15.9.7",
-        "@nrwl/nx-cloud": "15.3.5",
-        "@nrwl/tao": "15.9.7",
-        "@nrwl/workspace": "15.9.7",
+        "@nx/devkit": "17.0.1",
+        "@nx/node": "17.0.1",
+        "@nx/workspace": "17.0.1",
         "@taiga-ui/addon-doc": "3.50.0",
         "@taiga-ui/addon-editor": "3.35.0",
         "@taiga-ui/addon-mobile": "3.50.0",
@@ -138,6 +135,7 @@
         "ngx-deploy-npm": "6.0.0",
         "ngx-highlightjs": "4.1.4",
         "ngx-markdown": "10.1.1",
+        "nx": "17.0.1",
         "prettier": "2.8.8",
         "rxjs": "7.5.2",
         "standard-version": "9.5.0",
