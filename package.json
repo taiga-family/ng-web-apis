@@ -121,7 +121,7 @@
         "highlight.js": "11.9.0",
         "http-server": "14.1.1",
         "husky": "8.0.3",
-        "jasmine-core": "4.6.0",
+        "jasmine-core": "5.1.1",
         "jasmine-spec-reporter": "7.0.0",
         "karma": "6.4.2",
         "karma-chrome-launcher": "3.2.0",
