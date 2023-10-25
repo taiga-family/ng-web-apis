@@ -110,7 +110,7 @@
         "@types/highlight.js": "10.1.0",
         "@types/jasmine": "3.10.13",
         "@types/jasminewd2": "2.0.12",
-        "@types/jest": "27.5.2",
+        "@types/jest": "29.5.6",
         "@types/node": "9.6.61",
         "@types/react": "17.0.67",
         "@types/react-dom": "17.0.21",
