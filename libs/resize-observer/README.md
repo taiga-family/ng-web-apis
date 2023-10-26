@@ -28,7 +28,12 @@ npm i @ng-web-apis/resize-observer
 
 ```html
 <section>
-  <h1 waResizeBox="content-box" (waResizeObserver)="onResize($event)">I'm being observed</h1>
+  <h1
+    waResizeBox="content-box"
+    (waResizeObserver)="onResize($event)"
+  >
+    I'm being observed
+  </h1>
 </section>
 ```
 

@@ -7,10 +7,11 @@
 <pre><code [highlight]="codeSample" [languages]="['ts']"></code></pre>
 <h2>Basic example</h2>
 
-<ng-container
-    *tuiLet="{ detailInfo: detailInfo$ | async, activeIndex: activeIndex$ | async } as context"
->
-    <div *ngIf="!context.detailInfo" class="photos">
+<ng-container *tuiLet="{detailInfo: detailInfo$ | async, activeIndex: activeIndex$ | async} as context">
+    <div
+        *ngIf="!context.detailInfo"
+        class="photos"
+    >
         <div
             *ngFor="let item of data; let index = index"
             class="photo"
@@ -18,7 +19,12 @@
         >
             <span class="author">
                 Photo by
-                <a target="_blank" [href]="item.url">{{item.author}}</a>
+                <a
+                    target="_blank"
+                    [href]="item.url"
+                >
+                    {{ item.author }}
+                </a>
             </span>
             <img
                 [src]="item.src"
@@ -27,11 +33,21 @@
         </div>
     </div>
 
-    <div *ngIf="context.detailInfo" class="expanded-photo">
-        <img [src]="context.detailInfo.src" (click)="close()" />
+    <div
+        *ngIf="context.detailInfo"
+        class="expanded-photo"
+    >
+        <img
+            [src]="context.detailInfo.src"
+            (click)="close()"
+        />
     </div>
 </ng-container>
 
-<a tuiLink href="https://www.pexels.com" target="_blank">
+<a
+    href="https://www.pexels.com"
+    target="_blank"
+    tuiLink
+>
     Photos provided by Pexels
 </a>

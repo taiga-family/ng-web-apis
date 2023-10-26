@@ -11,7 +11,11 @@
         value="Permission is denied"
     ></tui-badge>
 
-    <button *ngSwitchDefault tuiButton (click)="requestPermission()">
+    <button
+        *ngSwitchDefault
+        tuiButton
+        (click)="requestPermission()"
+    >
         Request permission
     </button>
 </ng-container>

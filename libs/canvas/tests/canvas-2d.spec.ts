@@ -7,13 +7,21 @@ import {canvasContextFactory} from '../src/contexts/canvas-2d';
 describe('Canvas2dDirective', () => {
     @Component({
         template: `
-            <canvas #canvas waCanvas2d width="100" height="100">
-                <canvas-path fillStyle="red" filter="hue-rotate(180deg)">
+            <canvas
+                #canvas
+                height="100"
+                waCanvas2d
+                width="100"
+            >
+                <canvas-path
+                    fillStyle="red"
+                    filter="hue-rotate(180deg)"
+                >
                     <canvas-rect
-                        [x]="10"
-                        [y]="10"
                         [height]="20"
                         [width]="20"
+                        [x]="10"
+                        [y]="10"
                     ></canvas-rect>
                 </canvas-path>
             </canvas>

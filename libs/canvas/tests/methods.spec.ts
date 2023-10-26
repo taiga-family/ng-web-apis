@@ -7,7 +7,12 @@ import {ClipPathComponent} from '../src/methods/clip-path';
 describe('Methods', () => {
     @Component({
         template: `
-            <canvas #canvas waCanvas2d width="100" height="100">
+            <canvas
+                #canvas
+                height="100"
+                waCanvas2d
+                width="100"
+            >
                 <canvas-clip-path>
                     <canvas-rect></canvas-rect>
                     <canvas-rect></canvas-rect>
@@ -16,24 +21,28 @@ describe('Methods', () => {
                 <canvas-draw-image [image]="loading"></canvas-draw-image>
                 <canvas-draw-image [image]="image"></canvas-draw-image>
                 <canvas-draw-image
-                    [image]="image"
+                    [dHeight]="10"
+                    [dWidth]="10"
                     [dX]="10"
                     [dY]="10"
-                    [dWidth]="10"
-                    [dHeight]="10"
+                    [image]="image"
                 ></canvas-draw-image>
                 <canvas-draw-image
-                    [image]="offset"
-                    [sX]="1"
-                    [sY]="1"
-                    [sWidth]="1"
-                    [sHeight]="1"
+                    [dHeight]="1"
+                    [dWidth]="1"
                     [dX]="30"
                     [dY]="30"
-                    [dWidth]="1"
-                    [dHeight]="1"
+                    [image]="offset"
+                    [sHeight]="1"
+                    [sWidth]="1"
+                    [sX]="1"
+                    [sY]="1"
                 ></canvas-draw-image>
-                <canvas-text textBaseline="top" text="No crash" [x]="50"></canvas-text>
+                <canvas-text
+                    text="No crash"
+                    textBaseline="top"
+                    [x]="50"
+                ></canvas-text>
             </canvas>
         `,
     })

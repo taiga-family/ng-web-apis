@@ -3,24 +3,24 @@
 
     <div class="example">
         <button
-            tuiButton
             appearance="secondary"
+            tuiButton
             (click)="workerThread.postMessage()"
         >
             Run in worker process
         </button>
         <p>Execution time: {{ workerData$ | async }}</p>
-        <tui-notification>
-            This would be calculated in several seconds in a background thread
-        </tui-notification>
+        <tui-notification>This would be calculated in several seconds in a background thread</tui-notification>
     </div>
     <div class="example">
-        <button tuiButton appearance="secondary" (click)="emitter.next()">
+        <button
+            appearance="secondary"
+            tuiButton
+            (click)="emitter.next()"
+        >
             Run in main process
         </button>
         <p>Execution time: {{ result$ | async }}</p>
-        <tui-notification>
-            This would freeze your main thread for several seconds
-        </tui-notification>
+        <tui-notification>This would freeze your main thread for several seconds</tui-notification>
     </div>
 </ng-container>

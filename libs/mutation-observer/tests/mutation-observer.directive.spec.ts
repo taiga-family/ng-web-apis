@@ -5,13 +5,17 @@ import {MutationObserverModule} from '../src/module';
 describe('MutationObserverDirective', () => {
     @Component({
         template: `
-            <section *ngIf="observe" childList (waMutationObserver)="onMutation()">
+            <section
+                *ngIf="observe"
+                childList
+                (waMutationObserver)="onMutation()"
+            >
                 Content
                 <div
                     *ngIf="child"
                     attributeFilter="title"
-                    [title]="title"
                     [attr.aria-label]="label"
+                    [title]="title"
                     (waMutationObserver)="onAttributes()"
                 >
                     Child

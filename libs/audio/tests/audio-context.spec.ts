@@ -6,7 +6,10 @@ import {WebAudioContext} from '../src/directives/audio-context';
 describe('AudioContext', () => {
     @Component({
         template: `
-            <div waAudioContext sampleRate="22050"></div>
+            <div
+                sampleRate="22050"
+                waAudioContext
+            ></div>
         `,
     })
     class TestComponent {

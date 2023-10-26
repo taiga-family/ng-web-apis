@@ -2,13 +2,12 @@
     <p>
         Angular does not have any abstractions over
         <a
-            target="_blank"
             href="https://developer.mozilla.org/en-US/docs/Web/API/Payment_Request_API"
+            target="_blank"
         >
             PaymentRequest API
         </a>
-        . This library provides you two ways to use this API with Angular of 6+
-        version.
+        . This library provides you two ways to use this API with Angular of 6+ version.
     </p>
 
     <h3>As an Angular service:</h3>
@@ -28,59 +27,55 @@
         <div class="how-it-works-text">
             <p class="how-it-works-point">
                 <a
-                    target="_blank"
                     href="https://github.com/taiga-family/ng-web-apis/tree/main/libs/payment-request#wapayment"
+                    target="_blank"
                 >
                     waPayment
                 </a>
                 directive defines a scope for a&nbsp;new payment and needs
                 <a
-                    target="_blank"
                     href="https://www.w3.org/TR/payment-request/#paymentitem-dictionary"
+                    target="_blank"
                 >
                     PaymentItem
                 </a>
-                object with information about a label and a&nbsp;total sum of
-                the payment
+                object with information about a label and a&nbsp;total sum of the payment
             </p>
             <p class="how-it-works-point">
                 Each item of the shipping cart is a&nbsp;
                 <a
-                    target="_blank"
                     href="https://github.com/taiga-family/ng-web-apis/tree/main/libs/payment-request#waPaymentItem"
+                    target="_blank"
                 >
                     waPaymentItem
                 </a>
                 directive. It&nbsp;is&nbsp;a&nbsp;declarative
                 <a
-                    target="_blank"
                     href="https://www.w3.org/TR/payment-request/#paymentitem-dictionary"
+                    target="_blank"
                 >
                     PaymentItem
                 </a>
                 for your Payment
             </p>
             <p class="how-it-works-point">
-                Click on the button starts a&nbsp;PaymentRequest modal in your
-                browser that returns
+                Click on the button starts a&nbsp;PaymentRequest modal in your browser that returns
                 <a
-                    target="_blank"
                     href="https://developer.mozilla.org/en-US/docs/Web/API/PaymentResponse"
+                    target="_blank"
                 >
                     PaymentResponse
                 </a>
                 or an error. It works due a&nbsp;
                 <a
-                    target="_blank"
                     href="https://github.com/taiga-family/ng-web-apis/tree/main/libs/payment-request#waPaymentSubmit"
+                    target="_blank"
                 >
                     waPaymentSubmit
                 </a>
                 directive.
             </p>
         </div>
-        <pre
-            class="directive-sample"
-        ><code [highlight]="samples.directives"></code></pre>
+        <pre class="directive-sample"><code [highlight]="samples.directives"></code></pre>
     </div>
 </div>

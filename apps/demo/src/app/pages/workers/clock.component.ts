@@ -5,7 +5,7 @@ import {map} from 'rxjs/operators';
 @Component({
     selector: 'app-clock',
     template: `
-        {{ date$ | async | date : 'mediumTime' }}
+        {{ date$ | async | date: 'mediumTime' }}
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

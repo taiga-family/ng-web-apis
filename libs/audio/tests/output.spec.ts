@@ -8,7 +8,10 @@ describe('Output', () => {
     @Component({
         template: `
             <div [waOutput]="destination"></div>
-            <div #destination="AudioNode" waAudioDestinationNode></div>
+            <div
+                #destination="AudioNode"
+                waAudioDestinationNode
+            ></div>
         `,
     })
     class TestComponent {
@@ -41,7 +44,10 @@ describe('Output factory fallback', () => {
     @Component({
         template: `
             <div [waOutput]="destination"></div>
-            <div #destination="AudioNode" waAudioDestinationNode></div>
+            <div
+                #destination="AudioNode"
+                waAudioDestinationNode
+            ></div>
         `,
     })
     class TestComponent {

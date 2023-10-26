@@ -52,7 +52,10 @@ package.
 Observing multiple elements intersecting with viewport using single observer
 
 ```html
-<section waIntersectionObserver waIntersectionThreshold="0.5">
+<section
+  waIntersectionObserver
+  waIntersectionThreshold="0.5"
+>
   <div (waIntersectionObservee)="onIntersection($event)">I'm being observed</div>
   <div (waIntersectionObservee)="onIntersection($event)">I'm being observed</div>
 </section>
@@ -63,10 +66,18 @@ observers:
 
 ```html
 <section waIntersectionRoot>
-  <div waIntersectionObserver waIntersectionThreshold="0.5" (waIntersectionObservee)="onIntersection($event)">
+  <div
+    waIntersectionObserver
+    waIntersectionThreshold="0.5"
+    (waIntersectionObservee)="onIntersection($event)"
+  >
     I'm being observed
   </div>
-  <div waIntersectionObserver waIntersectionThreshold="1,0.5,0" (waIntersectionObservee)="onIntersection($event)">
+  <div
+    waIntersectionObserver
+    waIntersectionThreshold="1,0.5,0"
+    (waIntersectionObservee)="onIntersection($event)"
+  >
     I'm being observed
   </div>
 </section>

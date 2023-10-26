@@ -30,7 +30,12 @@ use other directives to draw inside [`canvas`](https://developer.mozilla.org/en-
 ```html
 <canvas waCanvas2d>
   <canvas-path fillStyle="red">
-    <canvas-rect [x]="0" [y]="0" [width]="100" [height]="50"></canvas-rect>
+    <canvas-rect
+      [x]="0"
+      [y]="0"
+      [width]="100"
+      [height]="50"
+    ></canvas-rect>
   </canvas-path>
 </canvas>
 ```
@@ -134,10 +139,23 @@ This is equivalent to the following HTML
 ```html
 <canvas waCanvas2d>
   <canvas-path fillStyle="red">
-    <canvas-rect [x]="0" [y]="0" [width]="100" [height]="50"></canvas-rect>
+    <canvas-rect
+      [x]="0"
+      [y]="0"
+      [width]="100"
+      [height]="50"
+    ></canvas-rect>
   </canvas-path>
-  <canvas-path fillStyle="green" globalCompositeOperation="screen">
-    <canvas-rect [x]="25" [y]="25" [width]="100" [height]="50"></canvas-rect>
+  <canvas-path
+    fillStyle="green"
+    globalCompositeOperation="screen"
+  >
+    <canvas-rect
+      [x]="25"
+      [y]="25"
+      [width]="100"
+      [height]="50"
+    ></canvas-rect>
   </canvas-path>
 </canvas>
 ```

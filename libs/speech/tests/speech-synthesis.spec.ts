@@ -7,16 +7,16 @@ describe('SpeechSynthesis', () => {
     @Component({
         template: `
             <ng-container
-                [waTextToSpeech]="text | waUtterance : options"
+                [waTextToSpeech]="text | waUtterance: options"
                 [waTextToSpeechPaused]="paused"
                 (waTextToSpeechError)="onError($event.error)"
             ></ng-container>
             <ng-container
                 [waTextToSpeech]="utterance"
                 [waTextToSpeechPaused]="paused"
-                (waTextToSpeechMark)="onMark()"
                 (waTextToSpeechBoundary)="onBoundary()"
                 (waTextToSpeechEnd)="onEnd()"
+                (waTextToSpeechMark)="onMark()"
             ></ng-container>
         `,
     })
