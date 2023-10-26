@@ -45,11 +45,24 @@ pay(details: PaymentDetailsInit) {
 As a set of directives:
 
 ```html
-<div waPayment [paymentTotal]="total">
-  <div *ngFor="let item of items" waPaymentItem [paymentLabel]="item.label" [paymentAmount]="item.amount">
+<div
+  waPayment
+  [paymentTotal]="total"
+>
+  <div
+    *ngFor="let item of items"
+    waPaymentItem
+    [paymentLabel]="item.label"
+    [paymentAmount]="item.amount"
+  >
     {{item.label}} ({{item.amount}})
   </div>
-  <button (waPaymentSubmit)="onPaymentSubmit($event)" (waPaymentError)="onPaymentError($event)">Buy</button>
+  <button
+    (waPaymentSubmit)="onPaymentSubmit($event)"
+    (waPaymentError)="onPaymentError($event)"
+  >
+    Buy
+  </button>
 </div>
 ```
 
@@ -80,7 +93,12 @@ total sum of the payment
 How to use:
 
 ```html
-<any-element waPayment [paymentTotal]="total">...</any-element>
+<any-element
+  waPayment
+  [paymentTotal]="total"
+>
+  ...
+</any-element>
 ```
 
 It implements
@@ -110,8 +128,16 @@ Each item of the payment is a `waPaymentItem` directive. It is a declarative
 How to use:
 
 ```html
-<any-element waPayment [paymentTotal]="total">
-  <any-element *ngFor="let item of items" waPaymentItem [paymentLabel]="item.label" [paymentAmount]="item.amount">
+<any-element
+  waPayment
+  [paymentTotal]="total"
+>
+  <any-element
+    *ngFor="let item of items"
+    waPaymentItem
+    [paymentLabel]="item.label"
+    [paymentAmount]="item.amount"
+  >
     {{item.label}}
   </any-element>
 </any-element>
@@ -139,9 +165,17 @@ This directive starts a Payment Request modal in your browser that returns
 How to use:
 
 ```html
-<any-element waPayment [paymentTotal]="total">
+<any-element
+  waPayment
+  [paymentTotal]="total"
+>
   ...
-  <button (waPaymentSubmit)="onPayment($event)" (waPaymentError)="onPaymentError($event)">Buy</button>
+  <button
+    (waPaymentSubmit)="onPayment($event)"
+    (waPaymentError)="onPaymentError($event)"
+  >
+    Buy
+  </button>
 </any-element>
 ```
 

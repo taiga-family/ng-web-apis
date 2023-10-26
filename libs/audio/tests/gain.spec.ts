@@ -9,7 +9,10 @@ describe(`Audio gain`, () => {
     describe('GainNode', () => {
         @Component({
             template: `
-                <div waGainNode [gain]="gain">
+                <div
+                    waGainNode
+                    [gain]="gain"
+                >
                     <div waAudioDestinationNode></div>
                 </div>
             `,

@@ -18,7 +18,9 @@
         right: 0.75vw;
         bottom: 0;
         transform: translateZ(-6.875vw);
-        box-shadow: 0 0 5vw fade(#444, 40%), 0 0 0 12.5vw white;
+        box-shadow:
+            0 0 5vw fade(#444, 40%),
+            0 0 0 12.5vw white;
     }
 
     &::after {
@@ -58,10 +60,16 @@
     outline: none;
     transform-origin: top;
     transform-style: preserve-3d;
-    box-shadow: inset 0.25vw 0 0.25vw -0.125vw fade(white, 80%), inset -0.25vw 0 0.25vw -0.125vw fade(white, 80%),
-        inset 1.25vw -1.25vw 1.25vw -1.25vw fade(#444, 30%), inset -1.25vw 0 1.25vw -1.25vw fade(#444, 30%),
-        inset 0 -25vw 25vw -25vw fade(white, 70%), inset 0 0 0 120vw fade(#edefee, 50%);
-    transition: background-color 0.3s ease, transform 0.3s ease;
+    box-shadow:
+        inset 0.25vw 0 0.25vw -0.125vw fade(white, 80%),
+        inset -0.25vw 0 0.25vw -0.125vw fade(white, 80%),
+        inset 1.25vw -1.25vw 1.25vw -1.25vw fade(#444, 30%),
+        inset -1.25vw 0 1.25vw -1.25vw fade(#444, 30%),
+        inset 0 -25vw 25vw -25vw fade(white, 70%),
+        inset 0 0 0 120vw fade(#edefee, 50%);
+    transition:
+        background-color 0.3s ease,
+        transform 0.3s ease;
 
     &:hover {
         background-color: white;
@@ -89,8 +97,11 @@
         height: 32.5vw;
         top: -32.25vw;
         left: 0;
-        box-shadow: inset 0 25vw 25vw -25vw fade(#444, 30%), inset 1.25vw 1.25vw 1.25vw -1.25vw fade(#444, 30%),
-            inset -1.25vw 0 1.25vw -1.25vw fade(#444, 30%), inset 0 0 0 120vw fade(#edefee, 50%);
+        box-shadow:
+            inset 0 25vw 25vw -25vw fade(#444, 30%),
+            inset 1.25vw 1.25vw 1.25vw -1.25vw fade(#444, 30%),
+            inset -1.25vw 0 1.25vw -1.25vw fade(#444, 30%),
+            inset 0 0 0 120vw fade(#edefee, 50%);
         transition: background 0.3s ease;
     }
 
@@ -100,8 +111,11 @@
         height: 6.875vw;
         transform-origin: top;
         transform: rotateX(-90deg);
-        box-shadow: inset 0 -3.75vw 6.25vw -3.75vw fade(black, 30%), inset 0 0.25vw 0.125vw white,
-            inset 0 0.5vw fade(black, 10%), inset 0 1.25vw 1.25vw -1.25vw fade(black, 40%);
+        box-shadow:
+            inset 0 -3.75vw 6.25vw -3.75vw fade(black, 30%),
+            inset 0 0.25vw 0.125vw white,
+            inset 0 0.5vw fade(black, 10%),
+            inset 0 1.25vw 1.25vw -1.25vw fade(black, 40%);
     }
 }
 
@@ -149,10 +163,15 @@
     transform: translateZ(3.375vw);
     transform-style: preserve-3d;
     transform-origin: top;
-    box-shadow: inset 0 -0.875vw 0.625vw, inset 0.5vw 0 0.625vw, inset -0.5vw 0 0.625vw,
+    box-shadow:
+        inset 0 -0.875vw 0.625vw,
+        inset 0.5vw 0 0.625vw,
+        inset -0.5vw 0 0.625vw,
         inset 0 0 0 120vw fade(lighten(#444, 10%), 50%);
     z-index: 1;
-    transition: background 0.3s ease, transform 0.3s ease;
+    transition:
+        background 0.3s ease,
+        transform 0.3s ease;
 
     &:hover {
         background: darken(white, 50%);
@@ -196,8 +215,12 @@
         height: 0;
         transform-origin: top;
         transform: rotateX(-90deg);
-        box-shadow: 0 0.875vw 2.5vw fade(black, 25%), 0 0.375vw 0.625vw -0.25vw fade(white, 80%), 0 0.625vw,
-            0 2.5vw darken(#444, 2%), 0 5vw darken(#444, 2%);
+        box-shadow:
+            0 0.875vw 2.5vw fade(black, 25%),
+            0 0.375vw 0.625vw -0.25vw fade(white, 80%),
+            0 0.625vw,
+            0 2.5vw darken(#444, 2%),
+            0 5vw darken(#444, 2%);
         transition: border 0.3s;
     }
 

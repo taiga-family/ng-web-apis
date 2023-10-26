@@ -10,8 +10,7 @@ to use with
 
 <h2>How to use</h2>
 <p>
-    Usage is pretty simple: just import service in your component and subscribe
-    to it. Service extends
+    Usage is pretty simple: just import service in your component and subscribe to it. Service extends
     <code>Observable</code>
     and will emit the
     <code>Position</code>
@@ -26,22 +25,25 @@ to use with
 
 <h2>Single position</h2>
 <p>
-    If you need to get position just once and stop observing user location, you
-    can subscribe to
+    If you need to get position just once and stop observing user location, you can subscribe to
     <code>geolocation$</code>
     and use
     <code>take(1)</code>
-    RxJS operator. Service is cold, meaning if there are no Subscribers, it
-    doesn't track position
+    RxJS operator. Service is cold, meaning if there are no Subscribers, it doesn't track position
 </p>
 
-<button *ngIf="!watch" tuiButton appearance="secondary" (click)="watch = true">
+<button
+    *ngIf="!watch"
+    appearance="secondary"
+    tuiButton
+    (click)="watch = true"
+>
     Get my position!
 </button>
 
 <ng-container *ngIf="watch">
     <iframe
-        *ngIf="geolocation$ | async as position else loading"
+        *ngIf="geolocation$ | async as position; else loading"
         [src]="getUrl(position)"
     ></iframe>
     <ng-template #loading>

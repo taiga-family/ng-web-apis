@@ -6,7 +6,12 @@ import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 describe('Path', () => {
     @Component({
         template: `
-            <canvas #canvas waCanvas2d width="100" height="100">
+            <canvas
+                #canvas
+                height="100"
+                waCanvas2d
+                width="100"
+            >
                 <canvas-path fillStyle="red">
                     <canvas-arc></canvas-arc>
                     <canvas-arc-to></canvas-arc-to>
@@ -15,7 +20,12 @@ describe('Path', () => {
                     <canvas-line-to></canvas-line-to>
                     <canvas-move-to></canvas-move-to>
                     <canvas-quadratic-curve-to></canvas-quadratic-curve-to>
-                    <canvas-rect [x]="0" [y]="0" [height]="20" [width]="20"></canvas-rect>
+                    <canvas-rect
+                        [height]="20"
+                        [width]="20"
+                        [x]="0"
+                        [y]="0"
+                    ></canvas-rect>
                 </canvas-path>
             </canvas>
         `,

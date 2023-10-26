@@ -1,32 +1,104 @@
 <h2>Basic example</h2>
 <section>
     <fieldset>
-        <label tuiLabel="x" class="child">
-            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="x1" />
+        <label
+            tuiLabel="x"
+            class="child"
+        >
+            <input
+                max="300"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="x1"
+            />
         </label>
-        <label tuiLabel="y" class="child">
-            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="y1" />
+        <label
+            tuiLabel="y"
+            class="child"
+        >
+            <input
+                max="150"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="y1"
+            />
         </label>
-        <label tuiLabel="width" class="child">
-            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="w1" />
+        <label
+            tuiLabel="width"
+            class="child"
+        >
+            <input
+                max="300"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="w1"
+            />
         </label>
-        <label tuiLabel="height" class="child">
-            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="h1" />
+        <label
+            tuiLabel="height"
+            class="child"
+        >
+            <input
+                max="150"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="h1"
+            />
         </label>
     </fieldset>
 
     <fieldset>
-        <label tuiLabel="x" class="child">
-            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="x2" />
+        <label
+            tuiLabel="x"
+            class="child"
+        >
+            <input
+                max="300"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="x2"
+            />
         </label>
-        <label tuiLabel="y" class="child">
-            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="y2" />
+        <label
+            tuiLabel="y"
+            class="child"
+        >
+            <input
+                max="150"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="y2"
+            />
         </label>
-        <label tuiLabel="width" class="child">
-            <input tuiSlider type="range" min="0" max="300" [(ngModel)]="w2" />
+        <label
+            tuiLabel="width"
+            class="child"
+        >
+            <input
+                max="300"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="w2"
+            />
         </label>
-        <label tuiLabel="height" class="child">
-            <input tuiSlider type="range" min="0" max="150" [(ngModel)]="h2" />
+        <label
+            tuiLabel="height"
+            class="child"
+        >
+            <input
+                max="150"
+                min="0"
+                tuiSlider
+                type="range"
+                [(ngModel)]="h2"
+            />
         </label>
         <div class="row">
             <tui-select
@@ -56,47 +128,53 @@
             [ngModel]="file"
             (ngModelChange)="onFile($event)"
         >
-            <input tuiInputFiles accept="image/*" />
+            <input
+                accept="image/*"
+                tuiInputFiles
+            />
         </tui-input-files>
 
-        <tui-expand class="child" [expanded]="!!file">
+        <tui-expand
+            class="child"
+            [expanded]="!!file"
+        >
             <div class="controls">
                 <label tuiLabel="dX">
                     <input
+                        max="300"
+                        min="0"
                         tuiSlider
                         type="range"
-                        min="0"
-                        max="300"
                         [(ngModel)]="dX"
                     />
                 </label>
 
                 <label tuiLabel="dY">
                     <input
+                        max="150"
+                        min="0"
                         tuiSlider
                         type="range"
-                        min="0"
-                        max="150"
                         [(ngModel)]="dY"
                     />
                 </label>
 
                 <label tuiLabel="dWidth">
                     <input
+                        max="300"
+                        min="0"
                         tuiSlider
                         type="range"
-                        min="0"
-                        max="300"
                         [(ngModel)]="dWidth"
                     />
                 </label>
 
                 <label tuiLabel="dHeight">
                     <input
+                        max="150"
+                        min="0"
                         tuiSlider
                         type="range"
-                        min="0"
-                        max="150"
                         [(ngModel)]="dHeight"
                     />
                 </label>
@@ -107,65 +185,102 @@
 
 <canvas waCanvas2d>
     <canvas-draw-image
-        [image]="image"
+        [dHeight]="dHeight"
+        [dWidth]="dWidth"
         [dX]="dX"
         [dY]="dY"
-        [dWidth]="dWidth"
-        [dHeight]="dHeight"
+        [image]="image"
     ></canvas-draw-image>
     <canvas-path fillStyle="#f00">
-        <canvas-rect [x]="x1" [y]="y1" [width]="w1" [height]="h1"></canvas-rect>
+        <canvas-rect
+            [height]="h1"
+            [width]="w1"
+            [x]="x1"
+            [y]="y1"
+        ></canvas-rect>
     </canvas-path>
     <canvas-path
         [fillStyle]="c2"
         [globalCompositeOperation]="globalCompositeOperation"
     >
-        <canvas-rect [x]="x2" [y]="y2" [width]="w2" [height]="h2"></canvas-rect>
+        <canvas-rect
+            [height]="h2"
+            [width]="w2"
+            [x]="x2"
+            [y]="y2"
+        ></canvas-rect>
     </canvas-path>
 </canvas>
 <h2>Path example</h2>
 
 <section>
     <fieldset>
-        <label tuiLabel="Pac-Man mouth" class="child">
+        <label
+            tuiLabel="Pac-Man mouth"
+            class="child"
+        >
             <input
+                max="45"
+                min="0.01"
                 tuiSlider
                 type="range"
-                min="0.01"
-                max="45"
                 [(ngModel)]="mouth"
             />
         </label>
-        <label tuiLabel="Pac-Man shadow blur" class="child">
-            <input tuiSlider type="range" min="0" max="10" [(ngModel)]="blur" />
-        </label>
-        <label tuiLabel="Pac-Man shadow distance" class="child">
+        <label
+            tuiLabel="Pac-Man shadow blur"
+            class="child"
+        >
             <input
+                max="10"
+                min="0"
                 tuiSlider
                 type="range"
-                min="0"
+                [(ngModel)]="blur"
+            />
+        </label>
+        <label
+            tuiLabel="Pac-Man shadow distance"
+            class="child"
+        >
+            <input
                 max="10"
+                min="0"
+                tuiSlider
+                type="range"
                 [(ngModel)]="offset"
             />
         </label>
     </fieldset>
     <fieldset>
-        <tui-input tuiTextfieldSize="m" class="child" [(ngModel)]="text">
+        <tui-input
+            tuiTextfieldSize="m"
+            class="child"
+            [(ngModel)]="text"
+        >
             Text
         </tui-input>
-        <tui-input tuiTextfieldSize="m" class="child" [(ngModel)]="font">
+        <tui-input
+            tuiTextfieldSize="m"
+            class="child"
+            [(ngModel)]="font"
+        >
             Font
         </tui-input>
-        <tui-input-color tuiTextfieldSize="m" class="child" [(ngModel)]="color">
+        <tui-input-color
+            tuiTextfieldSize="m"
+            class="child"
+            [(ngModel)]="color"
+        >
             color
         </tui-input-color>
     </fieldset>
 </section>
 <canvas
     waCanvas2d
-    [width]="600"
     [height]="300"
     [transform]="'scale(2, 2)' | transform"
+    [width]="600"
 >
     <canvas-path
         fillStyle="gold"
@@ -174,19 +289,22 @@
         [shadowOffsetY]="offset"
     >
         <canvas-arc
-            [x]="50"
-            [y]="75"
+            [endAngle]="-mouth | rad"
             [radius]="30"
             [startAngle]="mouth | rad"
-            [endAngle]="-mouth | rad"
+            [x]="50"
+            [y]="75"
         ></canvas-arc>
-        <canvas-line-to [x]="50" [y]="75"></canvas-line-to>
+        <canvas-line-to
+            [x]="50"
+            [y]="75"
+        ></canvas-line-to>
     </canvas-path>
     <canvas-text
         [fillStyle]="color"
+        [font]="font"
         [maxWidth]="200"
         [text]="text"
-        [font]="font"
         [x]="90"
         [y]="90"
     ></canvas-text>

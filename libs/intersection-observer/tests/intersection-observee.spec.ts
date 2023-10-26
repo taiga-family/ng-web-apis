@@ -14,9 +14,9 @@ describe('IntersectionObserveeDirective', () => {
                 #root
                 id="observer_root"
                 style="position: relative; height: 200px; overflow: auto;"
-                waIntersectionThreshold="0.5"
                 waIntersectionObserver
                 waIntersectionRoot
+                waIntersectionThreshold="0.5"
             >
                 <div style="height: 900px;">Height expander</div>
                 <h1

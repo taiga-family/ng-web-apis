@@ -1,29 +1,51 @@
 <p tuiGroup>
-    <button tuiButton appearance="secondary" size="m" (click)="toggleDOM()">
+    <button
+        appearance="secondary"
+        size="m"
+        tuiButton
+        (click)="toggleDOM()"
+    >
         Toggle DOM change
     </button>
-    <button tuiButton appearance="secondary" size="m" (click)="toggleAttr()">
+    <button
+        appearance="secondary"
+        size="m"
+        tuiButton
+        (click)="toggleAttr()"
+    >
         Toggle attribute
     </button>
 </p>
-<p tuiGroup tuiTextfieldSize="m" [tuiTextfieldLabelOutside]="true">
-    <tui-input aria-label="title" [(ngModel)]="title"></tui-input>
-    <tui-input aria-label="text" [(ngModel)]="text"></tui-input>
-    <tui-input aria-label="ignored" [(ngModel)]="ignored"></tui-input>
+<p
+    tuiGroup
+    tuiTextfieldSize="m"
+    [tuiTextfieldLabelOutside]="true"
+>
+    <tui-input
+        aria-label="title"
+        [(ngModel)]="title"
+    ></tui-input>
+    <tui-input
+        aria-label="text"
+        [(ngModel)]="text"
+    ></tui-input>
+    <tui-input
+        aria-label="ignored"
+        [(ngModel)]="ignored"
+    ></tui-input>
 </p>
 <div
-    subtree
-    childList
-    characterData
     attributeFilter="title, disabled"
+    characterData
+    childList
+    subtree
     class="observer"
-    [title]="title"
-    [attr.disabled]="disabled"
     [attr.aria-label]="ignored"
+    [attr.disabled]="disabled"
+    [title]="title"
     (waMutationObserver)="log($event)"
 >
-    I am being observed for text changes, DOM changes and "title" and "disabled"
-    attributes: {{ text }}
+    I am being observed for text changes, DOM changes and "title" and "disabled" attributes: {{ text }}
     <div *ngIf="toggled; else default">I am dynamically added DOM element</div>
     <ng-template #default>
         <div>See console for logged mutations</div>

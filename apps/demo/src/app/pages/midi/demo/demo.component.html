@@ -2,29 +2,29 @@
     <ng-container *ngFor="let note of notes | keyvalue; trackBy: noteKey">
         <ng-container *ngIf="note.value !== null">
             <ng-container
-                waOscillatorNode
-                detune="5"
                 autoplay
+                detune="5"
+                waOscillatorNode
                 [frequency]="note.key | frequency"
             >
                 <ng-container
-                    waGainNode
                     gain="0"
-                    [gain]="note.value | adsr: 0:0.1:note.value * 0.8:1"
+                    waGainNode
+                    [gain]="note.value | adsr: 0 : 0.1 : note.value * 0.8 : 1"
                 >
                     <ng-container waAudioDestinationNode></ng-container>
                 </ng-container>
             </ng-container>
             <ng-container
-                waOscillatorNode
-                type="sawtooth"
                 autoplay
+                type="sawtooth"
+                waOscillatorNode
                 [frequency]="note.key | frequency"
             >
                 <ng-container
-                    waGainNode
                     gain="0"
-                    [gain]="note.value | adsr: 0:0.1:note.value * 0.8:1"
+                    waGainNode
+                    [gain]="note.value | adsr: 0 : 0.1 : note.value * 0.8 : 1"
                 >
                     <ng-container
                         waAudioDestinationNode

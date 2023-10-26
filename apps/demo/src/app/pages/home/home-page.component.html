@@ -1,4 +1,7 @@
-<a class="link" [routerLink]="['/', link.CommonPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.CommonPage]"
+>
     <div>
         <h2>Common</h2>
         A set of common utils for consuming
@@ -6,14 +9,17 @@
         with Angular
     </div>
     <img
+        alt="Common utils logo"
+        height="64"
         src="assets/logos/common/logo.svg"
         width="64"
-        height="64"
-        alt="Common utils logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.UniversalPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.UniversalPage]"
+>
     <div>
         <h2>Universal</h2>
         A set of fallbacks to seamlessly use
@@ -21,17 +27,17 @@
         with Angular Universal
     </div>
     <img
+        alt="Universal logo"
+        height="64"
         src="assets/logos/universal/logo.svg"
         width="64"
-        height="64"
-        alt="Universal logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.AudioPage]"
     [class.not_supported]="!audioSupport"
+    [routerLink]="['/', link.AudioPage]"
 >
     <div>
         <h2>Audio</h2>
@@ -40,14 +46,17 @@
         with Angular
     </div>
     <img
+        alt="Web Audio API logo"
+        height="64"
         src="assets/logos/audio/logo.svg"
         width="64"
-        height="64"
-        alt="Web Audio API logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.CanvasPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.CanvasPage]"
+>
     <div>
         <h2>Canvas</h2>
         A library for declarative use of
@@ -55,17 +64,17 @@
         with Angular
     </div>
     <img
+        alt="Canvas API logo"
+        height="64"
         src="assets/logos/canvas/logo.svg"
         width="64"
-        height="64"
-        alt="Canvas API logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.GeolocationPage]"
     [class.not-supported]="!geolocationSupport"
+    [routerLink]="['/', link.GeolocationPage]"
 >
     <div>
         <h2>Geolocation</h2>
@@ -74,17 +83,17 @@
         with Angular
     </div>
     <img
+        alt="Geolocation API logo"
+        height="64"
         src="assets/logos/geolocation/logo.svg"
         width="64"
-        height="64"
-        alt="Geolocation API logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.IntersectionObserverPage]"
     [class.not-supported]="!intersectionSupport"
+    [routerLink]="['/', link.IntersectionObserverPage]"
 >
     <div>
         <h2>Intersection Observer</h2>
@@ -93,17 +102,17 @@
         with Angular
     </div>
     <img
+        alt="Intersection Observer API logo"
+        height="64"
         src="assets/logos/intersection-observer/logo.svg"
         width="64"
-        height="64"
-        alt="Intersection Observer API logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.MidiPage]"
     [class.not-supported]="!midiSupport"
+    [routerLink]="['/', link.MidiPage]"
 >
     <div>
         <h2>MIDI</h2>
@@ -112,14 +121,17 @@
         with Angular
     </div>
     <img
+        alt="Web MIDI API logo"
+        height="64"
         src="assets/logos/midi/logo.svg"
         width="64"
-        height="64"
-        alt="Web MIDI API logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.MutationObserverPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.MutationObserverPage]"
+>
     <div>
         <h2>Mutation Observer</h2>
         A library for declarative use of
@@ -127,17 +139,17 @@
         with Angular
     </div>
     <img
+        alt="Mutation Observer API logo"
+        height="64"
         src="assets/logos/mutation-observer/logo.svg"
         width="64"
-        height="64"
-        alt="Mutation Observer API logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.PaymentRequestPage]"
     [class.not-supported]="!paymentRequestSupport"
+    [routerLink]="['/', link.PaymentRequestPage]"
 >
     <div>
         <h2>Payment Request</h2>
@@ -146,17 +158,17 @@
         with Angular
     </div>
     <img
+        alt="Payment Request API logo"
+        height="64"
         src="assets/logos/payment-request/logo.svg"
         width="64"
-        height="64"
-        alt="Payment Request API logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.PermissionsPage]"
     [class.not-supported]="!permissionsSupport"
+    [routerLink]="['/', link.PermissionsPage]"
 >
     <div>
         <h2>Permissions</h2>
@@ -164,17 +176,17 @@
         <strong>Permissions API</strong>
     </div>
     <img
+        alt="Permissions API logo"
+        height="64"
         src="assets/logos/permissions/logo.svg"
         width="64"
-        height="64"
-        alt="Permissions API logo"
         class="icon"
     />
 </a>
 <a
     class="link"
-    [routerLink]="['/', link.ResizeObserverPage]"
     [class.not-supported]="!resizeSupport"
+    [routerLink]="['/', link.ResizeObserverPage]"
 >
     <div>
         <h2>Resize Observer</h2>
@@ -183,14 +195,17 @@
         with Angular
     </div>
     <img
+        alt="Resize Observer API logo"
+        height="64"
         src="assets/logos/resize-observer/logo.svg"
         width="64"
-        height="64"
-        alt="Resize Observer API logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.SpeechPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.SpeechPage]"
+>
     <div>
         <h2>Speech</h2>
         A library for comfortable use of
@@ -198,14 +213,17 @@
         with Angular
     </div>
     <img
+        alt="Web Speech API logo"
+        height="64"
         src="assets/logos/speech/logo.svg"
         width="64"
-        height="64"
-        alt="Web Speech API logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.StoragePage]">
+<a
+    class="link"
+    [routerLink]="['/', link.StoragePage]"
+>
     <div>
         <h2>Storage</h2>
         A library for comfortable use of
@@ -213,14 +231,17 @@
         with Angular
     </div>
     <img
+        alt="Web Storage API logo"
+        height="64"
         src="assets/logos/storage/logo.svg"
         width="64"
-        height="64"
-        alt="Web Storage API logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.WorkersPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.WorkersPage]"
+>
     <div>
         <h2>Workers</h2>
         A library for use of
@@ -228,14 +249,17 @@
         as RxJS Observables with Angular
     </div>
     <img
+        alt="Worker API logo"
+        height="64"
         src="assets/logos/workers/logo.svg"
         width="64"
-        height="64"
-        alt="Worker API logo"
         class="icon"
     />
 </a>
-<a class="link" [routerLink]="['/', link.ViewTransitionPage]">
+<a
+    class="link"
+    [routerLink]="['/', link.ViewTransitionPage]"
+>
     <div>
         <h2>View Transition</h2>
         A library for declarative use of
@@ -243,18 +267,18 @@
         with Angular
     </div>
     <img
+        alt="View transition API logo"
+        height="64"
         src="assets/logos/view-transition/logo.svg"
         width="64"
-        height="64"
-        alt="View transition API logo"
         class="icon"
     />
 </a>
 
 <a
     class="link"
-    [routerLink]="['/', link.Notification]"
     [class.not-supported]="!notificationSupport"
+    [routerLink]="['/', link.Notification]"
 >
     <div>
         <h2>Notification</h2>
@@ -263,15 +287,18 @@
         with Angular
     </div>
     <img
+        alt="Notification API logo"
+        height="64"
         src="assets/logos/notification/logo.svg"
         width="64"
-        height="64"
-        alt="Notification API logo"
         class="icon"
     />
 </a>
 
-<a class="link" [routerLink]="['/', link.ScreenOrientation]">
+<a
+    class="link"
+    [routerLink]="['/', link.ScreenOrientation]"
+>
     <div>
         <h2>Screen Orientation</h2>
         A library for declarative use of
@@ -279,10 +306,10 @@
         with Angular
     </div>
     <img
+        alt="Screen Orientation API logo"
+        height="64"
         src="assets/logos/screen-orientation/logo.svg"
         width="64"
-        height="64"
-        alt="Screen Orientation API logo"
         class="icon"
     />
 </a>

@@ -8,7 +8,11 @@ import {WebAudioWorklet} from '../src/nodes/worklet';
 describe('AudioWorkletNode', () => {
     @Component({
         template: `
-            <div *ngIf="ready | async" waAudioWorkletNode name="test"></div>
+            <div
+                *ngIf="ready | async"
+                name="test"
+                waAudioWorkletNode
+            ></div>
         `,
     })
     class TestComponent {

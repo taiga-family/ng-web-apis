@@ -1,7 +1,7 @@
 <button
     *ngIf="!started; else graph"
-    tuiButton
     appearance="secondary"
+    tuiButton
     (click)="start()"
 >
     Start AudioContext
@@ -12,10 +12,9 @@
         <p>
             This is a demo for
             <strong>@ng-web-apis/audio</strong>
-            — a Web Audio API declarative library for Angular. Here you can
-            select different audio source options and see AudioNode graph for
-            selected configuration. Demo page uses HTML elements as directives
-            hosts, in real life scenario you can use
+            — a Web Audio API declarative library for Angular. Here you can select different audio source options and
+            see AudioNode graph for selected configuration. Demo page uses HTML elements as directives hosts, in real
+            life scenario you can use
             <code>ng-container</code>
             so you will not have redundant DOM tags.
         </p>
@@ -50,10 +49,10 @@
                 <button
                     *ngFor="let _ of buffers"
                     #source="AudioNode"
-                    waAudioBufferSourceNode
-                    tuiButton
-                    size="s"
                     buffer="assets/demo.mp3"
+                    size="s"
+                    tuiButton
+                    waAudioBufferSourceNode
                     [loop]="true"
                     (click)="onClick(source, $any($event).target)"
                 >
@@ -63,18 +62,16 @@
                         [fftSize]="fftSize"
                         (timeByte$)="onTimeDomain($event)"
                     >
-                        <ng-container
-                            [waOutput]="chain || fallback"
-                        ></ng-container>
+                        <ng-container [waOutput]="chain || fallback"></ng-container>
                     </ng-container>
                 </button>
             </ng-container>
             <audio
                 *ngSwitchCase="'media'"
-                waMediaElementAudioSourceNode
-                src="assets/demo.mp3"
-                loop
                 controls
+                loop
+                src="assets/demo.mp3"
+                waMediaElementAudioSourceNode
             >
                 <ng-container
                     waAnalyserNode
@@ -88,9 +85,9 @@
                 <button
                     *ngFor="let _ of buffers"
                     #source="AudioNode"
-                    waOscillatorNode
-                    tuiButton
                     size="s"
+                    tuiButton
+                    waOscillatorNode
                     [frequency]="100"
                     [periodicWave]="real | waPeriodicWave"
                     (click)="onClick(source, $any($event).target)"
@@ -101,9 +98,7 @@
                         [fftSize]="fftSize"
                         (timeByte$)="onTimeDomain($event)"
                     >
-                        <ng-container
-                            [waOutput]="chain || fallback"
-                        ></ng-container>
+                        <ng-container [waOutput]="chain || fallback"></ng-container>
                     </ng-container>
                 </button>
             </ng-container>
@@ -121,8 +116,8 @@
                     fillStyle="transparent"
                     strokeStyle="black"
                     [lineWidth]="4 / canvas.height"
-                    [transform]="getTransform(canvas) | transform"
                     [path]="path | path"
+                    [transform]="getTransform(canvas) | transform"
                 ></canvas-path>
             </canvas>
         </p>
@@ -131,7 +126,11 @@
     <section>
         <h1>Chain</h1>
 
-        <tui-radio-labeled item="dry" name="chain" [(ngModel)]="selectedChain">
+        <tui-radio-labeled
+            item="dry"
+            name="chain"
+            [(ngModel)]="selectedChain"
+        >
             Dry
         </tui-radio-labeled>
         <tui-radio-labeled
@@ -165,11 +164,11 @@
                 >
                     <legend>GainNode</legend>
                     <input
+                        max="1"
+                        min="0"
+                        step="0.01"
                         tuiSlider
                         type="range"
-                        min="0"
-                        max="1"
-                        step="0.01"
                         [(ngModel)]="gain"
                     />
                     <fieldset
@@ -178,11 +177,11 @@
                     >
                         <legend>StereoPannerNode</legend>
                         <input
+                            max="1"
+                            min="-1"
+                            step="0.01"
                             tuiSlider
                             type="range"
-                            min="-1"
-                            max="1"
-                            step="0.01"
                             [(ngModel)]="pan"
                         />
                         <fieldset waAudioDestinationNode>
@@ -207,28 +206,29 @@
                     >
                         <legend>DelayNode</legend>
                         <input
+                            max="1"
+                            min="0"
+                            step="0.01"
                             tuiSlider
                             type="range"
-                            min="0"
-                            max="1"
-                            step="0.01"
                             [(ngModel)]="delayTime"
                         />
-                        <fieldset waGainNode [gain]="delayGain">
+                        <fieldset
+                            waGainNode
+                            [gain]="delayGain"
+                        >
                             <legend>GainNode</legend>
                             <input
+                                max="1"
+                                min="0"
+                                step="0.01"
                                 tuiSlider
                                 type="range"
-                                min="0"
-                                max="1"
-                                step="0.01"
                                 [(ngModel)]="delayGain"
                             />
                             <fieldset [waOutput]="chain">
                                 <legend>Output</legend>
-                                <em>
-                                    Connected back to the beginning of the chain
-                                </em>
+                                <em>Connected back to the beginning of the chain</em>
                             </fieldset>
                         </fieldset>
                     </fieldset>
@@ -242,14 +242,17 @@
                 <fieldset
                     #chain="AudioNode"
                     waBiquadFilterNode
-                    [type]="type"
-                    [gain]="filterGain | waAudioParam: 0.1"
-                    [frequency]="frequency | waAudioParam: 0.1"
-                    [Q]="Q | waAudioParam: 0.1"
                     [detune]="detune | waAudioParam: 0.1"
+                    [frequency]="frequency | waAudioParam: 0.1"
+                    [gain]="filterGain | waAudioParam: 0.1"
+                    [Q]="Q | waAudioParam: 0.1"
+                    [type]="type"
                 >
                     <legend>BiquadFilterNode</legend>
-                    <tui-select tuiTextfieldSize="m" [(ngModel)]="type">
+                    <tui-select
+                        tuiTextfieldSize="m"
+                        [(ngModel)]="type"
+                    >
                         Type
                         <tui-data-list-wrapper
                             *tuiDataList
@@ -258,49 +261,53 @@
                     </tui-select>
                     <label tuiLabel="gain">
                         <input
+                            max="1"
+                            min="0"
+                            step="0.01"
                             tuiSlider
                             type="range"
-                            min="0"
-                            max="1"
-                            step="0.01"
                             [(ngModel)]="filterGain"
                         />
                     </label>
                     <label tuiLabel="frequence">
                         <input
+                            max="5000"
+                            min="20"
                             tuiSlider
                             type="range"
-                            min="20"
-                            max="5000"
                             [(ngModel)]="frequency"
                         />
                     </label>
                     <label tuiLabel="Q">
                         <input
+                            max="100"
+                            min="1"
                             tuiSlider
                             type="range"
-                            min="1"
-                            max="100"
                             [(ngModel)]="Q"
                         />
                     </label>
                     <label tuiLabel="detune">
                         <input
+                            max="100"
+                            min="0"
                             tuiSlider
                             type="range"
-                            min="0"
-                            max="100"
                             [(ngModel)]="detune"
                         />
                     </label>
-                    <fieldset waWaveShaperNode oversample="4x" [curve]="curve">
+                    <fieldset
+                        oversample="4x"
+                        waWaveShaperNode
+                        [curve]="curve"
+                    >
                         <legend>WaveShaperNode</legend>
                         <input
+                            max="20"
+                            min="0"
+                            step="0.1"
                             tuiSlider
                             type="range"
-                            min="0"
-                            max="20"
-                            step="0.1"
                             [ngModel]="distortion"
                             (ngModelChange)="onCurveChange($event)"
                         />
@@ -309,8 +316,8 @@
                             [gain]="distortionCompensation | waAudioParam: 0.1"
                         >
                             <fieldset
-                                waConvolverNode
                                 buffer="assets/response.m4a"
+                                waConvolverNode
                             >
                                 <legend>ConvolverNode</legend>
                                 <fieldset waAudioDestinationNode>

@@ -9,8 +9,15 @@ import {WebAudioDestination} from '../src/directives/destination';
 describe('AudioDestinationNode', () => {
     @Component({
         template: `
-            <div waAudioBufferSourceNode buffer="base/demo.mp3" autoplay>
-                <div waAudioDestinationNode (quiet)="quiet = true"></div>
+            <div
+                autoplay
+                buffer="base/demo.mp3"
+                waAudioBufferSourceNode
+            >
+                <div
+                    waAudioDestinationNode
+                    (quiet)="quiet = true"
+                ></div>
             </div>
         `,
     })

@@ -8,7 +8,6 @@ describe('AudioListener', () => {
     @Component({
         template: `
             <div
-                waAudioContext
                 forwardX="237"
                 forwardY="1"
                 forwardZ="2"
@@ -18,6 +17,7 @@ describe('AudioListener', () => {
                 upX="6"
                 upY="7"
                 upZ="8"
+                waAudioContext
             >
                 <div waAudioDestinationNode></div>
             </div>
@@ -53,7 +53,6 @@ describe('AudioListener factory fallback', () => {
     @Component({
         template: `
             <div
-                waAudioContext
                 forwardX="237"
                 forwardY="1"
                 forwardZ="2"
@@ -63,6 +62,7 @@ describe('AudioListener factory fallback', () => {
                 upX="6"
                 upY="7"
                 upZ="8"
+                waAudioContext
             >
                 <div waAudioDestinationNode></div>
             </div>

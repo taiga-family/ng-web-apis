@@ -1,8 +1,8 @@
 <h2 class="header">
     <img
-        src="assets/logos/notification/logo.svg"
-        height="64"
         alt="Notification API logo"
+        height="64"
+        src="assets/logos/notification/logo.svg"
     />
     Notification API
 </h2>
@@ -10,9 +10,9 @@
 <p class="description">
     A library for declarative use of
     <a
-        tuiLink
         href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API"
         target="_blank"
+        tuiLink
     >
         Notification API
     </a>
@@ -35,29 +35,25 @@
 <section *ngIf="notificationPermissionState$ | async as notificationPermission">
     <tui-doc-example
         heading="Getting Permissions"
-        [description]="permissionDescription"
         [content]="gettingPermissionExample"
+        [description]="permissionDescription"
     >
         <ng-template #permissionDescription>
-            Before an app can send a notification, the user must grant the
-            application the right to do so.
+            Before an app can send a notification, the user must grant the application the right to do so.
 
             <p>
                 Use
                 <code>requestPermission</code>
                 method to request consent to display notifications.
                 <br />
-                It returns Observable which emits value after user select option
-                inside system prompt.
+                It returns Observable which emits value after user select option inside system prompt.
             </p>
         </ng-template>
 
         <tui-notification status="warning">
-            Notification prompting can only be done from a user gesture (e.g.
-            clicking a button)!
+            Notification prompting can only be done from a user gesture (e.g. clicking a button)!
             <br />
-            Otherwise, some browsers will silently disallow notification
-            permission requests.
+            Otherwise, some browsers will silently disallow notification permission requests.
         </tui-notification>
 
         <notification-page-example-1></notification-page-example-1>
@@ -65,8 +61,8 @@
 
     <tui-doc-example
         heading="Create notification"
-        [description]="createNotificationDescription"
         [content]="createNotificationExample"
+        [description]="createNotificationDescription"
     >
         <ng-template #createNotificationDescription>
             Use
@@ -84,9 +80,9 @@
                 <br />
                 See the full
                 <a
-                    tuiLink
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/Notification"
                     target="_blank"
+                    tuiLink
                 >
                     list of available options
                 </a>
@@ -98,7 +94,7 @@
             *ngIf="notificationPermission === 'denied'"
             status="error"
         >
-            {{deniedPermissionNotification}}
+            {{ deniedPermissionNotification }}
         </tui-notification>
 
         <notification-page-example-2></notification-page-example-2>
@@ -115,13 +111,11 @@
                 <code>open</code>
                 method) automatically
                 <strong>completes</strong>
-                the stream when the notification is closed (e.g. user clicks the
-                close button).
+                the stream when the notification is closed (e.g. user clicks the close button).
             </p>
 
             <p>
-                You can also close the notification manually by closing the
-                stream by
+                You can also close the notification manually by closing the stream by
                 <code>takeUntil</code>
                 operator.
             </p>
@@ -131,7 +125,7 @@
             *ngIf="notificationPermission === 'denied'"
             status="error"
         >
-            {{deniedPermissionNotification}}
+            {{ deniedPermissionNotification }}
         </tui-notification>
 
         <notification-page-example-3></notification-page-example-3>
@@ -139,8 +133,8 @@
 
     <tui-doc-example
         heading="Listen to notification events"
-        [description]="listenEventDescription"
         [content]="listenNotificationEventsExample"
+        [description]="listenEventDescription"
     >
         <ng-template #listenEventDescription>
             The observable (returned by
@@ -158,9 +152,9 @@
                 <br />
                 See the full
                 <a
-                    tuiLink
                     href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API#notification_events"
                     target="_blank"
+                    tuiLink
                 >
                     list of available events
                 </a>
@@ -172,7 +166,7 @@
             *ngIf="notificationPermission === 'denied'"
             status="error"
         >
-            {{deniedPermissionNotification}}
+            {{ deniedPermissionNotification }}
         </tui-notification>
 
         <notification-page-example-4></notification-page-example-4>

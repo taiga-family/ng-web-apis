@@ -7,7 +7,10 @@ import {WebAudioConvolver} from '../src/nodes/convolver';
 describe('ConvolverNode', () => {
     @Component({
         template: `
-            <div waConvolverNode buffer="base/demo.mp3"></div>
+            <div
+                buffer="base/demo.mp3"
+                waConvolverNode
+            ></div>
         `,
     })
     class TestComponent {
@@ -39,7 +42,10 @@ describe('ConvolverNode', () => {
 describe('ConvolverNode factory fallback', () => {
     @Component({
         template: `
-            <div waConvolverNode buffer="base/demo.mp3"></div>
+            <div
+                buffer="base/demo.mp3"
+                waConvolverNode
+            ></div>
         `,
     })
     class TestComponent {

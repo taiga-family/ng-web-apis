@@ -1,7 +1,11 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 class ShopItem implements PaymentItem {
-    constructor(readonly image: string, readonly label: string, readonly price: number) {}
+    constructor(
+        readonly image: string,
+        readonly label: string,
+        readonly price: number,
+    ) {}
 
     get amount(): PaymentCurrencyAmount {
         return {

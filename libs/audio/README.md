@@ -17,9 +17,19 @@ README for additional features and special use cases.
 You can build audio graph with directives. For example, here's a typical echo feedback loop:
 
 ```html
-<audio src="/demo.wav" waMediaElementAudioSourceNode>
-  <ng-container #node="AudioNode" waDelayNode [delayTime]="delayTime">
-    <ng-container waGainNode [gain]="gain">
+<audio
+  src="/demo.wav"
+  waMediaElementAudioSourceNode
+>
+  <ng-container
+    #node="AudioNode"
+    waDelayNode
+    [delayTime]="delayTime"
+  >
+    <ng-container
+      waGainNode
+      [gain]="gain"
+    >
       <ng-container [waOutput]="node"></ng-container>
       <ng-container waAudioDestinationNode></ng-container>
     </ng-container>
@@ -43,7 +53,12 @@ This service is also used within directives that have
 well as an actual [AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer). For example:
 
 ```html
-<button #source="AudioNode" buffer="/demo.wav" waAudioBufferSourceNode (click)="source.start()">
+<button
+  #source="AudioNode"
+  buffer="/demo.wav"
+  waAudioBufferSourceNode
+  (click)="source.start()"
+>
   Play
   <ng-container waAudioDestinationNode></ng-container>
 </button>
@@ -161,7 +176,11 @@ export class AppComponent {
 You can then instantiate your [AudioWorkletNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletNode):
 
 ```html
-<ng-container *ngIf="processorsReady | async" waAudioWorkletNode name="my-processor">
+<ng-container
+  *ngIf="processorsReady | async"
+  waAudioWorkletNode
+  name="my-processor"
+>
   <ng-container waAudioDestinationNode></ng-container>
 </ng-container>
 ```
@@ -229,7 +248,11 @@ You can use `waAudioParam` pipe to turn your number values into `AudioParamAutom
 so last argument can be omitted) or number arrays to `AudioParamCurve` (second argument `duration` is in **seconds**):
 
 ```html
-<ng-container waGainNode gain="0" [gain]="gain | waAudioParam : 0.1 : 'linear'"></ng-container>
+<ng-container
+  waGainNode
+  gain="0"
+  [gain]="gain | waAudioParam : 0.1 : 'linear'"
+></ng-container>
 ```
 
 This way values would change smoothly rather than abruptly, causing audio artifacts.
@@ -289,14 +312,23 @@ const envelope = [
 
 ```html
 <!-- Inverting left and right channel -->
-<audio src="/demo.wav" waMediaElementAudioSourceNode>
+<audio
+  src="/demo.wav"
+  waMediaElementAudioSourceNode
+>
   <ng-container waChannelSplitterNode>
     <ng-container [waOutput]="right"></ng-container>
     <ng-container [waOutput]="left"></ng-container>
   </ng-container>
   <ng-container waChannelMergerNode>
-    <ng-container #left="AudioNode" waChannel></ng-container>
-    <ng-container #right="AudioNode" waChannel></ng-container>
+    <ng-container
+      #left="AudioNode"
+      waChannel
+    ></ng-container>
+    <ng-container
+      #right="AudioNode"
+      waChannel
+    ></ng-container>
     <ng-container waAudioDestinationNode></ng-container>
   </ng-container>
 </audio>
