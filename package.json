@@ -132,7 +132,7 @@
         "lint-staged": "15.0.2",
         "markdown-it": "13.0.2",
         "ng-packagr": "12.2.7",
-        "ngx-deploy-npm": "6.0.0",
+        "ngx-deploy-npm": "7.0.1",
         "ngx-highlightjs": "4.1.4",
         "ngx-markdown": "10.1.1",
         "nx": "17.0.2",
