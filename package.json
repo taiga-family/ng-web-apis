@@ -99,7 +99,7 @@
         "@taiga-ui/core": "3.51.0",
         "@taiga-ui/icons": "3.51.0",
         "@taiga-ui/kit": "3.51.0",
-        "@taiga-ui/prettier-config": "0.4.0",
+        "@taiga-ui/prettier-config": "0.4.1",
         "@taiga-ui/styles": "3.51.0",
         "@tinkoff/eslint-config": "1.54.4",
         "@tinkoff/eslint-config-angular": "1.54.3",
