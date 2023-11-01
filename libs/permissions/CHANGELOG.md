@@ -3,6 +3,19 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/permissions@3.1.1...@ng-web-apis/permissions@3.2.0) (2023-11-01)
+
+### Features
+
+- **permissions:** remove deprecated `PushPermissionState`
+  ([#261](https://github.com/taiga-family/ng-web-apis/issues/261))
+  ([ac19010](https://github.com/taiga-family/ng-web-apis/commit/ac190101ed85810d6778fdbb7997fe5b5c524917))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.1.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/permissions@3.1.0...@ng-web-apis/permissions@3.1.1) (2023-10-24)
 
 **Note:** Version bump only for package @ng-web-apis/permissions
