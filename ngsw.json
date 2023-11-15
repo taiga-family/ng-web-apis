@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1700037718455,
+  "timestamp": 1700038752739,
   "index": "/ng-web-apis/index.html",
   "assetGroups": [
     {
@@ -1071,7 +1071,7 @@
     "/ng-web-apis/assets/android-chrome-192x192.png": "0a7abaa8b8405e0cb375382a1fbc6673aa463f0f",
     "/ng-web-apis/assets/android-chrome-512x512.png": "5d63117c0dbaa22a9ae252c79f844e7f6be1b1e9",
     "/ng-web-apis/assets/apple-touch-icon.png": "4a809a1bd7fd975843b59fb2f4412bac8b344986",
-    "/ng-web-apis/assets/browserconfig.xml": "5f90b84ae2a3c71f59e210a0155ffe58fa7fdc9e",
+    "/ng-web-apis/assets/browserconfig.xml": "57fd9e84576b064c0365e0c1c62cc64762a5aa36",
     "/ng-web-apis/assets/change-permissions-instructions.jpg": "e5f4e7a60ac8900291a66232f3e3033fa5f932a7",
     "/ng-web-apis/assets/demo.mp3": "40586cd27b1c49a2f575e88b8945ae25a6b03087",
     "/ng-web-apis/assets/favicon-16x16.png": "e56b469c1718d6f31b1c49e6c0995da5f02be0b2",
