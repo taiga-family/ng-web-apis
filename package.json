@@ -114,7 +114,7 @@
         "@types/jasminewd2": "2.0.13",
         "@types/jest": "29.5.8",
         "@types/marked": "6.0.0",
-        "@types/node": "20.9.1",
+        "@types/node": "20.9.2",
         "@types/react": "18.2.37",
         "@types/react-dom": "18.2.15",
         "@types/webmidi": "2.0.10",
