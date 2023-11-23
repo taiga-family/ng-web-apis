@@ -131,7 +131,7 @@
         "karma-coverage-istanbul-reporter": "3.0.3",
         "karma-jasmine": "5.1.0",
         "karma-jasmine-html-reporter": "2.1.0",
-        "lerna": "7.4.2",
+        "lerna": "8.0.0",
         "lint-staged": "15.1.0",
         "markdown-it": "13.0.2",
         "marked": "10.0.0",
