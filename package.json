@@ -132,7 +132,7 @@
         "karma-jasmine": "5.1.0",
         "karma-jasmine-html-reporter": "2.1.0",
         "lerna": "8.0.0",
-        "lint-staged": "15.1.0",
+        "lint-staged": "15.2.0",
         "markdown-it": "13.0.2",
         "marked": "11.0.0",
         "ng-packagr": "12.2.7",
