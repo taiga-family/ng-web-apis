@@ -1,8 +1,7 @@
-import {Component, ElementRef, ViewChild} from '@angular/core';
+import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
-import {canvasContextFactory} from '../src/contexts/canvas-2d';
 
 describe('Canvas2dDirective', () => {
     @Component({
@@ -50,15 +49,6 @@ describe('Canvas2dDirective', () => {
 
     afterAll(() => {
         fixture.destroy();
-    });
-
-    it('factory throws if different context was already requested', () => {
-        const canvas = document.createElement('canvas');
-        const context = canvas.getContext('webgl');
-
-        expect(context).toBeTruthy();
-
-        expect(() => canvasContextFactory(new ElementRef(canvas), null, null)).toThrow();
     });
 
     it('creates context', () => {

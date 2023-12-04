@@ -21,20 +21,13 @@ export function inputByName(name: string): Provider[] {
         {
             provide: MIDI_INPUT,
             deps: [MIDI_ACCESS, MIDI_INPUT_QUERY],
-            useFactory: inputByNameFactory,
+            useFactory: async (
+                midiAccess: Promise<MIDIAccess>,
+                name: string,
+            ): Promise<MIDIInput | undefined> =>
+                midiAccess.then(access =>
+                    [...access.inputs.values()].find(input => input.name === name),
+                ),
         },
     ];
-}
-
-/**
- * @deprecated View Engine legacy
- * TODO: use arrow function for `useFactory` and delete this exported function in future major release
- */
-export function inputByNameFactory(
-    midiAccess: Promise<MIDIAccess>,
-    name: string,
-): Promise<MIDIInput | undefined> {
-    return midiAccess.then(access =>
-        [...access.inputs.values()].find(input => input.name === name),
-    );
 }

@@ -6,6 +6,6 @@ describe('PERFORMANCE', () => {
     it('injects window.performance object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(PERFORMANCE)).toBe(window.performance);
+        expect(TestBed.inject(PERFORMANCE)).toBe(window.performance);
     });
 });

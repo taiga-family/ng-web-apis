@@ -6,6 +6,6 @@ describe('CRYPTO', () => {
     it('injects window.crypto object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(CRYPTO)).toBe(window.crypto);
+        expect(TestBed.inject(CRYPTO)).toBe(window.crypto);
     });
 });

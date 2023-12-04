@@ -43,6 +43,7 @@ testem.log
 .DS_Store
 Thumbs.db
 
+migrations.json
 apps/demo/routesFile.txt
 .ssl
 .angular

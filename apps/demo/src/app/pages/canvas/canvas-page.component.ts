@@ -23,7 +23,7 @@ export class CanvasPageComponent {
     dWidth = 100;
     dHeight = 100;
 
-    globalCompositeOperation = 'source-over';
+    globalCompositeOperation: GlobalCompositeOperation = 'source-over';
 
     mouth = 30;
     blur = 0;

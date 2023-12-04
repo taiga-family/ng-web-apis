@@ -6,6 +6,6 @@ describe('HISTORY', () => {
     it('injects window.history object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(HISTORY)).toBe(window.history);
+        expect(TestBed.inject(HISTORY)).toBe(window.history);
     });
 });

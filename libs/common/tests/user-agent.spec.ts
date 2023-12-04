@@ -6,6 +6,6 @@ describe('USER_AGENT', () => {
     it('injects window.navigator.userAgent string', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(USER_AGENT)).toBe(window.navigator.userAgent);
+        expect(TestBed.inject(USER_AGENT)).toBe(window.navigator.userAgent);
     });
 });

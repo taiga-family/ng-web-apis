@@ -19,7 +19,9 @@ describe('provideLocation', () => {
             providers: [provideLocation(req as IncomingMessage)],
         });
 
-        expect(String(TestBed.get(SSR_LOCATION))).toBe('https://localhost:8080/hapica');
+        expect(String(TestBed.inject(SSR_LOCATION))).toBe(
+            'https://localhost:8080/hapica',
+        );
     });
 
     it('has no items in ancestorOrigins', () => {
@@ -35,8 +37,8 @@ describe('provideLocation', () => {
             providers: [provideLocation(req as IncomingMessage)],
         });
 
-        expect(String(TestBed.get(SSR_LOCATION))).toBe('http://localhost:8080/hapica');
-        expect(TestBed.get(SSR_LOCATION).ancestorOrigins.contains()).toBe(false);
-        expect(TestBed.get(SSR_LOCATION).ancestorOrigins.item()).toBeNull();
+        expect(String(TestBed.inject(SSR_LOCATION))).toBe('http://localhost:8080/hapica');
+        expect(TestBed.inject(SSR_LOCATION).ancestorOrigins.contains('')).toBe(false);
+        expect(TestBed.inject(SSR_LOCATION).ancestorOrigins.item(-1)).toBeNull();
     });
 });

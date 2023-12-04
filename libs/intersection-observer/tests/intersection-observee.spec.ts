@@ -80,7 +80,7 @@ describe('IntersectionObserveeDirective', () => {
 
     it('Default options', () => {
         // https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver
-        expect(TestBed.get(INTERSECTION_ROOT_MARGIN)).toBe('0px 0px 0px 0px');
-        expect(TestBed.get(INTERSECTION_THRESHOLD)).toBe(0);
+        expect(TestBed.inject(INTERSECTION_ROOT_MARGIN)).toBe('0px 0px 0px 0px');
+        expect(TestBed.inject(INTERSECTION_THRESHOLD)).toBe(0);
     });
 });

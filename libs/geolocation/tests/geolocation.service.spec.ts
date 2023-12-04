@@ -30,7 +30,7 @@ describe('Geolocation service', () => {
             ],
         });
 
-        service = TestBed.get(GeolocationService).pipe(
+        service = TestBed.inject(GeolocationService).pipe(
             catchError((_err, caught) => caught),
         );
         clearWatchCount = 0;
@@ -77,7 +77,7 @@ describe('Geolocation service', () => {
     });
 
     it('Error', done => {
-        service = TestBed.get(GeolocationService);
+        service = TestBed.inject(GeolocationService);
 
         service
             .pipe(
@@ -101,7 +101,7 @@ describe('Geolocation Service if unsupported', () => {
             ],
         });
 
-        const service$: GeolocationService = TestBed.get(GeolocationService);
+        const service$: GeolocationService = TestBed.inject(GeolocationService);
 
         service$.subscribe(
             () => {},

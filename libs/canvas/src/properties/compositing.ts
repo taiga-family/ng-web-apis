@@ -14,7 +14,7 @@ export class CompositingDirective implements CanvasMethod, CanvasCompositing {
     globalAlpha = 1;
 
     @Input()
-    globalCompositeOperation = 'source-over';
+    globalCompositeOperation: GlobalCompositeOperation = 'source-over';
 
     call(context: CanvasRenderingContext2D) {
         context.globalAlpha = this.globalAlpha;

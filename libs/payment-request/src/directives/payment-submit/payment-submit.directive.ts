@@ -3,7 +3,7 @@ import {from, fromEvent, Observable, of} from 'rxjs';
 import {catchError, filter, share, switchMap} from 'rxjs/operators';
 import {PaymentRequestService} from '../../services/payment-request.service';
 import {PAYMENT_METHODS} from '../../tokens/payment-methods';
-import {PAYMENT_OPTIONS} from '../../tokens/payment-options';
+import {PAYMENT_OPTIONS, PaymentOptions} from '../../tokens/payment-options';
 import {isError} from '../../utils/isError';
 import {PaymentDirective} from '../payment/payment.directive';
 

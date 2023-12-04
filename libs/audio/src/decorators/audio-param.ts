@@ -13,6 +13,7 @@ export function audioParam<K extends string>(
 ): AudioParamDecorator<K> | AudioParamWorkletDecorator {
     const decorator: AudioParamDecorator<K> = (target, propertyKey) => {
         Object.defineProperty(target, propertyKey, {
+            configurable: true,
             set(this: AudioNodeWithParams<K> | AudioWorkletNode, value: AudioParamInput) {
                 value = typeof value === 'string' ? Number.parseFloat(value) : value;
 
@@ -27,7 +28,10 @@ export function audioParam<K extends string>(
                     processAudioParam(audioParam, value, this.context.currentTime);
                 } else {
                     // Fallback for older browsers
-                    Object.defineProperty(target, propertyKey, {value});
+                    Object.defineProperty(target, propertyKey, {
+                        value,
+                        configurable: true,
+                    });
                 }
             },
         });

@@ -21,18 +21,11 @@ export function inputById(id: string): Provider[] {
         {
             provide: MIDI_INPUT,
             deps: [MIDI_ACCESS, MIDI_INPUT_QUERY],
-            useFactory: inputByIdFactory,
+            useFactory: async (
+                midiAccess: Promise<MIDIAccess>,
+                id: string,
+            ): Promise<MIDIInput | undefined> =>
+                midiAccess.then(access => access.inputs.get(id)),
         },
     ];
-}
-
-/**
- * @deprecated View Engine legacy
- * TODO: use arrow function for `useFactory` and delete this exported function in future major release
- */
-export function inputByIdFactory(
-    midiAccess: Promise<MIDIAccess>,
-    id: string,
-): Promise<MIDIInput | undefined> {
-    return midiAccess.then(access => access.inputs.get(id));
 }

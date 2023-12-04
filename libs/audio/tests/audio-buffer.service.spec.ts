@@ -9,7 +9,7 @@ describe('AudioBufferService', () => {
     });
 
     beforeEach(() => {
-        service = TestBed.get(AudioBufferService);
+        service = TestBed.inject(AudioBufferService);
     });
 
     it('turns audio file to AudioBuffer', done => {

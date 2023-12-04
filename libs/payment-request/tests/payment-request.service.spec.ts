@@ -16,21 +16,17 @@ describe('Payment Request Service', () => {
     let service: PaymentRequestService;
 
     let canPay = false;
-    let response = {} as PaymentResponse;
+    let response: Partial<PaymentResponse> = {};
 
     class FakePaymentRequest {
-        constructor(
-            _methods?: PaymentMethodData[],
-            _details?: PaymentDetailsInit,
-            _options?: PaymentOptions,
-        ) {}
+        constructor(_methods?: PaymentMethodData[], _details?: PaymentDetailsInit) {}
 
         canMakePayment(): Promise<boolean> {
             return Promise.resolve(canPay);
         }
 
         show(): Promise<PaymentResponse> {
-            return Promise.resolve(response);
+            return Promise.resolve(response) as Promise<PaymentResponse>;
         }
     }
 
@@ -44,20 +40,16 @@ describe('Payment Request Service', () => {
             details: '',
             methodName: '',
             payerEmail: '',
-            payerName: '',
-            payerPhone: '',
             requestId: '',
-            shippingAddress: null,
-            shippingOption: '',
             complete: (_?: PaymentComplete) => Promise.resolve(),
             toJSON: () => '',
-        } as PaymentResponse;
+        } as Partial<PaymentResponse>;
 
-        service = TestBed.get(PaymentRequestService);
+        service = TestBed.inject(PaymentRequestService);
     });
 
     it('throws an error if Payment Request in cannot pay status', done => {
-        (global as any).PaymentRequest = FakePaymentRequest;
+        (globalThis as any).PaymentRequest = FakePaymentRequest;
 
         const promise = service.request(paymentDetails);
 
@@ -73,12 +65,12 @@ describe('Payment Request Service', () => {
     it('returns response if Payment Request in can pay status', done => {
         canPay = true;
 
-        (global as any).PaymentRequest = FakePaymentRequest;
+        (globalThis as any).PaymentRequest = FakePaymentRequest;
 
         const promise = service.request(paymentDetails);
 
         promise.then(result => {
-            expect(result).toBe(response);
+            expect(result).toBe(response as PaymentResponse);
             done();
         });
     });
@@ -93,7 +85,7 @@ describe('Payment Request Service if unsupported', () => {
             ],
         });
 
-        const service: PaymentRequestService = TestBed.get(PaymentRequestService);
+        const service: PaymentRequestService = TestBed.inject(PaymentRequestService);
         const promise = service.request(paymentDetails);
 
         promise.then(

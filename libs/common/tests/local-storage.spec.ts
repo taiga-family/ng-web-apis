@@ -6,6 +6,6 @@ describe('LOCAL_STORAGE', () => {
     it('injects window.localStorage object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(LOCAL_STORAGE)).toBe(window.localStorage);
+        expect(TestBed.inject(LOCAL_STORAGE)).toBe(window.localStorage);
     });
 });
