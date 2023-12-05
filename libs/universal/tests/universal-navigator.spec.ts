@@ -15,7 +15,7 @@ describe('UNIVERSAL_NAVIGATOR', () => {
             providers: [UNIVERSAL_NAVIGATOR],
         });
 
-        const mock: Navigator = TestBed.get(NAVIGATOR);
+        const mock: Navigator = TestBed.inject(NAVIGATOR);
 
         expect(mock.userAgent).toBe('');
         expect(mock.plugins.refresh).not.toThrow();
@@ -28,6 +28,6 @@ describe('UNIVERSAL_NAVIGATOR', () => {
             providers: [provideUserAgent(req), UNIVERSAL_NAVIGATOR],
         });
 
-        expect(TestBed.get(NAVIGATOR).userAgent).toBe('Chrome');
+        expect(TestBed.inject(NAVIGATOR).userAgent).toBe('Chrome');
     });
 });

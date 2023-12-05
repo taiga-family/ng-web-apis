@@ -16,7 +16,7 @@ describe('MIDI_ACCESS', () => {
             ],
         });
 
-        TestBed.get(MIDI_ACCESS);
+        TestBed.inject(MIDI_ACCESS);
 
         expect(navigatorMock.requestMIDIAccess.calls.mostRecent().args[0]).toEqual({
             sysex: false,
@@ -37,7 +37,7 @@ describe('MIDI_ACCESS', () => {
             ],
         });
 
-        TestBed.get(MIDI_ACCESS);
+        TestBed.inject(MIDI_ACCESS);
 
         expect(navigatorMock.requestMIDIAccess.calls.mostRecent().args[0]).toEqual({
             sysex: true,
@@ -54,7 +54,7 @@ describe('MIDI_ACCESS', () => {
             ],
         });
 
-        TestBed.get(MIDI_ACCESS).catch((e: any) => {
+        TestBed.inject(MIDI_ACCESS).catch((e: any) => {
             expect(e instanceof Error).toBe(true);
             done();
         });

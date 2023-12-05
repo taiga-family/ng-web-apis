@@ -6,6 +6,6 @@ describe('WINDOW', () => {
     it('injects window.navigator object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(NAVIGATOR)).toBe(window.navigator);
+        expect(TestBed.inject(NAVIGATOR)).toBe(window.navigator);
     });
 });

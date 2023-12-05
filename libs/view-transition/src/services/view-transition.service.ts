@@ -6,9 +6,11 @@ import {Observable, throwError} from 'rxjs';
     providedIn: 'root',
 })
 export class ViewTransitionService {
-    private readonly isSupported = 'startViewTransition' in this.document;
-
     constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+
+    get isSupported(): boolean {
+        return 'startViewTransition' in this.document;
+    }
 
     startViewTransition(
         callback: () => Promise<void> | void,

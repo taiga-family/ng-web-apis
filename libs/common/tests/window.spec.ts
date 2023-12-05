@@ -7,7 +7,7 @@ describe('WINDOW', () => {
     it('injects global object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(WINDOW)).toBe(window);
+        expect(TestBed.inject(WINDOW)).toBe(window);
     });
 
     it('throws error if global object not available', () => {
@@ -15,11 +15,13 @@ describe('WINDOW', () => {
             providers: [
                 {
                     provide: DOCUMENT,
-                    useValue: {},
+                    useValue: {
+                        querySelectorAll: () => [],
+                    },
                 },
             ],
         });
 
-        expect(() => TestBed.get(WINDOW)).toThrow();
+        expect(() => TestBed.inject(WINDOW)).toThrow();
     });
 });

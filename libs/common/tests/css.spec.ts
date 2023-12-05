@@ -7,8 +7,7 @@ describe('CSS', () => {
     it('injects window.CSS object', () => {
         TestBed.configureTestingModule({});
 
-        // @ts-ignore
-        expect(TestBed.get(CSS)).toBe(window.CSS);
+        expect(TestBed.inject(CSS)).toBe(window.CSS);
     });
 
     it('injects mock when CSS is not available', () => {
@@ -16,7 +15,7 @@ describe('CSS', () => {
             providers: [{provide: WINDOW, useValue: {}}],
         });
 
-        const css = TestBed.get(CSS);
+        const css = TestBed.inject(CSS);
 
         expect(css.supports('display', 'block')).toBe(false);
         expect(css.escape('<&>hapica$')).toBe('<&>hapica$');

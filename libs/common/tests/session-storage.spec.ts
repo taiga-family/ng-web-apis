@@ -6,6 +6,6 @@ describe('SESSION_STORAGE', () => {
     it('injects window.sessionStorage object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(SESSION_STORAGE)).toBe(window.sessionStorage);
+        expect(TestBed.inject(SESSION_STORAGE)).toBe(window.sessionStorage);
     });
 });

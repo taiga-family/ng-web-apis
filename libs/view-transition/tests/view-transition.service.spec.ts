@@ -6,7 +6,15 @@ describe('ViewTransitionService', () => {
     describe('not supported provider', () => {
         it('throw error if startViewTransition is not supported', done => {
             TestBed.configureTestingModule({
-                providers: [ViewTransitionService, {provide: DOCUMENT, useValue: {}}],
+                providers: [
+                    ViewTransitionService,
+                    {
+                        provide: DOCUMENT,
+                        useValue: {
+                            querySelectorAll: () => [],
+                        },
+                    },
+                ],
             });
             const service = TestBed.inject(ViewTransitionService);
 
@@ -27,6 +35,7 @@ describe('ViewTransitionService', () => {
         let service: ViewTransitionService;
 
         const mockDocument = {
+            querySelectorAll: () => [],
             startViewTransition: (callback: () => Promise<void> | void) => {
                 callback();
                 return {
@@ -81,6 +90,7 @@ describe('ViewTransitionService', () => {
                 skipTransition: () => {},
             };
             const mockDocument = {
+                querySelectorAll: () => [],
                 startViewTransition: (callback: () => Promise<void> | void) => {
                     callback();
                     return viewTransitionValue;

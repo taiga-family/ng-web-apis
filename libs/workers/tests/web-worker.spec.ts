@@ -10,7 +10,7 @@ describe('WebWorker', () => {
     it('should fail if a worker is not available', async () => {
         const OriginalWorker = Worker;
 
-        delete (window as any).Worker;
+        delete (globalThis as any).Worker;
 
         const worker = WebWorker.fromFunction<void, void>(d => d);
 
@@ -19,7 +19,7 @@ describe('WebWorker', () => {
 
         await expectAsync(worker.toPromise()).toBeRejected();
 
-        (window as any).Worker = OriginalWorker;
+        (globalThis as any).Worker = OriginalWorker;
     });
 
     it('should create worker from a function', () => {

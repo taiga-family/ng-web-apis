@@ -1,6 +1,6 @@
 import {Inject, Injectable} from '@angular/core';
 import {PAYMENT_METHODS} from '../tokens/payment-methods';
-import {PAYMENT_OPTIONS} from '../tokens/payment-options';
+import {PAYMENT_OPTIONS, PaymentOptions} from '../tokens/payment-options';
 import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
 @Injectable({
@@ -26,7 +26,12 @@ export class PaymentRequestService {
             );
         }
 
-        const gateway = new PaymentRequest(methods, details, options);
+        const gateway = new PaymentRequest(
+            methods,
+            details,
+            // @ts-ignore
+            options,
+        );
 
         return gateway
             .canMakePayment()

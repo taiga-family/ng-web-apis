@@ -7,7 +7,7 @@ describe('NETWORK_INFORMATION', () => {
     it('injects window.navigator.connection object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(NETWORK_INFORMATION)).toBe(
+        expect(TestBed.inject(NETWORK_INFORMATION)).toBe(
             (window.navigator as any).connection,
         );
     });
@@ -17,6 +17,6 @@ describe('NETWORK_INFORMATION', () => {
             providers: [{provide: NAVIGATOR, useValue: {}}],
         });
 
-        expect(TestBed.get(NETWORK_INFORMATION)).toBe(null);
+        expect(TestBed.inject(NETWORK_INFORMATION)).toBe(null);
     });
 });

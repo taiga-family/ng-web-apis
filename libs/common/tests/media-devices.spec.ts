@@ -6,6 +6,6 @@ describe('MEDIA_DEVICES', () => {
     it('injects window.navigator object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(MEDIA_DEVICES)).toBe(window.navigator.mediaDevices);
+        expect(TestBed.inject(MEDIA_DEVICES)).toBe(window.navigator.mediaDevices);
     });
 });

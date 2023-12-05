@@ -54,7 +54,7 @@ describe('throws when not supported', () => {
             ],
         });
 
-        const service$: ResizeObserverService = TestBed.get(ResizeObserverService);
+        const service$: ResizeObserverService = TestBed.inject(ResizeObserverService);
 
         service$.subscribe({
             error: err => {

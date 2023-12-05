@@ -6,6 +6,6 @@ describe('LOCATION', () => {
     it('injects window.location object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(LOCATION)).toBe(window.location);
+        expect(TestBed.inject(LOCATION)).toBe(window.location);
     });
 });

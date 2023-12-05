@@ -10,7 +10,7 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     });
 
     it('Sets and retrieves item', () => {
-        const localStorage = TestBed.get(LOCAL_STORAGE);
+        const localStorage = TestBed.inject(LOCAL_STORAGE);
 
         localStorage.setItem('test', 'value');
 
@@ -20,7 +20,7 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     });
 
     it('Removes item', () => {
-        const localStorage = TestBed.get(LOCAL_STORAGE);
+        const localStorage = TestBed.inject(LOCAL_STORAGE);
 
         localStorage.setItem('test', 'value');
         localStorage.removeItem('test');
@@ -31,7 +31,7 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     });
 
     it('Clears storage', () => {
-        const localStorage = TestBed.get(LOCAL_STORAGE);
+        const localStorage = TestBed.inject(LOCAL_STORAGE);
 
         localStorage.setItem('test1', 'value1');
         localStorage.setItem('test2', 'value2');

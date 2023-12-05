@@ -14,6 +14,6 @@ describe('provideUserAgent', () => {
             providers: [provideUserAgent(req)],
         });
 
-        expect(String(TestBed.get(SSR_USER_AGENT))).toBe('Chrome');
+        expect(String(TestBed.inject(SSR_USER_AGENT))).toBe('Chrome');
     });
 });

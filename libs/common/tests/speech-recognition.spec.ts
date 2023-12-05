@@ -6,20 +6,20 @@ describe('SPEECH_RECOGNITION', () => {
     it('injects webkitSpeechRecognition class', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(SPEECH_RECOGNITION)).toBe(
-            (window as any).webkitSpeechRecognition,
+        expect(TestBed.inject(SPEECH_RECOGNITION)).toBe(
+            (globalThis as any).webkitSpeechRecognition,
         );
     });
 
     it('injects null when browser does not support SpeechRecognition', () => {
         TestBed.configureTestingModule({});
 
-        const speechRecognition = (window as any).webkitSpeechRecognition;
+        const speechRecognition = (globalThis as any).webkitSpeechRecognition;
 
-        (window as any).webkitSpeechRecognition = undefined;
+        (globalThis as any).webkitSpeechRecognition = undefined;
 
-        expect(TestBed.get(SPEECH_RECOGNITION)).toBeNull();
+        expect(TestBed.inject(SPEECH_RECOGNITION)).toBeNull();
 
-        (window as any).webkitSpeechRecognition = speechRecognition;
+        (globalThis as any).webkitSpeechRecognition = speechRecognition;
     });
 });

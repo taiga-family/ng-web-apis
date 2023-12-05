@@ -18,6 +18,9 @@ export class TextDrawingStylesDirective implements CanvasMethod, CanvasTextDrawi
     textAlign: CanvasTextAlign = 'start';
 
     @Input()
+    fontKerning: CanvasFontKerning = 'auto';
+
+    @Input()
     textBaseline: CanvasTextBaseline = 'alphabetic';
 
     call(context: CanvasRenderingContext2D) {

@@ -6,6 +6,6 @@ describe('SCREEN', () => {
     it('injects window.screen object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(SCREEN)).toBe(window.screen);
+        expect(TestBed.inject(SCREEN)).toBe(window.screen);
     });
 });

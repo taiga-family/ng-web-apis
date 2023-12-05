@@ -9,7 +9,7 @@ describe('ANIMATION_FRAME', () => {
         TestBed.configureTestingModule({});
 
         const animationFrame$: Observable<DOMHighResTimeStamp> =
-            TestBed.get(ANIMATION_FRAME);
+            TestBed.inject(ANIMATION_FRAME);
 
         animationFrame$.pipe(first()).subscribe(timestamp => {
             expect(typeof timestamp).toBe('number');

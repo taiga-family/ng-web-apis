@@ -19,7 +19,7 @@ describe('AUDIO_WORKLET_PROCESSORS_READY', () => {
     xit('rejects Promise if worklets are not supported', done => {
         let rejected = false;
 
-        TestBed.get(AUDIO_WORKLET_PROCESSORS_READY).catch(() => {
+        TestBed.inject(AUDIO_WORKLET_PROCESSORS_READY).catch(() => {
             rejected = true;
         });
 

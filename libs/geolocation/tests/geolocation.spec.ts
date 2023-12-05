@@ -10,7 +10,7 @@ describe('Geolocation token', () => {
             providers: [GeolocationService],
         });
 
-        service = TestBed.get(GeolocationService).pipe(
+        service = TestBed.inject(GeolocationService).pipe(
             catchError((_err, caught) => caught),
         );
     });

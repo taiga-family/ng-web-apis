@@ -6,6 +6,6 @@ describe('SPEECH_SYNTHESIS', () => {
     it('injects window.speechSynthesis object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.get(SPEECH_SYNTHESIS)).toBe(window.speechSynthesis);
+        expect(TestBed.inject(SPEECH_SYNTHESIS)).toBe(window.speechSynthesis);
     });
 });

@@ -21,20 +21,13 @@ export function outputByName(name: string): Provider[] {
         {
             provide: MIDI_OUTPUT,
             deps: [MIDI_ACCESS, MIDI_OUTPUT_QUERY],
-            useFactory: outputByNameFactory,
+            useFactory: async (
+                midiAccess: Promise<MIDIAccess>,
+                name: string,
+            ): Promise<MIDIOutput | undefined> =>
+                midiAccess.then(access =>
+                    [...access.outputs.values()].find(output => output.name === name),
+                ),
         },
     ];
-}
-
-/**
- * @deprecated View Engine legacy
- * TODO: use arrow function for `useFactory` and delete this exported function in future major release
- */
-export function outputByNameFactory(
-    midiAccess: Promise<MIDIAccess>,
-    name: string,
-): Promise<MIDIOutput | undefined> {
-    return midiAccess.then(access =>
-        [...access.outputs.values()].find(output => output.name === name),
-    );
 }
