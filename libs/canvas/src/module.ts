@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {Canvas2dDirective} from './contexts/canvas-2d';
 import {ClipPathComponent} from './methods/clip-path';
 import {DrawImageDirective} from './methods/draw-image';

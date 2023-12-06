@@ -1,8 +1,9 @@
 import {Inject, Pipe, PipeTransform} from '@angular/core';
+
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
 @Pipe({
-    name: 'gradient',
+    name: `gradient`,
 })
 export class GradientPipe implements PipeTransform {
     constructor(
@@ -39,9 +40,9 @@ export class GradientPipe implements PipeTransform {
                 ? this.context.createRadialGradient(a1, a2, a3, a4, a5, a6)
                 : this.context.createLinearGradient(a1, a2, a3, a4);
 
-        for (const stop of stops.keys()) {
-            gradient.addColorStop(stop, stops.get(stop) || '');
-        }
+        Array.from(stops.keys()).forEach(stop =>
+            gradient.addColorStop(stop, stops.get(stop) || ``),
+        );
 
         return gradient;
     }

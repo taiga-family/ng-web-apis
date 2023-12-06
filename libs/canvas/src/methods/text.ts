@@ -1,14 +1,15 @@
 import {Directive, Inject, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 
 @Directive({
-    selector: 'canvas-text',
+    selector: `canvas-text`,
     providers: [DrawService],
 })
 export class TextDirective {
     @Input()
-    text = '';
+    text = ``;
 
     @Input()
     x = 0;

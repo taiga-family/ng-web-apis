@@ -9,11 +9,11 @@ export class StorageMock implements Storage {
         return this.storage.has(key) ? this.storage.get(key)! : null;
     }
 
-    setItem(key: string, value: string) {
+    setItem(key: string, value: string): void {
         this.storage.set(key, value);
     }
 
-    clear() {
+    clear(): void {
         this.storage.clear();
     }
 

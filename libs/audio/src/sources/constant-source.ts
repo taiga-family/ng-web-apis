@@ -7,6 +7,7 @@ import {
     OnDestroy,
     Output,
 } from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
@@ -14,25 +15,23 @@ import {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
 @Directive({
-    selector: '[waConstantSourceNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waConstantSourceNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioConstantSource)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioConstantSource extends ConstantSourceNode implements OnDestroy {
-    @Input('offset')
-    @audioParam('offset')
+    @Input(`offset`)
+    @audioParam(`offset`)
     offsetParam?: AudioParamInput;
 
     @Output()
     ended = new EventEmitter<void>();
 
-    override readonly onended = () => this.ended.emit();
-
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Attribute('autoplay') autoplay: string | null,
-        @Attribute('offset') offset: string | null,
+        @Attribute(`autoplay`) autoplay: string | null,
+        @Attribute(`offset`) offset: string | null,
     ) {
         super(context, {
             offset: parse(offset, 0),
@@ -43,7 +42,9 @@ export class WebAudioConstantSource extends ConstantSourceNode implements OnDest
         }
     }
 
-    ngOnDestroy() {
+    override readonly onended = (): void => this.ended.emit();
+
+    ngOnDestroy(): void {
         try {
             this.stop();
         } catch {

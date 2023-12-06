@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
 import {fromEvent} from 'rxjs';
@@ -13,8 +13,8 @@ export class NotificationPageExample4 {
     readonly denied$ = this.permissions.state('notifications').pipe(map(isDenied));
 
     constructor(
-        private readonly notifications: NotificationService,
-        private readonly permissions: PermissionsService,
+        @Inject(NotificationService) private readonly notifications: NotificationService,
+        @Inject(PermissionsService) private readonly permissions: PermissionsService,
     ) {}
 
     sendNotification(): void {
@@ -23,8 +23,8 @@ export class NotificationPageExample4 {
             .pipe(
                 filter(isGranted),
                 switchMap(() =>
-                    this.notifications.open(`Click me, please`, {
-                        body: `Then open console and investigate property "target"`,
+                    this.notifications.open('Click me, please', {
+                        body: 'Then open console and investigate property "target"',
                         requireInteraction: true,
                         data: `Randomly generated number: ${Math.random().toFixed(2)}`,
                     }),

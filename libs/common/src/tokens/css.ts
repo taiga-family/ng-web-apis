@@ -9,14 +9,15 @@ declare global {
 }
 
 const TOKEN_CSS = new InjectionToken<typeof CSS>(
-    'An abstraction over window.CSS object',
+    `[TOKEN_CSS]: An abstraction over window.CSS object`,
     {
         factory: () =>
             inject(WINDOW).CSS ??
             ({
                 escape: v => v,
+                // eslint-disable-next-line no-restricted-syntax
                 supports: () => false,
-            } as typeof CSS),
+            } satisfies typeof CSS),
     },
 );
 

@@ -1,4 +1,5 @@
 import {Directive, Inject, OnDestroy, SkipSelf} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
@@ -7,10 +8,10 @@ import {FEEDFORWARD_COEFFICIENTS} from '../tokens/feedforward-coefficients';
 import {connect} from '../utils/connect';
 
 @Directive({
-    selector: '[waIIRFilterNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waIIRFilterNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioIIRFilter)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
     constructor(
@@ -36,7 +37,7 @@ export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

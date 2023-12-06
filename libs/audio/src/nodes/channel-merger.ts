@@ -6,16 +6,17 @@ import {
     OnDestroy,
     QueryList,
 } from '@angular/core';
+
 import {WebAudioChannel} from '../directives/channel';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
-    selector: '[waChannelMergerNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waChannelMergerNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioChannelMerger)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestroy {
     @ContentChildren(WebAudioChannel, {descendants: false})
@@ -26,11 +27,11 @@ export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestro
     }
 
     constructor(
-        @Attribute('numberOfInputs') inputs: string | null,
+        @Attribute(`numberOfInputs`) inputs: string | null,
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
     ) {
-        const numberOfInputs = parseInt(inputs || '', 10) || 6;
+        const numberOfInputs = parseInt(inputs || ``, 10) || 6;
 
         if (modern) {
             super(context, {numberOfInputs});
@@ -43,7 +44,7 @@ export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestro
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

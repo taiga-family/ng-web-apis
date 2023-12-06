@@ -6,7 +6,7 @@ export function processAudioParam(
     param: AudioParam,
     value: AudioParamInput,
     currentTime: number = 0,
-) {
+): void {
     if (param.cancelAndHoldAtTime) {
         param.cancelAndHoldAtTime(currentTime);
     } else {
@@ -14,7 +14,7 @@ export function processAudioParam(
         param.setValueAtTime(guard(param.value), currentTime);
     }
 
-    if (typeof value === 'number') {
+    if (typeof value === `number`) {
         param.setValueAtTime(guard(value), currentTime);
 
         return;
@@ -26,7 +26,7 @@ export function processAudioParam(
         return;
     }
 
-    if (!('mode' in value)) {
+    if (!(`mode` in value)) {
         param.setValueCurveAtTime(value.value, currentTime, value.duration);
 
         return;
@@ -40,9 +40,9 @@ function processSchedule(
     param: AudioParam,
     value: Array<AudioParamAutomation | AudioParamCurve>,
     currentTime: number,
-) {
+): void {
     value.forEach(automation => {
-        if ('mode' in automation) {
+        if (`mode` in automation) {
             processAutomation(param, automation, currentTime);
         } else {
             param.setValueCurveAtTime(automation.value, currentTime, automation.duration);
@@ -54,15 +54,15 @@ function processSchedule(
 
 function processAutomation(
     param: AudioParam,
-    {value, mode = 'instant', duration}: AudioParamAutomation,
+    {value, mode = `instant`, duration}: AudioParamAutomation,
     currentTime: number,
-) {
+): void {
     switch (mode) {
-        case 'instant':
+        case `instant`:
             param.setValueAtTime(guard(value), currentTime);
             param.setValueAtTime(guard(value), currentTime + duration);
             break;
-        case 'exponential':
+        case `exponential`:
             if (value < 0 || value * param.value < 0) {
                 param.linearRampToValueAtTime(guard(value), currentTime + duration);
             } else {
@@ -71,7 +71,7 @@ function processAutomation(
 
             param.setValueAtTime(guard(value), currentTime + duration);
             break;
-        case 'linear':
+        case `linear`:
             param.linearRampToValueAtTime(guard(value), currentTime + duration);
             break;
     }

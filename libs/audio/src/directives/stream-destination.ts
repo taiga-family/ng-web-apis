@@ -1,12 +1,13 @@
 import {Directive, Inject} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
 @Directive({
-    selector: '[waMediaStreamAudioDestinationNode]',
-    exportAs: 'AudioNode',
+    selector: `[waMediaStreamAudioDestinationNode]`,
+    exportAs: `AudioNode`,
 })
 export class WebAudioMediaStreamDestination extends MediaStreamAudioDestinationNode {
     constructor(

@@ -1,3 +1,4 @@
+import {KeyValue} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -9,9 +10,7 @@ import {MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
 import {EMPTY, merge, Observable, Subject} from 'rxjs';
 import {catchError, map, scan, startWith, switchMap, take} from 'rxjs/operators';
 
-import MIDIMessageEvent = WebMidi.MIDIMessageEvent;
 import {RESPONSE_BUFFER} from './response';
-import {KeyValue} from '@angular/common';
 
 @Component({
     selector: 'demo',
@@ -20,19 +19,16 @@ import {KeyValue} from '@angular/common';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class DemoComponent {
-    readonly octaves = Array.from({length: 24}, (_, i) => i + 48);
-
-    readonly notes$: Observable<Map<number, number | null>>;
-
     private readonly mousedown$ = new Subject<number>();
-
     private readonly mouseup$ = new Subject<void>();
-
     private readonly silent$ = new Subject<number>();
+
+    readonly octaves = Array.from({length: 24}, (_, i) => i + 48);
+    readonly notes$: Observable<Map<number, number | null>>;
 
     constructor(
         @Inject(RESPONSE_BUFFER) readonly response: Promise<AudioBuffer>,
-        @Inject(MIDI_MESSAGES) messages$: Observable<MIDIMessageEvent>,
+        @Inject(MIDI_MESSAGES) messages$: Observable<WebMidi.MIDIMessageEvent>,
     ) {
         const mouseInitiated$ = this.mousedown$.pipe(
             switchMap(down =>
@@ -63,6 +59,12 @@ export class DemoComponent {
         );
     }
 
+    @HostListener('document:mouseup')
+    @HostListener('document:touchend')
+    onMouseUp(): void {
+        this.mouseup$.next();
+    }
+
     noteKey: TrackByFunction<KeyValue<number, number | null>> = (
         _index: number,
         {key}: KeyValue<number, number | null>,
@@ -75,17 +77,11 @@ export class DemoComponent {
         return `${className} key-${key % 12 || 12}`;
     }
 
-    onQuiet(key?: number) {
+    onQuiet(key?: number): void {
         key && this.silent$.next(key);
     }
 
-    onMouseDown(note: number) {
+    onMouseDown(note: number): void {
         this.mousedown$.next(note);
-    }
-
-    @HostListener('document:mouseup')
-    @HostListener('document:touchend')
-    onMouseUp() {
-        this.mouseup$.next();
     }
 }

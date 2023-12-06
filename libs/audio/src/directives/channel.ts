@@ -1,10 +1,11 @@
 import {Directive, Inject, OnDestroy} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
-    selector: '[waChannel]',
-    exportAs: 'AudioNode',
+    selector: `[waChannel]`,
+    exportAs: `AudioNode`,
 })
 export class WebAudioChannel extends GainNode implements OnDestroy {
     constructor(
@@ -22,7 +23,7 @@ export class WebAudioChannel extends GainNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

@@ -2,7 +2,8 @@ export function identity<T>(v: T): T {
     return v;
 }
 
-export function emptyFunction() {}
+// eslint-disable-next-line @typescript-eslint/no-empty-function
+export function emptyFunction(): void {}
 
 export function emptyArray(): any[] {
     return [];
@@ -24,6 +25,6 @@ export function alwaysZero(): number {
     return 0;
 }
 
-export function alwaysRejected(): Promise<any> {
+export async function alwaysRejected(): Promise<any> {
     return Promise.reject().catch(emptyFunction);
 }

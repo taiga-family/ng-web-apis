@@ -1,11 +1,12 @@
 import {Directive, Input} from '@angular/core';
+
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
-        'canvas-draw-image[shadowBlur],canvas-draw-image[shadowColor],canvas-draw-image[shadowOffsetX],canvas-draw-image[shadowOffsetY],' +
-        'canvas-path[shadowBlur],canvas-path[shadowColor],canvas-path[shadowOffsetX],canvas-path[shadowOffsetY],' +
-        'canvas-text[shadowBlur],canvas-text[shadowColor],canvas-text[shadowOffsetX],canvas-text[shadowOffsetY]',
+        `canvas-draw-image[shadowBlur],canvas-draw-image[shadowColor],canvas-draw-image[shadowOffsetX],canvas-draw-image[shadowOffsetY],` +
+        `canvas-path[shadowBlur],canvas-path[shadowColor],canvas-path[shadowOffsetX],canvas-path[shadowOffsetY],` +
+        `canvas-text[shadowBlur],canvas-text[shadowColor],canvas-text[shadowOffsetX],canvas-text[shadowOffsetY]`,
     providers: [asCanvasProperty(ShadowStylesDirective)],
 })
 export class ShadowStylesDirective implements CanvasShadowStyles {
@@ -13,7 +14,7 @@ export class ShadowStylesDirective implements CanvasShadowStyles {
     shadowBlur = 0;
 
     @Input()
-    shadowColor = 'transparent';
+    shadowColor = `transparent`;
 
     @Input()
     shadowOffsetX = 0;
@@ -21,7 +22,7 @@ export class ShadowStylesDirective implements CanvasShadowStyles {
     @Input()
     shadowOffsetY = 0;
 
-    call(context: CanvasRenderingContext2D) {
+    call(context: CanvasRenderingContext2D): void {
         context.shadowBlur = this.shadowBlur;
         context.shadowColor = this.shadowColor;
         context.shadowOffsetX = this.shadowOffsetX;

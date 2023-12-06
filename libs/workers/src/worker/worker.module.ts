@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {WorkerPipe} from './pipes/worker.pipe';
 
 @NgModule({

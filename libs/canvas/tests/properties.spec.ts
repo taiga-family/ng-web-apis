@@ -1,9 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
-describe('Properties', () => {
+describe(`Properties`, () => {
     @Component({
         template: `
             <canvas
@@ -61,7 +62,7 @@ describe('Properties', () => {
         `,
     })
     class TestComponent {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
+        @ViewChild(`canvas`, {read: CANVAS_2D_CONTEXT})
         readonly context!: CanvasRenderingContext2D;
     }
 
@@ -73,15 +74,13 @@ describe('Properties', () => {
             imports: [CanvasModule],
             declarations: [TestComponent],
         });
-    });
 
-    beforeEach(() => {
         fixture = TestBed.createComponent(TestComponent);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });
 
-    it('clipping works', done => {
+    it(`clipping works`, done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 0, 128, 0, 255,
@@ -90,7 +89,7 @@ describe('Properties', () => {
         }, 50);
     });
 
-    it('overlays layers with given mode', done => {
+    it(`overlays layers with given mode`, done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 128, 0, 255,

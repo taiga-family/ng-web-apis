@@ -6,8 +6,8 @@ import {SSR_LOCATION} from '../tokens/ssr-location';
 import {emptyFunction} from './functions';
 
 export function provideLocation(req: IncomingMessage): ValueProvider {
-    const protocol = 'encrypted' in req.socket ? 'https' : 'http';
-    const url: any = new URL(`${protocol}://${req.headers['host']}${req.url}`);
+    const protocol = `encrypted` in req.socket ? `https` : `http`;
+    const url: any = new URL(`${protocol}://${req.headers.host}${req.url}`);
 
     url.assign = emptyFunction;
     url.reload = emptyFunction;

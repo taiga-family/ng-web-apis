@@ -21,9 +21,9 @@ export * from './path/arc-to';
 export * from './path/bezier-curve-to';
 export * from './path/ellipse';
 export * from './path/line-to';
-export * from './path/rect';
 export * from './path/move-to';
 export * from './path/quadratic-curve-to';
+export * from './path/rect';
 
 /* Pipe */
 export * from './pipes/gradient.pipe';
@@ -33,10 +33,10 @@ export * from './pipes/rad.pipe';
 export * from './pipes/transform.pipe';
 
 /* Properties */
+export * from './properties/clip';
 export * from './properties/compositing';
 export * from './properties/fill-stroke-styles';
 export * from './properties/filter';
-export * from './properties/clip';
 export * from './properties/image-smoothing';
 export * from './properties/path-drawing-styles';
 export * from './properties/shadow-styles';

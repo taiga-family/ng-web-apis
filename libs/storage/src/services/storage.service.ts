@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {LOCAL_STORAGE, WINDOW} from '@ng-web-apis/common';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: `root`,
 })
 export class StorageService implements Storage {
     constructor(
@@ -18,21 +18,21 @@ export class StorageService implements Storage {
         return this.localStorage.getItem(key);
     }
 
-    setItem(key: string, value: string) {
+    setItem(key: string, value: string): void {
         const oldValue = this.getItem(key);
 
         this.localStorage.setItem(key, value);
         this.notify(key, value, oldValue);
     }
 
-    removeItem(key: string) {
+    removeItem(key: string): void {
         const oldValue = this.getItem(key);
 
         this.localStorage.removeItem(key);
         this.notify(key, null, oldValue);
     }
 
-    clear() {
+    clear(): void {
         this.localStorage.clear();
         this.notify(null, null, null);
     }
@@ -41,8 +41,12 @@ export class StorageService implements Storage {
         return this.localStorage.key(index);
     }
 
-    private notify(key: string | null, newValue: string | null, oldValue: string | null) {
-        const event = new StorageEvent('storage', {
+    private notify(
+        key: string | null,
+        newValue: string | null,
+        oldValue: string | null,
+    ): void {
+        const event = new StorageEvent(`storage`, {
             key,
             newValue,
             oldValue,

@@ -1,9 +1,10 @@
 import {Directive, Inject, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 
 @Directive({
-    selector: 'canvas-path[path]',
+    selector: `canvas-path[path]`,
     providers: [DrawService],
 })
 export class Path2dDirective {

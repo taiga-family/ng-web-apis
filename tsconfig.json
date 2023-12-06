@@ -8,6 +8,7 @@
         "outDir": "./dist",
         "target": "ES2022",
         "module": "ES2022",
+        "newLine": "crlf",
         "lib": ["esnext", "dom"],
         "typeRoots": ["node_modules/@types", "node_modules/@taiga-ui/tsconfig/@types"],
         "types": ["ng-dev-mode", "node", "webmidi", "dom-view-transitions", "dom-speech-recognition"],

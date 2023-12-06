@@ -1,9 +1,9 @@
 import {InjectionToken} from '@angular/core';
 
 export const AUDIO_CONTEXT = new InjectionToken<BaseAudioContext>(
-    'Web Audio API context',
+    `[AUDIO_CONTEXT]: Web Audio API context`,
     {
-        providedIn: 'root',
+        providedIn: `root`,
         factory: () => new AudioContext(),
     },
 );

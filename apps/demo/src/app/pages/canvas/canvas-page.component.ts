@@ -1,9 +1,9 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 
 @Component({
-    selector: `audio-page`,
-    templateUrl: `./canvas-page.component.html`,
-    styleUrls: [`./canvas-page.component.css`],
+    selector: 'audio-page',
+    templateUrl: './canvas-page.component.html',
+    styleUrls: ['./canvas-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class CanvasPageComponent {
@@ -44,7 +44,7 @@ export class CanvasPageComponent {
         };
     }
 
-    onFile(file: File) {
+    onFile(file: File): void {
         this.file = file;
 
         if (file) {

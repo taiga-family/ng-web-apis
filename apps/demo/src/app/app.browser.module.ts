@@ -7,6 +7,7 @@ import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
 import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 import {MarkdownModule} from 'ngx-markdown';
+
 import {environment} from '../environments/environment';
 import {AppComponent} from './app.component';
 import {AppRoutingModule} from './app.routes';
@@ -14,7 +15,7 @@ import {AppRoutingModule} from './app.routes';
 @NgModule({
     imports: [
         BrowserModule.withServerTransition({
-            appId: 'demo',
+            appId: `demo`,
         }),
         BrowserAnimationsModule,
         TuiRootModule,
@@ -25,19 +26,18 @@ import {AppRoutingModule} from './app.routes';
         MarkdownModule.forRoot({
             sanitize: SecurityContext.NONE,
         }),
-        ServiceWorkerModule.register('ngsw-worker.js', {
+        ServiceWorkerModule.register(`ngsw-worker.js`, {
             enabled: environment.production,
             // Register the ServiceWorker as soon as the app is stable
             // or after 30 seconds (whichever comes first).
-            registrationStrategy: 'registerWhenStable:30000',
+            registrationStrategy: `registerWhenStable:30000`,
         }),
     ],
     declarations: [AppComponent],
-    bootstrap: [AppComponent],
     providers: [
         {
             provide: HIGHLIGHT_OPTIONS,
-            useValue: {fullLibraryLoader: () => import('highlight.js')},
+            useValue: {fullLibraryLoader: async () => import(`highlight.js`)},
         },
         {
             provide: LocationStrategy,
@@ -48,5 +48,6 @@ import {AppRoutingModule} from './app.routes';
             useValue: {enableHighAccuracy: true, timeout: 3000, maximumAge: 1000},
         },
     ],
+    bootstrap: [AppComponent],
 })
 export class AppBrowserModule {}

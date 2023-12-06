@@ -5,10 +5,10 @@ import {
     distinctUntilChanged,
     filter,
     map,
-    mapTo,
     skipWhile,
     tap,
 } from 'rxjs/operators';
+
 import {POLLING_TIME} from '../constants/polling-time';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
@@ -16,8 +16,8 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
 @Directive({
-    selector: '[waAudioDestinationNode]',
-    exportAs: 'AudioNode',
+    selector: `[waAudioDestinationNode]`,
+    exportAs: `AudioNode`,
 })
 export class WebAudioDestination extends AnalyserNode implements OnDestroy {
     @Output()
@@ -41,20 +41,12 @@ export class WebAudioDestination extends AnalyserNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
-        this.disconnect();
-    }
-
-    private isSilent(array: Float32Array): boolean {
-        return Math.abs(array.reduce((acc, cur) => acc + cur, 0)) < 0.001;
-    }
-
-    static init(that: WebAudioDestination, node: AudioNode | null) {
+    static init(that: WebAudioDestination, node: AudioNode | null): void {
         connect(node, that);
         that.fftSize = 256;
         that.connect(that.context.destination);
         that.quiet = interval(POLLING_TIME).pipe(
-            mapTo(new Float32Array(that.fftSize)),
+            map(() => new Float32Array(that.fftSize)),
             tap(array => that.getFloatTimeDomainData(array)),
             map(array => that.isSilent(array)),
             distinctUntilChanged(),
@@ -62,5 +54,13 @@ export class WebAudioDestination extends AnalyserNode implements OnDestroy {
             debounceTime(5000),
             filter(isSilent => isSilent),
         );
+    }
+
+    ngOnDestroy(): void {
+        this.disconnect();
+    }
+
+    private isSilent(array: Float32Array): boolean {
+        return Math.abs(array.reduce((acc, cur) => acc + cur, 0)) < 0.001;
     }
 }

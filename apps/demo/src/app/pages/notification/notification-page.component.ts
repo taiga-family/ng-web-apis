@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {PermissionsService} from '@ng-web-apis/permissions';
 import {TuiDocExample} from '@taiga-ui/addon-doc';
 
@@ -34,5 +34,7 @@ export class NotificationPageComponent {
         'index.html': import('./examples/04-listen-notification-events/index.html?raw'),
     };
 
-    constructor(private readonly permissions: PermissionsService) {}
+    constructor(
+        @Inject(PermissionsService) private readonly permissions: PermissionsService,
+    ) {}
 }

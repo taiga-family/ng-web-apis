@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-attribute-decorator */
 import {
     Attribute,
     Directive,
@@ -13,7 +14,6 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
 
 @Directive({
     selector: '[waMutationObserver]',
-    exportAs: 'MutationObserver',
     providers: [
         {
             provide: MUTATION_OBSERVER_INIT,
@@ -21,6 +21,7 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
             useFactory: mutationObserverInitFactory,
         },
     ],
+    exportAs: 'MutationObserver',
 })
 export class MutationObserverDirective extends MutationObserver implements OnDestroy {
     @Output()

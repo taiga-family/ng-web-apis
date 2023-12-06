@@ -1,11 +1,12 @@
 import {ValueProvider} from '@angular/core';
 import {CACHES} from '@ng-web-apis/common';
+
 import {alwaysRejected} from '../utils/functions';
 
 export const CACHES_MOCK = {
-    delete: () => Promise.resolve(false),
-    has: () => Promise.resolve(false),
-    keys: () => Promise.resolve([]),
+    delete: async () => Promise.resolve(false),
+    has: async () => Promise.resolve(false),
+    keys: async () => Promise.resolve([]),
     match: alwaysRejected,
     open: alwaysRejected,
 };

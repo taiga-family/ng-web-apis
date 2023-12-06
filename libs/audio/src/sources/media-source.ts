@@ -1,13 +1,13 @@
 import {Directive, ElementRef, Inject, OnDestroy} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
-    selector:
-        'audio[waMediaElementAudioSourceNode], video[waMediaElementAudioSourceNode]',
-    exportAs: 'AudioNode',
+    selector: `audio[waMediaElementAudioSourceNode], video[waMediaElementAudioSourceNode]`,
     providers: [asAudioNode(WebAudioMediaSource)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioMediaSource
     extends MediaElementAudioSourceNode
@@ -29,7 +29,7 @@ export class WebAudioMediaSource
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {UNIVERSAL_PROVIDERS} from './constants/universal-providers';
 
 @NgModule({

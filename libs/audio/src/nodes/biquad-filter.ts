@@ -1,4 +1,5 @@
 import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -8,36 +9,36 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
-    selector: '[waBiquadFilterNode]',
-    exportAs: 'AudioNode',
-    inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waBiquadFilterNode]`,
+    inputs: [`type`, `channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioBiquadFilter)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy {
-    @Input('detune')
-    @audioParam('detune')
+    @Input(`detune`)
+    @audioParam(`detune`)
     detuneParam?: AudioParamInput;
 
-    @Input('frequency')
-    @audioParam('frequency')
+    @Input(`frequency`)
+    @audioParam(`frequency`)
     frequencyParam?: AudioParamInput;
 
-    @Input('gain')
-    @audioParam('gain')
+    @Input(`gain`)
+    @audioParam(`gain`)
     gainParam?: AudioParamInput;
 
-    @Input('Q')
-    @audioParam('Q')
+    @Input(`Q`)
+    @audioParam(`Q`)
     qParam?: AudioParamInput;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Attribute('detune') detuneArg: string | null,
-        @Attribute('frequency') frequencyArg: string | null,
-        @Attribute('gain') gainArg: string | null,
-        @Attribute('Q') QArg: string | null,
+        @Attribute(`detune`) detuneArg: string | null,
+        @Attribute(`frequency`) frequencyArg: string | null,
+        @Attribute(`gain`) gainArg: string | null,
+        @Attribute(`Q`) QArg: string | null,
     ) {
         const detune = parse(detuneArg, 0);
         const frequency = parse(frequencyArg, 350);
@@ -63,11 +64,11 @@ export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy 
         }
     }
 
-    ngOnDestroy() {
-        this.disconnect();
+    static init(that: WebAudioBiquadFilter, node: AudioNode | null): void {
+        connect(node, that);
     }
 
-    static init(that: WebAudioBiquadFilter, node: AudioNode | null) {
-        connect(node, that);
+    ngOnDestroy(): void {
+        this.disconnect();
     }
 }

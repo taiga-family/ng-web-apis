@@ -1,7 +1,7 @@
 import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
-    name: 'transform',
+    name: `transform`,
 })
 export class TransformPipe implements PipeTransform {
     transform(value: string): DOMMatrix {

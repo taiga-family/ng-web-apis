@@ -1,9 +1,10 @@
 import {Directive, Inject, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 
 @Directive({
-    selector: 'canvas-draw-image',
+    selector: `canvas-draw-image`,
     providers: [DrawService],
 })
 export class DrawImageDirective {

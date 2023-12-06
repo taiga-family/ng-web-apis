@@ -1,5 +1,6 @@
 import {MonoTypeOperatorFunction} from 'rxjs';
 import {filter} from 'rxjs/operators';
+
 import {MidiChannel} from '../types/midi-channel';
 
 import MIDIMessageEvent = WebMidi.MIDIMessageEvent;

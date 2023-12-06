@@ -4,11 +4,11 @@ import {fromEvent, Observable} from 'rxjs';
 import {map, shareReplay, startWith} from 'rxjs/operators';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: `root`,
 })
 export class ScreenOrientationService extends Observable<OrientationType> {
     private readonly stream$ = (this.isModern
-        ? fromEvent(this.win.screen.orientation, 'change').pipe(
+        ? fromEvent(this.win.screen.orientation, `change`).pipe(
               startWith(null),
               map(
                   (): OrientationType =>
@@ -23,7 +23,7 @@ export class ScreenOrientationService extends Observable<OrientationType> {
                       this.win.screen.orientation.type,
               ),
           )
-        : fromEvent(this.win, 'orientationchange').pipe(
+        : fromEvent(this.win, `orientationchange`).pipe(
               startWith(null),
               map((): OrientationType => {
                   /**
@@ -38,13 +38,13 @@ export class ScreenOrientationService extends Observable<OrientationType> {
 
                   switch (angle) {
                       case 0:
-                          return 'portrait-primary';
+                          return `portrait-primary`;
                       case 180:
-                          return 'portrait-secondary';
+                          return `portrait-secondary`;
                       case 90:
-                          return 'landscape-primary';
+                          return `landscape-primary`;
                       case -90:
-                          return 'landscape-secondary';
+                          return `landscape-secondary`;
                   }
               }),
           )

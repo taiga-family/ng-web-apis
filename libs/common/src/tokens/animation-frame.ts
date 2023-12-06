@@ -5,13 +5,13 @@ import {share} from 'rxjs/operators';
 import {WINDOW} from './window';
 
 export const ANIMATION_FRAME = new InjectionToken<Observable<DOMHighResTimeStamp>>(
-    'Shared Observable based on `window.requestAnimationFrame`',
+    `[ANIMATION_FRAME]: Shared Observable based on \`window.requestAnimationFrame\``,
     {
         factory: () => {
             const {requestAnimationFrame, cancelAnimationFrame} = inject(WINDOW);
             const animationFrame$ = new Observable<DOMHighResTimeStamp>(subscriber => {
                 let id = NaN;
-                const callback = (timestamp: DOMHighResTimeStamp) => {
+                const callback = (timestamp: DOMHighResTimeStamp): void => {
                     subscriber.next(timestamp);
                     id = requestAnimationFrame(callback);
                 };

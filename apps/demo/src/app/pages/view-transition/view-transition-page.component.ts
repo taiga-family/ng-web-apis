@@ -1,7 +1,13 @@
-import {ChangeDetectionStrategy, ChangeDetectorRef, Component} from '@angular/core';
-import {BehaviorSubject, takeUntil} from 'rxjs';
+import {
+    ChangeDetectionStrategy,
+    ChangeDetectorRef,
+    Component,
+    Inject,
+    Self,
+} from '@angular/core';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
 import {TuiDestroyService} from '@taiga-ui/cdk';
+import {BehaviorSubject, takeUntil} from 'rxjs';
 
 interface Photo {
     src: string;
@@ -33,7 +39,7 @@ const USAGE_SAMPLE = `
     constructor(private viewTransitionService: ViewTransitionService) {}
     // or with inject (Angular 14+)
     private service = inject(ViewTransitionService);
-    
+
     // 2) Call startViewTransition method and pass callback that would change the DOM
     private showMyComponent(): void {
         this.viewTransitionService.startViewTransition(() => {
@@ -45,9 +51,9 @@ const USAGE_SAMPLE = `
 `;
 
 @Component({
-    selector: `view-transition-page`,
-    templateUrl: `./view-transition-page.component.html`,
-    styleUrls: [`./view-transition-page.component.less`],
+    selector: 'view-transition-page',
+    templateUrl: './view-transition-page.component.html',
+    styleUrls: ['./view-transition-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [TuiDestroyService],
 })
@@ -58,9 +64,10 @@ export class ViewTransitionPageComponent {
     readonly detailInfo$ = new BehaviorSubject<Photo | undefined>(undefined);
 
     constructor(
+        @Inject(ViewTransitionService)
         private readonly viewTransitionService: ViewTransitionService,
-        private readonly cdr: ChangeDetectorRef,
-        private readonly destroy$: TuiDestroyService,
+        @Inject(ChangeDetectorRef) private readonly cdr: ChangeDetectorRef,
+        @Self() @Inject(TuiDestroyService) private readonly destroy$: TuiDestroyService,
     ) {}
 
     open(index: number): void {

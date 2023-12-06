@@ -1,6 +1,7 @@
 import {Inject, Injectable, NgZone, OnDestroy, SkipSelf} from '@angular/core';
 import {ANIMATION_FRAME} from '@ng-web-apis/common';
 import {Observable, Subscription} from 'rxjs';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
@@ -8,8 +9,6 @@ import {Context2dProcessor} from '../types/context-processor';
 
 @Injectable()
 export class DrawService implements OnDestroy, CanvasMethod {
-    call: Context2dProcessor = () => {};
-
     private readonly subscription: Subscription;
 
     constructor(
@@ -30,7 +29,9 @@ export class DrawService implements OnDestroy, CanvasMethod {
         );
     }
 
-    ngOnDestroy() {
+    call: Context2dProcessor = (): void => {};
+
+    ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }
 }

@@ -2,9 +2,9 @@ import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {MIDI_SUPPORT} from '@ng-web-apis/midi';
 
 @Component({
-    selector: `midi-page`,
-    templateUrl: `./midi-page.component.html`,
-    styleUrls: [`./midi-page.component.less`],
+    selector: 'midi-page',
+    templateUrl: './midi-page.component.html',
+    styleUrls: ['./midi-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class MidiPageComponent {
@@ -12,7 +12,7 @@ export class MidiPageComponent {
 
     constructor(@Inject(MIDI_SUPPORT) readonly supported: boolean) {}
 
-    start() {
+    start(): void {
         this.started = true;
     }
 }

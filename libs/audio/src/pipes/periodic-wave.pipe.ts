@@ -1,8 +1,9 @@
 import {Inject, Pipe, PipeTransform} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
 @Pipe({
-    name: 'waPeriodicWave',
+    name: `waPeriodicWave`,
 })
 export class WebAudioPeriodicWavePipe implements PipeTransform {
     constructor(@Inject(AUDIO_CONTEXT) private readonly context: BaseAudioContext) {}

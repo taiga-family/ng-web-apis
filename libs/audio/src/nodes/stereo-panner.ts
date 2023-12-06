@@ -1,4 +1,5 @@
 import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {AudioParamInput} from '../types/audio-param-input';
@@ -8,15 +9,15 @@ import {parse} from '../utils/parse';
 import {processAudioParam} from '../utils/process-audio-param';
 
 @Directive({
-    selector: '[waStereoPannerNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waStereoPannerNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioStereoPanner)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy {
-    @Input('pan')
+    @Input(`pan`)
     set panParam(pan: AudioParamInput) {
-        if ('setPosition' in this) {
+        if (`setPosition` in this) {
             /** fallback for browsers not supporting {@link StereoPannerNode} */
             // @ts-ignore
             this.fallbackToPannerNode(fallbackAudioParam(pan));
@@ -28,11 +29,12 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Attribute('pan') panArg: string | null,
+        @Attribute(`pan`) panArg: string | null,
     ) {
         const pan = parse(panArg, 0);
 
         try {
+            // eslint-disable-next-line
             new StereoPannerNode(context);
         } catch {
             const result = context.createPanner() as unknown as WebAudioStereoPanner;
@@ -48,12 +50,11 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
         connect(node, this);
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 
-    // @ts-ignore
-    private fallbackToPannerNode(pan: number) {
+    private fallbackToPannerNode(pan: number): void {
         const xDeg = pan * 100;
         const zDeg = xDeg > 0 ? 270 - xDeg : xDeg + 90;
         const x = Math.sin(xDeg * (Math.PI / 180));

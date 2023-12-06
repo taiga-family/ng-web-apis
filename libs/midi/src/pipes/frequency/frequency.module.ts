@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {FrequencyPipe} from './frequency.pipe';
 
 @NgModule({

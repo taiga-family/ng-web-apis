@@ -1,12 +1,13 @@
-import {NgModule} from '@angular/core';
-import {StoragePageComponent} from './storage-page.component';
-import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
-import {ExampleComponent} from './example/example.component';
+import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {TuiInputModule} from '@taiga-ui/kit';
-import {TuiGroupModule, TuiNotificationModule} from '@taiga-ui/core';
+import {RouterModule} from '@angular/router';
 import {TuiDocExampleModule, TuiDocMainModule} from '@taiga-ui/addon-doc';
+import {TuiGroupModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiInputModule} from '@taiga-ui/kit';
+
+import {ExampleComponent} from './example/example.component';
+import {StoragePageComponent} from './storage-page.component';
 
 @NgModule({
     imports: [
@@ -17,7 +18,7 @@ import {TuiDocExampleModule, TuiDocMainModule} from '@taiga-ui/addon-doc';
         TuiGroupModule,
         TuiDocExampleModule,
         TuiDocMainModule,
-        RouterModule.forChild([{path: '', component: StoragePageComponent}]),
+        RouterModule.forChild([{path: ``, component: StoragePageComponent}]),
     ],
     declarations: [StoragePageComponent, ExampleComponent],
 })

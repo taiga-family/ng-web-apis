@@ -2,7 +2,7 @@ import {inject, InjectionToken} from '@angular/core';
 import {NAVIGATOR} from '@ng-web-apis/common';
 
 export const GEOLOCATION = new InjectionToken<Geolocation>(
-    'An abstraction over window.navigator.geolocation object',
+    `[GEOLOCATION]: An abstraction over window.navigator.geolocation object`,
     {
         factory: () => inject(NAVIGATOR).geolocation,
     },

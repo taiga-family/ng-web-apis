@@ -1,76 +1,75 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioConvolver} from '../src/nodes/convolver';
 
-describe('ConvolverNode', () => {
-    @Component({
-        template: `
-            <div
-                buffer="base/demo.mp3"
-                waConvolverNode
-            ></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioConvolver)
-        node!: AudioNode;
-    }
+describe(`Convolver`, () => {
+    describe(`ConvolverNode`, () => {
+        @Component({
+            template: `
+                <div
+                    buffer="base/demo.mp3"
+                    waConvolverNode
+                ></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioConvolver)
+            node!: AudioNode;
+        }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+            });
+
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof ConvolverNode).toBe(true);
         });
     });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+    describe(`ConvolverNode factory fallback`, () => {
+        @Component({
+            template: `
+                <div
+                    buffer="base/demo.mp3"
+                    waConvolverNode
+                ></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioConvolver)
+            node!: AudioNode;
+        }
 
-    it('creates node', () => {
-        expect(testComponent.node instanceof ConvolverNode).toBe(true);
-    });
-});
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-describe('ConvolverNode factory fallback', () => {
-    @Component({
-        template: `
-            <div
-                buffer="base/demo.mp3"
-                waConvolverNode
-            ></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioConvolver)
-        node!: AudioNode;
-    }
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers,
+            });
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
-
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers,
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
         });
-    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('creates node', () => {
-        expect(testComponent.node instanceof ConvolverNode).toBe(true);
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof ConvolverNode).toBe(true);
+        });
     });
 });

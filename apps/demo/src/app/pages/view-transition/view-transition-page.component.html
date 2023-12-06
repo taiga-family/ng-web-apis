@@ -27,6 +27,7 @@
                 </a>
             </span>
             <img
+                alt="img"
                 [src]="item.src"
                 [style.viewTransitionName]="context.activeIndex === index ? 'expandable-image' : null"
             />
@@ -38,6 +39,7 @@
         class="expanded-photo"
     >
         <img
+            alt="image"
             [src]="context.detailInfo.src"
             (click)="close()"
         />
@@ -46,6 +48,7 @@
 
 <a
     href="https://www.pexels.com"
+    rel="noreferrer"
     target="_blank"
     tuiLink
 >

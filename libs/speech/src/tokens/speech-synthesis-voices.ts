@@ -5,11 +5,11 @@ import {map, startWith} from 'rxjs/operators';
 
 export const SPEECH_SYNTHESIS_VOICES = new InjectionToken<
     Observable<readonly SpeechSynthesisVoice[]>
->('List of available voices for speech synthesis', {
+>(`[SPEECH_SYNTHESIS_VOICES]: List of available voices for speech synthesis`, {
     factory: () => {
         const speechSynthesisRef = inject(SPEECH_SYNTHESIS);
 
-        return fromEvent(speechSynthesisRef, 'voiceschanged').pipe(
+        return fromEvent(speechSynthesisRef, `voiceschanged`).pipe(
             startWith(null),
             map(() => speechSynthesisRef.getVoices()),
         );

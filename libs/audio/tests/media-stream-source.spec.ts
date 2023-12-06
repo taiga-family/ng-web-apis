@@ -1,90 +1,89 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {WebAudioModule} from '../src/module';
+import {WebAudioMediaStreamSource} from '../src/sources/media-stream-source';
 import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
 import {MEDIA_STREAM} from '../src/tokens/media-stream';
-import {WebAudioMediaStreamSource} from '../src/sources/media-stream-source';
 
-const context = new AudioContext();
-const destination = new MediaStreamAudioDestinationNode(context);
-const STREAM = destination.stream;
+describe(`MediaStream`, () => {
+    const context = new AudioContext();
+    const destination = new MediaStreamAudioDestinationNode(context);
+    const STREAM = destination.stream;
 
-describe('MediaStreamAudioSourceNode', () => {
-    @Component({
-        template: `
-            <audio waMediaStreamAudioSourceNode></audio>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioMediaStreamSource)
-        node!: AudioNode;
-    }
+    describe(`MediaStreamAudioSourceNode`, () => {
+        @Component({
+            template: `
+                <audio waMediaStreamAudioSourceNode></audio>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioMediaStreamSource)
+            node!: AudioNode;
+        }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers: [
-                {
-                    provide: MEDIA_STREAM,
-                    useValue: STREAM,
-                },
-            ],
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers: [
+                    {
+                        provide: MEDIA_STREAM,
+                        useValue: STREAM,
+                    },
+                ],
+            });
+
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof MediaStreamAudioSourceNode).toBe(true);
         });
     });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+    describe(`MediaStreamAudioSourceNode factory fallback`, () => {
+        @Component({
+            template: `
+                <audio waMediaStreamAudioSourceNode></audio>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioMediaStreamSource)
+            node!: AudioNode;
+        }
 
-    it('creates node', () => {
-        expect(testComponent.node instanceof MediaStreamAudioSourceNode).toBe(true);
-    });
-});
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-describe('MediaStreamAudioSourceNode factory fallback', () => {
-    @Component({
-        template: `
-            <audio waMediaStreamAudioSourceNode></audio>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioMediaStreamSource)
-        node!: AudioNode;
-    }
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers: [
+                    {
+                        provide: MEDIA_STREAM,
+                        useValue: STREAM,
+                    },
+                    {
+                        provide: CONSTRUCTOR_SUPPORT,
+                        useValue: false,
+                    },
+                ],
+            });
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
-
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers: [
-                {
-                    provide: MEDIA_STREAM,
-                    useValue: STREAM,
-                },
-                {
-                    provide: CONSTRUCTOR_SUPPORT,
-                    useValue: false,
-                },
-            ],
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
         });
-    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('creates node', () => {
-        expect(testComponent.node instanceof MediaStreamAudioSourceNode).toBe(true);
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof MediaStreamAudioSourceNode).toBe(true);
+        });
     });
 });

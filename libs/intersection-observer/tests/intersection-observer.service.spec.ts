@@ -1,17 +1,18 @@
 import {take} from 'rxjs/operators';
+
 import {IntersectionObserverService} from '../src/services/intersection-observer.service';
 
-describe('IntersectionObserverService', () => {
-    it('works', done => {
+describe(`IntersectionObserverService`, () => {
+    it(`works`, done => {
         let called = false;
 
-        const nativeElement = document.createElement('div');
+        const nativeElement = document.createElement(`div`);
         const service = new IntersectionObserverService(
             {
                 nativeElement,
             },
             true,
-            '0px 0px 0px 0px',
+            `0px 0px 0px 0px`,
             0,
             {
                 nativeElement: document.body,
@@ -32,14 +33,14 @@ describe('IntersectionObserverService', () => {
         });
     });
 
-    it('throws when not supported', () => {
+    it(`throws when not supported`, () => {
         let error = false;
         const service = new IntersectionObserverService(
             {
-                nativeElement: document.createElement('DIV'),
+                nativeElement: document.createElement(`DIV`),
             },
             false,
-            '0px 0px 0px 0px',
+            `0px 0px 0px 0px`,
             0,
             null,
         );

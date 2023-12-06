@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {ResizeObserverModule} from '../src/module';
 
-describe('ResizeObserverDirective', () => {
+describe(`ResizeObserverDirective`, () => {
     @Component({
         template: `
             <section style="position: relative; height: 200px; overflow: auto;">
@@ -17,7 +18,8 @@ describe('ResizeObserverDirective', () => {
         `,
     })
     class TestComponent {
-        onResize = jasmine.createSpy('onResize');
+        // eslint-disable-next-line jest/no-jasmine-globals
+        onResize = jasmine.createSpy(`onResize`);
         observe = true;
     }
 
@@ -36,8 +38,8 @@ describe('ResizeObserverDirective', () => {
         testComponent.onResize.calls.reset();
     });
 
-    it('Emits resizes', done => {
-        document.querySelector('#resize_elem')!.scrollTop = 350;
+    it(`Emits resizes`, done => {
+        document.querySelector(`#resize_elem`)!.scrollTop = 350;
         fixture.detectChanges();
 
         setTimeout(() => {
