@@ -1,4 +1,5 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {RouterLink} from '@angular/router';
 import {DemoPath} from '@demo/constants';
 import {WEB_AUDIO_SUPPORT} from '@ng-web-apis/audio';
 import {GEOLOCATION_SUPPORT} from '@ng-web-apis/geolocation';
@@ -10,12 +11,14 @@ import {PERMISSIONS_SUPPORT} from '@ng-web-apis/permissions';
 import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
 @Component({
+    standalone: true,
     selector: 'home-page',
+    imports: [RouterLink],
     templateUrl: './home-page.component.html',
     styleUrls: ['./home-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class HomePageComponent {
+export default class HomePageComponent {
     readonly link = DemoPath;
 
     constructor(

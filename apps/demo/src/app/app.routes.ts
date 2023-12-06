@@ -5,105 +5,84 @@ import {DemoPath} from '@demo/constants';
 export const appRoutes: Routes = [
     {
         path: DemoPath.HomePage,
-        loadChildren: async () =>
-            (await import(`./pages/home/home-page.module`)).HomePageModule,
+        loadComponent: async () => import(`./pages/home/home-page.component`),
     },
     {
         path: DemoPath.CommonPage,
-        loadChildren: async () =>
-            (await import(`./pages/common/common-page.module`)).CommonPageModule,
+        loadComponent: async () => import(`./pages/common/common-page.component`),
     },
     {
         path: DemoPath.UniversalPage,
-        loadChildren: async () =>
-            (await import(`./pages/universal/universal-page.module`)).UniversalPageModule,
+        loadComponent: async () => import(`./pages/universal/universal-page.component`),
     },
     {
         path: DemoPath.AudioPage,
-        loadChildren: async () =>
-            (await import(`./pages/audio/audio-page.module`)).AudioPageModule,
+        loadComponent: async () => import(`./pages/audio/audio-page.component`),
     },
     {
         path: DemoPath.CanvasPage,
-        loadChildren: async () =>
-            (await import(`./pages/canvas/canvas-page.module`)).CanvasPageModule,
+        loadComponent: async () => import(`./pages/canvas/canvas-page.component`),
     },
     {
         path: DemoPath.ResizeObserverPage,
-        loadChildren: async () =>
-            (await import(`./pages/resize-observer/resize-observer-page.module`))
-                .ResizeObserverPageModule,
+        loadComponent: async () =>
+            import(`./pages/resize-observer/resize-observer-page.component`),
     },
     {
         path: DemoPath.GeolocationPage,
-        loadChildren: async () =>
-            (await import(`./pages/geolocation/geolocation-page.module`))
-                .GeolocationPageModule,
+        loadComponent: async () =>
+            import(`./pages/geolocation/geolocation-page.component`),
     },
     {
         path: DemoPath.ScreenOrientation,
-        loadChildren: async () =>
-            (await import(`./pages/screen-orientation/screen-orientation-page.module`))
-                .ScreenOrientationPageModule,
+        loadComponent: async () =>
+            import(`./pages/screen-orientation/screen-orientation-page.component`),
     },
     {
         path: DemoPath.IntersectionObserverPage,
-        loadChildren: async () =>
-            (
-                await import(
-                    `./pages/intersection-observer/intersection-observer-page.module`
-                )
-            ).IntersectionObserverPageModule,
+        loadComponent: async () =>
+            import(`./pages/intersection-observer/intersection-observer-page.component`),
     },
     {
         path: DemoPath.MutationObserverPage,
-        loadChildren: async () =>
-            (await import(`./pages/mutation-observer/mutation-observer-page.module`))
-                .MutationObserverPageModule,
+        loadComponent: async () =>
+            import(`./pages/mutation-observer/mutation-observer-page.component`),
     },
     {
         path: DemoPath.PaymentRequestPage,
-        loadChildren: async () =>
-            (await import(`./pages/payment-request/payment-request-page.module`))
-                .PaymentRequestPageModule,
+        loadComponent: async () =>
+            import(`./pages/payment-request/payment-request-page.component`),
     },
     {
         path: DemoPath.PermissionsPage,
-        loadChildren: async () =>
-            (await import(`./pages/permissions/permissions-page.module`))
-                .PermissionsPageModule,
+        loadComponent: async () =>
+            import(`./pages/permissions/permissions-page.component`),
     },
     {
         path: DemoPath.MidiPage,
-        loadChildren: async () =>
-            (await import(`./pages/midi/midi-page.module`)).MidiPageModule,
+        loadComponent: async () => import(`./pages/midi/midi-page.component`),
     },
     {
         path: DemoPath.SpeechPage,
-        loadChildren: async () =>
-            (await import(`./pages/speech/speech-page.module`)).SpeechPageModule,
+        loadComponent: async () => import(`./pages/speech/speech-page.component`),
     },
     {
         path: DemoPath.StoragePage,
-        loadChildren: async () =>
-            (await import(`./pages/storage/storage-page.module`)).StoragePageModule,
+        loadComponent: async () => import(`./pages/storage/storage-page.component`),
     },
     {
         path: DemoPath.WorkersPage,
-        loadChildren: async () =>
-            (await import(`./pages/workers/workers-page.module`)).WorkersPageModule,
+        loadComponent: async () => import(`./pages/workers/workers-page.component`),
     },
     {
         path: DemoPath.ViewTransitionPage,
-        loadChildren: async () =>
-            (await import(`./pages/view-transition/view-transition-page.module`))
-                .ViewTransitionPageModule,
+        loadComponent: async () =>
+            import(`./pages/view-transition/view-transition-page.component`),
     },
     {
         path: DemoPath.Notification,
-        loadChildren: async () =>
-            (await import(`./pages/notification/notification-page.module`))
-                .NotificationPageModule,
+        loadComponent: async () =>
+            import(`./pages/notification/notification-page.component`),
     },
     {
         path: ``,

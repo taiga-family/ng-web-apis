@@ -3,6 +3,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {toFrequency} from '../../utils/to-frequency';
 
 @Pipe({
+    standalone: true,
     name: `frequency`,
 })
 export class FrequencyPipe implements PipeTransform {

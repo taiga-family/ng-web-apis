@@ -1,12 +1,43 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {FormsModule} from '@angular/forms';
+import {CanvasModule} from '@ng-web-apis/canvas';
+import {TuiInputColorModule} from '@taiga-ui/addon-editor';
+import {
+    TuiExpandModule,
+    TuiLabelModule,
+    TuiTextfieldControllerModule,
+} from '@taiga-ui/core';
+import {
+    TuiDataListWrapperModule,
+    TuiInputFilesModule,
+    TuiInputModule,
+    TuiSelectModule,
+    TuiSliderModule,
+} from '@taiga-ui/kit';
 
 @Component({
+    standalone: true,
     selector: 'audio-page',
+    imports: [
+        CommonModule,
+        FormsModule,
+        CanvasModule,
+        TuiInputFilesModule,
+        TuiLabelModule,
+        TuiSliderModule,
+        TuiExpandModule,
+        TuiSelectModule,
+        TuiInputModule,
+        TuiInputColorModule,
+        TuiDataListWrapperModule,
+        TuiTextfieldControllerModule,
+    ],
     templateUrl: './canvas-page.component.html',
     styleUrls: ['./canvas-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class CanvasPageComponent {
+export default class CanvasPageComponent {
     x1 = 20;
     y1 = 20;
     w1 = 100;

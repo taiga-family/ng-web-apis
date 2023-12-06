@@ -1,4 +1,6 @@
+import {NgForOf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {PaymentRequestModule} from '@ng-web-apis/payment-request';
 
 class ShopItem implements PaymentItem {
     constructor(
@@ -16,7 +18,9 @@ class ShopItem implements PaymentItem {
 }
 
 @Component({
+    standalone: true,
     selector: 'app-shop',
+    imports: [NgForOf, PaymentRequestModule],
     templateUrl: './shop.component.html',
     styleUrls: ['./shop.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

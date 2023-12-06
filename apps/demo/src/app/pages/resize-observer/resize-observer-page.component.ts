@@ -1,13 +1,20 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
-import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
+import {FormsModule} from '@angular/forms';
+import {
+    RESIZE_OBSERVER_SUPPORT,
+    ResizeObserverModule,
+} from '@ng-web-apis/resize-observer';
 
 @Component({
+    standalone: true,
     selector: 'resize-observer-page',
+    imports: [CommonModule, FormsModule, ResizeObserverModule],
     templateUrl: './resize-observer-page.component.html',
     styleUrls: ['./resize-observer-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ResizeObserverPageComponent {
+export default class ResizeObserverPageComponent {
     ratio = 0;
     widthPercent = 50;
 

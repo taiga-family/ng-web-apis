@@ -3,6 +3,7 @@ import {AudioParamInput} from '@ng-web-apis/audio';
 
 @Pipe({
     name: `adsr`,
+    standalone: true,
 })
 export class AdsrPipe implements PipeTransform {
     transform(

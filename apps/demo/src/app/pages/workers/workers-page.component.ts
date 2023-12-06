@@ -1,8 +1,11 @@
-import {isPlatformBrowser} from '@angular/common';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
-import {toData, WebWorker} from '@ng-web-apis/workers';
+import {toData, WebWorker, WorkerModule} from '@ng-web-apis/workers';
+import {TuiButtonModule, TuiNotificationModule} from '@taiga-ui/core';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
+
+import {ClockComponent} from './clock.component';
 
 function startCompute(): number {
     const start = performance.now();
@@ -15,12 +18,20 @@ function startCompute(): number {
 }
 
 @Component({
+    standalone: true,
     selector: 'workers-page',
+    imports: [
+        CommonModule,
+        WorkerModule,
+        TuiButtonModule,
+        TuiNotificationModule,
+        ClockComponent,
+    ],
     templateUrl: './workers-page.component.html',
     styleUrls: ['./workers-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class WorkersPageComponent {
+export default class WorkersPageComponent {
     readonly isBrowser = isPlatformBrowser(this.platformId);
     readonly workerThread = WebWorker.fromFunction<void, number>(startCompute);
     readonly workerData$ = this.workerThread.pipe(toData());

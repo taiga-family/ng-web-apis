@@ -1,25 +1,49 @@
-import {isPlatformBrowser} from '@angular/common';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
+import {FormsModule} from '@angular/forms';
 import {
     continuous,
     isSaid,
     skipUntilSaid,
     SPEECH_SYNTHESIS_VOICES,
     SpeechRecognitionService,
+    SpeechSynthesisModule,
     SpeechSynthesisUtteranceOptions,
     takeUntilSaid,
 } from '@ng-web-apis/speech';
-import {TuiContextWithImplicit, tuiPure} from '@taiga-ui/cdk';
+import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
+import {TuiContextWithImplicit, TuiLetModule, tuiPure} from '@taiga-ui/cdk';
+import {
+    TuiButtonModule,
+    TuiDataListModule,
+    TuiLabelModule,
+    TuiTooltipModule,
+} from '@taiga-ui/core';
+import {TuiSelectModule, TuiTextAreaModule} from '@taiga-ui/kit';
 import {merge, Observable, repeat, retry} from 'rxjs';
 import {filter, map, share} from 'rxjs/operators';
 
 @Component({
+    standalone: true,
     selector: 'speech-page',
+    imports: [
+        CommonModule,
+        FormsModule,
+        TuiLetModule,
+        TuiSelectModule,
+        TuiDataListModule,
+        TuiTextAreaModule,
+        TuiButtonModule,
+        TuiLabelModule,
+        TuiTooltipModule,
+        TuiSidebarModule,
+        SpeechSynthesisModule,
+    ],
     templateUrl: './speech-page.component.html',
     styleUrls: ['./speech-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class SpeechPageComponent {
+export default class SpeechPageComponent {
     readonly isBrowser = isPlatformBrowser(this.platformId);
     paused = true;
 

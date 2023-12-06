@@ -1,4 +1,4 @@
-import {KeyValue} from '@angular/common';
+import {CommonModule, KeyValue} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     Component,
@@ -6,14 +6,18 @@ import {
     Inject,
     TrackByFunction,
 } from '@angular/core';
-import {MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
+import {WebAudioModule} from '@ng-web-apis/audio';
+import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
 import {EMPTY, merge, Observable, Subject} from 'rxjs';
 import {catchError, map, scan, startWith, switchMap, take} from 'rxjs/operators';
 
+import {AdsrPipe} from '../adsr.pipe';
 import {RESPONSE_BUFFER} from './response';
 
 @Component({
+    standalone: true,
     selector: 'demo',
+    imports: [WebAudioModule, CommonModule, FrequencyPipe, AdsrPipe],
     templateUrl: './demo.component.html',
     styleUrls: ['./demo.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
