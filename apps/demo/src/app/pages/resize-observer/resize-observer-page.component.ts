@@ -2,9 +2,9 @@ import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
 @Component({
-    selector: `resize-observer-page`,
-    templateUrl: `./resize-observer-page.component.html`,
-    styleUrls: [`./resize-observer-page.component.less`],
+    selector: 'resize-observer-page',
+    templateUrl: './resize-observer-page.component.html',
+    styleUrls: ['./resize-observer-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ResizeObserverPageComponent {
@@ -13,7 +13,7 @@ export class ResizeObserverPageComponent {
 
     constructor(@Inject(RESIZE_OBSERVER_SUPPORT) readonly support: boolean) {}
 
-    onResize(entry: ResizeObserverEntry[]) {
+    onResize(entry: ResizeObserverEntry[]): void {
         this.ratio = Math.round(entry[0].contentRect.width / 110);
     }
 }

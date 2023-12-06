@@ -2,12 +2,12 @@ import {ElementRef} from '@angular/core';
 import {MutationObserverService} from '@ng-web-apis/mutation-observer';
 import {first} from 'rxjs/operators';
 
-describe('MutationObserver service', () => {
-    it('works', done => {
-        const element = document.createElement('DIV');
+describe(`MutationObserver service`, () => {
+    it(`works`, done => {
+        const element = document.createElement(`DIV`);
         const elementRef = new ElementRef(element);
         const service = new MutationObserverService(elementRef, {
-            attributeFilter: ['title'],
+            attributeFilter: [`title`],
         });
 
         let flag = false;
@@ -17,7 +17,7 @@ describe('MutationObserver service', () => {
             flag = true;
         });
 
-        element.setAttribute('title', 'test');
+        element.setAttribute(`title`, `test`);
 
         setTimeout(() => {
             expect(flag).toBe(true);

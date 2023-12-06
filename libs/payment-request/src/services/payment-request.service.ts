@@ -1,10 +1,11 @@
 import {Inject, Injectable} from '@angular/core';
+
 import {PAYMENT_METHODS} from '../tokens/payment-methods';
 import {PAYMENT_OPTIONS, PaymentOptions} from '../tokens/payment-options';
 import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: `root`,
 })
 export class PaymentRequestService {
     constructor(
@@ -15,14 +16,14 @@ export class PaymentRequestService {
         private readonly paymentOptions: PaymentOptions,
     ) {}
 
-    request(
+    async request(
         details: PaymentDetailsInit,
         methods: PaymentMethodData[] = this.paymentMethods,
         options: PaymentOptions = this.paymentOptions,
     ): Promise<PaymentResponse> {
         if (!this.supported) {
             return Promise.reject(
-                new Error('Payment Request is not supported in your browser'),
+                new Error(`Payment Request is not supported in your browser`),
             );
         }
 
@@ -35,11 +36,11 @@ export class PaymentRequestService {
 
         return gateway
             .canMakePayment()
-            .then(canPay =>
+            .then(async canPay =>
                 canPay
                     ? gateway.show(details)
                     : Promise.reject(
-                          new Error('Payment Request cannot make the payment'),
+                          new Error(`Payment Request cannot make the payment`),
                       ),
             );
     }

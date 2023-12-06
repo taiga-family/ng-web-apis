@@ -2,8 +2,9 @@ import {CommonModule} from '@angular/common';
 import {NgModule} from '@angular/core';
 import {RouterModule} from '@angular/router';
 import {TuiAddonDocModule} from '@taiga-ui/addon-doc';
-import {TuiButtonModule, TuiNotificationModule} from '@taiga-ui/core';
+import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
 import {TuiBadgeModule} from '@taiga-ui/kit';
+
 import {NotificationPageExample1} from './examples/01-getting-permission';
 import {NotificationPageExample2} from './examples/02-create-notification';
 import {NotificationPageExample3} from './examples/03-close-notification';
@@ -17,7 +18,8 @@ import {NotificationPageComponent} from './notification-page.component';
         TuiBadgeModule,
         TuiButtonModule,
         TuiNotificationModule,
-        RouterModule.forChild([{path: '', component: NotificationPageComponent}]),
+        RouterModule.forChild([{path: ``, component: NotificationPageComponent}]),
+        TuiLinkModule,
     ],
     declarations: [
         NotificationPageComponent,

@@ -1,4 +1,5 @@
 import {Provider} from '@angular/core';
+
 import {MIDI_ACCESS} from '../tokens/midi-access';
 import {MIDI_INPUT} from '../tokens/midi-input';
 import {MIDI_INPUT_QUERY} from '../tokens/midi-input-query';

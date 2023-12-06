@@ -35,10 +35,10 @@ export class TextToSpeechDirective implements OnChanges {
 
     constructor(
         @Inject(SPEECH_SYNTHESIS)
-        private readonly speechSynthesisRef: SpeechSynthesis & {},
+        private readonly speechSynthesisRef: Record<never, never> & SpeechSynthesis,
     ) {}
 
-    ngOnChanges() {
+    ngOnChanges(): void {
         if (this.paused) {
             this.speechSynthesisRef.pause();
         } else {

@@ -1,9 +1,10 @@
 import {NgModule} from '@angular/core';
-import {HomePageComponent} from './home-page.component';
 import {RouterModule} from '@angular/router';
 
+import {HomePageComponent} from './home-page.component';
+
 @NgModule({
+    imports: [RouterModule.forChild([{path: ``, component: HomePageComponent}])],
     declarations: [HomePageComponent],
-    imports: [RouterModule.forChild([{path: '', component: HomePageComponent}])],
 })
 export class HomePageModule {}

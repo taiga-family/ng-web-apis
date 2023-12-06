@@ -1,6 +1,7 @@
 import {ContentChildren, Directive, Input, QueryList} from '@angular/core';
-import {PaymentItemDirective} from '../payment-item/payment-item.directive';
+
 import {PaymentShippingOption} from '../../tokens/payment-options';
+import {PaymentItemDirective} from '../payment-item/payment-item.directive';
 
 @Directive({
     selector: '[waPayment][paymentTotal]',

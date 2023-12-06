@@ -1,8 +1,9 @@
 import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {MutationObserverModule} from '../src/module';
 
-describe('MutationObserverDirective', () => {
+describe(`MutationObserverDirective`, () => {
     @Component({
         template: `
             <section
@@ -24,12 +25,14 @@ describe('MutationObserverDirective', () => {
         `,
     })
     class TestComponent {
-        onMutation = jasmine.createSpy('onMutation');
-        onAttributes = jasmine.createSpy('onAttributes');
+        // eslint-disable-next-line jest/no-jasmine-globals
+        onMutation = jasmine.createSpy(`onMutation`);
+        // eslint-disable-next-line jest/no-jasmine-globals
+        onAttributes = jasmine.createSpy(`onAttributes`);
         observe = true;
         child = true;
-        title = 'title';
-        label = 'label';
+        title = `title`;
+        label = `label`;
     }
 
     let fixture: ComponentFixture<TestComponent>;
@@ -57,7 +60,7 @@ describe('MutationObserverDirective', () => {
         fixture.detectChanges();
     });
 
-    it('Emits mutations', done => {
+    it(`Emits mutations`, done => {
         testComponent.child = false;
         fixture.detectChanges();
 
@@ -67,9 +70,9 @@ describe('MutationObserverDirective', () => {
         }, 100);
     });
 
-    it('Watches attributes', done => {
+    it(`Watches attributes`, done => {
         testComponent.onAttributes.calls.reset();
-        testComponent.title = 'test';
+        testComponent.title = `test`;
         fixture.detectChanges();
 
         setTimeout(() => {
@@ -78,8 +81,8 @@ describe('MutationObserverDirective', () => {
         }, 100);
     });
 
-    it('Ignores unwatched attributes', done => {
-        testComponent.label = 'test';
+    it(`Ignores unwatched attributes`, done => {
+        testComponent.label = `test`;
         fixture.detectChanges();
 
         setTimeout(() => {

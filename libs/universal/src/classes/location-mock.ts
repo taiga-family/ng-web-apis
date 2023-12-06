@@ -3,15 +3,15 @@ import {DOMStringListMock} from './dom-string-list-mock';
 
 export class LocationMock implements Location {
     readonly ancestorOrigins = new DOMStringListMock();
-    hash = '';
-    host = '';
-    hostname = '';
-    href = '';
-    readonly origin = '';
-    pathname = '';
-    port = '';
-    protocol = '';
-    search = '';
+    hash = ``;
+    host = ``;
+    hostname = ``;
+    href = ``;
+    readonly origin = ``;
+    pathname = ``;
+    port = ``;
+    protocol = ``;
+    search = ``;
 
     assign = emptyFunction;
 

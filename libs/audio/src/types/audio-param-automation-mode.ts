@@ -1,1 +1,1 @@
-export type AudioParamAutomationMode = 'instant' | 'linear' | 'exponential';
+export type AudioParamAutomationMode = 'exponential' | 'instant' | 'linear';

@@ -106,13 +106,13 @@ export const appRoutes: Routes = [
                 .NotificationPageModule,
     },
     {
-        path: '',
+        path: ``,
         redirectTo: DemoPath.HomePage,
-        pathMatch: 'full',
+        pathMatch: `full`,
     },
     {
-        path: '**',
-        pathMatch: 'full',
+        path: `**`,
+        pathMatch: `full`,
         redirectTo: DemoPath.HomePage,
     },
 ];
@@ -120,7 +120,7 @@ export const appRoutes: Routes = [
 @NgModule({
     imports: [
         RouterModule.forRoot(appRoutes, {
-            initialNavigation: 'enabledBlocking',
+            initialNavigation: `enabledBlocking`,
             scrollPositionRestoration: `enabled`,
         }),
     ],

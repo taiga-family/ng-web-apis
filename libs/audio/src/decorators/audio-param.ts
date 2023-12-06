@@ -9,13 +9,13 @@ import {processAudioParam} from '../utils/process-audio-param';
 export function audioParam(): AudioParamWorkletDecorator;
 export function audioParam<K extends string>(param: K): AudioParamDecorator<K>;
 export function audioParam<K extends string>(
-    param: string = '',
+    param: string = ``,
 ): AudioParamDecorator<K> | AudioParamWorkletDecorator {
     const decorator: AudioParamDecorator<K> = (target, propertyKey) => {
         Object.defineProperty(target, propertyKey, {
             configurable: true,
             set(this: AudioNodeWithParams<K> | AudioWorkletNode, value: AudioParamInput) {
-                value = typeof value === 'string' ? Number.parseFloat(value) : value;
+                value = typeof value === `string` ? Number.parseFloat(value) : value;
 
                 const audioParam =
                     this instanceof AudioWorkletNode

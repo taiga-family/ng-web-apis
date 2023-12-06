@@ -1,9 +1,10 @@
 import {Directive, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
-    selector: 'canvas-rect',
+    selector: `canvas-rect`,
     providers: [asCanvasMethod(RectDirective)],
 })
 export class RectDirective implements CanvasMethod {
@@ -19,7 +20,7 @@ export class RectDirective implements CanvasMethod {
     @Input()
     height = 0;
 
-    call(context: CanvasRenderingContext2D) {
+    call(context: CanvasRenderingContext2D): void {
         context.rect(this.x, this.y, this.width, this.height);
     }
 }

@@ -1,3 +1,4 @@
+import {isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
 import {
     continuous,
@@ -10,13 +11,12 @@ import {
 } from '@ng-web-apis/speech';
 import {TuiContextWithImplicit, tuiPure} from '@taiga-ui/cdk';
 import {merge, Observable, repeat, retry} from 'rxjs';
-import {filter, mapTo, share} from 'rxjs/operators';
-import {isPlatformBrowser} from '@angular/common';
+import {filter, map, share} from 'rxjs/operators';
 
 @Component({
-    selector: `speech-page`,
-    templateUrl: `./speech-page.component.html`,
-    styleUrls: [`./speech-page.component.less`],
+    selector: 'speech-page',
+    templateUrl: './speech-page.component.html',
+    styleUrls: ['./speech-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class SpeechPageComponent {
@@ -27,10 +27,6 @@ export class SpeechPageComponent {
 
     text = 'Hit play/pause to speak this text';
 
-    readonly nameExtractor = ({
-        $implicit,
-    }: TuiContextWithImplicit<SpeechSynthesisVoice>) => $implicit.name;
-
     constructor(
         @Inject(PLATFORM_ID) readonly platformId: Record<any, any>,
         @Inject(SPEECH_SYNTHESIS_VOICES)
@@ -38,6 +34,10 @@ export class SpeechPageComponent {
         @Inject(SpeechRecognitionService)
         private readonly recognition$: Observable<SpeechRecognitionResult[]>,
     ) {}
+
+    readonly nameExtractor = ({
+        $implicit,
+    }: TuiContextWithImplicit<SpeechSynthesisVoice>): string => $implicit.name;
 
     @tuiPure
     get record$(): Observable<SpeechRecognitionResult[]> {
@@ -52,8 +52,21 @@ export class SpeechPageComponent {
     @tuiPure
     get open$(): Observable<boolean> {
         return merge(
-            this.result$.pipe(filter(isSaid('Show sidebar')), mapTo(true)),
-            this.result$.pipe(filter(isSaid('Hide sidebar')), mapTo(false)),
+            this.result$.pipe(
+                filter(isSaid('Show sidebar')),
+                map(
+                    // eslint-disable-next-line no-restricted-syntax
+                    () => true,
+                ),
+            ),
+            this.result$.pipe(
+                filter(isSaid('Hide sidebar')),
+
+                map(
+                    // eslint-disable-next-line no-restricted-syntax
+                    () => false,
+                ),
+            ),
         );
     }
 
@@ -70,13 +83,13 @@ export class SpeechPageComponent {
         return name;
     }
 
-    onClick() {
+    onClick(): void {
         this.paused = !this.paused;
         // Re-trigger utterance pipe:
         this.text = this.paused ? `${this.text} ` : this.text;
     }
 
-    onEnd() {
+    onEnd(): void {
         console.info('Speech synthesis ended');
     }
 

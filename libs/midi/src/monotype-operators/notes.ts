@@ -1,5 +1,6 @@
 import {MonoTypeOperatorFunction} from 'rxjs';
 import {filter, map} from 'rxjs/operators';
+
 import {between} from '../utils/between';
 
 import MIDIMessageEvent = WebMidi.MIDIMessageEvent;

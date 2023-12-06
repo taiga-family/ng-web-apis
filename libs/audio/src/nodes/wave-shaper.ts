@@ -1,20 +1,21 @@
 import {Directive, Inject, OnDestroy, SkipSelf} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
 @Directive({
-    selector: '[waWaveShaperNode]',
-    exportAs: 'AudioNode',
+    selector: `[waWaveShaperNode]`,
     inputs: [
-        'oversample',
-        'curve',
-        'channelCount',
-        'channelCountMode',
-        'channelInterpretation',
+        `oversample`,
+        `curve`,
+        `channelCount`,
+        `channelCountMode`,
+        `channelInterpretation`,
     ],
     providers: [asAudioNode(WebAudioWaveShaper)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioWaveShaper extends WaveShaperNode implements OnDestroy {
     constructor(
@@ -35,7 +36,7 @@ export class WebAudioWaveShaper extends WaveShaperNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

@@ -7,6 +7,7 @@ import {
     OnDestroy,
     Output,
 } from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
@@ -16,10 +17,10 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
-    selector: '[waOscillatorNode]',
-    exportAs: 'AudioNode',
-    inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waOscillatorNode]`,
+    inputs: [`type`, `channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioOscillator)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     @Input()
@@ -27,12 +28,12 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
         this.setPeriodicWave(periodicWave);
     }
 
-    @Input('detune')
-    @audioParam('detune')
+    @Input(`detune`)
+    @audioParam(`detune`)
     detuneParam?: AudioParamInput | string;
 
-    @Input('frequency')
-    @audioParam('frequency')
+    @Input(`frequency`)
+    @audioParam(`frequency`)
     frequencyParam?: AudioParamInput | string;
 
     @Output()
@@ -41,9 +42,9 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute('autoplay') autoplay: string | null,
-        @Attribute('detune') detuneArg: string | null,
-        @Attribute('frequency') frequencyArg: string | null,
+        @Attribute(`autoplay`) autoplay: string | null,
+        @Attribute(`detune`) detuneArg: string | null,
+        @Attribute(`frequency`) frequencyArg: string | null,
     ) {
         const detune = parse(detuneArg, 0);
         const frequency = parse(frequencyArg, 440);
@@ -68,21 +69,11 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
-        try {
-            this.stop();
-        } catch {
-            // noop
-        }
-
-        this.disconnect();
-    }
-
     static init(
         that: WebAudioOscillator,
         node: AudioNode | null,
         autoplay: string | null,
-    ) {
+    ): void {
         connect(node, that);
 
         if (autoplay !== null) {
@@ -93,5 +84,15 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
 
         that.ended = ended;
         that.onended = () => ended.emit();
+    }
+
+    ngOnDestroy(): void {
+        try {
+            this.stop();
+        } catch {
+            // noop
+        }
+
+        this.disconnect();
     }
 }

@@ -28,6 +28,7 @@ export class ResizeObserverDirective {
     constructor(
         @Inject(ResizeObserverService)
         readonly waResizeObserver: Observable<ResizeObserverEntry[]>,
+        // eslint-disable-next-line @angular-eslint/no-attribute-decorator
         @Attribute('waResizeBox') _box: ResizeObserverBoxOptions,
     ) {}
 }

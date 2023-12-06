@@ -4,14 +4,14 @@ import {first} from 'rxjs/operators';
 
 import {PAGE_VISIBILITY} from '../src/tokens/page-visibility';
 
-describe('PAGE_VISIBILITY', () => {
-    it('watching for page visibility state', done => {
+describe(`PAGE_VISIBILITY`, () => {
+    it(`watching for page visibility state`, done => {
         TestBed.configureTestingModule({});
 
         const pageVisibility$: Observable<boolean> = TestBed.inject(PAGE_VISIBILITY);
 
         pageVisibility$.pipe(first()).subscribe(state => {
-            expect(typeof state).toBe('boolean');
+            expect(typeof state).toBe(`boolean`);
             expect(state).toBe(true);
             done();
         });

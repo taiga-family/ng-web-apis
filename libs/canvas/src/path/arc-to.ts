@@ -1,9 +1,10 @@
 import {Directive, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
-    selector: 'canvas-arc-to',
+    selector: `canvas-arc-to`,
     providers: [asCanvasMethod(ArcToDirective)],
 })
 export class ArcToDirective implements CanvasMethod {
@@ -22,7 +23,7 @@ export class ArcToDirective implements CanvasMethod {
     @Input()
     radius = 0;
 
-    call(context: CanvasRenderingContext2D) {
+    call(context: CanvasRenderingContext2D): void {
         context.arcTo(this.x1, this.y1, this.x2, this.y2, this.radius);
     }
 }

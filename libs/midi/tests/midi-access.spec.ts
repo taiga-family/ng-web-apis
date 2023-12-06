@@ -1,12 +1,14 @@
 import {TestBed} from '@angular/core/testing';
 import {NAVIGATOR} from '@ng-web-apis/common';
+
 import {MIDI_ACCESS} from '../src/tokens/midi-access';
 import {SYSEX} from '../src/tokens/sysex';
 
-describe('MIDI_ACCESS', () => {
-    const navigatorMock = jasmine.createSpyObj(['requestMIDIAccess']);
+describe(`MIDI_ACCESS`, () => {
+    // eslint-disable-next-line jest/no-jasmine-globals
+    const navigatorMock = jasmine.createSpyObj([`requestMIDIAccess`]);
 
-    it('SYSEX is false by default', () => {
+    it(`SYSEX is false by default`, () => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -16,14 +18,14 @@ describe('MIDI_ACCESS', () => {
             ],
         });
 
-        TestBed.inject(MIDI_ACCESS);
+        void TestBed.inject(MIDI_ACCESS);
 
         expect(navigatorMock.requestMIDIAccess.calls.mostRecent().args[0]).toEqual({
             sysex: false,
         });
     });
 
-    it('SYSEX is set to true', () => {
+    it(`SYSEX is set to true`, () => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -37,14 +39,14 @@ describe('MIDI_ACCESS', () => {
             ],
         });
 
-        TestBed.inject(MIDI_ACCESS);
+        void TestBed.inject(MIDI_ACCESS);
 
         expect(navigatorMock.requestMIDIAccess.calls.mostRecent().args[0]).toEqual({
             sysex: true,
         });
     });
 
-    it('Promise is rejected when Web MIDI API is not supported', done => {
+    it(`Promise is rejected when Web MIDI API is not supported`, done => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -54,7 +56,8 @@ describe('MIDI_ACCESS', () => {
             ],
         });
 
-        TestBed.inject(MIDI_ACCESS).catch((e: any) => {
+        void TestBed.inject(MIDI_ACCESS).catch((e: any) => {
+            // eslint-disable-next-line jest/no-conditional-expect
             expect(e instanceof Error).toBe(true);
             done();
         });

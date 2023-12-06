@@ -1,5 +1,6 @@
 import {EMPTY, fromEvent, merge, Observable, Subject} from 'rxjs';
 import {take, takeUntil, tap} from 'rxjs/operators';
+
 import {WORKER_BLANK_FN} from '../consts/worker-fn-template';
 import {TypedMessageEvent} from '../types/typed-message-event';
 import {WorkerFunction} from '../types/worker-function';
@@ -20,7 +21,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
         }
 
         super(subscriber => {
-            let eventStream$: Observable<TypedMessageEvent<R> | ErrorEvent> = EMPTY;
+            let eventStream$: Observable<ErrorEvent | TypedMessageEvent<R>> = EMPTY;
 
             if (error) {
                 subscriber.error(error);
@@ -28,10 +29,10 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
                 subscriber.complete();
             } else if (worker) {
                 eventStream$ = merge(
-                    fromEvent<TypedMessageEvent<R>>(worker, 'message').pipe(
+                    fromEvent<TypedMessageEvent<R>>(worker, `message`).pipe(
                         tap(event => subscriber.next(event)),
                     ),
-                    fromEvent<ErrorEvent>(worker, 'error').pipe(
+                    fromEvent<ErrorEvent>(worker, `error`).pipe(
                         tap(event => subscriber.error(event)),
                     ),
                 ).pipe(takeUntil(this.destroy$));
@@ -52,11 +53,12 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
         return new WebWorker<T, R>(WebWorker.createFnUrl(fn), options);
     }
 
-    static execute<T, R>(
+    static async execute<T, R>(
         fn: WorkerFunction<T, R>,
         data: T,
     ): Promise<TypedMessageEvent<R>> {
         const worker = WebWorker.fromFunction(fn);
+        // eslint-disable-next-line rxjs/no-topromise
         const promise = worker.pipe(take(1)).toPromise();
 
         worker.postMessage(data);
@@ -71,12 +73,12 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
     private static createFnUrl(fn: WorkerFunction): string {
         const script = `(${WORKER_BLANK_FN})(${fn});`;
 
-        const blob = new Blob([script], {type: 'text/javascript'});
+        const blob = new Blob([script], {type: `text/javascript`});
 
         return URL.createObjectURL(blob);
     }
 
-    terminate() {
+    terminate(): void {
         if (this.destroy$.isStopped) {
             return;
         }
@@ -91,7 +93,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
         this.destroy$.complete();
     }
 
-    postMessage(value: T) {
+    postMessage(value: T): void {
         if (this.worker) {
             this.worker.postMessage(value);
         }

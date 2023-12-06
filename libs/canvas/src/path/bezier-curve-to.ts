@@ -1,9 +1,10 @@
 import {Directive, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
-    selector: 'canvas-bezier-curve-to',
+    selector: `canvas-bezier-curve-to`,
     providers: [asCanvasMethod(BezierCurveToDirective)],
 })
 export class BezierCurveToDirective implements CanvasMethod {
@@ -25,7 +26,7 @@ export class BezierCurveToDirective implements CanvasMethod {
     @Input()
     y = 0;
 
-    call(context: CanvasRenderingContext2D) {
+    call(context: CanvasRenderingContext2D): void {
         context.bezierCurveTo(this.cp1x, this.cp1y, this.cp2x, this.cp2y, this.x, this.y);
     }
 }

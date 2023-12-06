@@ -17,7 +17,7 @@ export class ResizeObserverService extends Observable<readonly ResizeObserverEnt
 
         super(subscriber => {
             if (!support) {
-                subscriber.error('ResizeObserver is not supported in your browser');
+                subscriber.error(`ResizeObserver is not supported in your browser`);
 
                 return;
             }

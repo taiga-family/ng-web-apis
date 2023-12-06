@@ -1,4 +1,5 @@
 import {NgModule} from '@angular/core';
+
 import {WebAudioContext} from './directives/audio-context';
 import {WebAudioChannel} from './directives/channel';
 import {WebAudioDestination} from './directives/destination';

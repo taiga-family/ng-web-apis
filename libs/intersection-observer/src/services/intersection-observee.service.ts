@@ -1,6 +1,7 @@
 import {ElementRef, Inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 import {share} from 'rxjs/operators';
+
 import {IntersectionObserverDirective} from '../directives/intersection-observer.directive';
 
 @Injectable()

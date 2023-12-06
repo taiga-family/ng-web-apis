@@ -2,12 +2,15 @@ import {ChangeDetectionStrategy, Component, Inject, ViewChild} from '@angular/co
 import {AUDIO_CONTEXT} from '@ng-web-apis/audio';
 
 @Component({
-    selector: `audio-page`,
-    templateUrl: `./audio-page.component.html`,
-    styleUrls: [`./audio-page.component.css`],
+    selector: 'audio-page',
+    templateUrl: './audio-page.component.html',
+    styleUrls: ['./audio-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class AudioPageComponent {
+    @ViewChild('chain')
+    readonly chain?: AudioNode;
+
     buffers = [Date.now()];
 
     selectedChain = 'dry';
@@ -55,30 +58,27 @@ export class AudioPageComponent {
 
     readonly real = [0, 0, 1, 0, 1];
 
-    @ViewChild('chain')
-    readonly chain?: AudioNode;
-
     constructor(@Inject(AUDIO_CONTEXT) private readonly context: AudioContext) {}
 
     get distortionCompensation(): number {
         return 1.2 - this.distortion / 20;
     }
 
-    start() {
+    start(): void {
         this.started = true;
-        this.context.resume();
+        void this.context.resume();
     }
 
     getTransform({width, height}: HTMLCanvasElement): string {
         return `scale(${width / this.fftSize}, ${height / 2})`;
     }
 
-    onCurveChange(distortion: number) {
+    onCurveChange(distortion: number): void {
         this.distortion = distortion;
         this.curve = makeDistortionCurve(distortion);
     }
 
-    onClick(source: AudioScheduledSourceNode, button: HTMLButtonElement) {
+    onClick(source: AudioScheduledSourceNode, button: HTMLButtonElement): void {
         if (button.textContent!.trim() === 'Play') {
             button.textContent = 'Stop';
             source.start();
@@ -87,7 +87,7 @@ export class AudioPageComponent {
         }
     }
 
-    onTimeDomain(array: Uint8Array) {
+    onTimeDomain(array: Uint8Array): void {
         this.path = array.reduce(
             (path, value, index) => `${path} L ${index} ${value / 128}`,
             'M 0 0',

@@ -1,70 +1,69 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioDelay} from '../src/nodes/delay';
 
-describe('DelayNode', () => {
-    @Component({
-        template: `
-            <div waDelayNode></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioDelay)
-        node!: AudioNode;
-    }
+describe(`Delay`, () => {
+    describe(`DelayNode`, () => {
+        @Component({
+            template: `
+                <div waDelayNode></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioDelay)
+            node!: AudioNode;
+        }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+            });
+
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof DelayNode).toBe(true);
         });
     });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+    describe(`DelayNode factory fallback`, () => {
+        @Component({
+            template: `
+                <div waDelayNode></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioDelay)
+            node!: AudioNode;
+        }
 
-    it('creates node', () => {
-        expect(testComponent.node instanceof DelayNode).toBe(true);
-    });
-});
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-describe('DelayNode factory fallback', () => {
-    @Component({
-        template: `
-            <div waDelayNode></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioDelay)
-        node!: AudioNode;
-    }
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers,
+            });
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
-
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers,
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
         });
-    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('creates node', () => {
-        expect(testComponent.node instanceof DelayNode).toBe(true);
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof DelayNode).toBe(true);
+        });
     });
 });

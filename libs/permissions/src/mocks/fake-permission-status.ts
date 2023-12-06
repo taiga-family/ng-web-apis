@@ -1,15 +1,15 @@
 export class FakePermissionStatus implements PermissionStatus {
-    readonly name: string = 'fakePermissionStatus';
-
-    constructor(public state: PermissionState) {}
+    readonly name: string = `fakePermissionStatus`;
 
     onchange: ((this: PermissionStatus, ev: Event) => any) | null = null;
 
-    simulateStateChange(state: PermissionState) {
+    constructor(public state: PermissionState) {}
+
+    simulateStateChange(state: PermissionState): void {
         this.state = state;
 
         if (this.onchange) {
-            const event: Event = {type: 'change', target: this} as any;
+            const event: Event = {type: `change`, target: this} as any;
 
             this.onchange(event);
         }
@@ -18,9 +18,9 @@ export class FakePermissionStatus implements PermissionStatus {
     addEventListener<K extends 'change'>(
         type: K,
         listener: (this: PermissionStatus, ev: PermissionStatusEventMap[K]) => any,
-        _options?: boolean | AddEventListenerOptions,
-    ) {
-        if (type !== 'change') {
+        _options?: AddEventListenerOptions | boolean,
+    ): void {
+        if (type !== `change`) {
             throw new Error(`Listeners for event "${type}" are not supported`);
         }
 
@@ -30,9 +30,9 @@ export class FakePermissionStatus implements PermissionStatus {
     removeEventListener<K extends 'change'>(
         type: K,
         _listener: (this: PermissionStatus, ev: PermissionStatusEventMap[K]) => any,
-        _options?: boolean | EventListenerOptions,
-    ) {
-        if (type !== 'change') {
+        _options?: EventListenerOptions | boolean,
+    ): void {
+        if (type !== `change`) {
             throw new Error(`Listeners for event "${type}" are not supported`);
         }
 
@@ -40,6 +40,6 @@ export class FakePermissionStatus implements PermissionStatus {
     }
 
     dispatchEvent(_event: Event): boolean {
-        throw new Error('Method not implemented.');
+        throw new Error(`Method not implemented.`);
     }
 }

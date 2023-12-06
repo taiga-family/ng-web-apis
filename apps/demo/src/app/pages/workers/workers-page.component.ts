@@ -1,8 +1,8 @@
+import {isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
 import {toData, WebWorker} from '@ng-web-apis/workers';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
-import {isPlatformBrowser} from '@angular/common';
 
 function startCompute(): number {
     const start = performance.now();
@@ -15,16 +15,16 @@ function startCompute(): number {
 }
 
 @Component({
-    selector: `workers-page`,
-    templateUrl: `./workers-page.component.html`,
-    styleUrls: [`./workers-page.component.less`],
+    selector: 'workers-page',
+    templateUrl: './workers-page.component.html',
+    styleUrls: ['./workers-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WorkersPageComponent {
     readonly isBrowser = isPlatformBrowser(this.platformId);
     readonly workerThread = WebWorker.fromFunction<void, number>(startCompute);
     readonly workerData$ = this.workerThread.pipe(toData());
-    readonly emitter: Subject<void> = new Subject();
+    readonly emitter = new Subject<void>();
     readonly result$ = this.emitter.pipe(map(startCompute));
 
     constructor(@Inject(PLATFORM_ID) readonly platformId: Record<any, any>) {}

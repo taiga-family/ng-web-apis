@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {PermissionsService} from '@ng-web-apis/permissions';
 
@@ -11,8 +11,8 @@ export class NotificationPageExample1 {
     readonly notificationPermissionState$ = this.permissions.state('notifications');
 
     constructor(
-        private readonly notifications: NotificationService,
-        private readonly permissions: PermissionsService,
+        @Inject(NotificationService) private readonly notifications: NotificationService,
+        @Inject(PermissionsService) private readonly permissions: PermissionsService,
     ) {}
 
     requestPermission(): void {

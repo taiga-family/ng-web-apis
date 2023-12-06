@@ -1,4 +1,5 @@
 import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -8,22 +9,22 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
-    selector: '[waDelayNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waDelayNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioDelay)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioDelay extends DelayNode implements OnDestroy {
-    @Input('delayTime')
-    @audioParam('delayTime')
+    @Input(`delayTime`)
+    @audioParam(`delayTime`)
     delayTimeParam?: AudioParamInput;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute('delayTime') delayTimeArg: string | null,
-        @Attribute('maxDelayTime') maxDelayTimeArg: string | null,
+        @Attribute(`delayTime`) delayTimeArg: string | null,
+        @Attribute(`maxDelayTime`) maxDelayTimeArg: string | null,
     ) {
         const delayTime = parse(delayTimeArg, 0);
         const maxDelayTime = parse(maxDelayTimeArg, 1);
@@ -42,11 +43,11 @@ export class WebAudioDelay extends DelayNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
-        this.disconnect();
+    static init(that: WebAudioDelay, node: AudioNode | null): void {
+        connect(node, that);
     }
 
-    static init(that: WebAudioDelay, node: AudioNode | null) {
-        connect(node, that);
+    ngOnDestroy(): void {
+        this.disconnect();
     }
 }

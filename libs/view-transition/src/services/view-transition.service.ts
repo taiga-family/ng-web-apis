@@ -3,13 +3,13 @@ import {Inject, Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 
 @Injectable({
-    providedIn: 'root',
+    providedIn: `root`,
 })
 export class ViewTransitionService {
     constructor(@Inject(DOCUMENT) private readonly document: Document) {}
 
     get isSupported(): boolean {
-        return 'startViewTransition' in this.document;
+        return `startViewTransition` in this.document;
     }
 
     startViewTransition(
@@ -17,7 +17,7 @@ export class ViewTransitionService {
     ): Observable<ViewTransition> {
         if (!this.isSupported) {
             return throwError(
-                () => new Error('startViewTransition is not supported in your browser'),
+                () => new Error(`startViewTransition is not supported in your browser`),
             );
         }
 

@@ -1,70 +1,69 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioBiquadFilter} from '../src/nodes/biquad-filter';
 
-describe('BiquadFilterNode', () => {
-    @Component({
-        template: `
-            <div waBiquadFilterNode></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioBiquadFilter)
-        node!: AudioNode;
-    }
+describe(`BiquadFilter`, () => {
+    describe(`BiquadFilterNode`, () => {
+        @Component({
+            template: `
+                <div waBiquadFilterNode></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioBiquadFilter)
+            node!: AudioNode;
+        }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+            });
+
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof BiquadFilterNode).toBe(true);
         });
     });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+    describe(`BiquadFilterNode factory fallback`, () => {
+        @Component({
+            template: `
+                <div waBiquadFilterNode></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioBiquadFilter)
+            node!: AudioNode;
+        }
 
-    it('creates node', () => {
-        expect(testComponent.node instanceof BiquadFilterNode).toBe(true);
-    });
-});
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-describe('BiquadFilterNode factory fallback', () => {
-    @Component({
-        template: `
-            <div waBiquadFilterNode></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioBiquadFilter)
-        node!: AudioNode;
-    }
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers,
+            });
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
-
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers,
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
         });
-    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('creates node', () => {
-        expect(testComponent.node instanceof BiquadFilterNode).toBe(true);
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof BiquadFilterNode).toBe(true);
+        });
     });
 });

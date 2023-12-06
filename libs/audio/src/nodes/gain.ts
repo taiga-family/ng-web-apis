@@ -1,4 +1,5 @@
 import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -8,21 +9,21 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
-    selector: '[waGainNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waGainNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioGain)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioGain extends GainNode implements OnDestroy {
-    @Input('gain')
-    @audioParam('gain')
+    @Input(`gain`)
+    @audioParam(`gain`)
     gainParam?: AudioParamInput | string;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute('gain') gainArg: AudioParamInput | string | null,
+        @Attribute(`gain`) gainArg: AudioParamInput | string | null,
     ) {
         const gain = parse(gainArg, 1);
 
@@ -40,7 +41,7 @@ export class WebAudioGain extends GainNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

@@ -4,8 +4,7 @@ import 'zone.js/node';
 import {APP_BASE_HREF} from '@angular/common';
 import {provideLocation, provideUserAgent} from '@ng-web-apis/universal';
 import {ngExpressEngine} from '@nguniversal/express-engine';
-import express from 'express';
-import {Express} from 'express';
+import express, {Express} from 'express';
 import {existsSync} from 'fs';
 import {join} from 'path';
 
@@ -14,34 +13,34 @@ import {AppServerModule} from './src/main.server';
 // The Express app is exported so that it can be used by serverless Functions.
 export function app(): Express {
     const server = express();
-    const distFolder = join(process.cwd(), 'dist/demo');
-    const indexHtml = existsSync(join(distFolder, 'index.original.html'))
-        ? 'index.original.html'
-        : 'index';
+    const distFolder = join(process.cwd(), `dist/demo`);
+    const indexHtml = existsSync(join(distFolder, `index.original.html`))
+        ? `index.original.html`
+        : `index`;
 
     // Our Universal express-engine (found @ https://github.com/angular/universal/tree/master/modules/express-engine)
     server.engine(
-        'html',
+        `html`,
         ngExpressEngine({
             bootstrap: AppServerModule,
         }) as any,
     );
 
-    server.set('view engine', 'html');
-    server.set('views', distFolder);
+    server.set(`view engine`, `html`);
+    server.set(`views`, distFolder);
 
     // Example Express Rest API endpoints
     // server.get('/api/**', (req, res) => { });
     // Serve static files from /browser
     server.get(
-        '*.*',
+        `*.*`,
         express.static(distFolder, {
-            maxAge: '1y',
+            maxAge: `1y`,
         }),
     );
 
     // All regular routes use the Universal engine
-    server.get('*', (req, res) => {
+    server.get(`*`, (req, res) => {
         res.render(indexHtml, {
             req,
             providers: [
@@ -71,9 +70,9 @@ function run(): void {
 // The below code is to ensure that the server is run only when not requiring the bundle.
 declare const __non_webpack_require__: NodeRequire;
 const mainModule = __non_webpack_require__.main;
-const moduleFilename = mainModule?.filename || '';
+const moduleFilename = mainModule?.filename || ``;
 
-if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
+if (moduleFilename === __filename || moduleFilename.includes(`iisnode`)) {
     run();
 }
 

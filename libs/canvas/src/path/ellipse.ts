@@ -1,9 +1,10 @@
 import {Directive, Input} from '@angular/core';
+
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
-    selector: 'canvas-ellipse',
+    selector: `canvas-ellipse`,
     providers: [asCanvasMethod(EllipseDirective)],
 })
 export class EllipseDirective implements CanvasMethod {
@@ -31,7 +32,7 @@ export class EllipseDirective implements CanvasMethod {
     @Input()
     anticlockwise = false;
 
-    call(context: CanvasRenderingContext2D) {
+    call(context: CanvasRenderingContext2D): void {
         context.ellipse(
             this.x,
             this.y,

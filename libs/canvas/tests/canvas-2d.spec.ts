@@ -1,9 +1,10 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
-describe('Canvas2dDirective', () => {
+describe(`Canvas2dDirective`, () => {
     @Component({
         template: `
             <canvas
@@ -27,7 +28,7 @@ describe('Canvas2dDirective', () => {
         `,
     })
     class TestComponent {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
+        @ViewChild(`canvas`, {read: CANVAS_2D_CONTEXT})
         readonly context!: CanvasRenderingContext2D;
     }
 
@@ -39,9 +40,7 @@ describe('Canvas2dDirective', () => {
             imports: [CanvasModule],
             declarations: [TestComponent],
         });
-    });
 
-    beforeEach(() => {
         fixture = TestBed.createComponent(TestComponent);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
@@ -51,11 +50,11 @@ describe('Canvas2dDirective', () => {
         fixture.destroy();
     });
 
-    it('creates context', () => {
+    it(`creates context`, () => {
         expect(testComponent.context instanceof CanvasRenderingContext2D).toBe(true);
     });
 
-    it('draws a rectangle at given coordinates of given color with applied filter', done => {
+    it(`draws a rectangle at given coordinates of given color with applied filter`, done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(5, 5, 1, 1).data]).toEqual([
                 0, 0, 0, 0,

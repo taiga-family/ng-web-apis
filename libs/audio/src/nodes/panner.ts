@@ -1,4 +1,5 @@
 import {Directive, Inject, Input, OnChanges, OnDestroy, SkipSelf} from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -8,46 +9,46 @@ import {connect} from '../utils/connect';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
 @Directive({
-    selector: '[waPannerNode]',
-    exportAs: 'AudioNode',
+    selector: `[waPannerNode]`,
     inputs: [
-        'coneInnerAngle',
-        'coneOuterAngle',
-        'coneOuterGain',
-        'distanceModel',
-        'maxDistance',
-        'panningModel',
-        'refDistance',
-        'rolloffFactor',
-        'channelCount',
-        'channelCountMode',
-        'channelInterpretation',
+        `coneInnerAngle`,
+        `coneOuterAngle`,
+        `coneOuterGain`,
+        `distanceModel`,
+        `maxDistance`,
+        `panningModel`,
+        `refDistance`,
+        `rolloffFactor`,
+        `channelCount`,
+        `channelCountMode`,
+        `channelInterpretation`,
     ],
     providers: [asAudioNode(WebAudioPanner)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
     @Input()
-    @audioParam('orientationX')
+    @audioParam(`orientationX`)
     orientationXParam?: AudioParamInput;
 
     @Input()
-    @audioParam('orientationY')
+    @audioParam(`orientationY`)
     orientationYParam?: AudioParamInput;
 
     @Input()
-    @audioParam('orientationZ')
+    @audioParam(`orientationZ`)
     orientationZParam?: AudioParamInput;
 
     @Input()
-    @audioParam('positionX')
+    @audioParam(`positionX`)
     positionXParam?: AudioParamInput;
 
     @Input()
-    @audioParam('positionY')
+    @audioParam(`positionY`)
     positionYParam?: AudioParamInput;
 
     @Input()
-    @audioParam('positionZ')
+    @audioParam(`positionZ`)
     positionZParam?: AudioParamInput;
 
     constructor(
@@ -68,7 +69,7 @@ export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
         }
     }
 
-    ngOnChanges() {
+    ngOnChanges(): void {
         if (this.positionX instanceof AudioParam) {
             return;
         }
@@ -86,7 +87,7 @@ export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
         );
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

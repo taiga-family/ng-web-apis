@@ -1,96 +1,95 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {providers} from '../src/constants/fallback';
-import {WebAudioModule} from '../src/module';
 import {WebAudioContext} from '../src/directives/audio-context';
+import {WebAudioModule} from '../src/module';
 
-describe('AudioListener', () => {
-    @Component({
-        template: `
-            <div
-                forwardX="237"
-                forwardY="1"
-                forwardZ="2"
-                positionX="3"
-                positionY="4"
-                positionZ="5"
-                upX="6"
-                upY="7"
-                upZ="8"
-                waAudioContext
-            >
-                <div waAudioDestinationNode></div>
-            </div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioContext)
-        context!: AudioContext;
-    }
+describe(`Listener`, () => {
+    describe(`AudioListener`, () => {
+        @Component({
+            template: `
+                <div
+                    forwardX="237"
+                    forwardY="1"
+                    forwardZ="2"
+                    positionX="3"
+                    positionY="4"
+                    positionZ="5"
+                    upX="6"
+                    upY="7"
+                    upZ="8"
+                    waAudioContext
+                >
+                    <div waAudioDestinationNode></div>
+                </div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioContext)
+            context!: AudioContext;
+        }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+            });
+
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it(`creates node`, () => {
+            expect(testComponent.context.listener instanceof AudioListener).toBe(true);
         });
     });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+    describe(`AudioListener factory fallback`, () => {
+        @Component({
+            template: `
+                <div
+                    forwardX="237"
+                    forwardY="1"
+                    forwardZ="2"
+                    positionX="3"
+                    positionY="4"
+                    positionZ="5"
+                    upX="6"
+                    upY="7"
+                    upZ="8"
+                    waAudioContext
+                >
+                    <div waAudioDestinationNode></div>
+                </div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioContext)
+            context!: AudioContext;
+        }
 
-    it('creates node', () => {
-        expect(testComponent.context.listener instanceof AudioListener).toBe(true);
-    });
-});
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-describe('AudioListener factory fallback', () => {
-    @Component({
-        template: `
-            <div
-                forwardX="237"
-                forwardY="1"
-                forwardZ="2"
-                positionX="3"
-                positionY="4"
-                positionZ="5"
-                upX="6"
-                upY="7"
-                upZ="8"
-                waAudioContext
-            >
-                <div waAudioDestinationNode></div>
-            </div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioContext)
-        context!: AudioContext;
-    }
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers,
+            });
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
-
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers,
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
         });
-    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('creates node', () => {
-        expect(testComponent.context.listener instanceof AudioListener).toBe(true);
+        it(`creates node`, () => {
+            expect(testComponent.context.listener instanceof AudioListener).toBe(true);
+        });
     });
 });

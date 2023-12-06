@@ -1,14 +1,15 @@
 import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
-import {PermissionsService} from '@ng-web-apis/permissions';
 import {NAVIGATOR} from '@ng-web-apis/common';
+import {PermissionsService} from '@ng-web-apis/permissions';
 import {BehaviorSubject, of} from 'rxjs';
 import {catchError, tap} from 'rxjs/operators';
+
 import {SAMPLE} from './samples/basic';
 
 @Component({
-    selector: `permissions-page`,
-    templateUrl: `./permissions-page.component.html`,
-    styleUrls: [`./permissions-page.component.css`],
+    selector: 'permissions-page',
+    templateUrl: './permissions-page.component.html',
+    styleUrls: ['./permissions-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class PermissionsPageComponent {
@@ -18,6 +19,7 @@ export class PermissionsPageComponent {
     geolocationState$ = this.permissionsService.state('geolocation').pipe(
         tap(state => {
             if (state === 'prompt') {
+                // eslint-disable-next-line no-alert
                 alert(
                     'After you acknowledge this message the browser will ask your permission to allow location access!',
                 );
@@ -33,6 +35,7 @@ export class PermissionsPageComponent {
     );
 
     constructor(
+        @Inject(PermissionsService)
         private readonly permissionsService: PermissionsService,
         @Inject(NAVIGATOR) private readonly navigator: Navigator,
     ) {}

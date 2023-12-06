@@ -1,70 +1,69 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioChannelSplitter} from '../src/nodes/channel-splitter';
 
-describe('ChannelSplitterNode', () => {
-    @Component({
-        template: `
-            <div waChannelSplitterNode></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioChannelSplitter)
-        node!: AudioNode;
-    }
+describe(`ChannelSplitter`, () => {
+    describe(`ChannelSplitterNode`, () => {
+        @Component({
+            template: `
+                <div waChannelSplitterNode></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioChannelSplitter)
+            node!: AudioNode;
+        }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+            });
+
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
+        });
+
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof ChannelSplitterNode).toBe(true);
         });
     });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
+    describe(`ChannelSplitterNode with providers`, () => {
+        @Component({
+            template: `
+                <div waChannelSplitterNode></div>
+            `,
+        })
+        class TestComponent {
+            @ViewChild(WebAudioChannelSplitter)
+            node!: AudioNode;
+        }
 
-    it('creates node', () => {
-        expect(testComponent.node instanceof ChannelSplitterNode).toBe(true);
-    });
-});
+        let fixture: ComponentFixture<TestComponent>;
+        let testComponent: TestComponent;
 
-describe('ChannelSplitterNode', () => {
-    @Component({
-        template: `
-            <div waChannelSplitterNode></div>
-        `,
-    })
-    class TestComponent {
-        @ViewChild(WebAudioChannelSplitter)
-        node!: AudioNode;
-    }
+        beforeEach(() => {
+            TestBed.configureTestingModule({
+                imports: [WebAudioModule],
+                declarations: [TestComponent],
+                providers,
+            });
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
-
-    beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
-            providers,
+            fixture = TestBed.createComponent(TestComponent);
+            testComponent = fixture.componentInstance;
+            fixture.detectChanges();
         });
-    });
 
-    beforeEach(() => {
-        fixture = TestBed.createComponent(TestComponent);
-        testComponent = fixture.componentInstance;
-        fixture.detectChanges();
-    });
-
-    it('creates node', () => {
-        expect(testComponent.node instanceof ChannelSplitterNode).toBe(true);
+        it(`creates node`, () => {
+            expect(testComponent.node instanceof ChannelSplitterNode).toBe(true);
+        });
     });
 });

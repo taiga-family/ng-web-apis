@@ -57,10 +57,8 @@ export class ShopComponent {
 
     shippingCart: readonly ShopItem[] = [];
 
-    get totalSum() {
-        return this.shippingCart.reduce((sum, item) => {
-            return sum + item.price;
-        }, 0);
+    get totalSum(): number {
+        return this.shippingCart.reduce((sum, item) => sum + item.price, 0);
     }
 
     get total(): PaymentItem {
@@ -73,22 +71,22 @@ export class ShopComponent {
         };
     }
 
-    addToShippintCard(item: ShopItem) {
+    addToShippingCard(item: ShopItem): void {
         this.shippingCart = [...this.shippingCart, item];
     }
 
-    onPayment(response: PaymentResponse) {
+    onPayment(response: PaymentResponse): void {
         console.info('payment response:', response);
         this.clearShippingCart();
-        response.complete();
+        void response.complete();
     }
 
-    onPaymentError(error: Error | DOMException) {
+    onPaymentError(error: DOMException | Error): void {
         console.info('payment error:', error);
         this.clearShippingCart();
     }
 
-    private clearShippingCart() {
+    private clearShippingCart(): void {
         this.shippingCart = [];
     }
 }

@@ -1,3 +1,4 @@
+/* eslint-disable @angular-eslint/no-attribute-decorator */
 import {
     Attribute,
     Directive,
@@ -6,6 +7,7 @@ import {
     OnDestroy,
     Optional,
 } from '@angular/core';
+
 import {INTERSECTION_ROOT} from '../tokens/intersection-root';
 import {rootMarginFactory} from '../utils/root-margin-factory';
 import {thresholdFactory} from '../utils/threshold-factory';
@@ -34,24 +36,27 @@ export class IntersectionObserverDirective
                 });
             },
             {
-                root: root && root.nativeElement,
+                root: root?.nativeElement,
                 rootMargin: rootMarginFactory(rootMargin),
                 threshold: thresholdFactory(threshold),
             },
         );
     }
 
-    override observe(target: Element, callback: IntersectionObserverCallback = () => {}) {
+    override observe(
+        target: Element,
+        callback: IntersectionObserverCallback = () => {},
+    ): void {
         super.observe(target);
         this.callbacks.set(target, callback);
     }
 
-    override unobserve(target: Element) {
+    override unobserve(target: Element): void {
         super.unobserve(target);
         this.callbacks.delete(target);
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }

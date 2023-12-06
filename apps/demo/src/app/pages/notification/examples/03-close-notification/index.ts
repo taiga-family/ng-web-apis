@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
 import {timer} from 'rxjs';
@@ -13,8 +13,8 @@ export class NotificationPageExample3 {
     readonly denied$ = this.permissions.state('notifications').pipe(map(isDenied));
 
     constructor(
-        private readonly notifications: NotificationService,
-        private readonly permissions: PermissionsService,
+        @Inject(NotificationService) private readonly notifications: NotificationService,
+        @Inject(PermissionsService) private readonly permissions: PermissionsService,
     ) {}
 
     sendNotification(): void {

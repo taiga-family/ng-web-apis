@@ -1,11 +1,12 @@
 import {Directive, Inject, Input, OnDestroy} from '@angular/core';
+
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
 @Directive({
-    selector: '[waOutput]',
+    selector: `[waOutput]`,
 })
 export class WebAudioOutput extends GainNode implements OnDestroy {
     @Input()
@@ -32,11 +33,11 @@ export class WebAudioOutput extends GainNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy() {
-        this.disconnect();
+    static init(that: WebAudioOutput, node: AudioNode | null): void {
+        connect(node, that);
     }
 
-    static init(that: WebAudioOutput, node: AudioNode | null) {
-        connect(node, that);
+    ngOnDestroy(): void {
+        this.disconnect();
     }
 }

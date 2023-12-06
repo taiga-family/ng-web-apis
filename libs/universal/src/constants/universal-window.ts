@@ -23,10 +23,10 @@ import {performanceFactory} from './universal-performance';
 import {SPEECH_SYNTHESIS_MOCK} from './universal-speech-synthesis';
 
 const COMPUTED_STYLES: Partial<CSSStyleDeclaration> = {
-    getPropertyPriority: () => '',
-    getPropertyValue: () => '',
-    item: () => '',
-    removeProperty: () => '',
+    getPropertyPriority: () => ``,
+    getPropertyValue: () => ``,
+    item: () => ``,
+    removeProperty: () => ``,
     setProperty: emptyFunction,
 };
 const COMPUTED_STYLES_HANDLER: ProxyHandler<CSSStyleDeclaration> = {
@@ -37,7 +37,7 @@ const COMPUTED_STYLES_PROXY = new Proxy<CSSStyleDeclaration>(
     COMPUTED_STYLES_HANDLER,
 );
 const CSS_RULES = new (class extends Array<CSSRule> implements CSSRuleList {
-    item = () => null;
+    item = (): null => null;
 })();
 const BAR_PROP: BarProp = {
     visible: false,
@@ -49,19 +49,19 @@ const DB_REQUEST: IDBOpenDBRequest = {
     onsuccess: null,
     onupgradeneeded: null,
     error: null,
-    readyState: 'pending',
+    readyState: `pending`,
     result: null as any, // Cannot be accessed for 'pending' state anyway
     source: null as any, // null for open requests
     transaction: null,
 };
-const SELF = ['frames', 'parent', 'self', 'top', 'window'];
+const SELF = [`frames`, `parent`, `self`, `top`, `window`];
 const WINDOW_HANDLER: ProxyHandler<Window> = {
     get: (windowRef, key: string) => {
         if (SELF.includes(key)) {
             return windowRef;
         }
 
-        return key.startsWith('on') ? null : windowRef[key as keyof Window];
+        return key.startsWith(`on`) ? null : windowRef[key as keyof Window];
     },
 };
 
@@ -78,7 +78,7 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
             document,
             localStorage: new StorageMock(),
             location: location || new LocationMock(),
-            navigator: {...NAVIGATOR_MOCK, userAgent: userAgent || ''},
+            navigator: {...NAVIGATOR_MOCK, userAgent: userAgent || ``},
             performance: performanceFactory(),
             sessionStorage: new StorageMock(),
             speechSynthesis: SPEECH_SYNTHESIS_MOCK,
@@ -93,12 +93,12 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
             console,
             Blob: BlobMock,
             alert: emptyFunction,
-            clientInformation: {...NAVIGATOR_MOCK, userAgent: userAgent || ''},
+            clientInformation: {...NAVIGATOR_MOCK, userAgent: userAgent || ``},
             // TODO: Candidate for token
             matchMedia: () => ({
                 ...EVENT_TARGET,
                 matches: false,
-                media: '',
+                media: ``,
                 onchange: null,
                 addListener: emptyFunction,
                 removeListener: emptyFunction,
@@ -116,12 +116,12 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
                 whenDefined: alwaysRejected,
             },
             styleMedia: {
-                type: '',
+                type: ``,
                 matchMedium: alwaysFalse,
             },
             history: {
                 length: 0,
-                scrollRestoration: 'auto',
+                scrollRestoration: `auto`,
                 state: {},
                 back: emptyFunction,
                 forward: emptyFunction,
@@ -130,19 +130,19 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
                 replaceState: emptyFunction,
             },
             closed: false,
-            defaultStatus: '',
+            defaultStatus: ``,
             devicePixelRatio: 1,
-            doNotTrack: '',
+            doNotTrack: ``,
             frameElement: null,
             innerHeight: 0,
             innerWidth: 0,
             isSecureContext: false,
             length: 0,
-            name: '',
+            name: ``,
             offscreenBuffering: false,
             opener: {},
-            origin: '',
-            orientation: '',
+            origin: ``,
+            orientation: ``,
             outerHeight: 0,
             outerWidth: 0,
             pageXOffset: 0,
@@ -153,7 +153,7 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
             screenY: 0,
             scrollX: 0,
             scrollY: 0,
-            status: '',
+            status: ``,
             blur: emptyFunction,
             cancelAnimationFrame: emptyFunction,
             captureEvents: emptyFunction,

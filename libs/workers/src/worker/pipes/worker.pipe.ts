@@ -1,11 +1,12 @@
 import {OnDestroy, Pipe, PipeTransform} from '@angular/core';
 import {Observable} from 'rxjs';
+
 import {WebWorker} from '../classes/web-worker';
 import {toData} from '../operators/to-data';
 import {WorkerFunction} from '../types/worker-function';
 
 @Pipe({
-    name: 'waWorker',
+    name: `waWorker`,
 })
 export class WorkerPipe implements PipeTransform, OnDestroy {
     private fn!: WorkerFunction;
@@ -27,13 +28,13 @@ export class WorkerPipe implements PipeTransform, OnDestroy {
         this.terminateWorker();
     }
 
-    private terminateWorker() {
+    private terminateWorker(): void {
         if (this.worker) {
             this.worker.terminate();
         }
     }
 
-    private initNewWorker<T, R>(fn: WorkerFunction<T, R>) {
+    private initNewWorker<T, R>(fn: WorkerFunction<T, R>): void {
         this.fn = fn;
         this.worker = WebWorker.fromFunction(fn);
         this.observer = this.worker.pipe(toData());

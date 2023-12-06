@@ -10,9 +10,9 @@ import {PERMISSIONS_SUPPORT} from '@ng-web-apis/permissions';
 import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
 @Component({
-    selector: `home-page`,
-    templateUrl: `./home-page.component.html`,
-    styleUrls: [`./home-page.component.css`],
+    selector: 'home-page',
+    templateUrl: './home-page.component.html',
+    styleUrls: ['./home-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class HomePageComponent {

@@ -1,9 +1,10 @@
-import {NgModule} from '@angular/core';
-import {PaymentRequestPageComponent} from './payment-request-page.component';
-import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
+import {RouterModule} from '@angular/router';
 import {PaymentRequestModule} from '@ng-web-apis/payment-request';
 import {HighlightModule} from 'ngx-highlightjs';
+
+import {PaymentRequestPageComponent} from './payment-request-page.component';
 import {ShopComponent} from './shop/shop.component';
 
 @NgModule({
@@ -11,7 +12,7 @@ import {ShopComponent} from './shop/shop.component';
         CommonModule,
         HighlightModule,
         PaymentRequestModule,
-        RouterModule.forChild([{path: '', component: PaymentRequestPageComponent}]),
+        RouterModule.forChild([{path: ``, component: PaymentRequestPageComponent}]),
     ],
     declarations: [PaymentRequestPageComponent, ShopComponent],
 })

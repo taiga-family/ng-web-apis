@@ -1,10 +1,11 @@
 import {Directive, ElementRef, Inject, Output} from '@angular/core';
 import {from, fromEvent, Observable, of} from 'rxjs';
 import {catchError, filter, share, switchMap} from 'rxjs/operators';
+
 import {PaymentRequestService} from '../../services/payment-request.service';
 import {PAYMENT_METHODS} from '../../tokens/payment-methods';
 import {PAYMENT_OPTIONS, PaymentOptions} from '../../tokens/payment-options';
-import {isError} from '../../utils/isError';
+import {isError} from '../../utils/is-error';
 import {PaymentDirective} from '../payment/payment.directive';
 
 @Directive({
@@ -12,10 +13,10 @@ import {PaymentDirective} from '../payment/payment.directive';
 })
 export class PaymentSubmitDirective {
     @Output()
-    waPaymentSubmit: Observable<PaymentResponse>;
+    readonly waPaymentSubmit: Observable<PaymentResponse>;
 
     @Output()
-    waPaymentError: Observable<Error | DOMException>;
+    readonly waPaymentError: Observable<DOMException | Error>;
 
     constructor(
         @Inject(PaymentDirective) paymentHost: PaymentDetailsInit,

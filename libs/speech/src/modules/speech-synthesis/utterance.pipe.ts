@@ -1,14 +1,15 @@
 import {Pipe, PipeTransform} from '@angular/core';
+
 import {SpeechSynthesisUtteranceOptions} from '../../interfaces/speech-synthesis-utterance-options';
 
 @Pipe({
-    name: 'waUtterance',
+    name: `waUtterance`,
 })
 export class UtterancePipe implements PipeTransform {
     transform(
         text: string,
         {
-            lang = '',
+            lang = ``,
             pitch = 1,
             rate = 1,
             volume = 1,

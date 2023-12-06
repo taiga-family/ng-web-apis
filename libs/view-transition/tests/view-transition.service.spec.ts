@@ -1,10 +1,11 @@
-import {TestBed} from '@angular/core/testing';
-import {ViewTransitionService} from '../src/services/view-transition.service';
 import {DOCUMENT} from '@angular/common';
+import {TestBed} from '@angular/core/testing';
 
-describe('ViewTransitionService', () => {
-    describe('not supported provider', () => {
-        it('throw error if startViewTransition is not supported', done => {
+import {ViewTransitionService} from '../src/services/view-transition.service';
+
+describe(`ViewTransitionService`, () => {
+    describe(`not supported provider`, () => {
+        it(`throw error if startViewTransition is not supported`, done => {
             TestBed.configureTestingModule({
                 providers: [
                     ViewTransitionService,
@@ -23,7 +24,7 @@ describe('ViewTransitionService', () => {
             observable.subscribe({
                 error: error => {
                     expect(error.message).toBe(
-                        'startViewTransition is not supported in your browser',
+                        `startViewTransition is not supported in your browser`,
                     );
                     done();
                 },
@@ -31,13 +32,14 @@ describe('ViewTransitionService', () => {
         });
     });
 
-    describe('supported provider', () => {
+    describe(`supported provider`, () => {
         let service: ViewTransitionService;
 
         const mockDocument = {
             querySelectorAll: () => [],
             startViewTransition: (callback: () => Promise<void> | void) => {
-                callback();
+                void callback();
+
                 return {
                     updateCallbackDone: Promise.resolve(),
                     finished: Promise.resolve(),
@@ -57,7 +59,7 @@ describe('ViewTransitionService', () => {
             service = TestBed.inject(ViewTransitionService);
         });
 
-        it('complete the observable when transition finishes', done => {
+        it(`complete the observable when transition finishes`, done => {
             const observable = service.startViewTransition(() => {});
 
             observable.subscribe({
@@ -67,7 +69,7 @@ describe('ViewTransitionService', () => {
             });
         });
 
-        it('pass ViewTransition object to the observable after callback called', done => {
+        it(`pass ViewTransition object to the observable after callback called`, done => {
             let callbackCalled = false;
             const observable = service.startViewTransition(() => {
                 callbackCalled = true;
@@ -81,8 +83,8 @@ describe('ViewTransitionService', () => {
         });
     });
 
-    describe('custom DOCUMENT provider', () => {
-        it('call skipTransition when observable unsubscribed', () => {
+    describe(`custom DOCUMENT provider`, () => {
+        it(`call skipTransition when observable unsubscribed`, () => {
             const viewTransitionValue = {
                 updateCallbackDone: Promise.resolve(),
                 finished: Promise.resolve(),
@@ -92,10 +94,12 @@ describe('ViewTransitionService', () => {
             const mockDocument = {
                 querySelectorAll: () => [],
                 startViewTransition: (callback: () => Promise<void> | void) => {
-                    callback();
+                    void callback();
+
                     return viewTransitionValue;
                 },
             };
+
             TestBed.configureTestingModule({
                 providers: [
                     ViewTransitionService,
@@ -107,8 +111,10 @@ describe('ViewTransitionService', () => {
             });
             const service = TestBed.inject(ViewTransitionService);
 
-            const skipSpy = spyOn(viewTransitionValue, 'skipTransition');
+            // eslint-disable-next-line jest/no-jasmine-globals
+            const skipSpy = spyOn(viewTransitionValue, `skipTransition`);
             const observable = service.startViewTransition(() => {});
+
             observable.subscribe().unsubscribe();
 
             expect(skipSpy).toHaveBeenCalled();

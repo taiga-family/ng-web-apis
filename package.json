@@ -46,7 +46,7 @@
         "release:major": "npm run release -- --release-as major",
         "publish": "npm run build && npm publish ./dist/common",
         "*** Workflow ***": "",
-        "lint": "eslint . --fix",
+        "lint": "eslint .",
         "typecheck": "tsc --noEmit --skipLibCheck",
         "test": "nx run-many --target test --all --output-style=stream --parallel=1",
         "prettier": "prettier !package-lock.json . --ignore-path .gitignore",
@@ -55,6 +55,11 @@
         "affected:build:libs": "nx affected --target build --exclude demo --output-style=stream",
         "run-many:build:libs": "nx run-many --target build --exclude demo--output-style=stream",
         "run-many:publish:libs": "nx run-many --target publish --output-style=stream"
+    },
+    "commitlint": {
+        "extends": [
+            "@taiga-ui/commitlint-config"
+        ]
     },
     "lint-staged": {
         "*.{js,ts,html,md,less,json}": [
@@ -66,7 +71,20 @@
             "git add"
         ]
     },
+    "browserslist": [
+        "extends @taiga-ui/browserslist-config"
+    ],
     "prettier": "@taiga-ui/prettier-config",
+    "eslintConfig": {
+        "extends": [
+            "plugin:@taiga-ui/experience/all"
+        ],
+        "rules": {
+            "rxjs/no-implicit-any-catch": "off",
+            "@taiga-ui/experience/no-typeof": "off"
+        },
+        "root": true
+    },
     "devDependencies": {
         "@angular-builders/custom-webpack": "15.0.0",
         "@angular-devkit/build-angular": "15.2.10",
@@ -95,16 +113,16 @@
         "@taiga-ui/addon-doc": "3.57.0",
         "@taiga-ui/addon-editor": "3.35.0",
         "@taiga-ui/addon-mobile": "3.57.0",
+        "@taiga-ui/browserslist-config": "0.4.0",
         "@taiga-ui/cdk": "3.57.0",
+        "@taiga-ui/commitlint-config": "0.4.2",
         "@taiga-ui/core": "3.57.0",
+        "@taiga-ui/eslint-plugin-experience": "0.39.4",
         "@taiga-ui/icons": "3.57.0",
         "@taiga-ui/kit": "3.57.0",
         "@taiga-ui/prettier-config": "0.6.0",
         "@taiga-ui/styles": "3.57.0",
         "@taiga-ui/tsconfig": "0.9.0",
-        "@tinkoff/eslint-config": "2.0.0",
-        "@tinkoff/eslint-config-angular": "2.0.0",
-        "@tinkoff/prettier-config": "2.0.0",
         "@types/dom-speech-recognition": "0.0.4",
         "@types/dom-view-transitions": "1.0.4",
         "@types/dompurify": "3.0.5",
@@ -122,6 +140,7 @@
         "babel-loader": "9.1.3",
         "core-js": "3.34.0",
         "coveralls": "3.1.1",
+        "eslint": "8.55.0",
         "highlight.js": "11.9.0",
         "http-server": "14.1.1",
         "husky": "8.0.3",
@@ -142,14 +161,14 @@
         "ngx-markdown": "13.1.0",
         "nx": "17.1.3",
         "prettier": "3.1.0",
-        "rxjs": "7.5.2",
+        "rxjs": "7.8.1",
         "standard-version": "9.5.0",
         "ts-node": "10.9.1",
         "tslib": "2.6.2",
         "tslint": "6.1.3",
         "typescript": "4.9.5",
         "webpack": "5.89.0",
-        "zone.js": "0.11.4"
+        "zone.js": "0.12.0"
     },
     "engines": {
         "node": ">= 16.14",

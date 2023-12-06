@@ -1,12 +1,13 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
-import {AudioParamInput} from '../src/types/audio-param-input';
 import {WebAudioGain} from '../src/nodes/gain';
+import {AudioParamInput} from '../src/types/audio-param-input';
 
 describe(`Audio gain`, () => {
-    describe('GainNode', () => {
+    describe(`GainNode`, () => {
         @Component({
             template: `
                 <div
@@ -32,21 +33,19 @@ describe(`Audio gain`, () => {
                 imports: [WebAudioModule],
                 declarations: [TestComponent],
             });
-        });
 
-        beforeEach(() => {
             fixture = TestBed.createComponent(TestComponent);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });
 
-        it('creates node', () => {
+        it(`creates node`, () => {
             expect(testComponent.node instanceof GainNode).toBe(true);
         });
 
-        describe('AudioParam', () => {
+        describe(`AudioParam`, () => {
             // TODO: need investigate why
-            xit('sets gain instantly', done => {
+            xit(`sets gain instantly`, done => {
                 testComponent.gain = 10;
                 fixture.detectChanges();
 
@@ -56,11 +55,11 @@ describe(`Audio gain`, () => {
                 }, 100);
             });
 
-            xit('sets gain linearly', done => {
+            xit(`sets gain linearly`, done => {
                 testComponent.gain = {
                     value: 10,
                     duration: 2,
-                    mode: 'linear',
+                    mode: `linear`,
                 };
                 fixture.detectChanges();
 
@@ -77,11 +76,11 @@ describe(`Audio gain`, () => {
             });
 
             // TODO: need investigate why
-            xit('sets gain exponentially', done => {
+            xit(`sets gain exponentially`, done => {
                 testComponent.gain = {
                     value: 10,
                     duration: 2,
-                    mode: 'exponential',
+                    mode: `exponential`,
                 };
                 fixture.detectChanges();
 
@@ -98,7 +97,7 @@ describe(`Audio gain`, () => {
             });
 
             // TODO: need investigate why
-            xit('sets gain curve', done => {
+            xit(`sets gain curve`, done => {
                 testComponent.gain = {
                     value: [10, 5, 10],
                     duration: 2,
@@ -118,17 +117,17 @@ describe(`Audio gain`, () => {
             });
 
             // TODO: need investigate why
-            xit('schedules multiple changes', done => {
+            xit(`schedules multiple changes`, done => {
                 testComponent.gain = [
                     {
                         value: 5,
                         duration: 2,
-                        mode: 'instant',
+                        mode: `instant`,
                     },
                     {
                         value: 10,
                         duration: 2,
-                        mode: 'linear',
+                        mode: `linear`,
                     },
                 ];
                 fixture.detectChanges();
@@ -153,7 +152,7 @@ describe(`Audio gain`, () => {
         });
     });
 
-    describe('GainNode factory fallback', () => {
+    describe(`GainNode factory fallback`, () => {
         @Component({
             template: `
                 <div waGainNode></div>
@@ -173,15 +172,13 @@ describe(`Audio gain`, () => {
                 declarations: [TestComponent],
                 providers,
             });
-        });
 
-        beforeEach(() => {
             fixture = TestBed.createComponent(TestComponent);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });
 
-        it('creates node', () => {
+        it(`creates node`, () => {
             expect(testComponent.node instanceof GainNode).toBe(true);
         });
     });

@@ -2,9 +2,10 @@
     <div
         *ngFor="let item of items"
         class="item"
-        (click)="addToShippintCard(item)"
+        (click)="addToShippingCard(item)"
     >
         <img
+            alt="item"
             width="64"
             class="item-image"
             [src]="item.image"

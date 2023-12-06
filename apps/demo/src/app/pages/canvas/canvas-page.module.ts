@@ -1,9 +1,9 @@
-import {NgModule} from '@angular/core';
-import {CanvasPageComponent} from './canvas-page.component';
-import {RouterModule} from '@angular/router';
 import {CommonModule} from '@angular/common';
+import {NgModule} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import {RouterModule} from '@angular/router';
 import {CanvasModule} from '@ng-web-apis/canvas';
+import {TuiInputColorModule} from '@taiga-ui/addon-editor';
 import {
     TuiExpandModule,
     TuiLabelModule,
@@ -16,7 +16,8 @@ import {
     TuiSelectModule,
     TuiSliderModule,
 } from '@taiga-ui/kit';
-import {TuiInputColorModule} from '@taiga-ui/addon-editor';
+
+import {CanvasPageComponent} from './canvas-page.component';
 
 @NgModule({
     imports: [
@@ -32,7 +33,7 @@ import {TuiInputColorModule} from '@taiga-ui/addon-editor';
         TuiTextfieldControllerModule,
         TuiInputColorModule,
         TuiInputModule,
-        RouterModule.forChild([{path: '', component: CanvasPageComponent}]),
+        RouterModule.forChild([{path: ``, component: CanvasPageComponent}]),
     ],
     declarations: [CanvasPageComponent],
 })

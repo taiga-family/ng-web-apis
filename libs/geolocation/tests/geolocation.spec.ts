@@ -1,8 +1,9 @@
 import {TestBed} from '@angular/core/testing';
 import {catchError} from 'rxjs/operators';
+
 import {GeolocationService} from '../src/services/geolocation.service';
 
-describe('Geolocation token', () => {
+describe(`Geolocation token`, () => {
     let service: any;
 
     beforeEach(() => {
@@ -15,7 +16,7 @@ describe('Geolocation token', () => {
         );
     });
 
-    it('defined', () => {
+    it(`defined`, () => {
         expect(service).toBeDefined();
     });
 });

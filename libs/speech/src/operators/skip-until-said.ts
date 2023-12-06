@@ -1,5 +1,6 @@
 import {MonoTypeOperatorFunction, pipe} from 'rxjs';
 import {map, skipWhile} from 'rxjs/operators';
+
 import {isSaid} from '../utils/is-said';
 
 export function skipUntilSaid(

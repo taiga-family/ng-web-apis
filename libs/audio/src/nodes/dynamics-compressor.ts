@@ -1,4 +1,5 @@
 import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -8,44 +9,44 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
-    selector: '[waDynamicsCompressorNode]',
-    exportAs: 'AudioNode',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
+    selector: `[waDynamicsCompressorNode]`,
+    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioDynamicsCompressor)],
+    exportAs: `AudioNode`,
 })
 export class WebAudioDynamicsCompressor
     extends DynamicsCompressorNode
     implements OnDestroy
 {
-    @Input('attack')
-    @audioParam('attack')
+    @Input(`attack`)
+    @audioParam(`attack`)
     attackParam?: AudioParamInput;
 
-    @Input('knee')
-    @audioParam('knee')
+    @Input(`knee`)
+    @audioParam(`knee`)
     kneeParam?: AudioParamInput;
 
-    @Input('ratio')
-    @audioParam('ratio')
+    @Input(`ratio`)
+    @audioParam(`ratio`)
     ratioParam?: AudioParamInput;
 
-    @Input('release')
-    @audioParam('release')
+    @Input(`release`)
+    @audioParam(`release`)
     releaseParam?: AudioParamInput;
 
-    @Input('threshold')
-    @audioParam('threshold')
+    @Input(`threshold`)
+    @audioParam(`threshold`)
     thresholdParam?: AudioParamInput;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute('attack') attackArg: string | null,
-        @Attribute('knee') kneeArg: string | null,
-        @Attribute('ratio') ratioArg: string | null,
-        @Attribute('release') releaseArg: string | null,
-        @Attribute('threshold') thresholdArg: string | null,
+        @Attribute(`attack`) attackArg: string | null,
+        @Attribute(`knee`) kneeArg: string | null,
+        @Attribute(`ratio`) ratioArg: string | null,
+        @Attribute(`release`) releaseArg: string | null,
+        @Attribute(`threshold`) thresholdArg: string | null,
     ) {
         const attack = parse(attackArg, 0.003);
         const knee = parse(kneeArg, 30);
@@ -72,7 +73,7 @@ export class WebAudioDynamicsCompressor
         }
     }
 
-    ngOnDestroy() {
+    ngOnDestroy(): void {
         this.disconnect();
     }
 }
