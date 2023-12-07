@@ -6,6 +6,7 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {connect} from '../utils/connect';
 
 @Directive({
+    standalone: true,
     selector: `[waWaveShaperNode]`,
     inputs: [
         `oversample`,

@@ -8,6 +8,7 @@ import {FEEDFORWARD_COEFFICIENTS} from '../tokens/feedforward-coefficients';
 import {connect} from '../utils/connect';
 
 @Directive({
+    standalone: true,
     selector: `[waIIRFilterNode]`,
     inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioIIRFilter)],

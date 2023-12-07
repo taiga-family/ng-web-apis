@@ -17,6 +17,7 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
+    standalone: true,
     selector: `[waOscillatorNode]`,
     inputs: [`type`, `channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioOscillator)],

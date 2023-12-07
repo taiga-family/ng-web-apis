@@ -9,6 +9,7 @@ import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
 @Directive({
+    standalone: true,
     selector: `[waDelayNode]`,
     inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioDelay)],

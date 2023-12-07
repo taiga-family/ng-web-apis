@@ -7,6 +7,7 @@ import {AudioParamInput} from '../types/audio-param-input';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
 @Directive({
+    standalone: true,
     selector: `[waAudioContext],[waOfflineAudioContext][length][sampleRate]`,
 })
 export class WebAudioListener extends GainNode implements OnChanges {

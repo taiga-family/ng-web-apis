@@ -3,6 +3,7 @@ import {Attribute, Directive, EventEmitter, forwardRef, Output} from '@angular/c
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
 @Directive({
+    standalone: true,
     selector: `[waOfflineAudioContext][length][sampleRate]`,
     providers: [
         {

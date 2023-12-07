@@ -9,6 +9,7 @@ import {connect} from '../utils/connect';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
 @Directive({
+    standalone: true,
     selector: `[waPannerNode]`,
     inputs: [
         `coneInnerAngle`,

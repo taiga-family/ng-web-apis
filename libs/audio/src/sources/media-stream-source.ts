@@ -6,6 +6,7 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {MEDIA_STREAM} from '../tokens/media-stream';
 
 @Directive({
+    standalone: true,
     selector: `[waMediaStreamAudioSourceNode]`,
     providers: [asAudioNode(WebAudioMediaStreamSource)],
     exportAs: `AudioNode`,

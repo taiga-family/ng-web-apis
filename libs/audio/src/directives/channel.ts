@@ -4,6 +4,7 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
+    standalone: true,
     selector: `[waChannel]`,
     exportAs: `AudioNode`,
 })

@@ -13,6 +13,7 @@ import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
+    standalone: true,
     selector: `[waChannelMergerNode]`,
     inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioChannelMerger)],
