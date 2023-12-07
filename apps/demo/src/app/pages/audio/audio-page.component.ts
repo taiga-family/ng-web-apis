@@ -1,13 +1,41 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject, ViewChild} from '@angular/core';
-import {AUDIO_CONTEXT} from '@ng-web-apis/audio';
+import {FormsModule} from '@angular/forms';
+import {AUDIO_CONTEXT, WebAudioModule} from '@ng-web-apis/audio';
+import {CanvasModule} from '@ng-web-apis/canvas';
+import {
+    TuiButtonModule,
+    TuiLabelModule,
+    TuiTextfieldControllerModule,
+} from '@taiga-ui/core';
+import {
+    TuiDataListWrapperModule,
+    TuiRadioLabeledModule,
+    TuiSelectModule,
+    TuiSliderModule,
+} from '@taiga-ui/kit';
 
 @Component({
+    standalone: true,
     selector: 'audio-page',
+    imports: [
+        CommonModule,
+        FormsModule,
+        WebAudioModule,
+        CanvasModule,
+        TuiButtonModule,
+        TuiSliderModule,
+        TuiLabelModule,
+        TuiSelectModule,
+        TuiRadioLabeledModule,
+        TuiTextfieldControllerModule,
+        TuiDataListWrapperModule,
+    ],
     templateUrl: './audio-page.component.html',
     styleUrls: ['./audio-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AudioPageComponent {
+export default class AudioPageComponent {
     @ViewChild('chain')
     readonly chain?: AudioNode;
 

@@ -1,19 +1,21 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {PermissionsService} from '@ng-web-apis/permissions';
+import {TuiBadgeModule} from '@taiga-ui/kit';
 
 @Component({
+    standalone: true,
     selector: 'notification-page-example-1',
+    imports: [CommonModule, TuiBadgeModule],
     templateUrl: './index.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample1 {
-    readonly notificationPermissionState$ = this.permissions.state('notifications');
+    private readonly notifications: NotificationService = inject(NotificationService);
 
-    constructor(
-        @Inject(NotificationService) private readonly notifications: NotificationService,
-        @Inject(PermissionsService) private readonly permissions: PermissionsService,
-    ) {}
+    readonly notificationPermissionState$ =
+        inject(PermissionsService).state('notifications');
 
     requestPermission(): void {
         this.notifications.requestPermission().subscribe({

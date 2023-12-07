@@ -1,3 +1,4 @@
+import {CommonModule} from '@angular/common';
 import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
@@ -6,7 +7,9 @@ import {
     Self,
 } from '@angular/core';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
-import {TuiDestroyService} from '@taiga-ui/cdk';
+import {TuiDestroyService, TuiLetModule} from '@taiga-ui/cdk';
+import {TuiLinkModule} from '@taiga-ui/core';
+import {HighlightModule} from 'ngx-highlightjs';
 import {BehaviorSubject, takeUntil} from 'rxjs';
 
 interface Photo {
@@ -51,13 +54,15 @@ const USAGE_SAMPLE = `
 `;
 
 @Component({
+    standalone: true,
     selector: 'view-transition-page',
+    imports: [CommonModule, HighlightModule, TuiLinkModule, TuiLetModule],
     templateUrl: './view-transition-page.component.html',
     styleUrls: ['./view-transition-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [TuiDestroyService],
 })
-export class ViewTransitionPageComponent {
+export default class ViewTransitionPageComponent {
     readonly codeSample = USAGE_SAMPLE;
     readonly data = PHOTOS;
     readonly activeIndex$ = new BehaviorSubject(-1);

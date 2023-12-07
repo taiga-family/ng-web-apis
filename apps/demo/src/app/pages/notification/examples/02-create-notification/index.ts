@@ -1,20 +1,22 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
 import {filter, map, switchMap} from 'rxjs/operators';
 
 @Component({
+    standalone: true,
     selector: 'notification-page-example-2',
+    imports: [CommonModule],
     templateUrl: './index.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample2 {
-    readonly denied$ = this.permissions.state('notifications').pipe(map(isDenied));
+    private readonly notifications: NotificationService = inject(NotificationService);
 
-    constructor(
-        @Inject(NotificationService) private readonly notifications: NotificationService,
-        @Inject(PermissionsService) private readonly permissions: PermissionsService,
-    ) {}
+    readonly denied$ = inject(PermissionsService)
+        .state('notifications')
+        .pipe(map(isDenied));
 
     sendNotification(): void {
         this.notifications

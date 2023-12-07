@@ -1,19 +1,20 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {ScreenOrientationService} from '@ng-web-apis/screen-orientation';
+import {HighlightModule} from 'ngx-highlightjs';
 
 import {SAMPLE_HTML, SAMPLE_TS} from './samples/sample';
 
 @Component({
+    standalone: true,
     selector: 'screen-orientation-page',
+    imports: [CommonModule, HighlightModule],
     templateUrl: './screen-orientation-page.component.html',
     styleUrls: ['./screen-orientation-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ScreenOrientationPageComponent {
+export default class ScreenOrientationPageComponent {
+    readonly orientation$ = inject(ScreenOrientationService);
     readonly sample = SAMPLE_TS;
     readonly sampleHtml = SAMPLE_HTML;
-
-    constructor(
-        @Inject(ScreenOrientationService) readonly orientation$: ScreenOrientationService,
-    ) {}
 }

@@ -1,11 +1,16 @@
+import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PAYMENT_METHODS} from '@ng-web-apis/payment-request';
+import {PAYMENT_METHODS, PaymentRequestModule} from '@ng-web-apis/payment-request';
+import {HighlightModule} from 'ngx-highlightjs';
 
 import {DIRECTIVES_SAMPLE} from './samples/directives.sample';
 import {SERVICE_SAMPLE} from './samples/service.sample';
+import {ShopComponent} from './shop/shop.component';
 
 @Component({
+    standalone: true,
     selector: 'payment-request-page',
+    imports: [CommonModule, HighlightModule, PaymentRequestModule, ShopComponent],
     templateUrl: './payment-request-page.component.html',
     styleUrls: ['./payment-request-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
@@ -33,7 +38,7 @@ import {SERVICE_SAMPLE} from './samples/service.sample';
         },
     ],
 })
-export class PaymentRequestPageComponent {
+export default class PaymentRequestPageComponent {
     readonly samples = {
         service: SERVICE_SAMPLE,
         directives: DIRECTIVES_SAMPLE,
