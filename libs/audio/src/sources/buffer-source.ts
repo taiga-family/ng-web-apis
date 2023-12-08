@@ -19,6 +19,7 @@ import {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
 @Directive({
+    standalone: true,
     selector: `[waAudioBufferSourceNode]`,
     inputs: [
         `loop`,

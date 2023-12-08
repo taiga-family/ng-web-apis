@@ -30,7 +30,7 @@ import {WebAudioMediaStreamSource} from './sources/media-stream-source';
 import {WebAudioOscillator} from './sources/oscillator';
 
 @NgModule({
-    declarations: [
+    imports: [
         WebAudioContext,
         WebAudioChannel,
         WebAudioDestination,

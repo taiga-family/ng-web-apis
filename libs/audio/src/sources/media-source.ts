@@ -5,6 +5,7 @@ import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
+    standalone: true,
     selector: `audio[waMediaElementAudioSourceNode], video[waMediaElementAudioSourceNode]`,
     providers: [asAudioNode(WebAudioMediaSource)],
     exportAs: `AudioNode`,

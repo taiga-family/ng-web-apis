@@ -13,6 +13,7 @@ import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {connect} from '../utils/connect';
 
 @Directive({
+    standalone: true,
     selector: `[waScriptProcessorNode]`,
     inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioScriptProcessor)],

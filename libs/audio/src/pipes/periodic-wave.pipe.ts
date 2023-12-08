@@ -3,6 +3,7 @@ import {Inject, Pipe, PipeTransform} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
 @Pipe({
+    standalone: true,
     name: `waPeriodicWave`,
 })
 export class WebAudioPeriodicWavePipe implements PipeTransform {

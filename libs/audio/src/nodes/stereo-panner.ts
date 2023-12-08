@@ -9,6 +9,7 @@ import {parse} from '../utils/parse';
 import {processAudioParam} from '../utils/process-audio-param';
 
 @Directive({
+    standalone: true,
     selector: `[waStereoPannerNode]`,
     inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
     providers: [asAudioNode(WebAudioStereoPanner)],

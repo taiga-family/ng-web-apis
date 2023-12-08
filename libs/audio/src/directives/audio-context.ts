@@ -4,6 +4,7 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {latencyHintFactory} from '../utils/latency-hint-factory';
 
 @Directive({
+    standalone: true,
     selector: `[waAudioContext]`,
     providers: [
         {
