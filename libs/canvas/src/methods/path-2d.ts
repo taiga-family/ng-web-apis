@@ -4,6 +4,7 @@ import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 
 @Directive({
+    standalone: true,
     selector: `canvas-path[path]`,
     providers: [DrawService],
 })

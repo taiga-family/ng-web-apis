@@ -1,6 +1,7 @@
 import {Directive, Input} from '@angular/core';
 
 @Directive({
+    standalone: true,
     selector: '[waPaymentItem][paymentAmount][paymentLabel]',
 })
 export class PaymentItemDirective implements PaymentItem {

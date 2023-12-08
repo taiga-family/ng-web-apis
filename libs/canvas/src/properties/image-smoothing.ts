@@ -4,6 +4,7 @@ import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
+    standalone: true,
     selector:
         `canvas-draw-image[imageSmoothingEnabled],canvas-draw-image[imageSmoothingQuality],` +
         `canvas-path[imageSmoothingEnabled],canvas-path[imageSmoothingQuality],` +

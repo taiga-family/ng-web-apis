@@ -1,6 +1,3 @@
-/**
- * Public API Surface of @ng-web-apis/audio
- */
 export * from './decorators/audio-param';
 export * from './directives/audio-context';
 export * from './directives/channel';

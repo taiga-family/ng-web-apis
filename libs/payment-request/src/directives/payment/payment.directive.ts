@@ -4,6 +4,7 @@ import {PaymentShippingOption} from '../../tokens/payment-options';
 import {PaymentItemDirective} from '../payment-item/payment-item.directive';
 
 @Directive({
+    standalone: true,
     selector: '[waPayment][paymentTotal]',
 })
 export class PaymentDirective implements PaymentDetailsInit {

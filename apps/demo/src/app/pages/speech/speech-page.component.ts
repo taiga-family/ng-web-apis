@@ -7,9 +7,10 @@ import {
     skipUntilSaid,
     SPEECH_SYNTHESIS_VOICES,
     SpeechRecognitionService,
-    SpeechSynthesisModule,
     SpeechSynthesisUtteranceOptions,
     takeUntilSaid,
+    TextToSpeechDirective,
+    UtterancePipe,
 } from '@ng-web-apis/speech';
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
 import {TuiContextWithImplicit, TuiLetModule, tuiPure} from '@taiga-ui/cdk';
@@ -37,7 +38,8 @@ import {filter, map, share} from 'rxjs/operators';
         TuiLabelModule,
         TuiTooltipModule,
         TuiSidebarModule,
-        SpeechSynthesisModule,
+        TextToSpeechDirective,
+        UtterancePipe,
     ],
     templateUrl: './speech-page.component.html',
     styleUrls: ['./speech-page.component.less'],

@@ -1,8 +1,8 @@
 import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
+import {TextToSpeechDirective, UtterancePipe} from '@ng-web-apis/speech';
 
 import {SpeechSynthesisUtteranceOptions} from '../src/interfaces/speech-synthesis-utterance-options';
-import {SpeechSynthesisModule} from '../src/modules/speech-synthesis/speech-synthesis.module';
 
 describe(`SpeechSynthesis`, () => {
     @Component({
@@ -41,7 +41,7 @@ describe(`SpeechSynthesis`, () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [SpeechSynthesisModule],
+            imports: [TextToSpeechDirective, UtterancePipe],
             declarations: [TestComponent],
         });
 

@@ -5,6 +5,7 @@ import {DrawService} from '../services/draw.service';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
 @Directive({
+    standalone: true,
     selector: `canvas[waCanvas2d]`,
     providers: [
         {

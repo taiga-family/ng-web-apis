@@ -5,6 +5,7 @@ import {ClipPathComponent} from '../methods/clip-path';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
+    standalone: true,
     selector:
         `canvas-draw-image[clip],canvas-draw-image[clipFillRule],` +
         `canvas-path[clip],canvas-path[clipFillRule],` +

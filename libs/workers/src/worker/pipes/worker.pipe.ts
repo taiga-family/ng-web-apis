@@ -6,6 +6,7 @@ import {toData} from '../operators/to-data';
 import {WorkerFunction} from '../types/worker-function';
 
 @Pipe({
+    standalone: true,
     name: `waWorker`,
 })
 export class WorkerPipe implements PipeTransform, OnDestroy {

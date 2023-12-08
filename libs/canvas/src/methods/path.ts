@@ -5,6 +5,7 @@ import {DrawService} from '../services/draw.service';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Directive({
+    standalone: true,
     selector: `canvas-path:not([path])`,
     providers: [DrawService],
 })

@@ -9,6 +9,7 @@ import {isError} from '../../utils/is-error';
 import {PaymentDirective} from '../payment/payment.directive';
 
 @Directive({
+    standalone: true,
     selector: '[waPaymentSubmit]',
 })
 export class PaymentSubmitDirective {

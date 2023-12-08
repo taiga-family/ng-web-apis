@@ -2,6 +2,7 @@ import {Directive, EventEmitter, Inject, Input, OnChanges, Output} from '@angula
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({
+    standalone: true,
     selector: '[waTextToSpeech]',
 })
 export class TextToSpeechDirective implements OnChanges {
