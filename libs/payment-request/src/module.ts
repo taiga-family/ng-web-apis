@@ -5,7 +5,7 @@ import {PaymentItemDirective} from './directives/payment-item/payment-item.direc
 import {PaymentSubmitDirective} from './directives/payment-submit/payment-submit.directive';
 
 @NgModule({
-    declarations: [PaymentDirective, PaymentItemDirective, PaymentSubmitDirective],
+    imports: [PaymentDirective, PaymentItemDirective, PaymentSubmitDirective],
     exports: [PaymentDirective, PaymentItemDirective, PaymentSubmitDirective],
 })
 export class PaymentRequestModule {}

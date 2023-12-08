@@ -2,8 +2,8 @@ import {Pipe, PipeTransform} from '@angular/core';
 import {AudioParamInput} from '@ng-web-apis/audio';
 
 @Pipe({
-    name: `adsr`,
     standalone: true,
+    name: `adsr`,
 })
 export class AdsrPipe implements PipeTransform {
     transform(

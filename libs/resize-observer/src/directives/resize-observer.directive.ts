@@ -5,6 +5,7 @@ import {ResizeObserverService} from '../services/resize-observer.service';
 import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
 
 @Directive({
+    standalone: true,
     selector: '[waResizeObserver]',
     outputs: ['waResizeObserver'],
     providers: [

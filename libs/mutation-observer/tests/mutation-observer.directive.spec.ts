@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {MutationObserverModule} from '../src/module';
+import {MutationObserverDirective} from '@ng-web-apis/mutation-observer';
 
 describe(`MutationObserverDirective`, () => {
     @Component({
@@ -40,7 +39,7 @@ describe(`MutationObserverDirective`, () => {
 
     beforeEach(done => {
         TestBed.configureTestingModule({
-            imports: [MutationObserverModule],
+            imports: [MutationObserverDirective],
             declarations: [TestComponent],
         });
 

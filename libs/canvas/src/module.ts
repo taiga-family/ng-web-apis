@@ -30,15 +30,13 @@ import {TextDrawingStylesDirective} from './properties/text-drawing-styles';
 import {TransformDirective} from './properties/transform';
 
 @NgModule({
-    declarations: [
+    imports: [
         Canvas2dDirective,
-
         ClipPathComponent,
         DrawImageDirective,
         PathDirective,
         Path2dDirective,
         TextDirective,
-
         ArcDirective,
         ArcToDirective,
         BezierCurveToDirective,
@@ -47,7 +45,6 @@ import {TransformDirective} from './properties/transform';
         MoveToDirective,
         QuadraticCurveToDirective,
         RectDirective,
-
         ClipDirective,
         CompositingDirective,
         FillStrokeStylesDirective,
@@ -57,7 +54,6 @@ import {TransformDirective} from './properties/transform';
         ShadowStylesDirective,
         TextDrawingStylesDirective,
         TransformDirective,
-
         GradientPipe,
         PathPipe,
         PatternPipe,
@@ -66,13 +62,11 @@ import {TransformDirective} from './properties/transform';
     ],
     exports: [
         Canvas2dDirective,
-
         ClipPathComponent,
         DrawImageDirective,
         PathDirective,
         Path2dDirective,
         TextDirective,
-
         ArcDirective,
         ArcToDirective,
         BezierCurveToDirective,
@@ -81,7 +75,6 @@ import {TransformDirective} from './properties/transform';
         MoveToDirective,
         QuadraticCurveToDirective,
         RectDirective,
-
         ClipDirective,
         CompositingDirective,
         FillStrokeStylesDirective,
@@ -90,7 +83,6 @@ import {TransformDirective} from './properties/transform';
         PathDrawingStylesDirective,
         ShadowStylesDirective,
         TextDrawingStylesDirective,
-
         GradientPipe,
         PathPipe,
         PatternPipe,

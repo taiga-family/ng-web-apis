@@ -1,7 +1,6 @@
 import {Component} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {ResizeObserverModule} from '../src/module';
+import {ResizeObserverDirective} from '@ng-web-apis/resize-observer';
 
 describe(`ResizeObserverDirective`, () => {
     @Component({
@@ -28,7 +27,7 @@ describe(`ResizeObserverDirective`, () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [ResizeObserverModule],
+            imports: [ResizeObserverDirective],
             declarations: [TestComponent],
         });
 

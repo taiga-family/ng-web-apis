@@ -5,7 +5,7 @@ import {IntersectionObserverDirective} from './directives/intersection-observer.
 import {IntersectionRootDirective} from './directives/intersection-root.directive';
 
 @NgModule({
-    declarations: [
+    imports: [
         IntersectionObserverDirective,
         IntersectionObserveeDirective,
         IntersectionRootDirective,

@@ -3,13 +3,13 @@ import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {
     RESIZE_OBSERVER_SUPPORT,
-    ResizeObserverModule,
+    ResizeObserverDirective,
 } from '@ng-web-apis/resize-observer';
 
 @Component({
     standalone: true,
     selector: 'resize-observer-page',
-    imports: [CommonModule, FormsModule, ResizeObserverModule],
+    imports: [CommonModule, FormsModule, ResizeObserverDirective],
     templateUrl: './resize-observer-page.component.html',
     styleUrls: ['./resize-observer-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

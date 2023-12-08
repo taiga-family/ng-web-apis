@@ -4,6 +4,7 @@ import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
+    standalone: true,
     selector: `canvas[transform],canvas-draw-image[transform],canvas-path[transform],canvas-text[transform]`,
     providers: [asCanvasProperty(TransformDirective)],
 })

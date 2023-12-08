@@ -4,6 +4,7 @@ import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
+    standalone: true,
     selector:
         `canvas-path[fillStyle],canvas-path[strokeStyle],` +
         `canvas-text[fillStyle],canvas-text[strokeStyle]`,

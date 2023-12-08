@@ -1,6 +1,6 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
-import {toData, WebWorker, WorkerModule} from '@ng-web-apis/workers';
+import {toData, WebWorker, WorkerPipe} from '@ng-web-apis/workers';
 import {TuiButtonModule, TuiNotificationModule} from '@taiga-ui/core';
 import {Subject} from 'rxjs';
 import {map} from 'rxjs/operators';
@@ -22,7 +22,7 @@ function startCompute(): number {
     selector: 'workers-page',
     imports: [
         CommonModule,
-        WorkerModule,
+        WorkerPipe,
         TuiButtonModule,
         TuiNotificationModule,
         ClockComponent,

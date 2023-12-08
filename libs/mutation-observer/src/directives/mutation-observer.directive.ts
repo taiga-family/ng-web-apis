@@ -13,6 +13,7 @@ import {MUTATION_OBSERVER_INIT} from '../tokens/mutation-observer-init';
 import {mutationObserverInitFactory} from '../utils/mutation-observer-init-factory';
 
 @Directive({
+    standalone: true,
     selector: '[waMutationObserver]',
     providers: [
         {

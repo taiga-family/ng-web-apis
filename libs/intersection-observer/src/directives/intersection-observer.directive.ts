@@ -13,6 +13,7 @@ import {rootMarginFactory} from '../utils/root-margin-factory';
 import {thresholdFactory} from '../utils/threshold-factory';
 
 @Directive({
+    standalone: true,
     selector: '[waIntersectionObserver]',
     exportAs: 'IntersectionObserver',
 })
