@@ -385,9 +385,13 @@ not support it
 
 ## Angular Universal
 
-If you want to use this package with SSR, you need to mock native Web Audio API classes on the server. You can use our
-Universal package for this, see
-[this example](https://github.com/taiga-family/ng-web-apis/tree/main/libs/universal#mocks).
+If you want to use this package with SSR, you need to mock native Web Audio API classes on the server:
+
+```ts
+import '@ng-web-apis/audio/mocks';
+```
+
+> It is recommended to keep the import statement at the top of your `server.ts` or `main.server.ts` file.
 
 ## Demo
 
