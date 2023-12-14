@@ -11,7 +11,6 @@ describe(`IntersectionObserverService`, () => {
             {
                 nativeElement,
             },
-            true,
             `0px 0px 0px 0px`,
             0,
             {
@@ -31,26 +30,5 @@ describe(`IntersectionObserverService`, () => {
             expect(called).toBe(true);
             done();
         });
-    });
-
-    it(`throws when not supported`, () => {
-        let error = false;
-        const service = new IntersectionObserverService(
-            {
-                nativeElement: document.createElement(`DIV`),
-            },
-            false,
-            `0px 0px 0px 0px`,
-            0,
-            null,
-        );
-
-        service.subscribe({
-            error: () => {
-                error = true;
-            },
-        });
-
-        expect(error).toBe(true);
     });
 });
