@@ -34,19 +34,6 @@ npm i @ng-web-apis/intersection-observer
    > **NOTE:** Keep in mind these are used one time in constructor so you cannot use binding, only strings. Pass comma
    > separated numbers to set an array of thresholds.
 
-### Usage with Jest
-
-DOM environment provided by Jest does not emulate IntersectionObserver API and need to be mocked. You can add the
-following line to your `setup.ts`:
-
-```ts
-// setup.ts
-import '@ng-web-apis/universal/mocks';
-```
-
-to use mocks from [@ng-web-apis/universal](https://github.com/taiga-family/ng-web-apis/tree/main/libs/universal#mocks)
-package.
-
 ## Examples
 
 Observing multiple elements intersecting with viewport using single observer
