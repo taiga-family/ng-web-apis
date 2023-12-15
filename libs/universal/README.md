@@ -17,16 +17,6 @@ provide the same functionality on the server side as you have in browser. In oth
 and you can at least be sure you will not have `cannot read propery of null` or `undefined is not a function` errors in
 SSR.
 
-## Mocks
-
-Add following line to your `server.ts` to mock native classes used in other @ng-web-apis packages:
-
-```ts
-import '@ng-web-apis/universal/mocks';
-```
-
-> It is recommended to keep the import statement at the top of your `server.ts` file
-
 ## Tokens
 
 You can provide tokens from this package into your `app.server.module.ts` to have type safe mocks for global objects on

@@ -1,26 +1,6 @@
 (function () {
     'use strict';
 
-    // Mutation Observer API
-    global.MutationObserver = class {
-        observe() {}
-        disconnect() {}
-        takeRecords() {
-            return [];
-        }
-    };
-
-    // Intersection Observer API
-    global.IntersectionObserver = class {
-        observe() {}
-        unobserve() {}
-        disconnect() {}
-        takeRecords() {
-            return [];
-        }
-    };
-
-    // Web Audio API
     global.AudioContext = class {};
     global.OfflineAudioContext = class {};
     global.AudioBufferSourceNode = class {};

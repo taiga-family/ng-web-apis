@@ -1,4 +1,4 @@
-import '@ng-web-apis/universal/mocks';
+import '@ng-web-apis/audio/mocks';
 import 'zone.js/node';
 
 import {APP_BASE_HREF} from '@angular/common';
