@@ -13,7 +13,7 @@ import {latencyHintFactory} from '../utils/latency-hint-factory';
         },
     ],
 })
-export class WebAudioContext extends globalThis.AudioContext implements OnDestroy {
+export class WebAudioContext extends AudioContext implements OnDestroy {
     constructor(
         @Attribute(`latencyHint`) latencyHint: AudioContextLatencyCategory | null,
         @Attribute(`sampleRate`) sampleRate: string | null,
