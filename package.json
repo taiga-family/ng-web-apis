@@ -151,7 +151,7 @@
         "karma-coverage": "2.2.1",
         "karma-jasmine": "5.1.0",
         "karma-jasmine-html-reporter": "2.1.0",
-        "lerna": "8.0.0",
+        "lerna": "8.0.1",
         "lint-staged": "15.2.0",
         "markdown-it": "14.0.0",
         "marked": "11.1.0",
