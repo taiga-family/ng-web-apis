@@ -2,8 +2,9 @@ import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {NgModule, SecurityContext} from '@angular/core';
 import {BrowserModule} from '@angular/platform-browser';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
-import {ServiceWorkerModule} from '@angular/service-worker';
+import {ServiceWorkerModule, SwPush} from '@angular/service-worker';
 import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
+import {provideSwPush} from '@ng-web-apis/notification';
 import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
 import {HIGHLIGHT_OPTIONS, HighlightModule} from 'ngx-highlightjs';
 import {MarkdownModule} from 'ngx-markdown';
@@ -35,6 +36,7 @@ import {AppRoutingModule} from './app.routes';
     ],
     declarations: [AppComponent],
     providers: [
+        provideSwPush(SwPush),
         {
             provide: HIGHLIGHT_OPTIONS,
             useValue: {fullLibraryLoader: async () => import(`highlight.js`)},

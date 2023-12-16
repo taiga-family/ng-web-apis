@@ -146,9 +146,9 @@
             instance after its successful creation.
 
             <p>
-                Use rxjs function
+                Use
                 <code>fromEvent</code>
-                to listen events that can be triggered on the
+                method to listen events that can be triggered on the
                 <code>Notification</code>
                 instance.
                 <br />
@@ -163,6 +163,28 @@
                 </a>
                 .
             </p>
+
+            <tui-notification status="warning">
+                Notifications spawned by Service Worker support only
+                <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclick_event"
+                    rel="noreferrer"
+                    target="_blank"
+                    tuiLink
+                >
+                    <code>click</code>
+                </a>
+                and
+                <a
+                    href="https://developer.mozilla.org/en-US/docs/Web/API/ServiceWorkerGlobalScope/notificationclose_event"
+                    rel="noreferrer"
+                    target="_blank"
+                    tuiLink
+                >
+                    <code>close</code>
+                </a>
+                events!
+            </tui-notification>
         </ng-template>
 
         <tui-notification
