@@ -5,9 +5,9 @@ import {first} from 'rxjs/operators';
 import {ANIMATION_FRAME} from '../src/tokens/animation-frame';
 
 describe(`ANIMATION_FRAME`, () => {
-    it(`passes DOMHighResTimeStamp to the subscriber`, done => {
-        TestBed.configureTestingModule({});
+    beforeEach(async () => TestBed.configureTestingModule({}).compileComponents());
 
+    it(`passes DOMHighResTimeStamp to the subscriber`, done => {
         const animationFrame$: Observable<DOMHighResTimeStamp> =
             TestBed.inject(ANIMATION_FRAME);
 
