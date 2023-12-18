@@ -10,44 +10,44 @@ import {parse} from '../utils/parse';
 
 @Directive({
     standalone: true,
-    selector: `[waDynamicsCompressorNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waDynamicsCompressorNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioDynamicsCompressor)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioDynamicsCompressor
     extends DynamicsCompressorNode
     implements OnDestroy
 {
-    @Input(`attack`)
-    @audioParam(`attack`)
+    @Input('attack')
+    @audioParam('attack')
     attackParam?: AudioParamInput;
 
-    @Input(`knee`)
-    @audioParam(`knee`)
+    @Input('knee')
+    @audioParam('knee')
     kneeParam?: AudioParamInput;
 
-    @Input(`ratio`)
-    @audioParam(`ratio`)
+    @Input('ratio')
+    @audioParam('ratio')
     ratioParam?: AudioParamInput;
 
-    @Input(`release`)
-    @audioParam(`release`)
+    @Input('release')
+    @audioParam('release')
     releaseParam?: AudioParamInput;
 
-    @Input(`threshold`)
-    @audioParam(`threshold`)
+    @Input('threshold')
+    @audioParam('threshold')
     thresholdParam?: AudioParamInput;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute(`attack`) attackArg: string | null,
-        @Attribute(`knee`) kneeArg: string | null,
-        @Attribute(`ratio`) ratioArg: string | null,
-        @Attribute(`release`) releaseArg: string | null,
-        @Attribute(`threshold`) thresholdArg: string | null,
+        @Attribute('attack') attackArg: string | null,
+        @Attribute('knee') kneeArg: string | null,
+        @Attribute('ratio') ratioArg: string | null,
+        @Attribute('release') releaseArg: string | null,
+        @Attribute('threshold') thresholdArg: string | null,
     ) {
         const attack = parse(attackArg, 0.003);
         const knee = parse(kneeArg, 30);

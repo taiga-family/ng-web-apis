@@ -6,7 +6,7 @@ import {WebAudioWorklet} from '../src/nodes/worklet';
 import {AUDIO_WORKLET_PROCESSORS} from '../src/tokens/audio-worklet-processors';
 import {AUDIO_WORKLET_PROCESSORS_READY} from '../src/tokens/audio-worklet-processors-ready';
 
-describe(`AudioWorkletNode`, () => {
+describe('AudioWorkletNode', () => {
     @Component({
         template: `
             <div
@@ -35,7 +35,7 @@ describe(`AudioWorkletNode`, () => {
             providers: [
                 {
                     provide: AUDIO_WORKLET_PROCESSORS,
-                    useValue: [`base/test.js`],
+                    useValue: ['base/test.js'],
                 },
             ],
         });
@@ -50,7 +50,7 @@ describe(`AudioWorkletNode`, () => {
     });
 
     // TODO: need investigate why
-    xit(`creates node`, () => {
+    xit('creates node', () => {
         expect(testComponent.node instanceof AudioWorkletNode).toBe(true);
     });
 });

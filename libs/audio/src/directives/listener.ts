@@ -8,43 +8,43 @@ import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
 @Directive({
     standalone: true,
-    selector: `[waAudioContext],[waOfflineAudioContext][length][sampleRate]`,
+    selector: '[waAudioContext],[waOfflineAudioContext][length][sampleRate]',
 })
 export class WebAudioListener extends GainNode implements OnChanges {
-    @Input(`forwardX`)
-    @audioParam(`forwardX`)
+    @Input('forwardX')
+    @audioParam('forwardX')
     forwardXParam?: AudioParamInput;
 
-    @Input(`forwardY`)
-    @audioParam(`forwardY`)
+    @Input('forwardY')
+    @audioParam('forwardY')
     forwardYParam?: AudioParamInput;
 
-    @Input(`forwardZ`)
-    @audioParam(`forwardZ`)
+    @Input('forwardZ')
+    @audioParam('forwardZ')
     forwardZParam?: AudioParamInput;
 
-    @Input(`positionX`)
-    @audioParam(`positionX`)
+    @Input('positionX')
+    @audioParam('positionX')
     positionXParam?: AudioParamInput;
 
-    @Input(`positionY`)
-    @audioParam(`positionY`)
+    @Input('positionY')
+    @audioParam('positionY')
     positionYParam?: AudioParamInput;
 
-    @Input(`positionZ`)
-    @audioParam(`positionZ`)
+    @Input('positionZ')
+    @audioParam('positionZ')
     positionZParam?: AudioParamInput;
 
-    @Input(`upX`)
-    @audioParam(`upX`)
+    @Input('upX')
+    @audioParam('upX')
     upXParam?: AudioParamInput;
 
-    @Input(`upY`)
-    @audioParam(`upY`)
+    @Input('upY')
+    @audioParam('upY')
     upYParam?: AudioParamInput;
 
-    @Input(`upZ`)
-    @audioParam(`upZ`)
+    @Input('upZ')
+    @audioParam('upZ')
     upZParam?: AudioParamInput;
 
     constructor(

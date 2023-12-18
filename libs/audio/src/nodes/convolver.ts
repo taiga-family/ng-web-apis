@@ -1,6 +1,5 @@
 import {Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
-import {of, Subject} from 'rxjs';
-import {switchMap} from 'rxjs/operators';
+import {of, Subject, switchMap} from 'rxjs';
 
 import {AudioBufferService} from '../services/audio-buffer.service';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -10,13 +9,13 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waConvolverNode]`,
-    inputs: [`normalize`, `channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waConvolverNode]',
+    inputs: ['normalize', 'channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioConvolver)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
-    @Input(`buffer`)
+    @Input('buffer')
     set bufferSetter(source: AudioBuffer | string | null) {
         this.buffer$.next(source);
     }
@@ -53,7 +52,7 @@ export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
             .pipe(
                 // eslint-disable-next-line @typescript-eslint/promise-function-async
                 switchMap(source =>
-                    typeof source === `string`
+                    typeof source === 'string'
                         ? audioBufferService.fetch(source)
                         : of(source),
                 ),

@@ -8,7 +8,7 @@ declare global {
 }
 
 export const PAYMENT_REQUEST_SUPPORT = new InjectionToken<boolean>(
-    `[PAYMENT_REQUEST_SUPPORT]: Is Payment Request Api supported?`,
+    '[PAYMENT_REQUEST_SUPPORT]: Is Payment Request Api supported?',
     {
         factory: () => !!inject(WINDOW).PaymentRequest,
     },

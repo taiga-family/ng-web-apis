@@ -5,7 +5,7 @@ import {WINDOW} from './window';
 export const SPEECH_RECOGNITION = new InjectionToken<
     // @ts-ignore
     (typeof window)['speechRecognition'] | null
->(`[SPEECH_RECOGNITION]: An abstraction over SpeechRecognition class`, {
+>('[SPEECH_RECOGNITION]: An abstraction over SpeechRecognition class', {
     factory: () => {
         const windowRef: any = inject(WINDOW);
 

@@ -2,8 +2,8 @@ import {TestBed} from '@angular/core/testing';
 
 import {SPEECH_RECOGNITION} from '../src/tokens/speech-recognition';
 
-describe(`SPEECH_RECOGNITION`, () => {
-    it(`injects webkitSpeechRecognition class`, () => {
+describe('SPEECH_RECOGNITION', () => {
+    it('injects webkitSpeechRecognition class', () => {
         TestBed.configureTestingModule({});
 
         expect(TestBed.inject(SPEECH_RECOGNITION)).toBe(
@@ -11,7 +11,7 @@ describe(`SPEECH_RECOGNITION`, () => {
         );
     });
 
-    it(`injects null when browser does not support SpeechRecognition`, () => {
+    it('injects null when browser does not support SpeechRecognition', () => {
         TestBed.configureTestingModule({});
 
         const speechRecognition = (globalThis as any).webkitSpeechRecognition;

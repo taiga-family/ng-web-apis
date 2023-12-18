@@ -5,8 +5,8 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
     standalone: true,
-    selector: `[waChannel]`,
-    exportAs: `AudioNode`,
+    selector: '[waChannel]',
+    exportAs: 'AudioNode',
 })
 export class WebAudioChannel extends GainNode implements OnDestroy {
     constructor(

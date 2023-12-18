@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioContext} from '../src/directives/audio-context';
 import {WebAudioModule} from '../src/module';
 
-describe(`Listener`, () => {
-    describe(`AudioListener`, () => {
+describe('Listener', () => {
+    describe('AudioListener', () => {
         @Component({
             template: `
                 <div
@@ -44,12 +44,12 @@ describe(`Listener`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.context.listener instanceof AudioListener).toBe(true);
         });
     });
 
-    describe(`AudioListener factory fallback`, () => {
+    describe('AudioListener factory fallback', () => {
         @Component({
             template: `
                 <div
@@ -88,7 +88,7 @@ describe(`Listener`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.context.listener instanceof AudioListener).toBe(true);
         });
     });

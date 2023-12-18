@@ -14,10 +14,10 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
     standalone: true,
-    selector: `[waChannelMergerNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waChannelMergerNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioChannelMerger)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestroy {
     @ContentChildren(WebAudioChannel, {descendants: false})
@@ -28,11 +28,11 @@ export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestro
     }
 
     constructor(
-        @Attribute(`numberOfInputs`) inputs: string | null,
+        @Attribute('numberOfInputs') inputs: string | null,
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
     ) {
-        const numberOfInputs = parseInt(inputs || ``, 10) || 6;
+        const numberOfInputs = parseInt(inputs || '', 10) || 6;
 
         if (modern) {
             super(context, {numberOfInputs});

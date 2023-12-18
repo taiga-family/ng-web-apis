@@ -1,7 +1,7 @@
 import {ExistingProvider, InjectionToken, Type} from '@angular/core';
 
 export const AUDIO_NODE = new InjectionToken<AudioNode | null>(
-    `[AUDIO_NODE]: Web Audio API audio node`,
+    '[AUDIO_NODE]: Web Audio API audio node',
     {
         factory: () => null,
     },

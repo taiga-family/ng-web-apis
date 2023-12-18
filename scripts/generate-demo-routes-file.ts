@@ -12,19 +12,19 @@ import {infoLog, SMALL_TAB_SYMBOL, titleLog} from './helpers/colored-log';
  */
 (function main(): void {
     const demoPathEnumContent = readFileSync(
-        join(process.cwd(), `apps`, `demo`, `src`, `app`, `constants`, `demo-path.ts`),
-        `utf-8`,
+        join(process.cwd(), 'apps', 'demo', 'src', 'app', 'constants', 'demo-path.ts'),
+        'utf-8',
     );
     const routes =
         demoPathEnumContent
             .match(/['"`](.*)['"`]/g)
-            ?.map(route => route.replace(/['"`]/g, ``)) || [];
+            ?.map(route => route.replace(/['"`]/g, '')) || [];
 
-    titleLog(`Generated routes:`);
+    titleLog('Generated routes:');
     routes.forEach(route => infoLog(`${SMALL_TAB_SYMBOL}* ${route}`));
 
     writeFileSync(
-        join(process.cwd(), `apps`, `demo`, `routesFile.txt`),
-        routes?.join(`\n`) || ``,
+        join(process.cwd(), 'apps', 'demo', 'routesFile.txt'),
+        routes?.join('\n') || '',
     );
 })();

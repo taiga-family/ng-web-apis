@@ -1,15 +1,14 @@
 import {Inject, Injectable} from '@angular/core';
-import {defer, fromEvent, Observable, throwError} from 'rxjs';
-import {takeUntil} from 'rxjs/operators';
+import {defer, fromEvent, Observable, takeUntil, throwError} from 'rxjs';
 
 import {NOTIFICATION_SUPPORT} from '../tokens/support';
 
 const NOT_SUPPORTED_ERROR$ = throwError(
-    () => new Error(`Notification API is not supported in your browser`),
+    () => new Error('Notification API is not supported in your browser'),
 );
 
 @Injectable({
-    providedIn: `root`,
+    providedIn: 'root',
 })
 export class NotificationService {
     constructor(@Inject(NOTIFICATION_SUPPORT) private readonly support: boolean) {}
@@ -38,7 +37,7 @@ export class NotificationService {
 
         return defer(() => {
             const notification = new Notification(title, options);
-            const close$ = fromEvent(notification, `close`);
+            const close$ = fromEvent(notification, 'close');
 
             return new Observable<Notification>(subscriber => {
                 subscriber.next(notification);

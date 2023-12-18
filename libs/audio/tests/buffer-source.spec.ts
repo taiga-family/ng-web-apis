@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioBufferSource} from '../src/sources/buffer-source';
 
-describe(`BufferSource`, () => {
-    describe(`AudioBufferSourceNode`, () => {
+describe('BufferSource', () => {
+    describe('AudioBufferSourceNode', () => {
         @Component({
             template: `
                 <div waAudioBufferSourceNode></div>
@@ -31,12 +31,12 @@ describe(`BufferSource`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof AudioBufferSourceNode).toBe(true);
         });
     });
 
-    describe(`AudioBufferSourceNode factory fallback`, () => {
+    describe('AudioBufferSourceNode factory fallback', () => {
         @Component({
             template: `
                 <div waAudioBufferSourceNode></div>
@@ -62,7 +62,7 @@ describe(`BufferSource`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof AudioBufferSourceNode).toBe(true);
         });
     });

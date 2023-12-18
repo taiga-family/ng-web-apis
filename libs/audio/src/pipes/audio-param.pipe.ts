@@ -6,7 +6,7 @@ import {AudioParamCurve} from '../types/audio-param-curve';
 
 @Pipe({
     standalone: true,
-    name: `waAudioParam`,
+    name: 'waAudioParam',
 })
 export class WebAudioParamPipe implements PipeTransform {
     /**
@@ -19,7 +19,7 @@ export class WebAudioParamPipe implements PipeTransform {
     transform(
         value: number[] | number,
         duration: number,
-        mode: AudioParamAutomationMode = `exponential`,
+        mode: AudioParamAutomationMode = 'exponential',
     ): AudioParamAutomation | AudioParamCurve {
         return value instanceof Array
             ? {

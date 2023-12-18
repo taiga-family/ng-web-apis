@@ -6,12 +6,12 @@ import {WebAudioMediaStreamSource} from '../src/sources/media-stream-source';
 import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
 import {MEDIA_STREAM} from '../src/tokens/media-stream';
 
-describe(`MediaStream`, () => {
+describe('MediaStream', () => {
     const context = new AudioContext();
     const destination = new MediaStreamAudioDestinationNode(context);
     const STREAM = destination.stream;
 
-    describe(`MediaStreamAudioSourceNode`, () => {
+    describe('MediaStreamAudioSourceNode', () => {
         @Component({
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
@@ -42,12 +42,12 @@ describe(`MediaStream`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof MediaStreamAudioSourceNode).toBe(true);
         });
     });
 
-    describe(`MediaStreamAudioSourceNode factory fallback`, () => {
+    describe('MediaStreamAudioSourceNode factory fallback', () => {
         @Component({
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
@@ -82,7 +82,7 @@ describe(`MediaStream`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof MediaStreamAudioSourceNode).toBe(true);
         });
     });

@@ -10,15 +10,15 @@ import {processAudioParam} from '../utils/process-audio-param';
 
 @Directive({
     standalone: true,
-    selector: `[waStereoPannerNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waStereoPannerNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioStereoPanner)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy {
-    @Input(`pan`)
+    @Input('pan')
     set panParam(pan: AudioParamInput) {
-        if (`setPosition` in this) {
+        if ('setPosition' in this) {
             /** fallback for browsers not supporting {@link StereoPannerNode} */
             // @ts-ignore
             this.fallbackToPannerNode(fallbackAudioParam(pan));
@@ -30,7 +30,7 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Attribute(`pan`) panArg: string | null,
+        @Attribute('pan') panArg: string | null,
     ) {
         const pan = parse(panArg, 0);
 

@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioOscillator} from '../src/sources/oscillator';
 
-describe(`Oscillator`, () => {
-    describe(`OscillatorNode`, () => {
+describe('Oscillator', () => {
+    describe('OscillatorNode', () => {
         @Component({
             template: `
                 <div waOscillatorNode></div>
@@ -31,12 +31,12 @@ describe(`Oscillator`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof OscillatorNode).toBe(true);
         });
     });
 
-    describe(`OscillatorNode factory fallback`, () => {
+    describe('OscillatorNode factory fallback', () => {
         @Component({
             template: `
                 <div waOscillatorNode></div>
@@ -62,7 +62,7 @@ describe(`Oscillator`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof OscillatorNode).toBe(true);
         });
     });

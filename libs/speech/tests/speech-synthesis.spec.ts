@@ -4,7 +4,7 @@ import {TextToSpeechDirective, UtterancePipe} from '@ng-web-apis/speech';
 
 import {SpeechSynthesisUtteranceOptions} from '../src/interfaces/speech-synthesis-utterance-options';
 
-describe(`SpeechSynthesis`, () => {
+describe('SpeechSynthesis', () => {
     @Component({
         template: `
             <ng-container
@@ -22,18 +22,18 @@ describe(`SpeechSynthesis`, () => {
         `,
     })
     class TestComponent {
-        text = `Test 1`;
+        text = 'Test 1';
         options?: SpeechSynthesisUtteranceOptions;
         paused = true;
-        readonly utterance = new SpeechSynthesisUtterance(`Test 2`);
+        readonly utterance = new SpeechSynthesisUtterance('Test 2');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onError = jasmine.createSpy(`onError`);
+        readonly onError = jasmine.createSpy('onError');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onMark = jasmine.createSpy(`onMark`);
+        readonly onMark = jasmine.createSpy('onMark');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onBoundary = jasmine.createSpy(`onBoundary`);
+        readonly onBoundary = jasmine.createSpy('onBoundary');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onEnd = jasmine.createSpy(`onEnd`);
+        readonly onEnd = jasmine.createSpy('onEnd');
     }
 
     let fixture: ComponentFixture<TestComponent>;
@@ -50,32 +50,32 @@ describe(`SpeechSynthesis`, () => {
         fixture.detectChanges();
     });
 
-    it(`Throws error when not allowed`, () => {
-        expect(testComponent.onError).toHaveBeenCalledWith(`not-allowed`);
+    it('Throws error when not allowed', () => {
+        expect(testComponent.onError).toHaveBeenCalledWith('not-allowed');
 
         // Just to cover both missing and empty argument branches
         testComponent.options = {};
         fixture.detectChanges();
     });
 
-    it(`Accepts options`, () => {
+    it('Accepts options', () => {
         testComponent.paused = false;
         testComponent.options = {
             voice: null,
             rate: 1,
             pitch: 1,
             volume: 1,
-            lang: `en-EN`,
+            lang: 'en-EN',
         };
         fixture.detectChanges();
 
-        expect(testComponent.onError).toHaveBeenCalledWith(`not-allowed`);
+        expect(testComponent.onError).toHaveBeenCalledWith('not-allowed');
     });
 
-    it(`Emits events`, () => {
-        testComponent.utterance.onmark!(`a` as any);
-        testComponent.utterance.onboundary!(`b` as any);
-        testComponent.utterance.onend!(`c` as any);
+    it('Emits events', () => {
+        testComponent.utterance.onmark!('a' as any);
+        testComponent.utterance.onboundary!('b' as any);
+        testComponent.utterance.onend!('c' as any);
 
         expect(testComponent.onMark).toHaveBeenCalled();
         expect(testComponent.onBoundary).toHaveBeenCalled();

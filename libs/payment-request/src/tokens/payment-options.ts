@@ -26,7 +26,7 @@ export interface PaymentShippingOption {
  * @deprecated
  */
 export const PAYMENT_OPTIONS = new InjectionToken<PaymentOptions>(
-    `[PAYMENT_OPTIONS]: Additional data requests from payer`,
+    '[PAYMENT_OPTIONS]: Additional data requests from payer',
     {
         factory: () => ({}),
     },

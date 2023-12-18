@@ -3,7 +3,7 @@ import {Inject, Injectable} from '@angular/core';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
 @Injectable({
-    providedIn: `root`,
+    providedIn: 'root',
 })
 export class AudioBufferService {
     private readonly cache = new Map<string, AudioBuffer>();
@@ -20,8 +20,8 @@ export class AudioBufferService {
 
             const request = new XMLHttpRequest();
 
-            request.open(`GET`, url, true);
-            request.responseType = `arraybuffer`;
+            request.open('GET', url, true);
+            request.responseType = 'arraybuffer';
             request.onerror = reject;
             request.onabort = reject;
 

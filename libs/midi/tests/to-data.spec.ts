@@ -2,10 +2,10 @@ import {of} from 'rxjs';
 
 import {toData} from '../src/operators/to-data';
 
-describe(`toData`, () => {
-    it(`extracts data array`, () => {
+describe('toData', () => {
+    it('extracts data array', () => {
         // @ts-ignore
-        const event = new MIDIMessageEvent(`midimessage`, {
+        const event = new MIDIMessageEvent('midimessage', {
             data: new Uint8Array([1, 2, 3]),
         });
 

@@ -4,7 +4,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {WebAudioModule} from '../src/module';
 import {WebAudioConstantSource} from '../src/sources/constant-source';
 
-describe(`ConstantSourceNode`, () => {
+describe('ConstantSourceNode', () => {
     @Component({
         template: `
             <div waConstantSourceNode></div>
@@ -29,7 +29,7 @@ describe(`ConstantSourceNode`, () => {
         fixture.detectChanges();
     });
 
-    it(`creates node`, () => {
+    it('creates node', () => {
         expect(testComponent.node instanceof ConstantSourceNode).toBe(true);
     });
 });

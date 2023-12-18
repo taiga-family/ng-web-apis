@@ -1,6 +1,14 @@
 import {inject} from '@angular/core';
-import {from, fromEvent, Observable, of} from 'rxjs';
-import {map, shareReplay, startWith, switchMap} from 'rxjs/operators';
+import {
+    from,
+    fromEvent,
+    map,
+    Observable,
+    of,
+    shareReplay,
+    startWith,
+    switchMap,
+} from 'rxjs';
 
 import {MIDI_ACCESS} from '../tokens/midi-access';
 
@@ -12,7 +20,7 @@ export function getPortsStream(
     return from(inject(MIDI_ACCESS).catch(() => null)).pipe(
         switchMap(access =>
             access
-                ? fromEvent(access, `statechange`).pipe(
+                ? fromEvent(access, 'statechange').pipe(
                       map(() => [...access[ports].values()]),
                       startWith([...access[ports].values()]),
                   )

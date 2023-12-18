@@ -4,9 +4,9 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
-describe(`Pipes`, () => {
+describe('Pipes', () => {
     @Component({
-        selector: `canvas`,
+        selector: 'canvas',
         template: `
             <canvas-path
                 [closed]="true"
@@ -29,8 +29,8 @@ describe(`Pipes`, () => {
         img!: HTMLImageElement;
 
         grad = new Map([
-            [0, `red`],
-            [1, `blue`],
+            [0, 'red'],
+            [1, 'blue'],
         ]);
     }
 
@@ -56,7 +56,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
         `,
     })
     class TestComponent {
-        @ViewChild(`canvas`, {read: CANVAS_2D_CONTEXT})
+        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         readonly context!: CanvasRenderingContext2D;
     }
 
@@ -74,7 +74,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
         fixture.detectChanges();
     });
 
-    it(`gradient works`, done => {
+    it('gradient works', done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 127, 0, 127, 255,

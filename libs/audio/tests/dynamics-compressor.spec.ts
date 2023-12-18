@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioDynamicsCompressor} from '../src/nodes/dynamics-compressor';
 
-describe(`Dynamics compressor`, () => {
-    describe(`DynamicsCompressorNode`, () => {
+describe('Dynamics compressor', () => {
+    describe('DynamicsCompressorNode', () => {
         @Component({
             template: `
                 <div waDynamicsCompressorNode></div>
@@ -31,12 +31,12 @@ describe(`Dynamics compressor`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof DynamicsCompressorNode).toBe(true);
         });
     });
 
-    describe(`DynamicsCompressorNode factory fallback`, () => {
+    describe('DynamicsCompressorNode factory fallback', () => {
         @Component({
             template: `
                 <div waDynamicsCompressorNode></div>
@@ -62,7 +62,7 @@ describe(`Dynamics compressor`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof DynamicsCompressorNode).toBe(true);
         });
     });

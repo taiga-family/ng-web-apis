@@ -4,7 +4,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {WebAudioContext} from '../src/directives/audio-context';
 import {WebAudioModule} from '../src/module';
 
-describe(`AudioContext`, () => {
+describe('AudioContext', () => {
     @Component({
         template: `
             <div
@@ -32,7 +32,7 @@ describe(`AudioContext`, () => {
         fixture.detectChanges();
     });
 
-    it(`creates context`, () => {
+    it('creates context', () => {
         expect(testComponent.audioContext instanceof AudioContext).toBe(true);
     });
 });

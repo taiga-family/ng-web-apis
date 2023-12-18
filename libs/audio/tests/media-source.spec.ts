@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioMediaSource} from '../src/sources/media-source';
 
-describe(`MediaSource`, () => {
-    describe(`MediaElementAudioSourceNode`, () => {
+describe('MediaSource', () => {
+    describe('MediaElementAudioSourceNode', () => {
         @Component({
             template: `
                 <audio waMediaElementAudioSourceNode></audio>
@@ -31,12 +31,12 @@ describe(`MediaSource`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof MediaElementAudioSourceNode).toBe(true);
         });
     });
 
-    describe(`MediaElementAudioSourceNode factory fallback`, () => {
+    describe('MediaElementAudioSourceNode factory fallback', () => {
         @Component({
             template: `
                 <audio waMediaElementAudioSourceNode></audio>
@@ -62,7 +62,7 @@ describe(`MediaSource`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof MediaElementAudioSourceNode).toBe(true);
         });
     });

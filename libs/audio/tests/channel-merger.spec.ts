@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioChannelMerger} from '../src/nodes/channel-merger';
 
-describe(`ChannelMerger`, () => {
-    describe(`ChannelMergerNode`, () => {
+describe('ChannelMerger', () => {
+    describe('ChannelMergerNode', () => {
         @Component({
             template: `
                 <div waChannelMergerNode></div>
@@ -31,12 +31,12 @@ describe(`ChannelMerger`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof ChannelMergerNode).toBe(true);
         });
     });
 
-    describe(`ChannelMergerNode factory fallback`, () => {
+    describe('ChannelMergerNode factory fallback', () => {
         @Component({
             template: `
                 <div waChannelMergerNode></div>
@@ -62,7 +62,7 @@ describe(`ChannelMerger`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof ChannelMergerNode).toBe(true);
         });
     });

@@ -4,7 +4,7 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
 @Directive({
     standalone: true,
-    selector: `[waOfflineAudioContext][length][sampleRate]`,
+    selector: '[waOfflineAudioContext][length][sampleRate]',
     providers: [
         {
             provide: AUDIO_CONTEXT,
@@ -17,13 +17,13 @@ export class WebAudioOfflineContext extends OfflineAudioContext {
     readonly complete = new EventEmitter<AudioBuffer>();
 
     constructor(
-        @Attribute(`length`) length: string,
-        @Attribute(`sampleRate`) sampleRate: string,
-        @Attribute(`numberOfChannels`) numberOfChannels: string | null,
-        @Attribute(`autoplay`) autoplay: string | null,
+        @Attribute('length') length: string,
+        @Attribute('sampleRate') sampleRate: string,
+        @Attribute('numberOfChannels') numberOfChannels: string | null,
+        @Attribute('autoplay') autoplay: string | null,
     ) {
         super(
-            parseInt(numberOfChannels || ``, 10) || 1,
+            parseInt(numberOfChannels || '', 10) || 1,
             parseInt(length, 10),
             parseInt(sampleRate, 10),
         );

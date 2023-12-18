@@ -4,7 +4,7 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
 @Pipe({
     standalone: true,
-    name: `waPeriodicWave`,
+    name: 'waPeriodicWave',
 })
 export class WebAudioPeriodicWavePipe implements PipeTransform {
     constructor(@Inject(AUDIO_CONTEXT) private readonly context: BaseAudioContext) {}

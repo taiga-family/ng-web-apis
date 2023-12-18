@@ -5,7 +5,7 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Component({
     standalone: true,
-    selector: `canvas-clip-path`,
+    selector: 'canvas-clip-path',
     template: `
         <ng-content></ng-content>
     `,

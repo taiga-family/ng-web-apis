@@ -7,8 +7,8 @@ import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
 import {FEEDBACK_COEFFICIENTS} from '../src/tokens/feedback-coefficients';
 import {FEEDFORWARD_COEFFICIENTS} from '../src/tokens/feedforward-coefficients';
 
-describe(`IIR filter`, () => {
-    describe(`IIRFilterNode`, () => {
+describe('IIR filter', () => {
+    describe('IIRFilterNode', () => {
         @Component({
             template: `
                 <div waIIRFilterNode></div>
@@ -43,12 +43,12 @@ describe(`IIR filter`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof IIRFilterNode).toBe(true);
         });
     });
 
-    describe(`IIRFilterNode factory fallback`, () => {
+    describe('IIRFilterNode factory fallback', () => {
         @Component({
             template: `
                 <div waIIRFilterNode></div>
@@ -87,7 +87,7 @@ describe(`IIR filter`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof IIRFilterNode).toBe(true);
         });
     });

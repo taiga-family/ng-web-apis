@@ -1,5 +1,4 @@
-import {MonoTypeOperatorFunction, pipe} from 'rxjs';
-import {map, skipWhile} from 'rxjs/operators';
+import {map, MonoTypeOperatorFunction, pipe, skipWhile} from 'rxjs';
 
 import {isSaid} from '../utils/is-said';
 

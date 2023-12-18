@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-line-to`,
+    selector: 'canvas-line-to',
     providers: [asCanvasMethod(LineToDirective)],
 })
 export class LineToDirective implements CanvasMethod {

@@ -1,5 +1,5 @@
 export const SafeObserver =
-    typeof ResizeObserver !== `undefined`
+    typeof ResizeObserver !== 'undefined'
         ? ResizeObserver
         : class implements ResizeObserver {
               observe(): void {}

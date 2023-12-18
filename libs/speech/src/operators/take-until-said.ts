@@ -1,5 +1,4 @@
-import {MonoTypeOperatorFunction} from 'rxjs';
-import {takeWhile} from 'rxjs/operators';
+import {MonoTypeOperatorFunction, takeWhile} from 'rxjs';
 
 import {isSaid} from '../utils/is-said';
 

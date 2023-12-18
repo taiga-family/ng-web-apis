@@ -10,46 +10,46 @@ import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
 @Directive({
     standalone: true,
-    selector: `[waPannerNode]`,
+    selector: '[waPannerNode]',
     inputs: [
-        `coneInnerAngle`,
-        `coneOuterAngle`,
-        `coneOuterGain`,
-        `distanceModel`,
-        `maxDistance`,
-        `panningModel`,
-        `refDistance`,
-        `rolloffFactor`,
-        `channelCount`,
-        `channelCountMode`,
-        `channelInterpretation`,
+        'coneInnerAngle',
+        'coneOuterAngle',
+        'coneOuterGain',
+        'distanceModel',
+        'maxDistance',
+        'panningModel',
+        'refDistance',
+        'rolloffFactor',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
     ],
     providers: [asAudioNode(WebAudioPanner)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
     @Input()
-    @audioParam(`orientationX`)
+    @audioParam('orientationX')
     orientationXParam?: AudioParamInput;
 
     @Input()
-    @audioParam(`orientationY`)
+    @audioParam('orientationY')
     orientationYParam?: AudioParamInput;
 
     @Input()
-    @audioParam(`orientationZ`)
+    @audioParam('orientationZ')
     orientationZParam?: AudioParamInput;
 
     @Input()
-    @audioParam(`positionX`)
+    @audioParam('positionX')
     positionXParam?: AudioParamInput;
 
     @Input()
-    @audioParam(`positionY`)
+    @audioParam('positionY')
     positionYParam?: AudioParamInput;
 
     @Input()
-    @audioParam(`positionZ`)
+    @audioParam('positionZ')
     positionZParam?: AudioParamInput;
 
     constructor(

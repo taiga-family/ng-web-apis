@@ -7,16 +7,16 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waWaveShaperNode]`,
+    selector: '[waWaveShaperNode]',
     inputs: [
-        `oversample`,
-        `curve`,
-        `channelCount`,
-        `channelCountMode`,
-        `channelInterpretation`,
+        'oversample',
+        'curve',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
     ],
     providers: [asAudioNode(WebAudioWaveShaper)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioWaveShaper extends WaveShaperNode implements OnDestroy {
     constructor(

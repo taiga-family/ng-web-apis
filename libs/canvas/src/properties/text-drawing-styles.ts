@@ -5,24 +5,25 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     standalone: true,
-    selector: `canvas-text[direction],canvas-text[font],canvas-text[textAlign],canvas-text[textBaseline]`,
+    selector:
+        'canvas-text[direction],canvas-text[font],canvas-text[textAlign],canvas-text[textBaseline]',
     providers: [asCanvasProperty(TextDrawingStylesDirective)],
 })
 export class TextDrawingStylesDirective implements CanvasMethod, CanvasTextDrawingStyles {
     @Input()
-    direction: CanvasDirection = `inherit`;
+    direction: CanvasDirection = 'inherit';
 
     @Input()
-    font = `10px sans-serif`;
+    font = '10px sans-serif';
 
     @Input()
-    textAlign: CanvasTextAlign = `start`;
+    textAlign: CanvasTextAlign = 'start';
 
     @Input()
-    fontKerning: CanvasFontKerning = `auto`;
+    fontKerning: CanvasFontKerning = 'auto';
 
     @Input()
-    textBaseline: CanvasTextBaseline = `alphabetic`;
+    textBaseline: CanvasTextBaseline = 'alphabetic';
 
     call(context: CanvasRenderingContext2D): void {
         context.direction = this.direction;

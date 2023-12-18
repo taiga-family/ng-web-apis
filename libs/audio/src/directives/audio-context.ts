@@ -5,7 +5,7 @@ import {latencyHintFactory} from '../utils/latency-hint-factory';
 
 @Directive({
     standalone: true,
-    selector: `[waAudioContext]`,
+    selector: '[waAudioContext]',
     providers: [
         {
             provide: AUDIO_CONTEXT,
@@ -15,12 +15,12 @@ import {latencyHintFactory} from '../utils/latency-hint-factory';
 })
 export class WebAudioContext extends AudioContext implements OnDestroy {
     constructor(
-        @Attribute(`latencyHint`) latencyHint: AudioContextLatencyCategory | null,
-        @Attribute(`sampleRate`) sampleRate: string | null,
+        @Attribute('latencyHint') latencyHint: AudioContextLatencyCategory | null,
+        @Attribute('sampleRate') sampleRate: string | null,
     ) {
         super({
             latencyHint: latencyHintFactory(latencyHint),
-            sampleRate: parseInt(sampleRate || ``, 10) || undefined,
+            sampleRate: parseInt(sampleRate || '', 10) || undefined,
         });
     }
 

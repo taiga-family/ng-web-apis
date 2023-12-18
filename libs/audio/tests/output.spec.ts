@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioOutput} from '../src/directives/output';
 import {WebAudioModule} from '../src/module';
 
-describe(`Output spec`, () => {
-    describe(`Output`, () => {
+describe('Output spec', () => {
+    describe('Output', () => {
         @Component({
             template: `
                 <div [waOutput]="destination"></div>
@@ -35,12 +35,12 @@ describe(`Output spec`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof AudioNode).toBe(true);
         });
     });
 
-    describe(`Output factory fallback`, () => {
+    describe('Output factory fallback', () => {
         @Component({
             template: `
                 <div [waOutput]="destination"></div>
@@ -70,7 +70,7 @@ describe(`Output spec`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof AudioNode).toBe(true);
         });
     });

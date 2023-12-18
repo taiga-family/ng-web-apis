@@ -8,8 +8,18 @@ import {
 } from '@angular/core';
 import {WebAudioModule} from '@ng-web-apis/audio';
 import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
-import {EMPTY, merge, Observable, Subject} from 'rxjs';
-import {catchError, map, scan, startWith, switchMap, take} from 'rxjs/operators';
+import {
+    catchError,
+    EMPTY,
+    map,
+    merge,
+    Observable,
+    scan,
+    startWith,
+    Subject,
+    switchMap,
+    take,
+} from 'rxjs';
 
 import {AdsrPipe} from '../adsr.pipe';
 import {RESPONSE_BUFFER} from './response';

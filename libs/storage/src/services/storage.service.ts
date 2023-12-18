@@ -2,7 +2,7 @@ import {Inject, Injectable} from '@angular/core';
 import {LOCAL_STORAGE, WINDOW} from '@ng-web-apis/common';
 
 @Injectable({
-    providedIn: `root`,
+    providedIn: 'root',
 })
 export class StorageService implements Storage {
     constructor(
@@ -46,7 +46,7 @@ export class StorageService implements Storage {
         newValue: string | null,
         oldValue: string | null,
     ): void {
-        const event = new StorageEvent(`storage`, {
+        const event = new StorageEvent('storage', {
             key,
             newValue,
             oldValue,

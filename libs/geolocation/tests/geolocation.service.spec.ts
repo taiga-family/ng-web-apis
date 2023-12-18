@@ -1,13 +1,13 @@
 import {TestBed} from '@angular/core/testing';
-import {EMPTY, interval, timer} from 'rxjs';
-import {catchError, skip, take} from 'rxjs/operators';
+import {
+    GEOLOCATION,
+    GEOLOCATION_SUPPORT,
+    GeolocationService,
+} from '@ng-web-apis/geolocation';
+import {catchError, EMPTY, interval, skip, take, timer} from 'rxjs';
 
-import {GeolocationService} from '../src/services/geolocation.service';
-import {GEOLOCATION} from '../src/tokens/geolocation';
-import {GEOLOCATION_SUPPORT} from '../src/tokens/geolocation-support';
-
-describe(`GeolocationService`, () => {
-    describe(`Geolocation service`, () => {
+describe('GeolocationService', () => {
+    describe('Geolocation service', () => {
         let service: GeolocationService;
         let clearWatchCount: number;
 
@@ -16,7 +16,7 @@ describe(`GeolocationService`, () => {
                 interval(300).subscribe(number => success(number.toString()));
                 timer(1000)
                     .pipe(take(1))
-                    .subscribe(() => error(`error`));
+                    .subscribe(() => error('error'));
             }
 
             clearWatch(): void {
@@ -38,14 +38,14 @@ describe(`GeolocationService`, () => {
             clearWatchCount = 0;
         });
 
-        it(`Gives a position`, done => {
+        it('Gives a position', done => {
             service.pipe(take(1)).subscribe(position => {
-                expect(position).toMatch(`0`);
+                expect(position).toMatch('0');
                 done();
             });
         });
 
-        it(`Provides position from cache if other subscriptions exist`, done => {
+        it('Provides position from cache if other subscriptions exist', done => {
             let firstPosition: GeolocationPosition;
 
             service.subscribe(position => {
@@ -58,7 +58,7 @@ describe(`GeolocationService`, () => {
             });
         });
 
-        it(`clearWatch method is called once when all subscribers are unsubscribed.`, done => {
+        it('clearWatch method is called once when all subscribers are unsubscribed.', done => {
             const firstSubscription = service.subscribe();
 
             const secondSubscription = service.subscribe();
@@ -70,7 +70,7 @@ describe(`GeolocationService`, () => {
             done();
         });
 
-        it(`clearWatch method is not called if none of the subscribers unsubscribed`, done => {
+        it('clearWatch method is not called if none of the subscribers unsubscribed', done => {
             service.subscribe();
             service.subscribe();
 
@@ -78,13 +78,13 @@ describe(`GeolocationService`, () => {
             done();
         });
 
-        it(`Error`, done => {
+        it('Error', done => {
             service = TestBed.inject(GeolocationService);
 
             service
                 .pipe(
                     catchError(error => {
-                        expect(error).toBe(`error`);
+                        expect(error).toBe('error');
                         done();
 
                         return EMPTY;
@@ -94,8 +94,8 @@ describe(`GeolocationService`, () => {
         });
     });
 
-    describe(`Geolocation Service if unsupported`, () => {
-        it(`cannot recieve and throws an error if Geolocation is not supported`, done => {
+    describe('Geolocation Service if unsupported', () => {
+        it('cannot recieve and throws an error if Geolocation is not supported', done => {
             TestBed.configureTestingModule({
                 providers: [
                     {provide: GEOLOCATION_SUPPORT, useValue: false},
@@ -108,7 +108,7 @@ describe(`GeolocationService`, () => {
             service$.subscribe(
                 () => {},
                 error => {
-                    expect(error).toBe(`Geolocation is not supported in your browser`);
+                    expect(error).toBe('Geolocation is not supported in your browser');
                     done();
                 },
             );

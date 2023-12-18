@@ -1,5 +1,5 @@
 export const SafeObserver =
-    typeof MutationObserver !== `undefined`
+    typeof MutationObserver !== 'undefined'
         ? MutationObserver
         : class implements MutationObserver {
               observe(): void {}

@@ -5,7 +5,7 @@ import {DrawService} from '../services/draw.service';
 
 @Directive({
     standalone: true,
-    selector: `canvas-draw-image`,
+    selector: 'canvas-draw-image',
     providers: [DrawService],
 })
 export class DrawImageDirective {

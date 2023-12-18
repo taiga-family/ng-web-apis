@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
     standalone: true,
-    name: `rad`,
+    name: 'rad',
 })
 export class RadPipe implements PipeTransform {
     transform(input: number): number {

@@ -15,15 +15,15 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waChannelSplitterNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waChannelSplitterNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [
         {
             provide: AUDIO_NODE,
             useValue: null,
         },
     ],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDestroy {
     @ContentChildren(AUDIO_NODE, {descendants: false})
@@ -37,12 +37,12 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
     }
 
     constructor(
-        @Attribute(`numberOfOutputs`) outputs: string | null,
+        @Attribute('numberOfOutputs') outputs: string | null,
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
     ) {
-        const numberOfOutputs = parseInt(outputs || ``, 10) || 6;
+        const numberOfOutputs = parseInt(outputs || '', 10) || 6;
 
         if (modern) {
             super(context, {numberOfOutputs});

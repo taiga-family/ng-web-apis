@@ -1,5 +1,4 @@
-import {EMPTY, fromEvent, merge, Observable, Subject} from 'rxjs';
-import {take, takeUntil, tap} from 'rxjs/operators';
+import {EMPTY, fromEvent, merge, Observable, Subject, take, takeUntil, tap} from 'rxjs';
 
 import {WORKER_BLANK_FN} from '../consts/worker-fn-template';
 import {TypedMessageEvent} from '../types/typed-message-event';
@@ -29,10 +28,10 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
                 subscriber.complete();
             } else if (worker) {
                 eventStream$ = merge(
-                    fromEvent<TypedMessageEvent<R>>(worker, `message`).pipe(
+                    fromEvent<TypedMessageEvent<R>>(worker, 'message').pipe(
                         tap(event => subscriber.next(event)),
                     ),
-                    fromEvent<ErrorEvent>(worker, `error`).pipe(
+                    fromEvent<ErrorEvent>(worker, 'error').pipe(
                         tap(event => subscriber.error(event)),
                     ),
                 ).pipe(takeUntil(this.destroy$));
@@ -73,7 +72,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
     private static createFnUrl(fn: WorkerFunction): string {
         const script = `(${WORKER_BLANK_FN})(${fn});`;
 
-        const blob = new Blob([script], {type: `text/javascript`});
+        const blob = new Blob([script], {type: 'text/javascript'});
 
         return URL.createObjectURL(blob);
     }

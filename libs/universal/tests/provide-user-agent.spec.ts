@@ -3,18 +3,18 @@ import {TestBed} from '@angular/core/testing';
 import {SSR_USER_AGENT} from '../src/tokens/ssr-user-agent';
 import {provideUserAgent} from '../src/utils/provide-user-agent';
 
-describe(`provideUserAgent`, () => {
+describe('provideUserAgent', () => {
     const req = {
         headers: {
-            'user-agent': `Chrome`,
+            'user-agent': 'Chrome',
         },
     };
 
-    it(`parses request`, () => {
+    it('parses request', () => {
         TestBed.configureTestingModule({
             providers: [provideUserAgent(req)],
         });
 
-        expect(String(TestBed.inject(SSR_USER_AGENT))).toBe(`Chrome`);
+        expect(String(TestBed.inject(SSR_USER_AGENT))).toBe('Chrome');
     });
 });

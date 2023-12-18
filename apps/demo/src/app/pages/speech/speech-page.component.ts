@@ -21,8 +21,7 @@ import {
     TuiTooltipModule,
 } from '@taiga-ui/core';
 import {TuiSelectModule, TuiTextAreaModule} from '@taiga-ui/kit';
-import {merge, Observable, repeat, retry} from 'rxjs';
-import {filter, map, share} from 'rxjs/operators';
+import {filter, map, merge, Observable, repeat, retry, share} from 'rxjs';
 
 @Component({
     standalone: true,

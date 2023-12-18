@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioChannelSplitter} from '../src/nodes/channel-splitter';
 
-describe(`ChannelSplitter`, () => {
-    describe(`ChannelSplitterNode`, () => {
+describe('ChannelSplitter', () => {
+    describe('ChannelSplitterNode', () => {
         @Component({
             template: `
                 <div waChannelSplitterNode></div>
@@ -31,12 +31,12 @@ describe(`ChannelSplitter`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof ChannelSplitterNode).toBe(true);
         });
     });
 
-    describe(`ChannelSplitterNode with providers`, () => {
+    describe('ChannelSplitterNode with providers', () => {
         @Component({
             template: `
                 <div waChannelSplitterNode></div>
@@ -62,7 +62,7 @@ describe(`ChannelSplitter`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof ChannelSplitterNode).toBe(true);
         });
     });

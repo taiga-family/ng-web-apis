@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
     standalone: true,
-    name: `path`,
+    name: 'path',
 })
 export class PathPipe implements PipeTransform {
     transform(path: string): Path2D {

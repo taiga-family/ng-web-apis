@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-quadratic-curve-to`,
+    selector: 'canvas-quadratic-curve-to',
     providers: [asCanvasMethod(QuadraticCurveToDirective)],
 })
 export class QuadraticCurveToDirective implements CanvasMethod {

@@ -4,11 +4,11 @@ import {NAVIGATOR} from '@ng-web-apis/common';
 import {MIDI_ACCESS} from '../src/tokens/midi-access';
 import {SYSEX} from '../src/tokens/sysex';
 
-describe(`MIDI_ACCESS`, () => {
+describe('MIDI_ACCESS', () => {
     // eslint-disable-next-line jest/no-jasmine-globals
-    const navigatorMock = jasmine.createSpyObj([`requestMIDIAccess`]);
+    const navigatorMock = jasmine.createSpyObj(['requestMIDIAccess']);
 
-    it(`SYSEX is false by default`, () => {
+    it('SYSEX is false by default', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -25,7 +25,7 @@ describe(`MIDI_ACCESS`, () => {
         });
     });
 
-    it(`SYSEX is set to true`, () => {
+    it('SYSEX is set to true', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -46,7 +46,7 @@ describe(`MIDI_ACCESS`, () => {
         });
     });
 
-    it(`Promise is rejected when Web MIDI API is not supported`, done => {
+    it('Promise is rejected when Web MIDI API is not supported', done => {
         TestBed.configureTestingModule({
             providers: [
                 {

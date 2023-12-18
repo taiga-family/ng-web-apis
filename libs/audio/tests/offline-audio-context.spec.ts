@@ -4,7 +4,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {WebAudioOfflineContext} from '../src/directives/offline-audio-context';
 import {WebAudioModule} from '../src/module';
 
-describe(`OfflineAudioContext`, () => {
+describe('OfflineAudioContext', () => {
     @Component({
         template: `
             <div
@@ -33,15 +33,15 @@ describe(`OfflineAudioContext`, () => {
         fixture.detectChanges();
     });
 
-    it(`creates context`, () => {
+    it('creates context', () => {
         expect(testComponent.audioContext instanceof OfflineAudioContext).toBe(true);
     });
 
-    it(`parses sampleRate`, () => {
+    it('parses sampleRate', () => {
         expect(testComponent.audioContext.sampleRate).toBe(22050);
     });
 
-    it(`parses length`, () => {
+    it('parses length', () => {
         expect(testComponent.audioContext.length).toBe(44100);
     });
 });

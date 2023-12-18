@@ -5,4 +5,4 @@ export class MyComponent {
   constructor(readonly orientation$: ScreenOrientationService) {}
 }`;
 
-export const SAMPLE_HTML = `<p>{{ orientation$ | async }}</p>`;
+export const SAMPLE_HTML = '<p>{{ orientation$ | async }}</p>';

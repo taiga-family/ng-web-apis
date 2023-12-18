@@ -4,7 +4,7 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
 @Pipe({
     standalone: true,
-    name: `gradient`,
+    name: 'gradient',
 })
 export class GradientPipe implements PipeTransform {
     constructor(
@@ -42,7 +42,7 @@ export class GradientPipe implements PipeTransform {
                 : this.context.createLinearGradient(a1, a2, a3, a4);
 
         Array.from(stops.keys()).forEach(stop =>
-            gradient.addColorStop(stop, stops.get(stop) || ``),
+            gradient.addColorStop(stop, stops.get(stop) || ''),
         );
 
         return gradient;

@@ -1,11 +1,10 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {catchError} from 'rxjs/operators';
+import {ResizeObserverService} from '@ng-web-apis/resize-observer';
+import {catchError} from 'rxjs';
 
-import {ResizeObserverService} from '../src/services/resize-observer.service';
-
-describe(`ResizeObserver`, () => {
-    describe(`Resize Observer token`, () => {
+describe('ResizeObserver', () => {
+    describe('Resize Observer token', () => {
         let service: ResizeObserverService;
 
         beforeEach(() => {
@@ -15,7 +14,7 @@ describe(`ResizeObserver`, () => {
                     {
                         provide: ElementRef,
                         useValue: {
-                            nativeElement: document.createElement(`DIV`),
+                            nativeElement: document.createElement('DIV'),
                         },
                     },
                 ],
@@ -26,11 +25,11 @@ describe(`ResizeObserver`, () => {
             );
         });
 
-        it(`defined`, () => {
+        it('defined', () => {
             expect(service).toBeDefined();
         });
 
-        it(`disconnect`, () => {
+        it('disconnect', () => {
             service.subscribe().unsubscribe();
             expect(service).toBeDefined();
         });

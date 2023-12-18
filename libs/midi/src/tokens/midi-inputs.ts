@@ -4,8 +4,8 @@ import {Observable} from 'rxjs';
 import {getPortsStream} from '../utils/get-ports-stream';
 
 export const MIDI_INPUTS = new InjectionToken<Observable<WebMidi.MIDIInput[]>>(
-    `[MIDI_INPUTS]: Array of MIDI inputs`,
+    '[MIDI_INPUTS]: Array of MIDI inputs',
     {
-        factory: () => getPortsStream(`inputs`),
+        factory: () => getPortsStream('inputs'),
     },
 );

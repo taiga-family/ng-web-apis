@@ -4,7 +4,7 @@ import {toFrequency} from '../../utils/to-frequency';
 
 @Pipe({
     standalone: true,
-    name: `frequency`,
+    name: 'frequency',
 })
 export class FrequencyPipe implements PipeTransform {
     transform(note: number, tuning?: number): number {

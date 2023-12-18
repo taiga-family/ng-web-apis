@@ -16,14 +16,14 @@ import {parse} from '../utils/parse';
 
 @Directive({
     standalone: true,
-    selector: `[waConstantSourceNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waConstantSourceNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioConstantSource)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioConstantSource extends ConstantSourceNode implements OnDestroy {
-    @Input(`offset`)
-    @audioParam(`offset`)
+    @Input('offset')
+    @audioParam('offset')
     offsetParam?: AudioParamInput;
 
     @Output()
@@ -31,8 +31,8 @@ export class WebAudioConstantSource extends ConstantSourceNode implements OnDest
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Attribute(`autoplay`) autoplay: string | null,
-        @Attribute(`offset`) offset: string | null,
+        @Attribute('autoplay') autoplay: string | null,
+        @Attribute('offset') offset: string | null,
     ) {
         super(context, {
             offset: parse(offset, 0),

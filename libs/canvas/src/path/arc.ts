@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-arc`,
+    selector: 'canvas-arc',
     providers: [asCanvasMethod(ArcDirective)],
 })
 export class ArcDirective implements CanvasMethod {

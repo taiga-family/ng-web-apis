@@ -4,13 +4,13 @@ import {SpeechSynthesisUtteranceOptions} from '../../interfaces/speech-synthesis
 
 @Pipe({
     standalone: true,
-    name: `waUtterance`,
+    name: 'waUtterance',
 })
 export class UtterancePipe implements PipeTransform {
     transform(
         text: string,
         {
-            lang = ``,
+            lang = '',
             pitch = 1,
             rate = 1,
             volume = 1,

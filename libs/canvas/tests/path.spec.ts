@@ -4,7 +4,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
-describe(`Path`, () => {
+describe('Path', () => {
     @Component({
         template: `
             <canvas
@@ -32,7 +32,7 @@ describe(`Path`, () => {
         `,
     })
     class TestComponent {
-        @ViewChild(`canvas`, {read: CANVAS_2D_CONTEXT})
+        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         readonly context!: CanvasRenderingContext2D;
     }
 
@@ -50,7 +50,7 @@ describe(`Path`, () => {
         fixture.detectChanges();
     });
 
-    it(`draws path`, done => {
+    it('draws path', done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 255, 0, 0, 255,

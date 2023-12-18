@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioMediaStreamDestination} from '../src/directives/stream-destination';
 import {WebAudioModule} from '../src/module';
 
-describe(`StreamDestination`, () => {
-    describe(`MediaStreamAudioDestinationNode`, () => {
+describe('StreamDestination', () => {
+    describe('MediaStreamAudioDestinationNode', () => {
         @Component({
             template: `
                 <div waMediaStreamAudioDestinationNode></div>
@@ -31,14 +31,14 @@ describe(`StreamDestination`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof MediaStreamAudioDestinationNode).toBe(
                 true,
             );
         });
     });
 
-    describe(`MediaStreamAudioDestinationNode factory fallback`, () => {
+    describe('MediaStreamAudioDestinationNode factory fallback', () => {
         @Component({
             template: `
                 <div waMediaStreamAudioDestinationNode></div>
@@ -64,7 +64,7 @@ describe(`StreamDestination`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof MediaStreamAudioDestinationNode).toBe(
                 true,
             );

@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-bezier-curve-to`,
+    selector: 'canvas-bezier-curve-to',
     providers: [asCanvasMethod(BezierCurveToDirective)],
 })
 export class BezierCurveToDirective implements CanvasMethod {

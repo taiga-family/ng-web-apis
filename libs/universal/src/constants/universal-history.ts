@@ -5,7 +5,7 @@ import {emptyFunction} from '../utils/functions';
 
 export const HISTORY_MOCK = {
     length: 0,
-    scrollRestoration: `auto`,
+    scrollRestoration: 'auto',
     state: {},
     back: emptyFunction,
     forward: emptyFunction,

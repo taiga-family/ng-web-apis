@@ -6,8 +6,8 @@ import {PermissionsService} from '../src/services/permissions.service';
 import {PERMISSIONS} from '../src/tokens/permissions';
 import {PERMISSIONS_SUPPORT} from '../src/tokens/permissions-support';
 
-describe(`PermissionsService`, () => {
-    describe(`PermissionsService`, () => {
+describe('PermissionsService', () => {
+    describe('PermissionsService', () => {
         let service: PermissionsService;
         let permissions: Permissions;
         let permissionStatus: FakePermissionStatus;
@@ -23,11 +23,11 @@ describe(`PermissionsService`, () => {
             const queryPromise = new Promise<PermissionStatus>((resolve, reject) => {
                 // assign the object that will be resolved outside of the setTimeout block
                 // so that we can set up spies on it early
-                permissionStatus = new FakePermissionStatus(`prompt`);
+                permissionStatus = new FakePermissionStatus('prompt');
 
                 setTimeout(() => {
                     if (shouldReject) {
-                        reject(new Error(`some error`));
+                        reject(new Error('some error'));
                     } else {
                         resolve(permissionStatus);
                     }
@@ -35,7 +35,7 @@ describe(`PermissionsService`, () => {
             });
 
             // eslint-disable-next-line jest/no-jasmine-globals
-            return spyOn(permissions, `query`).and.returnValue(queryPromise);
+            return spyOn(permissions, 'query').and.returnValue(queryPromise);
         }
 
         beforeEach(() => {
@@ -47,16 +47,16 @@ describe(`PermissionsService`, () => {
             permissions = TestBed.inject(PERMISSIONS);
         });
 
-        it(`service init`, () => {
+        it('service init', () => {
             expect(service).toBeTruthy();
         });
 
-        it(`state() provides status`, fakeAsync(() => {
+        it('state() provides status', fakeAsync(() => {
             createQuerySpy();
 
             let actual: PermissionState | null = null as any;
 
-            service.state(`geolocation`).subscribe(state => {
+            service.state('geolocation').subscribe(state => {
                 actual = state;
             });
 
@@ -64,49 +64,49 @@ describe(`PermissionsService`, () => {
 
             tick(QUERY_DELAY);
 
-            const expected: PermissionState = `prompt`;
+            const expected: PermissionState = 'prompt';
 
             expect(actual).toBe(expected);
         }));
 
-        it(`state() provides status when it changes`, fakeAsync(() => {
+        it('state() provides status when it changes', fakeAsync(() => {
             createQuerySpy();
 
             let actual: PermissionState | null = null as any;
 
-            service.state(`geolocation`).subscribe(state => {
+            service.state('geolocation').subscribe(state => {
                 actual = state;
             });
 
             tick(QUERY_DELAY);
 
-            permissionStatus.simulateStateChange(`granted`);
+            permissionStatus.simulateStateChange('granted');
 
-            const expected: PermissionState = `granted`;
+            const expected: PermissionState = 'granted';
 
             expect(actual).toBe(expected);
         }));
 
-        it(`state takes a PermissionDescriptor`, fakeAsync(() => {
+        it('state takes a PermissionDescriptor', fakeAsync(() => {
             createQuerySpy();
 
             let actual: PermissionState | null = null as any;
 
-            service.state({name: `geolocation`}).subscribe(state => {
+            service.state({name: 'geolocation'}).subscribe(state => {
                 actual = state;
             });
 
             tick(QUERY_DELAY);
 
-            const expected: PermissionState = `prompt`;
+            const expected: PermissionState = 'prompt';
 
             expect(actual).toBe(expected);
         }));
 
-        it(`Provides status from cache if other subscriptions exist`, () => {
+        it('Provides status from cache if other subscriptions exist', () => {
             const querySpy = createQuerySpy();
 
-            const obs = service.state(`geolocation`);
+            const obs = service.state('geolocation');
 
             obs.subscribe();
 
@@ -117,18 +117,18 @@ describe(`PermissionsService`, () => {
             expect(querySpy).toHaveBeenCalledTimes(1);
         });
 
-        it(`should not addEventListener if unsubscribed before query promise got resolved`, fakeAsync(() => {
+        it('should not addEventListener if unsubscribed before query promise got resolved', fakeAsync(() => {
             createQuerySpy();
 
             // eslint-disable-next-line jest/no-jasmine-globals
             const addEventListenerSpy = spyOn(
                 permissionStatus,
-                `addEventListener`,
+                'addEventListener',
             ).and.callThrough();
 
             let actual: PermissionState | null = null as any;
 
-            const sub = service.state(`geolocation`).subscribe(state => {
+            const sub = service.state('geolocation').subscribe(state => {
                 actual = state;
             });
 
@@ -140,21 +140,21 @@ describe(`PermissionsService`, () => {
             expect(addEventListenerSpy).not.toHaveBeenCalled();
         }));
 
-        it(`should clean up eventListener if it was added`, fakeAsync(() => {
+        it('should clean up eventListener if it was added', fakeAsync(() => {
             createQuerySpy();
 
             // eslint-disable-next-line jest/no-jasmine-globals
             const addEventListenerSpy = spyOn(
                 permissionStatus,
-                `addEventListener`,
+                'addEventListener',
             ).and.callThrough();
             // eslint-disable-next-line jest/no-jasmine-globals
             const removeEventListenerSpy = spyOn(
                 permissionStatus,
-                `removeEventListener`,
+                'removeEventListener',
             ).and.callThrough();
 
-            const sub = service.state(`geolocation`).subscribe();
+            const sub = service.state('geolocation').subscribe();
 
             expect(addEventListenerSpy).not.toHaveBeenCalled();
 
@@ -168,13 +168,13 @@ describe(`PermissionsService`, () => {
             expect(removeEventListenerSpy).toHaveBeenCalled();
         }));
 
-        it(`should throw error`, fakeAsync(() => {
+        it('should throw error', fakeAsync(() => {
             let actualStatus: PermissionState = null as any;
             let actualError: Error = null as any;
 
             createQuerySpy(true);
 
-            service.state(`geolocation`).subscribe(
+            service.state('geolocation').subscribe(
                 status => {
                     actualStatus = status;
                 },
@@ -186,11 +186,11 @@ describe(`PermissionsService`, () => {
             tick(QUERY_DELAY);
 
             expect(actualStatus).toBeNull();
-            expect(new Error(`some error`)).toEqual(actualError);
+            expect(new Error('some error')).toEqual(actualError);
         }));
     });
 
-    describe(`PermissionsService is unsupported`, () => {
+    describe('PermissionsService is unsupported', () => {
         let service: PermissionsService;
         let permissions: Permissions;
 
@@ -206,24 +206,24 @@ describe(`PermissionsService`, () => {
             permissions = TestBed.inject(PERMISSIONS);
         });
 
-        it(`should throw an error and .query() should not be called`, () => {
+        it('should throw an error and .query() should not be called', () => {
             // eslint-disable-next-line jest/no-jasmine-globals
-            const querySpy = spyOn(permissions, `query`).and.stub();
-            let actualError = ``;
+            const querySpy = spyOn(permissions, 'query').and.stub();
+            let actualError = '';
 
-            service.state(`geolocation`).subscribe(
+            service.state('geolocation').subscribe(
                 () => {},
                 error => {
                     actualError = error;
                 },
             );
 
-            expect(actualError).toBe(`Permissions is not supported in your browser`);
+            expect(actualError).toBe('Permissions is not supported in your browser');
             expect(querySpy).not.toHaveBeenCalled();
         });
     });
 
-    describe(`Token: PERMISSIONS`, () => {
+    describe('Token: PERMISSIONS', () => {
         let permissions: Permissions;
 
         beforeEach(() => {
@@ -232,7 +232,7 @@ describe(`PermissionsService`, () => {
             permissions = TestBed.inject(PERMISSIONS);
         });
 
-        it(`should be defined`, () => {
+        it('should be defined', () => {
             expect(permissions).toBeInstanceOf(window.Permissions);
         });
     });

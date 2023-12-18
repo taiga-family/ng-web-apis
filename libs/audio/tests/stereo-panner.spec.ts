@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioStereoPanner} from '../src/nodes/stereo-panner';
 
-describe(`StereoPanner`, () => {
-    describe(`StereoPannerNode`, () => {
+describe('StereoPanner', () => {
+    describe('StereoPannerNode', () => {
         @Component({
             template: `
                 <div waStereoPannerNode></div>
@@ -31,12 +31,12 @@ describe(`StereoPanner`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof StereoPannerNode).toBe(true);
         });
     });
 
-    describe(`StereoPannerNode factory fallback`, () => {
+    describe('StereoPannerNode factory fallback', () => {
         @Component({
             template: `
                 <div waStereoPannerNode></div>
@@ -62,7 +62,7 @@ describe(`StereoPanner`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof StereoPannerNode).toBe(true);
         });
     });

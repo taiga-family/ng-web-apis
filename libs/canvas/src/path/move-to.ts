@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-move-to`,
+    selector: 'canvas-move-to',
     providers: [asCanvasMethod(MoveToDirective)],
 })
 export class MoveToDirective implements CanvasMethod {

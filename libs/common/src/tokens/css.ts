@@ -9,7 +9,7 @@ declare global {
 }
 
 const TOKEN_CSS = new InjectionToken<typeof CSS>(
-    `[TOKEN_CSS]: An abstraction over window.CSS object`,
+    '[TOKEN_CSS]: An abstraction over window.CSS object',
     {
         factory: () =>
             inject(WINDOW).CSS ??

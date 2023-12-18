@@ -10,22 +10,22 @@ import {parse} from '../utils/parse';
 
 @Directive({
     standalone: true,
-    selector: `[waDelayNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waDelayNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioDelay)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioDelay extends DelayNode implements OnDestroy {
-    @Input(`delayTime`)
-    @audioParam(`delayTime`)
+    @Input('delayTime')
+    @audioParam('delayTime')
     delayTimeParam?: AudioParamInput;
 
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute(`delayTime`) delayTimeArg: string | null,
-        @Attribute(`maxDelayTime`) maxDelayTimeArg: string | null,
+        @Attribute('delayTime') delayTimeArg: string | null,
+        @Attribute('maxDelayTime') maxDelayTimeArg: string | null,
     ) {
         const delayTime = parse(delayTimeArg, 0);
         const maxDelayTime = parse(maxDelayTimeArg, 1);

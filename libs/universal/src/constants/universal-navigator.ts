@@ -22,15 +22,15 @@ function getArray<T>() {
 }
 
 export const NAVIGATOR_MOCK: Navigator = {
-    appCodeName: ``,
-    appName: ``,
-    appVersion: ``,
-    platform: ``,
-    product: ``,
-    productSub: ``,
-    userAgent: ``,
-    vendor: ``,
-    vendorSub: ``,
+    appCodeName: '',
+    appName: '',
+    appVersion: '',
+    platform: '',
+    product: '',
+    productSub: '',
+    userAgent: '',
+    vendor: '',
+    vendorSub: '',
     onLine: false,
     confirmSiteSpecificTrackingException: alwaysFalse,
     confirmWebWideTrackingException: alwaysFalse,
@@ -52,7 +52,7 @@ export const NAVIGATOR_MOCK: Navigator = {
     sendBeacon: alwaysFalse,
     hardwareConcurrency: 0,
     getDisplayMedia: alwaysRejected,
-    language: ``,
+    language: '',
     languages: [],
     storage: {
         estimate: alwaysRejected,
@@ -71,7 +71,7 @@ export const NAVIGATOR_MOCK: Navigator = {
     },
     cookieEnabled: false,
     doNotTrack: null,
-    gamepadInputEmulation: `keyboard`,
+    gamepadInputEmulation: 'keyboard',
     geolocation: {
         clearWatch: emptyFunction,
         getCurrentPosition: emptyFunction,
@@ -121,6 +121,6 @@ export const UNIVERSAL_NAVIGATOR: FactoryProvider = {
     deps: [[new Optional(), SSR_USER_AGENT]],
     useFactory: (userAgent: string | null): Navigator => ({
         ...NAVIGATOR_MOCK,
-        userAgent: userAgent || ``,
+        userAgent: userAgent || '',
     }),
 };

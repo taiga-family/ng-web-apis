@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-ellipse`,
+    selector: 'canvas-ellipse',
     providers: [asCanvasMethod(EllipseDirective)],
 })
 export class EllipseDirective implements CanvasMethod {

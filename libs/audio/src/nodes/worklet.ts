@@ -14,10 +14,10 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waAudioWorkletNode][name]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waAudioWorkletNode][name]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioWorklet)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
     @Output()
@@ -26,7 +26,7 @@ export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Attribute(`name`) name: string,
+        @Attribute('name') name: string,
     ) {
         super(context, name);
 

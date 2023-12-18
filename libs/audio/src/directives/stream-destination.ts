@@ -7,8 +7,8 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waMediaStreamAudioDestinationNode]`,
-    exportAs: `AudioNode`,
+    selector: '[waMediaStreamAudioDestinationNode]',
+    exportAs: 'AudioNode',
 })
 export class WebAudioMediaStreamDestination extends MediaStreamAudioDestinationNode {
     constructor(

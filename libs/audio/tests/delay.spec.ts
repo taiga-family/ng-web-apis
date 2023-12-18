@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioDelay} from '../src/nodes/delay';
 
-describe(`Delay`, () => {
-    describe(`DelayNode`, () => {
+describe('Delay', () => {
+    describe('DelayNode', () => {
         @Component({
             template: `
                 <div waDelayNode></div>
@@ -31,12 +31,12 @@ describe(`Delay`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof DelayNode).toBe(true);
         });
     });
 
-    describe(`DelayNode factory fallback`, () => {
+    describe('DelayNode factory fallback', () => {
         @Component({
             template: `
                 <div waDelayNode></div>
@@ -62,7 +62,7 @@ describe(`Delay`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof DelayNode).toBe(true);
         });
     });

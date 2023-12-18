@@ -7,9 +7,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 @Directive({
     standalone: true,
     selector:
-        `canvas-draw-image[clip],canvas-draw-image[clipFillRule],` +
-        `canvas-path[clip],canvas-path[clipFillRule],` +
-        `canvas-text[clip],canvas-text[clipFillRule]`,
+        'canvas-draw-image[clip],canvas-draw-image[clipFillRule],' +
+        'canvas-path[clip],canvas-path[clipFillRule],' +
+        'canvas-text[clip],canvas-text[clipFillRule]',
     providers: [asCanvasProperty(ClipDirective)],
 })
 export class ClipDirective implements CanvasMethod {

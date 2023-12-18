@@ -7,8 +7,8 @@ import {WebAudioDestination} from '../src/directives/destination';
 import {WebAudioModule} from '../src/module';
 import {WebAudioBufferSource} from '../src/sources/buffer-source';
 
-describe(`Destination`, () => {
-    describe(`AudioDestinationNode`, () => {
+describe('Destination', () => {
+    describe('AudioDestinationNode', () => {
         @Component({
             template: `
                 <div
@@ -57,20 +57,20 @@ describe(`Destination`, () => {
             testComponent.source.stop();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof AudioNode).toBe(true);
         });
 
-        it(`inits output`, () => {
+        it('inits output', () => {
             expect(testComponent.node.quiet instanceof Observable).toBe(true);
         });
 
-        it(`does not fire output initially`, () => {
+        it('does not fire output initially', () => {
             expect(testComponent.quiet).toBe(false);
         });
 
         // TODO: investigate why
-        xit(`fires output after destination has gone silent`, done => {
+        xit('fires output after destination has gone silent', done => {
             testComponent.source.stop(testComponent.source.context.currentTime + 0.5);
             setTimeout(() => {
                 fixture.detectChanges();
@@ -80,7 +80,7 @@ describe(`Destination`, () => {
         });
     });
 
-    describe(`AudioDestinationNode factory fallback`, () => {
+    describe('AudioDestinationNode factory fallback', () => {
         @Component({
             template: `
                 <div waAudioDestinationNode></div>
@@ -106,7 +106,7 @@ describe(`Destination`, () => {
             fixture.detectChanges();
         });
 
-        it(`Works with fallback mode`, () => {
+        it('Works with fallback mode', () => {
             expect(testComponent.node instanceof AudioNode).toBe(true);
         });
     });

@@ -5,7 +5,7 @@ import {ClipPathComponent} from '../src/methods/clip-path';
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
-describe(`Methods`, () => {
+describe('Methods', () => {
     @Component({
         template: `
             <canvas
@@ -48,7 +48,7 @@ describe(`Methods`, () => {
         `,
     })
     class TestComponent {
-        @ViewChild(`canvas`, {read: CANVAS_2D_CONTEXT})
+        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         readonly context!: CanvasRenderingContext2D;
 
         @ViewChild(ClipPathComponent)
@@ -61,9 +61,11 @@ describe(`Methods`, () => {
         readonly loading?: ImageBitmap;
 
         constructor() {
-            this.image.src = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==`;
+            this.image.src =
+                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAEAAAABCAYAAAAfFcSJAAAADUlEQVR42mP8z8DwHwAFBQIAX8jx0gAAAABJRU5ErkJggg==';
 
-            this.offset.src = `data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAWSURBVBhXY/zPwABEDAxMIILxPwMDACIYAwJtzRz5AAAAAElFTkSuQmCC`;
+            this.offset.src =
+                'data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAAIAAAACCAYAAABytg0kAAAAAXNSR0IArs4c6QAAAARnQU1BAACxjwv8YQUAAAAJcEhZcwAAEnQAABJ0Ad5mH3gAAAAWSURBVBhXY/zPwABEDAxMIILxPwMDACIYAwJtzRz5AAAAAElFTkSuQmCC';
         }
     }
 
@@ -85,7 +87,7 @@ describe(`Methods`, () => {
         fixture.destroy();
     });
 
-    it(`draws an image`, done => {
+    it('draws an image', done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(1, 1, 1, 1).data]).toEqual([
                 0, 0, 0, 0,
@@ -97,7 +99,7 @@ describe(`Methods`, () => {
         }, 50);
     });
 
-    it(`draws an image with offset and scale`, done => {
+    it('draws an image with offset and scale', done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
@@ -112,7 +114,7 @@ describe(`Methods`, () => {
         }, 50);
     });
 
-    it(`draws an image with offset in the source`, done => {
+    it('draws an image with offset in the source', done => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(30, 30, 1, 1).data]).toEqual([
                 0, 255, 0, 255,
@@ -121,7 +123,7 @@ describe(`Methods`, () => {
         }, 50);
     });
 
-    it(`clip collects path segments`, () => {
+    it('clip collects path segments', () => {
         expect(testComponent.clipPath.pathSteps.length).toBe(2);
     });
 });

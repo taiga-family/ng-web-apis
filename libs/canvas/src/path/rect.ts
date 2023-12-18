@@ -5,7 +5,7 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-rect`,
+    selector: 'canvas-rect',
     providers: [asCanvasMethod(RectDirective)],
 })
 export class RectDirective implements CanvasMethod {

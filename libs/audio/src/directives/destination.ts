@@ -1,13 +1,14 @@
 import {Directive, Inject, OnDestroy, Output} from '@angular/core';
-import {interval, Observable} from 'rxjs';
 import {
     debounceTime,
     distinctUntilChanged,
     filter,
+    interval,
     map,
+    Observable,
     skipWhile,
     tap,
-} from 'rxjs/operators';
+} from 'rxjs';
 
 import {POLLING_TIME} from '../constants/polling-time';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -17,8 +18,8 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waAudioDestinationNode]`,
-    exportAs: `AudioNode`,
+    selector: '[waAudioDestinationNode]',
+    exportAs: 'AudioNode',
 })
 export class WebAudioDestination extends AnalyserNode implements OnDestroy {
     @Output()

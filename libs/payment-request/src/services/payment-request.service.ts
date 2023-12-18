@@ -5,7 +5,7 @@ import {PAYMENT_OPTIONS, PaymentOptions} from '../tokens/payment-options';
 import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
 @Injectable({
-    providedIn: `root`,
+    providedIn: 'root',
 })
 export class PaymentRequestService {
     constructor(
@@ -23,7 +23,7 @@ export class PaymentRequestService {
     ): Promise<PaymentResponse> {
         if (!this.supported) {
             return Promise.reject(
-                new Error(`Payment Request is not supported in your browser`),
+                new Error('Payment Request is not supported in your browser'),
             );
         }
 
@@ -40,7 +40,7 @@ export class PaymentRequestService {
                 canPay
                     ? gateway.show(details)
                     : Promise.reject(
-                          new Error(`Payment Request cannot make the payment`),
+                          new Error('Payment Request cannot make the payment'),
                       ),
             );
     }

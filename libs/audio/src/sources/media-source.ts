@@ -6,9 +6,10 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
     standalone: true,
-    selector: `audio[waMediaElementAudioSourceNode], video[waMediaElementAudioSourceNode]`,
+    selector:
+        'audio[waMediaElementAudioSourceNode], video[waMediaElementAudioSourceNode]',
     providers: [asAudioNode(WebAudioMediaSource)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioMediaSource
     extends MediaElementAudioSourceNode

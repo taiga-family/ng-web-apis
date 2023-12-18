@@ -5,12 +5,12 @@ import {DrawService} from '../services/draw.service';
 
 @Directive({
     standalone: true,
-    selector: `canvas-text`,
+    selector: 'canvas-text',
     providers: [DrawService],
 })
 export class TextDirective {
     @Input()
-    text = ``;
+    text = '';
 
     @Input()
     x = 0;

@@ -1,5 +1,4 @@
-import {MonoTypeOperatorFunction} from 'rxjs';
-import {filter, map} from 'rxjs/operators';
+import {filter, map, MonoTypeOperatorFunction} from 'rxjs';
 
 import {between} from '../utils/between';
 

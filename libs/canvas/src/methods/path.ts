@@ -6,7 +6,7 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
-    selector: `canvas-path:not([path])`,
+    selector: 'canvas-path:not([path])',
     providers: [DrawService],
 })
 export class PathDirective {

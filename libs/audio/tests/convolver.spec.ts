@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioConvolver} from '../src/nodes/convolver';
 
-describe(`Convolver`, () => {
-    describe(`ConvolverNode`, () => {
+describe('Convolver', () => {
+    describe('ConvolverNode', () => {
         @Component({
             template: `
                 <div
@@ -34,12 +34,12 @@ describe(`Convolver`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof ConvolverNode).toBe(true);
         });
     });
 
-    describe(`ConvolverNode factory fallback`, () => {
+    describe('ConvolverNode factory fallback', () => {
         @Component({
             template: `
                 <div
@@ -68,7 +68,7 @@ describe(`Convolver`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof ConvolverNode).toBe(true);
         });
     });

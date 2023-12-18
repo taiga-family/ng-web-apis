@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioWaveShaper} from '../src/nodes/wave-shaper';
 
-describe(`WaveShaper`, () => {
-    describe(`WaveShaperNode`, () => {
+describe('WaveShaper', () => {
+    describe('WaveShaperNode', () => {
         @Component({
             template: `
                 <div waWaveShaperNode></div>
@@ -31,12 +31,12 @@ describe(`WaveShaper`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof WaveShaperNode).toBe(true);
         });
     });
 
-    describe(`WaveShaperNode factory fallback`, () => {
+    describe('WaveShaperNode factory fallback', () => {
         @Component({
             template: `
                 <div waWaveShaperNode></div>
@@ -62,7 +62,7 @@ describe(`WaveShaper`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof WaveShaperNode).toBe(true);
         });
     });

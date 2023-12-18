@@ -2,8 +2,7 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
-import {fromEvent} from 'rxjs';
-import {filter, map, switchMap} from 'rxjs/operators';
+import {filter, fromEvent, map, switchMap} from 'rxjs';
 
 @Component({
     standalone: true,

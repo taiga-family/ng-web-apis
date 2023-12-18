@@ -3,8 +3,7 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NAVIGATOR} from '@ng-web-apis/common';
 import {PermissionsService} from '@ng-web-apis/permissions';
 import {HighlightModule} from 'ngx-highlightjs';
-import {BehaviorSubject, of} from 'rxjs';
-import {catchError, tap} from 'rxjs/operators';
+import {BehaviorSubject, catchError, of, tap} from 'rxjs';
 
 import {SAMPLE} from './samples/basic';
 

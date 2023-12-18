@@ -4,7 +4,7 @@ import {ComponentFixture, TestBed} from '@angular/core/testing';
 import {WebAudioModule} from '../src/module';
 import {WebAudioScriptProcessor} from '../src/nodes/script-processor';
 
-describe(`ScriptProcessorNode`, () => {
+describe('ScriptProcessorNode', () => {
     @Component({
         template: `
             <div waScriptProcessorNode></div>
@@ -29,11 +29,11 @@ describe(`ScriptProcessorNode`, () => {
         fixture.detectChanges();
     });
 
-    it(`creates node`, () => {
+    it('creates node', () => {
         expect(testComponent.node instanceof ScriptProcessorNode).toBe(true);
     });
 
-    it(`100% coverage FTW!`, () => {
+    it('100% coverage FTW!', () => {
         expect(
             () =>
                 new WebAudioScriptProcessor(

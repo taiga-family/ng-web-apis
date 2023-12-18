@@ -1,6 +1,5 @@
 import {Attribute, Directive, Inject, OnDestroy, Output, SkipSelf} from '@angular/core';
-import {animationFrameScheduler, interval, Observable} from 'rxjs';
-import {map, share} from 'rxjs/operators';
+import {animationFrameScheduler, interval, map, Observable, share} from 'rxjs';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -10,18 +9,18 @@ import {parse} from '../utils/parse';
 
 @Directive({
     standalone: true,
-    selector: `[waAnalyserNode]`,
+    selector: '[waAnalyserNode]',
     inputs: [
-        `fftSize`,
-        `minDecibels`,
-        `maxDecibels`,
-        `smoothingTimeConstant`,
-        `channelCount`,
-        `channelCountMode`,
-        `channelInterpretation`,
+        'fftSize',
+        'minDecibels',
+        'maxDecibels',
+        'smoothingTimeConstant',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
     ],
     providers: [asAudioNode(WebAudioAnalyser)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
     // '!' because it is actually set in constructor
@@ -41,10 +40,10 @@ export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute(`fftSize`) fftSizeArg: string | null,
-        @Attribute(`maxDecibels`) maxDecibelsArg: string | null,
-        @Attribute(`minDecibels`) minDecibelsArg: string | null,
-        @Attribute(`smoothingTimeConstant`) smoothingTimeConstantArg: string | null,
+        @Attribute('fftSize') fftSizeArg: string | null,
+        @Attribute('maxDecibels') maxDecibelsArg: string | null,
+        @Attribute('minDecibels') minDecibelsArg: string | null,
+        @Attribute('smoothingTimeConstant') smoothingTimeConstantArg: string | null,
     ) {
         const fftSize = parse(fftSizeArg, 2048);
         const maxDecibels = parse(maxDecibelsArg, -30);

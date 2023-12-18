@@ -2,7 +2,7 @@ import {Pipe, PipeTransform} from '@angular/core';
 
 @Pipe({
     standalone: true,
-    name: `transform`,
+    name: 'transform',
 })
 export class TransformPipe implements PipeTransform {
     transform(value: string): DOMMatrix {

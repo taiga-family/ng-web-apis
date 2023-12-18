@@ -18,10 +18,10 @@ import {parse} from '../utils/parse';
 
 @Directive({
     standalone: true,
-    selector: `[waOscillatorNode]`,
-    inputs: [`type`, `channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waOscillatorNode]',
+    inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioOscillator)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     @Input()
@@ -29,12 +29,12 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
         this.setPeriodicWave(periodicWave);
     }
 
-    @Input(`detune`)
-    @audioParam(`detune`)
+    @Input('detune')
+    @audioParam('detune')
     detuneParam?: AudioParamInput | string;
 
-    @Input(`frequency`)
-    @audioParam(`frequency`)
+    @Input('frequency')
+    @audioParam('frequency')
     frequencyParam?: AudioParamInput | string;
 
     @Output()
@@ -43,9 +43,9 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     constructor(
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute(`autoplay`) autoplay: string | null,
-        @Attribute(`detune`) detuneArg: string | null,
-        @Attribute(`frequency`) frequencyArg: string | null,
+        @Attribute('autoplay') autoplay: string | null,
+        @Attribute('detune') detuneArg: string | null,
+        @Attribute('frequency') frequencyArg: string | null,
     ) {
         const detune = parse(detuneArg, 0);
         const frequency = parse(frequencyArg, 440);

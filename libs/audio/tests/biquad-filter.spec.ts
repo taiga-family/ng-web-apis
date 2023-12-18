@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioBiquadFilter} from '../src/nodes/biquad-filter';
 
-describe(`BiquadFilter`, () => {
-    describe(`BiquadFilterNode`, () => {
+describe('BiquadFilter', () => {
+    describe('BiquadFilterNode', () => {
         @Component({
             template: `
                 <div waBiquadFilterNode></div>
@@ -31,12 +31,12 @@ describe(`BiquadFilter`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof BiquadFilterNode).toBe(true);
         });
     });
 
-    describe(`BiquadFilterNode factory fallback`, () => {
+    describe('BiquadFilterNode factory fallback', () => {
         @Component({
             template: `
                 <div waBiquadFilterNode></div>
@@ -62,7 +62,7 @@ describe(`BiquadFilter`, () => {
             fixture.detectChanges();
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             expect(testComponent.node instanceof BiquadFilterNode).toBe(true);
         });
     });

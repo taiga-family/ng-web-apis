@@ -14,27 +14,27 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waScriptProcessorNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waScriptProcessorNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioScriptProcessor)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDestroy {
     @Output()
     audioprocess?: EventEmitter<AudioProcessingEvent>;
 
     constructor(
-        @Attribute(`bufferSize`) bufferSize: string | null,
-        @Attribute(`numberOfInputChannels`) numberOfInputChannels: string | null,
-        @Attribute(`numberOfOutputChannels`) numberOfOutputChannels: string | null,
+        @Attribute('bufferSize') bufferSize: string | null,
+        @Attribute('numberOfInputChannels') numberOfInputChannels: string | null,
+        @Attribute('numberOfOutputChannels') numberOfOutputChannels: string | null,
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
     ) {
         try {
             const result = context.createScriptProcessor(
-                parseInt(bufferSize || ``, 10) || 0,
-                parseInt(numberOfInputChannels || ``, 10) || 2,
-                parseInt(numberOfOutputChannels || ``, 10) || 2,
+                parseInt(bufferSize || '', 10) || 0,
+                parseInt(numberOfInputChannels || '', 10) || 2,
+                parseInt(numberOfOutputChannels || '', 10) || 2,
             ) as WebAudioScriptProcessor;
 
             Object.setPrototypeOf(result, WebAudioScriptProcessor.prototype);

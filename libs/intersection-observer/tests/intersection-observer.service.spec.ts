@@ -1,17 +1,16 @@
-import {take} from 'rxjs/operators';
+import {IntersectionObserverService} from '@ng-web-apis/intersection-observer';
+import {take} from 'rxjs';
 
-import {IntersectionObserverService} from '../src/services/intersection-observer.service';
-
-describe(`IntersectionObserverService`, () => {
-    it(`works`, done => {
+describe('IntersectionObserverService', () => {
+    it('works', done => {
         let called = false;
 
-        const nativeElement = document.createElement(`div`);
+        const nativeElement = document.createElement('div');
         const service = new IntersectionObserverService(
             {
                 nativeElement,
             },
-            `0px 0px 0px 0px`,
+            '0px 0px 0px 0px',
             0,
             {
                 nativeElement: document.body,

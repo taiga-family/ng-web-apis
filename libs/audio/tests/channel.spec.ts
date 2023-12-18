@@ -5,8 +5,8 @@ import {providers} from '../src/constants/fallback';
 import {WebAudioChannel} from '../src/directives/channel';
 import {WebAudioModule} from '../src/module';
 
-describe(`Channel`, () => {
-    describe(`Channel`, () => {
+describe('Channel', () => {
+    describe('Channel', () => {
         @Component({
             template: `
                 <div waChannel></div>
@@ -27,7 +27,7 @@ describe(`Channel`, () => {
             });
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             fixture = TestBed.createComponent(TestComponent);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
@@ -36,7 +36,7 @@ describe(`Channel`, () => {
         });
     });
 
-    describe(`Channel factory fallback`, () => {
+    describe('Channel factory fallback', () => {
         @Component({
             template: `
                 <div waChannel></div>
@@ -58,7 +58,7 @@ describe(`Channel`, () => {
             });
         });
 
-        it(`creates node`, () => {
+        it('creates node', () => {
             fixture = TestBed.createComponent(TestComponent);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();

@@ -5,9 +5,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 @Directive({
     standalone: true,
     selector:
-        `canvas-draw-image[shadowBlur],canvas-draw-image[shadowColor],canvas-draw-image[shadowOffsetX],canvas-draw-image[shadowOffsetY],` +
-        `canvas-path[shadowBlur],canvas-path[shadowColor],canvas-path[shadowOffsetX],canvas-path[shadowOffsetY],` +
-        `canvas-text[shadowBlur],canvas-text[shadowColor],canvas-text[shadowOffsetX],canvas-text[shadowOffsetY]`,
+        'canvas-draw-image[shadowBlur],canvas-draw-image[shadowColor],canvas-draw-image[shadowOffsetX],canvas-draw-image[shadowOffsetY],' +
+        'canvas-path[shadowBlur],canvas-path[shadowColor],canvas-path[shadowOffsetX],canvas-path[shadowOffsetY],' +
+        'canvas-text[shadowBlur],canvas-text[shadowColor],canvas-text[shadowOffsetX],canvas-text[shadowOffsetY]',
     providers: [asCanvasProperty(ShadowStylesDirective)],
 })
 export class ShadowStylesDirective implements CanvasShadowStyles {
@@ -15,7 +15,7 @@ export class ShadowStylesDirective implements CanvasShadowStyles {
     shadowBlur = 0;
 
     @Input()
-    shadowColor = `transparent`;
+    shadowColor = 'transparent';
 
     @Input()
     shadowOffsetX = 0;

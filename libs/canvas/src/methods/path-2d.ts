@@ -5,7 +5,7 @@ import {DrawService} from '../services/draw.service';
 
 @Directive({
     standalone: true,
-    selector: `canvas-path[path]`,
+    selector: 'canvas-path[path]',
     providers: [DrawService],
 })
 export class Path2dDirective {

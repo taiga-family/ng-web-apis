@@ -2,8 +2,7 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
-import {timer} from 'rxjs';
-import {filter, map, switchMap, takeUntil} from 'rxjs/operators';
+import {filter, map, switchMap, takeUntil, timer} from 'rxjs';
 
 @Component({
     standalone: true,

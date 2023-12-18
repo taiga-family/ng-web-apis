@@ -7,9 +7,9 @@ import {MEDIA_STREAM} from '../tokens/media-stream';
 
 @Directive({
     standalone: true,
-    selector: `[waMediaStreamAudioSourceNode]`,
+    selector: '[waMediaStreamAudioSourceNode]',
     providers: [asAudioNode(WebAudioMediaStreamSource)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioMediaStreamSource
     extends MediaStreamAudioSourceNode

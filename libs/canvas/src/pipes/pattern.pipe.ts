@@ -4,14 +4,14 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
 @Pipe({
     standalone: true,
-    name: `pattern`,
+    name: 'pattern',
 })
 export class PatternPipe implements PipeTransform {
     constructor(
         @Inject(CANVAS_2D_CONTEXT) private readonly context: CanvasRenderingContext2D,
     ) {}
 
-    transform(image: CanvasImageSource, repetition: string = `repeat`): CanvasPattern {
+    transform(image: CanvasImageSource, repetition: string = 'repeat'): CanvasPattern {
         return this.context.createPattern(image, repetition)!;
     }
 }

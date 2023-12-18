@@ -7,8 +7,7 @@ import {
     OnDestroy,
     Output,
 } from '@angular/core';
-import {of, Subject} from 'rxjs';
-import {switchMap} from 'rxjs/operators';
+import {of, Subject, switchMap} from 'rxjs';
 
 import {audioParam} from '../decorators/audio-param';
 import {AudioBufferService} from '../services/audio-buffer.service';
@@ -20,30 +19,30 @@ import {parse} from '../utils/parse';
 
 @Directive({
     standalone: true,
-    selector: `[waAudioBufferSourceNode]`,
+    selector: '[waAudioBufferSourceNode]',
     inputs: [
-        `loop`,
-        `loopStart`,
-        `loopEnd`,
-        `channelCount`,
-        `channelCountMode`,
-        `channelInterpretation`,
+        'loop',
+        'loopStart',
+        'loopEnd',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
     ],
     providers: [asAudioNode(WebAudioBufferSource)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDestroy {
-    @Input(`buffer`)
+    @Input('buffer')
     set bufferSetter(source: AudioBuffer | string | null) {
         this.buffer$.next(source);
     }
 
-    @Input(`detune`)
-    @audioParam(`detune`)
+    @Input('detune')
+    @audioParam('detune')
     detuneParam?: AudioParamInput;
 
-    @Input(`playbackRate`)
-    @audioParam(`playbackRate`)
+    @Input('playbackRate')
+    @audioParam('playbackRate')
     playbackRateParam?: AudioParamInput;
 
     @Output()
@@ -55,9 +54,9 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
         @Inject(AudioBufferService) audioBufferService: AudioBufferService,
         @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute(`autoplay`) autoplay: string | null,
-        @Attribute(`detune`) detuneArg: string | null,
-        @Attribute(`playbackRate`) playbackRateArg: string | null,
+        @Attribute('autoplay') autoplay: string | null,
+        @Attribute('detune') detuneArg: string | null,
+        @Attribute('playbackRate') playbackRateArg: string | null,
     ) {
         const detune = parse(detuneArg, 0);
         const playbackRate = parse(playbackRateArg, 1);
@@ -100,7 +99,7 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
             .pipe(
                 // eslint-disable-next-line @typescript-eslint/promise-function-async
                 switchMap(source =>
-                    typeof source === `string`
+                    typeof source === 'string'
                         ? audioBufferService.fetch(source)
                         : of(source),
                 ),

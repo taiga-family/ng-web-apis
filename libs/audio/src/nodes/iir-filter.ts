@@ -9,10 +9,10 @@ import {connect} from '../utils/connect';
 
 @Directive({
     standalone: true,
-    selector: `[waIIRFilterNode]`,
-    inputs: [`channelCount`, `channelCountMode`, `channelInterpretation`],
+    selector: '[waIIRFilterNode]',
+    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
     providers: [asAudioNode(WebAudioIIRFilter)],
-    exportAs: `AudioNode`,
+    exportAs: 'AudioNode',
 })
 export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
     constructor(
