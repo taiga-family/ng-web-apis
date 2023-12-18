@@ -1,4 +1,4 @@
-import {NgForOf} from '@angular/common';
+import {NgForOf, NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {PaymentRequestModule} from '@ng-web-apis/payment-request';
 
@@ -20,7 +20,7 @@ class ShopItem implements PaymentItem {
 @Component({
     standalone: true,
     selector: 'app-shop',
-    imports: [NgForOf, PaymentRequestModule],
+    imports: [NgForOf, PaymentRequestModule, NgIf],
     templateUrl: './shop.component.html',
     styleUrls: ['./shop.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
