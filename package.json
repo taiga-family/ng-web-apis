@@ -154,7 +154,7 @@
         "lerna": "8.0.1",
         "lint-staged": "15.2.0",
         "markdown-it": "14.0.0",
-        "marked": "11.1.0",
+        "marked": "11.1.1",
         "ng-packagr": "15.2.2",
         "ngx-deploy-npm": "7.1.0",
         "ngx-highlightjs": "6.1.3",
