@@ -10,7 +10,7 @@ jobs:
     steps:
       - uses: actions/checkout@v4.1.1
       - uses: taiga-family/ci/actions/setup/variables@v1.50.7
-      - uses: toshimaru/auto-author-assign@v2.0.1
+      - uses: toshimaru/auto-author-assign@v2.1.0
         if: env.IS_OWNER_MODE == 'true'
         with:
           repo-token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
