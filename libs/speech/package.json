@@ -27,6 +27,6 @@
     "peerDependencies": {
         "@angular/core": ">=6.0.0",
         "@ng-web-apis/common": ">=1.9.0",
-        "@types/dom-speech-recognition": ">=0.0.1"
+        "@types/dom-speech-recognition": "0.0.4"
     }
 }
