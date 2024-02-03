@@ -26,8 +26,8 @@
         "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>"
     ],
     "peerDependencies": {
-        "@angular/common": ">=12.0.0",
-        "@angular/core": ">=12.0.0",
-        "rxjs": ">=6.4.0"
+        "@angular/common": "15.2.10",
+        "@angular/core": "15.2.10",
+        "rxjs": "7.8.1"
     }
 }

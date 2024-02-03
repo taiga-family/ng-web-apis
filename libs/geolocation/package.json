@@ -26,8 +26,8 @@
         "tslib": "2.6.2"
     },
     "peerDependencies": {
-        "@angular/common": ">=6.0.0",
-        "@angular/core": ">=6.0.0",
+        "@angular/common": "15.2.10",
+        "@angular/core": "15.2.10",
         "@ng-web-apis/common": ">=1.0.0"
     }
 }

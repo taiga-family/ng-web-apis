@@ -29,9 +29,9 @@
         "mocks.js"
     ],
     "peerDependencies": {
-        "@angular/core": ">=12.0.0",
+        "@angular/core": "15.2.10",
         "@ng-web-apis/common": ">=2.0.0",
         "@types/node": ">=10.0.0",
-        "rxjs": ">=6.0.0"
+        "rxjs": "7.8.1"
     }
 }
