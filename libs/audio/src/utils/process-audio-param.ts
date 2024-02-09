@@ -5,7 +5,7 @@ import {AudioParamInput} from '../types/audio-param-input';
 export function processAudioParam(
     param: AudioParam,
     value: AudioParamInput,
-    currentTime: number = 0,
+    currentTime = 0,
 ): void {
     if (param.cancelAndHoldAtTime) {
         param.cancelAndHoldAtTime(currentTime);

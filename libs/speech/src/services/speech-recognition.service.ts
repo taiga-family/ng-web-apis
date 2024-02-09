@@ -11,7 +11,7 @@ export class SpeechRecognitionService extends Observable<SpeechRecognitionResult
     constructor(
         @Inject(SPEECH_RECOGNITION) classRef: Type<SpeechRecognition> | null,
         @Optional() @Inject(LOCALE_ID) lang: string | null = '',
-        @Inject(SPEECH_RECOGNITION_MAX_ALTERNATIVES) maxAlternatives: number = 1,
+        @Inject(SPEECH_RECOGNITION_MAX_ALTERNATIVES) maxAlternatives = 1,
         @Inject(NgZone) ngZone: {run: any} = {run: (fn: any) => fn()},
     ) {
         super(subscriber => {

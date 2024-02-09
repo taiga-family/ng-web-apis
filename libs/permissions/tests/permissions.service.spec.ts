@@ -19,7 +19,7 @@ describe('PermissionsService', () => {
          * call, which would not work with the fakeAsync functionality. It needs to be run
          * in the context of the `it` callback.
          */
-        function createQuerySpy(shouldReject: boolean = false): jasmine.Spy {
+        function createQuerySpy(shouldReject = false): jasmine.Spy {
             const queryPromise = new Promise<PermissionStatus>((resolve, reject) => {
                 // assign the object that will be resolved outside of the setTimeout block
                 // so that we can set up spies on it early
