@@ -9,7 +9,7 @@ import {processAudioParam} from '../utils/process-audio-param';
 export function audioParam(): AudioParamWorkletDecorator;
 export function audioParam<K extends string>(param: K): AudioParamDecorator<K>;
 export function audioParam<K extends string>(
-    param: string = '',
+    param = '',
 ): AudioParamDecorator<K> | AudioParamWorkletDecorator {
     const decorator: AudioParamDecorator<K> = (target, propertyKey) => {
         Object.defineProperty(target, propertyKey, {
