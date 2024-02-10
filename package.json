@@ -117,7 +117,7 @@
         "@taiga-ui/cdk": "3.65.0",
         "@taiga-ui/commitlint-config": "0.5.5",
         "@taiga-ui/core": "3.65.0",
-        "@taiga-ui/eslint-plugin-experience": "0.53.2",
+        "@taiga-ui/eslint-plugin-experience": "0.53.3",
         "@taiga-ui/icons": "3.65.0",
         "@taiga-ui/kit": "3.65.0",
         "@taiga-ui/prettier-config": "0.8.2",
