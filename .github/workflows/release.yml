@@ -31,11 +31,11 @@ jobs:
           ref: ${{ github.head_ref }}
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - uses: taiga-family/ci/actions/setup/node@v1.51.6
-      - uses: taiga-family/ci/actions/setup/config/git@v1.51.6
+      - uses: taiga-family/ci/actions/setup/node@v1.51.7
+      - uses: taiga-family/ci/actions/setup/config/git@v1.51.7
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/config/npm@v1.51.6
+      - uses: taiga-family/ci/actions/setup/config/npm@v1.51.7
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
