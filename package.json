@@ -122,7 +122,7 @@
         "@taiga-ui/kit": "3.66.0",
         "@taiga-ui/prettier-config": "0.8.3",
         "@taiga-ui/styles": "3.66.0",
-        "@taiga-ui/tsconfig": "0.15.0",
+        "@taiga-ui/tsconfig": "0.16.0",
         "@types/dom-speech-recognition": "0.0.4",
         "@types/dom-view-transitions": "1.0.4",
         "@types/dompurify": "3.0.5",
