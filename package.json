@@ -113,7 +113,7 @@
         "@taiga-ui/addon-doc": "3.66.0",
         "@taiga-ui/addon-editor": "3.35.0",
         "@taiga-ui/addon-mobile": "3.66.0",
-        "@taiga-ui/browserslist-config": "0.4.0",
+        "@taiga-ui/browserslist-config": "0.5.0",
         "@taiga-ui/cdk": "3.66.0",
         "@taiga-ui/commitlint-config": "0.5.6",
         "@taiga-ui/core": "3.66.0",
