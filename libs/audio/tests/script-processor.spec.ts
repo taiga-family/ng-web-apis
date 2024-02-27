@@ -15,7 +15,7 @@ describe('ScriptProcessorNode', () => {
     })
     class TestComponent {
         @ViewChild(WebAudioScriptProcessor)
-        node!: AudioNode;
+        public node!: AudioNode;
     }
 
     let fixture: ComponentFixture<TestComponent>;

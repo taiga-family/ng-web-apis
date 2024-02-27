@@ -25,12 +25,12 @@ describe('Destination', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioDestination)
-            node!: WebAudioDestination;
+            public node!: WebAudioDestination;
 
             @ViewChild(WebAudioBufferSource)
-            source!: WebAudioBufferSource;
+            public source!: WebAudioBufferSource;
 
-            quiet = false;
+            public quiet = false;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -88,7 +88,7 @@ describe('Destination', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioDestination)
-            node!: WebAudioDestination;
+            public node!: WebAudioDestination;
         }
 
         let fixture: ComponentFixture<TestComponent>;

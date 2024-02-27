@@ -12,14 +12,14 @@ describe('GeolocationService', () => {
         let clearWatchCount: number;
 
         class FakeGeolocation {
-            watchPosition(success: any, error: any): void {
+            protected watchPosition(success: any, error: any): void {
                 interval(300).subscribe(number => success(number.toString()));
                 timer(1000)
                     .pipe(take(1))
                     .subscribe(() => error('error'));
             }
 
-            clearWatch(): void {
+            protected clearWatch(): void {
                 clearWatchCount++;
             }
         }

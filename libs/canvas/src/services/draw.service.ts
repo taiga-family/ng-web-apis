@@ -29,9 +29,9 @@ export class DrawService implements OnDestroy, CanvasMethod {
         );
     }
 
-    call: Context2dProcessor = (): void => {};
+    public call: Context2dProcessor = (): void => {};
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.subscription.unsubscribe();
     }
 }

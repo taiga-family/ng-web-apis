@@ -9,14 +9,14 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 export class GradientPipe implements PipeTransform {
     private readonly context = inject(CANVAS_2D_CONTEXT);
 
-    transform(
+    public transform(
         stops: Map<number, string>,
         x0: number,
         y0: number,
         x1: number,
         y1: number,
     ): CanvasGradient;
-    transform(
+    public transform(
         stops: Map<number, string>,
         x0: number,
         y0: number,
@@ -25,7 +25,7 @@ export class GradientPipe implements PipeTransform {
         y1: number,
         r1: number,
     ): CanvasGradient;
-    transform(
+    public transform(
         stops: Map<number, string>,
         a1: number,
         a2: number,

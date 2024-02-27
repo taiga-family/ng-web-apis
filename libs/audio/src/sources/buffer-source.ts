@@ -32,23 +32,23 @@ import {parse} from '../utils/parse';
     exportAs: 'AudioNode',
 })
 export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDestroy {
+    protected buffer$!: Subject<AudioBuffer | string | null>;
+
     @Input('buffer')
-    set bufferSetter(source: AudioBuffer | string | null) {
+    public set bufferSetter(source: AudioBuffer | string | null) {
         this.buffer$.next(source);
     }
 
     @Input('detune')
     @audioParam('detune')
-    detuneParam?: AudioParamInput;
+    public detuneParam?: AudioParamInput;
 
     @Input('playbackRate')
     @audioParam('playbackRate')
-    playbackRateParam?: AudioParamInput;
+    public playbackRateParam?: AudioParamInput;
 
     @Output()
-    ended?: EventEmitter<void>;
-
-    buffer$!: Subject<AudioBuffer | string | null>;
+    public ended?: EventEmitter<void>;
 
     constructor(
         @Attribute('autoplay') autoplay: string | null,
@@ -80,7 +80,7 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
         }
     }
 
-    static init(
+    protected static init(
         that: WebAudioBufferSource,
         _node: AudioNode | null,
         autoplay: string | null,
@@ -109,7 +109,7 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
             });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.buffer$.complete();
 
         try {

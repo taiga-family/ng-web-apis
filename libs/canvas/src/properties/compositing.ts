@@ -13,12 +13,12 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class CompositingDirective implements CanvasMethod, CanvasCompositing {
     @Input()
-    globalAlpha = 1;
+    public globalAlpha = 1;
 
     @Input()
-    globalCompositeOperation: GlobalCompositeOperation = 'source-over';
+    public globalCompositeOperation: GlobalCompositeOperation = 'source-over';
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.globalAlpha = this.globalAlpha;
         context.globalCompositeOperation = this.globalCompositeOperation;
     }

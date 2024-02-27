@@ -2,20 +2,20 @@ import {emptyFunction} from '../utils/functions';
 import {DOMStringListMock} from './dom-string-list-mock';
 
 export class LocationMock implements Location {
-    readonly ancestorOrigins = new DOMStringListMock();
-    hash = '';
-    host = '';
-    hostname = '';
-    href = '';
-    readonly origin = '';
-    pathname = '';
-    port = '';
-    protocol = '';
-    search = '';
+    public readonly ancestorOrigins = new DOMStringListMock();
+    public hash = '';
+    public host = '';
+    public hostname = '';
+    public href = '';
+    public readonly origin = '';
+    public pathname = '';
+    public port = '';
+    public protocol = '';
+    public search = '';
 
-    assign = emptyFunction;
+    public assign = emptyFunction;
 
-    reload = emptyFunction;
+    public reload = emptyFunction;
 
-    replace = emptyFunction;
+    public replace = emptyFunction;
 }

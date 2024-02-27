@@ -18,8 +18,8 @@ describe('ResizeObserverDirective', () => {
     })
     class TestComponent {
         // eslint-disable-next-line jest/no-jasmine-globals
-        onResize = jasmine.createSpy('onResize');
-        observe = true;
+        public onResize = jasmine.createSpy('onResize');
+        public observe = true;
     }
 
     let fixture: ComponentFixture<TestComponent>;

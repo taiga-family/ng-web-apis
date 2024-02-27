@@ -18,19 +18,19 @@ import {parse} from '../utils/parse';
 export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy {
     @Input('detune')
     @audioParam('detune')
-    detuneParam?: AudioParamInput;
+    public detuneParam?: AudioParamInput;
 
     @Input('frequency')
     @audioParam('frequency')
-    frequencyParam?: AudioParamInput;
+    public frequencyParam?: AudioParamInput;
 
     @Input('gain')
     @audioParam('gain')
-    gainParam?: AudioParamInput;
+    public gainParam?: AudioParamInput;
 
     @Input('Q')
     @audioParam('Q')
-    qParam?: AudioParamInput;
+    public qParam?: AudioParamInput;
 
     constructor(
         @Attribute('detune') detuneArg: string | null,
@@ -65,11 +65,11 @@ export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy 
         }
     }
 
-    static init(that: WebAudioBiquadFilter, node: AudioNode | null): void {
+    protected static init(that: WebAudioBiquadFilter, node: AudioNode | null): void {
         connect(node, that);
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

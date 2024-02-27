@@ -14,7 +14,7 @@ import {SAMPLE_HTML, SAMPLE_TS} from './samples/sample';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ScreenOrientationPageComponent {
-    readonly orientation$ = inject(ScreenOrientationService);
-    readonly sample = SAMPLE_TS;
-    readonly sampleHtml = SAMPLE_HTML;
+    protected readonly orientation$ = inject(ScreenOrientationService);
+    protected readonly sample = SAMPLE_TS;
+    protected readonly sampleHtml = SAMPLE_HTML;
 }

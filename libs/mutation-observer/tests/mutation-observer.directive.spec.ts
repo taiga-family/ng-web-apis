@@ -25,13 +25,13 @@ describe('MutationObserverDirective', () => {
     })
     class TestComponent {
         // eslint-disable-next-line jest/no-jasmine-globals
-        onMutation = jasmine.createSpy('onMutation');
+        public onMutation = jasmine.createSpy('onMutation');
         // eslint-disable-next-line jest/no-jasmine-globals
-        onAttributes = jasmine.createSpy('onAttributes');
-        observe = true;
-        child = true;
-        title = 'title';
-        label = 'label';
+        public onAttributes = jasmine.createSpy('onAttributes');
+        public observe = true;
+        public child = true;
+        public title = 'title';
+        public label = 'label';
     }
 
     let fixture: ComponentFixture<TestComponent>;

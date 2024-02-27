@@ -45,14 +45,14 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
         this.destroy$ = new Subject<void>();
     }
 
-    static fromFunction<T, R>(
+    public static fromFunction<T, R>(
         fn: WorkerFunction<T, R>,
         options?: WorkerOptions,
     ): WebWorker<T, R> {
         return new WebWorker<T, R>(WebWorker.createFnUrl(fn), options);
     }
 
-    static async execute<T, R>(
+    public static async execute<T, R>(
         fn: WorkerFunction<T, R>,
         data: T,
     ): Promise<TypedMessageEvent<R>> {
@@ -77,7 +77,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
         return URL.createObjectURL(blob);
     }
 
-    terminate(): void {
+    public terminate(): void {
         if (this.destroy$.isStopped) {
             return;
         }
@@ -92,7 +92,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
         this.destroy$.complete();
     }
 
-    postMessage(value: T): void {
+    public postMessage(value: T): void {
         if (this.worker) {
             this.worker.postMessage(value);
         }

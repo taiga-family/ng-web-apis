@@ -12,7 +12,7 @@ describe('ConstantSourceNode', () => {
     })
     class TestComponent {
         @ViewChild(WebAudioConstantSource)
-        node!: AudioNode;
+        public node!: AudioNode;
     }
 
     let fixture: ComponentFixture<TestComponent>;

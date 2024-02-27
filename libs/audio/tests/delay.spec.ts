@@ -14,7 +14,7 @@ describe('Delay', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioDelay)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -44,7 +44,7 @@ describe('Delay', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioDelay)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

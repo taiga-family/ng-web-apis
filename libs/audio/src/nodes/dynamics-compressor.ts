@@ -21,23 +21,23 @@ export class WebAudioDynamicsCompressor
 {
     @Input('attack')
     @audioParam('attack')
-    attackParam?: AudioParamInput;
+    public attackParam?: AudioParamInput;
 
     @Input('knee')
     @audioParam('knee')
-    kneeParam?: AudioParamInput;
+    public kneeParam?: AudioParamInput;
 
     @Input('ratio')
     @audioParam('ratio')
-    ratioParam?: AudioParamInput;
+    public ratioParam?: AudioParamInput;
 
     @Input('release')
     @audioParam('release')
-    releaseParam?: AudioParamInput;
+    public releaseParam?: AudioParamInput;
 
     @Input('threshold')
     @audioParam('threshold')
-    thresholdParam?: AudioParamInput;
+    public thresholdParam?: AudioParamInput;
 
     constructor(
         @Attribute('attack') attackArg: string | null,
@@ -74,7 +74,7 @@ export class WebAudioDynamicsCompressor
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

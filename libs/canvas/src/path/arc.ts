@@ -10,24 +10,24 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class ArcDirective implements CanvasMethod {
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
     @Input()
-    radius = 0;
+    public radius = 0;
 
     @Input()
-    startAngle = 0;
+    public startAngle = 0;
 
     @Input()
-    endAngle = 0;
+    public endAngle = 0;
 
     @Input()
-    anticlockwise = false;
+    public anticlockwise = false;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.arc(
             this.x,
             this.y,

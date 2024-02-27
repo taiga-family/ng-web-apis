@@ -8,34 +8,34 @@ export class StorageService implements Storage {
     private readonly localStorage = inject(LOCAL_STORAGE);
     private readonly windowRef = inject(WINDOW);
 
-    get length(): number {
+    public get length(): number {
         return this.localStorage.length;
     }
 
-    getItem(key: string): string | null {
+    public getItem(key: string): string | null {
         return this.localStorage.getItem(key);
     }
 
-    setItem(key: string, value: string): void {
+    public setItem(key: string, value: string): void {
         const oldValue = this.getItem(key);
 
         this.localStorage.setItem(key, value);
         this.notify(key, value, oldValue);
     }
 
-    removeItem(key: string): void {
+    public removeItem(key: string): void {
         const oldValue = this.getItem(key);
 
         this.localStorage.removeItem(key);
         this.notify(key, null, oldValue);
     }
 
-    clear(): void {
+    public clear(): void {
         this.localStorage.clear();
         this.notify(null, null, null);
     }
 
-    key(index: number): string | null {
+    public key(index: number): string | null {
         return this.localStorage.key(index);
     }
 

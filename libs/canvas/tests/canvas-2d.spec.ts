@@ -29,7 +29,7 @@ describe('Canvas2dDirective', () => {
     })
     class TestComponent {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        readonly context!: CanvasRenderingContext2D;
+        public readonly context!: CanvasRenderingContext2D;
     }
 
     let fixture: ComponentFixture<TestComponent>;

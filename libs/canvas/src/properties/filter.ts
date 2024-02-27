@@ -10,9 +10,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class FilterDirective implements CanvasMethod, CanvasFilters {
     @Input()
-    filter = 'none';
+    public filter = 'none';
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.filter = this.filter;
     }
 }

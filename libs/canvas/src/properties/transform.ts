@@ -16,9 +16,9 @@ export class TransformDirective implements CanvasMethod {
     });
 
     @Input()
-    transform: DOMMatrix = new DOMMatrix();
+    public transform: DOMMatrix = new DOMMatrix();
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.setTransform(
             this.parent?.transform.multiply(this.transform) || this.transform,
         );

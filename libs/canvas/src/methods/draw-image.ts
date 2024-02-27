@@ -11,31 +11,31 @@ export class DrawImageDirective {
     private readonly method = inject(DrawService);
 
     @Input()
-    image?: CanvasImageSource;
+    public image?: CanvasImageSource;
 
     @Input()
-    dX = 0;
+    public dX = 0;
 
     @Input()
-    dY = 0;
+    public dY = 0;
 
     @Input()
-    dWidth?: number;
+    public dWidth?: number;
 
     @Input()
-    dHeight?: number;
+    public dHeight?: number;
 
     @Input()
-    sX?: number;
+    public sX?: number;
 
     @Input()
-    sY?: number;
+    public sY?: number;
 
     @Input()
-    sWidth?: number;
+    public sWidth?: number;
 
     @Input()
-    sHeight?: number;
+    public sHeight?: number;
 
     constructor() {
         this.method.call = context => {

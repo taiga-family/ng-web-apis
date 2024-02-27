@@ -16,7 +16,7 @@ describe('OfflineAudioContext', () => {
     })
     class TestComponent {
         @ViewChild(WebAudioOfflineContext)
-        audioContext!: OfflineAudioContext;
+        public audioContext!: OfflineAudioContext;
     }
 
     let fixture: ComponentFixture<TestComponent>;

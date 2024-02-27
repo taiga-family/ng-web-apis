@@ -24,7 +24,7 @@ export class WebAudioChannel extends GainNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

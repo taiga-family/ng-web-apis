@@ -14,10 +14,10 @@ import {TuiBadgeModule} from '@taiga-ui/kit';
 export class NotificationPageExample1 {
     private readonly notifications: NotificationService = inject(NotificationService);
 
-    readonly notificationPermissionState$ =
+    protected readonly notificationPermissionState$ =
         inject(PermissionsService).state('notifications');
 
-    requestPermission(): void {
+    protected requestPermission(): void {
         this.notifications.requestPermission().subscribe({
             next: permission =>
                 console.info(

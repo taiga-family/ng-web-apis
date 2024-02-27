@@ -11,7 +11,7 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioOutput extends GainNode implements OnDestroy {
     @Input()
-    set waOutput(destination: AudioNode | AudioParam | undefined) {
+    public set waOutput(destination: AudioNode | AudioParam | undefined) {
         this.disconnect();
         connect(this, destination);
     }
@@ -34,11 +34,11 @@ export class WebAudioOutput extends GainNode implements OnDestroy {
         }
     }
 
-    static init(that: WebAudioOutput, node: AudioNode | null): void {
+    protected static init(that: WebAudioOutput, node: AudioNode | null): void {
         connect(node, that);
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

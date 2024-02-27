@@ -10,24 +10,24 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class BezierCurveToDirective implements CanvasMethod {
     @Input()
-    cp1x = 0;
+    public cp1x = 0;
 
     @Input()
-    cp1y = 0;
+    public cp1y = 0;
 
     @Input()
-    cp2x = 0;
+    public cp2x = 0;
 
     @Input()
-    cp2y = 0;
+    public cp2y = 0;
 
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.bezierCurveTo(this.cp1x, this.cp1y, this.cp2x, this.cp2y, this.x, this.y);
     }
 }

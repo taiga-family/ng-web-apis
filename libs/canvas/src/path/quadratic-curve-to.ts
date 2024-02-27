@@ -10,18 +10,18 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class QuadraticCurveToDirective implements CanvasMethod {
     @Input()
-    cpx = 0;
+    public cpx = 0;
 
     @Input()
-    cpy = 0;
+    public cpy = 0;
 
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.quadraticCurveTo(this.cpx, this.cpy, this.x, this.y);
     }
 }

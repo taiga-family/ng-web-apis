@@ -66,12 +66,12 @@ export default class ViewTransitionPageComponent {
     private readonly cdr = inject(ChangeDetectorRef);
     private readonly destroy$ = inject(TuiDestroyService, {self: true});
 
-    readonly codeSample = USAGE_SAMPLE;
-    readonly data = PHOTOS;
-    readonly activeIndex$ = new BehaviorSubject(-1);
-    readonly detailInfo$ = new BehaviorSubject<Photo | undefined>(undefined);
+    protected readonly codeSample = USAGE_SAMPLE;
+    protected readonly data = PHOTOS;
+    protected readonly activeIndex$ = new BehaviorSubject(-1);
+    protected readonly detailInfo$ = new BehaviorSubject<Photo | undefined>(undefined);
 
-    open(index: number): void {
+    protected open(index: number): void {
         this.activeIndex$.next(index);
         this.viewTransitionService
             .startViewTransition(() => {
@@ -82,7 +82,7 @@ export default class ViewTransitionPageComponent {
             .subscribe();
     }
 
-    close(): void {
+    protected close(): void {
         this.viewTransitionService
             .startViewTransition(() => {
                 this.detailInfo$.next(undefined);

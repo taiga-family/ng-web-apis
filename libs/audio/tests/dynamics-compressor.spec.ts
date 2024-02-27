@@ -14,7 +14,7 @@ describe('Dynamics compressor', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioDynamicsCompressor)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -44,7 +44,7 @@ describe('Dynamics compressor', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioDynamicsCompressor)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

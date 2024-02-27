@@ -5,7 +5,7 @@ import {Pipe, PipeTransform} from '@angular/core';
     name: 'path',
 })
 export class PathPipe implements PipeTransform {
-    transform(path: string): Path2D {
+    public transform(path: string): Path2D {
         return new Path2D(path);
     }
 }

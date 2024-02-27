@@ -9,7 +9,7 @@ export class AudioBufferService {
     private readonly context = inject(AUDIO_CONTEXT);
     private readonly cache = new Map<string, AudioBuffer>();
 
-    async fetch(url: string): Promise<AudioBuffer> {
+    public async fetch(url: string): Promise<AudioBuffer> {
         return new Promise<AudioBuffer>((resolve, reject) => {
             if (this.cache.has(url)) {
                 resolve(this.cache.get(url) as AudioBuffer);

@@ -37,9 +37,9 @@ export class DemoComponent {
     private readonly mouseup$ = new Subject<void>();
     private readonly silent$ = new Subject<number>();
 
-    readonly octaves = Array.from({length: 24}, (_, i) => i + 48);
-    readonly notes$: Observable<Map<number, number | null>>;
-    readonly response = inject(RESPONSE_BUFFER);
+    protected readonly octaves = Array.from({length: 24}, (_, i) => i + 48);
+    protected readonly notes$: Observable<Map<number, number | null>>;
+    protected readonly response = inject(RESPONSE_BUFFER);
 
     constructor() {
         const mouseInitiated$ = this.mousedown$.pipe(
@@ -73,27 +73,27 @@ export class DemoComponent {
 
     @HostListener('document:mouseup')
     @HostListener('document:touchend')
-    onMouseUp(): void {
+    protected onMouseUp(): void {
         this.mouseup$.next();
     }
 
-    noteKey: TrackByFunction<KeyValue<number, number | null>> = (
+    protected noteKey: TrackByFunction<KeyValue<number, number | null>> = (
         _index: number,
         {key}: KeyValue<number, number | null>,
     ): number => key;
 
-    getClass(notes: Map<number, number | null>, note: number): string {
+    protected getClass(notes: Map<number, number | null>, note: number): string {
         const className = !notes.get(note) ? '' : '_active';
         const key = note - 47;
 
         return `${className} key-${key % 12 || 12}`;
     }
 
-    onQuiet(key?: number): void {
+    protected onQuiet(key?: number): void {
         key && this.silent$.next(key);
     }
 
-    onMouseDown(note: number): void {
+    protected onMouseDown(note: number): void {
         this.mousedown$.next(note);
     }
 }

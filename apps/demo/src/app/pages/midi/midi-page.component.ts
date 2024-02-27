@@ -16,11 +16,11 @@ import {DemoComponent} from './demo/demo.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class MidiPageComponent {
-    readonly supported = inject(MIDI_SUPPORT);
+    protected readonly supported = inject(MIDI_SUPPORT);
 
-    started = false;
+    protected started = false;
 
-    start(): void {
+    protected start(): void {
         this.started = true;
     }
 }

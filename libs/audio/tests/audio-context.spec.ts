@@ -15,7 +15,7 @@ describe('AudioContext', () => {
     })
     class TestComponent {
         @ViewChild(WebAudioContext)
-        audioContext!: AudioContext;
+        public audioContext!: AudioContext;
     }
 
     let fixture: ComponentFixture<TestComponent>;

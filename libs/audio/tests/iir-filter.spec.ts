@@ -16,7 +16,7 @@ describe('IIR filter', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioIIRFilter)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -56,7 +56,7 @@ describe('IIR filter', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioIIRFilter)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

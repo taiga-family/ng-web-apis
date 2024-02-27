@@ -26,25 +26,25 @@ import {TuiInputModule} from '@taiga-ui/kit';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class MutationObserverPageComponent {
-    toggled = false;
+    protected toggled = false;
 
-    disabled: true | null = null; // null so the attribute gets removed
+    protected disabled: true | null = null; // null so the attribute gets removed
 
-    title = 'title';
+    protected title = 'title';
 
-    text = 'text';
+    protected text = 'text';
 
-    ignored = 'Ignored aria-label attribute';
+    protected ignored = 'Ignored aria-label attribute';
 
-    toggleDOM(): void {
+    protected toggleDOM(): void {
         this.toggled = !this.toggled;
     }
 
-    toggleAttr(): void {
+    protected toggleAttr(): void {
         this.disabled = !this.disabled || null;
     }
 
-    log(entries: MutationRecord[]): void {
+    protected log(entries: MutationRecord[]): void {
         console.info(entries);
     }
 }

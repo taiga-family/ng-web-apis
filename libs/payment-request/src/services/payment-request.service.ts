@@ -12,7 +12,7 @@ export class PaymentRequestService {
     private readonly paymentMethods = inject(PAYMENT_METHODS);
     private readonly paymentOptions = inject(PAYMENT_OPTIONS);
 
-    async request(
+    public async request(
         details: PaymentDetailsInit,
         methods: PaymentMethodData[] = this.paymentMethods,
         options: PaymentOptions = this.paymentOptions,

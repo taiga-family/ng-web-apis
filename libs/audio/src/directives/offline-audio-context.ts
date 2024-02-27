@@ -14,7 +14,7 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
 })
 export class WebAudioOfflineContext extends OfflineAudioContext {
     @Output()
-    readonly complete = new EventEmitter<AudioBuffer>();
+    public readonly complete = new EventEmitter<AudioBuffer>();
 
     constructor(
         @Attribute('length') length: string,
@@ -33,7 +33,7 @@ export class WebAudioOfflineContext extends OfflineAudioContext {
         }
     }
 
-    override readonly oncomplete = ({
+    public override readonly oncomplete = ({
         renderedBuffer,
     }: OfflineAudioCompletionEvent): void => this.complete.emit(renderedBuffer);
 }

@@ -11,21 +11,21 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class TextDrawingStylesDirective implements CanvasMethod, CanvasTextDrawingStyles {
     @Input()
-    direction: CanvasDirection = 'inherit';
+    public direction: CanvasDirection = 'inherit';
 
     @Input()
-    font = '10px sans-serif';
+    public font = '10px sans-serif';
 
     @Input()
-    textAlign: CanvasTextAlign = 'start';
+    public textAlign: CanvasTextAlign = 'start';
 
     @Input()
-    fontKerning: CanvasFontKerning = 'auto';
+    public fontKerning: CanvasFontKerning = 'auto';
 
     @Input()
-    textBaseline: CanvasTextBaseline = 'alphabetic';
+    public textBaseline: CanvasTextBaseline = 'alphabetic';
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.direction = this.direction;
         context.font = this.font;
         context.textAlign = this.textAlign;

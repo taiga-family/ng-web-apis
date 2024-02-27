@@ -25,7 +25,7 @@ import {ExampleComponent} from './example/example.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class StoragePageComponent {
-    readonly example = {
+    protected readonly example = {
         TypeScript: import('./example/example.component.ts?raw'),
         HTML: import('./example/example.template.html?raw'),
     };

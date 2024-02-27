@@ -14,11 +14,11 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class IntersectionObserverPageComponent {
-    ratio = 0;
+    protected ratio = 0;
 
-    readonly support = inject(INTERSECTION_OBSERVER_SUPPORT);
+    protected readonly support = inject(INTERSECTION_OBSERVER_SUPPORT);
 
-    onIntersection(intersections: IntersectionObserverEntry[]): void {
+    protected onIntersection(intersections: IntersectionObserverEntry[]): void {
         this.ratio = Math.round(intersections[0].intersectionRatio * 10);
     }
 }

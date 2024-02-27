@@ -38,7 +38,7 @@ export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

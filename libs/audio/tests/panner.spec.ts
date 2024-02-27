@@ -14,7 +14,7 @@ describe('Panner', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioPanner)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -44,7 +44,7 @@ describe('Panner', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioPanner)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
