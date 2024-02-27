@@ -11,10 +11,10 @@ export class Path2dDirective {
     private readonly method = inject(DrawService);
 
     @Input()
-    path = new Path2D();
+    public path = new Path2D();
 
     @Input()
-    fillRule?: CanvasFillRule;
+    public fillRule?: CanvasFillRule;
 
     constructor() {
         this.method.call = context => {

@@ -16,7 +16,7 @@ export class WebAudioPeriodicWavePipe implements PipeTransform {
      * @param imag sine terms (traditionally the B terms)
      * @param disableNormalization see {@lin PeriodicWaveConstraints}
      */
-    transform(
+    public transform(
         real: number[],
         imag?: number[],
         disableNormalization?: boolean,

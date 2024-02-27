@@ -20,7 +20,7 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDestroy {
     @Output()
-    audioprocess?: EventEmitter<AudioProcessingEvent>;
+    public audioprocess?: EventEmitter<AudioProcessingEvent>;
 
     constructor(
         @Attribute('bufferSize') bufferSize: string | null,
@@ -53,7 +53,7 @@ export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDe
         super();
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

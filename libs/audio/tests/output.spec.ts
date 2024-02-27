@@ -18,7 +18,7 @@ describe('Output spec', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioOutput)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -52,7 +52,7 @@ describe('Output spec', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioOutput)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

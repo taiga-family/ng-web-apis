@@ -18,23 +18,23 @@ export class ExampleComponent {
     private readonly storageService = inject(StorageService);
     private readonly storage = inject(LOCAL_STORAGE);
 
-    readonly value$: Observable<string | null> = inject(STORAGE_EVENT).pipe(
+    protected readonly value$: Observable<string | null> = inject(STORAGE_EVENT).pipe(
         filterByKey('value'),
         toValue(),
     );
 
-    native = '';
+    protected native = '';
 
-    service = '';
+    protected service = '';
 
-    index = 0;
+    protected index = 0;
 
-    withStorage(value: string): void {
+    protected withStorage(value: string): void {
         this.storage.setItem('value', value);
         this.native = value;
     }
 
-    withService(value: string): void {
+    protected withService(value: string): void {
         this.storageService.setItem('value', value);
         this.service = value;
     }

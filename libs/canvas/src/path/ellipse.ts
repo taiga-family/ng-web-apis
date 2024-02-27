@@ -10,30 +10,30 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class EllipseDirective implements CanvasMethod {
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
     @Input()
-    radiusX = 0;
+    public radiusX = 0;
 
     @Input()
-    radiusY = 0;
+    public radiusY = 0;
 
     @Input()
-    rotation = 0;
+    public rotation = 0;
 
     @Input()
-    startAngle = 0;
+    public startAngle = 0;
 
     @Input()
-    endAngle = 0;
+    public endAngle = 0;
 
     @Input()
-    anticlockwise = false;
+    public anticlockwise = false;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.ellipse(
             this.x,
             this.y,

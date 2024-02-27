@@ -19,13 +19,13 @@ import {SAMPLE_ASYNC} from './samples/sample-async';
 export default class GeolocationPageComponent {
     private readonly sanitizer = inject(DomSanitizer);
 
-    watch = false;
+    protected watch = false;
 
-    readonly sample = SAMPLE;
-    readonly sampleAsync = SAMPLE_ASYNC;
-    readonly geolocation$ = inject(GeolocationService);
+    protected readonly sample = SAMPLE;
+    protected readonly sampleAsync = SAMPLE_ASYNC;
+    protected readonly geolocation$ = inject(GeolocationService);
 
-    getUrl({coords}: GeolocationPosition): SafeResourceUrl {
+    protected getUrl({coords}: GeolocationPosition): SafeResourceUrl {
         const {longitude, latitude} = coords;
 
         return this.sanitizer.bypassSecurityTrustResourceUrl(

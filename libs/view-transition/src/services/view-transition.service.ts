@@ -8,11 +8,11 @@ import {Observable, throwError} from 'rxjs';
 export class ViewTransitionService {
     private readonly document = inject(DOCUMENT);
 
-    get isSupported(): boolean {
+    public get isSupported(): boolean {
         return 'startViewTransition' in this.document;
     }
 
-    startViewTransition(
+    public startViewTransition(
         callback: () => Promise<void> | void,
     ): Observable<ViewTransition> {
         if (!this.isSupported) {

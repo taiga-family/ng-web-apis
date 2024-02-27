@@ -1,9 +1,9 @@
 export class DOMStringListMock extends Array<string> implements DOMStringList {
-    contains(): boolean {
+    public contains(): boolean {
         return false;
     }
 
-    item(): null {
+    public item(): null {
         return null;
     }
 }

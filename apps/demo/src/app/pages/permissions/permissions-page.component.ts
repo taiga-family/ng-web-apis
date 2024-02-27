@@ -18,10 +18,10 @@ import {SAMPLE} from './samples/basic';
 export default class PermissionsPageComponent {
     private readonly navigator: Navigator = inject(NAVIGATOR);
 
-    error$ = new BehaviorSubject<string | null>(null);
-    basicSample = SAMPLE;
+    protected error$ = new BehaviorSubject<string | null>(null);
+    protected basicSample = SAMPLE;
 
-    geolocationState$ = inject(PermissionsService)
+    protected geolocationState$ = inject(PermissionsService)
         .state('geolocation')
         .pipe(
             tap(state => {

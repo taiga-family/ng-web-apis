@@ -14,24 +14,24 @@ export class PathDrawingStylesDirective
     implements CanvasMethod, Omit<CanvasPathDrawingStyles, 'getLineDash' | 'setLineDash'>
 {
     @Input()
-    lineCap: CanvasLineCap = 'butt';
+    public lineCap: CanvasLineCap = 'butt';
 
     @Input()
-    lineDashOffset = 0;
+    public lineDashOffset = 0;
 
     @Input()
-    lineJoin: CanvasLineJoin = 'miter';
+    public lineJoin: CanvasLineJoin = 'miter';
 
     @Input()
-    lineWidth = 1;
+    public lineWidth = 1;
 
     @Input()
-    lineDash: number[] = [];
+    public lineDash: number[] = [];
 
     @Input()
-    miterLimit = 10;
+    public miterLimit = 10;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.lineCap = this.lineCap;
         context.lineDashOffset = this.lineDashOffset;
         context.lineJoin = this.lineJoin;

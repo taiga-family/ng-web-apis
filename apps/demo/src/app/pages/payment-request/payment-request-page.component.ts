@@ -39,7 +39,7 @@ import {ShopComponent} from './shop/shop.component';
     ],
 })
 export default class PaymentRequestPageComponent {
-    readonly samples = {
+    protected readonly samples = {
         service: SERVICE_SAMPLE,
         directives: DIRECTIVES_SAMPLE,
     };

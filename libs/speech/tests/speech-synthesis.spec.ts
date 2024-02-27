@@ -22,18 +22,18 @@ describe('SpeechSynthesis', () => {
         `,
     })
     class TestComponent {
-        text = 'Test 1';
-        options?: SpeechSynthesisUtteranceOptions;
-        paused = true;
-        readonly utterance = new SpeechSynthesisUtterance('Test 2');
+        public options?: SpeechSynthesisUtteranceOptions;
+        public text = 'Test 1';
+        public paused = true;
+        public readonly utterance = new SpeechSynthesisUtterance('Test 2');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onError = jasmine.createSpy('onError');
+        public readonly onError = jasmine.createSpy('onError');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onMark = jasmine.createSpy('onMark');
+        public readonly onMark = jasmine.createSpy('onMark');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onBoundary = jasmine.createSpy('onBoundary');
+        public readonly onBoundary = jasmine.createSpy('onBoundary');
         // eslint-disable-next-line jest/no-jasmine-globals
-        readonly onEnd = jasmine.createSpy('onEnd');
+        public readonly onEnd = jasmine.createSpy('onEnd');
     }
 
     let fixture: ComponentFixture<TestComponent>;

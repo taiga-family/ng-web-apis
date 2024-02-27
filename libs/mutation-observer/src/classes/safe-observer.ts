@@ -2,9 +2,9 @@ export const SafeObserver =
     typeof MutationObserver !== 'undefined'
         ? MutationObserver
         : class implements MutationObserver {
-              observe(): void {}
-              disconnect(): void {}
-              takeRecords(): MutationRecord[] {
+              public observe(): void {}
+              public disconnect(): void {}
+              public takeRecords(): MutationRecord[] {
                   return [];
               }
           };

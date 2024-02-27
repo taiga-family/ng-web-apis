@@ -2,7 +2,7 @@ export const SafeObserver =
     typeof ResizeObserver !== 'undefined'
         ? ResizeObserver
         : class implements ResizeObserver {
-              observe(): void {}
-              unobserve(): void {}
-              disconnect(): void {}
+              public observe(): void {}
+              public unobserve(): void {}
+              public disconnect(): void {}
           };

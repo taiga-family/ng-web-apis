@@ -12,18 +12,18 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class ShadowStylesDirective implements CanvasShadowStyles {
     @Input()
-    shadowBlur = 0;
+    public shadowBlur = 0;
 
     @Input()
-    shadowColor = 'transparent';
+    public shadowColor = 'transparent';
 
     @Input()
-    shadowOffsetX = 0;
+    public shadowOffsetX = 0;
 
     @Input()
-    shadowOffsetY = 0;
+    public shadowOffsetY = 0;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.shadowBlur = this.shadowBlur;
         context.shadowColor = this.shadowColor;
         context.shadowOffsetX = this.shadowOffsetX;

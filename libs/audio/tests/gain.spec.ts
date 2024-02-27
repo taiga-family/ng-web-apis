@@ -20,9 +20,9 @@ describe('Audio gain', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioGain)
-            node!: GainNode;
+            public node!: GainNode;
 
-            gain: AudioParamInput = 1;
+            public gain: AudioParamInput = 1;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -160,7 +160,7 @@ describe('Audio gain', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioGain)
-            node!: GainNode;
+            public node!: GainNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

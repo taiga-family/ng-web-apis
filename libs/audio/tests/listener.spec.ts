@@ -27,7 +27,7 @@ describe('Listener', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioContext)
-            context!: AudioContext;
+            public context!: AudioContext;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -70,7 +70,7 @@ describe('Listener', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioContext)
-            context!: AudioContext;
+            public context!: AudioContext;
         }
 
         let fixture: ComponentFixture<TestComponent>;

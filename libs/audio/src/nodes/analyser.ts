@@ -25,16 +25,16 @@ import {parse} from '../utils/parse';
 export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
     // '!' because it is actually set in constructor
     @Output()
-    frequencyByte$!: Observable<Uint8Array>;
+    public frequencyByte$!: Observable<Uint8Array>;
 
     @Output()
-    frequencyFloat$!: Observable<Float32Array>;
+    public frequencyFloat$!: Observable<Float32Array>;
 
     @Output()
-    timeByte$!: Observable<Uint8Array>;
+    public timeByte$!: Observable<Uint8Array>;
 
     @Output()
-    timeFloat$!: Observable<Float32Array>;
+    public timeFloat$!: Observable<Float32Array>;
 
     constructor(
         @Attribute('fftSize') fftSizeArg: string | null,
@@ -68,7 +68,7 @@ export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
         }
     }
 
-    static init(that: WebAudioAnalyser, node: AudioNode | null): void {
+    protected static init(that: WebAudioAnalyser, node: AudioNode | null): void {
         connect(node, that);
 
         let freqByte = new Uint8Array(that.frequencyBinCount);
@@ -129,7 +129,7 @@ export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
         );
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

@@ -13,12 +13,12 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class ImageSmoothingDirective implements CanvasMethod, CanvasImageSmoothing {
     @Input()
-    imageSmoothingEnabled = true;
+    public imageSmoothingEnabled = true;
 
     @Input()
-    imageSmoothingQuality: ImageSmoothingQuality = 'low';
+    public imageSmoothingQuality: ImageSmoothingQuality = 'low';
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.imageSmoothingEnabled = this.imageSmoothingEnabled;
         context.imageSmoothingQuality = this.imageSmoothingQuality;
     }

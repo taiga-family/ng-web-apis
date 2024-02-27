@@ -6,7 +6,7 @@ import {AudioParamInput} from '@ng-web-apis/audio';
     name: 'adsr',
 })
 export class AdsrPipe implements PipeTransform {
-    transform(
+    public transform(
         value: number,
         attack: number,
         decay: number,

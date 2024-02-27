@@ -14,7 +14,7 @@ describe('BiquadFilter', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioBiquadFilter)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -44,7 +44,7 @@ describe('BiquadFilter', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioBiquadFilter)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

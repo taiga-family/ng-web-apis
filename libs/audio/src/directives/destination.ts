@@ -23,7 +23,7 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioDestination extends AnalyserNode implements OnDestroy {
     @Output()
-    quiet!: Observable<unknown>;
+    public quiet!: Observable<unknown>;
 
     constructor() {
         const context = inject(AUDIO_CONTEXT);
@@ -43,7 +43,7 @@ export class WebAudioDestination extends AnalyserNode implements OnDestroy {
         }
     }
 
-    static init(that: WebAudioDestination, node: AudioNode | null): void {
+    protected static init(that: WebAudioDestination, node: AudioNode | null): void {
         connect(node, that);
         that.fftSize = 256;
         that.connect(that.context.destination);
@@ -58,7 +58,7 @@ export class WebAudioDestination extends AnalyserNode implements OnDestroy {
         );
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 

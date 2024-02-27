@@ -7,7 +7,7 @@ import {SpeechSynthesisUtteranceOptions} from '../../interfaces/speech-synthesis
     name: 'waUtterance',
 })
 export class UtterancePipe implements PipeTransform {
-    transform(
+    public transform(
         text: string,
         {
             lang = '',
@@ -15,7 +15,7 @@ export class UtterancePipe implements PipeTransform {
             rate = 1,
             volume = 1,
             voice = null,
-        }: SpeechSynthesisUtteranceOptions = {},
+        }: SpeechSynthesisUtteranceOptions | undefined = {},
     ): SpeechSynthesisUtterance {
         const utterance = new SpeechSynthesisUtterance(text);
 

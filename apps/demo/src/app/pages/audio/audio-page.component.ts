@@ -39,43 +39,43 @@ export default class AudioPageComponent {
     private readonly context = inject<AudioContext>(AUDIO_CONTEXT);
 
     @ViewChild('chain')
-    readonly chain?: AudioNode;
+    protected readonly chain?: AudioNode;
 
-    buffers = [Date.now()];
+    protected buffers = [Date.now()];
 
-    selectedChain = 'dry';
+    protected selectedChain = 'dry';
 
-    selectedSource = 'buffer';
+    protected selectedSource = 'buffer';
 
-    gain = 1;
+    protected gain = 1;
 
-    pan = 0;
+    protected pan = 0;
 
-    delayTime = 1;
+    protected delayTime = 1;
 
-    delayGain = 0.5;
+    protected delayGain = 0.5;
 
-    distortion = 20;
+    protected distortion = 20;
 
-    frequency = 350;
+    protected frequency = 350;
 
-    detune = 0;
+    protected detune = 0;
 
-    filterGain = 0;
+    protected filterGain = 0;
 
-    Q = 1;
+    protected Q = 1;
 
-    type: BiquadFilterType = 'lowpass';
+    protected type: BiquadFilterType = 'lowpass';
 
-    curve = makeDistortionCurve(this.distortion);
+    protected curve = makeDistortionCurve(this.distortion);
 
-    started = false;
+    protected started = false;
 
-    fftSize = 2048;
+    protected fftSize = 2048;
 
-    path = '';
+    protected path = '';
 
-    readonly items = [
+    protected readonly items = [
         'lowpass',
         'highpass',
         'bandpass',
@@ -86,27 +86,27 @@ export default class AudioPageComponent {
         'allpass',
     ];
 
-    readonly real = [0, 0, 1, 0, 1];
+    protected readonly real = [0, 0, 1, 0, 1];
 
-    get distortionCompensation(): number {
+    protected get distortionCompensation(): number {
         return 1.2 - this.distortion / 20;
     }
 
-    start(): void {
+    protected start(): void {
         this.started = true;
         void this.context.resume();
     }
 
-    getTransform({width, height}: HTMLCanvasElement): string {
+    protected getTransform({width, height}: HTMLCanvasElement): string {
         return `scale(${width / this.fftSize}, ${height / 2})`;
     }
 
-    onCurveChange(distortion: number): void {
+    protected onCurveChange(distortion: number): void {
         this.distortion = distortion;
         this.curve = makeDistortionCurve(distortion);
     }
 
-    onClick(source: AudioScheduledSourceNode, button: HTMLButtonElement): void {
+    protected onClick(source: AudioScheduledSourceNode, button: HTMLButtonElement): void {
         if (button.textContent!.trim() === 'Play') {
             button.textContent = 'Stop';
             source.start();
@@ -115,7 +115,7 @@ export default class AudioPageComponent {
         }
     }
 
-    onTimeDomain(array: Uint8Array): void {
+    protected onTimeDomain(array: Uint8Array): void {
         this.path = array.reduce(
             (path, value, index) => `${path} L ${index} ${value / 128}`,
             'M 0 0',

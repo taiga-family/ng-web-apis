@@ -37,7 +37,7 @@ const COMPUTED_STYLES_PROXY = new Proxy<CSSStyleDeclaration>(
     COMPUTED_STYLES_HANDLER,
 );
 const CSS_RULES = new (class extends Array<CSSRule> implements CSSRuleList {
-    item = (): null => null;
+    public item = (): null => null;
 })();
 const BAR_PROP: BarProp = {
     visible: false,

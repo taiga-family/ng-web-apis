@@ -9,5 +9,5 @@ import {IntersectionObserveeService} from '../services/intersection-observee.ser
     providers: [IntersectionObserveeService],
 })
 export class IntersectionObserveeDirective {
-    readonly waIntersectionObservee = inject(IntersectionObserveeService);
+    protected readonly waIntersectionObservee = inject(IntersectionObserveeService);
 }

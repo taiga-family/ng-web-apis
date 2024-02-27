@@ -21,7 +21,7 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 })
 export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestroy {
     @ContentChildren(WebAudioChannel, {descendants: false})
-    set channels(channels: QueryList<AudioNode>) {
+    protected set channels(channels: QueryList<AudioNode>) {
         channels.forEach((node, index) => {
             node.connect(this, 0, index);
         });
@@ -43,7 +43,7 @@ export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestro
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

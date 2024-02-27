@@ -20,7 +20,7 @@ describe('AudioWorkletNode', () => {
         protected readonly ready = inject(AUDIO_WORKLET_PROCESSORS_READY);
 
         @ViewChild(WebAudioWorklet)
-        node!: AudioNode;
+        public node!: AudioNode;
     }
 
     let fixture: ComponentFixture<TestComponent>;

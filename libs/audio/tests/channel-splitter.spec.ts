@@ -14,7 +14,7 @@ describe('ChannelSplitter', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioChannelSplitter)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -44,7 +44,7 @@ describe('ChannelSplitter', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioChannelSplitter)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

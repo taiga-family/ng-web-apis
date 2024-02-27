@@ -14,7 +14,7 @@ describe('ChannelMerger', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioChannelMerger)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -44,7 +44,7 @@ describe('ChannelMerger', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioChannelMerger)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

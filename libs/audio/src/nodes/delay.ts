@@ -18,7 +18,7 @@ import {parse} from '../utils/parse';
 export class WebAudioDelay extends DelayNode implements OnDestroy {
     @Input('delayTime')
     @audioParam('delayTime')
-    delayTimeParam?: AudioParamInput;
+    public delayTimeParam?: AudioParamInput;
 
     constructor(
         @Attribute('delayTime') delayTimeArg: string | null,
@@ -44,11 +44,11 @@ export class WebAudioDelay extends DelayNode implements OnDestroy {
         }
     }
 
-    static init(that: WebAudioDelay, node: AudioNode | null): void {
+    protected static init(that: WebAudioDelay, node: AudioNode | null): void {
         connect(node, that);
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

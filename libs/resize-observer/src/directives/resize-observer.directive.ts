@@ -25,10 +25,10 @@ import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-opt
     ],
 })
 export class ResizeObserverDirective {
-    readonly waResizeObserver = inject(ResizeObserverService);
+    protected readonly waResizeObserver = inject(ResizeObserverService);
 
     constructor(
         // eslint-disable-next-line @angular-eslint/no-attribute-decorator
-        @Attribute('waResizeBox') readonly box: ResizeObserverBoxOptions,
+        @Attribute('waResizeBox') protected readonly box: ResizeObserverBoxOptions,
     ) {}
 }

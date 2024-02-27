@@ -1,10 +1,10 @@
 import {alwaysRejected} from '../utils/functions';
 
 export class BlobMock implements Blob {
-    size = 0;
-    type = '';
-    arrayBuffer = async (): Promise<any> => alwaysRejected();
-    stream = (): ReadableStream => new ReadableStream();
-    text = async (): Promise<any> => alwaysRejected();
-    slice = (): this => this;
+    public size = 0;
+    public type = '';
+    public arrayBuffer = async (): Promise<any> => alwaysRejected();
+    public stream = (): ReadableStream => new ReadableStream();
+    public text = async (): Promise<any> => alwaysRejected();
+    public slice = (): this => this;
 }

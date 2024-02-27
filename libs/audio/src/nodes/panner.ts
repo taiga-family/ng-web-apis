@@ -30,27 +30,27 @@ import {fallbackAudioParam} from '../utils/fallback-audio-param';
 export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
     @Input()
     @audioParam('orientationX')
-    orientationXParam?: AudioParamInput;
+    public orientationXParam?: AudioParamInput;
 
     @Input()
     @audioParam('orientationY')
-    orientationYParam?: AudioParamInput;
+    public orientationYParam?: AudioParamInput;
 
     @Input()
     @audioParam('orientationZ')
-    orientationZParam?: AudioParamInput;
+    public orientationZParam?: AudioParamInput;
 
     @Input()
     @audioParam('positionX')
-    positionXParam?: AudioParamInput;
+    public positionXParam?: AudioParamInput;
 
     @Input()
     @audioParam('positionY')
-    positionYParam?: AudioParamInput;
+    public positionYParam?: AudioParamInput;
 
     @Input()
     @audioParam('positionZ')
-    positionZParam?: AudioParamInput;
+    public positionZParam?: AudioParamInput;
 
     constructor() {
         const context = inject(AUDIO_CONTEXT);
@@ -70,7 +70,7 @@ export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
         }
     }
 
-    ngOnChanges(): void {
+    public ngOnChanges(): void {
         if (this.positionX instanceof AudioParam) {
             return;
         }
@@ -88,7 +88,7 @@ export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
         );
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

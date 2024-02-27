@@ -7,7 +7,7 @@ import {toFrequency} from '../../utils/to-frequency';
     name: 'frequency',
 })
 export class FrequencyPipe implements PipeTransform {
-    transform(note: number, tuning?: number): number {
+    public transform(note: number, tuning?: number): number {
         return toFrequency(note, tuning);
     }
 }

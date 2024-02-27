@@ -16,7 +16,7 @@ export class WebAudioParamPipe implements PipeTransform {
      * @param duration duration of the automation
      * @param mode either instant for given duration or linear/exponential ramp
      */
-    transform(
+    public transform(
         value: number[] | number,
         duration: number,
         mode: AudioParamAutomationMode = 'exponential',

@@ -38,36 +38,36 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CanvasPageComponent {
-    x1 = 20;
-    y1 = 20;
-    w1 = 100;
-    h1 = 50;
+    protected x1 = 20;
+    protected y1 = 20;
+    protected w1 = 100;
+    protected h1 = 50;
 
-    x2 = 50;
-    y2 = 50;
-    w2 = 100;
-    h2 = 50;
-    c2 = '#00ff00';
+    protected x2 = 50;
+    protected y2 = 50;
+    protected w2 = 100;
+    protected h2 = 50;
+    protected c2 = '#00ff00';
 
-    dX = 0;
-    dY = 0;
-    dWidth = 100;
-    dHeight = 100;
+    protected dX = 0;
+    protected dY = 0;
+    protected dWidth = 100;
+    protected dHeight = 100;
 
-    globalCompositeOperation: GlobalCompositeOperation = 'source-over';
+    protected globalCompositeOperation: GlobalCompositeOperation = 'source-over';
 
-    mouth = 30;
-    blur = 0;
-    offset = 0;
+    protected mouth = 30;
+    protected blur = 0;
+    protected offset = 0;
 
-    font = 'bold 40px "Lucida Bright"';
-    text = 'PAC-MAN';
-    color = '#ffa500';
+    protected font = 'bold 40px "Lucida Bright"';
+    protected text = 'PAC-MAN';
+    protected color = '#ffa500';
 
-    file: File | null = null;
+    protected file: File | null = null;
 
-    readonly image = new Image();
-    readonly items = ['source-over', 'multiply', 'screen'];
+    protected readonly image = new Image();
+    protected readonly items = ['source-over', 'multiply', 'screen'];
 
     constructor() {
         this.image.onload = () => {
@@ -75,7 +75,7 @@ export default class CanvasPageComponent {
         };
     }
 
-    onFile(file: File): void {
+    protected onFile(file: File): void {
         this.file = file;
 
         if (file) {

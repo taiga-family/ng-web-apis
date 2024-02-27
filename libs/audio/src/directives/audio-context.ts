@@ -24,7 +24,7 @@ export class WebAudioContext extends AudioContext implements OnDestroy {
         });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         void this.close();
     }
 }

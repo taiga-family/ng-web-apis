@@ -46,21 +46,21 @@ import {filter, map, merge, Observable, repeat, retry, share} from 'rxjs';
 })
 export default class SpeechPageComponent {
     private readonly recognition$ = inject(SpeechRecognitionService);
-    readonly platformId = inject(PLATFORM_ID);
-    readonly voices$ = inject(SPEECH_SYNTHESIS_VOICES);
-    readonly isBrowser = isPlatformBrowser(this.platformId);
-    paused = true;
+    protected readonly platformId = inject(PLATFORM_ID);
+    protected readonly voices$ = inject(SPEECH_SYNTHESIS_VOICES);
+    protected readonly isBrowser = isPlatformBrowser(this.platformId);
+    protected paused = true;
 
-    voice = null;
+    protected voice = null;
 
-    text = 'Hit play/pause to speak this text';
+    protected text = 'Hit play/pause to speak this text';
 
-    readonly nameExtractor = ({
+    protected readonly nameExtractor = ({
         $implicit,
     }: TuiContextWithImplicit<SpeechSynthesisVoice>): string => $implicit.name;
 
     @tuiPure
-    get record$(): Observable<SpeechRecognitionResult[]> {
+    protected get record$(): Observable<SpeechRecognitionResult[]> {
         return this.result$.pipe(
             skipUntilSaid('Okay Angular'),
             takeUntilSaid('Thank you Angular'),
@@ -70,7 +70,7 @@ export default class SpeechPageComponent {
     }
 
     @tuiPure
-    get open$(): Observable<boolean> {
+    protected get open$(): Observable<boolean> {
         return merge(
             this.result$.pipe(
                 filter(isSaid('Show sidebar')),
@@ -90,7 +90,7 @@ export default class SpeechPageComponent {
         );
     }
 
-    get options(): SpeechSynthesisUtteranceOptions {
+    protected get options(): SpeechSynthesisUtteranceOptions {
         return this.getOptions(this.voice);
     }
 
@@ -99,17 +99,17 @@ export default class SpeechPageComponent {
         return this.recognition$.pipe(retry(), repeat(), share());
     }
 
-    voiceByName(_: number, {name}: SpeechSynthesisVoice): string {
+    protected voiceByName(_: number, {name}: SpeechSynthesisVoice): string {
         return name;
     }
 
-    onClick(): void {
+    protected onClick(): void {
         this.paused = !this.paused;
         // Re-trigger utterance pipe:
         this.text = this.paused ? `${this.text} ` : this.text;
     }
 
-    onEnd(): void {
+    protected onEnd(): void {
         console.info('Speech synthesis ended');
     }
 

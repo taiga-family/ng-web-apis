@@ -15,9 +15,9 @@ import {
 // eslint-disable-next-line @typescript-eslint/explicit-function-return-type
 function getArray<T>() {
     return new (class extends Array<T> {
-        item = (): null => null;
-        namedItem = (): null => null;
-        refresh(): void {}
+        public item = (): null => null;
+        public namedItem = (): null => null;
+        public refresh(): void {}
     })();
 }
 

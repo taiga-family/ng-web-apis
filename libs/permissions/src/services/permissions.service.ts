@@ -13,9 +13,9 @@ export class PermissionsService {
     private readonly permissions = inject(PERMISSIONS);
     private readonly permissionsSupported = inject(PERMISSIONS_SUPPORT);
 
-    state(name: PermissionName): Observable<PermissionState>;
-    state(descriptor: PermissionsQueryArgs): Observable<PermissionState>;
-    state(
+    public state(name: PermissionName): Observable<PermissionState>;
+    public state(descriptor: PermissionsQueryArgs): Observable<PermissionState>;
+    public state(
         nameOrDescriptor: PermissionName | PermissionsQueryArgs,
     ): Observable<PermissionState> {
         const descriptor: PermissionDescriptor =

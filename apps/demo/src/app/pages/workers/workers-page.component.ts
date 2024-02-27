@@ -31,10 +31,10 @@ function startCompute(): number {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class WorkersPageComponent {
-    readonly platformId = inject(PLATFORM_ID);
-    readonly isBrowser = isPlatformBrowser(this.platformId);
-    readonly workerThread = WebWorker.fromFunction<void, number>(startCompute);
-    readonly workerData$ = this.workerThread.pipe(toData());
-    readonly emitter = new Subject<void>();
-    readonly result$ = this.emitter.pipe(map(startCompute));
+    protected readonly platformId = inject(PLATFORM_ID);
+    protected readonly isBrowser = isPlatformBrowser(this.platformId);
+    protected readonly workerThread = WebWorker.fromFunction<void, number>(startCompute);
+    protected readonly workerData$ = this.workerThread.pipe(toData());
+    protected readonly emitter = new Subject<void>();
+    protected readonly result$ = this.emitter.pipe(map(startCompute));
 }

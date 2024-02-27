@@ -9,10 +9,10 @@ export class TextToSpeechDirective implements OnChanges {
     private readonly speechSynthesisRef = inject(SPEECH_SYNTHESIS);
 
     @Input('waTextToSpeechPaused')
-    paused = false;
+    public paused = false;
 
     @Input()
-    set waTextToSpeech(utterance: SpeechSynthesisUtterance) {
+    public set waTextToSpeech(utterance: SpeechSynthesisUtterance) {
         this.speechSynthesisRef.cancel();
         this.speechSynthesisRef.pause();
 
@@ -25,18 +25,18 @@ export class TextToSpeechDirective implements OnChanges {
     }
 
     @Output('waTextToSpeechError')
-    readonly onerror = new EventEmitter<SpeechSynthesisErrorEvent>();
+    public readonly onerror = new EventEmitter<SpeechSynthesisErrorEvent>();
 
     @Output('waTextToSpeechEnd')
-    readonly onend = new EventEmitter<SpeechSynthesisEvent>();
+    public readonly onend = new EventEmitter<SpeechSynthesisEvent>();
 
     @Output('waTextToSpeechMark')
-    readonly onmark = new EventEmitter<SpeechSynthesisEvent>();
+    public readonly onmark = new EventEmitter<SpeechSynthesisEvent>();
 
     @Output('waTextToSpeechBoundary')
-    readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
+    public readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
 
-    ngOnChanges(): void {
+    public ngOnChanges(): void {
         if (this.paused) {
             this.speechSynthesisRef.pause();
         } else {

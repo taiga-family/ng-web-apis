@@ -14,11 +14,11 @@ import {filter, fromEvent, map, switchMap} from 'rxjs';
 export class NotificationPageExample4 {
     private readonly notifications: NotificationService = inject(NotificationService);
 
-    readonly denied$ = inject(PermissionsService)
+    protected readonly denied$ = inject(PermissionsService)
         .state('notifications')
         .pipe(map(isDenied));
 
-    sendNotification(): void {
+    protected sendNotification(): void {
         this.notifications
             .requestPermission()
             .pipe(

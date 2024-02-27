@@ -38,11 +38,11 @@ describe('IntersectionObserveeDirective', () => {
     })
     class TestComponent {
         @ViewChild('root', {read: IntersectionObserverDirective})
-        observer!: IntersectionObserverDirective;
+        public observer!: IntersectionObserverDirective;
 
         // eslint-disable-next-line jest/no-jasmine-globals
-        onIntersection = jasmine.createSpy('onIntersection');
-        observe = true;
+        public onIntersection = jasmine.createSpy('onIntersection');
+        public observe = true;
     }
 
     let fixture: ComponentFixture<TestComponent>;

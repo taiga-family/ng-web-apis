@@ -25,20 +25,20 @@ import {parse} from '../utils/parse';
 })
 export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     @Input()
-    set periodicWave(periodicWave: PeriodicWave) {
+    public set periodicWave(periodicWave: PeriodicWave) {
         this.setPeriodicWave(periodicWave);
     }
 
     @Input('detune')
     @audioParam('detune')
-    detuneParam?: AudioParamInput | string;
+    public detuneParam?: AudioParamInput | string;
 
     @Input('frequency')
     @audioParam('frequency')
-    frequencyParam?: AudioParamInput | string;
+    public frequencyParam?: AudioParamInput | string;
 
     @Output()
-    ended?: EventEmitter<void>;
+    public ended?: EventEmitter<void>;
 
     constructor(
         @Attribute('autoplay') autoplay: string | null,
@@ -70,7 +70,7 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
         }
     }
 
-    static init(
+    protected static init(
         that: WebAudioOscillator,
         node: AudioNode | null,
         autoplay: string | null,
@@ -87,7 +87,7 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
         that.onended = () => ended.emit();
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         try {
             this.stop();
         } catch {

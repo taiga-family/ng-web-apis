@@ -11,16 +11,16 @@ export class TextDirective {
     private readonly method = inject(DrawService);
 
     @Input()
-    text = '';
+    public text = '';
 
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
     @Input()
-    maxWidth?: number;
+    public maxWidth?: number;
 
     constructor() {
         this.method.call = context => {

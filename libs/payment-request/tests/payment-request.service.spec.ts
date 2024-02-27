@@ -21,11 +21,11 @@ describe('PaymentRequestService', () => {
         let response: Partial<PaymentResponse> = {};
 
         class FakePaymentRequest {
-            async canMakePayment(): Promise<boolean> {
+            protected async canMakePayment(): Promise<boolean> {
                 return Promise.resolve(canPay);
             }
 
-            async show(): Promise<PaymentResponse> {
+            protected async show(): Promise<PaymentResponse> {
                 return Promise.resolve(response) as Promise<PaymentResponse>;
             }
         }

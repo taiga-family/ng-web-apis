@@ -10,18 +10,18 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class RectDirective implements CanvasMethod {
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
     @Input()
-    width = 0;
+    public width = 0;
 
     @Input()
-    height = 0;
+    public height = 0;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.rect(this.x, this.y, this.width, this.height);
     }
 }

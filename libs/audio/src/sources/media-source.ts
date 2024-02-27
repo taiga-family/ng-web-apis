@@ -31,7 +31,7 @@ export class WebAudioMediaSource
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

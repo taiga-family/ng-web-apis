@@ -17,7 +17,7 @@ import {processAudioParam} from '../utils/process-audio-param';
 })
 export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy {
     @Input('pan')
-    set panParam(pan: AudioParamInput) {
+    public set panParam(pan: AudioParamInput) {
         if ('setPosition' in this) {
             /** fallback for browsers not supporting {@link StereoPannerNode} */
             // @ts-ignore
@@ -49,7 +49,7 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
         connect(node, this);
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 

@@ -26,7 +26,7 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDestroy {
     @ContentChildren(AUDIO_NODE, {descendants: false})
-    set channels(channels: QueryList<AudioNode | null>) {
+    protected set channels(channels: QueryList<AudioNode | null>) {
         this.disconnect();
         channels
             .filter(node => !!node)
@@ -54,7 +54,7 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

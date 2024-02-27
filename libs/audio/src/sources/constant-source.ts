@@ -24,10 +24,10 @@ import {parse} from '../utils/parse';
 export class WebAudioConstantSource extends ConstantSourceNode implements OnDestroy {
     @Input('offset')
     @audioParam('offset')
-    offsetParam?: AudioParamInput;
+    public offsetParam?: AudioParamInput;
 
     @Output()
-    ended = new EventEmitter<void>();
+    public ended = new EventEmitter<void>();
 
     constructor(
         @Attribute('autoplay') autoplay: string | null,
@@ -44,9 +44,9 @@ export class WebAudioConstantSource extends ConstantSourceNode implements OnDest
         }
     }
 
-    override readonly onended = (): void => this.ended.emit();
+    public override readonly onended = (): void => this.ended.emit();
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         try {
             this.stop();
         } catch {

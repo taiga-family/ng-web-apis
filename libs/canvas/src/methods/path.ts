@@ -16,10 +16,10 @@ export class PathDirective {
     private readonly method = inject(DrawService);
 
     @Input()
-    closed = false;
+    public closed = false;
 
     @Input()
-    fillRule?: CanvasFillRule;
+    public fillRule?: CanvasFillRule;
 
     constructor() {
         this.method.call = context => {

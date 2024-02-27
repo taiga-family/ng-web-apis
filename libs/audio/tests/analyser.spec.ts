@@ -14,7 +14,7 @@ describe('Analyser', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioAnalyser)
-            node!: WebAudioAnalyser;
+            public node!: WebAudioAnalyser;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -72,7 +72,7 @@ describe('Analyser', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioAnalyser)
-            node!: WebAudioAnalyser;
+            public node!: WebAudioAnalyser;
         }
 
         let fixture: ComponentFixture<TestComponent>;

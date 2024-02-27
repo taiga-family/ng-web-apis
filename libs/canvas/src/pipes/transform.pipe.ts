@@ -5,7 +5,7 @@ import {Pipe, PipeTransform} from '@angular/core';
     name: 'transform',
 })
 export class TransformPipe implements PipeTransform {
-    transform(value: string): DOMMatrix {
+    public transform(value: string): DOMMatrix {
         return new DOMMatrix(value);
     }
 }

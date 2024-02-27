@@ -6,11 +6,11 @@ import {Directive, Input} from '@angular/core';
 })
 export class PaymentItemDirective implements PaymentItem {
     @Input('paymentAmount')
-    amount!: PaymentCurrencyAmount;
+    public amount!: PaymentCurrencyAmount;
 
     @Input('paymentLabel')
-    label!: string;
+    public label!: string;
 
     @Input('paymentPending')
-    pending?: boolean;
+    public pending?: boolean;
 }

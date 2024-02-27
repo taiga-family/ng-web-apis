@@ -18,7 +18,7 @@ import {parse} from '../utils/parse';
 export class WebAudioGain extends GainNode implements OnDestroy {
     @Input('gain')
     @audioParam('gain')
-    gainParam?: AudioParamInput | string;
+    public gainParam?: AudioParamInput | string;
 
     constructor(@Attribute('gain') gainArg: AudioParamInput | string | null) {
         const context = inject(AUDIO_CONTEXT);
@@ -40,7 +40,7 @@ export class WebAudioGain extends GainNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

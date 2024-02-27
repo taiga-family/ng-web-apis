@@ -14,12 +14,12 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class ClipDirective implements CanvasMethod {
     @Input()
-    clip: ClipPathComponent | Path2D = new Path2D();
+    public clip: ClipPathComponent | Path2D = new Path2D();
 
     @Input()
-    clipFillRule?: CanvasFillRule;
+    public clipFillRule?: CanvasFillRule;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         if (this.clip instanceof ClipPathComponent) {
             context.beginPath();
 

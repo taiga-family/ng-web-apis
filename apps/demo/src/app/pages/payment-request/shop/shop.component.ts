@@ -4,12 +4,12 @@ import {PaymentRequestModule} from '@ng-web-apis/payment-request';
 
 class ShopItem implements PaymentItem {
     constructor(
-        readonly image: string,
-        readonly label: string,
-        readonly price: number,
+        public readonly image: string,
+        public readonly label: string,
+        public readonly price: number,
     ) {}
 
-    get amount(): PaymentCurrencyAmount {
+    public get amount(): PaymentCurrencyAmount {
         return {
             currency: 'RUB',
             value: String(this.price),
@@ -26,7 +26,7 @@ class ShopItem implements PaymentItem {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class ShopComponent {
-    readonly items: readonly ShopItem[] = [
+    protected readonly items: readonly ShopItem[] = [
         new ShopItem(
             'https://image.flaticon.com/icons/svg/1868/1868178.svg',
             'Matryoshka',
@@ -59,13 +59,13 @@ export class ShopComponent {
         ),
     ];
 
-    shippingCart: readonly ShopItem[] = [];
+    protected shippingCart: readonly ShopItem[] = [];
 
-    get totalSum(): number {
+    protected get totalSum(): number {
         return this.shippingCart.reduce((sum, item) => sum + item.price, 0);
     }
 
-    get total(): PaymentItem {
+    protected get total(): PaymentItem {
         return {
             label: 'Total',
             amount: {
@@ -75,17 +75,17 @@ export class ShopComponent {
         };
     }
 
-    addToShippingCard(item: ShopItem): void {
+    protected addToShippingCard(item: ShopItem): void {
         this.shippingCart = [...this.shippingCart, item];
     }
 
-    onPayment(response: PaymentResponse): void {
+    protected onPayment(response: PaymentResponse): void {
         console.info('payment response:', response);
         this.clearShippingCart();
         void response.complete();
     }
 
-    onPaymentError(error: DOMException | Error): void {
+    protected onPaymentError(error: DOMException | Error): void {
         console.info('payment error:', error);
         this.clearShippingCart();
     }

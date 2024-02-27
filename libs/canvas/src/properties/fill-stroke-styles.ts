@@ -12,12 +12,12 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 })
 export class FillStrokeStylesDirective implements CanvasMethod {
     @Input()
-    fillStyle: CanvasGradient | CanvasPattern | string = 'black';
+    public fillStyle: CanvasGradient | CanvasPattern | string = 'black';
 
     @Input()
-    strokeStyle: CanvasGradient | CanvasPattern | string = 'transparent';
+    public strokeStyle: CanvasGradient | CanvasPattern | string = 'transparent';
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.fillStyle = this.fillStyle;
         context.strokeStyle = this.strokeStyle;
     }

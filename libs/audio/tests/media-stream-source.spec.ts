@@ -19,7 +19,7 @@ describe('MediaStream', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioMediaStreamSource)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -55,7 +55,7 @@ describe('MediaStream', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioMediaStreamSource)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

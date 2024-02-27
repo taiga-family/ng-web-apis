@@ -19,13 +19,13 @@ import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class HomePageComponent {
-    readonly link = DemoPath;
-    readonly paymentRequestSupport = inject(PAYMENT_REQUEST_SUPPORT);
-    readonly geolocationSupport = inject(GEOLOCATION_SUPPORT);
-    readonly intersectionSupport = inject(INTERSECTION_OBSERVER_SUPPORT);
-    readonly resizeSupport = inject(RESIZE_OBSERVER_SUPPORT);
-    readonly midiSupport = inject(MIDI_SUPPORT);
-    readonly audioSupport = inject(WEB_AUDIO_SUPPORT);
-    readonly permissionsSupport = inject(PERMISSIONS_SUPPORT);
-    readonly notificationSupport = inject(NOTIFICATION_SUPPORT);
+    protected readonly link = DemoPath;
+    protected readonly paymentRequestSupport = inject(PAYMENT_REQUEST_SUPPORT);
+    protected readonly geolocationSupport = inject(GEOLOCATION_SUPPORT);
+    protected readonly intersectionSupport = inject(INTERSECTION_OBSERVER_SUPPORT);
+    protected readonly resizeSupport = inject(RESIZE_OBSERVER_SUPPORT);
+    protected readonly midiSupport = inject(MIDI_SUPPORT);
+    protected readonly audioSupport = inject(WEB_AUDIO_SUPPORT);
+    protected readonly permissionsSupport = inject(PERMISSIONS_SUPPORT);
+    protected readonly notificationSupport = inject(NOTIFICATION_SUPPORT);
 }

@@ -36,7 +36,7 @@ export class IntersectionObserverDirective extends SafeObserver implements OnDes
         );
     }
 
-    override observe(
+    public override observe(
         target: Element,
         callback: IntersectionObserverCallback = () => {},
     ): void {
@@ -44,12 +44,12 @@ export class IntersectionObserverDirective extends SafeObserver implements OnDes
         this.callbacks.set(target, callback);
     }
 
-    override unobserve(target: Element): void {
+    public override unobserve(target: Element): void {
         super.unobserve(target);
         this.callbacks.delete(target);
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

@@ -20,7 +20,7 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
     @Output()
-    processorerror = new EventEmitter<void>();
+    public processorerror = new EventEmitter<void>();
 
     constructor(@Attribute('name') name: string) {
         const context = inject(AUDIO_CONTEXT);
@@ -31,9 +31,9 @@ export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
         connect(node, this);
     }
 
-    override readonly onprocessorerror = (): void => this.processorerror.emit();
+    public override readonly onprocessorerror = (): void => this.processorerror.emit();
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

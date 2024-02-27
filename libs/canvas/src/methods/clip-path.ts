@@ -12,5 +12,5 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
 })
 export class ClipPathComponent {
     @ContentChildren(CANVAS_METHOD)
-    readonly pathSteps = new QueryList<CanvasMethod>();
+    public readonly pathSteps = new QueryList<CanvasMethod>();
 }

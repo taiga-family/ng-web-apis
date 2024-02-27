@@ -1,11 +1,11 @@
 export class FakePermissionStatus implements PermissionStatus {
-    readonly name: string = 'fakePermissionStatus';
+    public readonly name: string = 'fakePermissionStatus';
 
-    onchange: ((this: PermissionStatus, ev: Event) => any) | null = null;
+    public onchange: ((this: PermissionStatus, ev: Event) => any) | null = null;
 
     constructor(public state: PermissionState) {}
 
-    simulateStateChange(state: PermissionState): void {
+    public simulateStateChange(state: PermissionState): void {
         this.state = state;
 
         if (this.onchange) {
@@ -15,7 +15,7 @@ export class FakePermissionStatus implements PermissionStatus {
         }
     }
 
-    addEventListener<K extends 'change'>(
+    public addEventListener<K extends 'change'>(
         type: K,
         listener: (this: PermissionStatus, ev: PermissionStatusEventMap[K]) => any,
         _options?: AddEventListenerOptions | boolean,
@@ -27,7 +27,7 @@ export class FakePermissionStatus implements PermissionStatus {
         this.onchange = listener;
     }
 
-    removeEventListener<K extends 'change'>(
+    public removeEventListener<K extends 'change'>(
         type: K,
         _listener: (this: PermissionStatus, ev: PermissionStatusEventMap[K]) => any,
         _options?: EventListenerOptions | boolean,
@@ -39,7 +39,7 @@ export class FakePermissionStatus implements PermissionStatus {
         this.onchange = null;
     }
 
-    dispatchEvent(_event: Event): boolean {
+    public dispatchEvent(_event: Event): boolean {
         throw new Error('Method not implemented.');
     }
 }

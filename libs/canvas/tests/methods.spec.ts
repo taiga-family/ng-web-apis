@@ -49,16 +49,16 @@ describe('Methods', () => {
     })
     class TestComponent {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        readonly context!: CanvasRenderingContext2D;
+        public readonly context!: CanvasRenderingContext2D;
 
         @ViewChild(ClipPathComponent)
-        readonly clipPath!: ClipPathComponent;
+        public readonly clipPath!: ClipPathComponent;
 
-        readonly image = new Image();
+        public readonly image = new Image();
 
-        readonly offset = new Image();
+        public readonly offset = new Image();
 
-        readonly loading?: ImageBitmap;
+        public readonly loading?: ImageBitmap;
 
         constructor() {
             this.image.src =

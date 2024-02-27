@@ -30,7 +30,7 @@ export class MutationObserverDirective extends SafeObserver implements OnDestroy
     private readonly config = inject(MUTATION_OBSERVER_INIT);
 
     @Output()
-    readonly waMutationObserver = new EventEmitter<MutationRecord[]>();
+    public readonly waMutationObserver = new EventEmitter<MutationRecord[]>();
 
     constructor(
         @Attribute('attributeFilter') _1: unknown,
@@ -48,7 +48,7 @@ export class MutationObserverDirective extends SafeObserver implements OnDestroy
         this.observe(this.nativeElement, this.config);
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

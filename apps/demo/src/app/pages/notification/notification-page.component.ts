@@ -30,28 +30,28 @@ import {NotificationPageExample4} from './examples/04-listen-notification-events
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class NotificationPageComponent {
-    readonly notificationPermissionState$ =
+    protected readonly notificationPermissionState$ =
         inject(PermissionsService).state('notifications');
 
-    readonly deniedPermissionNotification =
+    protected readonly deniedPermissionNotification =
         'You have denied notification permission. Please, change it in browser settings.';
 
-    readonly gettingPermissionExample: TuiDocExample = {
+    protected readonly gettingPermissionExample: TuiDocExample = {
         'index.ts': import('./examples/01-getting-permission/index.ts?raw'),
         'index.html': import('./examples/01-getting-permission/index.html?raw'),
     };
 
-    readonly createNotificationExample: TuiDocExample = {
+    protected readonly createNotificationExample: TuiDocExample = {
         'index.ts': import('./examples/02-create-notification/index.ts?raw'),
         'index.html': import('./examples/02-create-notification/index.html?raw'),
     };
 
-    readonly closeNotificationExample: TuiDocExample = {
+    protected readonly closeNotificationExample: TuiDocExample = {
         'index.ts': import('./examples/03-close-notification/index.ts?raw'),
         'index.html': import('./examples/03-close-notification/index.html?raw'),
     };
 
-    readonly listenNotificationEventsExample: TuiDocExample = {
+    protected readonly listenNotificationEventsExample: TuiDocExample = {
         'index.ts': import('./examples/04-listen-notification-events/index.ts?raw'),
         'index.html': import('./examples/04-listen-notification-events/index.html?raw'),
     };

@@ -9,21 +9,21 @@ import {PaymentItemDirective} from '../payment-item/payment-item.directive';
 })
 export class PaymentDirective implements PaymentDetailsInit {
     @Input('paymentTotal')
-    total!: PaymentItem;
+    public total!: PaymentItem;
 
     @Input('paymentId')
-    id?: string;
+    public id?: string;
 
     @Input('paymentModifiers')
-    modifiers?: PaymentDetailsModifier[];
+    public modifiers?: PaymentDetailsModifier[];
 
     @Input('paymentShippingOptions')
-    shippingOptions?: PaymentShippingOption[];
+    public shippingOptions?: PaymentShippingOption[];
 
     @ContentChildren(PaymentItemDirective)
-    set paymentItems(items: QueryList<PaymentItem>) {
+    protected set paymentItems(items: QueryList<PaymentItem>) {
         this.displayItems = items.toArray();
     }
 
-    displayItems?: PaymentItem[];
+    public displayItems?: PaymentItem[];
 }

@@ -15,12 +15,12 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ResizeObserverPageComponent {
-    readonly support = inject(RESIZE_OBSERVER_SUPPORT);
+    protected readonly support = inject(RESIZE_OBSERVER_SUPPORT);
 
-    ratio = 0;
-    widthPercent = 50;
+    protected ratio = 0;
+    protected widthPercent = 50;
 
-    onResize(entry: readonly ResizeObserverEntry[]): void {
+    protected onResize(entry: readonly ResizeObserverEntry[]): void {
         this.ratio = Math.round(entry[0].contentRect.width / 110);
     }
 }

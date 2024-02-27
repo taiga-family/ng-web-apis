@@ -13,39 +13,39 @@ import {fallbackAudioParam} from '../utils/fallback-audio-param';
 export class WebAudioListener extends GainNode implements OnChanges {
     @Input('forwardX')
     @audioParam('forwardX')
-    forwardXParam?: AudioParamInput;
+    public forwardXParam?: AudioParamInput;
 
     @Input('forwardY')
     @audioParam('forwardY')
-    forwardYParam?: AudioParamInput;
+    public forwardYParam?: AudioParamInput;
 
     @Input('forwardZ')
     @audioParam('forwardZ')
-    forwardZParam?: AudioParamInput;
+    public forwardZParam?: AudioParamInput;
 
     @Input('positionX')
     @audioParam('positionX')
-    positionXParam?: AudioParamInput;
+    public positionXParam?: AudioParamInput;
 
     @Input('positionY')
     @audioParam('positionY')
-    positionYParam?: AudioParamInput;
+    public positionYParam?: AudioParamInput;
 
     @Input('positionZ')
     @audioParam('positionZ')
-    positionZParam?: AudioParamInput;
+    public positionZParam?: AudioParamInput;
 
     @Input('upX')
     @audioParam('upX')
-    upXParam?: AudioParamInput;
+    public upXParam?: AudioParamInput;
 
     @Input('upY')
     @audioParam('upY')
-    upYParam?: AudioParamInput;
+    public upYParam?: AudioParamInput;
 
     @Input('upZ')
     @audioParam('upZ')
-    upZParam?: AudioParamInput;
+    public upZParam?: AudioParamInput;
 
     constructor() {
         const context = inject(AUDIO_CONTEXT, {self: true});
@@ -62,43 +62,43 @@ export class WebAudioListener extends GainNode implements OnChanges {
         }
     }
 
-    get forwardX(): AudioParam {
+    public get forwardX(): AudioParam {
         return this.context.listener.forwardX;
     }
 
-    get forwardY(): AudioParam {
+    public get forwardY(): AudioParam {
         return this.context.listener.forwardY;
     }
 
-    get forwardZ(): AudioParam {
+    public get forwardZ(): AudioParam {
         return this.context.listener.forwardZ;
     }
 
-    get positionX(): AudioParam {
+    public get positionX(): AudioParam {
         return this.context.listener.positionX;
     }
 
-    get positionY(): AudioParam {
+    public get positionY(): AudioParam {
         return this.context.listener.positionY;
     }
 
-    get positionZ(): AudioParam {
+    public get positionZ(): AudioParam {
         return this.context.listener.positionZ;
     }
 
-    get upX(): AudioParam {
+    public get upX(): AudioParam {
         return this.context.listener.upX;
     }
 
-    get upY(): AudioParam {
+    public get upY(): AudioParam {
         return this.context.listener.upY;
     }
 
-    get upZ(): AudioParam {
+    public get upZ(): AudioParam {
         return this.context.listener.upZ;
     }
 
-    ngOnChanges(): void {
+    public ngOnChanges(): void {
         if (this.context.listener.positionX instanceof AudioParam) {
             return;
         }

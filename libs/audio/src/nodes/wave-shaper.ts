@@ -37,7 +37,7 @@ export class WebAudioWaveShaper extends WaveShaperNode implements OnDestroy {
         }
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.disconnect();
     }
 }

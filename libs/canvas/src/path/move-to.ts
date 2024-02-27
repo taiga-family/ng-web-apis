@@ -10,12 +10,12 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class MoveToDirective implements CanvasMethod {
     @Input()
-    x = 0;
+    public x = 0;
 
     @Input()
-    y = 0;
+    public y = 0;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.moveTo(this.x, this.y);
     }
 }

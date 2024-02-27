@@ -17,7 +17,7 @@ describe('Convolver', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioConvolver)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;
@@ -50,7 +50,7 @@ describe('Convolver', () => {
         })
         class TestComponent {
             @ViewChild(WebAudioConvolver)
-            node!: AudioNode;
+            public node!: AudioNode;
         }
 
         let fixture: ComponentFixture<TestComponent>;

@@ -16,11 +16,11 @@ import {connect} from '../utils/connect';
 })
 export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
     @Input('buffer')
-    set bufferSetter(source: AudioBuffer | string | null) {
+    public set bufferSetter(source: AudioBuffer | string | null) {
         this.buffer$.next(source);
     }
 
-    buffer$!: Subject<AudioBuffer | string | null>;
+    protected buffer$!: Subject<AudioBuffer | string | null>;
 
     constructor() {
         const audioBufferService = inject(AudioBufferService);
@@ -41,7 +41,7 @@ export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
         }
     }
 
-    static init(
+    protected static init(
         that: WebAudioConvolver,
         node: AudioNode | null,
         audioBufferService: AudioBufferService,
@@ -62,7 +62,7 @@ export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
             });
     }
 
-    ngOnDestroy(): void {
+    public ngOnDestroy(): void {
         this.buffer$.complete();
         this.disconnect();
     }

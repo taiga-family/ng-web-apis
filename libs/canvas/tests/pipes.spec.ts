@@ -25,13 +25,13 @@ describe('Pipes', () => {
         `,
     })
     class CanvasComponent {
-        @Input()
-        img!: HTMLImageElement;
-
-        grad = new Map([
+        protected grad = new Map([
             [0, 'red'],
             [1, 'blue'],
         ]);
+
+        @Input()
+        public img!: HTMLImageElement;
     }
 
     @Component({
@@ -57,7 +57,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
     })
     class TestComponent {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        readonly context!: CanvasRenderingContext2D;
+        public readonly context!: CanvasRenderingContext2D;
     }
 
     let fixture: ComponentFixture<TestComponent>;

@@ -28,10 +28,10 @@ export class PaymentSubmitDirective {
     private readonly options = inject(PAYMENT_OPTIONS);
 
     @Output()
-    readonly waPaymentSubmit: Observable<PaymentResponse>;
+    public readonly waPaymentSubmit: Observable<PaymentResponse>;
 
     @Output()
-    readonly waPaymentError: Observable<DOMException | Error>;
+    public readonly waPaymentError: Observable<DOMException | Error>;
 
     constructor() {
         const requests$ = fromEvent(this.nativeElement, 'click').pipe(

@@ -13,7 +13,7 @@ const NOT_SUPPORTED_ERROR$ = throwError(
 export class NotificationService {
     private readonly support = inject(NOTIFICATION_SUPPORT);
 
-    requestPermission(): Observable<NotificationPermission> {
+    public requestPermission(): Observable<NotificationPermission> {
         if (!this.support) {
             return NOT_SUPPORTED_ERROR$;
         }
@@ -30,7 +30,7 @@ export class NotificationService {
         });
     }
 
-    open(title: string, options?: NotificationOptions): Observable<Notification> {
+    public open(title: string, options?: NotificationOptions): Observable<Notification> {
         if (!this.support) {
             return NOT_SUPPORTED_ERROR$;
         }

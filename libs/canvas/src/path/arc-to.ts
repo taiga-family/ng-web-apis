@@ -10,21 +10,21 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 })
 export class ArcToDirective implements CanvasMethod {
     @Input()
-    x1 = 0;
+    public x1 = 0;
 
     @Input()
-    y1 = 0;
+    public y1 = 0;
 
     @Input()
-    x2 = 0;
+    public x2 = 0;
 
     @Input()
-    y2 = 0;
+    public y2 = 0;
 
     @Input()
-    radius = 0;
+    public radius = 0;
 
-    call(context: CanvasRenderingContext2D): void {
+    public call(context: CanvasRenderingContext2D): void {
         context.arcTo(this.x1, this.y1, this.x2, this.y2, this.radius);
     }
 }
