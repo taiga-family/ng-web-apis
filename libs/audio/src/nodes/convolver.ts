@@ -1,4 +1,4 @@
-import {Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Directive, inject, Input, OnDestroy} from '@angular/core';
 import {of, Subject, switchMap} from 'rxjs';
 
 import {AudioBufferService} from '../services/audio-buffer.service';
@@ -22,12 +22,12 @@ export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
 
     buffer$!: Subject<AudioBuffer | string | null>;
 
-    constructor(
-        @Inject(AudioBufferService) audioBufferService: AudioBufferService,
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const audioBufferService = inject(AudioBufferService);
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
             WebAudioConvolver.init(this, node, audioBufferService);

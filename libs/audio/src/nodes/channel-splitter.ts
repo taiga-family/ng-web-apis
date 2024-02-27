@@ -2,10 +2,9 @@ import {
     Attribute,
     ContentChildren,
     Directive,
-    Inject,
+    inject,
     OnDestroy,
     QueryList,
-    SkipSelf,
 } from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -36,12 +35,10 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
             });
     }
 
-    constructor(
-        @Attribute('numberOfOutputs') outputs: string | null,
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor(@Attribute('numberOfOutputs') outputs: string | null) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const numberOfOutputs = parseInt(outputs || '', 10) || 6;
 
         if (modern) {

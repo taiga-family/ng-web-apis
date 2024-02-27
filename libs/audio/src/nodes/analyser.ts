@@ -1,4 +1,4 @@
-import {Attribute, Directive, Inject, OnDestroy, Output, SkipSelf} from '@angular/core';
+import {Attribute, Directive, inject, OnDestroy, Output} from '@angular/core';
 import {animationFrameScheduler, interval, map, Observable, share} from 'rxjs';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -37,14 +37,14 @@ export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
     timeFloat$!: Observable<Float32Array>;
 
     constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
         @Attribute('fftSize') fftSizeArg: string | null,
         @Attribute('maxDecibels') maxDecibelsArg: string | null,
         @Attribute('minDecibels') minDecibelsArg: string | null,
         @Attribute('smoothingTimeConstant') smoothingTimeConstantArg: string | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const fftSize = parse(fftSizeArg, 2048);
         const maxDecibels = parse(maxDecibelsArg, -30);
         const minDecibels = parse(minDecibelsArg, -100);

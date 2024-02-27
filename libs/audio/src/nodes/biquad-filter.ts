@@ -1,4 +1,4 @@
-import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Attribute, Directive, inject, Input, OnDestroy} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -33,14 +33,14 @@ export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy 
     qParam?: AudioParamInput;
 
     constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
         @Attribute('detune') detuneArg: string | null,
         @Attribute('frequency') frequencyArg: string | null,
         @Attribute('gain') gainArg: string | null,
         @Attribute('Q') QArg: string | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
         const detune = parse(detuneArg, 0);
         const frequency = parse(frequencyArg, 350);
         const gain = parse(gainArg, 0);

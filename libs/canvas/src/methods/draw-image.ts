@@ -1,6 +1,5 @@
-import {Directive, Inject, Input} from '@angular/core';
+import {Directive, inject, Input} from '@angular/core';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 
 @Directive({
@@ -9,6 +8,8 @@ import {DrawService} from '../services/draw.service';
     providers: [DrawService],
 })
 export class DrawImageDirective {
+    private readonly method = inject(DrawService);
+
     @Input()
     image?: CanvasImageSource;
 
@@ -36,8 +37,8 @@ export class DrawImageDirective {
     @Input()
     sHeight?: number;
 
-    constructor(@Inject(DrawService) method: CanvasMethod) {
-        method.call = context => {
+    constructor() {
+        this.method.call = context => {
             if (!this.image) {
                 return;
             }

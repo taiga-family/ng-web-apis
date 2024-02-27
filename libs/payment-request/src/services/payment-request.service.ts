@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 
 import {PAYMENT_METHODS} from '../tokens/payment-methods';
 import {PAYMENT_OPTIONS, PaymentOptions} from '../tokens/payment-options';
@@ -8,13 +8,9 @@ import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
     providedIn: 'root',
 })
 export class PaymentRequestService {
-    constructor(
-        @Inject(PAYMENT_REQUEST_SUPPORT) private readonly supported: boolean,
-        @Inject(PAYMENT_METHODS)
-        private readonly paymentMethods: PaymentMethodData[],
-        @Inject(PAYMENT_OPTIONS)
-        private readonly paymentOptions: PaymentOptions,
-    ) {}
+    private readonly supported = inject(PAYMENT_REQUEST_SUPPORT);
+    private readonly paymentMethods = inject(PAYMENT_METHODS);
+    private readonly paymentOptions = inject(PAYMENT_OPTIONS);
 
     async request(
         details: PaymentDetailsInit,

@@ -1,5 +1,5 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject, PLATFORM_ID} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {
     continuous,
@@ -45,20 +45,15 @@ import {filter, map, merge, Observable, repeat, retry, share} from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class SpeechPageComponent {
+    private readonly recognition$ = inject(SpeechRecognitionService);
+    readonly platformId = inject(PLATFORM_ID);
+    readonly voices$ = inject(SPEECH_SYNTHESIS_VOICES);
     readonly isBrowser = isPlatformBrowser(this.platformId);
     paused = true;
 
     voice = null;
 
     text = 'Hit play/pause to speak this text';
-
-    constructor(
-        @Inject(PLATFORM_ID) readonly platformId: Record<any, any>,
-        @Inject(SPEECH_SYNTHESIS_VOICES)
-        readonly voices$: Observable<readonly SpeechSynthesisVoice[]>,
-        @Inject(SpeechRecognitionService)
-        private readonly recognition$: Observable<SpeechRecognitionResult[]>,
-    ) {}
 
     readonly nameExtractor = ({
         $implicit,

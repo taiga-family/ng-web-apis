@@ -1,4 +1,4 @@
-import {Inject, Pipe, PipeTransform} from '@angular/core';
+import {inject, Pipe, PipeTransform} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
@@ -7,7 +7,7 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
     name: 'waPeriodicWave',
 })
 export class WebAudioPeriodicWavePipe implements PipeTransform {
-    constructor(@Inject(AUDIO_CONTEXT) private readonly context: BaseAudioContext) {}
+    private readonly context = inject(AUDIO_CONTEXT);
 
     /**
      * Creates {@link PeriodicWave} to use with {@link OscillatorNode}

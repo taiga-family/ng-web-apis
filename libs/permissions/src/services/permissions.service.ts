@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {from, fromEvent, map, Observable, shareReplay, startWith, switchMap} from 'rxjs';
 
 import {PERMISSIONS} from '../tokens/permissions';
@@ -10,10 +10,8 @@ export type PermissionsQueryArgs = Parameters<typeof Permissions.prototype.query
     providedIn: 'root',
 })
 export class PermissionsService {
-    constructor(
-        @Inject(PERMISSIONS) private readonly permissions: Permissions,
-        @Inject(PERMISSIONS_SUPPORT) private readonly permissionsSupported: boolean,
-    ) {}
+    private readonly permissions = inject(PERMISSIONS);
+    private readonly permissionsSupported = inject(PERMISSIONS_SUPPORT);
 
     state(name: PermissionName): Observable<PermissionState>;
     state(descriptor: PermissionsQueryArgs): Observable<PermissionState>;

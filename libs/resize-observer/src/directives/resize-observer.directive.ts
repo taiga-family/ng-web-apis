@@ -1,5 +1,4 @@
-import {Attribute, Directive, ElementRef, Inject} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Attribute, Directive, ElementRef, inject} from '@angular/core';
 
 import {ResizeObserverService} from '../services/resize-observer.service';
 import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
@@ -26,10 +25,10 @@ import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-opt
     ],
 })
 export class ResizeObserverDirective {
+    readonly waResizeObserver = inject(ResizeObserverService);
+
     constructor(
-        @Inject(ResizeObserverService)
-        readonly waResizeObserver: Observable<ResizeObserverEntry[]>,
         // eslint-disable-next-line @angular-eslint/no-attribute-decorator
-        @Attribute('waResizeBox') _box: ResizeObserverBoxOptions,
+        @Attribute('waResizeBox') readonly box: ResizeObserverBoxOptions,
     ) {}
 }

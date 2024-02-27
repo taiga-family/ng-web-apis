@@ -1,4 +1,4 @@
-import {Directive, Inject, OnDestroy, SkipSelf} from '@angular/core';
+import {Directive, inject, OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -15,13 +15,13 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
-    constructor(
-        @Inject(FEEDBACK_COEFFICIENTS) feedback: number[],
-        @Inject(FEEDFORWARD_COEFFICIENTS) feedforward: number[],
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-    ) {
+    constructor() {
+        const feedback = inject(FEEDBACK_COEFFICIENTS);
+        const feedforward = inject(FEEDFORWARD_COEFFICIENTS);
+        const context = inject(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+
         if (modern) {
             super(context, {feedback, feedforward});
             connect(node, this);

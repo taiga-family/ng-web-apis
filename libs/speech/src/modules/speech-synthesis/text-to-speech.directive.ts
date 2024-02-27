@@ -1,4 +1,4 @@
-import {Directive, EventEmitter, Inject, Input, OnChanges, Output} from '@angular/core';
+import {Directive, EventEmitter, inject, Input, OnChanges, Output} from '@angular/core';
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({
@@ -6,6 +6,8 @@ import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
     selector: '[waTextToSpeech]',
 })
 export class TextToSpeechDirective implements OnChanges {
+    private readonly speechSynthesisRef = inject(SPEECH_SYNTHESIS);
+
     @Input('waTextToSpeechPaused')
     paused = false;
 
@@ -33,11 +35,6 @@ export class TextToSpeechDirective implements OnChanges {
 
     @Output('waTextToSpeechBoundary')
     readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
-
-    constructor(
-        @Inject(SPEECH_SYNTHESIS)
-        private readonly speechSynthesisRef: Record<never, never> & SpeechSynthesis,
-    ) {}
 
     ngOnChanges(): void {
         if (this.paused) {

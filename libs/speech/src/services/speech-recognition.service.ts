@@ -1,4 +1,4 @@
-import {Inject, Injectable, LOCALE_ID, NgZone, Optional, Type} from '@angular/core';
+import {inject, Injectable, LOCALE_ID, NgZone} from '@angular/core';
 import {SPEECH_RECOGNITION} from '@ng-web-apis/common';
 import {Observable} from 'rxjs';
 
@@ -8,29 +8,29 @@ import {SPEECH_RECOGNITION_MAX_ALTERNATIVES} from '../tokens/speech-recognition-
     providedIn: 'root',
 })
 export class SpeechRecognitionService extends Observable<SpeechRecognitionResult[]> {
-    constructor(
-        @Inject(SPEECH_RECOGNITION) classRef: Type<SpeechRecognition> | null,
-        @Optional() @Inject(LOCALE_ID) lang: string | null = '',
-        @Inject(SPEECH_RECOGNITION_MAX_ALTERNATIVES) maxAlternatives = 1,
-        @Inject(NgZone) ngZone: {run: any} = {run: (fn: any) => fn()},
-    ) {
+    private readonly classRef = inject(SPEECH_RECOGNITION);
+    private readonly lang = inject(LOCALE_ID, {optional: true});
+    private readonly maxAlternatives = inject(SPEECH_RECOGNITION_MAX_ALTERNATIVES);
+    private readonly ngZone = inject(NgZone);
+
+    constructor() {
         super(subscriber => {
-            if (!classRef) {
+            if (!this.classRef) {
                 subscriber.error(new Error('SpeechRecognition is not supported'));
 
                 return;
             }
 
             // eslint-disable-next-line new-cap
-            const speechRecognition = new classRef();
+            const speechRecognition = new this.classRef();
 
-            speechRecognition.maxAlternatives = maxAlternatives;
-            speechRecognition.lang = lang || '';
+            speechRecognition.maxAlternatives = this.maxAlternatives;
+            speechRecognition.lang = this.lang || '';
             speechRecognition.interimResults = true;
-            speechRecognition.onerror = error => subscriber.error(error);
+            speechRecognition.onerror = (error: unknown) => subscriber.error(error);
             speechRecognition.onend = () => subscriber.complete();
-            speechRecognition.onresult = ({results}) =>
-                ngZone.run(() =>
+            speechRecognition.onresult = ({results}: any) =>
+                this.ngZone.run(() =>
                     subscriber.next(
                         Array.from({length: results.length}, (_, i) => results[i]),
                     ),

@@ -1,4 +1,4 @@
-import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Attribute, Directive, inject, Input, OnDestroy} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -40,15 +40,15 @@ export class WebAudioDynamicsCompressor
     thresholdParam?: AudioParamInput;
 
     constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
         @Attribute('attack') attackArg: string | null,
         @Attribute('knee') kneeArg: string | null,
         @Attribute('ratio') ratioArg: string | null,
         @Attribute('release') releaseArg: string | null,
         @Attribute('threshold') thresholdArg: string | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const attack = parse(attackArg, 0.003);
         const knee = parse(kneeArg, 30);
         const ratio = parse(ratioArg, 12);

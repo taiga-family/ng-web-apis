@@ -1,4 +1,4 @@
-import {Component, Inject, ViewChild} from '@angular/core';
+import {Component, inject, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
 
 import {WebAudioModule} from '../src/module';
@@ -17,12 +17,10 @@ describe('AudioWorkletNode', () => {
         `,
     })
     class TestComponent {
+        protected readonly ready = inject(AUDIO_WORKLET_PROCESSORS_READY);
+
         @ViewChild(WebAudioWorklet)
         node!: AudioNode;
-
-        constructor(
-            @Inject(AUDIO_WORKLET_PROCESSORS_READY) readonly ready: Promise<boolean>,
-        ) {}
     }
 
     let fixture: ComponentFixture<TestComponent>;

@@ -2,7 +2,7 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    Inject,
+    inject,
     Input,
     OnDestroy,
     Output,
@@ -41,12 +41,12 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
     ended?: EventEmitter<void>;
 
     constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
         @Attribute('autoplay') autoplay: string | null,
         @Attribute('detune') detuneArg: string | null,
         @Attribute('frequency') frequencyArg: string | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const detune = parse(detuneArg, 0);
         const frequency = parse(frequencyArg, 440);
 

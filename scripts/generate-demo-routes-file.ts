@@ -18,7 +18,7 @@ import {infoLog, SMALL_TAB_SYMBOL, titleLog} from './helpers/colored-log';
     const routes =
         demoPathEnumContent
             .match(/['"`](.*)['"`]/g)
-            ?.map(route => route.replace(/['"`]/g, '')) || [];
+            ?.map(route => route.replaceAll(/['"`]/g, '')) || [];
 
     titleLog('Generated routes:');
     routes.forEach(route => infoLog(`${SMALL_TAB_SYMBOL}* ${route}`));

@@ -1,4 +1,4 @@
-import {Directive, Inject, Input, OnChanges, OnDestroy, SkipSelf} from '@angular/core';
+import {Directive, inject, Input, OnChanges, OnDestroy} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -52,11 +52,11 @@ export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
     @audioParam('positionZ')
     positionZParam?: AudioParamInput;
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
             connect(node, this);

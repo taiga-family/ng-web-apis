@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
 import {GeolocationService} from '@ng-web-apis/geolocation';
 import {TuiButtonModule, TuiLoaderModule} from '@taiga-ui/core';
@@ -17,15 +17,13 @@ import {SAMPLE_ASYNC} from './samples/sample-async';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class GeolocationPageComponent {
+    private readonly sanitizer = inject(DomSanitizer);
+
     watch = false;
 
     readonly sample = SAMPLE;
     readonly sampleAsync = SAMPLE_ASYNC;
-
-    constructor(
-        @Inject(GeolocationService) readonly geolocation$: GeolocationService,
-        @Inject(DomSanitizer) private readonly sanitizer: DomSanitizer,
-    ) {}
+    readonly geolocation$ = inject(GeolocationService);
 
     getUrl({coords}: GeolocationPosition): SafeResourceUrl {
         const {longitude, latitude} = coords;

@@ -1,5 +1,4 @@
-import {Directive, Inject} from '@angular/core';
-import {Observable} from 'rxjs';
+import {Directive, inject} from '@angular/core';
 
 import {IntersectionObserveeService} from '../services/intersection-observee.service';
 
@@ -10,8 +9,5 @@ import {IntersectionObserveeService} from '../services/intersection-observee.ser
     providers: [IntersectionObserveeService],
 })
 export class IntersectionObserveeDirective {
-    constructor(
-        @Inject(IntersectionObserveeService)
-        readonly waIntersectionObservee: Observable<IntersectionObserverEntry[]>,
-    ) {}
+    readonly waIntersectionObservee = inject(IntersectionObserveeService);
 }

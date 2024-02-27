@@ -1,4 +1,4 @@
-import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Attribute, Directive, inject, Input, OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -27,11 +27,9 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
         }
     }
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Attribute('pan') panArg: string | null,
-    ) {
+    constructor(@Attribute('pan') panArg: string | null) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
         const pan = parse(panArg, 0);
 
         try {

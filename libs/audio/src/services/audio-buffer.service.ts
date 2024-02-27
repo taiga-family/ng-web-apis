@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 
@@ -6,9 +6,8 @@ import {AUDIO_CONTEXT} from '../tokens/audio-context';
     providedIn: 'root',
 })
 export class AudioBufferService {
+    private readonly context = inject(AUDIO_CONTEXT);
     private readonly cache = new Map<string, AudioBuffer>();
-
-    constructor(@Inject(AUDIO_CONTEXT) private readonly context: BaseAudioContext) {}
 
     async fetch(url: string): Promise<AudioBuffer> {
         return new Promise<AudioBuffer>((resolve, reject) => {

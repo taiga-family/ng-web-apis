@@ -3,7 +3,7 @@ import {
     ChangeDetectionStrategy,
     Component,
     HostListener,
-    Inject,
+    inject,
     TrackByFunction,
 } from '@angular/core';
 import {WebAudioModule} from '@ng-web-apis/audio';
@@ -39,11 +39,9 @@ export class DemoComponent {
 
     readonly octaves = Array.from({length: 24}, (_, i) => i + 48);
     readonly notes$: Observable<Map<number, number | null>>;
+    readonly response = inject(RESPONSE_BUFFER);
 
-    constructor(
-        @Inject(RESPONSE_BUFFER) readonly response: Promise<AudioBuffer>,
-        @Inject(MIDI_MESSAGES) messages$: Observable<WebMidi.MIDIMessageEvent>,
-    ) {
+    constructor() {
         const mouseInitiated$ = this.mousedown$.pipe(
             switchMap(down =>
                 this.mouseup$.pipe(
@@ -55,7 +53,7 @@ export class DemoComponent {
         );
 
         this.notes$ = merge(
-            messages$.pipe(
+            inject(MIDI_MESSAGES).pipe(
                 catchError(() => EMPTY),
                 notes(),
                 toData(),

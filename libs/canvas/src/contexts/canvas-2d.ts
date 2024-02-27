@@ -1,6 +1,5 @@
-import {Attribute, Directive, ElementRef, Inject} from '@angular/core';
+import {Attribute, Directive, ElementRef, inject} from '@angular/core';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
@@ -39,15 +38,16 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
     ],
 })
 export class Canvas2dDirective {
+    private readonly context = inject(CANVAS_2D_CONTEXT);
+    private readonly method = inject(DrawService);
+
     constructor(
-        @Inject(CANVAS_2D_CONTEXT) context: CanvasRenderingContext2D,
-        @Inject(DrawService) method: CanvasMethod,
         @Attribute('opaque') _opaque: string | null,
         @Attribute('desynchronized') _desynchronized: string | null,
     ) {
-        context.strokeStyle = 'transparent';
+        this.context.strokeStyle = 'transparent';
 
-        method.call = context => {
+        this.method.call = context => {
             context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         };
     }

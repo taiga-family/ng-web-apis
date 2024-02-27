@@ -1,4 +1,4 @@
-import {Directive, Inject, OnDestroy, Output} from '@angular/core';
+import {Directive, inject, OnDestroy, Output} from '@angular/core';
 import {
     debounceTime,
     distinctUntilChanged,
@@ -25,11 +25,11 @@ export class WebAudioDestination extends AnalyserNode implements OnDestroy {
     @Output()
     quiet!: Observable<unknown>;
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
             WebAudioDestination.init(this, node);

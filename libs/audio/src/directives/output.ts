@@ -1,4 +1,4 @@
-import {Directive, Inject, Input, OnDestroy} from '@angular/core';
+import {Directive, inject, Input, OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
@@ -16,11 +16,11 @@ export class WebAudioOutput extends GainNode implements OnDestroy {
         connect(this, destination);
     }
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
             connect(node, this);

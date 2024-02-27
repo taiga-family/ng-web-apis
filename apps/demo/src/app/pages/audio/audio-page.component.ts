@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AUDIO_CONTEXT, WebAudioModule} from '@ng-web-apis/audio';
 import {CanvasModule} from '@ng-web-apis/canvas';
@@ -36,6 +36,8 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AudioPageComponent {
+    private readonly context = inject<AudioContext>(AUDIO_CONTEXT);
+
     @ViewChild('chain')
     readonly chain?: AudioNode;
 
@@ -85,8 +87,6 @@ export default class AudioPageComponent {
     ];
 
     readonly real = [0, 0, 1, 0, 1];
-
-    constructor(@Inject(AUDIO_CONTEXT) private readonly context: AudioContext) {}
 
     get distortionCompensation(): number {
         return 1.2 - this.distortion / 20;

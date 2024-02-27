@@ -4,7 +4,7 @@ import {
     Directive,
     ElementRef,
     EventEmitter,
-    Inject,
+    inject,
     OnDestroy,
     Output,
 } from '@angular/core';
@@ -26,12 +26,13 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
     exportAs: 'MutationObserver',
 })
 export class MutationObserverDirective extends SafeObserver implements OnDestroy {
+    private readonly nativeElement: Node = inject(ElementRef).nativeElement;
+    private readonly config = inject(MUTATION_OBSERVER_INIT);
+
     @Output()
     readonly waMutationObserver = new EventEmitter<MutationRecord[]>();
 
     constructor(
-        @Inject(ElementRef) {nativeElement}: ElementRef<Node>,
-        @Inject(MUTATION_OBSERVER_INIT) config: MutationObserverInit,
         @Attribute('attributeFilter') _1: unknown,
         @Attribute('attributeOldValue') _2: unknown,
         @Attribute('attributes') _3: unknown,
@@ -44,7 +45,7 @@ export class MutationObserverDirective extends SafeObserver implements OnDestroy
             this.waMutationObserver.emit(records);
         });
 
-        this.observe(nativeElement, config);
+        this.observe(this.nativeElement, this.config);
     }
 
     ngOnDestroy(): void {

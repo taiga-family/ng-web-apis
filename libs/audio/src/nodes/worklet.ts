@@ -2,10 +2,9 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    Inject,
+    inject,
     OnDestroy,
     Output,
-    SkipSelf,
 } from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -23,11 +22,10 @@ export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
     @Output()
     processorerror = new EventEmitter<void>();
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Attribute('name') name: string,
-    ) {
+    constructor(@Attribute('name') name: string) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+
         super(context, name);
 
         connect(node, this);
