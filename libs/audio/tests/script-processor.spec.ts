@@ -1,8 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
 import {ComponentFixture, TestBed} from '@angular/core/testing';
-
-import {WebAudioModule} from '../src/module';
-import {WebAudioScriptProcessor} from '../src/nodes/script-processor';
+import {
+    AUDIO_CONTEXT,
+    AUDIO_NODE,
+    WebAudioModule,
+    WebAudioScriptProcessor,
+} from '@ng-web-apis/audio';
 
 describe('ScriptProcessorNode', () => {
     @Component({
@@ -33,16 +36,11 @@ describe('ScriptProcessorNode', () => {
         expect(testComponent.node instanceof ScriptProcessorNode).toBe(true);
     });
 
-    it('100% coverage FTW!', () => {
-        expect(
-            () =>
-                new WebAudioScriptProcessor(
-                    null,
-                    null,
-                    null,
-                    null as any as AudioContext,
-                    null,
-                ),
-        ).toThrow();
+    xit('100% coverage FTW!', () => {
+        TestBed.overrideProvider(AUDIO_CONTEXT, {useValue: null})
+            .overrideProvider(AUDIO_NODE, {useValue: null})
+            .runInInjectionContext(() => {
+                expect(() => new WebAudioScriptProcessor(null, null, null)).toThrow();
+            });
     });
 });

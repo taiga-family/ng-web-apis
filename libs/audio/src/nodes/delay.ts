@@ -25,7 +25,7 @@ export class WebAudioDelay extends DelayNode implements OnDestroy {
         @Attribute('maxDelayTime') maxDelayTimeArg: string | null,
     ) {
         const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
         const modern = inject(CONSTRUCTOR_SUPPORT);
         const delayTime = parse(delayTimeArg, 0);
         const maxDelayTime = parse(maxDelayTimeArg, 1);

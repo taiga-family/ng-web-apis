@@ -9,21 +9,22 @@ import {Context2dProcessor} from '../types/context-processor';
 
 @Injectable()
 export class DrawService implements OnDestroy, CanvasMethod {
-    private readonly parent = inject(CANVAS_PROPERTIES, {skipSelf: true});
-    private readonly properties = inject(CANVAS_PROPERTIES);
-    private readonly context = inject(CANVAS_2D_CONTEXT);
-    private readonly animationFrame$ = inject(ANIMATION_FRAME);
-    private readonly ngZone = inject(NgZone);
     private readonly subscription: Subscription;
 
     constructor() {
-        this.subscription = this.ngZone.runOutsideAngular(() =>
-            this.animationFrame$.subscribe(() => {
-                this.context.save();
-                this.parent.forEach(property => property.call(this.context));
-                this.properties.forEach(property => property.call(this.context));
-                this.call(this.context);
-                this.context.restore();
+        const parent = inject(CANVAS_PROPERTIES, {skipSelf: true});
+        const properties = inject(CANVAS_PROPERTIES);
+        const context = inject(CANVAS_2D_CONTEXT);
+        const animationFrame$ = inject(ANIMATION_FRAME);
+        const ngZone = inject(NgZone);
+
+        this.subscription = ngZone.runOutsideAngular(() =>
+            animationFrame$.subscribe(() => {
+                context.save();
+                parent.forEach(property => property.call(context));
+                properties.forEach(property => property.call(context));
+                this.call(context);
+                context.restore();
             }),
         );
     }

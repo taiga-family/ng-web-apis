@@ -1,12 +1,17 @@
-import {WebAudioPeriodicWavePipe} from '../src/pipes/periodic-wave.pipe';
+import {TestBed} from '@angular/core/testing';
+import {AUDIO_CONTEXT, WebAudioPeriodicWavePipe} from '@ng-web-apis/audio';
 
 describe('waPeriodicWave', () => {
-    const pipe = new WebAudioPeriodicWavePipe(new AudioContext());
-
     // TODO: need investigate why
     // Error: Failed to execute 'createPeriodicWave' on 'BaseAudioContext':
     // The length of the real array provided (1) is less than the minimum bound (2)
     xit('creates PeriodicWave', () => {
-        expect(pipe.transform([10]) instanceof PeriodicWave).toBe(true);
+        TestBed.overrideProvider(AUDIO_CONTEXT, {
+            useValue: new AudioContext(),
+        }).runInInjectionContext(() => {
+            const pipe = new WebAudioPeriodicWavePipe();
+
+            expect(pipe.transform([10]) instanceof PeriodicWave).toBe(true);
+        });
     });
 });

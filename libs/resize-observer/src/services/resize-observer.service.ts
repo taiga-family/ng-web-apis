@@ -6,14 +6,14 @@ import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
 
 @Injectable()
 export class ResizeObserverService extends Observable<readonly ResizeObserverEntry[]> {
-    private readonly nativeElement: HTMLElement = inject(ElementRef).nativeElement;
-    private readonly box = inject(RESIZE_OPTION_BOX);
-
     constructor() {
+        const nativeElement: HTMLElement = inject(ElementRef).nativeElement;
+        const box = inject(RESIZE_OPTION_BOX);
+
         super(subscriber => {
             const observer = new SafeObserver(entries => subscriber.next(entries));
 
-            observer.observe(this.nativeElement, {box: this.box});
+            observer.observe(nativeElement, {box});
 
             return () => {
                 observer.disconnect();

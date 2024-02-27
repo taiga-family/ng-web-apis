@@ -1,4 +1,11 @@
-import {IntersectionObserverService} from '@ng-web-apis/intersection-observer';
+import {ElementRef} from '@angular/core';
+import {TestBed} from '@angular/core/testing';
+import {
+    INTERSECTION_ROOT,
+    INTERSECTION_ROOT_MARGIN,
+    INTERSECTION_THRESHOLD,
+    IntersectionObserverService,
+} from '@ng-web-apis/intersection-observer';
 import {take} from 'rxjs';
 
 describe('IntersectionObserverService', () => {
@@ -6,28 +13,36 @@ describe('IntersectionObserverService', () => {
         let called = false;
 
         const nativeElement = document.createElement('div');
-        const service = new IntersectionObserverService(
-            {
-                nativeElement,
-            },
-            '0px 0px 0px 0px',
-            0,
-            {
-                nativeElement: document.body,
-            },
-        );
 
-        service.pipe(take(1)).subscribe({
-            next: () => {
-                called = true;
-            },
-        });
+        TestBed.overrideProvider(ElementRef, {
+            useValue: {nativeElement},
+        })
+            .overrideProvider(INTERSECTION_ROOT_MARGIN, {
+                useValue: '0px 0px 0px 0px',
+            })
+            .overrideProvider(INTERSECTION_THRESHOLD, {
+                useValue: 0,
+            })
+            .overrideProvider(INTERSECTION_ROOT, {
+                useValue: {
+                    nativeElement: document.body,
+                },
+            })
+            .runInInjectionContext(() => {
+                const service = new IntersectionObserverService();
 
-        document.body.appendChild(nativeElement);
+                service.pipe(take(1)).subscribe({
+                    next: () => {
+                        called = true;
+                    },
+                });
 
-        setTimeout(() => {
-            expect(called).toBe(true);
-            done();
-        });
+                document.body.appendChild(nativeElement);
+
+                setTimeout(() => {
+                    expect(called).toBe(true);
+                    done();
+                });
+            });
     });
 });
