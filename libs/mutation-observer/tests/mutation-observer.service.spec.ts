@@ -1,27 +1,40 @@
 import {ElementRef} from '@angular/core';
-import {MutationObserverService} from '@ng-web-apis/mutation-observer';
+import {TestBed} from '@angular/core/testing';
+import {
+    MUTATION_OBSERVER_INIT,
+    MutationObserverService,
+} from '@ng-web-apis/mutation-observer';
 import {first} from 'rxjs';
 
 describe('MutationObserver service', () => {
     it('works', done => {
         const element = document.createElement('DIV');
         const elementRef = new ElementRef(element);
-        const service = new MutationObserverService(elementRef, {
-            attributeFilter: ['title'],
-        });
 
-        let flag = false;
+        TestBed.overrideProvider(MUTATION_OBSERVER_INIT, {
+            useValue: {
+                attributeFilter: ['title'],
+            },
+        })
+            .overrideProvider(ElementRef, {
+                useValue: elementRef,
+            })
+            .runInInjectionContext(() => {
+                const service = new MutationObserverService();
 
-        document.body.appendChild(element);
-        service.pipe(first()).subscribe(() => {
-            flag = true;
-        });
+                let flag = false;
 
-        element.setAttribute('title', 'test');
+                document.body.appendChild(element);
+                service.pipe(first()).subscribe(() => {
+                    flag = true;
+                });
 
-        setTimeout(() => {
-            expect(flag).toBe(true);
-            done();
-        }, 50);
+                element.setAttribute('title', 'test');
+
+                setTimeout(() => {
+                    expect(flag).toBe(true);
+                    done();
+                }, 50);
+            });
     });
 });

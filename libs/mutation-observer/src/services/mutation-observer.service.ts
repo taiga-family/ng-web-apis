@@ -1,4 +1,4 @@
-import {ElementRef, Inject, Injectable} from '@angular/core';
+import {ElementRef, inject, Injectable} from '@angular/core';
 import {Observable} from 'rxjs';
 
 import {SafeObserver} from '../classes/safe-observer';
@@ -6,10 +6,10 @@ import {MUTATION_OBSERVER_INIT} from '../tokens/mutation-observer-init';
 
 @Injectable()
 export class MutationObserverService extends Observable<readonly MutationRecord[]> {
-    constructor(
-        @Inject(ElementRef) {nativeElement}: ElementRef<Node>,
-        @Inject(MUTATION_OBSERVER_INIT) config: MutationObserverInit,
-    ) {
+    constructor() {
+        const nativeElement: Node = inject(ElementRef).nativeElement;
+        const config = inject(MUTATION_OBSERVER_INIT);
+
         super(subscriber => {
             const observer = new SafeObserver(records => {
                 subscriber.next(records);

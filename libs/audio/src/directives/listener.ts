@@ -1,4 +1,4 @@
-import {Directive, Inject, Input, OnChanges, Self} from '@angular/core';
+import {Directive, inject, Input, OnChanges} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -47,10 +47,10 @@ export class WebAudioListener extends GainNode implements OnChanges {
     @audioParam('upZ')
     upZParam?: AudioParamInput;
 
-    constructor(
-        @Self() @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject(AUDIO_CONTEXT, {self: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
         } else {

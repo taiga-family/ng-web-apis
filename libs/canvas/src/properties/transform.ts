@@ -1,4 +1,4 @@
-import {Directive, Inject, Input, Optional, SkipSelf} from '@angular/core';
+import {Directive, inject, Input} from '@angular/core';
 
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
@@ -10,15 +10,13 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     providers: [asCanvasProperty(TransformDirective)],
 })
 export class TransformDirective implements CanvasMethod {
+    private readonly parent = inject(TransformDirective, {
+        skipSelf: true,
+        optional: true,
+    });
+
     @Input()
     transform: DOMMatrix = new DOMMatrix();
-
-    constructor(
-        @Optional()
-        @SkipSelf()
-        @Inject(TransformDirective)
-        private readonly parent: TransformDirective | null,
-    ) {}
 
     call(context: CanvasRenderingContext2D): void {
         context.setTransform(

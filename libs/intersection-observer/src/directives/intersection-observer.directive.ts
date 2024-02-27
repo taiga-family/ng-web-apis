@@ -1,12 +1,5 @@
 /* eslint-disable @angular-eslint/no-attribute-decorator */
-import {
-    Attribute,
-    Directive,
-    ElementRef,
-    Inject,
-    OnDestroy,
-    Optional,
-} from '@angular/core';
+import {Attribute, Directive, ElementRef, inject, OnDestroy} from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
 import {INTERSECTION_ROOT} from '../tokens/intersection-root';
@@ -22,10 +15,11 @@ export class IntersectionObserverDirective extends SafeObserver implements OnDes
     private readonly callbacks = new Map<Element, IntersectionObserverCallback>();
 
     constructor(
-        @Optional() @Inject(INTERSECTION_ROOT) root: ElementRef<Element> | null,
         @Attribute('waIntersectionRootMargin') rootMargin: string | null,
         @Attribute('waIntersectionThreshold') threshold: string | null,
     ) {
+        const root = inject<ElementRef<Element>>(INTERSECTION_ROOT, {optional: true});
+
         super(
             entries => {
                 this.callbacks.forEach((callback, element) => {

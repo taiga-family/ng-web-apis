@@ -1,4 +1,4 @@
-import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Attribute, Directive, inject, Input, OnDestroy} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -21,12 +21,12 @@ export class WebAudioDelay extends DelayNode implements OnDestroy {
     delayTimeParam?: AudioParamInput;
 
     constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
         @Attribute('delayTime') delayTimeArg: string | null,
         @Attribute('maxDelayTime') maxDelayTimeArg: string | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const delayTime = parse(delayTimeArg, 0);
         const maxDelayTime = parse(maxDelayTimeArg, 1);
 

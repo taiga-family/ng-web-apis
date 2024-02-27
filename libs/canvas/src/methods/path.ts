@@ -1,4 +1,4 @@
-import {ContentChildren, Directive, Inject, Input, QueryList} from '@angular/core';
+import {ContentChildren, Directive, inject, Input, QueryList} from '@angular/core';
 
 import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
@@ -13,14 +13,16 @@ export class PathDirective {
     @ContentChildren(CANVAS_METHOD)
     private readonly pathSteps = new QueryList<CanvasMethod>();
 
+    private readonly method = inject(DrawService);
+
     @Input()
     closed = false;
 
     @Input()
     fillRule?: CanvasFillRule;
 
-    constructor(@Inject(DrawService) method: CanvasMethod) {
-        method.call = context => {
+    constructor() {
+        this.method.call = context => {
             context.beginPath();
 
             this.pathSteps.forEach(step => {

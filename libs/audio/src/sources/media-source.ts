@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Inject, OnDestroy} from '@angular/core';
+import {Directive, ElementRef, inject, OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
@@ -15,11 +15,11 @@ export class WebAudioMediaSource
     extends MediaElementAudioSourceNode
     implements OnDestroy
 {
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: AudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Inject(ElementRef) {nativeElement}: ElementRef<HTMLMediaElement>,
-    ) {
+    constructor() {
+        const context = inject<AudioContext>(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+        const nativeElement: HTMLMediaElement = inject(ElementRef).nativeElement;
+
         if (modern) {
             super(context, {mediaElement: nativeElement});
         } else {

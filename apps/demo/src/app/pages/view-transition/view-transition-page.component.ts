@@ -3,8 +3,7 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
-    Inject,
-    Self,
+    inject,
 } from '@angular/core';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
 import {TuiDestroyService, TuiLetModule} from '@taiga-ui/cdk';
@@ -63,17 +62,14 @@ const USAGE_SAMPLE = `
     providers: [TuiDestroyService],
 })
 export default class ViewTransitionPageComponent {
+    private readonly viewTransitionService = inject(ViewTransitionService);
+    private readonly cdr = inject(ChangeDetectorRef);
+    private readonly destroy$ = inject(TuiDestroyService, {self: true});
+
     readonly codeSample = USAGE_SAMPLE;
     readonly data = PHOTOS;
     readonly activeIndex$ = new BehaviorSubject(-1);
     readonly detailInfo$ = new BehaviorSubject<Photo | undefined>(undefined);
-
-    constructor(
-        @Inject(ViewTransitionService)
-        private readonly viewTransitionService: ViewTransitionService,
-        @Inject(ChangeDetectorRef) private readonly cdr: ChangeDetectorRef,
-        @Self() @Inject(TuiDestroyService) private readonly destroy$: TuiDestroyService,
-    ) {}
 
     open(index: number): void {
         this.activeIndex$.next(index);

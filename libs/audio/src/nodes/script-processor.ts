@@ -2,10 +2,9 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    Inject,
+    inject,
     OnDestroy,
     Output,
-    SkipSelf,
 } from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -27,9 +26,10 @@ export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDe
         @Attribute('bufferSize') bufferSize: string | null,
         @Attribute('numberOfInputChannels') numberOfInputChannels: string | null,
         @Attribute('numberOfOutputChannels') numberOfOutputChannels: string | null,
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+
         try {
             const result = context.createScriptProcessor(
                 parseInt(bufferSize || '', 10) || 0,

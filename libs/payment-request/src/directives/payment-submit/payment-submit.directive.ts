@@ -1,4 +1,4 @@
-import {Directive, ElementRef, Inject, Output} from '@angular/core';
+import {Directive, ElementRef, inject, Output} from '@angular/core';
 import {
     catchError,
     filter,
@@ -12,7 +12,7 @@ import {
 
 import {PaymentRequestService} from '../../services/payment-request.service';
 import {PAYMENT_METHODS} from '../../tokens/payment-methods';
-import {PAYMENT_OPTIONS, PaymentOptions} from '../../tokens/payment-options';
+import {PAYMENT_OPTIONS} from '../../tokens/payment-options';
 import {isError} from '../../utils/is-error';
 import {PaymentDirective} from '../payment/payment.directive';
 
@@ -21,24 +21,28 @@ import {PaymentDirective} from '../payment/payment.directive';
     selector: '[waPaymentSubmit]',
 })
 export class PaymentSubmitDirective {
+    private readonly paymentHost = inject(PaymentDirective);
+    private readonly paymentRequest = inject(PaymentRequestService);
+    private readonly nativeElement: HTMLElement = inject(ElementRef).nativeElement;
+    private readonly methods = inject(PAYMENT_METHODS);
+    private readonly options = inject(PAYMENT_OPTIONS);
+
     @Output()
     readonly waPaymentSubmit: Observable<PaymentResponse>;
 
     @Output()
     readonly waPaymentError: Observable<DOMException | Error>;
 
-    constructor(
-        @Inject(PaymentDirective) paymentHost: PaymentDetailsInit,
-        @Inject(PaymentRequestService) paymentRequest: PaymentRequestService,
-        @Inject(ElementRef) {nativeElement}: ElementRef,
-        @Inject(PAYMENT_METHODS) methods: PaymentMethodData[],
-        @Inject(PAYMENT_OPTIONS) options: PaymentOptions,
-    ) {
-        const requests$ = fromEvent(nativeElement, 'click').pipe(
+    constructor() {
+        const requests$ = fromEvent(this.nativeElement, 'click').pipe(
             switchMap(() =>
-                from(paymentRequest.request({...paymentHost}, methods, options)).pipe(
-                    catchError(error => of(error)),
-                ),
+                from(
+                    this.paymentRequest.request(
+                        {...this.paymentHost},
+                        this.methods,
+                        this.options,
+                    ),
+                ).pipe(catchError(error => of(error))),
             ),
             share(),
         );

@@ -1,6 +1,5 @@
-import {Directive, Inject, Input} from '@angular/core';
+import {Directive, inject, Input} from '@angular/core';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 
 @Directive({
@@ -9,6 +8,8 @@ import {DrawService} from '../services/draw.service';
     providers: [DrawService],
 })
 export class TextDirective {
+    private readonly method = inject(DrawService);
+
     @Input()
     text = '';
 
@@ -21,8 +22,8 @@ export class TextDirective {
     @Input()
     maxWidth?: number;
 
-    constructor(@Inject(DrawService) method: CanvasMethod) {
-        method.call = context => {
+    constructor() {
+        this.method.call = context => {
             context.fillText(this.text, this.x, this.y, this.maxWidth);
             context.strokeText(this.text, this.x, this.y, this.maxWidth);
         };

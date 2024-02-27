@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {defer, fromEvent, Observable, takeUntil, throwError} from 'rxjs';
 
 import {NOTIFICATION_SUPPORT} from '../tokens/support';
@@ -11,7 +11,7 @@ const NOT_SUPPORTED_ERROR$ = throwError(
     providedIn: 'root',
 })
 export class NotificationService {
-    constructor(@Inject(NOTIFICATION_SUPPORT) private readonly support: boolean) {}
+    private readonly support = inject(NOTIFICATION_SUPPORT);
 
     requestPermission(): Observable<NotificationPermission> {
         if (!this.support) {

@@ -1,4 +1,4 @@
-import {Directive, Inject, OnDestroy, SkipSelf} from '@angular/core';
+import {Directive, inject, OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -19,11 +19,11 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioWaveShaper extends WaveShaperNode implements OnDestroy {
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
             connect(node, this);

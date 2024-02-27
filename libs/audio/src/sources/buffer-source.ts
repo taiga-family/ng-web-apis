@@ -2,7 +2,7 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    Inject,
+    inject,
     Input,
     OnDestroy,
     Output,
@@ -51,13 +51,13 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
     buffer$!: Subject<AudioBuffer | string | null>;
 
     constructor(
-        @Inject(AudioBufferService) audioBufferService: AudioBufferService,
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
         @Attribute('autoplay') autoplay: string | null,
         @Attribute('detune') detuneArg: string | null,
         @Attribute('playbackRate') playbackRateArg: string | null,
     ) {
+        const audioBufferService = inject(AudioBufferService);
+        const context = inject(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const detune = parse(detuneArg, 0);
         const playbackRate = parse(playbackRateArg, 1);
 

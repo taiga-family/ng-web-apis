@@ -1,4 +1,4 @@
-import {Attribute, Directive, Inject, Input, OnDestroy, SkipSelf} from '@angular/core';
+import {Attribute, Directive, inject, Input, OnDestroy} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -20,12 +20,10 @@ export class WebAudioGain extends GainNode implements OnDestroy {
     @audioParam('gain')
     gainParam?: AudioParamInput | string;
 
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-        @Attribute('gain') gainArg: AudioParamInput | string | null,
-    ) {
+    constructor(@Attribute('gain') gainArg: AudioParamInput | string | null) {
+        const context = inject(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const gain = parse(gainArg, 1);
 
         if (modern) {

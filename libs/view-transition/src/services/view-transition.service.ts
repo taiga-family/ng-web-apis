@@ -1,12 +1,12 @@
 import {DOCUMENT} from '@angular/common';
-import {Inject, Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ViewTransitionService {
-    constructor(@Inject(DOCUMENT) private readonly document: Document) {}
+    private readonly document = inject(DOCUMENT);
 
     get isSupported(): boolean {
         return 'startViewTransition' in this.document;

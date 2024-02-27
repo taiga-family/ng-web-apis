@@ -1,4 +1,4 @@
-import {Directive, Inject} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
@@ -11,11 +11,11 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioMediaStreamDestination extends MediaStreamAudioDestinationNode {
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: AudioContext,
-        @Inject(AUDIO_NODE) node: AudioNode | null,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject<AudioContext>(AUDIO_CONTEXT);
+        const node = inject(AUDIO_NODE);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
             connect(node, this);

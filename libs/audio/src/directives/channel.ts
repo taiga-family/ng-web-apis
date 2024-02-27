@@ -1,4 +1,4 @@
-import {Directive, Inject, OnDestroy} from '@angular/core';
+import {Directive, inject, OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
@@ -9,10 +9,10 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
     exportAs: 'AudioNode',
 })
 export class WebAudioChannel extends GainNode implements OnDestroy {
-    constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor() {
+        const context = inject(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
+
         if (modern) {
             super(context);
         } else {

@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {WebAudioModule} from '@ng-web-apis/audio';
 import {MIDI_SUPPORT} from '@ng-web-apis/midi';
@@ -16,9 +16,9 @@ import {DemoComponent} from './demo/demo.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class MidiPageComponent {
-    started = false;
+    readonly supported = inject(MIDI_SUPPORT);
 
-    constructor(@Inject(MIDI_SUPPORT) readonly supported: boolean) {}
+    started = false;
 
     start(): void {
         this.started = true;

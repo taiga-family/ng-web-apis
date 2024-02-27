@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {RouterLink} from '@angular/router';
 import {DemoPath} from '@demo/constants';
 import {WEB_AUDIO_SUPPORT} from '@ng-web-apis/audio';
@@ -20,15 +20,12 @@ import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 })
 export default class HomePageComponent {
     readonly link = DemoPath;
-
-    constructor(
-        @Inject(PAYMENT_REQUEST_SUPPORT) readonly paymentRequestSupport: boolean,
-        @Inject(GEOLOCATION_SUPPORT) readonly geolocationSupport: boolean,
-        @Inject(INTERSECTION_OBSERVER_SUPPORT) readonly intersectionSupport: boolean,
-        @Inject(RESIZE_OBSERVER_SUPPORT) readonly resizeSupport: boolean,
-        @Inject(MIDI_SUPPORT) readonly midiSupport: boolean,
-        @Inject(WEB_AUDIO_SUPPORT) readonly audioSupport: boolean,
-        @Inject(PERMISSIONS_SUPPORT) readonly permissionsSupport: boolean,
-        @Inject(NOTIFICATION_SUPPORT) readonly notificationSupport: boolean,
-    ) {}
+    readonly paymentRequestSupport = inject(PAYMENT_REQUEST_SUPPORT);
+    readonly geolocationSupport = inject(GEOLOCATION_SUPPORT);
+    readonly intersectionSupport = inject(INTERSECTION_OBSERVER_SUPPORT);
+    readonly resizeSupport = inject(RESIZE_OBSERVER_SUPPORT);
+    readonly midiSupport = inject(MIDI_SUPPORT);
+    readonly audioSupport = inject(WEB_AUDIO_SUPPORT);
+    readonly permissionsSupport = inject(PERMISSIONS_SUPPORT);
+    readonly notificationSupport = inject(NOTIFICATION_SUPPORT);
 }

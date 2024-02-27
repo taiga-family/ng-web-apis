@@ -1,4 +1,4 @@
-import {Inject, Injectable} from '@angular/core';
+import {inject, Injectable} from '@angular/core';
 import {finalize, Observable, shareReplay} from 'rxjs';
 
 import {GEOLOCATION} from '../tokens/geolocation';
@@ -9,11 +9,11 @@ import {GEOLOCATION_SUPPORT} from '../tokens/geolocation-support';
     providedIn: 'root',
 })
 export class GeolocationService extends Observable<GeolocationPosition> {
-    constructor(
-        @Inject(GEOLOCATION) geolocationRef: Geolocation,
-        @Inject(GEOLOCATION_SUPPORT) geolocationSupported: boolean,
-        @Inject(POSITION_OPTIONS) positionOptions: PositionOptions,
-    ) {
+    constructor() {
+        const geolocationRef = inject(GEOLOCATION);
+        const geolocationSupported = inject(GEOLOCATION_SUPPORT);
+        const positionOptions = inject(POSITION_OPTIONS);
+
         let watchPositionId = 0;
 
         super(subscriber => {

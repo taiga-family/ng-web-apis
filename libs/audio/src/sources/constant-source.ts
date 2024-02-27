@@ -2,7 +2,7 @@ import {
     Attribute,
     Directive,
     EventEmitter,
-    Inject,
+    inject,
     Input,
     OnDestroy,
     Output,
@@ -30,10 +30,11 @@ export class WebAudioConstantSource extends ConstantSourceNode implements OnDest
     ended = new EventEmitter<void>();
 
     constructor(
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
         @Attribute('autoplay') autoplay: string | null,
         @Attribute('offset') offset: string | null,
     ) {
+        const context = inject(AUDIO_CONTEXT);
+
         super(context, {
             offset: parse(offset, 0),
         });

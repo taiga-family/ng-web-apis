@@ -2,7 +2,7 @@ import {
     Attribute,
     ContentChildren,
     Directive,
-    Inject,
+    inject,
     OnDestroy,
     QueryList,
 } from '@angular/core';
@@ -27,11 +27,9 @@ export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestro
         });
     }
 
-    constructor(
-        @Attribute('numberOfInputs') inputs: string | null,
-        @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-        @Inject(CONSTRUCTOR_SUPPORT) modern: boolean,
-    ) {
+    constructor(@Attribute('numberOfInputs') inputs: string | null) {
+        const context = inject(AUDIO_CONTEXT);
+        const modern = inject(CONSTRUCTOR_SUPPORT);
         const numberOfInputs = parseInt(inputs || '', 10) || 6;
 
         if (modern) {

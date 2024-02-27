@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, Inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {
     INTERSECTION_OBSERVER_SUPPORT,
     IntersectionObserverModule,
@@ -16,7 +16,7 @@ import {
 export default class IntersectionObserverPageComponent {
     ratio = 0;
 
-    constructor(@Inject(INTERSECTION_OBSERVER_SUPPORT) readonly support: boolean) {}
+    readonly support = inject(INTERSECTION_OBSERVER_SUPPORT);
 
     onIntersection(intersections: IntersectionObserverEntry[]): void {
         this.ratio = Math.round(intersections[0].intersectionRatio * 10);
