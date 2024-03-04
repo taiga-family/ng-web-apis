@@ -175,10 +175,6 @@
         "npm": "10.4.0",
         "yarn": "Please use npm instead of yarn to install dependencies"
     },
-    "overrides": {
-        "webpack": "$webpack",
-        "babel-loader": "$babel-loader"
-    },
     "standard-version": {
         "scripts": {
             "postbump": "node scripts/syncVersions.js && git add **/package.json"
