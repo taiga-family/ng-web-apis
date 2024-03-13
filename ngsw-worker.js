@@ -898,8 +898,8 @@ ${error.stack}`;
       this.manifest = manifest;
       this.manifestHash = manifestHash;
       this.hashTable = /* @__PURE__ */ new Map();
-      this.indexUrl = this.adapter.normalizeUrl(this.manifest.index);
       this._okay = true;
+      this.indexUrl = this.adapter.normalizeUrl(this.manifest.index);
       Object.keys(manifest.hashTable).forEach((url) => {
         this.hashTable.set(adapter2.normalizeUrl(url), manifest.hashTable[url]);
       });
@@ -1032,7 +1032,7 @@ ${error.stack}`;
   };
 
   // bazel-out/darwin_arm64-fastbuild-ST-2e5f3376adb5/bin/packages/service-worker/worker/src/debug.mjs
-  var SW_VERSION = "15.2.10";
+  var SW_VERSION = "16.2.12";
   var DEBUG_LOG_BUFFER_SIZE = 100;
   var DebugHandler = class {
     constructor(driver, adapter2) {
@@ -1237,8 +1237,8 @@ ${msgIdle}`, { headers: this.adapter.newHeaders({ "Content-Type": "text/plain" }
       this.lastUpdateCheck = null;
       this.scheduledNavUpdateCheck = false;
       this.loggedInvalidOnlyIfCachedRequest = false;
-      this.ngswStatePath = this.adapter.parseUrl("ngsw/state", this.scope.registration.scope).path;
       this.controlTable = this.db.open("control");
+      this.ngswStatePath = this.adapter.parseUrl("ngsw/state", this.scope.registration.scope).path;
       this.scope.addEventListener("install", (event) => {
         event.waitUntil(this.scope.skipWaiting());
       });
