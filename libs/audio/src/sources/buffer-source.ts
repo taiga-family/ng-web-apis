@@ -1,12 +1,5 @@
-import {
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    OnDestroy,
-    Output,
-} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {Attribute, Directive, EventEmitter, inject, Input, Output} from '@angular/core';
 import {of, Subject, switchMap} from 'rxjs';
 
 import {audioParam} from '../decorators/audio-param';
@@ -14,7 +7,7 @@ import {AudioBufferService} from '../services/audio-buffer.service';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {AudioParamInput} from '../types/audio-param-input';
+import type {AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
 @Directive({
@@ -32,13 +25,6 @@ import {parse} from '../utils/parse';
     exportAs: 'AudioNode',
 })
 export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDestroy {
-    protected buffer$!: Subject<AudioBuffer | string | null>;
-
-    @Input('buffer')
-    public set bufferSetter(source: AudioBuffer | string | null) {
-        this.buffer$.next(source);
-    }
-
     @Input('detune')
     @audioParam('detune')
     public detuneParam?: AudioParamInput;
@@ -49,6 +35,8 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
 
     @Output()
     public ended?: EventEmitter<void>;
+
+    protected buffer$!: Subject<AudioBuffer | string | null>;
 
     constructor(
         @Attribute('autoplay') autoplay: string | null,
@@ -107,6 +95,11 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
             .subscribe(buffer => {
                 that.buffer = buffer;
             });
+    }
+
+    @Input('buffer')
+    public set bufferSetter(source: AudioBuffer | string | null) {
+        this.buffer$.next(source);
     }
 
     public ngOnDestroy(): void {

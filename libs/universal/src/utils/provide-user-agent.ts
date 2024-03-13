@@ -1,5 +1,5 @@
-import {ValueProvider} from '@angular/core';
-import {IncomingHttpHeaders} from 'http';
+import type {ValueProvider} from '@angular/core';
+import type {IncomingHttpHeaders} from 'http';
 
 import {SSR_USER_AGENT} from '../tokens/ssr-user-agent';
 

@@ -1,8 +1,7 @@
-import {filter, MonoTypeOperatorFunction} from 'rxjs';
+import type {MonoTypeOperatorFunction} from 'rxjs';
+import {filter} from 'rxjs';
 
-import {MidiChannel} from '../types/midi-channel';
-
-import MIDIMessageEvent = WebMidi.MIDIMessageEvent;
+import type {MidiChannel} from '../types/midi-channel';
 
 /**
  * Filter MIDI messages by channel
@@ -11,6 +10,6 @@ import MIDIMessageEvent = WebMidi.MIDIMessageEvent;
  */
 export function filterByChannel(
     channel: MidiChannel,
-): MonoTypeOperatorFunction<MIDIMessageEvent> {
+): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
     return source => source.pipe(filter(({data}) => data[0] % 16 === channel));
 }

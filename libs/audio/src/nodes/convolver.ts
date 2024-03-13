@@ -1,4 +1,5 @@
-import {Directive, inject, Input, OnDestroy} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {Directive, inject, Input} from '@angular/core';
 import {of, Subject, switchMap} from 'rxjs';
 
 import {AudioBufferService} from '../services/audio-buffer.service';
@@ -15,11 +16,6 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
-    @Input('buffer')
-    public set bufferSetter(source: AudioBuffer | string | null) {
-        this.buffer$.next(source);
-    }
-
     protected buffer$!: Subject<AudioBuffer | string | null>;
 
     constructor() {
@@ -60,6 +56,11 @@ export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
             .subscribe(buffer => {
                 that.buffer = buffer;
             });
+    }
+
+    @Input('buffer')
+    public set bufferSetter(source: AudioBuffer | string | null) {
+        this.buffer$.next(source);
     }
 
     public ngOnDestroy(): void {

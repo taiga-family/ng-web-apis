@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import type {ComponentFixture} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';

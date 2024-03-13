@@ -1,9 +1,10 @@
-import {OnDestroy, Pipe, PipeTransform} from '@angular/core';
-import {Observable} from 'rxjs';
+import type {OnDestroy, PipeTransform} from '@angular/core';
+import {Pipe} from '@angular/core';
+import type {Observable} from 'rxjs';
 
 import {WebWorker} from '../classes/web-worker';
 import {toData} from '../operators/to-data';
-import {WorkerFunction} from '../types/worker-function';
+import type {WorkerFunction} from '../types/worker-function';
 
 @Pipe({
     standalone: true,

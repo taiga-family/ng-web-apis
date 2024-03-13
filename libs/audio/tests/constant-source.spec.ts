@@ -1,5 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import type {ComponentFixture} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {WebAudioModule} from '../src/module';
 import {WebAudioConstantSource} from '../src/sources/constant-source';

@@ -1,4 +1,4 @@
-import {FactoryProvider} from '@angular/core';
+import type {FactoryProvider} from '@angular/core';
 import {PERFORMANCE} from '@ng-web-apis/common';
 
 export function performanceFactory(): Performance {

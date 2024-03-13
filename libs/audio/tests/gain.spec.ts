@@ -1,10 +1,11 @@
 import {Component, ViewChild} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import type {ComponentFixture} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';
 import {WebAudioGain} from '../src/nodes/gain';
-import {AudioParamInput} from '../src/types/audio-param-input';
+import type {AudioParamInput} from '../src/types/audio-param-input';
 
 describe('Audio gain', () => {
     describe('GainNode', () => {

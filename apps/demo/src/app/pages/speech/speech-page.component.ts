@@ -1,19 +1,20 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
+import type {SpeechSynthesisUtteranceOptions} from '@ng-web-apis/speech';
 import {
     continuous,
     isSaid,
     skipUntilSaid,
     SPEECH_SYNTHESIS_VOICES,
     SpeechRecognitionService,
-    SpeechSynthesisUtteranceOptions,
     takeUntilSaid,
     TextToSpeechDirective,
     UtterancePipe,
 } from '@ng-web-apis/speech';
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
-import {TuiContextWithImplicit, TuiLetModule, tuiPure} from '@taiga-ui/cdk';
+import type {TuiContextWithImplicit} from '@taiga-ui/cdk';
+import {TuiLetModule, tuiPure} from '@taiga-ui/cdk';
 import {
     TuiButtonModule,
     TuiDataListModule,
@@ -21,7 +22,8 @@ import {
     TuiTooltipModule,
 } from '@taiga-ui/core';
 import {TuiSelectModule, TuiTextAreaModule} from '@taiga-ui/kit';
-import {filter, map, merge, Observable, repeat, retry, share} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {filter, map, merge, repeat, retry, share} from 'rxjs';
 
 @Component({
     standalone: true,
@@ -50,14 +52,8 @@ export default class SpeechPageComponent {
     protected readonly voices$ = inject(SPEECH_SYNTHESIS_VOICES);
     protected readonly isBrowser = isPlatformBrowser(this.platformId);
     protected paused = true;
-
     protected voice = null;
-
     protected text = 'Hit play/pause to speak this text';
-
-    protected readonly nameExtractor = ({
-        $implicit,
-    }: TuiContextWithImplicit<SpeechSynthesisVoice>): string => $implicit.name;
 
     @tuiPure
     protected get record$(): Observable<SpeechRecognitionResult[]> {
@@ -94,10 +90,9 @@ export default class SpeechPageComponent {
         return this.getOptions(this.voice);
     }
 
-    @tuiPure
-    private get result$(): Observable<SpeechRecognitionResult[]> {
-        return this.recognition$.pipe(retry(), repeat(), share());
-    }
+    protected readonly nameExtractor = ({
+        $implicit,
+    }: TuiContextWithImplicit<SpeechSynthesisVoice>): string => $implicit.name;
 
     protected voiceByName(_: number, {name}: SpeechSynthesisVoice): string {
         return name;
@@ -111,6 +106,11 @@ export default class SpeechPageComponent {
 
     protected onEnd(): void {
         console.info('Speech synthesis ended');
+    }
+
+    @tuiPure
+    private get result$(): Observable<SpeechRecognitionResult[]> {
+        return this.recognition$.pipe(retry(), repeat(), share());
     }
 
     @tuiPure

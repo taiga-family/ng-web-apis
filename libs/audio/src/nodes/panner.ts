@@ -1,10 +1,11 @@
-import {Directive, inject, Input, OnChanges, OnDestroy} from '@angular/core';
+import type {OnChanges, OnDestroy} from '@angular/core';
+import {Directive, inject, Input} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {AudioParamInput} from '../types/audio-param-input';
+import type {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 

@@ -1,11 +1,11 @@
 /* eslint-disable @angular-eslint/no-attribute-decorator */
+import type {OnDestroy} from '@angular/core';
 import {
     Attribute,
     Directive,
     ElementRef,
     EventEmitter,
     inject,
-    OnDestroy,
     Output,
 } from '@angular/core';
 

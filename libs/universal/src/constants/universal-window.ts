@@ -1,5 +1,6 @@
 import {DOCUMENT} from '@angular/common';
-import {FactoryProvider, Optional} from '@angular/core';
+import type {FactoryProvider} from '@angular/core';
+import {Optional} from '@angular/core';
 import {WINDOW} from '@ng-web-apis/common';
 
 import {BlobMock} from '../classes/blob-mock';

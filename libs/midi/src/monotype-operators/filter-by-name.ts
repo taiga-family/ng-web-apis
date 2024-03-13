@@ -1,4 +1,5 @@
-import {filter, MonoTypeOperatorFunction} from 'rxjs';
+import type {MonoTypeOperatorFunction} from 'rxjs';
+import {filter} from 'rxjs';
 
 import MIDIMessageEvent = WebMidi.MIDIMessageEvent;
 import MIDIPort = WebMidi.MIDIPort;

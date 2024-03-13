@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {PAGE_VISIBILITY} from '@ng-web-apis/common';
-import {first, Observable} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {first} from 'rxjs';
 
 describe('PAGE_VISIBILITY', () => {
     it('watching for page visibility state', done => {

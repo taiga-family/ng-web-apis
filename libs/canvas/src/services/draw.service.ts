@@ -1,11 +1,12 @@
-import {inject, Injectable, NgZone, OnDestroy} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {inject, Injectable, NgZone} from '@angular/core';
 import {ANIMATION_FRAME} from '@ng-web-apis/common';
-import {Subscription} from 'rxjs';
+import type {Subscription} from 'rxjs';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
+import type {CanvasMethod} from '../interfaces/canvas-method';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
-import {Context2dProcessor} from '../types/context-processor';
+import type {Context2dProcessor} from '../types/context-processor';
 
 @Injectable()
 export class DrawService implements OnDestroy, CanvasMethod {

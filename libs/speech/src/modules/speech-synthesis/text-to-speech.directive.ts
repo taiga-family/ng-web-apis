@@ -1,4 +1,5 @@
-import {Directive, EventEmitter, inject, Input, OnChanges, Output} from '@angular/core';
+import type {OnChanges} from '@angular/core';
+import {Directive, EventEmitter, inject, Input, Output} from '@angular/core';
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({
@@ -10,6 +11,18 @@ export class TextToSpeechDirective implements OnChanges {
 
     @Input('waTextToSpeechPaused')
     public paused = false;
+
+    @Output('waTextToSpeechError')
+    public readonly onerror = new EventEmitter<SpeechSynthesisErrorEvent>();
+
+    @Output('waTextToSpeechEnd')
+    public readonly onend = new EventEmitter<SpeechSynthesisEvent>();
+
+    @Output('waTextToSpeechMark')
+    public readonly onmark = new EventEmitter<SpeechSynthesisEvent>();
+
+    @Output('waTextToSpeechBoundary')
+    public readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
 
     @Input()
     public set waTextToSpeech(utterance: SpeechSynthesisUtterance) {
@@ -23,18 +36,6 @@ export class TextToSpeechDirective implements OnChanges {
 
         this.speechSynthesisRef.speak(utterance);
     }
-
-    @Output('waTextToSpeechError')
-    public readonly onerror = new EventEmitter<SpeechSynthesisErrorEvent>();
-
-    @Output('waTextToSpeechEnd')
-    public readonly onend = new EventEmitter<SpeechSynthesisEvent>();
-
-    @Output('waTextToSpeechMark')
-    public readonly onmark = new EventEmitter<SpeechSynthesisEvent>();
-
-    @Output('waTextToSpeechBoundary')
-    public readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
 
     public ngOnChanges(): void {
         if (this.paused) {

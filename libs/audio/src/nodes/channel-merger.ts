@@ -1,11 +1,5 @@
-import {
-    Attribute,
-    ContentChildren,
-    Directive,
-    inject,
-    OnDestroy,
-    QueryList,
-} from '@angular/core';
+import type {OnDestroy, QueryList} from '@angular/core';
+import {Attribute, ContentChildren, Directive, inject} from '@angular/core';
 
 import {WebAudioChannel} from '../directives/channel';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -20,13 +14,6 @@ import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
     exportAs: 'AudioNode',
 })
 export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestroy {
-    @ContentChildren(WebAudioChannel, {descendants: false})
-    protected set channels(channels: QueryList<AudioNode>) {
-        channels.forEach((node, index) => {
-            node.connect(this, 0, index);
-        });
-    }
-
     constructor(@Attribute('numberOfInputs') inputs: string | null) {
         const context = inject(AUDIO_CONTEXT);
         const modern = inject(CONSTRUCTOR_SUPPORT);
@@ -45,5 +32,12 @@ export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestro
 
     public ngOnDestroy(): void {
         this.disconnect();
+    }
+
+    @ContentChildren(WebAudioChannel, {descendants: false})
+    protected set channels(channels: QueryList<AudioNode>) {
+        channels.forEach((node, index) => {
+            node.connect(this, 0, index);
+        });
     }
 }

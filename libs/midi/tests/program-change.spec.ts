@@ -4,13 +4,12 @@ import {programChange} from '../src/monotype-operators/program-change';
 
 describe('programChange', () => {
     it('lets program change events through', () => {
-        const events = Array.from({length: 3}, (_, i) => {
+        const events: WebMidi.MIDIMessageEvent[] = Array.from({length: 3}, (_, i) => {
             const data = new Uint8Array([i + 207, 2, 3]);
             const receivedTime = 1.234;
 
-            // @ts-ignore
-            return new MIDIMessageEvent('midimessage', {data, receivedTime});
-        });
+            return new MIDIMessageEvent('midimessage', {data, receivedTime} as any);
+        }) as WebMidi.MIDIMessageEvent[];
 
         const processed: any[] = [];
 

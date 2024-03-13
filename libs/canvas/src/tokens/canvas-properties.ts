@@ -1,6 +1,7 @@
-import {ExistingProvider, InjectionToken, Type} from '@angular/core';
+import type {ExistingProvider, Type} from '@angular/core';
+import {InjectionToken} from '@angular/core';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
+import type {CanvasMethod} from '../interfaces/canvas-method';
 
 export const CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
     '[CANVAS_PROPERTIES]: A directive performing processing before and after drawing to canvas',

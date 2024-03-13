@@ -1,4 +1,5 @@
-import {Attribute, Directive, forwardRef, OnDestroy} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {Attribute, Directive, forwardRef} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {latencyHintFactory} from '../utils/latency-hint-factory';

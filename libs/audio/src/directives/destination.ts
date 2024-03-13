@@ -1,11 +1,12 @@
-import {Directive, inject, OnDestroy, Output} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {Directive, inject, Output} from '@angular/core';
+import type {Observable} from 'rxjs';
 import {
     debounceTime,
     distinctUntilChanged,
     filter,
     interval,
     map,
-    Observable,
     skipWhile,
     tap,
 } from 'rxjs';

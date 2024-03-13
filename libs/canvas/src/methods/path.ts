@@ -1,6 +1,6 @@
 import {ContentChildren, Directive, inject, Input, QueryList} from '@angular/core';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
+import type {CanvasMethod} from '../interfaces/canvas-method';
 import {DrawService} from '../services/draw.service';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 

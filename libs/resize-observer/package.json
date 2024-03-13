@@ -21,7 +21,7 @@
         "Alexander Inkin <alexander@inkin.ru>"
     ],
     "peerDependencies": {
-        "@angular/core": ">=12.0.0",
+        "@angular/core": ">=16.0.0",
         "@ng-web-apis/common": ">=2.0.0"
     }
 }

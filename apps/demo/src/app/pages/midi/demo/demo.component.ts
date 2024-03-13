@@ -1,19 +1,15 @@
-import {CommonModule, KeyValue} from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    HostListener,
-    inject,
-    TrackByFunction,
-} from '@angular/core';
+import type {KeyValue} from '@angular/common';
+import {CommonModule} from '@angular/common';
+import type {TrackByFunction} from '@angular/core';
+import {ChangeDetectionStrategy, Component, HostListener, inject} from '@angular/core';
 import {WebAudioModule} from '@ng-web-apis/audio';
 import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
+import type {Observable} from 'rxjs';
 import {
     catchError,
     EMPTY,
     map,
     merge,
-    Observable,
     scan,
     startWith,
     Subject,

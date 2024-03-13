@@ -1,6 +1,6 @@
-import {AudioParamAutomation} from '../types/audio-param-automation';
-import {AudioParamCurve} from '../types/audio-param-curve';
-import {AudioParamInput} from '../types/audio-param-input';
+import type {AudioParamAutomation} from '../types/audio-param-automation';
+import type {AudioParamCurve} from '../types/audio-param-curve';
+import type {AudioParamInput} from '../types/audio-param-input';
 
 export function processAudioParam(
     param: AudioParam,

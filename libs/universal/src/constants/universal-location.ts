@@ -1,4 +1,5 @@
-import {FactoryProvider, Optional} from '@angular/core';
+import type {FactoryProvider} from '@angular/core';
+import {Optional} from '@angular/core';
 import {LOCATION} from '@ng-web-apis/common';
 
 import {LocationMock} from '../classes/location-mock';

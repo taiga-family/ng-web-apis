@@ -1,18 +1,11 @@
-import {
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    OnDestroy,
-    Output,
-} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {Attribute, Directive, EventEmitter, inject, Input, Output} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {AudioParamInput} from '../types/audio-param-input';
+import type {AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
@@ -24,11 +17,6 @@ import {parse} from '../utils/parse';
     exportAs: 'AudioNode',
 })
 export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
-    @Input()
-    public set periodicWave(periodicWave: PeriodicWave) {
-        this.setPeriodicWave(periodicWave);
-    }
-
     @Input('detune')
     @audioParam('detune')
     public detuneParam?: AudioParamInput | string;
@@ -85,6 +73,11 @@ export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
 
         that.ended = ended;
         that.onended = () => ended.emit();
+    }
+
+    @Input()
+    public set periodicWave(periodicWave: PeriodicWave) {
+        this.setPeriodicWave(periodicWave);
     }
 
     public ngOnDestroy(): void {

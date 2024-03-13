@@ -1,6 +1,7 @@
-import {map, OperatorFunction} from 'rxjs';
+import type {OperatorFunction} from 'rxjs';
+import {map} from 'rxjs';
 
-import {TypedMessageEvent} from '../types/typed-message-event';
+import type {TypedMessageEvent} from '../types/typed-message-event';
 
 export function toData<T>(): OperatorFunction<TypedMessageEvent<T>, T> {
     return map<TypedMessageEvent<T>, T>(({data}) => data);

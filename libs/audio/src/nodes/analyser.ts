@@ -1,5 +1,7 @@
-import {Attribute, Directive, inject, OnDestroy, Output} from '@angular/core';
-import {animationFrameScheduler, interval, map, Observable, share} from 'rxjs';
+import type {OnDestroy} from '@angular/core';
+import {Attribute, Directive, inject, Output} from '@angular/core';
+import type {Observable} from 'rxjs';
+import {animationFrameScheduler, interval, map, share} from 'rxjs';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';

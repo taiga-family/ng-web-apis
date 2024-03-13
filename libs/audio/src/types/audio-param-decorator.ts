@@ -1,4 +1,4 @@
-import {AudioNodeWithParams} from './audio-node-with-params';
+import type {AudioNodeWithParams} from './audio-node-with-params';
 
 export type AudioParamDecorator<K extends string> = (
     target: AudioNodeWithParams<K>,

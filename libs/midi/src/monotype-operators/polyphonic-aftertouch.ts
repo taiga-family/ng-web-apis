@@ -1,12 +1,11 @@
-import {filter, MonoTypeOperatorFunction} from 'rxjs';
+import type {MonoTypeOperatorFunction} from 'rxjs';
+import {filter} from 'rxjs';
 
 import {between} from '../utils/between';
-
-import MIDIMessageEvent = WebMidi.MIDIMessageEvent;
 
 /**
  * Filter MIDI messages to polyphonic aftertouch changes only
  */
-export function polyphonicAftertouch(): MonoTypeOperatorFunction<MIDIMessageEvent> {
+export function polyphonicAftertouch(): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
     return source => source.pipe(filter(({data}) => between(data[0], 160, 175)));
 }

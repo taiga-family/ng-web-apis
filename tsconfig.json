@@ -32,7 +32,9 @@
             "@ng-web-apis/screen-orientation": ["./libs/screen-orientation/src/index.ts"],
             "@ng-web-apis/resize-observer": ["./libs/resize-observer/src/index.ts"],
             "@ng-web-apis/view-transition": ["./libs/view-transition/src/index.ts"],
-            "@ng-web-apis/notification": ["./libs/notification/src/index.ts"]
+            "@ng-web-apis/notification": ["./libs/notification/src/index.ts"],
+            "rxjs": ["node_modules/rxjs"],
+            "rxjs/*": ["node_modules/rxjs/*"]
         }
     }
 }
