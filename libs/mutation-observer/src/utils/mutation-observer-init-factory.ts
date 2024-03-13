@@ -1,4 +1,4 @@
-import {ElementRef} from '@angular/core';
+import type {ElementRef} from '@angular/core';
 
 import {booleanAttribute} from './boolean-attribute';
 

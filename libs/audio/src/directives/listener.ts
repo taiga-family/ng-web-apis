@@ -1,9 +1,10 @@
-import {Directive, inject, Input, OnChanges} from '@angular/core';
+import type {OnChanges} from '@angular/core';
+import {Directive, inject, Input} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {AudioParamInput} from '../types/audio-param-input';
+import type {AudioParamInput} from '../types/audio-param-input';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 
 @Directive({

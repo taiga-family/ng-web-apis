@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {filterByKey, STORAGE_EVENT, StorageService, toValue} from '@ng-web-apis/storage';
-import {first, Observable} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {first} from 'rxjs';
 
 describe('StorageService', () => {
     let event$: Observable<StorageEvent>;

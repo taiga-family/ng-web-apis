@@ -1,8 +1,8 @@
 import {EMPTY, fromEvent, merge, Observable, Subject, take, takeUntil, tap} from 'rxjs';
 
 import {WORKER_BLANK_FN} from '../consts/worker-fn-template';
-import {TypedMessageEvent} from '../types/typed-message-event';
-import {WorkerFunction} from '../types/worker-function';
+import type {TypedMessageEvent} from '../types/typed-message-event';
+import type {WorkerFunction} from '../types/worker-function';
 
 export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>> {
     private readonly worker: Worker | undefined;

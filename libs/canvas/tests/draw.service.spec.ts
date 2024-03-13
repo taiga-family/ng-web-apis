@@ -1,11 +1,7 @@
 import {NgZone} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {
-    CANVAS_2D_CONTEXT,
-    CANVAS_PROPERTIES,
-    CanvasMethod,
-    DrawService,
-} from '@ng-web-apis/canvas';
+import type {CanvasMethod} from '@ng-web-apis/canvas';
+import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, DrawService} from '@ng-web-apis/canvas';
 import {ANIMATION_FRAME} from '@ng-web-apis/common';
 import {of} from 'rxjs';
 

@@ -2,7 +2,6 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CanvasModule} from '@ng-web-apis/canvas';
-import {TuiInputColorModule} from '@taiga-ui/addon-editor';
 import {
     TuiExpandModule,
     TuiLabelModule,
@@ -15,6 +14,7 @@ import {
     TuiSelectModule,
     TuiSliderModule,
 } from '@taiga-ui/kit';
+import {TuiInputColorComponent} from '@tinkoff/tui-editor';
 
 @Component({
     standalone: true,
@@ -29,7 +29,7 @@ import {
         TuiExpandModule,
         TuiSelectModule,
         TuiInputModule,
-        TuiInputColorModule,
+        TuiInputColorComponent,
         TuiDataListWrapperModule,
         TuiTextfieldControllerModule,
     ],

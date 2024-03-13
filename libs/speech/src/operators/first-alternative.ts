@@ -1,4 +1,5 @@
-import {map, OperatorFunction} from 'rxjs';
+import type {OperatorFunction} from 'rxjs';
+import {map} from 'rxjs';
 
 export function firstAlternative(): OperatorFunction<
     SpeechRecognitionResult[],

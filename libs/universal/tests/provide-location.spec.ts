@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {IncomingMessage} from 'http';
+import type {IncomingMessage} from 'http';
 
 import {SSR_LOCATION} from '../src/tokens/ssr-location';
 import {provideLocation} from '../src/utils/provide-location';

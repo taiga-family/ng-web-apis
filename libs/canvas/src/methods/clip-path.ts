@@ -1,6 +1,6 @@
 import {Component, ContentChildren, QueryList} from '@angular/core';
 
-import {CanvasMethod} from '../interfaces/canvas-method';
+import type {CanvasMethod} from '../interfaces/canvas-method';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Component({

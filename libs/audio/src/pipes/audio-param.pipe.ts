@@ -1,8 +1,9 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import type {PipeTransform} from '@angular/core';
+import {Pipe} from '@angular/core';
 
-import {AudioParamAutomation} from '../types/audio-param-automation';
-import {AudioParamAutomationMode} from '../types/audio-param-automation-mode';
-import {AudioParamCurve} from '../types/audio-param-curve';
+import type {AudioParamAutomation} from '../types/audio-param-automation';
+import type {AudioParamAutomationMode} from '../types/audio-param-automation-mode';
+import type {AudioParamCurve} from '../types/audio-param-curve';
 
 @Pipe({
     standalone: true,

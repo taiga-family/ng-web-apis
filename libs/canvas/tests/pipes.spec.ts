@@ -1,5 +1,6 @@
 import {Component, Input, ViewChild} from '@angular/core';
-import {ComponentFixture, TestBed} from '@angular/core/testing';
+import type {ComponentFixture} from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
@@ -25,13 +26,13 @@ describe('Pipes', () => {
         `,
     })
     class CanvasComponent {
+        @Input()
+        public img!: HTMLImageElement;
+
         protected grad = new Map([
             [0, 'red'],
             [1, 'blue'],
         ]);
-
-        @Input()
-        public img!: HTMLImageElement;
     }
 
     @Component({

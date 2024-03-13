@@ -22,7 +22,9 @@
             "@ng-web-apis/workers": ["./dist/workers"],
             "@ng-web-apis/resize-observer": ["./dist/resize-observer"],
             "@ng-web-apis/view-transition": ["./dist/view-transition"],
-            "@ng-web-apis/notification": ["./dist/notification"]
+            "@ng-web-apis/notification": ["./dist/notification"],
+            "rxjs": ["node_modules/rxjs"],
+            "rxjs/*": ["node_modules/rxjs/*"]
         }
     }
 }

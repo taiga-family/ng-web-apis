@@ -1,14 +1,6 @@
 import {inject, InjectionToken} from '@angular/core';
-import {
-    from,
-    fromEvent,
-    merge,
-    Observable,
-    share,
-    startWith,
-    switchMap,
-    throwError,
-} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {from, fromEvent, merge, share, startWith, switchMap, throwError} from 'rxjs';
 
 import {MIDI_ACCESS} from './midi-access';
 

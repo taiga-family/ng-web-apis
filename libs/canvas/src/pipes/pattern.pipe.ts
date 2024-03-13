@@ -1,4 +1,5 @@
-import {inject, Pipe, PipeTransform} from '@angular/core';
+import type {PipeTransform} from '@angular/core';
+import {inject, Pipe} from '@angular/core';
 
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 

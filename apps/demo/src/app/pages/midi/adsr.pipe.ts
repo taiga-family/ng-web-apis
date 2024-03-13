@@ -1,5 +1,6 @@
-import {Pipe, PipeTransform} from '@angular/core';
-import {AudioParamInput} from '@ng-web-apis/audio';
+import type {PipeTransform} from '@angular/core';
+import {Pipe} from '@angular/core';
+import type {AudioParamInput} from '@ng-web-apis/audio';
 
 @Pipe({
     standalone: true,

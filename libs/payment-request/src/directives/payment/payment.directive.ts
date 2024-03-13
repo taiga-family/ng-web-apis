@@ -1,6 +1,7 @@
-import {ContentChildren, Directive, Input, QueryList} from '@angular/core';
+import type {QueryList} from '@angular/core';
+import {ContentChildren, Directive, Input} from '@angular/core';
 
-import {PaymentShippingOption} from '../../tokens/payment-options';
+import type {PaymentShippingOption} from '../../tokens/payment-options';
 import {PaymentItemDirective} from '../payment-item/payment-item.directive';
 
 @Directive({
@@ -20,10 +21,10 @@ export class PaymentDirective implements PaymentDetailsInit {
     @Input('paymentShippingOptions')
     public shippingOptions?: PaymentShippingOption[];
 
+    public displayItems?: PaymentItem[];
+
     @ContentChildren(PaymentItemDirective)
     protected set paymentItems(items: QueryList<PaymentItem>) {
         this.displayItems = items.toArray();
     }
-
-    public displayItems?: PaymentItem[];
 }

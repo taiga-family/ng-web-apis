@@ -1,4 +1,4 @@
-import {ValueProvider} from '@angular/core';
+import type {ValueProvider} from '@angular/core';
 import {HISTORY} from '@ng-web-apis/common';
 
 import {emptyFunction} from '../utils/functions';

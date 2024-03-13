@@ -5,7 +5,7 @@ import {LOCAL_STORAGE} from '@ng-web-apis/common';
 import {filterByKey, STORAGE_EVENT, StorageService, toValue} from '@ng-web-apis/storage';
 import {TuiNotificationModule} from '@taiga-ui/core';
 import {TuiInputModule} from '@taiga-ui/kit';
-import {Observable} from 'rxjs';
+import type {Observable} from 'rxjs';
 
 @Component({
     standalone: true,

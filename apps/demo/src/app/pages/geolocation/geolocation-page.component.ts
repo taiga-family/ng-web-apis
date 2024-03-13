@@ -1,6 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {DomSanitizer, SafeResourceUrl} from '@angular/platform-browser';
+import type {SafeResourceUrl} from '@angular/platform-browser';
+import {DomSanitizer} from '@angular/platform-browser';
 import {GeolocationService} from '@ng-web-apis/geolocation';
 import {TuiButtonModule, TuiLoaderModule} from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';

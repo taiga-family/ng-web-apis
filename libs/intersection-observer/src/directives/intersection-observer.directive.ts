@@ -1,5 +1,6 @@
 /* eslint-disable @angular-eslint/no-attribute-decorator */
-import {Attribute, Directive, ElementRef, inject, OnDestroy} from '@angular/core';
+import type {ElementRef, OnDestroy} from '@angular/core';
+import {Attribute, Directive, inject} from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
 import {INTERSECTION_ROOT} from '../tokens/intersection-root';

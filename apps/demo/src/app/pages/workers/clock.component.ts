@@ -1,6 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {map, Observable, timer} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {map, timer} from 'rxjs';
 
 @Component({
     standalone: true,

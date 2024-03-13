@@ -1,4 +1,4 @@
-import {Provider} from '@angular/core';
+import type {Provider} from '@angular/core';
 
 import {UNIVERSAL_ANIMATION_FRAME} from './universal-animation-frame';
 import {UNIVERSAL_CACHES} from './universal-caches';

@@ -1,13 +1,7 @@
 import {DOCUMENT} from '@angular/common';
 import {inject, InjectionToken} from '@angular/core';
-import {
-    distinctUntilChanged,
-    fromEvent,
-    map,
-    Observable,
-    shareReplay,
-    startWith,
-} from 'rxjs';
+import type {Observable} from 'rxjs';
+import {distinctUntilChanged, fromEvent, map, shareReplay, startWith} from 'rxjs';
 
 export const PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
     '[PAGE_VISIBILITY]: Shared Observable based on `document visibility changed`',

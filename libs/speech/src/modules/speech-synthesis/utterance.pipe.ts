@@ -1,6 +1,7 @@
-import {Pipe, PipeTransform} from '@angular/core';
+import type {PipeTransform} from '@angular/core';
+import {Pipe} from '@angular/core';
 
-import {SpeechSynthesisUtteranceOptions} from '../../interfaces/speech-synthesis-utterance-options';
+import type {SpeechSynthesisUtteranceOptions} from '../../interfaces/speech-synthesis-utterance-options';
 
 @Pipe({
     standalone: true,

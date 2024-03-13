@@ -1,11 +1,5 @@
-import {
-    Attribute,
-    ContentChildren,
-    Directive,
-    inject,
-    OnDestroy,
-    QueryList,
-} from '@angular/core';
+import type {OnDestroy, QueryList} from '@angular/core';
+import {Attribute, ContentChildren, Directive, inject} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
@@ -25,16 +19,6 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDestroy {
-    @ContentChildren(AUDIO_NODE, {descendants: false})
-    protected set channels(channels: QueryList<AudioNode | null>) {
-        this.disconnect();
-        channels
-            .filter(node => !!node)
-            .forEach((node, index) => {
-                this.connect(node!, index);
-            });
-    }
-
     constructor(@Attribute('numberOfOutputs') outputs: string | null) {
         const context = inject(AUDIO_CONTEXT);
         const node = inject(AUDIO_NODE, {skipSelf: true});
@@ -56,5 +40,15 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
 
     public ngOnDestroy(): void {
         this.disconnect();
+    }
+
+    @ContentChildren(AUDIO_NODE, {descendants: false})
+    protected set channels(channels: QueryList<AudioNode | null>) {
+        this.disconnect();
+        channels
+            .filter(node => !!node)
+            .forEach((node, index) => {
+                this.connect(node!, index);
+            });
     }
 }
