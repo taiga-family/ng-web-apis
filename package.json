@@ -134,7 +134,7 @@
         "@types/jest": "29.5.12",
         "@types/marked": "6.0.0",
         "@types/node": "20.11.27",
-        "@types/react": "18.2.65",
+        "@types/react": "18.2.66",
         "@types/react-dom": "18.2.22",
         "@types/webmidi": "2.0.10",
         "babel-loader": "9.1.3",
