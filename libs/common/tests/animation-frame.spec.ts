@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+import {describe, expect, it} from '@jest/globals';
 import {ANIMATION_FRAME} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {first} from 'rxjs';

@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+import {describe, expect, it} from '@jest/globals';
 
 import {NAVIGATOR} from '../src/tokens/navigator';
 import {NETWORK_INFORMATION} from '../src/tokens/network-information';

@@ -1,3 +1,4 @@
+import {describe, expect, it} from '@jest/globals';
 import {from} from 'rxjs';
 
 import {pitchBend} from '../src/monotype-operators/pitch-bend';

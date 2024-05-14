@@ -1,3 +1,5 @@
+import {describe, expect, it} from '@jest/globals';
+
 import {between} from '../src/utils/between';
 import {toFrequency} from '../src/utils/to-frequency';
 import {toNote} from '../src/utils/to-note';

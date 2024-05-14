@@ -1,3 +1,5 @@
+import {describe, expect, it} from '@jest/globals';
+
 import {WebAudioParamPipe} from '../src/pipes/audio-param.pipe';
 
 describe('WebAudioParamPipe', () => {

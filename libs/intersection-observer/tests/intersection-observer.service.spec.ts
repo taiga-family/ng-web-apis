@@ -1,5 +1,6 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
+import {describe, expect, it} from '@jest/globals';
 import {
     INTERSECTION_ROOT,
     INTERSECTION_ROOT_MARGIN,

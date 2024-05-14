@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+import {describe, expect, xit} from '@jest/globals';
 import {AUDIO_CONTEXT, WebAudioPeriodicWavePipe} from '@ng-web-apis/audio';
 
 describe('waPeriodicWave', () => {

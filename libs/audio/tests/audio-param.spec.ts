@@ -1,3 +1,5 @@
+import {describe, expect, it} from '@jest/globals';
+
 import {audioParam} from '../src/decorators/audio-param';
 
 describe('audioParam decorator', () => {

@@ -1,3 +1,4 @@
+import {describe, expect, it} from '@jest/globals';
 import {from} from 'rxjs';
 
 import {programChange} from '../src/monotype-operators/program-change';

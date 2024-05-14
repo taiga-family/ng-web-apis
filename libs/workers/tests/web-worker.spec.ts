@@ -1,4 +1,5 @@
 /* eslint-disable @typescript-eslint/promise-function-async */
+import {describe, expect, it} from '@jest/globals';
 import type {TypedMessageEvent} from '@ng-web-apis/workers';
 import {WebWorker} from '@ng-web-apis/workers';
 import {Observable, take} from 'rxjs';

@@ -1,5 +1,6 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
+import {beforeEach, describe, expect, it} from '@jest/globals';
 
 import {ViewTransitionService} from '../src/services/view-transition.service';
 

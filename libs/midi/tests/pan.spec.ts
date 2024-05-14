@@ -1,3 +1,4 @@
+import {describe, expect, it} from '@jest/globals';
 import {from} from 'rxjs';
 
 import {pan} from '../src/monotype-operators/pan';

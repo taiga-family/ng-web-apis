@@ -1,3 +1,4 @@
+import {describe, expect, it} from '@jest/globals';
 import {from} from 'rxjs';
 
 import {sustainPedal} from '../src/monotype-operators/sustain-pedal';

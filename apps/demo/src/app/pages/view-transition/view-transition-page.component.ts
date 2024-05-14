@@ -3,13 +3,15 @@ import {
     ChangeDetectionStrategy,
     ChangeDetectorRef,
     Component,
+    DestroyRef,
     inject,
 } from '@angular/core';
+import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
-import {TuiDestroyService, TuiLetModule} from '@taiga-ui/cdk';
+import {TuiLetModule} from '@taiga-ui/cdk';
 import {TuiLinkModule} from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';
-import {BehaviorSubject, takeUntil} from 'rxjs';
+import {BehaviorSubject} from 'rxjs';
 
 interface Photo {
     src: string;
@@ -59,12 +61,11 @@ const USAGE_SAMPLE = `
     templateUrl: './view-transition-page.component.html',
     styleUrls: ['./view-transition-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
-    providers: [TuiDestroyService],
 })
 export default class ViewTransitionPageComponent {
     private readonly viewTransitionService = inject(ViewTransitionService);
     private readonly cdr = inject(ChangeDetectorRef);
-    private readonly destroy$ = inject(TuiDestroyService, {self: true});
+    private readonly destroyRef = inject(DestroyRef);
 
     protected readonly codeSample = USAGE_SAMPLE;
     protected readonly data = PHOTOS;
@@ -78,7 +79,7 @@ export default class ViewTransitionPageComponent {
                 this.detailInfo$.next(this.data[index]);
                 this.cdr.detectChanges();
             })
-            .pipe(takeUntil(this.destroy$))
+            .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe();
     }
 
@@ -89,7 +90,7 @@ export default class ViewTransitionPageComponent {
                 this.cdr.detectChanges();
                 this.activeIndex$.next(-1);
             })
-            .pipe(takeUntil(this.destroy$))
+            .pipe(takeUntilDestroyed(this.destroyRef))
             .subscribe();
     }
 }

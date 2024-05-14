@@ -1,4 +1,5 @@
 import {TestBed} from '@angular/core/testing';
+import {describe, expect, it} from '@jest/globals';
 import {NAVIGATOR} from '@ng-web-apis/common';
 
 import {UNIVERSAL_NAVIGATOR} from '../src/constants/universal-navigator';

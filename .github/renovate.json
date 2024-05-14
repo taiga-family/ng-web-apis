@@ -8,9 +8,6 @@
             "npm i",
             "echo '------------------'",
             "echo 'TODO: workaround for https://github.com/npm/cli/issues/6787#issuecomment-1751005219'",
-            "npm i",
-            "echo '------------------'",
-            "echo 'TODO: workaround for https://github.com/npm/cli/issues/6787#issuecomment-1751005219'",
             "npm i"
         ],
         "executionMode": "branch",
