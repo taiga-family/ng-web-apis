@@ -111,7 +111,7 @@
         "@taiga-ui/addon-mobile": "3.77.1",
         "@taiga-ui/browserslist-config": "0.6.0",
         "@taiga-ui/cdk": "3.77.1",
-        "@taiga-ui/commitlint-config": "0.7.1",
+        "@taiga-ui/commitlint-config": "0.7.5",
         "@taiga-ui/core": "3.77.1",
         "@taiga-ui/eslint-plugin-experience": "0.74.3",
         "@taiga-ui/icons": "3.77.1",
