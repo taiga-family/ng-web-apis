@@ -25,7 +25,7 @@
     "peerDependencies": {
         "@angular/core": ">=6.0.0",
         "@ng-web-apis/common": ">=1.0.0",
-        "@types/webmidi": ">=2.0.0",
+        "@types/webmidi": ">=2.0.10",
         "rxjs": ">=7.0.0"
     }
 }
