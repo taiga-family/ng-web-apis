@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {afterEach, beforeEach, describe, expect, it, xit} from '@jest/globals';
 import {Observable} from 'rxjs';
 
 import {providers} from '../src/constants/fallback';

@@ -1,4 +1,3 @@
-import {describe, expect, it} from '@jest/globals';
 import {from} from 'rxjs';
 
 import {modulationWheel} from '../src/monotype-operators/modulation-wheel';

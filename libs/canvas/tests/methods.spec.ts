@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {afterAll, beforeEach, describe, expect, it} from '@jest/globals';
 
 import {ClipPathComponent} from '../src/methods/clip-path';
 import {CanvasModule} from '../src/module';

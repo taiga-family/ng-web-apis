@@ -76,6 +76,7 @@
             "plugin:@taiga-ui/experience/all"
         ],
         "rules": {
+            "jest/prefer-importing-jest-globals": "off",
             "rxjs/no-implicit-any-catch": "off",
             "@taiga-ui/experience/no-typeof": "off"
         },

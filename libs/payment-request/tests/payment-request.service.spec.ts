@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-import {beforeEach, describe, expect, it} from '@jest/globals';
 
 import {PaymentRequestService} from '../src/services/payment-request.service';
 import {PAYMENT_REQUEST_SUPPORT} from '../src/tokens/payment-request-support';

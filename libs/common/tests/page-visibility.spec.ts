@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-import {describe, expect, it} from '@jest/globals';
 import {PAGE_VISIBILITY} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {first} from 'rxjs';

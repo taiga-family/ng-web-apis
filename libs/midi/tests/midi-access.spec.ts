@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-import {describe, expect, it} from '@jest/globals';
 import {NAVIGATOR} from '@ng-web-apis/common';
 
 import {MIDI_ACCESS} from '../src/tokens/midi-access';

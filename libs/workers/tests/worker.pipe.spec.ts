@@ -1,4 +1,3 @@
-import {beforeEach, describe, expect, it} from '@jest/globals';
 import {WorkerPipe} from '@ng-web-apis/workers';
 import {take} from 'rxjs';
 

@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-import {describe, expect, it} from '@jest/globals';
 
 import {CSS} from '../src/tokens/css';
 import {WINDOW} from '../src/tokens/window';

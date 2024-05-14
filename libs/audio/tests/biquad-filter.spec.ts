@@ -1,7 +1,6 @@
 import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {beforeEach, describe, expect, it} from '@jest/globals';
 
 import {providers} from '../src/constants/fallback';
 import {WebAudioModule} from '../src/module';

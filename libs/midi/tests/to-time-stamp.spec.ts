@@ -1,4 +1,3 @@
-import {describe, expect, it} from '@jest/globals';
 import {of} from 'rxjs';
 
 import {toTimeStamp} from '../src/operators/to-time-stamp';

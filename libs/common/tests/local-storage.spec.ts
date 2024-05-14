@@ -1,5 +1,4 @@
 import {TestBed} from '@angular/core/testing';
-import {describe, expect, it} from '@jest/globals';
 
 import {LOCAL_STORAGE} from '../src/tokens/local-storage';
 

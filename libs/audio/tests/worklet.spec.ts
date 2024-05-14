@@ -1,7 +1,6 @@
 import {Component, inject, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {beforeEach, describe, expect, xit} from '@jest/globals';
 
 import {WebAudioModule} from '../src/module';
 import {WebAudioWorklet} from '../src/nodes/worklet';

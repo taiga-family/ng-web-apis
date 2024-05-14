@@ -19,6 +19,7 @@
             "@ng-web-apis/universal/*": ["./libs/universal/*"],
             "@ng-web-apis/audio": ["./libs/audio/src/index.ts"],
             "@ng-web-apis/audio/*": ["./libs/audio/src/*"],
+            "@ng-web-apis/audio/mocks": ["./libs/audio/mocks.js"],
             "@ng-web-apis/canvas": ["./libs/canvas/src/index.ts"],
             "@ng-web-apis/geolocation": ["./libs/geolocation/src/index.ts"],
             "@ng-web-apis/permissions": ["./libs/permissions/src/index.ts"],

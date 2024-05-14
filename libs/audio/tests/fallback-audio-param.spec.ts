@@ -1,5 +1,3 @@
-import {describe, expect, it} from '@jest/globals';
-
 import {fallbackAudioParam} from '../src/utils/fallback-audio-param';
 
 describe('fallbackAudioParam', () => {

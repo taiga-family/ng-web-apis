@@ -1,6 +1,5 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {beforeEach, describe, expect, it} from '@jest/globals';
 import {ResizeObserverService} from '@ng-web-apis/resize-observer';
 import {catchError} from 'rxjs';
 

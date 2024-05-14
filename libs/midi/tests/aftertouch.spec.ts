@@ -1,4 +1,3 @@
-import {describe, expect, it} from '@jest/globals';
 import {from} from 'rxjs';
 
 import {aftertouch} from '../src/monotype-operators/aftertouch';

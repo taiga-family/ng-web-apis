@@ -1,6 +1,5 @@
 import {NgZone} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {describe, expect, xit} from '@jest/globals';
 import type {CanvasMethod} from '@ng-web-apis/canvas';
 import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, DrawService} from '@ng-web-apis/canvas';
 import {ANIMATION_FRAME} from '@ng-web-apis/common';
