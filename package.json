@@ -36,7 +36,7 @@
         "libs/*"
     ],
     "scripts": {
-        "postinstall": "husky install",
+        "prepare": "husky",
         "start": "nx serve demo --open",
         "build": "nx build",
         "postbuild": "node scripts/postbuild.js",
