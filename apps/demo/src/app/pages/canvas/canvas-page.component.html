@@ -110,7 +110,7 @@
                 <tui-data-list-wrapper
                     *tuiDataList
                     [items]="items"
-                ></tui-data-list-wrapper>
+                />
             </tui-select>
             <tui-input-color
                 tuiTextfieldSize="m"
@@ -190,14 +190,14 @@
         [dX]="dX"
         [dY]="dY"
         [image]="image"
-    ></canvas-draw-image>
+    />
     <canvas-path fillStyle="#f00">
         <canvas-rect
             [height]="h1"
             [width]="w1"
             [x]="x1"
             [y]="y1"
-        ></canvas-rect>
+        />
     </canvas-path>
     <canvas-path
         [fillStyle]="c2"
@@ -208,7 +208,7 @@
             [width]="w2"
             [x]="x2"
             [y]="y2"
-        ></canvas-rect>
+        />
     </canvas-path>
 </canvas>
 <h2>Path example</h2>
@@ -294,11 +294,11 @@
             [startAngle]="mouth | rad"
             [x]="50"
             [y]="75"
-        ></canvas-arc>
+        />
         <canvas-line-to
             [x]="50"
             [y]="75"
-        ></canvas-line-to>
+        />
     </canvas-path>
     <canvas-text
         [fillStyle]="color"
@@ -307,5 +307,5 @@
         [text]="text"
         [x]="90"
         [y]="90"
-    ></canvas-text>
+    />
 </canvas>

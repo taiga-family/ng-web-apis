@@ -1,5 +1,5 @@
 <p *ngIf="!supported">Web MIDI API is not supported by your browser</p>
-<demo *ngIf="started; else button"></demo>
+<demo *ngIf="started; else button" />
 <ng-template #button>
     <button
         appearance="secondary"

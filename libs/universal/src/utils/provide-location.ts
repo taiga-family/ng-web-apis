@@ -1,5 +1,6 @@
+import type {IncomingMessage} from 'node:http';
+
 import type {ValueProvider} from '@angular/core';
-import type {IncomingMessage} from 'http';
 
 import {DOMStringListMock} from '../classes/dom-string-list-mock';
 import {SSR_LOCATION} from '../tokens/ssr-location';

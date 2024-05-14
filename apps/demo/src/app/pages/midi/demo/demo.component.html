@@ -8,11 +8,10 @@
                 [frequency]="note.key | frequency"
             >
                 <ng-container
-                    gain="0"
                     waGainNode
                     [gain]="note.value | adsr: 0 : 0.1 : note.value * 0.8 : 1"
                 >
-                    <ng-container waAudioDestinationNode></ng-container>
+                    <ng-container waAudioDestinationNode />
                 </ng-container>
             </ng-container>
             <ng-container
@@ -22,15 +21,14 @@
                 [frequency]="note.key | frequency"
             >
                 <ng-container
-                    gain="0"
                     waGainNode
                     [gain]="note.value | adsr: 0 : 0.1 : note.value * 0.8 : 1"
                 >
                     <ng-container
                         waAudioDestinationNode
                         (quiet)="onQuiet(note?.key)"
-                    ></ng-container>
-                    <ng-container [waOutput]="convolver"></ng-container>
+                    />
+                    <ng-container [waOutput]="convolver" />
                 </ng-container>
             </ng-container>
         </ng-container>
@@ -40,7 +38,7 @@
         waConvolverNode
         [buffer]="response | async"
     >
-        <ng-container waAudioDestinationNode></ng-container>
+        <ng-container waAudioDestinationNode />
     </ng-container>
 
     <div

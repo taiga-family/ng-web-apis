@@ -62,7 +62,7 @@
                         [fftSize]="fftSize"
                         (timeByte$)="onTimeDomain($event)"
                     >
-                        <ng-container [waOutput]="chain || fallback"></ng-container>
+                        <ng-container [waOutput]="chain || fallback" />
                     </ng-container>
                 </button>
             </ng-container>
@@ -78,7 +78,7 @@
                     [fftSize]="fftSize"
                     (timeByte$)="onTimeDomain($event)"
                 >
-                    <ng-container [waOutput]="chain || fallback"></ng-container>
+                    <ng-container [waOutput]="chain || fallback" />
                 </ng-container>
             </audio>
             <ng-container *ngSwitchCase="'oscillator'">
@@ -98,7 +98,7 @@
                         [fftSize]="fftSize"
                         (timeByte$)="onTimeDomain($event)"
                     >
-                        <ng-container [waOutput]="chain || fallback"></ng-container>
+                        <ng-container [waOutput]="chain || fallback" />
                     </ng-container>
                 </button>
             </ng-container>
@@ -118,7 +118,7 @@
                     [lineWidth]="4 / canvas.height"
                     [path]="path | path"
                     [transform]="getTransform(canvas) | transform"
-                ></canvas-path>
+                />
             </canvas>
         </p>
     </section>
@@ -257,7 +257,7 @@
                         <tui-data-list-wrapper
                             *tuiDataList
                             [items]="items"
-                        ></tui-data-list-wrapper>
+                        />
                     </tui-select>
                     <label tuiLabel="gain">
                         <input

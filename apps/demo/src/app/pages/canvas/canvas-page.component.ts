@@ -14,11 +14,11 @@ import {
     TuiSelectModule,
     TuiSliderModule,
 } from '@taiga-ui/kit';
-import {TuiInputColorComponent} from '@tinkoff/tui-editor';
+import {TuiInputColorModule} from '@tinkoff/tui-editor';
 
 @Component({
     standalone: true,
-    selector: 'audio-page',
+    selector: 'canvas-page',
     imports: [
         CommonModule,
         FormsModule,
@@ -29,7 +29,7 @@ import {TuiInputColorComponent} from '@tinkoff/tui-editor';
         TuiExpandModule,
         TuiSelectModule,
         TuiInputModule,
-        TuiInputColorComponent,
+        TuiInputColorModule,
         TuiDataListWrapperModule,
         TuiTextfieldControllerModule,
     ],
