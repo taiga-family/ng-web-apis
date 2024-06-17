@@ -3,6 +3,21 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/audio@3.0.6...@ng-web-apis/audio@4.0.0) (2024-06-17)
+
+### Features
+
+- **audio:** move to standalone ([#329](https://github.com/taiga-family/ng-web-apis/issues/329))
+  ([d915504](https://github.com/taiga-family/ng-web-apis/commit/d9155041b19549f5006daa7d112a4af577c8b94e))
+- **universal:** bundle mocks with the related libs and remove global `mocks.js`
+  ([#350](https://github.com/taiga-family/ng-web-apis/issues/350))
+  ([65d6b87](https://github.com/taiga-family/ng-web-apis/commit/65d6b8744cd2acd85dfbc615e0449ca6b60c8b90))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.0.6](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/audio@3.0.5...@ng-web-apis/audio@3.0.6) (2023-11-01)
 
 **Note:** Version bump only for package @ng-web-apis/audio

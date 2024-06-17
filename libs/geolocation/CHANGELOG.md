@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/geolocation@3.0.6...@ng-web-apis/geolocation@4.0.0) (2024-06-17)
+
+**Note:** Version bump only for package @ng-web-apis/geolocation
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.0.6](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/geolocation@3.0.5...@ng-web-apis/geolocation@3.0.6) (2023-11-01)
 
 **Note:** Version bump only for package @ng-web-apis/geolocation

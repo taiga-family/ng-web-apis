@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.0.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/permissions@3.2.0...@ng-web-apis/permissions@4.0.0) (2024-06-17)
+
+**Note:** Version bump only for package @ng-web-apis/permissions
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [3.2.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/permissions@3.1.1...@ng-web-apis/permissions@3.2.0) (2023-11-01)
 
 ### Features
