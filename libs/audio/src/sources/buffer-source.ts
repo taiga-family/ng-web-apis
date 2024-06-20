@@ -25,6 +25,8 @@ import {parse} from '../utils/parse';
     exportAs: 'AudioNode',
 })
 export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDestroy {
+    protected buffer$!: Subject<AudioBuffer | string | null>;
+
     @Input('detune')
     @audioParam('detune')
     public detuneParam?: AudioParamInput;
@@ -35,8 +37,6 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
 
     @Output()
     public ended?: EventEmitter<void>;
-
-    protected buffer$!: Subject<AudioBuffer | string | null>;
 
     constructor(
         @Attribute('autoplay') autoplay: string | null,

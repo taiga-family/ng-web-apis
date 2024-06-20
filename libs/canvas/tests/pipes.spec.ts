@@ -26,13 +26,13 @@ describe('Pipes', () => {
         `,
     })
     class CanvasComponent {
-        @Input()
-        public img!: HTMLImageElement;
-
         protected grad = new Map([
             [0, 'red'],
             [1, 'blue'],
         ]);
+
+        @Input()
+        public img!: HTMLImageElement;
     }
 
     @Component({
