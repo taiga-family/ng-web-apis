@@ -18,10 +18,10 @@ describe('AudioWorkletNode', () => {
         `,
     })
     class TestComponent {
+        protected readonly ready = inject(AUDIO_WORKLET_PROCESSORS_READY);
+
         @ViewChild(WebAudioWorklet)
         public node!: AudioNode;
-
-        protected readonly ready = inject(AUDIO_WORKLET_PROCESSORS_READY);
     }
 
     let fixture: ComponentFixture<TestComponent>;
