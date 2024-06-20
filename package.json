@@ -157,7 +157,7 @@
         "ts-node": "10.9.2",
         "tslib": "2.6.3",
         "typescript": "5.0.4",
-        "webpack": "5.92.0",
+        "webpack": "5.92.1",
         "zone.js": "0.13.3"
     },
     "engines": {
