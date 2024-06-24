@@ -58,6 +58,10 @@ const DB_REQUEST: IDBOpenDBRequest = {
 const SELF = ['frames', 'parent', 'self', 'top', 'window'];
 const WINDOW_HANDLER: ProxyHandler<Window> = {
     get: (windowRef, key: string) => {
+        if (typeof window !== 'undefined' && Reflect.has(window, key)) {
+            return Reflect.get(window, key);
+        }
+
         if (SELF.includes(key)) {
             return windowRef;
         }
