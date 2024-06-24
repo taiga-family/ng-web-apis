@@ -6,6 +6,8 @@ import {
     OnDestroy,
     Optional,
 } from '@angular/core';
+
+import {SafeObserver} from '../classes/safe-observer';
 import {INTERSECTION_ROOT} from '../tokens/intersection-root';
 import {rootMarginFactory} from '../utils/root-margin-factory';
 import {thresholdFactory} from '../utils/threshold-factory';
@@ -14,10 +16,7 @@ import {thresholdFactory} from '../utils/threshold-factory';
     selector: '[waIntersectionObserver]',
     exportAs: 'IntersectionObserver',
 })
-export class IntersectionObserverDirective
-    extends IntersectionObserver
-    implements OnDestroy
-{
+export class IntersectionObserverDirective extends SafeObserver implements OnDestroy {
     private readonly callbacks = new Map<Element, IntersectionObserverCallback>();
 
     constructor(
