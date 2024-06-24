@@ -22,7 +22,6 @@
     ],
     "command": {
         "version": {
-            "allowBranch": "main",
             "commitHooks": false,
             "createRelease": "github"
         },
