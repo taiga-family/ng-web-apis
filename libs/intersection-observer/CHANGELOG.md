@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [3.2.0](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/intersection-observer@3.1.1...@ng-web-apis/intersection-observer@3.2.0) (2024-06-24)
+
+### Features
+
+- **intersection-observer:** migrate to SafeObserver
+  ([39ecae7](https://github.com/tinkoff/ng-web-apis/commit/39ecae7bbbb8027730db7454d6e302c20e141b86))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.1.1](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/intersection-observer@3.1.0...@ng-web-apis/intersection-observer@3.1.1) (2023-06-26)
 
 **Note:** Version bump only for package @ng-web-apis/intersection-observer
