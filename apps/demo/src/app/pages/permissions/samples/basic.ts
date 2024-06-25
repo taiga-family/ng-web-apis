@@ -7,7 +7,7 @@ export const SAMPLE = `import { PermissionsService } from '@ng-web-apis/permissi
   \`,
   changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class AppComponent {
+export class App {
   geolocationState$ = this.permissionsService.state('geolocation');
 
   constructor(

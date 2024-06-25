@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-bezier-curve-to',
-    providers: [asCanvasMethod(BezierCurveToDirective)],
+    providers: [asCanvasMethod(WaCanvasBezierCurveTo)],
 })
-export class BezierCurveToDirective implements CanvasMethod {
+export class WaCanvasBezierCurveTo implements CanvasMethod {
     @Input()
     public cp1x = 0;
 
@@ -31,3 +31,8 @@ export class BezierCurveToDirective implements CanvasMethod {
         context.bezierCurveTo(this.cp1x, this.cp1y, this.cp2x, this.cp2y, this.x, this.y);
     }
 }
+
+/**
+ * @deprecated use {@link WaCanvasBezierCurveTo}
+ */
+export const BezierCurveToDirective = WaCanvasBezierCurveTo;

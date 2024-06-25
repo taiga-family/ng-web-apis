@@ -9,7 +9,7 @@ import {MarkdownModule} from 'ngx-markdown';
     templateUrl: './universal-page.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class UniversalPageComponent {
+export default class UniversalPage {
     protected readonly readme = import(
         '../../../../../../libs/universal/README.md?raw'
     ).then(a => a.default.replace('![logo](logo.svg) ', '')) as any as Promise<string>;

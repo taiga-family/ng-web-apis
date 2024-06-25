@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-arc',
-    providers: [asCanvasMethod(ArcDirective)],
+    providers: [asCanvasMethod(WaCanvasArc)],
 })
-export class ArcDirective implements CanvasMethod {
+export class WaCanvasArc implements CanvasMethod {
     @Input()
     public x = 0;
 
@@ -38,3 +38,8 @@ export class ArcDirective implements CanvasMethod {
         );
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasArc}
+ */
+export const ArcDirective = WaCanvasArc;

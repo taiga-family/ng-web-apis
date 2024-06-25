@@ -12,7 +12,7 @@ import {map, timer} from 'rxjs';
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ClockComponent {
+export class Clock {
     protected readonly date$: Observable<number> = timer(0, 1000).pipe(
         map(() => Date.now()),
     );

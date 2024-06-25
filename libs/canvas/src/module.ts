@@ -1,94 +1,61 @@
-import {NgModule} from '@angular/core';
+import {WaCanvas2d} from './contexts/canvas-2d';
+import {WaCanvasClipPath} from './methods/clip-path';
+import {WaCanvasDrawImage} from './methods/draw-image';
+import {WaCanvasPath} from './methods/path';
+import {WaCanvasPath2d} from './methods/path-2d';
+import {WaCanvasText} from './methods/text';
+import {WaCanvasArc} from './path/arc';
+import {WaCanvasArcTo} from './path/arc-to';
+import {WaCanvasBezierCurveTo} from './path/bezier-curve-to';
+import {WaCanvasEllipse} from './path/ellipse';
+import {WaCanvasLineTo} from './path/line-to';
+import {WaCanvasMoveTo} from './path/move-to';
+import {WaCanvasQuadraticCurveTo} from './path/quadratic-curve-to';
+import {WaCanvasRect} from './path/rect';
+import {WaCanvasGradientPipe} from './pipes/gradient.pipe';
+import {WaCanvasPathPipe} from './pipes/path.pipe';
+import {WaCanvasPatternPipe} from './pipes/pattern.pipe';
+import {WaCanvasRadPipe} from './pipes/rad.pipe';
+import {WaCanvasTransformPipe} from './pipes/transform.pipe';
+import {WaCanvasClip} from './properties/clip';
+import {WaCanvasCompositing} from './properties/compositing';
+import {WaCanvasFillStrokeStyles} from './properties/fill-stroke-styles';
+import {WaCanvasFilter} from './properties/filter';
+import {WaCanvasImageSmoothing} from './properties/image-smoothing';
+import {WaCanvasPathDrawingStyles} from './properties/path-drawing-styles';
+import {WaCanvasShadowStyles} from './properties/shadow-styles';
+import {WaCanvasTextDrawingStyles} from './properties/text-drawing-styles';
+import {WaCanvasTransform} from './properties/transform';
 
-import {Canvas2dDirective} from './contexts/canvas-2d';
-import {ClipPathComponent} from './methods/clip-path';
-import {DrawImageDirective} from './methods/draw-image';
-import {PathDirective} from './methods/path';
-import {Path2dDirective} from './methods/path-2d';
-import {TextDirective} from './methods/text';
-import {ArcDirective} from './path/arc';
-import {ArcToDirective} from './path/arc-to';
-import {BezierCurveToDirective} from './path/bezier-curve-to';
-import {EllipseDirective} from './path/ellipse';
-import {LineToDirective} from './path/line-to';
-import {MoveToDirective} from './path/move-to';
-import {QuadraticCurveToDirective} from './path/quadratic-curve-to';
-import {RectDirective} from './path/rect';
-import {GradientPipe} from './pipes/gradient.pipe';
-import {PathPipe} from './pipes/path.pipe';
-import {PatternPipe} from './pipes/pattern.pipe';
-import {RadPipe} from './pipes/rad.pipe';
-import {TransformPipe} from './pipes/transform.pipe';
-import {ClipDirective} from './properties/clip';
-import {CompositingDirective} from './properties/compositing';
-import {FillStrokeStylesDirective} from './properties/fill-stroke-styles';
-import {FilterDirective} from './properties/filter';
-import {ImageSmoothingDirective} from './properties/image-smoothing';
-import {PathDrawingStylesDirective} from './properties/path-drawing-styles';
-import {ShadowStylesDirective} from './properties/shadow-styles';
-import {TextDrawingStylesDirective} from './properties/text-drawing-styles';
-import {TransformDirective} from './properties/transform';
+export const WaCanvas = [
+    WaCanvas2d,
+    WaCanvasClipPath,
+    WaCanvasDrawImage,
+    WaCanvasPath,
+    WaCanvasPath2d,
+    WaCanvasText,
+    WaCanvasArc,
+    WaCanvasArcTo,
+    WaCanvasBezierCurveTo,
+    WaCanvasEllipse,
+    WaCanvasLineTo,
+    WaCanvasMoveTo,
+    WaCanvasQuadraticCurveTo,
+    WaCanvasRect,
+    WaCanvasClip,
+    WaCanvasCompositing,
+    WaCanvasFillStrokeStyles,
+    WaCanvasFilter,
+    WaCanvasImageSmoothing,
+    WaCanvasPathDrawingStyles,
+    WaCanvasShadowStyles,
+    WaCanvasTextDrawingStyles,
+    WaCanvasGradientPipe,
+    WaCanvasPathPipe,
+    WaCanvasPatternPipe,
+    WaCanvasRadPipe,
+    WaCanvasTransform,
+    WaCanvasTransformPipe,
+];
 
-@NgModule({
-    imports: [
-        Canvas2dDirective,
-        ClipPathComponent,
-        DrawImageDirective,
-        PathDirective,
-        Path2dDirective,
-        TextDirective,
-        ArcDirective,
-        ArcToDirective,
-        BezierCurveToDirective,
-        EllipseDirective,
-        LineToDirective,
-        MoveToDirective,
-        QuadraticCurveToDirective,
-        RectDirective,
-        ClipDirective,
-        CompositingDirective,
-        FillStrokeStylesDirective,
-        FilterDirective,
-        ImageSmoothingDirective,
-        PathDrawingStylesDirective,
-        ShadowStylesDirective,
-        TextDrawingStylesDirective,
-        TransformDirective,
-        GradientPipe,
-        PathPipe,
-        PatternPipe,
-        RadPipe,
-        TransformPipe,
-    ],
-    exports: [
-        Canvas2dDirective,
-        ClipPathComponent,
-        DrawImageDirective,
-        PathDirective,
-        Path2dDirective,
-        TextDirective,
-        ArcDirective,
-        ArcToDirective,
-        BezierCurveToDirective,
-        EllipseDirective,
-        LineToDirective,
-        MoveToDirective,
-        QuadraticCurveToDirective,
-        RectDirective,
-        ClipDirective,
-        CompositingDirective,
-        FillStrokeStylesDirective,
-        FilterDirective,
-        ImageSmoothingDirective,
-        PathDrawingStylesDirective,
-        ShadowStylesDirective,
-        TextDrawingStylesDirective,
-        GradientPipe,
-        PathPipe,
-        PatternPipe,
-        RadPipe,
-        TransformDirective,
-        TransformPipe,
-    ],
-})
-export class CanvasModule {}
+export const CanvasModule = WaCanvas;

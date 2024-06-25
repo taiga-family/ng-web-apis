@@ -1,6 +1,6 @@
 import {Attribute, Directive, ElementRef, inject} from '@angular/core';
 
-import {DrawService} from '../services/draw.service';
+import {WaDrawService} from '../services/draw.service';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
 @Directive({
@@ -34,12 +34,12 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
                 return context;
             },
         },
-        DrawService,
+        WaDrawService,
     ],
 })
-export class Canvas2dDirective {
+export class WaCanvas2d {
     private readonly context = inject(CANVAS_2D_CONTEXT);
-    private readonly method = inject(DrawService);
+    private readonly method = inject(WaDrawService);
 
     constructor(
         @Attribute('opaque') _opaque: string | null,
@@ -52,3 +52,8 @@ export class Canvas2dDirective {
         };
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvas2d}
+ */
+export const Canvas2dDirective = WaCanvas2d;

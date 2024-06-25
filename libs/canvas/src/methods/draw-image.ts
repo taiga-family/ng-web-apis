@@ -1,14 +1,14 @@
 import {Directive, inject, Input} from '@angular/core';
 
-import {DrawService} from '../services/draw.service';
+import {WaDrawService} from '../services/draw.service';
 
 @Directive({
     standalone: true,
     selector: 'canvas-draw-image',
-    providers: [DrawService],
+    providers: [WaDrawService],
 })
-export class DrawImageDirective {
-    private readonly method = inject(DrawService);
+export class WaCanvasDrawImage {
+    private readonly method = inject(WaDrawService);
 
     @Input()
     public image?: CanvasImageSource;
@@ -76,3 +76,8 @@ export class DrawImageDirective {
         };
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasDrawImage}
+ */
+export const DrawImageDirective = WaCanvasDrawImage;

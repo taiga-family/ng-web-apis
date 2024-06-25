@@ -166,7 +166,7 @@ export class AppModule {}
   selector: 'app',
   templateUrl: './app.component.html',
 })
-export class AppComponent {
+export class App {
   constructor(@Inject(AUDIO_WORKLET_PROCESSORS_READY) readonly processorsReady: Promise<boolean>) {}
 
   // ...

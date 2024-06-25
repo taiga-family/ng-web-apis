@@ -1,7 +1,7 @@
 import {Directive, Input} from '@angular/core';
 
 import type {CanvasMethod} from '../interfaces/canvas-method';
-import {ClipPathComponent} from '../methods/clip-path';
+import {WaCanvasClipPath} from '../methods/clip-path';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
@@ -10,17 +10,17 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
         'canvas-draw-image[clip],canvas-draw-image[clipFillRule],' +
         'canvas-path[clip],canvas-path[clipFillRule],' +
         'canvas-text[clip],canvas-text[clipFillRule]',
-    providers: [asCanvasProperty(ClipDirective)],
+    providers: [asCanvasProperty(WaCanvasClip)],
 })
-export class ClipDirective implements CanvasMethod {
+export class WaCanvasClip implements CanvasMethod {
     @Input()
-    public clip: ClipPathComponent | Path2D = new Path2D();
+    public clip: Path2D | WaCanvasClipPath = new Path2D();
 
     @Input()
     public clipFillRule?: CanvasFillRule;
 
     public call(context: CanvasRenderingContext2D): void {
-        if (this.clip instanceof ClipPathComponent) {
+        if (this.clip instanceof WaCanvasClipPath) {
             context.beginPath();
 
             this.clip.pathSteps.forEach(step => {
@@ -33,3 +33,8 @@ export class ClipDirective implements CanvasMethod {
         }
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasClip}
+ */
+export const ClipDirective = WaCanvasClip;

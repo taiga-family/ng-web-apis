@@ -24,7 +24,7 @@ import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-opt
         },
     ],
 })
-export class ResizeObserverDirective {
+export class WaResizeObserver {
     protected readonly waResizeObserver = inject(ResizeObserverService);
 
     constructor(
@@ -32,3 +32,8 @@ export class ResizeObserverDirective {
         @Attribute('waResizeBox') protected readonly box: ResizeObserverBoxOptions,
     ) {}
 }
+
+/**
+ * @deprecated: use {@link WaResizeObserver}
+ */
+export const ResizeObserverDirective = WaResizeObserver;

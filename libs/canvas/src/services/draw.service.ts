@@ -9,7 +9,7 @@ import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
 import type {Context2dProcessor} from '../types/context-processor';
 
 @Injectable()
-export class DrawService implements OnDestroy, CanvasMethod {
+export class WaDrawService implements OnDestroy, CanvasMethod {
     private readonly subscription: Subscription;
 
     constructor() {
@@ -36,3 +36,8 @@ export class DrawService implements OnDestroy, CanvasMethod {
         this.subscription.unsubscribe();
     }
 }
+
+/**
+ * @deprecated: use {@link WaDrawService}
+ */
+export const DrawService = WaDrawService;

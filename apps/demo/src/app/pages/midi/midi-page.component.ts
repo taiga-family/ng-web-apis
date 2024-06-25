@@ -1,21 +1,21 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {WebAudioModule} from '@ng-web-apis/audio';
+import {WaWebAudio} from '@ng-web-apis/audio';
 import {MIDI_SUPPORT} from '@ng-web-apis/midi';
 import {TuiButtonModule} from '@taiga-ui/core';
 
-import {DemoComponent} from './demo/demo.component';
+import {Demo} from './demo/demo.component';
 
 @Component({
     standalone: true,
     selector: 'midi-page',
-    imports: [CommonModule, TuiButtonModule, FormsModule, WebAudioModule, DemoComponent],
+    imports: [CommonModule, TuiButtonModule, FormsModule, WaWebAudio, Demo],
     templateUrl: './midi-page.component.html',
     styleUrls: ['./midi-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class MidiPageComponent {
+export default class MidiPage {
     protected readonly supported = inject(MIDI_SUPPORT);
 
     protected started = false;

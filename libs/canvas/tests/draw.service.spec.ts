@@ -1,11 +1,11 @@
 import {NgZone} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import type {CanvasMethod} from '@ng-web-apis/canvas';
-import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, DrawService} from '@ng-web-apis/canvas';
+import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, WaDrawService} from '@ng-web-apis/canvas';
 import {ANIMATION_FRAME} from '@ng-web-apis/common';
 import {of} from 'rxjs';
 
-describe('DrawService', () => {
+describe('WaDrawService', () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d')!;
     const prop: CanvasMethod = {
@@ -23,7 +23,7 @@ describe('DrawService', () => {
             .overrideProvider(ANIMATION_FRAME, {useValue: of(0)})
             .overrideProvider(NgZone, {useValue: zone})
             .runInInjectionContext(() => {
-                const service = new DrawService();
+                const service = new WaDrawService();
 
                 expect(service).toBeTruthy();
 

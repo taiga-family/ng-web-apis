@@ -1,11 +1,10 @@
-import {NgModule} from '@angular/core';
+import {WaPayment} from './directives/payment/payment.directive';
+import {WaPaymentItem} from './directives/payment-item/payment-item.directive';
+import {WaPaymentSubmit} from './directives/payment-submit/payment-submit.directive';
 
-import {PaymentDirective} from './directives/payment/payment.directive';
-import {PaymentItemDirective} from './directives/payment-item/payment-item.directive';
-import {PaymentSubmitDirective} from './directives/payment-submit/payment-submit.directive';
+export const WaPaymentRequest = [WaPayment, WaPaymentItem, WaPaymentSubmit];
 
-@NgModule({
-    imports: [PaymentDirective, PaymentItemDirective, PaymentSubmitDirective],
-    exports: [PaymentDirective, PaymentItemDirective, PaymentSubmitDirective],
-})
-export class PaymentRequestModule {}
+/**
+ * @deprecated: use {@link WaPaymentRequest}
+ */
+export const PaymentRequestModule = WaPaymentRequest;

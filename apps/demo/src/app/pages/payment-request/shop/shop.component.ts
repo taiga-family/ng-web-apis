@@ -1,6 +1,6 @@
 import {NgForOf, NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PaymentRequestModule} from '@ng-web-apis/payment-request';
+import {WaPaymentRequest} from '@ng-web-apis/payment-request';
 
 class ShopItem implements PaymentItem {
     constructor(
@@ -20,12 +20,12 @@ class ShopItem implements PaymentItem {
 @Component({
     standalone: true,
     selector: 'app-shop',
-    imports: [NgForOf, PaymentRequestModule, NgIf],
+    imports: [NgForOf, WaPaymentRequest, NgIf],
     templateUrl: './shop.component.html',
     styleUrls: ['./shop.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ShopComponent {
+export class Shop {
     protected readonly items: readonly ShopItem[] = [
         new ShopItem(
             'https://image.flaticon.com/icons/svg/1868/1868178.svg',

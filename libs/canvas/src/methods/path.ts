@@ -1,19 +1,19 @@
 import {ContentChildren, Directive, inject, Input, QueryList} from '@angular/core';
 
 import type {CanvasMethod} from '../interfaces/canvas-method';
-import {DrawService} from '../services/draw.service';
+import {WaDrawService} from '../services/draw.service';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Directive({
     standalone: true,
     selector: 'canvas-path:not([path])',
-    providers: [DrawService],
+    providers: [WaDrawService],
 })
-export class PathDirective {
+export class WaCanvasPath {
     @ContentChildren(CANVAS_METHOD)
     private readonly pathSteps = new QueryList<CanvasMethod>();
 
-    private readonly method = inject(DrawService);
+    private readonly method = inject(WaDrawService);
 
     @Input()
     public closed = false;
@@ -38,3 +38,8 @@ export class PathDirective {
         };
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasPath}
+ */
+export const PathDirective = WaCanvasPath;

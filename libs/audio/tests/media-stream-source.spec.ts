@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 import {WebAudioMediaStreamSource} from '../src/sources/media-stream-source';
 import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
 import {MEDIA_STREAM} from '../src/tokens/media-stream';
@@ -18,18 +18,18 @@ describe('MediaStream', () => {
                 <audio waMediaStreamAudioSourceNode></audio>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioMediaStreamSource)
             public node!: AudioNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers: [
                     {
                         provide: MEDIA_STREAM,
@@ -38,7 +38,7 @@ describe('MediaStream', () => {
                 ],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });
@@ -54,18 +54,18 @@ describe('MediaStream', () => {
                 <audio waMediaStreamAudioSourceNode></audio>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioMediaStreamSource)
             public node!: AudioNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers: [
                     {
                         provide: MEDIA_STREAM,
@@ -78,7 +78,7 @@ describe('MediaStream', () => {
                 ],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });

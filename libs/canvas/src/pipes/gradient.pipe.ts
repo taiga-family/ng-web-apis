@@ -7,7 +7,7 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
     standalone: true,
     name: 'gradient',
 })
-export class GradientPipe implements PipeTransform {
+export class WaCanvasGradientPipe implements PipeTransform {
     private readonly context = inject(CANVAS_2D_CONTEXT);
 
     public transform(
@@ -47,3 +47,8 @@ export class GradientPipe implements PipeTransform {
         return gradient;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasGradientPipe}
+ */
+export const GradientPipe = WaCanvasGradientPipe;

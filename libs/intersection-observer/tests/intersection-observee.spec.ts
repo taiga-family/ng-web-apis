@@ -2,12 +2,12 @@ import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
-import {IntersectionObserverDirective} from '../src/directives/intersection-observer.directive';
-import {IntersectionObserverModule} from '../src/module';
+import {WaObserver} from '../src/directives/intersection-observer.directive';
+import {WaIntersectionObserver} from '../src/module';
 import {INTERSECTION_ROOT_MARGIN} from '../src/tokens/intersection-root-margin';
 import {INTERSECTION_THRESHOLD} from '../src/tokens/intersection-threshold';
 
-describe('IntersectionObserveeDirective', () => {
+describe('WaObservee', () => {
     @Component({
         template: `
             <div id="manual_observee">Hello</div>
@@ -37,25 +37,25 @@ describe('IntersectionObserveeDirective', () => {
             </section>
         `,
     })
-    class TestComponent {
-        @ViewChild('root', {read: IntersectionObserverDirective})
-        public observer!: IntersectionObserverDirective;
+    class Test {
+        @ViewChild('root', {read: WaObserver})
+        public observer!: WaObserver;
 
         // eslint-disable-next-line jest/no-jasmine-globals
         public onIntersection = jasmine.createSpy('onIntersection');
         public observe = true;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [IntersectionObserverModule],
-            declarations: [TestComponent],
+            imports: [WaIntersectionObserver],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
         testComponent.onIntersection.calls.reset();

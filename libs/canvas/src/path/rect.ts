@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-rect',
-    providers: [asCanvasMethod(RectDirective)],
+    providers: [asCanvasMethod(WaCanvasRect)],
 })
-export class RectDirective implements CanvasMethod {
+export class WaCanvasRect implements CanvasMethod {
     @Input()
     public x = 0;
 
@@ -25,3 +25,8 @@ export class RectDirective implements CanvasMethod {
         context.rect(this.x, this.y, this.width, this.height);
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasRect}
+ */
+export const RectDirective = WaCanvasRect;

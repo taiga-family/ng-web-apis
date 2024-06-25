@@ -4,7 +4,7 @@ import {toData, WebWorker, WorkerPipe} from '@ng-web-apis/workers';
 import {TuiButtonModule, TuiNotificationModule} from '@taiga-ui/core';
 import {map, Subject} from 'rxjs';
 
-import {ClockComponent} from './clock.component';
+import {Clock} from './clock.component';
 
 function startCompute(): number {
     const start = performance.now();
@@ -19,18 +19,12 @@ function startCompute(): number {
 @Component({
     standalone: true,
     selector: 'workers-page',
-    imports: [
-        CommonModule,
-        WorkerPipe,
-        TuiButtonModule,
-        TuiNotificationModule,
-        ClockComponent,
-    ],
+    imports: [CommonModule, WorkerPipe, TuiButtonModule, TuiNotificationModule, Clock],
     templateUrl: './workers-page.component.html',
     styleUrls: ['./workers-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class WorkersPageComponent {
+export default class WorkersPage {
     protected readonly platformId = inject(PLATFORM_ID);
     protected readonly isBrowser = isPlatformBrowser(this.platformId);
     protected readonly workerThread = WebWorker.fromFunction<void, number>(startCompute);

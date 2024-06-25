@@ -13,7 +13,7 @@ import {SAMPLE_HTML, SAMPLE_TS} from './samples/sample';
     styleUrls: ['./screen-orientation-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ScreenOrientationPageComponent {
+export default class ScreenOrientationPage {
     protected readonly orientation$ = inject(ScreenOrientationService);
     protected readonly sample = SAMPLE_TS;
     protected readonly sampleHtml = SAMPLE_HTML;

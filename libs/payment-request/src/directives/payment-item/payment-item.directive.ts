@@ -4,7 +4,7 @@ import {Directive, Input} from '@angular/core';
     standalone: true,
     selector: '[waPaymentItem][paymentAmount][paymentLabel]',
 })
-export class PaymentItemDirective implements PaymentItem {
+export class WaPaymentItem implements PaymentItem {
     @Input('paymentAmount')
     public amount!: PaymentCurrencyAmount;
 
@@ -14,3 +14,8 @@ export class PaymentItemDirective implements PaymentItem {
     @Input('paymentPending')
     public pending?: boolean;
 }
+
+/**
+ * @deprecated: use {@link WaPaymentItem}
+ */
+export const PaymentItemDirective = WaPaymentItem;

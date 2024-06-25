@@ -1,13 +1,13 @@
 import {ElementRef, inject, Injectable} from '@angular/core';
 import {Observable, share} from 'rxjs';
 
-import {IntersectionObserverDirective} from '../directives/intersection-observer.directive';
+import {WaObserver} from '../directives/intersection-observer.directive';
 
 @Injectable()
 export class IntersectionObserveeService extends Observable<IntersectionObserverEntry[]> {
     constructor() {
         const nativeElement: Element = inject(ElementRef).nativeElement;
-        const observer = inject(IntersectionObserverDirective);
+        const observer = inject(WaObserver);
 
         super(subscriber => {
             observer.observe(nativeElement, entries => {

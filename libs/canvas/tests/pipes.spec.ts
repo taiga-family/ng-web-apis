@@ -25,7 +25,7 @@ describe('Pipes', () => {
             <canvas-path [path]="'L 1 1' | path"></canvas-path>
         `,
     })
-    class CanvasComponent {
+    class Canvas {
         protected grad = new Map([
             [0, 'red'],
             [1, 'blue'],
@@ -56,21 +56,21 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
             ></canvas>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         public readonly context!: CanvasRenderingContext2D;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [CanvasModule],
-            declarations: [TestComponent, CanvasComponent],
+            declarations: [Test, Canvas],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

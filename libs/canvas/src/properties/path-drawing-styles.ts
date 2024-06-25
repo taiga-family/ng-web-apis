@@ -8,9 +8,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     selector:
         'canvas-path[lineCap],canvas-path[lineDashOffset],canvas-path[lineJoin],canvas-path[lineWidth],canvas-path[lineDash],canvas-path[miterLimit],' +
         'canvas-text[lineCap],canvas-text[lineDashOffset],canvas-text[lineJoin],canvas-text[lineWidth],canvas-text[lineDash],canvas-text[miterLimit]',
-    providers: [asCanvasProperty(PathDrawingStylesDirective)],
+    providers: [asCanvasProperty(WaCanvasPathDrawingStyles)],
 })
-export class PathDrawingStylesDirective
+export class WaCanvasPathDrawingStyles
     implements CanvasMethod, Omit<CanvasPathDrawingStyles, 'getLineDash' | 'setLineDash'>
 {
     @Input()
@@ -40,3 +40,8 @@ export class PathDrawingStylesDirective
         context.setLineDash(this.lineDash);
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasPathDrawingStyles}
+ */
+export const PathDrawingStylesDirective = WaCanvasPathDrawingStyles;

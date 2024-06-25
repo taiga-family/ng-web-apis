@@ -37,7 +37,7 @@ import {TuiInputColorModule} from '@tinkoff/tui-editor';
     styleUrls: ['./canvas-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class CanvasPageComponent {
+export default class CanvasPage {
     protected x1 = 20;
     protected y1 = 20;
     protected w1 = 100;

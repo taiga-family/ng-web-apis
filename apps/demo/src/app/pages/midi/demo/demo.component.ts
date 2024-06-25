@@ -2,7 +2,7 @@ import type {KeyValue} from '@angular/common';
 import {CommonModule} from '@angular/common';
 import type {TrackByFunction} from '@angular/core';
 import {ChangeDetectionStrategy, Component, HostListener, inject} from '@angular/core';
-import {WebAudioModule} from '@ng-web-apis/audio';
+import {WaWebAudio} from '@ng-web-apis/audio';
 import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
 import type {Observable} from 'rxjs';
 import {
@@ -23,12 +23,12 @@ import {RESPONSE_BUFFER} from './response';
 @Component({
     standalone: true,
     selector: 'demo',
-    imports: [WebAudioModule, CommonModule, FrequencyPipe, AdsrPipe],
+    imports: [WaWebAudio, CommonModule, FrequencyPipe, AdsrPipe],
     templateUrl: './demo.component.html',
     styleUrls: ['./demo.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class DemoComponent {
+export class Demo {
     private readonly mousedown$ = new Subject<number>();
     private readonly mouseup$ = new Subject<void>();
     private readonly silent$ = new Subject<number>();

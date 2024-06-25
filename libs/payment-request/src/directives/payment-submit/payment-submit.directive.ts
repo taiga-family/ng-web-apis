@@ -6,14 +6,14 @@ import {PaymentRequestService} from '../../services/payment-request.service';
 import {PAYMENT_METHODS} from '../../tokens/payment-methods';
 import {PAYMENT_OPTIONS} from '../../tokens/payment-options';
 import {isError} from '../../utils/is-error';
-import {PaymentDirective} from '../payment/payment.directive';
+import {WaPayment} from '../payment/payment.directive';
 
 @Directive({
     standalone: true,
     selector: '[waPaymentSubmit]',
 })
-export class PaymentSubmitDirective {
-    private readonly paymentHost = inject(PaymentDirective);
+export class WaPaymentSubmit {
+    private readonly paymentHost = inject(WaPayment);
     private readonly paymentRequest = inject(PaymentRequestService);
     private readonly nativeElement: HTMLElement = inject(ElementRef).nativeElement;
     private readonly methods = inject(PAYMENT_METHODS);
@@ -44,3 +44,8 @@ export class PaymentSubmitDirective {
         this.waPaymentError = requests$.pipe(filter(isError));
     }
 }
+
+/**
+ * @deprecated: use {@link WaPaymentSubmit}
+ */
+export const PaymentSubmitDirective = WaPaymentSubmit;

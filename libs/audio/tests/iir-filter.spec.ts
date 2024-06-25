@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 import {WebAudioIIRFilter} from '../src/nodes/iir-filter';
 import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
 import {FEEDBACK_COEFFICIENTS} from '../src/tokens/feedback-coefficients';
@@ -15,18 +15,18 @@ describe('IIR filter', () => {
                 <div waIIRFilterNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioIIRFilter)
             public node!: AudioNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers: [
                     {
                         provide: FEEDFORWARD_COEFFICIENTS,
@@ -39,7 +39,7 @@ describe('IIR filter', () => {
                 ],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });
@@ -55,18 +55,18 @@ describe('IIR filter', () => {
                 <div waIIRFilterNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioIIRFilter)
             public node!: AudioNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers: [
                     {
                         provide: FEEDFORWARD_COEFFICIENTS,
@@ -83,7 +83,7 @@ describe('IIR filter', () => {
                 ],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });

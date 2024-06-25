@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-quadratic-curve-to',
-    providers: [asCanvasMethod(QuadraticCurveToDirective)],
+    providers: [asCanvasMethod(WaCanvasQuadraticCurveTo)],
 })
-export class QuadraticCurveToDirective implements CanvasMethod {
+export class WaCanvasQuadraticCurveTo implements CanvasMethod {
     @Input()
     public cpx = 0;
 
@@ -25,3 +25,8 @@ export class QuadraticCurveToDirective implements CanvasMethod {
         context.quadraticCurveTo(this.cpx, this.cpy, this.x, this.y);
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasQuadraticCurveTo}
+ */
+export const QuadraticCurveToDirective = WaCanvasQuadraticCurveTo;

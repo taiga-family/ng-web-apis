@@ -8,9 +8,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
         'canvas-draw-image[shadowBlur],canvas-draw-image[shadowColor],canvas-draw-image[shadowOffsetX],canvas-draw-image[shadowOffsetY],' +
         'canvas-path[shadowBlur],canvas-path[shadowColor],canvas-path[shadowOffsetX],canvas-path[shadowOffsetY],' +
         'canvas-text[shadowBlur],canvas-text[shadowColor],canvas-text[shadowOffsetX],canvas-text[shadowOffsetY]',
-    providers: [asCanvasProperty(ShadowStylesDirective)],
+    providers: [asCanvasProperty(WaCanvasShadowStyles)],
 })
-export class ShadowStylesDirective implements CanvasShadowStyles {
+export class WaCanvasShadowStyles implements CanvasShadowStyles {
     @Input()
     public shadowBlur = 0;
 
@@ -30,3 +30,8 @@ export class ShadowStylesDirective implements CanvasShadowStyles {
         context.shadowOffsetY = this.shadowOffsetY;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasShadowStyles}
+ */
+export const ShadowStylesDirective = WaCanvasShadowStyles;

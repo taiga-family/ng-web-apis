@@ -2,13 +2,13 @@ import type {QueryList} from '@angular/core';
 import {ContentChildren, Directive, Input} from '@angular/core';
 
 import type {PaymentShippingOption} from '../../tokens/payment-options';
-import {PaymentItemDirective} from '../payment-item/payment-item.directive';
+import {WaPaymentItem} from '../payment-item/payment-item.directive';
 
 @Directive({
     standalone: true,
     selector: '[waPayment][paymentTotal]',
 })
-export class PaymentDirective implements PaymentDetailsInit {
+export class WaPayment implements PaymentDetailsInit {
     @Input('paymentTotal')
     public total!: PaymentItem;
 
@@ -23,8 +23,13 @@ export class PaymentDirective implements PaymentDetailsInit {
 
     public displayItems?: PaymentItem[];
 
-    @ContentChildren(PaymentItemDirective)
+    @ContentChildren(WaPaymentItem)
     protected set paymentItems(items: QueryList<PaymentItem>) {
         this.displayItems = items.toArray();
     }
 }
+
+/**
+ * @deprecated use {@link WaPayment}
+ */
+export const PaymentDirective = WaPayment;

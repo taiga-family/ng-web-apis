@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {AUDIO_CONTEXT, WebAudioModule} from '@ng-web-apis/audio';
+import {AUDIO_CONTEXT, WaWebAudio} from '@ng-web-apis/audio';
 import {CanvasModule} from '@ng-web-apis/canvas';
 import {
     TuiButtonModule,
@@ -21,7 +21,7 @@ import {
     imports: [
         CommonModule,
         FormsModule,
-        WebAudioModule,
+        WaWebAudio,
         CanvasModule,
         TuiButtonModule,
         TuiSliderModule,
@@ -35,7 +35,7 @@ import {
     styleUrls: ['./audio-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class AudioPageComponent {
+export default class AudioPage {
     private readonly context = inject<AudioContext>(AUDIO_CONTEXT);
 
     @ViewChild('chain')

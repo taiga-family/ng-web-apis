@@ -24,7 +24,7 @@ describe('MutationObserverDirective', () => {
             </section>
         `,
     })
-    class TestComponent {
+    class Test {
         // eslint-disable-next-line jest/no-jasmine-globals
         public onMutation = jasmine.createSpy('onMutation');
         // eslint-disable-next-line jest/no-jasmine-globals
@@ -35,16 +35,16 @@ describe('MutationObserverDirective', () => {
         public label = 'label';
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(done => {
         TestBed.configureTestingModule({
             imports: [MutationObserverDirective],
-            declarations: [TestComponent],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
 

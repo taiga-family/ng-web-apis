@@ -5,7 +5,7 @@ import {TestBed} from '@angular/core/testing';
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
-describe('Canvas2dDirective', () => {
+describe('WaCanvas2d', () => {
     @Component({
         template: `
             <canvas
@@ -28,21 +28,21 @@ describe('Canvas2dDirective', () => {
             </canvas>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         public readonly context!: CanvasRenderingContext2D;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [CanvasModule],
-            declarations: [TestComponent],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

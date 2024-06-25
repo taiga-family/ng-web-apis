@@ -32,21 +32,21 @@ describe('Path', () => {
             </canvas>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         public readonly context!: CanvasRenderingContext2D;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [CanvasModule],
-            declarations: [TestComponent],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

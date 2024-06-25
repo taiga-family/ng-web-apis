@@ -1,9 +1,7 @@
-import {NgModule} from '@angular/core';
 import type {Routes} from '@angular/router';
-import {RouterModule} from '@angular/router';
 import {DemoPath} from '@demo/constants';
 
-export const appRoutes: Routes = [
+export const ROUTES: Routes = [
     {
         path: DemoPath.HomePage,
         loadComponent: async () => import('./pages/home/home-page.component'),
@@ -96,14 +94,3 @@ export const appRoutes: Routes = [
         redirectTo: DemoPath.HomePage,
     },
 ];
-
-@NgModule({
-    imports: [
-        RouterModule.forRoot(appRoutes, {
-            initialNavigation: 'enabledBlocking',
-            scrollPositionRestoration: 'enabled',
-        }),
-    ],
-    exports: [RouterModule],
-})
-export class AppRoutingModule {}

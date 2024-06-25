@@ -7,10 +7,15 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
     standalone: true,
     name: 'pattern',
 })
-export class PatternPipe implements PipeTransform {
+export class WaCanvasPatternPipe implements PipeTransform {
     private readonly context = inject(CANVAS_2D_CONTEXT);
 
     public transform(image: CanvasImageSource, repetition = 'repeat'): CanvasPattern {
         return this.context.createPattern(image, repetition)!;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasPatternPipe}
+ */
+export const PatternPipe = WaCanvasPatternPipe;

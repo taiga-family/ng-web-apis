@@ -6,9 +6,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 @Directive({
     standalone: true,
     selector: 'canvas-draw-image[filter],canvas-path[filter],canvas-text[filter]',
-    providers: [asCanvasProperty(FilterDirective)],
+    providers: [asCanvasProperty(WaCanvasFilter)],
 })
-export class FilterDirective implements CanvasMethod, CanvasFilters {
+export class WaCanvasFilter implements CanvasMethod, CanvasFilters {
     @Input()
     public filter = 'none';
 
@@ -16,3 +16,8 @@ export class FilterDirective implements CanvasMethod, CanvasFilters {
         context.filter = this.filter;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasFilter}
+ */
+export const FilterDirective = WaCanvasFilter;

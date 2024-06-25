@@ -8,9 +8,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     selector:
         'canvas-path[fillStyle],canvas-path[strokeStyle],' +
         'canvas-text[fillStyle],canvas-text[strokeStyle]',
-    providers: [asCanvasProperty(FillStrokeStylesDirective)],
+    providers: [asCanvasProperty(WaCanvasFillStrokeStyles)],
 })
-export class FillStrokeStylesDirective implements CanvasMethod {
+export class WaCanvasFillStrokeStyles implements CanvasMethod {
     @Input()
     public fillStyle: CanvasGradient | CanvasPattern | string = 'black';
 
@@ -22,3 +22,8 @@ export class FillStrokeStylesDirective implements CanvasMethod {
         context.strokeStyle = this.strokeStyle;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasFillStrokeStyles}
+ */
+export const FillStrokeStylesDirective = WaCanvasFillStrokeStyles;

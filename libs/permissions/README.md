@@ -62,11 +62,9 @@ The library also provides a tokens to simplify working with
   [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API)
 
 ```ts
-export class YourComponent {
-  constructor(
-    @Inject(PERMISSIONS_SUPPORT) private readonly permissionsSupport: boolean
-  ) {}
-    ...
+export class Example {
+  constructor(@Inject(PERMISSIONS_SUPPORT) private readonly permissionsSupport: boolean) {}
+}
 ```
 
 ## Browser support

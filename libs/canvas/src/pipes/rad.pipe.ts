@@ -5,8 +5,13 @@ import {Pipe} from '@angular/core';
     standalone: true,
     name: 'rad',
 })
-export class RadPipe implements PipeTransform {
+export class WaCanvasRadPipe implements PipeTransform {
     public transform(input: number): number {
         return (input * Math.PI) / 180;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasRadPipe}
+ */
+export const RadPipe = WaCanvasRadPipe;

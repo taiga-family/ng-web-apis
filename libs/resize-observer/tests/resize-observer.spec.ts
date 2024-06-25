@@ -1,9 +1,9 @@
 import {Component} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {ResizeObserverDirective} from '@ng-web-apis/resize-observer';
+import {WaResizeObserver} from '@ng-web-apis/resize-observer';
 
-describe('ResizeObserverDirective', () => {
+describe('WaResizeObserver', () => {
     @Component({
         template: `
             <section style="position: relative; height: 200px; overflow: auto;">
@@ -17,22 +17,22 @@ describe('ResizeObserverDirective', () => {
             </section>
         `,
     })
-    class TestComponent {
+    class Test {
         // eslint-disable-next-line jest/no-jasmine-globals
         public onResize = jasmine.createSpy('onResize');
         public observe = true;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [ResizeObserverDirective],
-            declarations: [TestComponent],
+            imports: [WaResizeObserver],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
         testComponent.onResize.calls.reset();
