@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/midi",
-    "version": "4.0.0",
+    "version": "4.0.1",
     "description": "An Observable based library for the use of Web MIDI API with Angular",
     "keywords": [
         "angular",

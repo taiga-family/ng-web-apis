@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.0.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/common@4.0.0...@ng-web-apis/common@4.0.1) (2024-06-26)
+
+### Bug Fixes
+
+- update peerDependencies ([#556](https://github.com/taiga-family/ng-web-apis/issues/556))
+  ([06f02d9](https://github.com/taiga-family/ng-web-apis/commit/06f02d9022a55d29f9d6b7be7b24f647ca23ce57))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.0.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/common@3.0.6...@ng-web-apis/common@4.0.0) (2024-06-17)
 
 **Note:** Version bump only for package @ng-web-apis/common
