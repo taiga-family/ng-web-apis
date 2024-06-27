@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/payment-request",
-    "version": "4.0.1",
+    "version": "4.1.0",
     "description": "This is a library for declarative use of Payment Request API with Angular",
     "keywords": [
         "angular",

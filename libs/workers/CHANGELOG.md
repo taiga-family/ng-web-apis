@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.1.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/workers@4.0.1...@ng-web-apis/workers@4.1.0) (2024-06-27)
+
+### Features
+
+- drop postfix ([#555](https://github.com/taiga-family/ng-web-apis/issues/555))
+  ([5dd897a](https://github.com/taiga-family/ng-web-apis/commit/5dd897a62cca8e7f3bc0383bc8b34b45bff36630))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.0.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/workers@4.0.0...@ng-web-apis/workers@4.0.1) (2024-06-26)
 
 ### Bug Fixes
