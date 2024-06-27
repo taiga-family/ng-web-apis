@@ -24,7 +24,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.0.0",
+        "@ng-web-apis/common": ">=4.1.2",
         "rxjs": ">=7.0.0"
     }
 }
