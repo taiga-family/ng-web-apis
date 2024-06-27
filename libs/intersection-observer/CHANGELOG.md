@@ -3,6 +3,18 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/intersection-observer@4.1.0...@ng-web-apis/intersection-observer@4.1.1) (2024-06-27)
+
+### Bug Fixes
+
+- compat for legacy modules ([#559](https://github.com/taiga-family/ng-web-apis/issues/559))
+  ([b720c40](https://github.com/taiga-family/ng-web-apis/commit/b720c402757f94cf793a5141fe7fe48205ae8c37))
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.1.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/intersection-observer@4.0.1...@ng-web-apis/intersection-observer@4.1.0) (2024-06-27)
 
 ### Features

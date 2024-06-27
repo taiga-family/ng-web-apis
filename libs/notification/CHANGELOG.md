@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/notification@4.1.0...@ng-web-apis/notification@4.1.1) (2024-06-27)
+
+**Note:** Version bump only for package @ng-web-apis/notification
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 # [4.1.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/notification@4.0.1...@ng-web-apis/notification@4.1.0) (2024-06-27)
 
 **Note:** Version bump only for package @ng-web-apis/notification
