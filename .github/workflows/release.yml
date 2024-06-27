@@ -1,4 +1,4 @@
-name: ⚠️ Release @ng-web-apis
+name: ⚠️ Release
 on:
   workflow_dispatch:
     inputs:
@@ -15,22 +15,20 @@ on:
           - patch
           - minor
           - major
+          - prerelease
 
 jobs:
   run-release:
     name: Run release
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Fetch from origin repo
-        uses: taiga-family/ci/actions/setup/checkout@v1.62.24
+      - uses: taiga-family/ci/actions/setup/checkout@v1.62.24
         with:
-          fetch-depth: 0
-          persist-credentials: false
-          ref: ${{ github.head_ref }}
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-
+          ref: ${{ github.ref }}
+          fetch-depth: 0
+      - uses: taiga-family/ci/actions/setup/variables@v1.62.24
       - uses: taiga-family/ci/actions/setup/node@v1.62.24
       - uses: taiga-family/ci/actions/setup/config/git@v1.62.24
         with:
@@ -39,20 +37,15 @@ jobs:
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
-      - name: Lerna update version of packages
-        if: always()
-        run: |
-          if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
-            npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
+      - run: |
+          if [[ "${{ github.event.inputs.forcePush }}" == "true" ]]; then
+
+            if [[ "${{ github.event.inputs.mode }}" != "prerelease" ]]; then
+              npx release-it "${{ github.event.inputs.mode }}" --increment --ci
+            else
+                npx release-it --preRelease=alpha --ci
+            fi
+
           else
-              npx lerna version --no-private
+              npx release-it --increment --ci
           fi
-
-      - run: npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo
-
-      - run: npx nx run-many --target=publish --parallel=1 --output-style=stream
-        if: always()
-
-concurrency:
-  group: release-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true

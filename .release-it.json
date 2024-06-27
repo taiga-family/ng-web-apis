@@ -1,0 +1,29 @@
+{
+    "git": {
+        "commitMessage": "chore(release): v${version}",
+        "tagName": "v${version}"
+    },
+    "github": {
+        "release": true,
+        "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main"
+    },
+    "npm": {
+        "publish": false,
+        "skipChecks": true,
+        "allowSameVersion": true
+    },
+    "plugins": {
+        "@release-it-plugins/workspaces": {
+            "skipChecks": true,
+            "publish": false
+        },
+        "@release-it/conventional-changelog": {
+            "preset": "angular",
+            "infile": false
+        }
+    },
+    "hooks": {
+        "after:bump": "npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo && npx nx run-many --target=publish --parallel=1 --output-style=stream",
+        "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    }
+}
