@@ -44,9 +44,6 @@ MIT
 @angular/router
 MIT
 
-@angular/service-worker
-MIT
-
 @babel/runtime
 MIT
 MIT License
@@ -4161,6 +4158,9 @@ Apache-2.0
    See the License for the specific language governing permissions and
    limitations under the License.
 
+
+@taiga-ui/event-plugins
+Apache-2.0
 
 @taiga-ui/i18n
 Apache-2.0
