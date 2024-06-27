@@ -59,7 +59,7 @@ import {inputById, MIDI_INPUT, MIDI_OUTPUT, outputByName} from '@ng-web-apis/mid
   template: '...',
   providers: [inputById('input-0'), outputByName('VirtualMIDISynth')],
 })
-export class MyComponent {
+export class Example {
   constructor(@Inject(MIDI_INPUT) input: Promise<MIDIInput>, @Inject(MIDI_OUTPUT) output: Promise<MIDIOutput>) {}
 }
 ```

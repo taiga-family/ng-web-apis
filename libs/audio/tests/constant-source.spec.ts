@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 import {WebAudioConstantSource} from '../src/sources/constant-source';
 
 describe('ConstantSourceNode', () => {
@@ -11,21 +11,21 @@ describe('ConstantSourceNode', () => {
             <div waConstantSourceNode></div>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild(WebAudioConstantSource)
         public node!: AudioNode;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+            imports: [WaWebAudio],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

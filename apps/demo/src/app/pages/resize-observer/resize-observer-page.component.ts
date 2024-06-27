@@ -1,20 +1,17 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {
-    RESIZE_OBSERVER_SUPPORT,
-    ResizeObserverDirective,
-} from '@ng-web-apis/resize-observer';
+import {RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-observer';
 
 @Component({
     standalone: true,
     selector: 'resize-observer-page',
-    imports: [CommonModule, FormsModule, ResizeObserverDirective],
+    imports: [CommonModule, FormsModule, WaResizeObserver],
     templateUrl: './resize-observer-page.component.html',
     styleUrls: ['./resize-observer-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ResizeObserverPageComponent {
+export default class ResizeObserverPage {
     protected readonly support = inject(RESIZE_OBSERVER_SUPPORT);
 
     protected ratio = 0;

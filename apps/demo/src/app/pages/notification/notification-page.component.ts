@@ -30,7 +30,7 @@ import {NotificationPageExample4} from './examples/04-listen-notification-events
     styleUrls: ['./notification-page.style.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class NotificationPageComponent {
+export default class NotificationPage {
     protected readonly notificationPermissionState$ =
         inject(PermissionsService).state('notifications');
 

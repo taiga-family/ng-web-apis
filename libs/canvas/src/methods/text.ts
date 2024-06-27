@@ -1,14 +1,14 @@
 import {Directive, inject, Input} from '@angular/core';
 
-import {DrawService} from '../services/draw.service';
+import {WaDrawService} from '../services/draw.service';
 
 @Directive({
     standalone: true,
     selector: 'canvas-text',
-    providers: [DrawService],
+    providers: [WaDrawService],
 })
-export class TextDirective {
-    private readonly method = inject(DrawService);
+export class WaCanvasText {
+    private readonly method = inject(WaDrawService);
 
     @Input()
     public text = '';
@@ -29,3 +29,8 @@ export class TextDirective {
         };
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasText}
+ */
+export const TextDirective = WaCanvasText;

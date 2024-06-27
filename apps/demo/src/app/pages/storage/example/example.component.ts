@@ -14,7 +14,7 @@ import type {Observable} from 'rxjs';
     templateUrl: './example.template.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export class ExampleComponent {
+export class Example {
     private readonly storageService = inject(StorageService);
     private readonly storage = inject(LOCAL_STORAGE);
 

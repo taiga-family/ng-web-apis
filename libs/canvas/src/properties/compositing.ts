@@ -9,9 +9,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
         'canvas-draw-image[globalAlpha],canvas-draw-image[globalCompositeOperation],' +
         'canvas-path[globalAlpha],canvas-path[globalCompositeOperation],' +
         'canvas-text[globalAlpha],canvas-text[globalCompositeOperation]',
-    providers: [asCanvasProperty(CompositingDirective)],
+    providers: [asCanvasProperty(WaCanvasCompositing)],
 })
-export class CompositingDirective implements CanvasMethod, CanvasCompositing {
+export class WaCanvasCompositing implements CanvasMethod, CanvasCompositing {
     @Input()
     public globalAlpha = 1;
 
@@ -23,3 +23,8 @@ export class CompositingDirective implements CanvasMethod, CanvasCompositing {
         context.globalCompositeOperation = this.globalCompositeOperation;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasCompositing}
+ */
+export const CompositingDirective = WaCanvasCompositing;

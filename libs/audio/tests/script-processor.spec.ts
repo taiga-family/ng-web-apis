@@ -4,7 +4,7 @@ import {TestBed} from '@angular/core/testing';
 import {
     AUDIO_CONTEXT,
     AUDIO_NODE,
-    WebAudioModule,
+    WaWebAudio,
     WebAudioScriptProcessor,
 } from '@ng-web-apis/audio';
 
@@ -14,21 +14,21 @@ describe('ScriptProcessorNode', () => {
             <div waScriptProcessorNode></div>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild(WebAudioScriptProcessor)
         public node!: AudioNode;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+            imports: [WaWebAudio],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

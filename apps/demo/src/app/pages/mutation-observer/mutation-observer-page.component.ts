@@ -25,7 +25,7 @@ import {TuiInputModule} from '@taiga-ui/kit';
     styleUrls: ['./mutation-observer-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class MutationObserverPageComponent {
+export default class MutationObserverPage {
     protected toggled = false;
 
     protected disabled: true | null = null; // null so the attribute gets removed

@@ -17,7 +17,7 @@ import {SAMPLE_ASYNC} from './samples/sample-async';
     styleUrls: ['./geolocation-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class GeolocationPageComponent {
+export default class GeolocationPage {
     private readonly sanitizer = inject(DomSanitizer);
 
     protected watch = false;

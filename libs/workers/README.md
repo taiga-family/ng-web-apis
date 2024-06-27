@@ -42,7 +42,7 @@ function compute(data: number): number {
     </form>
   `,
 })
-class SomeComponent {
+class My {
   readonly worker = WebWorker.fromFunction<number, number>(compute);
 }
 ```
@@ -65,7 +65,7 @@ function compute(data: number): number {
     </form>
   `,
 })
-class SomeComponent {
+class My {
   readonly worker = WebWorker.fromFunction<number, number>(compute);
   readonly workerData$ = this.worker.pipe(toData());
 }
@@ -79,7 +79,7 @@ import {NgModule} from '@angular/core';
 
 @NgModule({
   imports: [WorkerModule],
-  declarations: [SomeComponent],
+  declarations: [My],
 })
 class SomeModule {}
 ```
@@ -95,7 +95,7 @@ import {FormControl} from '@angular/forms';
     <input [(ngModel)]="value" />
   `,
 })
-class SomeComponent {
+class My {
   value: string;
 
   changeData(data: string): string {

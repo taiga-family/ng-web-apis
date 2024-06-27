@@ -57,7 +57,7 @@ Alternatively you can use `Observable`-based `ResizeObserverService` and provide
     },
   ],
 })
-export class MyComponent {
+export class Example {
   constructor(@Inject(ResizeObserverService) entries$: ResizeObserverService) {
     entries$.subscribe(entries => {
       // This will trigger when the component resizes

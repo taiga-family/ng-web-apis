@@ -15,7 +15,7 @@ import {SAMPLE} from './samples/basic';
     styleUrls: ['./permissions-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class PermissionsPageComponent {
+export default class PermissionsPage {
     private readonly navigator: Navigator = inject(NAVIGATOR);
 
     protected error$ = new BehaviorSubject<string | null>(null);

@@ -1,7 +1,7 @@
 import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {WebAudioAnalyser, WebAudioModule} from '@ng-web-apis/audio';
+import {WaWebAudio, WebAudioAnalyser} from '@ng-web-apis/audio';
 import {take} from 'rxjs';
 
 import {providers} from '../src/constants/fallback';
@@ -13,21 +13,21 @@ describe('Analyser', () => {
                 <div waAnalyserNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioAnalyser)
             public node!: WebAudioAnalyser;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });
@@ -71,22 +71,22 @@ describe('Analyser', () => {
                 <div waAnalyserNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioAnalyser)
             public node!: WebAudioAnalyser;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers,
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });

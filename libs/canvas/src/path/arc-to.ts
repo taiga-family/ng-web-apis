@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-arc-to',
-    providers: [asCanvasMethod(ArcToDirective)],
+    providers: [asCanvasMethod(WaCanvasArcTo)],
 })
-export class ArcToDirective implements CanvasMethod {
+export class WaCanvasArcTo implements CanvasMethod {
     @Input()
     public x1 = 0;
 
@@ -28,3 +28,8 @@ export class ArcToDirective implements CanvasMethod {
         context.arcTo(this.x1, this.y1, this.x2, this.y2, this.radius);
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasArcTo}
+ */
+export const ArcToDirective = WaCanvasArcTo;

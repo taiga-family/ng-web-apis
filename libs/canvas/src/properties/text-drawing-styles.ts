@@ -7,9 +7,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     standalone: true,
     selector:
         'canvas-text[direction],canvas-text[font],canvas-text[textAlign],canvas-text[textBaseline]',
-    providers: [asCanvasProperty(TextDrawingStylesDirective)],
+    providers: [asCanvasProperty(WaCanvasTextDrawingStyles)],
 })
-export class TextDrawingStylesDirective implements CanvasMethod, CanvasTextDrawingStyles {
+export class WaCanvasTextDrawingStyles implements CanvasMethod, CanvasTextDrawingStyles {
     @Input()
     public direction: CanvasDirection = 'inherit';
 
@@ -32,3 +32,8 @@ export class TextDrawingStylesDirective implements CanvasMethod, CanvasTextDrawi
         context.textBaseline = this.textBaseline;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasTextDrawingStyles}
+ */
+export const TextDrawingStylesDirective = WaCanvasTextDrawingStyles;

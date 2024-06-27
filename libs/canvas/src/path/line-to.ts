@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-line-to',
-    providers: [asCanvasMethod(LineToDirective)],
+    providers: [asCanvasMethod(WaCanvasLineTo)],
 })
-export class LineToDirective implements CanvasMethod {
+export class WaCanvasLineTo implements CanvasMethod {
     @Input()
     public x = 0;
 
@@ -19,3 +19,8 @@ export class LineToDirective implements CanvasMethod {
         context.lineTo(this.x, this.y);
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasLineTo}
+ */
+export const LineToDirective = WaCanvasLineTo;

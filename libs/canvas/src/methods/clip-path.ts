@@ -10,7 +10,12 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
         <ng-content></ng-content>
     `,
 })
-export class ClipPathComponent {
+export class WaCanvasClipPath {
     @ContentChildren(CANVAS_METHOD)
     public readonly pathSteps = new QueryList<CanvasMethod>();
 }
+
+/**
+ * @deprecated: use {@link WaCanvasClipPath}
+ */
+export const ClipPathComponent = WaCanvasClipPath;

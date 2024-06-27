@@ -69,11 +69,9 @@ The library also provides some tokens to simplify working with
   [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
 ```ts
-export class YourComponent {
-    constructor(
-        @Inject(GEOLOCATION_SUPPORT) private readonly geolocationSupport: boolean
-    ) {}
-    ...
+export class Example {
+  constructor(@Inject(GEOLOCATION_SUPPORT) private readonly geolocationSupport: boolean) {}
+}
 ```
 
 - You can provide [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) through

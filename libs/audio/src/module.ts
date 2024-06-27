@@ -1,5 +1,3 @@
-import {NgModule} from '@angular/core';
-
 import {WebAudioContext} from './directives/audio-context';
 import {WebAudioChannel} from './directives/channel';
 import {WebAudioDestination} from './directives/destination';
@@ -29,66 +27,38 @@ import {WebAudioMediaSource} from './sources/media-source';
 import {WebAudioMediaStreamSource} from './sources/media-stream-source';
 import {WebAudioOscillator} from './sources/oscillator';
 
-@NgModule({
-    imports: [
-        WebAudioContext,
-        WebAudioChannel,
-        WebAudioDestination,
-        WebAudioListener,
-        WebAudioOfflineContext,
-        WebAudioOutput,
-        WebAudioMediaStreamDestination,
-        WebAudioBufferSource,
-        WebAudioConstantSource,
-        WebAudioMediaSource,
-        WebAudioMediaStreamSource,
-        WebAudioOscillator,
-        WebAudioAnalyser,
-        WebAudioBiquadFilter,
-        WebAudioChannelSplitter,
-        WebAudioChannelMerger,
-        WebAudioConvolver,
-        WebAudioDelay,
-        WebAudioDynamicsCompressor,
-        WebAudioGain,
-        WebAudioIIRFilter,
-        WebAudioPanner,
-        WebAudioScriptProcessor,
-        WebAudioStereoPanner,
-        WebAudioWaveShaper,
-        WebAudioWorklet,
-        WebAudioParamPipe,
-        WebAudioPeriodicWavePipe,
-    ],
-    exports: [
-        WebAudioContext,
-        WebAudioChannel,
-        WebAudioDestination,
-        WebAudioListener,
-        WebAudioOfflineContext,
-        WebAudioOutput,
-        WebAudioMediaStreamDestination,
-        WebAudioBufferSource,
-        WebAudioConstantSource,
-        WebAudioMediaSource,
-        WebAudioMediaStreamSource,
-        WebAudioOscillator,
-        WebAudioAnalyser,
-        WebAudioBiquadFilter,
-        WebAudioChannelSplitter,
-        WebAudioChannelMerger,
-        WebAudioConvolver,
-        WebAudioDelay,
-        WebAudioDynamicsCompressor,
-        WebAudioGain,
-        WebAudioIIRFilter,
-        WebAudioPanner,
-        WebAudioScriptProcessor,
-        WebAudioStereoPanner,
-        WebAudioWaveShaper,
-        WebAudioWorklet,
-        WebAudioParamPipe,
-        WebAudioPeriodicWavePipe,
-    ],
-})
-export class WebAudioModule {}
+export const WaWebAudio = [
+    WebAudioContext,
+    WebAudioChannel,
+    WebAudioDestination,
+    WebAudioListener,
+    WebAudioOfflineContext,
+    WebAudioOutput,
+    WebAudioMediaStreamDestination,
+    WebAudioBufferSource,
+    WebAudioConstantSource,
+    WebAudioMediaSource,
+    WebAudioMediaStreamSource,
+    WebAudioOscillator,
+    WebAudioAnalyser,
+    WebAudioBiquadFilter,
+    WebAudioChannelSplitter,
+    WebAudioChannelMerger,
+    WebAudioConvolver,
+    WebAudioDelay,
+    WebAudioDynamicsCompressor,
+    WebAudioGain,
+    WebAudioIIRFilter,
+    WebAudioPanner,
+    WebAudioScriptProcessor,
+    WebAudioStereoPanner,
+    WebAudioWaveShaper,
+    WebAudioWorklet,
+    WebAudioParamPipe,
+    WebAudioPeriodicWavePipe,
+];
+
+/**
+ * @deprecated: use {@link WaWebAudio}
+ */
+export const WebAudioModule = WaWebAudio;

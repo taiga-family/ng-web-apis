@@ -9,9 +9,9 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
         'canvas-draw-image[imageSmoothingEnabled],canvas-draw-image[imageSmoothingQuality],' +
         'canvas-path[imageSmoothingEnabled],canvas-path[imageSmoothingQuality],' +
         'canvas-text[imageSmoothingEnabled],canvas-text[imageSmoothingQuality]',
-    providers: [asCanvasProperty(ImageSmoothingDirective)],
+    providers: [asCanvasProperty(WaCanvasImageSmoothing)],
 })
-export class ImageSmoothingDirective implements CanvasMethod, CanvasImageSmoothing {
+export class WaCanvasImageSmoothing implements CanvasMethod, CanvasImageSmoothing {
     @Input()
     public imageSmoothingEnabled = true;
 
@@ -23,3 +23,8 @@ export class ImageSmoothingDirective implements CanvasMethod, CanvasImageSmoothi
         context.imageSmoothingQuality = this.imageSmoothingQuality;
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasImageSmoothing}
+ */
+export const ImageSmoothingDirective = WaCanvasImageSmoothing;

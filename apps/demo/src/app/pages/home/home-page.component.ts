@@ -18,7 +18,7 @@ import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
     styleUrls: ['./home-page.component.css'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class HomePageComponent {
+export default class HomePage {
     protected readonly link = DemoPath;
     protected readonly paymentRequestSupport = inject(PAYMENT_REQUEST_SUPPORT);
     protected readonly geolocationSupport = inject(GEOLOCATION_SUPPORT);

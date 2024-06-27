@@ -46,7 +46,7 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
     styleUrls: ['./speech-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class SpeechPageComponent {
+export default class SpeechPage {
     private readonly recognition$ = inject(SpeechRecognitionService);
     protected readonly platformId = inject(PLATFORM_ID);
     protected readonly voices$ = inject(SPEECH_SYNTHESIS_VOICES);

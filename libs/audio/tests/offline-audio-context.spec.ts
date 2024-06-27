@@ -3,7 +3,7 @@ import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
 import {WebAudioOfflineContext} from '../src/directives/offline-audio-context';
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 
 describe('OfflineAudioContext', () => {
     @Component({
@@ -15,21 +15,21 @@ describe('OfflineAudioContext', () => {
             ></div>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild(WebAudioOfflineContext)
         public audioContext!: OfflineAudioContext;
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WebAudioModule],
-            declarations: [TestComponent],
+            imports: [WaWebAudio],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

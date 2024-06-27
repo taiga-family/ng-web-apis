@@ -4,7 +4,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {providers} from '../src/constants/fallback';
 import {WebAudioChannel} from '../src/directives/channel';
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 
 describe('Channel', () => {
     describe('Channel', () => {
@@ -13,23 +13,23 @@ describe('Channel', () => {
                 <div waChannel></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioChannel)
             public node!: AudioNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
             });
         });
 
         it('creates node', () => {
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
 
@@ -43,24 +43,24 @@ describe('Channel', () => {
                 <div waChannel></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioChannel)
             public node!: AudioNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers,
             });
         });
 
         it('creates node', () => {
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
 

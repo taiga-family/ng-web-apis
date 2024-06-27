@@ -194,11 +194,9 @@ The library also provides some tokens to simplify working with Payment Request A
 - `PAYMENT_REQUEST_SUPPORT` returns `true` if user's browser supports Payment Request API
 
 ```ts
-export class YourComponent {
-    constructor(
-        @Inject(PAYMENT_REQUEST_SUPPORT) private readonly canRequest: boolean
-    ) {}
-    ...
+export class Example {
+  constructor(@Inject(PAYMENT_REQUEST_SUPPORT) private readonly canRequest: boolean) {}
+}
 ```
 
 - You can provide `PAYMENT_METHODS` as an array of supported API methods. It uses `[{supportedMethods: 'basic-card'}]`
@@ -206,20 +204,20 @@ export class YourComponent {
 
 ```ts
 @Component({
-    ...
-    providers: [
-        {
-            provide: [PAYMENT_METHODS],
-            useValue: [
-                // a sample with Google Pay from https://developers.google.com/pay/api/web/guides/paymentrequest/tutorial?hl=en
-                {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
-                {supportedMethods: 'basic-card'}
-            ]
-        }
-    ]
+  //  ...
+  providers: [
+    {
+      provide: [PAYMENT_METHODS],
+      useValue: [
+        // a sample with Google Pay from https://developers.google.com/pay/api/web/guides/paymentrequest/tutorial?hl=en
+        {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
+        {supportedMethods: 'basic-card'},
+      ],
+    },
+  ],
 })
-export class YourComponentThatMakesPaymentRequests {
-    ...
+export class Example {
+  // ...
 }
 ```
 
@@ -227,21 +225,21 @@ export class YourComponentThatMakesPaymentRequests {
 
 ```ts
 @Component({
-    ...
-    providers: [
-        {
-            provide: [PAYMENT_OPTIONS],
-            useValue: {
-                shippingType: 'express',
-                requestPayerName: true,
-                requestShipping: true,
-                requestPayerEmail: true,
-            }
-        }
-    ]
+  // ...
+  providers: [
+    {
+      provide: [PAYMENT_OPTIONS],
+      useValue: {
+        shippingType: 'express',
+        requestPayerName: true,
+        requestShipping: true,
+        requestPayerEmail: true,
+      },
+    },
+  ],
 })
-export class YourComponentThatMakesPaymentRequests {
-    ...
+export class Example {
+  // ...
 }
 ```
 

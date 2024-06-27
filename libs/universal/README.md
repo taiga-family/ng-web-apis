@@ -19,23 +19,7 @@ SSR.
 
 ## Tokens
 
-You can provide tokens from this package into your `app.server.module.ts` to have type safe mocks for global objects on
-server side with `UniversalModule`:
-
-```ts
-@NgModule({
-  imports: [
-    AppBrowserModule,
-    ServerModule,
-    UniversalModule, // <-- add this
-  ],
-  bootstrap: [AppComponent],
-})
-export class AppServerModule {}
-```
-
-Alternatively, if you have a standalone app that is initialized using the bootstrapApplication function, you can import
-`UNIVERSAL_PROVIDERS` in the following manner:
+You can import `UNIVERSAL_PROVIDERS` in the following manner:
 
 ```ts
 const serverConfig: ApplicationConfig = {

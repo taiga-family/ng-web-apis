@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-ellipse',
-    providers: [asCanvasMethod(EllipseDirective)],
+    providers: [asCanvasMethod(WaCanvasEllipse)],
 })
-export class EllipseDirective implements CanvasMethod {
+export class WaCanvasEllipse implements CanvasMethod {
     @Input()
     public x = 0;
 
@@ -46,3 +46,8 @@ export class EllipseDirective implements CanvasMethod {
         );
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasEllipse}
+ */
+export const EllipseDirective = WaCanvasEllipse;

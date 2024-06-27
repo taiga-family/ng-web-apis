@@ -12,4 +12,9 @@ import {INTERSECTION_ROOT} from '../tokens/intersection-root';
         },
     ],
 })
-export class IntersectionRootDirective {}
+export class WaIntersectionRoot {}
+
+/**
+ * @deprecated: use {@link WaIntersectionRoot}
+ */
+export const IntersectionRootDirective = WaIntersectionRoot;

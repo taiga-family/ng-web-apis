@@ -7,10 +7,10 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     standalone: true,
     selector:
         'canvas[transform],canvas-draw-image[transform],canvas-path[transform],canvas-text[transform]',
-    providers: [asCanvasProperty(TransformDirective)],
+    providers: [asCanvasProperty(WaCanvasTransform)],
 })
-export class TransformDirective implements CanvasMethod {
-    private readonly parent = inject(TransformDirective, {
+export class WaCanvasTransform implements CanvasMethod {
+    private readonly parent = inject(WaCanvasTransform, {
         skipSelf: true,
         optional: true,
     });
@@ -24,3 +24,8 @@ export class TransformDirective implements CanvasMethod {
         );
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasTransform}
+ */
+export const TransformDirective = WaCanvasTransform;

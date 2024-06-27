@@ -6,9 +6,9 @@ import {asCanvasMethod} from '../tokens/canvas-method';
 @Directive({
     standalone: true,
     selector: 'canvas-move-to',
-    providers: [asCanvasMethod(MoveToDirective)],
+    providers: [asCanvasMethod(WaCanvasMoveTo)],
 })
-export class MoveToDirective implements CanvasMethod {
+export class WaCanvasMoveTo implements CanvasMethod {
     @Input()
     public x = 0;
 
@@ -19,3 +19,8 @@ export class MoveToDirective implements CanvasMethod {
         context.moveTo(this.x, this.y);
     }
 }
+
+/**
+ * @deprecated: use {@link WaCanvasMoveTo}
+ */
+export const MoveToDirective = WaCanvasMoveTo;

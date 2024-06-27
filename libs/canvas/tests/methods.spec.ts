@@ -2,7 +2,7 @@ import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
-import {ClipPathComponent} from '../src/methods/clip-path';
+import {WaCanvasClipPath} from '../src/methods/clip-path';
 import {CanvasModule} from '../src/module';
 import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
@@ -48,12 +48,12 @@ describe('Methods', () => {
             </canvas>
         `,
     })
-    class TestComponent {
+    class Test {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
         public readonly context!: CanvasRenderingContext2D;
 
-        @ViewChild(ClipPathComponent)
-        public readonly clipPath!: ClipPathComponent;
+        @ViewChild(WaCanvasClipPath)
+        public readonly clipPath!: WaCanvasClipPath;
 
         public readonly image = new Image();
 
@@ -70,16 +70,16 @@ describe('Methods', () => {
         }
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [CanvasModule],
-            declarations: [TestComponent],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

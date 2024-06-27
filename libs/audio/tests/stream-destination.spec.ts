@@ -4,7 +4,7 @@ import {TestBed} from '@angular/core/testing';
 
 import {providers} from '../src/constants/fallback';
 import {WebAudioMediaStreamDestination} from '../src/directives/stream-destination';
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 
 describe('StreamDestination', () => {
     describe('MediaStreamAudioDestinationNode', () => {
@@ -13,21 +13,21 @@ describe('StreamDestination', () => {
                 <div waMediaStreamAudioDestinationNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioMediaStreamDestination)
             public node!: MediaStreamAudioDestinationNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });
@@ -45,22 +45,22 @@ describe('StreamDestination', () => {
                 <div waMediaStreamAudioDestinationNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioMediaStreamDestination)
             public node!: MediaStreamAudioDestinationNode;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers,
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });

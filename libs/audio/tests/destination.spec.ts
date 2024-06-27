@@ -5,7 +5,7 @@ import {Observable} from 'rxjs';
 
 import {providers} from '../src/constants/fallback';
 import {WebAudioDestination} from '../src/directives/destination';
-import {WebAudioModule} from '../src/module';
+import {WaWebAudio} from '../src/module';
 import {WebAudioBufferSource} from '../src/sources/buffer-source';
 
 describe('Destination', () => {
@@ -24,7 +24,7 @@ describe('Destination', () => {
                 </div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioDestination)
             public node!: WebAudioDestination;
 
@@ -34,18 +34,18 @@ describe('Destination', () => {
             public quiet = false;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         const timeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
             // eslint-disable-next-line jest/no-jasmine-globals
@@ -87,22 +87,22 @@ describe('Destination', () => {
                 <div waAudioDestinationNode></div>
             `,
         })
-        class TestComponent {
+        class Test {
             @ViewChild(WebAudioDestination)
             public node!: WebAudioDestination;
         }
 
-        let fixture: ComponentFixture<TestComponent>;
-        let testComponent: TestComponent;
+        let fixture: ComponentFixture<Test>;
+        let testComponent: Test;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WebAudioModule],
-                declarations: [TestComponent],
+                imports: [WaWebAudio],
+                declarations: [Test],
                 providers,
             });
 
-            fixture = TestBed.createComponent(TestComponent);
+            fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
         });

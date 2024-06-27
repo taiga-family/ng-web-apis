@@ -1,19 +1,10 @@
-import {NgModule} from '@angular/core';
+import {WaObservee} from './directives/intersection-observee.directive';
+import {WaObserver} from './directives/intersection-observer.directive';
+import {WaIntersectionRoot} from './directives/intersection-root.directive';
 
-import {IntersectionObserveeDirective} from './directives/intersection-observee.directive';
-import {IntersectionObserverDirective} from './directives/intersection-observer.directive';
-import {IntersectionRootDirective} from './directives/intersection-root.directive';
+export const WaIntersectionObserver = [WaObserver, WaObservee, WaIntersectionRoot];
 
-@NgModule({
-    imports: [
-        IntersectionObserverDirective,
-        IntersectionObserveeDirective,
-        IntersectionRootDirective,
-    ],
-    exports: [
-        IntersectionObserverDirective,
-        IntersectionObserveeDirective,
-        IntersectionRootDirective,
-    ],
-})
-export class IntersectionObserverModule {}
+/**
+ * @deprecated: use {@link WaIntersectionObserver}
+ */
+export const IntersectionObserverModule = WaIntersectionObserver;

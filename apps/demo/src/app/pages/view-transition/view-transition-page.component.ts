@@ -62,7 +62,7 @@ const USAGE_SAMPLE = `
     styleUrls: ['./view-transition-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
-export default class ViewTransitionPageComponent {
+export default class ViewTransitionPage {
     private readonly viewTransitionService = inject(ViewTransitionService);
     private readonly cdr = inject(ChangeDetectorRef);
     private readonly destroyRef = inject(DestroyRef);

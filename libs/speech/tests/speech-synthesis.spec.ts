@@ -22,7 +22,7 @@ describe('SpeechSynthesis', () => {
             ></ng-container>
         `,
     })
-    class TestComponent {
+    class Test {
         public options?: SpeechSynthesisUtteranceOptions;
         public text = 'Test 1';
         public paused = true;
@@ -37,16 +37,16 @@ describe('SpeechSynthesis', () => {
         public readonly onEnd = jasmine.createSpy('onEnd');
     }
 
-    let fixture: ComponentFixture<TestComponent>;
-    let testComponent: TestComponent;
+    let fixture: ComponentFixture<Test>;
+    let testComponent: Test;
 
     beforeEach(() => {
         TestBed.configureTestingModule({
             imports: [TextToSpeechDirective, UtterancePipe],
-            declarations: [TestComponent],
+            declarations: [Test],
         });
 
-        fixture = TestBed.createComponent(TestComponent);
+        fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;
         fixture.detectChanges();
     });

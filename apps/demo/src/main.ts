@@ -1,19 +1,6 @@
-import type {NgModuleRef} from '@angular/core';
-import {enableProdMode} from '@angular/core';
-import {platformBrowserDynamic} from '@angular/platform-browser-dynamic';
+import {bootstrapApplication} from '@angular/platform-browser';
 
-import {AppBrowserModule} from './app/app.browser.module';
-import {environment} from './environments/environment';
+import {App} from './app/app.component';
+import {config} from './app/app.config';
 
-if (environment.production) {
-    enableProdMode();
-}
-
-const bootstrap = async (): Promise<NgModuleRef<AppBrowserModule>> =>
-    platformBrowserDynamic().bootstrapModule(AppBrowserModule);
-
-document.addEventListener('DOMContentLoaded', () => {
-    setTimeout(() => {
-        bootstrap().catch(err => console.error(err));
-    });
-});
+bootstrapApplication(App, config).catch(err => console.error(err));

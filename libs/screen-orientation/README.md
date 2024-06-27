@@ -12,7 +12,7 @@ npm i @ng-web-apis/screen-orientation
 import {ScreenOrientationService} from '@ng-web-apis/screen-orientation';
 
 // ...
-export class MyComponent {
+export class Example {
   constructor(readonly orientation$: ScreenOrientationService) {}
 }
 ```
