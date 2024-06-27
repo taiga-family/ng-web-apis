@@ -12,7 +12,7 @@ import {thresholdFactory} from '../utils/threshold-factory';
     selector: '[waIntersectionObserver]',
     exportAs: 'IntersectionObserver',
 })
-export class WaObserver extends SafeObserver implements OnDestroy {
+export class WaIntersectionObserverDirective extends SafeObserver implements OnDestroy {
     private readonly callbacks = new Map<Element, IntersectionObserverCallback>();
 
     constructor(
@@ -56,6 +56,11 @@ export class WaObserver extends SafeObserver implements OnDestroy {
 }
 
 /**
+ * @deprecated: use {@link WaIntersectionObserverDirective}
+ */
+export const IntersectionObserverDirective = WaIntersectionObserverDirective;
+
+/**
  * @deprecated: use {@link WaIntersectionObserver}
  */
-export const IntersectionObserverDirective = WaObserver;
+export const WaObserver = WaIntersectionObserverDirective;

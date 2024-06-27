@@ -6,7 +6,7 @@ import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
     standalone: true,
     selector: '[waTextToSpeech]',
 })
-export class TextToSpeechDirective implements OnChanges {
+export class WaTextToSpeech implements OnChanges {
     private readonly speechSynthesisRef = inject(SPEECH_SYNTHESIS);
 
     @Input('waTextToSpeechPaused')
@@ -45,3 +45,8 @@ export class TextToSpeechDirective implements OnChanges {
         }
     }
 }
+
+/**
+ * @deprecated: use {@link WaTextToSpeech}
+ */
+export const TextToSpeechDirective = WaTextToSpeech;

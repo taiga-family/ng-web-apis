@@ -8,11 +8,16 @@ import {IntersectionObserveeService} from '../services/intersection-observee.ser
     outputs: ['waIntersectionObservee'],
     providers: [IntersectionObserveeService],
 })
-export class WaObservee {
+export class WaIntersectionObservee {
     protected readonly waIntersectionObservee = inject(IntersectionObserveeService);
 }
 
 /**
- * @deprecated: use {@link WaObservee}
+ * @deprecated: use {@link WaIntersectionObservee}
  */
-export const IntersectionObserveeDirective = WaObservee;
+export const IntersectionObserveeDirective = WaIntersectionObservee;
+
+/**
+ * @deprecated: use {@link WaIntersectionObservee}
+ */
+export const WaObservee = WaIntersectionObservee;

@@ -2,12 +2,12 @@ import {Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 
-import {WaObserver} from '../src/directives/intersection-observer.directive';
+import {WaIntersectionObserverDirective} from '../src/directives/intersection-observer.directive';
 import {WaIntersectionObserver} from '../src/module';
 import {INTERSECTION_ROOT_MARGIN} from '../src/tokens/intersection-root-margin';
 import {INTERSECTION_THRESHOLD} from '../src/tokens/intersection-threshold';
 
-describe('WaObservee', () => {
+describe('WaIntersectionObservee', () => {
     @Component({
         template: `
             <div id="manual_observee">Hello</div>
@@ -38,8 +38,8 @@ describe('WaObservee', () => {
         `,
     })
     class Test {
-        @ViewChild('root', {read: WaObserver})
-        public observer!: WaObserver;
+        @ViewChild('root', {read: WaIntersectionObserverDirective})
+        public observer!: WaIntersectionObserverDirective;
 
         // eslint-disable-next-line jest/no-jasmine-globals
         public onIntersection = jasmine.createSpy('onIntersection');
