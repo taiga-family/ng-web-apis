@@ -25,7 +25,7 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
     ],
     exportAs: 'MutationObserver',
 })
-export class MutationObserverDirective extends SafeObserver implements OnDestroy {
+export class WaMutationObserver extends SafeObserver implements OnDestroy {
     private readonly nativeElement: Node = inject(ElementRef).nativeElement;
     private readonly config = inject(MUTATION_OBSERVER_INIT);
 
@@ -52,3 +52,8 @@ export class MutationObserverDirective extends SafeObserver implements OnDestroy
         this.disconnect();
     }
 }
+
+/**
+ * @deprecated: use {@link WaMutationObserver}
+ */
+export const MutationObserverDirective = WaMutationObserver;

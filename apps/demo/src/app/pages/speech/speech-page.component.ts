@@ -9,8 +9,8 @@ import {
     SPEECH_SYNTHESIS_VOICES,
     SpeechRecognitionService,
     takeUntilSaid,
-    TextToSpeechDirective,
     UtterancePipe,
+    WaTextToSpeech,
 } from '@ng-web-apis/speech';
 import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
 import type {TuiContextWithImplicit} from '@taiga-ui/cdk';
@@ -39,7 +39,7 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
         TuiLabelModule,
         TuiTooltipModule,
         TuiSidebarModule,
-        TextToSpeechDirective,
+        WaTextToSpeech,
         UtterancePipe,
     ],
     templateUrl: './speech-page.component.html',
