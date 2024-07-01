@@ -26,3 +26,4 @@ A set of common utils for consuming Web APIs with Angular
 - `SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
 - `PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
 - `HISTORY` — provides access to `window.history` object
+- `WA_IN_IFRAME` — identify if `window` is being loaded inside an iframe
