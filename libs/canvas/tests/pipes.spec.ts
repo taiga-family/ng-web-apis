@@ -75,7 +75,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
         fixture.detectChanges();
     });
 
-    it('gradient works', done => {
+    it('gradient works', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 127, 0, 127, 255,

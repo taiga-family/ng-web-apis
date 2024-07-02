@@ -27,7 +27,7 @@ describe('AudioWorkletNode', () => {
     let fixture: ComponentFixture<Test>;
     let testComponent: Test;
 
-    beforeEach(done => {
+    beforeEach((done) => {
         TestBed.configureTestingModule({
             imports: [WaWebAudio],
             declarations: [Test],
@@ -49,7 +49,7 @@ describe('AudioWorkletNode', () => {
     });
 
     // TODO: need investigate why
-    xit('creates node', () => {
+    it.skip('creates node', () => {
         expect(testComponent.node instanceof AudioWorkletNode).toBe(true);
     });
 });

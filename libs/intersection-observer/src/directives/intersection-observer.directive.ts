@@ -22,7 +22,7 @@ export class WaIntersectionObserverDirective extends SafeObserver implements OnD
         const root = inject<ElementRef<Element>>(INTERSECTION_ROOT, {optional: true});
 
         super(
-            entries => {
+            (entries) => {
                 this.callbacks.forEach((callback, element) => {
                     const filtered = entries.filter(({target}) => target === element);
 

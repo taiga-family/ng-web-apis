@@ -40,7 +40,7 @@ Below is an example of checking the permission to use geolocation:
 
 ```ts
 const geolocationStatus$ = this.permissions.state('geolocation');
-geolocationStatus$.subscribe(geolocationStatus => doSomething(geolocationStatus));
+geolocationStatus$.subscribe((geolocationStatus) => doSomething(geolocationStatus));
 ```
 
 Note, that a call to the `permissions.state()` returns an observable, which will emit new values in case the state for
@@ -48,7 +48,7 @@ the permission in question changes. If you need to get state just once and stop 
 `take(1)` RxJs operator:
 
 ```ts
-geolocationStatus$.pipe(take(1)).subscribe(geolocationStatus => doSomething(geolocationStatus));
+geolocationStatus$.pipe(take(1)).subscribe((geolocationStatus) => doSomething(geolocationStatus));
 ```
 
 The observable is cold, meaning if there are no active subscriptions, it doesn't track the status of the permission.

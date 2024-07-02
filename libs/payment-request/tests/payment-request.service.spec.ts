@@ -48,28 +48,28 @@ describe('PaymentRequestService', () => {
             service = TestBed.inject(PaymentRequestService);
         });
 
-        it('throws an error if Payment Request in cannot pay status', done => {
+        it('throws an error if Payment Request in cannot pay status', (done) => {
             (globalThis as any).PaymentRequest = FakePaymentRequest;
 
             const promise = service.request(paymentDetails);
 
             promise.then(
                 () => {},
-                error => {
+                (error) => {
                     expect(error.message).toBe('Payment Request cannot make the payment');
                     done();
                 },
             );
         });
 
-        it('returns response if Payment Request in can pay status', done => {
+        it('returns response if Payment Request in can pay status', (done) => {
             canPay = true;
 
             (globalThis as any).PaymentRequest = FakePaymentRequest;
 
             const promise = service.request(paymentDetails);
 
-            void promise.then(result => {
+            void promise.then((result) => {
                 expect(result).toBe(response as PaymentResponse);
                 done();
             });
@@ -77,7 +77,7 @@ describe('PaymentRequestService', () => {
     });
 
     describe('Payment Request Service if unsupported', () => {
-        it('cannot request and throws an error if Payment Request is not supported', done => {
+        it('cannot request and throws an error if Payment Request is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
                     {provide: PAYMENT_REQUEST_SUPPORT, useValue: false},
@@ -90,7 +90,7 @@ describe('PaymentRequestService', () => {
 
             promise.then(
                 () => {},
-                error => {
+                (error) => {
                     expect(error.message).toBe(
                         'Payment Request is not supported in your browser',
                     );

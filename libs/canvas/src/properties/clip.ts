@@ -23,7 +23,7 @@ export class WaCanvasClip implements CanvasMethod {
         if (this.clip instanceof WaCanvasClipPath) {
             context.beginPath();
 
-            this.clip.pathSteps.forEach(step => {
+            this.clip.pathSteps.forEach((step) => {
                 step.call(context);
             });
 

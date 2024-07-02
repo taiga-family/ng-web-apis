@@ -51,7 +51,7 @@ describe('SpeechSynthesis', () => {
         fixture.detectChanges();
     });
 
-    it('Throws error when not allowed', () => {
+    it('throws error when not allowed', () => {
         expect(testComponent.onError).toHaveBeenCalledWith('not-allowed');
 
         // Just to cover both missing and empty argument branches
@@ -59,7 +59,7 @@ describe('SpeechSynthesis', () => {
         fixture.detectChanges();
     });
 
-    it('Accepts options', () => {
+    it('accepts options', () => {
         testComponent.paused = false;
         testComponent.options = {
             voice: null,
@@ -73,7 +73,7 @@ describe('SpeechSynthesis', () => {
         expect(testComponent.onError).toHaveBeenCalledWith('not-allowed');
     });
 
-    it('Emits events', () => {
+    it('emits events', () => {
         testComponent.utterance.onmark!('a' as any);
         testComponent.utterance.onboundary!('b' as any);
         testComponent.utterance.onend!('c' as any);

@@ -59,7 +59,7 @@ Alternatively you can use `Observable`-based `ResizeObserverService` and provide
 })
 export class Example {
   constructor(@Inject(ResizeObserverService) entries$: ResizeObserverService) {
-    entries$.subscribe(entries => {
+    entries$.subscribe((entries) => {
       // This will trigger when the component resizes
       // Don't forget to unsubscribe
       console.log(entries);

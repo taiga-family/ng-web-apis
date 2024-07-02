@@ -38,7 +38,7 @@ describe('WaResizeObserver', () => {
         testComponent.onResize.calls.reset();
     });
 
-    it('Emits resizes', done => {
+    it('emits resizes', (done) => {
         document.querySelector('#resize_elem')!.scrollTop = 350;
         fixture.detectChanges();
 

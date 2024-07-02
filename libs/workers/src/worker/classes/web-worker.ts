@@ -19,7 +19,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
             error = e;
         }
 
-        super(subscriber => {
+        super((subscriber) => {
             let eventStream$: Observable<ErrorEvent | TypedMessageEvent<R>> = EMPTY;
 
             if (error) {
@@ -29,10 +29,10 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
             } else if (worker) {
                 eventStream$ = merge(
                     fromEvent<TypedMessageEvent<R>>(worker, 'message').pipe(
-                        tap(event => subscriber.next(event)),
+                        tap((event) => subscriber.next(event)),
                     ),
                     fromEvent<ErrorEvent>(worker, 'error').pipe(
-                        tap(event => subscriber.error(event)),
+                        tap((event) => subscriber.error(event)),
                     ),
                 ).pipe(takeUntil(this.destroy$));
             }
@@ -62,7 +62,7 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
 
         worker.postMessage(data);
 
-        return promise.then(result => {
+        return promise.then((result) => {
             worker.terminate();
 
             return result as unknown as TypedMessageEvent<R>;

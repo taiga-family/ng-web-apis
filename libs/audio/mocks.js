@@ -1,6 +1,4 @@
 (function () {
-    'use strict';
-
     global.AudioContext = class {};
     global.OfflineAudioContext = class {};
     global.AudioBufferSourceNode = class {};

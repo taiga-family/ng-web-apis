@@ -14,7 +14,7 @@ export class SpeechRecognitionService extends Observable<SpeechRecognitionResult
     private readonly ngZone = inject(NgZone);
 
     constructor() {
-        super(subscriber => {
+        super((subscriber) => {
             if (!this.classRef) {
                 subscriber.error(new Error('SpeechRecognition is not supported'));
 

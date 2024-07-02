@@ -13,7 +13,7 @@ describe('GeolocationService', () => {
 
         class FakeGeolocation {
             protected watchPosition(success: any, error: any): void {
-                interval(300).subscribe(number => success(number.toString()));
+                interval(300).subscribe((number) => success(number.toString()));
                 timer(1000)
                     .pipe(take(1))
                     .subscribe(() => error('error'));
@@ -38,27 +38,27 @@ describe('GeolocationService', () => {
             clearWatchCount = 0;
         });
 
-        it('Gives a position', done => {
-            service.pipe(take(1)).subscribe(position => {
+        it('gives a position', (done) => {
+            service.pipe(take(1)).subscribe((position) => {
                 expect(position).toMatch('0');
                 done();
             });
         });
 
-        it('Provides position from cache if other subscriptions exist', done => {
+        it('provides position from cache if other subscriptions exist', (done) => {
             let firstPosition: GeolocationPosition;
 
-            service.subscribe(position => {
+            service.subscribe((position) => {
                 firstPosition = position;
             });
 
-            service.pipe(skip(2), take(1)).subscribe(position => {
+            service.pipe(skip(2), take(1)).subscribe((position) => {
                 expect(position).toEqual(firstPosition);
                 done();
             });
         });
 
-        it('clearWatch method is called once when all subscribers are unsubscribed.', done => {
+        it('clearWatch method is called once when all subscribers are unsubscribed.', (done) => {
             const firstSubscription = service.subscribe();
 
             const secondSubscription = service.subscribe();
@@ -70,7 +70,7 @@ describe('GeolocationService', () => {
             done();
         });
 
-        it('clearWatch method is not called if none of the subscribers unsubscribed', done => {
+        it('clearWatch method is not called if none of the subscribers unsubscribed', (done) => {
             service.subscribe();
             service.subscribe();
 
@@ -78,12 +78,12 @@ describe('GeolocationService', () => {
             done();
         });
 
-        it('Error', done => {
+        it('error', (done) => {
             service = TestBed.inject(GeolocationService);
 
             service
                 .pipe(
-                    catchError(error => {
+                    catchError((error) => {
                         expect(error).toBe('error');
                         done();
 
@@ -95,7 +95,7 @@ describe('GeolocationService', () => {
     });
 
     describe('Geolocation Service if unsupported', () => {
-        it('cannot recieve and throws an error if Geolocation is not supported', done => {
+        it('cannot recieve and throws an error if Geolocation is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
                     {provide: GEOLOCATION_SUPPORT, useValue: false},
@@ -107,7 +107,7 @@ describe('GeolocationService', () => {
 
             service$.subscribe(
                 () => {},
-                error => {
+                (error) => {
                     expect(error).toBe('Geolocation is not supported in your browser');
                     done();
                 },

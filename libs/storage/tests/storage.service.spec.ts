@@ -20,8 +20,8 @@ describe('StorageService', () => {
         localStorage.clear();
     });
 
-    it('notifies STORAGE_EVENT upon addition', done => {
-        event$.pipe(first(), filterByKey('value'), toValue()).subscribe(value => {
+    it('notifies STORAGE_EVENT upon addition', (done) => {
+        event$.pipe(first(), filterByKey('value'), toValue()).subscribe((value) => {
             result = value;
             done();
         });
@@ -31,9 +31,9 @@ describe('StorageService', () => {
         expect(result).toBe('value');
     });
 
-    it('notifies STORAGE_EVENT upon removal', done => {
+    it('notifies STORAGE_EVENT upon removal', (done) => {
         localStorage.setItem('value', 'value');
-        event$.pipe(first(), filterByKey('value'), toValue()).subscribe(value => {
+        event$.pipe(first(), filterByKey('value'), toValue()).subscribe((value) => {
             result = value;
             done();
         });
@@ -43,9 +43,9 @@ describe('StorageService', () => {
         expect(result).toBeNull();
     });
 
-    it('notifies STORAGE_EVENT upon clearing', done => {
+    it('notifies STORAGE_EVENT upon clearing', (done) => {
         localStorage.setItem('value', 'value');
-        event$.pipe(first(), filterByKey('value'), toValue()).subscribe(value => {
+        event$.pipe(first(), filterByKey('value'), toValue()).subscribe((value) => {
             result = value;
             done();
         });
@@ -55,9 +55,9 @@ describe('StorageService', () => {
         expect(result).toBeNull();
     });
 
-    it('ignores other keys', done => {
+    it('ignores other keys', (done) => {
         event$.pipe(first(), filterByKey('value'), toValue()).subscribe({
-            next: value => {
+            next: (value) => {
                 result = value;
             },
             complete: done,

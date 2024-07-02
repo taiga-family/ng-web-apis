@@ -10,7 +10,7 @@ export const MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
         providedIn: 'root',
         factory: () =>
             from(inject(MIDI_ACCESS).catch((e: Error) => e)).pipe(
-                switchMap(access =>
+                switchMap((access) =>
                     access instanceof Error
                         ? throwError(access)
                         : fromEvent(access as any, 'statechange').pipe(
@@ -18,10 +18,10 @@ export const MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
                               switchMap(() => {
                                   const inputs: MIDIInput[] = [];
 
-                                  access.inputs.forEach(input => inputs.push(input));
+                                  access.inputs.forEach((input) => inputs.push(input));
 
                                   return merge(
-                                      ...inputs.map(input =>
+                                      ...inputs.map((input) =>
                                           fromEvent(input, 'midimessage'),
                                       ),
                                   );

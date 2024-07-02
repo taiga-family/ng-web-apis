@@ -34,12 +34,12 @@ export class WaPaymentSubmit {
                         this.methods,
                         this.options,
                     ),
-                ).pipe(catchError(error => of(error))),
+                ).pipe(catchError((error) => of(error))),
             ),
             share(),
         );
 
-        this.waPaymentSubmit = requests$.pipe(filter(response => !isError(response)));
+        this.waPaymentSubmit = requests$.pipe(filter((response) => !isError(response)));
 
         this.waPaymentError = requests$.pipe(filter(isError));
     }

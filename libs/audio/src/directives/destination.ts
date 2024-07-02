@@ -50,12 +50,12 @@ export class WebAudioDestination extends AnalyserNode implements OnDestroy {
         that.connect(that.context.destination);
         that.quiet = interval(POLLING_TIME).pipe(
             map(() => new Float32Array(that.fftSize)),
-            tap(array => that.getFloatTimeDomainData(array)),
-            map(array => that.isSilent(array)),
+            tap((array) => that.getFloatTimeDomainData(array)),
+            map((array) => that.isSilent(array)),
             distinctUntilChanged(),
-            skipWhile(isSilent => isSilent),
+            skipWhile((isSilent) => isSilent),
             debounceTime(5000),
-            filter(isSilent => isSilent),
+            filter((isSilent) => isSilent),
         );
     }
 

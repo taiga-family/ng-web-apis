@@ -5,7 +5,7 @@ import {ViewTransitionService} from '../src/services/view-transition.service';
 
 describe('ViewTransitionService', () => {
     describe('not supported provider', () => {
-        it('throw error if startViewTransition is not supported', done => {
+        it('throw error if startViewTransition is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
                     ViewTransitionService,
@@ -22,7 +22,7 @@ describe('ViewTransitionService', () => {
             const observable = service.startViewTransition(() => {});
 
             observable.subscribe({
-                error: error => {
+                error: (error) => {
                     expect(error.message).toBe(
                         'startViewTransition is not supported in your browser',
                     );
@@ -59,7 +59,7 @@ describe('ViewTransitionService', () => {
             service = TestBed.inject(ViewTransitionService);
         });
 
-        it('complete the observable when transition finishes', done => {
+        it('complete the observable when transition finishes', (done) => {
             const observable = service.startViewTransition(() => {});
 
             observable.subscribe({
@@ -69,13 +69,13 @@ describe('ViewTransitionService', () => {
             });
         });
 
-        it('pass ViewTransition object to the observable after callback called', done => {
+        it('pass ViewTransition object to the observable after callback called', (done) => {
             let callbackCalled = false;
             const observable = service.startViewTransition(() => {
                 callbackCalled = true;
             });
 
-            observable.subscribe(viewTransition => {
+            observable.subscribe((viewTransition) => {
                 expect(viewTransition).toBeTruthy();
                 expect(callbackCalled).toBe(true);
                 done();

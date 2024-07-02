@@ -88,7 +88,7 @@ describe('Methods', () => {
         fixture.destroy();
     });
 
-    it('draws an image', done => {
+    it('draws an image', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(1, 1, 1, 1).data]).toEqual([
                 0, 0, 0, 0,
@@ -100,7 +100,7 @@ describe('Methods', () => {
         }, 50);
     });
 
-    it('draws an image with offset and scale', done => {
+    it('draws an image with offset and scale', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
@@ -115,7 +115,7 @@ describe('Methods', () => {
         }, 50);
     });
 
-    it('draws an image with offset in the source', done => {
+    it('draws an image with offset in the source', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(30, 30, 1, 1).data]).toEqual([
                 0, 255, 0, 255,

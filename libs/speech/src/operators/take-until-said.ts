@@ -8,5 +8,5 @@ export function takeUntilSaid(
 ): MonoTypeOperatorFunction<SpeechRecognitionResult[]> {
     const predicate = isSaid(text);
 
-    return takeWhile(results => !predicate(results));
+    return takeWhile((results) => !predicate(results));
 }

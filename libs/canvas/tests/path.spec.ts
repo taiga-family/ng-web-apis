@@ -51,7 +51,7 @@ describe('Path', () => {
         fixture.detectChanges();
     });
 
-    it('draws path', done => {
+    it('draws path', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 255, 0, 0, 255,

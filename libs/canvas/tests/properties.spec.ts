@@ -81,7 +81,7 @@ describe('Properties', () => {
         fixture.detectChanges();
     });
 
-    it('clipping works', done => {
+    it('clipping works', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 0, 128, 0, 255,
@@ -90,7 +90,7 @@ describe('Properties', () => {
         }, 50);
     });
 
-    it('overlays layers with given mode', done => {
+    it('overlays layers with given mode', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 128, 0, 255,

@@ -17,7 +17,7 @@ export class WaCanvasPath2d {
     public fillRule?: CanvasFillRule;
 
     constructor() {
-        this.method.call = context => {
+        this.method.call = (context) => {
             context.fill(this.path, this.fillRule);
             context.stroke(this.path);
         };

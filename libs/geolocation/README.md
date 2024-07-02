@@ -40,14 +40,14 @@ constructor(private readonly geolocation$: GeolocationService) {}
 Now, to observe user position, you can subscribe to `geolocation$`:
 
 ```ts
-geolocation$.subscribe(position => doSomethingWithPosition(position));
+geolocation$.subscribe((position) => doSomethingWithPosition(position));
 ```
 
 If you need to get position just once and stop observing user location, you can subscribe to `geolocation$` and use
 `take(1)` RxJs operator:
 
 ```ts
-geolocation$.pipe(take(1)).subscribe(position => doSomethingWithPosition(position));
+geolocation$.pipe(take(1)).subscribe((position) => doSomethingWithPosition(position));
 ```
 
 Or you can use async pipe to get position directly in template:

@@ -27,7 +27,7 @@ export class AudioBufferService {
             request.onload = () => {
                 void this.context.decodeAudioData(
                     request.response,
-                    buffer => {
+                    (buffer) => {
                         this.cache.set(url, buffer);
                         resolve(buffer);
                     },

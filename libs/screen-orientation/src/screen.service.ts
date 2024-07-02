@@ -52,7 +52,7 @@ export class ScreenOrientationService extends Observable<OrientationType> {
     ).pipe(shareReplay({bufferSize: 1, refCount: true}));
 
     constructor() {
-        super(subscriber => this.stream$.subscribe(subscriber));
+        super((subscriber) => this.stream$.subscribe(subscriber));
     }
 
     private get isModern(): boolean {

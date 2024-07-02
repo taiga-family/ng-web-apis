@@ -55,7 +55,7 @@ describe('WaCanvas2d', () => {
         expect(testComponent.context instanceof CanvasRenderingContext2D).toBe(true);
     });
 
-    it('draws a rectangle at given coordinates of given color with applied filter', done => {
+    it('draws a rectangle at given coordinates of given color with applied filter', (done) => {
         setTimeout(() => {
             expect([...testComponent.context.getImageData(5, 5, 1, 1).data]).toEqual([
                 0, 0, 0, 0,

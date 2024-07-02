@@ -46,7 +46,7 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
     protected set channels(channels: QueryList<AudioNode | null>) {
         this.disconnect();
         channels
-            .filter(node => !!node)
+            .filter((node) => !!node)
             .forEach((node, index) => {
                 this.connect(node!, index);
             });

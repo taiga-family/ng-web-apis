@@ -41,7 +41,7 @@ function processSchedule(
     value: Array<AudioParamAutomation | AudioParamCurve>,
     currentTime: number,
 ): void {
-    value.forEach(automation => {
+    value.forEach((automation) => {
         if ('mode' in automation) {
             processAutomation(param, automation, currentTime);
         } else {

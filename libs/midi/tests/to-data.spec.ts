@@ -10,7 +10,7 @@ describe('toData', () => {
 
         of(event)
             .pipe(toData())
-            .subscribe(result => {
+            .subscribe((result) => {
                 expect(result).toBe(event.data);
             });
     });

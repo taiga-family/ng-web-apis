@@ -10,6 +10,6 @@ import MIDIPort = WebMidi.MIDIPort;
  * @param name
  */
 export function filterByName(name: string): MonoTypeOperatorFunction<MIDIMessageEvent> {
-    return source =>
+    return (source) =>
         source.pipe(filter(({target}) => (target as MIDIPort).name === name));
 }

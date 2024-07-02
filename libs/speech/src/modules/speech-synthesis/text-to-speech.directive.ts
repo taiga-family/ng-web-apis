@@ -29,10 +29,10 @@ export class WaTextToSpeech implements OnChanges {
         this.speechSynthesisRef.cancel();
         this.speechSynthesisRef.pause();
 
-        utterance.onerror = e => this.onerror.emit(e);
-        utterance.onend = e => this.onend.emit(e);
-        utterance.onmark = e => this.onmark.emit(e);
-        utterance.onboundary = e => this.onboundary.emit(e);
+        utterance.onerror = (e) => this.onerror.emit(e);
+        utterance.onend = (e) => this.onend.emit(e);
+        utterance.onmark = (e) => this.onmark.emit(e);
+        utterance.onboundary = (e) => this.onboundary.emit(e);
 
         this.speechSynthesisRef.speak(utterance);
     }

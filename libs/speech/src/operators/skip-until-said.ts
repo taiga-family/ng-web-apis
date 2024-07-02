@@ -9,7 +9,7 @@ export function skipUntilSaid(
     const predicate = isSaid(text);
 
     return pipe(
-        skipWhile(results => !predicate(results)),
+        skipWhile((results) => !predicate(results)),
         map((value, index) => (index ? value : [])),
     );
 }

@@ -38,7 +38,7 @@ export class WaCanvasDrawImage {
     public sHeight?: number;
 
     constructor() {
-        this.method.call = context => {
+        this.method.call = (context) => {
             if (!this.image) {
                 return;
             }

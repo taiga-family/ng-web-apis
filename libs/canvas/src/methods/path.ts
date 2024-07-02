@@ -22,10 +22,10 @@ export class WaCanvasPath {
     public fillRule?: CanvasFillRule;
 
     constructor() {
-        this.method.call = context => {
+        this.method.call = (context) => {
             context.beginPath();
 
-            this.pathSteps.forEach(step => {
+            this.pathSteps.forEach((step) => {
                 step.call(context);
             });
 

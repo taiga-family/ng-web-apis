@@ -37,7 +37,7 @@ notificationAPIService = inject(NotificationService);
 this.notificationAPIService
   .requestPermission()
   .pipe(
-    filter(permission => permission === 'granted'),
+    filter((permission) => permission === 'granted'),
     switchMap(() =>
       this.notificationAPIService.open('Hello world!', {
         body: 'This is a notification',

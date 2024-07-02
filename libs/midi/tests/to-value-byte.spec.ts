@@ -10,7 +10,7 @@ describe('toValueByte', () => {
 
         of(event)
             .pipe(toValueByte())
-            .subscribe(result => {
+            .subscribe((result) => {
                 expect(result).toBe(3);
             });
     });

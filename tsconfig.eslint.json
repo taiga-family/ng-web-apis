@@ -6,6 +6,6 @@
         "strict": true,
         "incremental": true
     },
-    "include": ["libs/**/*.ts", "apps/**/*.ts", "scripts/**/*.ts"],
-    "exclude": ["**/node_modules", "*.js"]
+    "include": ["**/*.ts", "**/*.js"],
+    "exclude": ["**/node_modules"]
 }

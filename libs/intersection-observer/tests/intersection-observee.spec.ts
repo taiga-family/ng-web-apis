@@ -61,7 +61,7 @@ describe('WaIntersectionObservee', () => {
         testComponent.onIntersection.calls.reset();
     });
 
-    it('Emits intersections', done => {
+    it('emits intersections', (done) => {
         document.querySelector('#observer_root')!.scrollTop = 350;
         fixture.detectChanges();
 
@@ -75,13 +75,13 @@ describe('WaIntersectionObservee', () => {
         }, 100);
     });
 
-    it('Compatible with native method signature', () => {
+    it('compatible with native method signature', () => {
         expect(() =>
             testComponent.observer.observe(document.querySelector('#manual_observee')!),
         ).not.toThrow();
     });
 
-    it('Default options', () => {
+    it('default options', () => {
         // https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver
         expect(TestBed.inject(INTERSECTION_ROOT_MARGIN)).toBe('0px 0px 0px 0px');
         expect(TestBed.inject(INTERSECTION_THRESHOLD)).toBe(0);

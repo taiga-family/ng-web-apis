@@ -26,8 +26,8 @@ export function outputByName(name: string): Provider[] {
                 midiAccess: Promise<MIDIAccess>,
                 name: string,
             ): Promise<MIDIOutput | undefined> =>
-                midiAccess.then(access =>
-                    [...access.outputs.values()].find(output => output.name === name),
+                midiAccess.then((access) =>
+                    [...access.outputs.values()].find((output) => output.name === name),
                 ),
         },
     ];

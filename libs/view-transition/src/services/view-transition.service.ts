@@ -21,7 +21,7 @@ export class ViewTransitionService {
             );
         }
 
-        return new Observable(subscriber => {
+        return new Observable((subscriber) => {
             const transition: ViewTransition =
                 this.document.startViewTransition(callback);
 
