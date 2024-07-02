@@ -18,7 +18,7 @@ export const AUDIO_WORKLET_PROCESSORS_READY = new InjectionToken<Promise<boolean
             }
 
             return Promise.all(
-                processors.map(async processor =>
+                processors.map(async (processor) =>
                     context.audioWorklet.addModule(processor),
                 ),
                 // eslint-disable-next-line no-restricted-syntax

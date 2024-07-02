@@ -15,7 +15,7 @@ describe('pan', () => {
 
         from(events)
             .pipe(pan())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

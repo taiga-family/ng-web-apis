@@ -15,7 +15,7 @@ describe('programChange', () => {
 
         from(events)
             .pipe(programChange())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

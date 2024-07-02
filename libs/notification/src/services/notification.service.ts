@@ -22,11 +22,11 @@ export class NotificationService {
          * TODO: replace deprecated callback with promise after Safari 15+ support
          * return from(Notification.requestPermission());
          */
-        return new Observable(subscriber => {
-            void Notification.requestPermission(permission => {
+        return new Observable((subscriber) => {
+            void Notification.requestPermission((permission) => {
                 subscriber.next(permission);
                 subscriber.complete();
-            })?.catch(err => subscriber.error(err));
+            })?.catch((err) => subscriber.error(err));
         });
     }
 
@@ -39,7 +39,7 @@ export class NotificationService {
             const notification = new Notification(title, options);
             const close$ = fromEvent(notification, 'close');
 
-            return new Observable<Notification>(subscriber => {
+            return new Observable<Notification>((subscriber) => {
                 subscriber.next(notification);
 
                 return () => notification.close();

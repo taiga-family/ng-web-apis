@@ -11,7 +11,7 @@ describe('UNIVERSAL_NAVIGATOR', () => {
         },
     };
 
-    it('Mocks the hell out of window.navigator', () => {
+    it('mocks the hell out of window.navigator', () => {
         TestBed.configureTestingModule({
             providers: [UNIVERSAL_NAVIGATOR],
         });
@@ -24,7 +24,7 @@ describe('UNIVERSAL_NAVIGATOR', () => {
         expect(mock.plugins.namedItem('whatever')).toBeNull();
     });
 
-    it('Reads provided user agent', () => {
+    it('reads provided user agent', () => {
         TestBed.configureTestingModule({
             providers: [provideUserAgent(req), UNIVERSAL_NAVIGATOR],
         });

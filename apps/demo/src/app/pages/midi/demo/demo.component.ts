@@ -39,7 +39,7 @@ export class Demo {
 
     constructor() {
         const mouseInitiated$ = this.mousedown$.pipe(
-            switchMap(down =>
+            switchMap((down) =>
                 this.mouseup$.pipe(
                     take(1),
                     map(() => [0, down, 0]),
@@ -57,9 +57,9 @@ export class Demo {
             mouseInitiated$,
         ).pipe(
             scan((map, [_, note, volume]) => map.set(note, volume / 512), new Map()),
-            switchMap(notes =>
+            switchMap((notes) =>
                 this.silent$.pipe(
-                    map(key => notes.set(key, null)),
+                    map((key) => notes.set(key, null)),
                     startWith(notes),
                 ),
             ),

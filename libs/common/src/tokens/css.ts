@@ -14,7 +14,7 @@ const TOKEN_CSS = new InjectionToken<typeof CSS>(
         factory: () =>
             inject(WINDOW).CSS ??
             ({
-                escape: v => v,
+                escape: (v) => v,
                 // eslint-disable-next-line no-restricted-syntax
                 supports: () => false,
             } satisfies typeof CSS),

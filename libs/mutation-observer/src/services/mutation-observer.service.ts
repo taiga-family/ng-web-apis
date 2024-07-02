@@ -10,8 +10,8 @@ export class MutationObserverService extends Observable<readonly MutationRecord[
         const nativeElement: Node = inject(ElementRef).nativeElement;
         const config = inject(MUTATION_OBSERVER_INIT);
 
-        super(subscriber => {
-            const observer = new SafeObserver(records => {
+        super((subscriber) => {
+            const observer = new SafeObserver((records) => {
                 subscriber.next(records);
             });
 

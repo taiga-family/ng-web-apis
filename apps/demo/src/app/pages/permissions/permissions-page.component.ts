@@ -24,7 +24,7 @@ export default class PermissionsPage {
     protected geolocationState$ = inject(PermissionsService)
         .state('geolocation')
         .pipe(
-            tap(state => {
+            tap((state) => {
                 if (state === 'prompt') {
                     // eslint-disable-next-line no-alert
                     alert(

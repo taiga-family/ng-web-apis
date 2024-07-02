@@ -15,7 +15,7 @@ describe('notes', () => {
 
         from(events)
             .pipe(notes())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

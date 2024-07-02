@@ -96,7 +96,7 @@ Alternatively you can use `Observable`-based services:
 })
 export class Example {
   constructor(@Inject(IntersectionObserverService) entries$: IntersectionObserverService) {
-    entries$.subscribe(entries => {
+    entries$.subscribe((entries) => {
       // Don't forget to unsubscribe
       console.log(entries);
     });

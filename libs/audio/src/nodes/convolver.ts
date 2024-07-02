@@ -47,13 +47,13 @@ export class WebAudioConvolver extends ConvolverNode implements OnDestroy {
         that.buffer$
             .pipe(
                 // eslint-disable-next-line @typescript-eslint/promise-function-async
-                switchMap(source =>
+                switchMap((source) =>
                     typeof source === 'string'
                         ? audioBufferService.fetch(source)
                         : of(source),
                 ),
             )
-            .subscribe(buffer => {
+            .subscribe((buffer) => {
                 that.buffer = buffer;
             });
     }

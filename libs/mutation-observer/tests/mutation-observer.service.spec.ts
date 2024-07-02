@@ -7,7 +7,7 @@ import {
 import {first} from 'rxjs';
 
 describe('MutationObserver service', () => {
-    it('works', done => {
+    it('works', (done) => {
         const element = document.createElement('DIV');
         const elementRef = new ElementRef(element);
 

@@ -30,7 +30,7 @@ export class NotificationPageExample4 {
                         data: `Randomly generated number: ${Math.random().toFixed(2)}`,
                     }),
                 ),
-                switchMap(notification => fromEvent(notification, 'click')),
+                switchMap((notification) => fromEvent(notification, 'click')),
             )
             .subscribe(console.info);
     }

@@ -23,7 +23,7 @@ export class WaCanvasText {
     public maxWidth?: number;
 
     constructor() {
-        this.method.call = context => {
+        this.method.call = (context) => {
             context.fillText(this.text, this.x, this.y, this.maxWidth);
             context.strokeText(this.text, this.x, this.y, this.maxWidth);
         };

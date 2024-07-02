@@ -37,7 +37,7 @@ export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDe
             const audioprocess = new EventEmitter<AudioProcessingEvent>();
 
             result.audioprocess = audioprocess;
-            result.onaudioprocess = e => audioprocess.emit(e);
+            result.onaudioprocess = (e) => audioprocess.emit(e);
 
             return result;
         } catch (_) {

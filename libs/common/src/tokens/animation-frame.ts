@@ -8,7 +8,7 @@ export const ANIMATION_FRAME = new InjectionToken<Observable<DOMHighResTimeStamp
     {
         factory: () => {
             const {requestAnimationFrame, cancelAnimationFrame} = inject(WINDOW);
-            const animationFrame$ = new Observable<DOMHighResTimeStamp>(subscriber => {
+            const animationFrame$ = new Observable<DOMHighResTimeStamp>((subscriber) => {
                 let id = NaN;
                 const callback = (timestamp: DOMHighResTimeStamp): void => {
                     subscriber.next(timestamp);

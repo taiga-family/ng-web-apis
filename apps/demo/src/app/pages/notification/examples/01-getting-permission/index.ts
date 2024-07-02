@@ -19,12 +19,12 @@ export class NotificationPageExample1 {
 
     protected requestPermission(): void {
         this.notifications.requestPermission().subscribe({
-            next: permission =>
+            next: (permission) =>
                 console.info(
                     'Permission status:',
                     permission, // 'denied' | 'granted'
                 ),
-            error: err =>
+            error: (err) =>
                 // e.g. 'Notification API is not supported in your browser'
                 console.error(err),
         });

@@ -15,7 +15,7 @@ describe('modulationWheel', () => {
 
         from(events)
             .pipe(modulationWheel())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

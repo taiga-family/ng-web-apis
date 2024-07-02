@@ -16,14 +16,14 @@ export class GeolocationService extends Observable<GeolocationPosition> {
 
         let watchPositionId = 0;
 
-        super(subscriber => {
+        super((subscriber) => {
             if (!geolocationSupported) {
                 subscriber.error('Geolocation is not supported in your browser');
             }
 
             watchPositionId = geolocationRef.watchPosition(
-                position => subscriber.next(position),
-                positionError => subscriber.error(positionError),
+                (position) => subscriber.next(position),
+                (positionError) => subscriber.error(positionError),
                 positionOptions,
             );
         });

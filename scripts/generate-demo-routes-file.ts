@@ -18,10 +18,10 @@ import {infoLog, SMALL_TAB_SYMBOL, titleLog} from './helpers/colored-log';
     const routes =
         demoPathEnumContent
             .match(/['"`](.*)['"`]/g)
-            ?.map(route => route.replaceAll(/['"`]/g, '')) || [];
+            ?.map((route) => route.replaceAll(/['"`]/g, '')) || [];
 
     titleLog('Generated routes:');
-    routes.forEach(route => infoLog(`${SMALL_TAB_SYMBOL}* ${route}`));
+    routes.forEach((route) => infoLog(`${SMALL_TAB_SYMBOL}* ${route}`));
 
     writeFileSync(
         join(process.cwd(), 'apps', 'demo', 'routesFile.txt'),

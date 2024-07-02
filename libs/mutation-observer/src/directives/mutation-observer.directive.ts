@@ -41,7 +41,7 @@ export class WaMutationObserver extends SafeObserver implements OnDestroy {
         @Attribute('childList') _6: unknown,
         @Attribute('subtree') _7: unknown,
     ) {
-        super(records => {
+        super((records) => {
             this.waMutationObserver.emit(records);
         });
 

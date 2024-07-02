@@ -10,7 +10,7 @@ describe('WorkerPipe', () => {
 
     it('should emit the first value', async () => {
         const result = await pipe
-            .transform('a', data => data)
+            .transform('a', (data) => data)
             .pipe(take(1))
             .toPromise();
 

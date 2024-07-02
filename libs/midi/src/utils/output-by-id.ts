@@ -26,7 +26,7 @@ export function outputById(id: string): Provider[] {
                 midiAccess: Promise<MIDIAccess>,
                 id: string,
             ): Promise<MIDIOutput | undefined> =>
-                midiAccess.then(access => access.outputs.get(id)),
+                midiAccess.then((access) => access.outputs.get(id)),
         },
     ];
 }

@@ -40,7 +40,7 @@ export class WaCanvasGradientPipe implements PipeTransform {
                 ? this.context.createRadialGradient(a1, a2, a3, a4, a5, a6)
                 : this.context.createLinearGradient(a1, a2, a3, a4);
 
-        Array.from(stops.keys()).forEach(stop =>
+        Array.from(stops.keys()).forEach((stop) =>
             gradient.addColorStop(stop, stops.get(stop) || ''),
         );
 

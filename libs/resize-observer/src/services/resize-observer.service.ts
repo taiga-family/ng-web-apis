@@ -10,8 +10,8 @@ export class ResizeObserverService extends Observable<readonly ResizeObserverEnt
         const nativeElement: HTMLElement = inject(ElementRef).nativeElement;
         const box = inject(RESIZE_OPTION_BOX);
 
-        super(subscriber => {
-            const observer = new SafeObserver(entries => subscriber.next(entries));
+        super((subscriber) => {
+            const observer = new SafeObserver((entries) => subscriber.next(entries));
 
             observer.observe(nativeElement, {box});
 

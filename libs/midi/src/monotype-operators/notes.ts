@@ -9,10 +9,10 @@ import {between} from '../utils/between';
  * IMPORTANT: It normalizes noteOff events to noteOn with 0 velocity
  */
 export function notes(): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
-    return source =>
+    return (source) =>
         source.pipe(
             filter(({data}) => between(data[0], 128, 159)),
-            map(event => {
+            map((event) => {
                 if (between(event.data[0], 128, 143)) {
                     event.data[0] += 16;
                     event.data[2] = 0;

@@ -23,7 +23,7 @@ export class PermissionsService {
                 ? {name: nameOrDescriptor}
                 : nameOrDescriptor;
 
-        return new Observable<PermissionState>(subscriber => {
+        return new Observable<PermissionState>((subscriber) => {
             if (!this.permissionsSupported) {
                 subscriber.error('Permissions is not supported in your browser');
 
@@ -32,7 +32,7 @@ export class PermissionsService {
 
             return from(this.permissions.query(descriptor))
                 .pipe(
-                    switchMap(status =>
+                    switchMap((status) =>
                         fromEvent(status, 'change').pipe(
                             startWith(null),
                             map(() => status.state),

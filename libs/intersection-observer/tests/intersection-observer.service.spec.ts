@@ -9,7 +9,7 @@ import {
 import {take} from 'rxjs';
 
 describe('IntersectionObserverService', () => {
-    it('works', done => {
+    it('works', (done) => {
         let called = false;
 
         const nativeElement = document.createElement('div');

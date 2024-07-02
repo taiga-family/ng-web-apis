@@ -26,7 +26,7 @@ export function inputById(id: string): Provider[] {
                 midiAccess: Promise<MIDIAccess>,
                 id: string,
             ): Promise<MIDIInput | undefined> =>
-                midiAccess.then(access => access.inputs.get(id)),
+                midiAccess.then((access) => access.inputs.get(id)),
         },
     ];
 }

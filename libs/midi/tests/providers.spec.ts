@@ -37,7 +37,7 @@ describe('inputById', () => {
         ]),
     };
 
-    it('gets MIDIInput by id', done => {
+    it('gets MIDIInput by id', (done) => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -54,7 +54,7 @@ describe('inputById', () => {
         });
     });
 
-    it('gets MIDIInput by name', done => {
+    it('gets MIDIInput by name', (done) => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -71,7 +71,7 @@ describe('inputById', () => {
         });
     });
 
-    it('gets MIDIOutput by id', done => {
+    it('gets MIDIOutput by id', (done) => {
         TestBed.configureTestingModule({
             providers: [
                 {
@@ -88,7 +88,7 @@ describe('inputById', () => {
         });
     });
 
-    it('gets MIDIOutput by name', done => {
+    it('gets MIDIOutput by name', (done) => {
         TestBed.configureTestingModule({
             providers: [
                 {

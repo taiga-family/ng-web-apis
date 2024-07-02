@@ -10,10 +10,10 @@ export function getPortsStream(
     ports: 'inputs' | 'outputs',
 ): Observable<Array<MIDIInput | MIDIOutput>> {
     return from(inject(MIDI_ACCESS).catch(() => null)).pipe(
-        switchMap(access => {
+        switchMap((access) => {
             const inputs: Array<MIDIInput | MIDIOutput> = [];
 
-            access?.[ports].forEach(input => inputs.push(input));
+            access?.[ports].forEach((input) => inputs.push(input));
 
             return access
                 ? fromEvent(access, 'statechange').pipe(

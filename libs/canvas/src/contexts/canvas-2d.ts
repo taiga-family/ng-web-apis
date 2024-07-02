@@ -47,7 +47,7 @@ export class WaCanvas2d {
     ) {
         this.context.strokeStyle = 'transparent';
 
-        this.method.call = context => {
+        this.method.call = (context) => {
             context.clearRect(0, 0, context.canvas.width, context.canvas.height);
         };
     }

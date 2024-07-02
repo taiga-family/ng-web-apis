@@ -22,8 +22,8 @@ export class WaDrawService implements OnDestroy, CanvasMethod {
         this.subscription = ngZone.runOutsideAngular(() =>
             animationFrame$.subscribe(() => {
                 context.save();
-                parent.forEach(property => property.call(context));
-                properties.forEach(property => property.call(context));
+                parent.forEach((property) => property.call(context));
+                properties.forEach((property) => property.call(context));
                 this.call(context);
                 context.restore();
             }),

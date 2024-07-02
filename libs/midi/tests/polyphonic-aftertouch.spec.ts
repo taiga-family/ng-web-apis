@@ -15,7 +15,7 @@ describe('polyphonicAftertouch', () => {
 
         from(events)
             .pipe(polyphonicAftertouch())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

@@ -15,7 +15,7 @@ describe('pitchBend', () => {
 
         from(events)
             .pipe(pitchBend())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

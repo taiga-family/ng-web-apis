@@ -15,7 +15,7 @@ describe('aftertouch', () => {
 
         from(events)
             .pipe(filterByChannel(1))
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

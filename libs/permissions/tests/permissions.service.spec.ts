@@ -56,7 +56,7 @@ describe('PermissionsService', () => {
 
             let actual: PermissionState | null = null as any;
 
-            service.state('geolocation').subscribe(state => {
+            service.state('geolocation').subscribe((state) => {
                 actual = state;
             });
 
@@ -74,7 +74,7 @@ describe('PermissionsService', () => {
 
             let actual: PermissionState | null = null as any;
 
-            service.state('geolocation').subscribe(state => {
+            service.state('geolocation').subscribe((state) => {
                 actual = state;
             });
 
@@ -92,7 +92,7 @@ describe('PermissionsService', () => {
 
             let actual: PermissionState | null = null as any;
 
-            service.state({name: 'geolocation'}).subscribe(state => {
+            service.state({name: 'geolocation'}).subscribe((state) => {
                 actual = state;
             });
 
@@ -103,7 +103,7 @@ describe('PermissionsService', () => {
             expect(actual).toBe(expected);
         }));
 
-        it('Provides status from cache if other subscriptions exist', () => {
+        it('provides status from cache if other subscriptions exist', () => {
             const querySpy = createQuerySpy();
 
             const obs = service.state('geolocation');
@@ -128,7 +128,7 @@ describe('PermissionsService', () => {
 
             let actual: PermissionState | null = null as any;
 
-            const sub = service.state('geolocation').subscribe(state => {
+            const sub = service.state('geolocation').subscribe((state) => {
                 actual = state;
             });
 
@@ -175,10 +175,10 @@ describe('PermissionsService', () => {
             createQuerySpy(true);
 
             service.state('geolocation').subscribe(
-                status => {
+                (status) => {
                     actualStatus = status;
                 },
-                error => {
+                (error) => {
                     actualError = error;
                 },
             );
@@ -213,7 +213,7 @@ describe('PermissionsService', () => {
 
             service.state('geolocation').subscribe(
                 () => {},
-                error => {
+                (error) => {
                     actualError = error;
                 },
             );

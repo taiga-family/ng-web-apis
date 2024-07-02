@@ -46,7 +46,7 @@ describe('Audio gain', () => {
 
         describe('AudioParam', () => {
             // TODO: need investigate why
-            xit('sets gain instantly', done => {
+            it.skip('sets gain instantly', (done) => {
                 testComponent.gain = 10;
                 fixture.detectChanges();
 
@@ -56,7 +56,7 @@ describe('Audio gain', () => {
                 }, 100);
             });
 
-            xit('sets gain linearly', done => {
+            it.skip('sets gain linearly', (done) => {
                 testComponent.gain = {
                     value: 10,
                     duration: 2,
@@ -77,7 +77,7 @@ describe('Audio gain', () => {
             });
 
             // TODO: need investigate why
-            xit('sets gain exponentially', done => {
+            it.skip('sets gain exponentially', (done) => {
                 testComponent.gain = {
                     value: 10,
                     duration: 2,
@@ -98,7 +98,7 @@ describe('Audio gain', () => {
             });
 
             // TODO: need investigate why
-            xit('sets gain curve', done => {
+            it.skip('sets gain curve', (done) => {
                 testComponent.gain = {
                     value: [10, 5, 10],
                     duration: 2,
@@ -118,7 +118,7 @@ describe('Audio gain', () => {
             });
 
             // TODO: need investigate why
-            xit('schedules multiple changes', done => {
+            it.skip('schedules multiple changes', (done) => {
                 testComponent.gain = [
                     {
                         value: 5,

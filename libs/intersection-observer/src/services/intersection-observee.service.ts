@@ -9,8 +9,8 @@ export class IntersectionObserveeService extends Observable<IntersectionObserver
         const nativeElement: Element = inject(ElementRef).nativeElement;
         const observer = inject(WaIntersectionObserverDirective);
 
-        super(subscriber => {
-            observer.observe(nativeElement, entries => {
+        super((subscriber) => {
+            observer.observe(nativeElement, (entries) => {
                 subscriber.next(entries);
             });
 

@@ -15,7 +15,7 @@ describe('sustainPedal', () => {
 
         from(events)
             .pipe(sustainPedal())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

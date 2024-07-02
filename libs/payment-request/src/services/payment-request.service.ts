@@ -33,7 +33,7 @@ export class PaymentRequestService {
 
         return gateway
             .canMakePayment()
-            .then(async canPay =>
+            .then(async (canPay) =>
                 canPay
                     ? gateway.show(details)
                     : Promise.reject(

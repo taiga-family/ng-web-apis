@@ -15,7 +15,7 @@ describe('mainVolume', () => {
 
         from(events)
             .pipe(mainVolume())
-            .subscribe(result => {
+            .subscribe((result) => {
                 processed.push(result);
             });
 

@@ -15,9 +15,9 @@ export class IntersectionObserverService extends Observable<IntersectionObserver
         inject(INTERSECTION_ROOT, {optional: true})?.nativeElement ?? null;
 
     constructor() {
-        super(subscriber => {
+        super((subscriber) => {
             const observer = new SafeObserver(
-                entries => {
+                (entries) => {
                     subscriber.next(entries);
                 },
                 {

@@ -10,7 +10,7 @@ describe('toTime', () => {
 
         of(event)
             .pipe(toTimeStamp())
-            .subscribe(result => {
+            .subscribe((result) => {
                 expect(result).toBe(event.timeStamp);
             });
     });
