@@ -8,8 +8,8 @@ declare global {
     }
 }
 
-const TOKEN_CSS = new InjectionToken<typeof CSS>(
-    '[TOKEN_CSS]: An abstraction over window.CSS object',
+export const WA_CSS = new InjectionToken<typeof CSS>(
+    '[WA_CSS]: An abstraction over window.CSS object',
     {
         factory: () =>
             inject(WINDOW).CSS ??
@@ -20,5 +20,10 @@ const TOKEN_CSS = new InjectionToken<typeof CSS>(
             } satisfies typeof CSS),
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_CSS}
+ */
+export const TOKEN_CSS = WA_CSS;
 
 export {TOKEN_CSS as CSS};

@@ -1,8 +1,8 @@
 import {DOCUMENT} from '@angular/common';
 import {inject, InjectionToken} from '@angular/core';
 
-export const WINDOW = new InjectionToken<Window>(
-    '[WINDOW]: An abstraction over global window object',
+export const WA_WINDOW = new InjectionToken<Window>(
+    '[WA_WINDOW]: An abstraction over global window object',
     {
         factory: () => {
             const {defaultView} = inject(DOCUMENT);
@@ -15,3 +15,8 @@ export const WINDOW = new InjectionToken<Window>(
         },
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_WINDOW}
+ */
+export const WINDOW = WA_WINDOW;

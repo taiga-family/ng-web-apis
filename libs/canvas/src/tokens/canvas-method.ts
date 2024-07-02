@@ -3,13 +3,18 @@ import {InjectionToken} from '@angular/core';
 
 import type {CanvasMethod} from '../interfaces/canvas-method';
 
-export const CANVAS_METHOD = new InjectionToken<CanvasMethod>(
-    '[CANVAS_METHOD]: A directive that draws on canvas',
+export const WA_CANVAS_METHOD = new InjectionToken<CanvasMethod>(
+    '[WA_CANVAS_METHOD]: A directive that draws on canvas',
 );
 
 export function asCanvasMethod(useExisting: Type<CanvasMethod>): ExistingProvider {
     return {
-        provide: CANVAS_METHOD,
+        provide: WA_CANVAS_METHOD,
         useExisting,
     };
 }
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_CANVAS_METHOD}
+ */
+export const CANVAS_METHOD = WA_CANVAS_METHOD;

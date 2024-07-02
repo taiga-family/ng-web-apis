@@ -3,9 +3,14 @@ import {WINDOW} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {fromEvent} from 'rxjs';
 
-export const STORAGE_EVENT = new InjectionToken<Observable<StorageEvent>>(
-    '[STORAGE_EVENT]: All changes to Storage objects',
+export const WA_STORAGE_EVENT = new InjectionToken<Observable<StorageEvent>>(
+    '[WA_STORAGE_EVENT]: All changes to Storage objects',
     {
         factory: () => fromEvent<StorageEvent>(inject(WINDOW), 'storage'),
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_STORAGE_EVENT}
+ */
+export const STORAGE_EVENT = WA_STORAGE_EVENT;
