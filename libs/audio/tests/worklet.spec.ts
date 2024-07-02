@@ -49,7 +49,7 @@ describe('AudioWorkletNode', () => {
     });
 
     // TODO: need investigate why
-    it.skip('creates node', () => {
+    xit('creates node', () => {
         expect(testComponent.node instanceof AudioWorkletNode).toBe(true);
     });
 });

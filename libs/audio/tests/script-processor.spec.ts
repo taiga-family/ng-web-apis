@@ -37,7 +37,7 @@ describe('ScriptProcessorNode', () => {
         expect(testComponent.node instanceof ScriptProcessorNode).toBe(true);
     });
 
-    it.skip('100% coverage FTW!', () => {
+    xit('100% coverage FTW!', () => {
         TestBed.overrideProvider(AUDIO_CONTEXT, {useValue: null})
             .overrideProvider(AUDIO_NODE, {useValue: null})
             .runInInjectionContext(() => {

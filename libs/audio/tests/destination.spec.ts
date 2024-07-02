@@ -71,7 +71,7 @@ describe('Destination', () => {
         });
 
         // TODO: investigate why
-        it.skip('fires output after destination has gone silent', (done) => {
+        xit('fires output after destination has gone silent', (done) => {
             testComponent.source.stop(testComponent.source.context.currentTime + 0.5);
             setTimeout(() => {
                 fixture.detectChanges();

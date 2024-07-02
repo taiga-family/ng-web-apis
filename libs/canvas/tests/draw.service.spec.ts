@@ -16,7 +16,7 @@ describe('WaDrawService', () => {
         runOutsideAngular: (fn: any) => fn(),
     } as unknown as NgZone;
 
-    it.skip('calls hooks with context', () => {
+    xit('calls hooks with context', () => {
         TestBed.overrideProvider(CANVAS_PROPERTIES, {useValue: []})
             .overrideProvider(CANVAS_PROPERTIES, {useValue: [prop]})
             .overrideProvider(CANVAS_2D_CONTEXT, {useValue: context})
