@@ -4,8 +4,6 @@ import {from, fromEvent, merge, share, startWith, switchMap, throwError} from 'r
 
 import {MIDI_ACCESS} from './midi-access';
 
-import MIDIMessageEvent = WebMidi.MIDIMessageEvent;
-
 export const MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
     '[MIDI_MESSAGES]: All incoming MIDI messages stream',
     {
@@ -17,13 +15,17 @@ export const MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
                         ? throwError(access)
                         : fromEvent(access as any, 'statechange').pipe(
                               startWith(null),
-                              switchMap(() =>
-                                  merge(
-                                      ...Array.from(access.inputs).map(([_, input]) =>
+                              switchMap(() => {
+                                  const inputs: MIDIInput[] = [];
+
+                                  access.inputs.forEach(input => inputs.push(input));
+
+                                  return merge(
+                                      ...inputs.map(input =>
                                           fromEvent(input, 'midimessage'),
                                       ),
-                                  ),
-                              ),
+                                  );
+                              }),
                           ),
                 ),
                 share(),
