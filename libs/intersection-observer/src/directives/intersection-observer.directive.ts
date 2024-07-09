@@ -1,6 +1,6 @@
 /* eslint-disable @angular-eslint/no-attribute-decorator */
-import type {ElementRef, OnDestroy} from '@angular/core';
-import {Attribute, Directive, inject} from '@angular/core';
+import type {OnDestroy} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
 import {INTERSECTION_ROOT} from '../tokens/intersection-root';
@@ -10,16 +10,17 @@ import {thresholdFactory} from '../utils/threshold-factory';
 @Directive({
     standalone: true,
     selector: '[waIntersectionObserver]',
+    inputs: ['waIntersectionRootMargin: margin', 'waIntersectionThreshold: threshold'],
     exportAs: 'IntersectionObserver',
 })
 export class WaIntersectionObserverDirective extends SafeObserver implements OnDestroy {
     private readonly callbacks = new Map<Element, IntersectionObserverCallback>();
 
-    constructor(
-        @Attribute('waIntersectionRootMargin') rootMargin: string | null,
-        @Attribute('waIntersectionThreshold') threshold: string | null,
-    ) {
-        const root = inject<ElementRef<Element>>(INTERSECTION_ROOT, {optional: true});
+    public margin = '';
+    public threshold = '';
+
+    constructor() {
+        const root = inject(INTERSECTION_ROOT, {optional: true});
 
         super(
             (entries) => {
@@ -31,8 +32,8 @@ export class WaIntersectionObserverDirective extends SafeObserver implements OnD
             },
             {
                 root: root?.nativeElement,
-                rootMargin: rootMarginFactory(rootMargin),
-                threshold: thresholdFactory(threshold),
+                rootMargin: rootMarginFactory(),
+                threshold: thresholdFactory(),
             },
         );
     }

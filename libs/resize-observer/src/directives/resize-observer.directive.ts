@@ -1,4 +1,4 @@
-import {Attribute, Directive, ElementRef, inject} from '@angular/core';
+import {Directive, ElementRef, inject} from '@angular/core';
 
 import {ResizeObserverService} from '../services/resize-observer.service';
 import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
@@ -6,31 +6,22 @@ import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-opt
 @Directive({
     standalone: true,
     selector: '[waResizeObserver]',
+    inputs: ['waResizeBox: box'],
     outputs: ['waResizeObserver'],
     providers: [
         ResizeObserverService,
         {
             provide: RESIZE_OPTION_BOX,
-            deps: [ElementRef],
-            useFactory: ({
-                nativeElement,
-            }: ElementRef<Element>): ResizeObserverBoxOptions => {
-                const attribute = nativeElement.getAttribute(
-                    'waResizeBox',
-                ) as ResizeObserverBoxOptions;
-
-                return attribute || RESIZE_OPTION_BOX_DEFAULT;
-            },
+            useFactory: (): ResizeObserverBoxOptions =>
+                inject(ElementRef).nativeElement.getAttribute('waResizeBox') ||
+                RESIZE_OPTION_BOX_DEFAULT,
         },
     ],
 })
 export class WaResizeObserver {
     protected readonly waResizeObserver = inject(ResizeObserverService);
 
-    constructor(
-        // eslint-disable-next-line @angular-eslint/no-attribute-decorator
-        @Attribute('waResizeBox') protected readonly box: ResizeObserverBoxOptions,
-    ) {}
+    public box: ResizeObserverBoxOptions = RESIZE_OPTION_BOX_DEFAULT;
 }
 
 /**

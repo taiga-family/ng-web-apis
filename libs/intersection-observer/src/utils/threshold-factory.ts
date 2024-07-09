@@ -1,5 +1,12 @@
+import {ElementRef, inject} from '@angular/core';
+
 import {INTERSECTION_THRESHOLD_DEFAULT} from '../tokens/intersection-threshold';
 
-export function thresholdFactory(threshold: string | null): number[] | number {
-    return threshold?.split(',').map(parseFloat) || INTERSECTION_THRESHOLD_DEFAULT;
+export function thresholdFactory(): number[] | number {
+    return (
+        inject(ElementRef)
+            .nativeElement.getAttribue('waIntersectionThreshold')
+            ?.split(',')
+            .map(parseFloat) || INTERSECTION_THRESHOLD_DEFAULT
+    );
 }
