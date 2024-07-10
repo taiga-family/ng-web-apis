@@ -4,7 +4,7 @@ import {INTERSECTION_ROOT_MARGIN_DEFAULT} from '../tokens/intersection-root-marg
 
 export function rootMarginFactory(): string {
     return (
-        inject(ElementRef).nativeElement.getAttribue('waIntersectionRootMargin') ||
+        inject(ElementRef).nativeElement.getAttribute('waIntersectionRootMargin') ||
         INTERSECTION_ROOT_MARGIN_DEFAULT
     );
 }
