@@ -1,13 +1,6 @@
 /* eslint-disable @angular-eslint/no-attribute-decorator */
 import type {OnDestroy} from '@angular/core';
-import {
-    Attribute,
-    Directive,
-    ElementRef,
-    EventEmitter,
-    inject,
-    Output,
-} from '@angular/core';
+import {Directive, ElementRef, EventEmitter, inject, Input, Output} from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
 import {MUTATION_OBSERVER_INIT} from '../tokens/mutation-observer-init';
@@ -19,7 +12,6 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
     providers: [
         {
             provide: MUTATION_OBSERVER_INIT,
-            deps: [ElementRef],
             useFactory: mutationObserverInitFactory,
         },
     ],
@@ -29,18 +21,31 @@ export class WaMutationObserver extends SafeObserver implements OnDestroy {
     private readonly nativeElement: Node = inject(ElementRef).nativeElement;
     private readonly config = inject(MUTATION_OBSERVER_INIT);
 
+    @Input()
+    public attributeFilter = '';
+
+    @Input()
+    public attributeOldValue = '' as const;
+
+    @Input()
+    public attributes = '' as const;
+
+    @Input()
+    public characterData = '' as const;
+
+    @Input()
+    public characterDataOldValue = '' as const;
+
+    @Input()
+    public childList = '' as const;
+
+    @Input()
+    public subtree = '' as const;
+
     @Output()
     public readonly waMutationObserver = new EventEmitter<MutationRecord[]>();
 
-    constructor(
-        @Attribute('attributeFilter') _1: unknown,
-        @Attribute('attributeOldValue') _2: unknown,
-        @Attribute('attributes') _3: unknown,
-        @Attribute('characterData') _4: unknown,
-        @Attribute('characterDataOldValue') _5: unknown,
-        @Attribute('childList') _6: unknown,
-        @Attribute('subtree') _7: unknown,
-    ) {
+    constructor() {
         super((records) => {
             this.waMutationObserver.emit(records);
         });

@@ -8,7 +8,7 @@ export const WaIntersectionObserver = [
     WaIntersectionObserverDirective,
     WaIntersectionObservee,
     WaIntersectionRoot,
-];
+] as const;
 
 /**
  * @deprecated: use {@link WaIntersectionObserver}

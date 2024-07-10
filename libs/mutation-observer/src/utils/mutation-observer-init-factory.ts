@@ -1,11 +1,10 @@
-import type {ElementRef} from '@angular/core';
+import {ElementRef, inject} from '@angular/core';
 
 import {booleanAttribute} from './boolean-attribute';
 
-export function mutationObserverInitFactory({
-    nativeElement,
-}: ElementRef<Element>): MutationObserverInit {
-    const attributeFilter = nativeElement.getAttribute('attributeFilter');
+export function mutationObserverInitFactory(): MutationObserverInit {
+    const {nativeElement} = inject(ElementRef);
+    const attributeFilter: string | null = nativeElement.getAttribute('attributeFilter');
 
     return {
         attributeFilter: attributeFilter?.split(',').map((attr) => attr.trim()),
