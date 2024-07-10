@@ -33,10 +33,10 @@ export class WaCanvas2d {
     private readonly method = inject(WaDrawService);
 
     @Input()
-    public waOpaque = '';
+    public waOpaque = '' as const;
 
     @Input()
-    public waDesynchronized = '';
+    public waDesynchronized = '' as const;
 
     constructor() {
         this.context.strokeStyle = 'transparent';
