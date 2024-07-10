@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [4.1.3](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/mutation-observer@4.1.2...@ng-web-apis/mutation-observer@4.1.3) (2024-07-10)
+
+**Note:** Version bump only for package @ng-web-apis/mutation-observer
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.1.2](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/mutation-observer@4.1.1...@ng-web-apis/mutation-observer@4.1.2) (2024-06-27)
 
 ### Features
