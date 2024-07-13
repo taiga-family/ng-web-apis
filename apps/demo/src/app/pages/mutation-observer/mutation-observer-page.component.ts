@@ -15,10 +15,10 @@ import {TuiInputModule} from '@taiga-ui/kit';
     imports: [
         CommonModule,
         FormsModule,
+        MutationObserverDirective,
         TuiButtonModule,
         TuiGroupModule,
         TuiInputModule,
-        MutationObserverDirective,
         TuiTextfieldControllerModule,
     ],
     templateUrl: './mutation-observer-page.component.html',
