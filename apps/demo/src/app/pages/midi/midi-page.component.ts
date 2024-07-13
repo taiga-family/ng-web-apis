@@ -10,7 +10,7 @@ import {Demo} from './demo/demo.component';
 @Component({
     standalone: true,
     selector: 'midi-page',
-    imports: [CommonModule, TuiButtonModule, FormsModule, WaWebAudio, Demo],
+    imports: [CommonModule, Demo, FormsModule, TuiButtonModule, WaWebAudio],
     templateUrl: './midi-page.component.html',
     styleUrls: ['./midi-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -23,7 +23,7 @@ import {RESPONSE_BUFFER} from './response';
 @Component({
     standalone: true,
     selector: 'demo',
-    imports: [WaWebAudio, CommonModule, FrequencyPipe, AdsrPipe],
+    imports: [AdsrPipe, CommonModule, FrequencyPipe, WaWebAudio],
     templateUrl: './demo.component.html',
     styleUrls: ['./demo.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

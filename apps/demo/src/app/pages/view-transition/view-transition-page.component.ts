@@ -57,7 +57,7 @@ const USAGE_SAMPLE = `
 @Component({
     standalone: true,
     selector: 'view-transition-page',
-    imports: [CommonModule, HighlightModule, TuiLinkModule, TuiLetModule],
+    imports: [CommonModule, HighlightModule, TuiLetModule, TuiLinkModule],
     templateUrl: './view-transition-page.component.html',
     styleUrls: ['./view-transition-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

@@ -19,7 +19,7 @@ function startCompute(): number {
 @Component({
     standalone: true,
     selector: 'workers-page',
-    imports: [CommonModule, WorkerPipe, TuiButtonModule, TuiNotificationModule, Clock],
+    imports: [Clock, CommonModule, TuiButtonModule, TuiNotificationModule, WorkerPipe],
     templateUrl: './workers-page.component.html',
     styleUrls: ['./workers-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

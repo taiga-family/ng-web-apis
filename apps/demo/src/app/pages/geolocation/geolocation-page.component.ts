@@ -12,7 +12,7 @@ import {SAMPLE_ASYNC} from './samples/sample-async';
 @Component({
     standalone: true,
     selector: 'geolocation-page',
-    imports: [CommonModule, TuiButtonModule, TuiLoaderModule, HighlightModule],
+    imports: [CommonModule, HighlightModule, TuiButtonModule, TuiLoaderModule],
     templateUrl: './geolocation-page.component.html',
     styleUrls: ['./geolocation-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

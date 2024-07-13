@@ -6,7 +6,7 @@ import {MarkdownModule} from 'ngx-markdown';
 @Component({
     standalone: true,
     selector: 'common-page',
-    imports: [RouterLink, CommonModule, MarkdownModule],
+    imports: [CommonModule, MarkdownModule, RouterLink],
     templateUrl: './common-page.component.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

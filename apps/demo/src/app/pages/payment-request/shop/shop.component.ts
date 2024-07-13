@@ -20,7 +20,7 @@ class ShopItem implements PaymentItem {
 @Component({
     standalone: true,
     selector: 'app-shop',
-    imports: [NgForOf, WaPaymentRequest, NgIf],
+    imports: [NgForOf, NgIf, WaPaymentRequest],
     templateUrl: './shop.component.html',
     styleUrls: ['./shop.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

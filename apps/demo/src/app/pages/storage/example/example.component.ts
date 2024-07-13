@@ -10,7 +10,7 @@ import type {Observable} from 'rxjs';
 @Component({
     standalone: true,
     selector: 'example',
-    imports: [CommonModule, TuiNotificationModule, TuiInputModule, FormsModule],
+    imports: [CommonModule, FormsModule, TuiInputModule, TuiNotificationModule],
     templateUrl: './example.template.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
