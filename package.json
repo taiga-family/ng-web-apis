@@ -152,7 +152,7 @@
         "ngx-highlightjs": "10.0.0",
         "ngx-markdown": "16.0.0",
         "nx": "19.4.3",
-        "prettier": "3.3.2",
+        "prettier": "3.3.3",
         "rxjs": "7.8.1",
         "standard-version": "9.5.0",
         "ts-node": "10.9.2",
