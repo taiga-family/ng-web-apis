@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1721035407962,
+  "timestamp": 1721042382399,
   "index": "/ng-web-apis/index.html",
   "assetGroups": [
     {
@@ -13,7 +13,7 @@
       "urls": [
         "/ng-web-apis/121.969eeebc0b362f08.js",
         "/ng-web-apis/146.aeb9a5127f47b175.js",
-        "/ng-web-apis/164.c42a6add0c590d3a.js",
+        "/ng-web-apis/164.d646624cbbaf6f6f.js",
         "/ng-web-apis/181.842dc24bce83206a.js",
         "/ng-web-apis/200.fae35270de73bb68.js",
         "/ng-web-apis/203.8dc65550bbd49e19.js",
@@ -38,7 +38,7 @@
         "/ng-web-apis/557.4535ee91fd053641.js",
         "/ng-web-apis/633.2cd1c404a4d8f28f.js",
         "/ng-web-apis/67.b4d2687a437ff28f.js",
-        "/ng-web-apis/684.a6e2399ac685f786.js",
+        "/ng-web-apis/684.91e8344671861967.js",
         "/ng-web-apis/728.284f0a682c28237b.js",
         "/ng-web-apis/739.74adf7affd0c4dff.js",
         "/ng-web-apis/742.6d025830c6002ec6.js",
@@ -52,10 +52,10 @@
         "/ng-web-apis/998.b6ed4bf51d5f34ab.js",
         "/ng-web-apis/common.6adf145f54710840.js",
         "/ng-web-apis/index.html",
-        "/ng-web-apis/main.56f34081aba451d8.js",
+        "/ng-web-apis/main.448f7865bdd2dc3a.js",
         "/ng-web-apis/manifest.webmanifest",
         "/ng-web-apis/polyfills.ae5789f654573dca.js",
-        "/ng-web-apis/runtime.186e4d7961102b91.js",
+        "/ng-web-apis/runtime.aa49a9c419e7291f.js",
         "/ng-web-apis/scripts.75d93336962ccb31.js",
         "/ng-web-apis/styles.9b8e6991f40bee8a.css"
       ],
@@ -1329,7 +1329,7 @@
   "hashTable": {
     "/ng-web-apis/121.969eeebc0b362f08.js": "fc044b7782b50709dbf4e2c4758038c991544654",
     "/ng-web-apis/146.aeb9a5127f47b175.js": "91b6ce0412ba6645640034f064fb5c805c703875",
-    "/ng-web-apis/164.c42a6add0c590d3a.js": "aa7125cbe6c548146378503438c73a15dde8c974",
+    "/ng-web-apis/164.d646624cbbaf6f6f.js": "c04c9db3d7c49fa54570e77fe8e2e06a51df292e",
     "/ng-web-apis/181.842dc24bce83206a.js": "4fccffdbc1beec4f776475bb944b81216f828d99",
     "/ng-web-apis/200.fae35270de73bb68.js": "378f4fe2b343e6822f876cb00374b1b2ccfb3dab",
     "/ng-web-apis/203.8dc65550bbd49e19.js": "a155c450e8c9b23b6ff55eac87947536d05c3ca4",
@@ -1354,7 +1354,7 @@
     "/ng-web-apis/557.4535ee91fd053641.js": "01e5071ee9600a634b183718aa40098fe550ad0d",
     "/ng-web-apis/633.2cd1c404a4d8f28f.js": "eec1fb259bae6c8e5ce5d2807974fd480ef34873",
     "/ng-web-apis/67.b4d2687a437ff28f.js": "00b612e108227302d21a69e7c8a6c9148bd0dcfb",
-    "/ng-web-apis/684.a6e2399ac685f786.js": "b94ef45a83ef22ea82a25f0af11868fde5ba2667",
+    "/ng-web-apis/684.91e8344671861967.js": "81551b07e13703ae776f721d66bc4ef7227debfe",
     "/ng-web-apis/728.284f0a682c28237b.js": "4b2a3184bf2afd5389d34b40828f8794741b0ddb",
     "/ng-web-apis/739.74adf7affd0c4dff.js": "3e0585529ce65b613f67476efcaa6f99533f496f",
     "/ng-web-apis/742.6d025830c6002ec6.js": "8cb4818f4fec80b15bf6ed90a18600a98e68ea82",
@@ -2619,11 +2619,11 @@
     "/ng-web-apis/assets/taiga-ui/icons/tuiIconZoomOutLarge.svg": "395326ffdf53e7a698b61cc4e3e3813ecf2d3448",
     "/ng-web-apis/assets/taiga-ui/icons/tuiIconZoomOutOutline.svg": "649232602165b4880fe74e2c1fc59c37a5c76ea8",
     "/ng-web-apis/common.6adf145f54710840.js": "5d48d98b7ebac046b430d964b6156371dea48fec",
-    "/ng-web-apis/index.html": "2125dc10414c87ff4769219162de4d8b8943d15f",
-    "/ng-web-apis/main.56f34081aba451d8.js": "80c6dc925e9ca3196363ab7f33ed844933ef8a05",
+    "/ng-web-apis/index.html": "1e02a5aafa0ffe9d0c9fe4defcefc1d3edf179f7",
+    "/ng-web-apis/main.448f7865bdd2dc3a.js": "7d840070325399d88bc2f72675c5eb5828aa605c",
     "/ng-web-apis/manifest.webmanifest": "7c2c6821006405e87e1d216c6e47f8f8f4b0d8f7",
     "/ng-web-apis/polyfills.ae5789f654573dca.js": "34be96c36fa5867c927e5b28d32bc89dda38fc97",
-    "/ng-web-apis/runtime.186e4d7961102b91.js": "f5f70885614d1dc04181d8e26920065c65064f16",
+    "/ng-web-apis/runtime.aa49a9c419e7291f.js": "18348e58f9ded7cbfadb4925dc32d84a03f73c76",
     "/ng-web-apis/scripts.75d93336962ccb31.js": "05d90c247423ab939e11c4a1258364585063e817",
     "/ng-web-apis/styles.9b8e6991f40bee8a.css": "83992de19818846f52753d1f719ee5c1785abf0a"
   },
