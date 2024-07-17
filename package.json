@@ -121,7 +121,7 @@
         "@taiga-ui/prettier-config": "0.115.3",
         "@taiga-ui/styles": "3.87.0",
         "@taiga-ui/tsconfig": "0.115.3",
-        "@tinkoff/tui-editor": "1.44.0",
+        "@tinkoff/tui-editor": "1.45.0",
         "@types/dom-speech-recognition": "0.0.4",
         "@types/dom-view-transitions": "1.0.4",
         "@types/dompurify": "3.0.5",
