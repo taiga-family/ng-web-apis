@@ -3,9 +3,9 @@ import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {fromEvent, map, startWith} from 'rxjs';
 
-export const SPEECH_SYNTHESIS_VOICES = new InjectionToken<
+export const WA_SPEECH_SYNTHESIS_VOICES = new InjectionToken<
     Observable<readonly SpeechSynthesisVoice[]>
->('[SPEECH_SYNTHESIS_VOICES]: List of available voices for speech synthesis', {
+>('[WA_SPEECH_SYNTHESIS_VOICES]', {
     factory: () => {
         const speechSynthesisRef = inject(SPEECH_SYNTHESIS);
 
@@ -15,3 +15,8 @@ export const SPEECH_SYNTHESIS_VOICES = new InjectionToken<
         );
     },
 });
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_SPEECH_SYNTHESIS_VOICES}
+ */
+export const SPEECH_SYNTHESIS_VOICES = WA_SPEECH_SYNTHESIS_VOICES;

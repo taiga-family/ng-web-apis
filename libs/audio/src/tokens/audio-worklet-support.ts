@@ -1,10 +1,15 @@
 import {inject, InjectionToken} from '@angular/core';
 
-import {AUDIO_CONTEXT} from './audio-context';
+import {WA_AUDIO_CONTEXT} from './audio-context';
 
-export const AUDIO_WORKLET_SUPPORT = new InjectionToken<boolean>(
-    '[AUDIO_WORKLET_SUPPORT]: AudioWorklet browser support',
+export const WA_AUDIO_WORKLET_SUPPORT = new InjectionToken<boolean>(
+    '[WA_AUDIO_WORKLET_SUPPORT]',
     {
-        factory: () => !!inject(AUDIO_CONTEXT).audioWorklet,
+        factory: () => !!inject(WA_AUDIO_CONTEXT).audioWorklet,
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_AUDIO_WORKLET_SUPPORT}
+ */
+export const AUDIO_WORKLET_SUPPORT = WA_AUDIO_WORKLET_SUPPORT;

@@ -3,8 +3,8 @@ import {InjectionToken} from '@angular/core';
 
 import type {CanvasMethod} from '../interfaces/canvas-method';
 
-export const CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
-    '[CANVAS_PROPERTIES]: A directive performing processing before and after drawing to canvas',
+export const WA_CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
+    '[WA_CANVAS_PROPERTIES]',
     {
         factory: () => [],
     },
@@ -12,8 +12,13 @@ export const CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
 
 export function asCanvasProperty(useExisting: Type<CanvasMethod>): ExistingProvider {
     return {
-        provide: CANVAS_PROPERTIES,
+        provide: WA_CANVAS_PROPERTIES,
         multi: true,
         useExisting,
     };
 }
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_CANVAS_PROPERTIES}
+ */
+export const CANVAS_PROPERTIES = WA_CANVAS_PROPERTIES;

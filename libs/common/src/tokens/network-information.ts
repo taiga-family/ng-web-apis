@@ -1,11 +1,16 @@
 import {inject, InjectionToken} from '@angular/core';
 
-import {NAVIGATOR} from './navigator';
+import {WA_NAVIGATOR} from './navigator';
 
-export const NETWORK_INFORMATION = new InjectionToken<
+export const WA_NETWORK_INFORMATION = new InjectionToken<
     // @ts-ignore
     (typeof navigator)['connection'] | null
->('[NETWORK_INFORMATION]: An abstraction over window.navigator.connection object', {
+>('[WA_NETWORK_INFORMATION]', {
     // @ts-ignore
-    factory: () => inject(NAVIGATOR).connection || null,
+    factory: () => inject(WA_NAVIGATOR).connection || null,
 });
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_NETWORK_INFORMATION}
+ */
+export const NETWORK_INFORMATION = WA_NETWORK_INFORMATION;
