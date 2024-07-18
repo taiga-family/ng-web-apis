@@ -20,7 +20,7 @@ import {
 import {CACHES_MOCK} from './universal-caches';
 import {CRYPTO_MOCK} from './universal-crypto';
 import {NAVIGATOR_MOCK} from './universal-navigator';
-import {performanceFactory} from './universal-performance';
+import {UNIVERSAL_PERFORMANCE} from './universal-performance';
 import {SPEECH_SYNTHESIS_MOCK} from './universal-speech-synthesis';
 
 const COMPUTED_STYLES: Partial<CSSStyleDeclaration> = {
@@ -80,7 +80,7 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
             localStorage: new StorageMock(),
             location: location || new LocationMock(),
             navigator: {...NAVIGATOR_MOCK, userAgent: userAgent || ''},
-            performance: performanceFactory(),
+            performance: UNIVERSAL_PERFORMANCE.useFactory(),
             sessionStorage: new StorageMock(),
             speechSynthesis: SPEECH_SYNTHESIS_MOCK,
             caches: CACHES_MOCK,
