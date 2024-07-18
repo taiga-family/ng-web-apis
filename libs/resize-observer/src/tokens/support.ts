@@ -2,7 +2,7 @@ import {inject, InjectionToken} from '@angular/core';
 import {WINDOW} from '@ng-web-apis/common';
 
 export const WA_RESIZE_OBSERVER_SUPPORT = new InjectionToken<boolean>(
-    '[WA_RESIZE_OBSERVER_SUPPORT]: Resize Observer API support',
+    '[WA_RESIZE_OBSERVER_SUPPORT]',
     {
         providedIn: 'root',
         factory: () => !!(inject(WINDOW) as any).ResizeObserver,

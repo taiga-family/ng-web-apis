@@ -4,7 +4,7 @@ import {NAVIGATOR} from '@ng-web-apis/common';
 import {SYSEX} from './sysex';
 
 export const WA_MIDI_ACCESS = new InjectionToken<Promise<globalThis.MIDIAccess>>(
-    '[WA_MIDI_ACCESS]: Promise for MIDIAccess object',
+    '[WA_MIDI_ACCESS]',
     {
         providedIn: 'root',
         factory: async () => {

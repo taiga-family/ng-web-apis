@@ -1,8 +1,6 @@
 import {InjectionToken} from '@angular/core';
 
-export const WA_SSR_USER_AGENT = new InjectionToken<string>(
-    '[WA_SSR_USER_AGENT]: User Agent string passed from server side',
-);
+export const WA_SSR_USER_AGENT = new InjectionToken<string>('[WA_SSR_USER_AGENT]');
 
 /**
  * @deprecated: drop in v5.0, use {@link WA_SSR_USER_AGENT}

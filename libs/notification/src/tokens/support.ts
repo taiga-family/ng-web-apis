@@ -2,7 +2,7 @@ import {inject, InjectionToken} from '@angular/core';
 import {WINDOW} from '@ng-web-apis/common';
 
 export const WA_NOTIFICATION_SUPPORT = new InjectionToken<boolean>(
-    '[WA_NOTIFICATION_SUPPORT]: Is Notification API supported?',
+    '[WA_NOTIFICATION_SUPPORT]',
     {
         factory: () => 'Notification' in inject(WINDOW),
     },

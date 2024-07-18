@@ -27,7 +27,7 @@ export interface WaPaymentShippingOption {
 export type PaymentShippingOption = WaPaymentShippingOption;
 
 export const WA_PAYMENT_OPTIONS = new InjectionToken<WaPaymentOptions>(
-    '[WA_PAYMENT_OPTIONS]: Additional data requests from payer',
+    '[WA_PAYMENT_OPTIONS]',
     {
         factory: () => ({}),
     },

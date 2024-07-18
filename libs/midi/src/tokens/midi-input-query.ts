@@ -1,8 +1,6 @@
 import {InjectionToken} from '@angular/core';
 
-export const WA_MIDI_INPUT_QUERY = new InjectionToken<string>(
-    '[WA_MIDI_INPUT_QUERY]: MIDIInput object id or name',
-);
+export const WA_MIDI_INPUT_QUERY = new InjectionToken<string>('[WA_MIDI_INPUT_QUERY]');
 
 /**
  * @deprecated: drop in v5.0, use {@link WA_MIDI_INPUT_QUERY}

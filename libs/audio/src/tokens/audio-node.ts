@@ -1,12 +1,9 @@
 import type {ExistingProvider, Type} from '@angular/core';
 import {InjectionToken} from '@angular/core';
 
-export const WA_AUDIO_NODE = new InjectionToken<AudioNode | null>(
-    '[WA_AUDIO_NODE]: Web Audio API audio node',
-    {
-        factory: () => null,
-    },
-);
+export const WA_AUDIO_NODE = new InjectionToken<AudioNode | null>('[WA_AUDIO_NODE]', {
+    factory: () => null,
+});
 
 export function asAudioNode(useExisting: Type<AudioNode>): ExistingProvider {
     return {

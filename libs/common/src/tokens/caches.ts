@@ -2,12 +2,9 @@ import {inject, InjectionToken} from '@angular/core';
 
 import {WINDOW} from './window';
 
-export const WA_CACHES = new InjectionToken<CacheStorage>(
-    '[WA_CACHES]: An abstraction over window.caches object',
-    {
-        factory: () => inject(WINDOW).caches,
-    },
-);
+export const WA_CACHES = new InjectionToken<CacheStorage>('[WA_CACHES]', {
+    factory: () => inject(WINDOW).caches,
+});
 
 /**
  * @deprecated: drop in v5.0, use {@link WA_CACHES}

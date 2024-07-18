@@ -4,7 +4,7 @@ import type {Observable} from 'rxjs';
 import {fromEvent} from 'rxjs';
 
 export const WA_STORAGE_EVENT = new InjectionToken<Observable<StorageEvent>>(
-    '[WA_STORAGE_EVENT]: All changes to Storage objects',
+    '[WA_STORAGE_EVENT]',
     {
         factory: () => fromEvent<StorageEvent>(inject(WINDOW), 'storage'),
     },

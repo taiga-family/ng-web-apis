@@ -5,7 +5,7 @@ import {WA_AUDIO_WORKLET_PROCESSORS} from './audio-worklet-processors';
 import {WA_AUDIO_WORKLET_SUPPORT} from './audio-worklet-support';
 
 export const WA_AUDIO_WORKLET_PROCESSORS_READY = new InjectionToken<Promise<boolean>>(
-    '[WA_AUDIO_WORKLET_PROCESSORS_READY]: Web Audio API worklet processors resolution promise',
+    '[WA_AUDIO_WORKLET_PROCESSORS_READY]',
     {
         providedIn: 'root',
         factory: async () => {

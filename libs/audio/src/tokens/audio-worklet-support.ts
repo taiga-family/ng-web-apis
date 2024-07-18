@@ -3,7 +3,7 @@ import {inject, InjectionToken} from '@angular/core';
 import {WA_AUDIO_CONTEXT} from './audio-context';
 
 export const WA_AUDIO_WORKLET_SUPPORT = new InjectionToken<boolean>(
-    '[WA_AUDIO_WORKLET_SUPPORT]: AudioWorklet browser support',
+    '[WA_AUDIO_WORKLET_SUPPORT]',
     {
         factory: () => !!inject(WA_AUDIO_CONTEXT).audioWorklet,
     },

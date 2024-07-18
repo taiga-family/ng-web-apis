@@ -3,7 +3,7 @@ import {inject, InjectionToken} from '@angular/core';
 import {PERMISSIONS} from './permissions';
 
 export const WA_PERMISSIONS_SUPPORT = new InjectionToken<boolean>(
-    '[WA_PERMISSIONS_SUPPORT]: Is Permissions API supported?',
+    '[WA_PERMISSIONS_SUPPORT]',
     {
         factory: () => !!inject(PERMISSIONS),
     },

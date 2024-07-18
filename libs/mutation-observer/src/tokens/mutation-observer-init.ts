@@ -1,7 +1,7 @@
 import {InjectionToken} from '@angular/core';
 
 export const WA_MUTATION_OBSERVER_INIT = new InjectionToken<MutationObserverInit>(
-    '[WA_MUTATION_OBSERVER_INIT]: MutationObserver config',
+    '[WA_MUTATION_OBSERVER_INIT]',
 );
 
 /**

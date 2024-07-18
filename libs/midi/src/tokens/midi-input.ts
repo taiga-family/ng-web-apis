@@ -3,7 +3,7 @@ import {InjectionToken} from '@angular/core';
 import MIDIInput = WebMidi.MIDIInput;
 
 export const WA_MIDI_INPUT = new InjectionToken<Promise<MIDIInput | undefined>>(
-    '[WA_MIDI_INPUT]: MIDIInput object',
+    '[WA_MIDI_INPUT]',
 );
 
 /**

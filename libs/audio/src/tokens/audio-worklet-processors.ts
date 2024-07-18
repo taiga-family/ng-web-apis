@@ -1,7 +1,7 @@
 import {InjectionToken} from '@angular/core';
 
 export const WA_AUDIO_WORKLET_PROCESSORS = new InjectionToken<readonly string[]>(
-    '[WA_AUDIO_WORKLET_PROCESSORS]: Web Audio API worklet processors paths',
+    '[WA_AUDIO_WORKLET_PROCESSORS]',
     {
         providedIn: 'root',
         factory: () => [],

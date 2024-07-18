@@ -4,7 +4,7 @@ import type {Observable} from 'rxjs';
 import {distinctUntilChanged, fromEvent, map, shareReplay, startWith} from 'rxjs';
 
 export const WA_PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
-    '[WA_PAGE_VISIBILITY]: Shared Observable based on `document visibility changed`',
+    '[WA_PAGE_VISIBILITY]',
     {
         factory: () => {
             const documentRef = inject(DOCUMENT);

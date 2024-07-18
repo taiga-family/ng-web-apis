@@ -8,7 +8,7 @@ export const WA_RESIZE_OPTION_BOX_DEFAULT = 'content-box';
 export const RESIZE_OPTION_BOX_DEFAULT = WA_RESIZE_OPTION_BOX_DEFAULT;
 
 export const WA_RESIZE_OPTION_BOX = new InjectionToken<ResizeObserverBoxOptions>(
-    '[WA_RESIZE_OPTION_BOX]: Box model to observe changes',
+    '[WA_RESIZE_OPTION_BOX]',
     {
         providedIn: 'root',
         factory: () => RESIZE_OPTION_BOX_DEFAULT,

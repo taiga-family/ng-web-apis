@@ -6,7 +6,7 @@ import {WA_AUDIO_CONTEXT} from './audio-context';
  * This is mostly for internal use only
  */
 export const WA_CONSTRUCTOR_SUPPORT = new InjectionToken<boolean>(
-    '[WA_CONSTRUCTOR_SUPPORT]: Tests if constructor mode of node creation is supported or a fallback to factory method is needed',
+    '[WA_CONSTRUCTOR_SUPPORT]',
     {
         providedIn: 'root',
         factory: () => {

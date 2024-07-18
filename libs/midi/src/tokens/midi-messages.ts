@@ -5,7 +5,7 @@ import {from, fromEvent, merge, share, startWith, switchMap, throwError} from 'r
 import {MIDI_ACCESS} from './midi-access';
 
 export const WA_MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
-    '[WA_MIDI_MESSAGES]: All incoming MIDI messages stream',
+    '[WA_MIDI_MESSAGES]',
     {
         providedIn: 'root',
         factory: () =>

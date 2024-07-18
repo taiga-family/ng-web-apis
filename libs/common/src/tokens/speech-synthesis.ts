@@ -3,7 +3,7 @@ import {inject, InjectionToken} from '@angular/core';
 import {WINDOW} from './window';
 
 export const WA_SPEECH_SYNTHESIS = new InjectionToken<SpeechSynthesis>(
-    '[WA_SPEECH_SYNTHESIS]: An abstraction over window.speechSynthesis object',
+    '[WA_SPEECH_SYNTHESIS]',
     {
         factory: () => inject(WINDOW).speechSynthesis,
     },
