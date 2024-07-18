@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/geolocation",
-    "version": "4.1.3",
+    "version": "4.2.0",
     "description": "This is a library for declarative use of Geolocation API with Angular",
     "keywords": [
         "angular",

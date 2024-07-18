@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.2.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/universal@4.1.3...@ng-web-apis/universal@4.2.0) (2024-07-18)
+
+**Note:** Version bump only for package @ng-web-apis/universal
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.1.3](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/universal@4.1.2...@ng-web-apis/universal@4.1.3) (2024-07-10)
 
 **Note:** Version bump only for package @ng-web-apis/universal
