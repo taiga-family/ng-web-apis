@@ -146,7 +146,7 @@
         "karma-coverage": "2.2.1",
         "karma-jasmine": "5.1.0",
         "karma-jasmine-html-reporter": "2.1.0",
-        "lerna": "8.1.6",
+        "lerna": "8.1.7",
         "lint-staged": "15.2.7",
         "ng-packagr": "16.2.3",
         "ngx-highlightjs": "10.0.0",
