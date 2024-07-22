@@ -9,8 +9,8 @@ export const WA_MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>
     {
         providedIn: 'root',
         factory: () =>
-            from(inject(MIDI_ACCESS).catch((e: Error) => e)).pipe(
-                switchMap((access) =>
+            from(inject(MIDI_ACCESS).catch((e: unknown) => e as Error)).pipe(
+                switchMap((access: Error | MIDIAccess) =>
                     access instanceof Error
                         ? throwError(access)
                         : fromEvent(access as any, 'statechange').pipe(

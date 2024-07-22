@@ -34,7 +34,7 @@ export class ViewTransitionService {
                 },
             );
 
-            transition.ready.catch((error: Error) => {
+            transition.ready.catch((error: unknown) => {
                 subscriber.error(error);
             });
 

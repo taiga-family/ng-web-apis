@@ -88,9 +88,9 @@ describe('WebWorker', () => {
 
         worker.postMessage();
 
-        expect(await worker.toPromise().catch((err: Error) => err.message)).toBe(
-            'Uncaught reason',
-        );
+        expect(
+            await worker.toPromise().catch((err: unknown) => (err as Error).message),
+        ).toBe('Uncaught reason');
     });
 
     it('should close all subscriptions, if the worker was terminated', () => {
