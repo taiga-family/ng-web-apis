@@ -26,7 +26,7 @@ export class NotificationService {
             void Notification.requestPermission((permission) => {
                 subscriber.next(permission);
                 subscriber.complete();
-            })?.catch((err) => subscriber.error(err));
+            })?.catch((err: unknown) => subscriber.error(err));
         });
     }
 
