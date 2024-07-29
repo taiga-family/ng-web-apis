@@ -8,6 +8,7 @@ import {
     Output,
 } from '@angular/core';
 
+import {SafeObserver} from '../classes/safe-observer';
 import {MUTATION_OBSERVER_INIT} from '../tokens/mutation-observer-init';
 import {mutationObserverInitFactory} from '../utils/mutation-observer-init-factory';
 
@@ -22,7 +23,7 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
         },
     ],
 })
-export class MutationObserverDirective extends MutationObserver implements OnDestroy {
+export class MutationObserverDirective extends SafeObserver implements OnDestroy {
     @Output()
     readonly waMutationObserver = new EventEmitter<MutationRecord[]>();
 
