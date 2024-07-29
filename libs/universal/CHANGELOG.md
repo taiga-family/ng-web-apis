@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+## [3.2.2](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.2.1...@ng-web-apis/universal@3.2.2) (2024-07-29)
+
+**Note:** Version bump only for package @ng-web-apis/universal
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [3.2.1](https://github.com/tinkoff/ng-web-apis/compare/@ng-web-apis/universal@3.0.2...@ng-web-apis/universal@3.2.1) (2024-06-24)
 
 **Note:** Version bump only for package @ng-web-apis/universal
