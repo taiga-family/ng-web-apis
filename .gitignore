@@ -44,3 +44,6 @@ testem.log
 Thumbs.db
 
 apps/demo/routesFile.txt
+.angular
+.nx
+*.iml
