@@ -34,7 +34,7 @@
         "publish": {
             "executor": "@nrwl/workspace:run-commands",
             "options": {
-                "command": "npm publish ./dist/resize-observer --ignore-scripts || echo \"already published\""
+                "command": "npm publish --tag v3-lts ./dist/resize-observer --ignore-scripts || echo \"already published\""
             }
         }
     }

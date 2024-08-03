@@ -43,7 +43,7 @@
         "release:patch": "npm run release -- --release-as patch",
         "release:minor": "npm run release -- --release-as minor",
         "release:major": "npm run release -- --release-as major",
-        "publish": "npm run build && npm publish ./dist/common",
+        "publish": "npm run build && npm publish --tag v3-lts ./dist/common",
         "*** Workflow ***": "",
         "lint": "eslint . --fix",
         "typecheck": "tsc --noEmit --skipLibCheck",
