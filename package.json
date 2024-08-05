@@ -34,8 +34,7 @@
     "scripts": {
         "prepare": "husky",
         "start": "nx serve demo --open",
-        "build": "nx build",
-        "postbuild": "node scripts/postbuild.js",
+        "build": "nx run-many --target=build",
         "release": "standard-version",
         "release:patch": "npm run release -- --release-as patch",
         "release:minor": "npm run release -- --release-as minor",
