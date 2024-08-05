@@ -38,14 +38,15 @@ export class ScreenOrientationService extends Observable<OrientationType> {
                   ) as -90 | 0 | 90 | 180;
 
                   switch (angle) {
-                      case 0:
-                          return 'portrait-primary';
                       case 180:
                           return 'portrait-secondary';
                       case 90:
                           return 'landscape-primary';
                       case -90:
                           return 'landscape-secondary';
+                      default:
+                      case 0:
+                          return 'portrait-primary';
                   }
               }),
           )

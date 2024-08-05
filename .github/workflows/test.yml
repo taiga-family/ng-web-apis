@@ -11,7 +11,7 @@ jobs:
     steps:
       - uses: taiga-family/ci/actions/setup/checkout@v1.66.3
       - uses: taiga-family/ci/actions/setup/node@v1.66.3
-      - run: npx nx run-many -t=test
+      - run: npx nx run-many -t=test --nxBail
 
 concurrency:
   group: test-${{ github.workflow }}-${{ github.ref }}

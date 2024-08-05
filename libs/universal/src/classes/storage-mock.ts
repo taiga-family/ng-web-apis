@@ -18,7 +18,9 @@ export class StorageMock implements Storage {
     }
 
     public key(index: number): string | null {
-        return index < this.storage.size ? [...this.storage.keys()][index] : null;
+        return index < this.storage.size
+            ? [...this.storage.keys()]?.[index] || null
+            : null;
     }
 
     public removeItem(key: string): void {

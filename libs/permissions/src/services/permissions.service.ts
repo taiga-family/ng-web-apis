@@ -1,8 +1,17 @@
 import {inject, Injectable} from '@angular/core';
-import {from, fromEvent, map, Observable, shareReplay, startWith, switchMap} from 'rxjs';
+import {
+    from,
+    fromEvent,
+    map,
+    Observable,
+    shareReplay,
+    startWith,
+    Subscription,
+    switchMap,
+} from 'rxjs';
 
-import {PERMISSIONS} from '../tokens/permissions';
-import {PERMISSIONS_SUPPORT} from '../tokens/permissions-support';
+import {WA_PERMISSIONS} from '../tokens/permissions';
+import {WA_PERMISSIONS_SUPPORT} from '../tokens/permissions-support';
 
 export type PermissionsQueryArgs = Parameters<typeof Permissions.prototype.query>[0];
 
@@ -10,8 +19,8 @@ export type PermissionsQueryArgs = Parameters<typeof Permissions.prototype.query
     providedIn: 'root',
 })
 export class PermissionsService {
-    private readonly permissions = inject(PERMISSIONS);
-    private readonly permissionsSupported = inject(PERMISSIONS_SUPPORT);
+    private readonly permissions = inject(WA_PERMISSIONS);
+    private readonly permissionsSupported = inject(WA_PERMISSIONS_SUPPORT);
 
     public state(name: PermissionName): Observable<PermissionState>;
     public state(descriptor: PermissionsQueryArgs): Observable<PermissionState>;
@@ -27,7 +36,7 @@ export class PermissionsService {
             if (!this.permissionsSupported) {
                 subscriber.error('Permissions is not supported in your browser');
 
-                return;
+                return new Subscription();
             }
 
             return from(this.permissions.query(descriptor))
