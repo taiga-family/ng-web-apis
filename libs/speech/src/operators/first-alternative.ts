@@ -5,5 +5,6 @@ export function firstAlternative(): OperatorFunction<
     SpeechRecognitionResult[],
     SpeechRecognitionAlternative
 > {
-    return map((result) => result[0][0]);
+    // eslint-disable-next-line @typescript-eslint/no-non-null-asserted-optional-chain
+    return map((result) => result[0]?.[0]!);
 }

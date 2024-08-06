@@ -56,7 +56,10 @@ export class Demo {
             ),
             mouseInitiated$,
         ).pipe(
-            scan((map, [_, note, volume]) => map.set(note, volume / 512), new Map()),
+            scan(
+                (map, [_, note, volume]) => map.set(note, (volume || 0) / 512),
+                new Map(),
+            ),
             switchMap((notes) =>
                 this.silent$.pipe(
                     map((key) => notes.set(key, null)),

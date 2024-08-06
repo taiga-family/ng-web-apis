@@ -1,12 +1,8 @@
 import type {Provider} from '@angular/core';
 
-import {MIDI_ACCESS} from '../tokens/midi-access';
-import {MIDI_INPUT} from '../tokens/midi-input';
-import {MIDI_INPUT_QUERY} from '../tokens/midi-input-query';
-
-import MIDIAccess = WebMidi.MIDIAccess;
-
-import MIDIInput = WebMidi.MIDIInput;
+import {WA_MIDI_ACCESS} from '../tokens/midi-access';
+import {WA_MIDI_INPUT} from '../tokens/midi-input';
+import {WA_MIDI_INPUT_QUERY} from '../tokens/midi-input-query';
 
 /**
  * Provide MIDIInput by name
@@ -16,19 +12,27 @@ import MIDIInput = WebMidi.MIDIInput;
 export function inputByName(name: string): Provider[] {
     return [
         {
-            provide: MIDI_INPUT_QUERY,
+            provide: WA_MIDI_INPUT_QUERY,
             useValue: name,
         },
         {
-            provide: MIDI_INPUT,
-            deps: [MIDI_ACCESS, MIDI_INPUT_QUERY],
+            provide: WA_MIDI_INPUT,
+            deps: [WA_MIDI_ACCESS, WA_MIDI_INPUT_QUERY],
             useFactory: async (
                 midiAccess: Promise<MIDIAccess>,
                 name: string,
             ): Promise<MIDIInput | undefined> =>
-                midiAccess.then((access) =>
-                    [...access.inputs.values()].find((input) => input.name === name),
-                ),
+                midiAccess.then((access: MIDIAccess) => {
+                    let result: MIDIInput | undefined;
+
+                    access.inputs.forEach((input) => {
+                        if (input.name === name) {
+                            result = input;
+                        }
+                    });
+
+                    return result;
+                }),
         },
     ];
 }
