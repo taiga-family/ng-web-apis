@@ -86,6 +86,7 @@ describe('Properties', () => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 0, 128, 0, 255,
             ]);
+
             done();
         }, 50);
     });
@@ -95,6 +96,7 @@ describe('Properties', () => {
             expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 128, 0, 255,
             ]);
+
             done();
         }, 50);
     });

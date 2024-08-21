@@ -56,6 +56,7 @@ describe('Path', () => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
             ]);
+
             done();
         }, 50);
     });

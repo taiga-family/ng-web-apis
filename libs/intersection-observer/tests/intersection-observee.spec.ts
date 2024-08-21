@@ -67,6 +67,7 @@ describe('WaIntersectionObservee', () => {
 
         setTimeout(() => {
             expect(testComponent.onIntersection).toHaveBeenCalled();
+
             document.querySelector('#observer_root')!.scrollTop = 0;
             fixture.detectChanges();
             testComponent.observe = false;

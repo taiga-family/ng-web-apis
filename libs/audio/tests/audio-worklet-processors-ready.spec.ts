@@ -26,6 +26,7 @@ describe('AUDIO_WORKLET_PROCESSORS_READY', () => {
 
         setTimeout(() => {
             expect(rejected).toBe(true);
+
             done();
         });
     });

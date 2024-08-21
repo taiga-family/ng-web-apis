@@ -26,6 +26,7 @@ describe('ViewTransitionService', () => {
                     expect(error.message).toBe(
                         'startViewTransition is not supported in your browser',
                     );
+
                     done();
                 },
             });
@@ -78,6 +79,7 @@ describe('ViewTransitionService', () => {
             observable.subscribe((viewTransition) => {
                 expect(viewTransition).toBeTruthy();
                 expect(callbackCalled).toBe(true);
+
                 done();
             });
         });

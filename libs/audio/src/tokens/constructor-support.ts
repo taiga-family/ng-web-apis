@@ -12,7 +12,7 @@ export const WA_CONSTRUCTOR_SUPPORT = new InjectionToken<boolean>(
         factory: () => {
             try {
                 return !!new GainNode(inject(WA_AUDIO_CONTEXT));
-            } catch (_) {
+            } catch {
                 return false;
             }
         },

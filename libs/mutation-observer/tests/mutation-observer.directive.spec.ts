@@ -66,6 +66,7 @@ describe('MutationObserverDirective', () => {
 
         setTimeout(() => {
             expect(testComponent.onMutation).toHaveBeenCalled();
+
             done();
         }, 100);
     });
@@ -77,6 +78,7 @@ describe('MutationObserverDirective', () => {
 
         setTimeout(() => {
             expect(testComponent.onAttributes).toHaveBeenCalled();
+
             done();
         }, 100);
     });
@@ -87,6 +89,7 @@ describe('MutationObserverDirective', () => {
 
         setTimeout(() => {
             expect(testComponent.onAttributes).not.toHaveBeenCalled();
+
             done();
         }, 100);
     });

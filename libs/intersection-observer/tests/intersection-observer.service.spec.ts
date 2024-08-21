@@ -41,6 +41,7 @@ describe('IntersectionObserverService', () => {
 
                 setTimeout(() => {
                     expect(called).toBe(true);
+
                     done();
                 });
             });

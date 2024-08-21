@@ -52,6 +52,7 @@ describe('Audio gain', () => {
 
                 setTimeout(() => {
                     expect(testComponent.node.gain.value).toBe(10);
+
                     done();
                 }, 100);
             });
@@ -69,8 +70,10 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 6 &&
                             testComponent.node.gain.value > 4,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                         done();
                     }, 1000);
                 }, 1000);
@@ -90,8 +93,10 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 4 &&
                             testComponent.node.gain.value > 2,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                         done();
                     }, 1000);
                 }, 1000);
@@ -110,8 +115,10 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 6 &&
                             testComponent.node.gain.value > 4,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                         done();
                     }, 1500);
                 }, 1000);
@@ -138,13 +145,16 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 6 &&
                             testComponent.node.gain.value > 4,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(
                             testComponent.node.gain.value < 9 &&
                                 testComponent.node.gain.value > 7,
                         ).toBe(true);
+
                         setTimeout(() => {
                             expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                             done();
                         }, 1500);
                     }, 2000);

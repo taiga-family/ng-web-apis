@@ -44,6 +44,7 @@ describe('WaResizeObserver', () => {
 
         setTimeout(() => {
             expect(testComponent.onResize).toHaveBeenCalled();
+
             testComponent.observe = false;
             fixture.detectChanges();
             done();

@@ -41,6 +41,7 @@ describe('GeolocationService', () => {
         it('gives a position', (done) => {
             service.pipe(take(1)).subscribe((position) => {
                 expect(position).toMatch('0');
+
                 done();
             });
         });
@@ -54,6 +55,7 @@ describe('GeolocationService', () => {
 
             service.pipe(skip(2), take(1)).subscribe((position) => {
                 expect(position).toEqual(firstPosition);
+
                 done();
             });
         });
@@ -67,6 +69,7 @@ describe('GeolocationService', () => {
             secondSubscription.unsubscribe();
 
             expect(clearWatchCount).toBe(1);
+
             done();
         });
 
@@ -75,6 +78,7 @@ describe('GeolocationService', () => {
             service.subscribe();
 
             expect(clearWatchCount).toBe(0);
+
             done();
         });
 
@@ -85,6 +89,7 @@ describe('GeolocationService', () => {
                 .pipe(
                     catchError((error) => {
                         expect(error).toBe('error');
+
                         done();
 
                         return EMPTY;
@@ -109,6 +114,7 @@ describe('GeolocationService', () => {
                 () => {},
                 (error) => {
                     expect(error).toBe('Geolocation is not supported in your browser');
+
                     done();
                 },
             );

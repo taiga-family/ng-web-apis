@@ -31,6 +31,7 @@ describe('ResizeObserver', () => {
 
         it('disconnect', () => {
             service.subscribe().unsubscribe();
+
             expect(service).toBeDefined();
         });
     });
