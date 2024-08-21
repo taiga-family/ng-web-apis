@@ -75,7 +75,9 @@ describe('Destination', () => {
             testComponent.source.stop(testComponent.source.context.currentTime + 0.5);
             setTimeout(() => {
                 fixture.detectChanges();
+
                 expect(testComponent.quiet).toBe(true);
+
                 done();
             }, 6000);
         });

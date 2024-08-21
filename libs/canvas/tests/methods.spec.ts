@@ -96,6 +96,7 @@ describe('Methods', () => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
             ]);
+
             done();
         }, 50);
     });
@@ -111,6 +112,7 @@ describe('Methods', () => {
             expect([...testComponent.context.getImageData(20, 20, 1, 1).data]).toEqual([
                 0, 0, 0, 0,
             ]);
+
             done();
         }, 50);
     });
@@ -120,6 +122,7 @@ describe('Methods', () => {
             expect([...testComponent.context.getImageData(30, 30, 1, 1).data]).toEqual([
                 0, 255, 0, 255,
             ]);
+
             done();
         }, 50);
     });

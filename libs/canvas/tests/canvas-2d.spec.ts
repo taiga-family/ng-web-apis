@@ -63,6 +63,7 @@ describe('WaCanvas2d', () => {
             expect([...testComponent.context.getImageData(25, 25, 1, 1).data]).toEqual([
                 0, 109, 109, 255,
             ]);
+
             done();
         }, 50);
     });

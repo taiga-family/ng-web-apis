@@ -29,7 +29,7 @@ export class ViewTransitionService {
                 () => {
                     subscriber.next(transition);
                 },
-                (error: Error) => {
+                (error: unknown) => {
                     subscriber.error(error);
                 },
             );
@@ -42,7 +42,7 @@ export class ViewTransitionService {
                 () => {
                     subscriber.complete();
                 },
-                (error: Error) => {
+                (error: unknown) => {
                     subscriber.error(error);
                 },
             );

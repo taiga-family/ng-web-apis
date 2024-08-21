@@ -13,6 +13,7 @@ describe('AudioBufferService', () => {
     it('turns audio file to AudioBuffer', (done) => {
         void service.fetch('/base/demo.mp3').then((buffer) => {
             expect(buffer instanceof AudioBuffer).toBe(true);
+
             done();
         });
     });
@@ -21,6 +22,7 @@ describe('AudioBufferService', () => {
         void service.fetch('/base/demo.mp3').then((buffer1) => {
             void service.fetch('/base/demo.mp3').then((buffer2) => {
                 expect(buffer1).toBe(buffer2);
+
                 done();
             });
         });

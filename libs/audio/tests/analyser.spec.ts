@@ -39,6 +39,7 @@ describe('Analyser', () => {
         it('emits frequency byte array', (done) => {
             testComponent.node.frequencyByte$.pipe(take(1)).subscribe((array) => {
                 expect(array instanceof Uint8Array).toBe(true);
+
                 done();
             });
         });
@@ -46,6 +47,7 @@ describe('Analyser', () => {
         it('emits frequency float array', (done) => {
             testComponent.node.frequencyFloat$.pipe(take(1)).subscribe((array) => {
                 expect(array instanceof Float32Array).toBe(true);
+
                 done();
             });
         });
@@ -53,6 +55,7 @@ describe('Analyser', () => {
         it('emits time byte array', (done) => {
             testComponent.node.timeByte$.pipe(take(1)).subscribe((array) => {
                 expect(array instanceof Uint8Array).toBe(true);
+
                 done();
             });
         });
@@ -60,6 +63,7 @@ describe('Analyser', () => {
         it('emits time float array', (done) => {
             testComponent.node.timeFloat$.pipe(take(1)).subscribe((array) => {
                 expect(array instanceof Float32Array).toBe(true);
+
                 done();
             });
         });

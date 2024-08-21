@@ -50,6 +50,7 @@ describe('inputById', () => {
 
         void TestBed.inject(MIDI_INPUT).then((input: any) => {
             expect(input).toBe(midiInput1);
+
             done();
         });
     });
@@ -67,6 +68,7 @@ describe('inputById', () => {
 
         void TestBed.inject(MIDI_INPUT).then((input: any) => {
             expect(input).toBe(midiInput2);
+
             done();
         });
     });
@@ -84,6 +86,7 @@ describe('inputById', () => {
 
         void TestBed.inject(MIDI_OUTPUT).then((input: any) => {
             expect(input).toBe(midiOutput1);
+
             done();
         });
     });
@@ -101,6 +104,7 @@ describe('inputById', () => {
 
         void TestBed.inject(MIDI_OUTPUT).then((input: any) => {
             expect(input).toBe(midiOutput2);
+
             done();
         });
     });

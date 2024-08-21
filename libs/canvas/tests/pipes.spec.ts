@@ -80,6 +80,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 127, 0, 127, 255,
             ]);
+
             done();
         }, 50);
     });

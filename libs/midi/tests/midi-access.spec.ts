@@ -59,6 +59,7 @@ describe('MIDI_ACCESS', () => {
         void TestBed.inject(MIDI_ACCESS).catch((e: unknown) => {
             // eslint-disable-next-line jest/no-conditional-expect
             expect(e instanceof Error).toBe(true);
+
             done();
         });
     });

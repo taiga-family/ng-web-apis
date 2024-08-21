@@ -12,6 +12,7 @@ describe('ANIMATION_FRAME', () => {
 
         animationFrame$.pipe(first()).subscribe((timestamp) => {
             expect(typeof timestamp).toBe('number');
+
             done();
         });
     });

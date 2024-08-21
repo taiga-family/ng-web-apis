@@ -33,6 +33,7 @@ describe('MutationObserver service', () => {
 
                 setTimeout(() => {
                     expect(flag).toBe(true);
+
                     done();
                 }, 50);
             });

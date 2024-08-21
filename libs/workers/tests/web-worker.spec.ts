@@ -56,6 +56,7 @@ describe('WebWorker', () => {
 
         worker.postMessage('a');
         worker.postMessage('b');
+
         expect(await promise).toBe('a');
     });
 
@@ -103,6 +104,7 @@ describe('WebWorker', () => {
         ];
 
         worker.terminate();
+
         expect(subscriptions.map((s) => s.closed)).toEqual([true, true, true]);
     });
 
@@ -111,6 +113,7 @@ describe('WebWorker', () => {
 
         worker.terminate();
         worker.terminate();
+
         expect(await worker.toPromise()).toBeUndefined();
     });
 });

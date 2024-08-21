@@ -1,7 +1,7 @@
 import type {KeyValue} from '@angular/common';
 import {CommonModule} from '@angular/common';
 import type {TrackByFunction} from '@angular/core';
-import {ChangeDetectionStrategy, Component, HostListener, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {WaWebAudio} from '@ng-web-apis/audio';
 import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
 import type {Observable} from 'rxjs';
@@ -27,6 +27,10 @@ import {RESPONSE_BUFFER} from './response';
     templateUrl: './demo.component.html',
     styleUrls: ['./demo.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        '(document:mouseup)': 'onMouseUp()',
+        '(document:touchend)': 'onMouseUp()',
+    },
 })
 export class Demo {
     private readonly mousedown$ = new Subject<number>();
@@ -70,8 +74,6 @@ export class Demo {
         );
     }
 
-    @HostListener('document:mouseup')
-    @HostListener('document:touchend')
     protected onMouseUp(): void {
         this.mouseup$.next();
     }
