@@ -24,18 +24,18 @@ jobs:
       GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
     steps:
       - name: Fetch from origin repo
-        uses: taiga-family/ci/actions/setup/checkout@v1.67.1
+        uses: taiga-family/ci/actions/setup/checkout@v1.67.2
         with:
           fetch-depth: 0
           persist-credentials: false
           ref: ${{ github.head_ref }}
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - uses: taiga-family/ci/actions/setup/node@v1.67.1
-      - uses: taiga-family/ci/actions/setup/config/git@v1.67.1
+      - uses: taiga-family/ci/actions/setup/node@v1.67.2
+      - uses: taiga-family/ci/actions/setup/config/git@v1.67.2
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/config/npm@v1.67.1
+      - uses: taiga-family/ci/actions/setup/config/npm@v1.67.2
         with:
           token: ${{ secrets.NPM_TOKEN }}
 
