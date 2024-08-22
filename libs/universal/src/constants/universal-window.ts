@@ -78,8 +78,8 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
             ...EVENT_TARGET,
             document,
             localStorage: new StorageMock(),
-            location: location || new LocationMock(),
-            navigator: {...NAVIGATOR_MOCK, userAgent: userAgent || ''},
+            location: location ?? new LocationMock(),
+            navigator: {...NAVIGATOR_MOCK, userAgent: userAgent ?? ''},
             performance: performanceFactory(),
             sessionStorage: new StorageMock(),
             speechSynthesis: SPEECH_SYNTHESIS_MOCK,
@@ -94,7 +94,7 @@ export const UNIVERSAL_WINDOW: FactoryProvider = {
             console,
             Blob: BlobMock,
             alert: emptyFunction,
-            clientInformation: {...NAVIGATOR_MOCK, userAgent: userAgent || ''},
+            clientInformation: {...NAVIGATOR_MOCK, userAgent: userAgent ?? ''},
             // TODO: Candidate for token
             matchMedia: () => ({
                 ...EVENT_TARGET,

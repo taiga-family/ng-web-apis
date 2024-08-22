@@ -23,7 +23,7 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
         const context = inject(AUDIO_CONTEXT);
         const node = inject(AUDIO_NODE, {skipSelf: true});
         const modern = inject(CONSTRUCTOR_SUPPORT);
-        const numberOfOutputs = parseInt(outputs || '', 10) || 6;
+        const numberOfOutputs = parseInt(outputs ?? '', 10) || 6;
 
         if (modern) {
             super(context, {numberOfOutputs});

@@ -28,8 +28,8 @@ export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
             connect(node, this);
         } else {
             const result = context.createIIRFilter(
-                feedback,
                 feedforward,
+                feedback,
             ) as WebAudioIIRFilter;
 
             Object.setPrototypeOf(result, WebAudioIIRFilter.prototype);

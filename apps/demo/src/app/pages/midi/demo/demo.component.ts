@@ -61,7 +61,7 @@ export class Demo {
             mouseInitiated$,
         ).pipe(
             scan(
-                (map, [_, note, volume]) => map.set(note, (volume || 0) / 512),
+                (map, [_, note, volume]) => map.set(note, (volume ?? 0) / 512),
                 new Map(),
             ),
             switchMap((notes) =>
@@ -91,7 +91,9 @@ export class Demo {
     }
 
     protected onQuiet(key?: number): void {
-        key && this.silent$.next(key);
+        if (key) {
+            this.silent$.next(key);
+        }
     }
 
     protected onMouseDown(note: number): void {

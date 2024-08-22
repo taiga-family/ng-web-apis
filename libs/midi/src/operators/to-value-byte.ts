@@ -7,5 +7,5 @@ import {map} from 'rxjs';
  * NOTE: Some status messages do not have 3rd byte, use it when you're certain
  */
 export function toValueByte(): OperatorFunction<WebMidi.MIDIMessageEvent, number> {
-    return (source) => source.pipe(map(({data}) => data[2] || 0));
+    return (source) => source.pipe(map(({data}) => data[2] ?? 0));
 }

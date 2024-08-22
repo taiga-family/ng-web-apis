@@ -23,7 +23,7 @@ export class WebAudioOfflineContext extends OfflineAudioContext {
         @Attribute('autoplay') autoplay: string | null,
     ) {
         super(
-            parseInt(numberOfChannels || '', 10) || 1,
+            parseInt(numberOfChannels ?? '', 10) || 1,
             parseInt(length, 10),
             parseInt(sampleRate, 10),
         );

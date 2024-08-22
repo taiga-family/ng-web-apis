@@ -21,7 +21,7 @@ export class WebAudioContext extends AudioContext implements OnDestroy {
     ) {
         super({
             latencyHint: latencyHintFactory(latencyHint),
-            sampleRate: parseInt(sampleRate || '', 10) || undefined,
+            sampleRate: parseInt(sampleRate ?? '', 10) || undefined,
         });
     }
 

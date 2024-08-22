@@ -11,9 +11,9 @@ import {between} from '../utils/between';
 export function notes(): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
     return (source) =>
         source.pipe(
-            filter(({data}) => between(data[0] || 0, 128, 159)),
+            filter(({data}) => between(data[0] ?? 0, 128, 159)),
             map((event) => {
-                if (between(event.data[0] || 0, 128, 143)) {
+                if (between(event.data[0] ?? 0, 128, 143)) {
                     event.data[0] += 16;
                     event.data[2] = 0;
                 }
