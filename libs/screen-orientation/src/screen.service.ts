@@ -44,8 +44,8 @@ export class ScreenOrientationService extends Observable<OrientationType> {
                           return 'landscape-primary';
                       case -90:
                           return 'landscape-secondary';
-                      default:
                       case 0:
+                      default:
                           return 'portrait-primary';
                   }
               }),

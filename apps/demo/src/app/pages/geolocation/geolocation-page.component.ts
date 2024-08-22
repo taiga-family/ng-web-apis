@@ -1,5 +1,5 @@
 import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angular/core';
 import type {SafeResourceUrl} from '@angular/platform-browser';
 import {DomSanitizer} from '@angular/platform-browser';
 import {GeolocationService} from '@ng-web-apis/geolocation';
@@ -29,12 +29,15 @@ export default class GeolocationPage {
     protected getUrl({coords}: GeolocationPosition): SafeResourceUrl {
         const {longitude, latitude} = coords;
 
-        return this.sanitizer.bypassSecurityTrustResourceUrl(
-            `//www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.005},${
-                latitude - 0.005
-            },${longitude + 0.005},${
-                latitude + 0.005
-            }&marker=${latitude},${longitude}&layer=mapnik`,
+        return (
+            this.sanitizer.sanitize(
+                SecurityContext.RESOURCE_URL,
+                `//www.openstreetmap.org/export/embed.html?bbox=${longitude - 0.005},${
+                    latitude - 0.005
+                },${longitude + 0.005},${
+                    latitude + 0.005
+                }&marker=${latitude},${longitude}&layer=mapnik`,
+            ) ?? ''
         );
     }
 }

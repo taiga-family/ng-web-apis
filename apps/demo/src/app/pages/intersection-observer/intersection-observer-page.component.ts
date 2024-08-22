@@ -19,6 +19,6 @@ export default class IntersectionObserverPage {
     protected readonly support = inject(WA_INTERSECTION_OBSERVER_SUPPORT);
 
     protected onIntersection(intersections: IntersectionObserverEntry[]): void {
-        this.ratio = Math.round((intersections[0]?.intersectionRatio || 0) * 10);
+        this.ratio = Math.round((intersections[0]?.intersectionRatio ?? 0) * 10);
     }
 }

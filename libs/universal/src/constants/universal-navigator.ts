@@ -13,8 +13,7 @@ import {
     emptyObject,
 } from '../utils/functions';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function getArray<T>() {
+function getArray<T>(): T[] {
     return new (class extends Array<T> {
         public item = (): null => null;
         public namedItem = (): null => null;
@@ -122,6 +121,6 @@ export const UNIVERSAL_NAVIGATOR: FactoryProvider = {
     deps: [[new Optional(), SSR_USER_AGENT]],
     useFactory: (userAgent: string | null): Navigator => ({
         ...NAVIGATOR_MOCK,
-        userAgent: userAgent || '',
+        userAgent: userAgent ?? '',
     }),
 };

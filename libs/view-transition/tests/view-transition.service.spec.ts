@@ -39,7 +39,7 @@ describe('ViewTransitionService', () => {
         const mockDocument = {
             querySelectorAll: () => [],
             startViewTransition: (callback: () => Promise<void> | void) => {
-                void callback();
+                callback();
 
                 return {
                     updateCallbackDone: Promise.resolve(),
@@ -96,7 +96,7 @@ describe('ViewTransitionService', () => {
             const mockDocument = {
                 querySelectorAll: () => [],
                 startViewTransition: (callback: () => Promise<void> | void) => {
-                    void callback();
+                    callback();
 
                     return viewTransitionValue;
                 },

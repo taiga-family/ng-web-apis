@@ -11,5 +11,5 @@ import type {MidiChannel} from '../types/midi-channel';
 export function filterByChannel(
     channel: MidiChannel,
 ): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
-    return (source) => source.pipe(filter(({data}) => (data[0] || 0) % 16 === channel));
+    return (source) => source.pipe(filter(({data}) => (data[0] ?? 0) % 16 === channel));
 }

@@ -25,7 +25,7 @@ export class SpeechRecognitionService extends Observable<SpeechRecognitionResult
             const speechRecognition = new this.classRef();
 
             speechRecognition.maxAlternatives = this.maxAlternatives;
-            speechRecognition.lang = this.lang || '';
+            speechRecognition.lang = this.lang ?? '';
             speechRecognition.interimResults = true;
             speechRecognition.onerror = (error: unknown) => subscriber.error(error);
             speechRecognition.onend = () => subscriber.complete();
