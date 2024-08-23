@@ -1,11 +1,6 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {
-    INTERSECTION_ROOT,
-    INTERSECTION_ROOT_MARGIN,
-    INTERSECTION_THRESHOLD,
-    IntersectionObserverService,
-} from '@ng-web-apis/intersection-observer';
+import { IntersectionObserverService, WA_INTERSECTION_THRESHOLD, WA_INTERSECTION_ROOT_MARGIN, WA_INTERSECTION_ROOT } from '@ng-web-apis/intersection-observer';
 import {take} from 'rxjs';
 
 describe('IntersectionObserverService', () => {
@@ -17,13 +12,13 @@ describe('IntersectionObserverService', () => {
         TestBed.overrideProvider(ElementRef, {
             useValue: {nativeElement},
         })
-            .overrideProvider(INTERSECTION_ROOT_MARGIN, {
+            .overrideProvider(WA_INTERSECTION_ROOT_MARGIN, {
                 useValue: '0px 0px 0px 0px',
             })
-            .overrideProvider(INTERSECTION_THRESHOLD, {
+            .overrideProvider(WA_INTERSECTION_THRESHOLD, {
                 useValue: 0,
             })
-            .overrideProvider(INTERSECTION_ROOT, {
+            .overrideProvider(WA_INTERSECTION_ROOT, {
                 useValue: {
                     nativeElement: document.body,
                 },
