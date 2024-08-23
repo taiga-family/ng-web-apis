@@ -1,8 +1,7 @@
+import { WA_NAVIGATOR } from "@ng-web-apis/common";
 import {inject, InjectionToken} from '@angular/core';
-import {NAVIGATOR} from '@ng-web-apis/common';
-
 export const WA_PERMISSIONS = new InjectionToken<Permissions>('[WA_PERMISSIONS]', {
-    factory: () => inject(NAVIGATOR).permissions,
+    factory: () => inject(WA_NAVIGATOR).permissions,
 });
 
 /**

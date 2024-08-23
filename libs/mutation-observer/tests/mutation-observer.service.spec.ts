@@ -1,9 +1,6 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {
-    MUTATION_OBSERVER_INIT,
-    MutationObserverService,
-} from '@ng-web-apis/mutation-observer';
+import { MutationObserverService, WA_MUTATION_OBSERVER_INIT } from '@ng-web-apis/mutation-observer';
 import {first} from 'rxjs';
 
 describe('MutationObserver service', () => {
@@ -11,7 +8,7 @@ describe('MutationObserver service', () => {
         const element = document.createElement('DIV');
         const elementRef = new ElementRef(element);
 
-        TestBed.overrideProvider(MUTATION_OBSERVER_INIT, {
+        TestBed.overrideProvider(WA_MUTATION_OBSERVER_INIT, {
             useValue: {
                 attributeFilter: ['title'],
             },

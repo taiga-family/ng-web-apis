@@ -1,7 +1,7 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {toData, WebWorker, WorkerPipe} from '@ng-web-apis/workers';
-import {TuiButtonModule, TuiNotificationModule} from '@taiga-ui/core';
+import { TuiNotification, TuiButton } from '@taiga-ui/core';
 import {map, Subject} from 'rxjs';
 
 import {Clock} from './clock.component';
@@ -19,7 +19,7 @@ function startCompute(): number {
 @Component({
     standalone: true,
     selector: 'workers-page',
-    imports: [Clock, CommonModule, TuiButtonModule, TuiNotificationModule, WorkerPipe],
+    imports: [Clock, CommonModule, TuiButton, TuiNotification, WorkerPipe],
     templateUrl: './workers-page.component.html',
     styleUrls: ['./workers-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

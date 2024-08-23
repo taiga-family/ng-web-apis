@@ -1,6 +1,5 @@
+import { WA_NAVIGATOR } from "@ng-web-apis/common";
 import {inject, InjectionToken} from '@angular/core';
-import {NAVIGATOR} from '@ng-web-apis/common';
-
 import {SYSEX} from './sysex';
 
 export const WA_MIDI_ACCESS = new InjectionToken<Promise<globalThis.MIDIAccess>>(
@@ -8,7 +7,7 @@ export const WA_MIDI_ACCESS = new InjectionToken<Promise<globalThis.MIDIAccess>>
     {
         providedIn: 'root',
         factory: async () => {
-            const navigatorRef = inject(NAVIGATOR);
+            const navigatorRef = inject(WA_NAVIGATOR);
             const sysex = inject(SYSEX);
 
             return navigatorRef.requestMIDIAccess
