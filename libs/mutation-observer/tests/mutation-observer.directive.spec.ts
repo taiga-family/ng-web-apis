@@ -1,8 +1,7 @@
+import { WaMutationObserver } from "@ng-web-apis/mutation-observer";
 import {Component} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {MutationObserverDirective} from '@ng-web-apis/mutation-observer';
-
 describe('MutationObserverDirective', () => {
     @Component({
         template: `
@@ -40,7 +39,7 @@ describe('MutationObserverDirective', () => {
 
     beforeEach((done) => {
         TestBed.configureTestingModule({
-            imports: [MutationObserverDirective],
+            imports: [WaMutationObserver],
             declarations: [Test],
         });
 

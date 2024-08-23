@@ -1,12 +1,12 @@
 import {inject, Injectable} from '@angular/core';
-import {LOCAL_STORAGE, WINDOW} from '@ng-web-apis/common';
+import { WA_WINDOW, WA_LOCAL_STORAGE } from '@ng-web-apis/common';
 
 @Injectable({
     providedIn: 'root',
 })
 export class StorageService implements Storage {
-    private readonly localStorage = inject(LOCAL_STORAGE);
-    private readonly windowRef = inject(WINDOW);
+    private readonly localStorage = inject(WA_LOCAL_STORAGE);
+    private readonly windowRef = inject(WA_WINDOW);
 
     public get length(): number {
         return this.localStorage.length;
