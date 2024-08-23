@@ -1,8 +1,7 @@
+import { WA_NAVIGATOR } from "@ng-web-apis/common";
 import {inject, InjectionToken} from '@angular/core';
-import {NAVIGATOR} from '@ng-web-apis/common';
-
 export const WA_MIDI_SUPPORT = new InjectionToken<boolean>('[WA_MIDI_SUPPORT]', {
-    factory: () => !!inject(NAVIGATOR).requestMIDIAccess,
+    factory: () => !!inject(WA_NAVIGATOR).requestMIDIAccess,
 });
 
 /**

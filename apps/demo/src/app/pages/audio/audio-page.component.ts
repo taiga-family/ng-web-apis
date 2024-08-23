@@ -1,19 +1,11 @@
+import { TuiTextfieldControllerModule, TuiSelectModule } from "@taiga-ui/legacy";
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AUDIO_CONTEXT, WaWebAudio} from '@ng-web-apis/audio';
 import {CanvasModule} from '@ng-web-apis/canvas';
-import {
-    TuiButtonModule,
-    TuiLabelModule,
-    TuiTextfieldControllerModule,
-} from '@taiga-ui/core';
-import {
-    TuiDataListWrapperModule,
-    TuiRadioLabeledModule,
-    TuiSelectModule,
-    TuiSliderModule,
-} from '@taiga-ui/kit';
+import { TuiLabel, TuiButton } from '@taiga-ui/core';
+import { TuiDataListWrapper, TuiSlider, TuiRadio } from '@taiga-ui/kit';
 
 @Component({
     standalone: true,
@@ -22,14 +14,14 @@ import {
         CanvasModule,
         CommonModule,
         FormsModule,
-        TuiButtonModule,
-        TuiDataListWrapperModule,
-        TuiLabelModule,
-        TuiRadioLabeledModule,
+        TuiButton,
+        TuiDataListWrapper,
+        TuiLabel,
         TuiSelectModule,
-        TuiSliderModule,
+        TuiSlider,
         TuiTextfieldControllerModule,
         WaWebAudio,
+        TuiRadio
     ],
     templateUrl: './audio-page.component.html',
     styleUrls: ['./audio-page.component.css'],

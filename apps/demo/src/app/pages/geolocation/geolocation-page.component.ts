@@ -3,7 +3,7 @@ import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angu
 import type {SafeResourceUrl} from '@angular/platform-browser';
 import {DomSanitizer} from '@angular/platform-browser';
 import {GeolocationService} from '@ng-web-apis/geolocation';
-import {TuiButtonModule, TuiLoaderModule} from '@taiga-ui/core';
+import { TuiLoader, TuiButton } from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {SAMPLE} from './samples/sample';
@@ -12,7 +12,7 @@ import {SAMPLE_ASYNC} from './samples/sample-async';
 @Component({
     standalone: true,
     selector: 'geolocation-page',
-    imports: [CommonModule, HighlightModule, TuiButtonModule, TuiLoaderModule],
+    imports: [CommonModule, HighlightModule, TuiButton, TuiLoader],
     templateUrl: './geolocation-page.component.html',
     styleUrls: ['./geolocation-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

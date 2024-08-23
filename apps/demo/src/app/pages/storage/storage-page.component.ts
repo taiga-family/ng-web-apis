@@ -1,10 +1,9 @@
+import { TuiInputModule } from "@taiga-ui/legacy";
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {TuiDocExampleModule, TuiDocMainModule} from '@taiga-ui/addon-doc';
-import {TuiGroupModule, TuiNotificationModule} from '@taiga-ui/core';
-import {TuiInputModule} from '@taiga-ui/kit';
-
+import { TuiDocExampleModule, TuiAddonDoc } from '@taiga-ui/addon-doc';
+import { TuiNotification, TuiGroup } from '@taiga-ui/core';
 import {Example} from './example/example.component';
 
 @Component({
@@ -15,10 +14,10 @@ import {Example} from './example/example.component';
         Example,
         FormsModule,
         TuiDocExampleModule,
-        TuiDocMainModule,
-        TuiGroupModule,
+        TuiAddonDoc,
+        TuiGroup,
         TuiInputModule,
-        TuiNotificationModule,
+        TuiNotification,
     ],
     templateUrl: './storage-page.component.html',
     styleUrls: ['./storage-page.component.less'],

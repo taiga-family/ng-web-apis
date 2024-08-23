@@ -1,6 +1,5 @@
+import { WA_NAVIGATOR } from "@ng-web-apis/common";
 import {TestBed} from '@angular/core/testing';
-import {NAVIGATOR} from '@ng-web-apis/common';
-
 import {MIDI_ACCESS} from '../src/tokens/midi-access';
 import {SYSEX} from '../src/tokens/sysex';
 
@@ -12,7 +11,7 @@ describe('MIDI_ACCESS', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: NAVIGATOR,
+                    provide: WA_NAVIGATOR,
                     useValue: navigatorMock,
                 },
             ],
@@ -29,7 +28,7 @@ describe('MIDI_ACCESS', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: NAVIGATOR,
+                    provide: WA_NAVIGATOR,
                     useValue: navigatorMock,
                 },
                 {
@@ -50,7 +49,7 @@ describe('MIDI_ACCESS', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: NAVIGATOR,
+                    provide: WA_NAVIGATOR,
                     useValue: {},
                 },
             ],
