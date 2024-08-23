@@ -51,11 +51,11 @@
             </p>
         </ng-template>
 
-        <tui-notification status="warning">
+        <tui-notification size="m" appearance="warning"><div>
             Notification prompting can only be done from a user gesture (e.g. clicking a button)!
             <br />
             Otherwise, some browsers will silently disallow notification permission requests.
-        </tui-notification>
+        </div></tui-notification>
 
         <notification-page-example-1 />
     </tui-doc-example>
@@ -92,9 +92,9 @@
             </p>
         </ng-template>
 
-        <tui-notification
+        <tui-notification size="m"
             *ngIf="notificationPermission === 'denied'"
-            status="error"
+            appearance="error"
         >
             {{ deniedPermissionNotification }}
         </tui-notification>
@@ -123,9 +123,9 @@
             </p>
         </ng-template>
 
-        <tui-notification
+        <tui-notification size="m"
             *ngIf="notificationPermission === 'denied'"
-            status="error"
+            appearance="error"
         >
             {{ deniedPermissionNotification }}
         </tui-notification>
@@ -165,9 +165,9 @@
             </p>
         </ng-template>
 
-        <tui-notification
+        <tui-notification size="m"
             *ngIf="notificationPermission === 'denied'"
-            status="error"
+            appearance="error"
         >
             {{ deniedPermissionNotification }}
         </tui-notification>

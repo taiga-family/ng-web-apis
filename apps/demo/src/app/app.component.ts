@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
-import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
+import { TuiRoot, TuiIcon, TuiLink } from '@taiga-ui/core';
 
 @Component({
     standalone: true,
@@ -9,9 +9,9 @@ import {TuiLinkModule, TuiRootModule, TuiSvgModule} from '@taiga-ui/core';
         RouterLink,
         RouterLinkActive,
         RouterOutlet,
-        TuiLinkModule,
-        TuiRootModule,
-        TuiSvgModule,
+        TuiLink,
+        TuiRoot,
+        TuiIcon,
     ],
     templateUrl: './app.component.html',
     styleUrls: ['./app.component.css'],
