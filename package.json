@@ -161,13 +161,8 @@
         "zone.js": "0.13.3"
     },
     "engines": {
-        "node": "21.6.1",
-        "npm": "10.4.0",
+        "node": ">=20",
+        "npm": ">=10",
         "yarn": "Please use npm instead of yarn to install dependencies"
-    },
-    "standard-version": {
-        "scripts": {
-            "postbump": "node scripts/syncVersions.js && git add **/package.json"
-        }
     }
 }
