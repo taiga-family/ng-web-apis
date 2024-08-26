@@ -1,3 +1,5 @@
+import { TuiSidebar } from "@taiga-ui/addon-mobile";
+import { TuiTextareaModule, TuiTooltipModule, TuiSelectModule } from "@taiga-ui/legacy";
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
@@ -12,16 +14,8 @@ import {
     UtterancePipe,
     WaTextToSpeech,
 } from '@ng-web-apis/speech';
-import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
-import type {TuiContextWithImplicit} from '@taiga-ui/cdk';
-import {TuiLetModule, tuiPure} from '@taiga-ui/cdk';
-import {
-    TuiButtonModule,
-    TuiDataListModule,
-    TuiLabelModule,
-    TuiTooltipModule,
-} from '@taiga-ui/core';
-import {TuiSelectModule, TuiTextAreaModule} from '@taiga-ui/kit';
+import { tuiPure, TuiContext, TuiLet } from '@taiga-ui/cdk';
+import { TuiDataList, TuiButton, TuiLabel } from '@taiga-ui/core';
 import type {Observable} from 'rxjs';
 import {filter, map, merge, repeat, retry, share} from 'rxjs';
 
@@ -31,13 +25,13 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
     imports: [
         CommonModule,
         FormsModule,
-        TuiButtonModule,
-        TuiDataListModule,
-        TuiLabelModule,
-        TuiLetModule,
+        TuiButton,
+        TuiDataList,
+        TuiLabel,
+        TuiLet,
         TuiSelectModule,
-        TuiSidebarModule,
-        TuiTextAreaModule,
+        TuiSidebar,
+        TuiTextareaModule,
         TuiTooltipModule,
         UtterancePipe,
         WaTextToSpeech,
@@ -92,7 +86,7 @@ export default class SpeechPage {
 
     protected readonly nameExtractor = ({
         $implicit,
-    }: TuiContextWithImplicit<SpeechSynthesisVoice>): string => $implicit.name;
+    }: TuiContext<SpeechSynthesisVoice>): string => $implicit.name;
 
     protected voiceByName(_: number, {name}: SpeechSynthesisVoice): string {
         return name;
