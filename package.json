@@ -108,7 +108,7 @@
         "@nx/node": "19.6.3",
         "@nx/workspace": "19.6.3",
         "@taiga-ui/addon-doc": "3.93.0",
-        "@taiga-ui/addon-mobile": "3.93.0",
+        "@taiga-ui/addon-mobile": "4.4.1",
         "@taiga-ui/browserslist-config": "0.144.15",
         "@taiga-ui/cdk": "3.93.0",
         "@taiga-ui/commitlint-config": "0.144.15",
