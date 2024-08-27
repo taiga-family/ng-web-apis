@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {ANIMATION_FRAME} from '@ng-web-apis/common';
+import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {first} from 'rxjs';
 
@@ -8,7 +8,7 @@ describe('ANIMATION_FRAME', () => {
         TestBed.configureTestingModule({});
 
         const animationFrame$: Observable<DOMHighResTimeStamp> =
-            TestBed.inject(ANIMATION_FRAME);
+            TestBed.inject(WA_ANIMATION_FRAME);
 
         animationFrame$.pipe(first()).subscribe((timestamp) => {
             expect(typeof timestamp).toBe('number');

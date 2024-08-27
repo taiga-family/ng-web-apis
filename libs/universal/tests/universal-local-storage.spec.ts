@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {LOCAL_STORAGE} from '@ng-web-apis/common';
+import {WA_LOCAL_STORAGE} from '@ng-web-apis/common';
 
 import {UNIVERSAL_LOCAL_STORAGE} from '../src/constants/universal-local-storage';
 
@@ -11,7 +11,7 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     });
 
     it('sets and retrieves item', () => {
-        const localStorage = TestBed.inject(LOCAL_STORAGE);
+        const localStorage = TestBed.inject(WA_LOCAL_STORAGE);
 
         localStorage.setItem('test', 'value');
 
@@ -21,7 +21,7 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     });
 
     it('removes item', () => {
-        const localStorage = TestBed.inject(LOCAL_STORAGE);
+        const localStorage = TestBed.inject(WA_LOCAL_STORAGE);
 
         localStorage.setItem('test', 'value');
         localStorage.removeItem('test');
@@ -32,7 +32,7 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     });
 
     it('clears storage', () => {
-        const localStorage = TestBed.inject(LOCAL_STORAGE);
+        const localStorage = TestBed.inject(WA_LOCAL_STORAGE);
 
         localStorage.setItem('test1', 'value1');
         localStorage.setItem('test2', 'value2');
