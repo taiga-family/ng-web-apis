@@ -30,7 +30,7 @@
     content: 'Not supported by your browser';
     display: block;
     font-size: 0.6em;
-    color: var(--tui-error-fill);
+    color: var(--tui-status-negative);
 }
 
 .icon {
