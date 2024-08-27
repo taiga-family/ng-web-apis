@@ -1,10 +1,10 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {PermissionsService} from '@ng-web-apis/permissions';
-import type {TuiDocExample} from '@taiga-ui/addon-doc';
-import {TuiAddonDocModule} from '@taiga-ui/addon-doc';
-import {TuiButtonModule, TuiLinkModule, TuiNotificationModule} from '@taiga-ui/core';
-import {TuiBadgeModule} from '@taiga-ui/kit';
+import type {TuiRawLoaderContent} from '@taiga-ui/addon-doc';
+import {TuiAddonDoc} from '@taiga-ui/addon-doc';
+import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
+import {TuiBadge} from '@taiga-ui/kit';
 
 import {NotificationPageExample1} from './examples/01-getting-permission';
 import {NotificationPageExample2} from './examples/02-create-notification';
@@ -20,11 +20,11 @@ import {NotificationPageExample4} from './examples/04-listen-notification-events
         NotificationPageExample2,
         NotificationPageExample3,
         NotificationPageExample4,
-        TuiAddonDocModule,
-        TuiBadgeModule,
-        TuiButtonModule,
-        TuiLinkModule,
-        TuiNotificationModule,
+        TuiAddonDoc,
+        TuiBadge,
+        TuiButton,
+        TuiLink,
+        TuiNotification,
     ],
     templateUrl: './notification-page.template.html',
     styleUrls: ['./notification-page.style.less'],
@@ -37,22 +37,25 @@ export default class NotificationPage {
     protected readonly deniedPermissionNotification =
         'You have denied notification permission. Please, change it in browser settings.';
 
-    protected readonly gettingPermissionExample: TuiDocExample = {
+    protected readonly gettingPermissionExample: Record<string, TuiRawLoaderContent> = {
         'index.ts': import('./examples/01-getting-permission/index.ts?raw'),
         'index.html': import('./examples/01-getting-permission/index.html?raw'),
     };
 
-    protected readonly createNotificationExample: TuiDocExample = {
+    protected readonly createNotificationExample: Record<string, TuiRawLoaderContent> = {
         'index.ts': import('./examples/02-create-notification/index.ts?raw'),
         'index.html': import('./examples/02-create-notification/index.html?raw'),
     };
 
-    protected readonly closeNotificationExample: TuiDocExample = {
+    protected readonly closeNotificationExample: Record<string, TuiRawLoaderContent> = {
         'index.ts': import('./examples/03-close-notification/index.ts?raw'),
         'index.html': import('./examples/03-close-notification/index.html?raw'),
     };
 
-    protected readonly listenNotificationEventsExample: TuiDocExample = {
+    protected readonly listenNotificationEventsExample: Record<
+        string,
+        TuiRawLoaderContent
+    > = {
         'index.ts': import('./examples/04-listen-notification-events/index.ts?raw'),
         'index.html': import('./examples/04-listen-notification-events/index.html?raw'),
     };

@@ -1,12 +1,12 @@
 import {inject, Injectable} from '@angular/core';
-import {WINDOW} from '@ng-web-apis/common';
+import {WA_WINDOW} from '@ng-web-apis/common';
 import {fromEvent, map, Observable, shareReplay, startWith} from 'rxjs';
 
 @Injectable({
     providedIn: 'root',
 })
 export class ScreenOrientationService extends Observable<OrientationType> {
-    private readonly win: Window = inject(WINDOW);
+    private readonly win: Window = inject(WA_WINDOW);
 
     private readonly stream$ = (this.isModern
         ? fromEvent(this.win.screen.orientation, 'change').pipe(

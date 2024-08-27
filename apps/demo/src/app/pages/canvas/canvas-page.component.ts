@@ -2,19 +2,14 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CanvasModule} from '@ng-web-apis/canvas';
+import {TuiExpand, TuiLabel} from '@taiga-ui/core';
+import {TuiDataListWrapper, TuiFiles, TuiSlider} from '@taiga-ui/kit';
 import {
-    TuiExpandModule,
-    TuiLabelModule,
-    TuiTextfieldControllerModule,
-} from '@taiga-ui/core';
-import {
-    TuiDataListWrapperModule,
-    TuiInputFilesModule,
+    TuiInputColorModule,
     TuiInputModule,
     TuiSelectModule,
-    TuiSliderModule,
-} from '@taiga-ui/kit';
-import {TuiInputColorModule} from '@tinkoff/tui-editor';
+    TuiTextfieldControllerModule,
+} from '@taiga-ui/legacy';
 
 @Component({
     standalone: true,
@@ -23,14 +18,14 @@ import {TuiInputColorModule} from '@tinkoff/tui-editor';
         CanvasModule,
         CommonModule,
         FormsModule,
-        TuiDataListWrapperModule,
-        TuiExpandModule,
+        TuiDataListWrapper,
+        TuiExpand,
+        TuiFiles,
         TuiInputColorModule,
-        TuiInputFilesModule,
         TuiInputModule,
-        TuiLabelModule,
+        TuiLabel,
         TuiSelectModule,
-        TuiSliderModule,
+        TuiSlider,
         TuiTextfieldControllerModule,
     ],
     templateUrl: './canvas-page.component.html',

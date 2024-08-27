@@ -1,5 +1,5 @@
 import {inject, InjectionToken} from '@angular/core';
-import {WINDOW} from '@ng-web-apis/common';
+import {WA_WINDOW} from '@ng-web-apis/common';
 
 declare global {
     interface Window {
@@ -10,7 +10,7 @@ declare global {
 export const WA_PAYMENT_REQUEST_SUPPORT = new InjectionToken<boolean>(
     '[WA_PAYMENT_REQUEST_SUPPORT]',
     {
-        factory: () => !!inject(WINDOW).PaymentRequest,
+        factory: () => !!inject(WA_WINDOW).PaymentRequest,
     },
 );
 
