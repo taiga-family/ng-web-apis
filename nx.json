@@ -1,8 +1,5 @@
 {
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "affected": {
-        "defaultBase": "origin/main"
-    },
     "workspaceLayout": {
         "libsDir": "libs",
         "appsDir": "apps"
@@ -28,5 +25,6 @@
         ],
         "production": ["default"]
     },
-    "parallel": 1
+    "parallel": 1,
+    "defaultBase": "origin/main"
 }
