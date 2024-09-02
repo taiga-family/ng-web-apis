@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {NAVIGATOR} from '@ng-web-apis/common';
+import {WA_NAVIGATOR} from '@ng-web-apis/common';
 
 import {UNIVERSAL_NAVIGATOR} from '../src/constants/universal-navigator';
 import {provideUserAgent} from '../src/utils/provide-user-agent';
@@ -16,7 +16,7 @@ describe('UNIVERSAL_NAVIGATOR', () => {
             providers: [UNIVERSAL_NAVIGATOR],
         });
 
-        const mock: Navigator = TestBed.inject(NAVIGATOR);
+        const mock: Navigator = TestBed.inject(WA_NAVIGATOR);
 
         expect(mock.userAgent).toBe('');
         expect(mock.plugins.refresh).not.toThrow();
@@ -29,6 +29,6 @@ describe('UNIVERSAL_NAVIGATOR', () => {
             providers: [provideUserAgent(req), UNIVERSAL_NAVIGATOR],
         });
 
-        expect(TestBed.inject(NAVIGATOR).userAgent).toBe('Chrome');
+        expect(TestBed.inject(WA_NAVIGATOR).userAgent).toBe('Chrome');
     });
 });

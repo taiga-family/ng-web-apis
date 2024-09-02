@@ -12,16 +12,11 @@ import {
     UtterancePipe,
     WaTextToSpeech,
 } from '@ng-web-apis/speech';
-import {TuiSidebarModule} from '@taiga-ui/addon-mobile';
-import type {TuiContextWithImplicit} from '@taiga-ui/cdk';
-import {TuiLetModule, tuiPure} from '@taiga-ui/cdk';
-import {
-    TuiButtonModule,
-    TuiDataListModule,
-    TuiLabelModule,
-    TuiTooltipModule,
-} from '@taiga-ui/core';
-import {TuiSelectModule, TuiTextAreaModule} from '@taiga-ui/kit';
+import {TuiSidebar} from '@taiga-ui/addon-mobile';
+import type {TuiContext} from '@taiga-ui/cdk';
+import {TuiLet, tuiPure} from '@taiga-ui/cdk';
+import {TuiButton, TuiDataList, TuiLabel} from '@taiga-ui/core';
+import {TuiSelectModule, TuiTextareaModule, TuiTooltipModule} from '@taiga-ui/legacy';
 import type {Observable} from 'rxjs';
 import {filter, map, merge, repeat, retry, share} from 'rxjs';
 
@@ -31,13 +26,13 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
     imports: [
         CommonModule,
         FormsModule,
-        TuiButtonModule,
-        TuiDataListModule,
-        TuiLabelModule,
-        TuiLetModule,
+        TuiButton,
+        TuiDataList,
+        TuiLabel,
+        TuiLet,
         TuiSelectModule,
-        TuiSidebarModule,
-        TuiTextAreaModule,
+        TuiSidebar,
+        TuiTextareaModule,
         TuiTooltipModule,
         UtterancePipe,
         WaTextToSpeech,
@@ -92,7 +87,7 @@ export default class SpeechPage {
 
     protected readonly nameExtractor = ({
         $implicit,
-    }: TuiContextWithImplicit<SpeechSynthesisVoice>): string => $implicit.name;
+    }: TuiContext<SpeechSynthesisVoice>): string => $implicit.name;
 
     protected voiceByName(_: number, {name}: SpeechSynthesisVoice): string {
         return name;

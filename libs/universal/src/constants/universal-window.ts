@@ -1,7 +1,7 @@
 import {DOCUMENT} from '@angular/common';
 import type {FactoryProvider} from '@angular/core';
 import {Optional} from '@angular/core';
-import {WINDOW} from '@ng-web-apis/common';
+import {WA_WINDOW} from '@ng-web-apis/common';
 
 import {BlobMock} from '../classes/blob-mock';
 import {LocationMock} from '../classes/location-mock';
@@ -67,7 +67,7 @@ const WINDOW_HANDLER: ProxyHandler<Window> = {
 };
 
 export const UNIVERSAL_WINDOW: FactoryProvider = {
-    provide: WINDOW,
+    provide: WA_WINDOW,
     deps: [DOCUMENT, [new Optional(), SSR_LOCATION], [new Optional(), SSR_USER_AGENT]],
     useFactory: (
         document: Document,

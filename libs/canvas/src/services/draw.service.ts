@@ -1,6 +1,6 @@
 import type {OnDestroy} from '@angular/core';
 import {inject, Injectable, NgZone} from '@angular/core';
-import {ANIMATION_FRAME} from '@ng-web-apis/common';
+import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import type {Subscription} from 'rxjs';
 
 import type {CanvasMethod} from '../interfaces/canvas-method';
@@ -16,7 +16,7 @@ export class WaDrawService implements OnDestroy, CanvasMethod {
         const parent = inject(CANVAS_PROPERTIES, {skipSelf: true});
         const properties = inject(CANVAS_PROPERTIES);
         const context = inject(CANVAS_2D_CONTEXT);
-        const animationFrame$ = inject(ANIMATION_FRAME);
+        const animationFrame$ = inject(WA_ANIMATION_FRAME);
         const ngZone = inject(NgZone);
 
         this.subscription = ngZone.runOutsideAngular(() =>
