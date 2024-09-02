@@ -1,7 +1,7 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {toData, WebWorker, WorkerPipe} from '@ng-web-apis/workers';
-import {TuiButton, TuiNotification} from '@taiga-ui/core';
+import {TuiButton} from '@taiga-ui/core';
 import {map, Subject} from 'rxjs';
 
 import {Clock} from './clock.component';

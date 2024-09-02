@@ -3,7 +3,6 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {WA_LOCAL_STORAGE} from '@ng-web-apis/common';
 import {filterByKey, STORAGE_EVENT, StorageService, toValue} from '@ng-web-apis/storage';
-import {TuiNotification} from '@taiga-ui/core';
 import {TuiInputModule} from '@taiga-ui/legacy';
 import type {Observable} from 'rxjs';
 

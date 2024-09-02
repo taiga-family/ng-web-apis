@@ -3,7 +3,7 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {PermissionsService} from '@ng-web-apis/permissions';
 import type {TuiRawLoaderContent} from '@taiga-ui/addon-doc';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
+import {TuiButton, TuiLink} from '@taiga-ui/core';
 import {TuiBadge} from '@taiga-ui/kit';
 
 import {NotificationPageExample1} from './examples/01-getting-permission';
