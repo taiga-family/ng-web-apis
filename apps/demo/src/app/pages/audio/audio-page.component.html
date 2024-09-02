@@ -22,27 +22,36 @@
     <section>
         <h2>Source</h2>
 
-        <tui-radio-labeled
-            item="buffer"
-            name="source"
-            [(ngModel)]="selectedSource"
-        >
+        <label tuiLabel>
+            <input
+                name="source"
+                tuiRadio
+                type="radio"
+                value="buffer"
+                [(ngModel)]="selectedSource"
+            />
             AudioBufferSourceNode
-        </tui-radio-labeled>
-        <tui-radio-labeled
-            item="media"
-            name="source"
-            [(ngModel)]="selectedSource"
-        >
+        </label>
+        <label tuiLabel>
+            <input
+                name="source"
+                tuiRadio
+                type="radio"
+                value="media"
+                [(ngModel)]="selectedSource"
+            />
             MediaElementAudioSourceNode
-        </tui-radio-labeled>
-        <tui-radio-labeled
-            item="oscillator"
-            name="source"
-            [(ngModel)]="selectedSource"
-        >
+        </label>
+        <label tuiLabel>
+            <input
+                name="source"
+                tuiRadio
+                type="radio"
+                value="oscillator"
+                [(ngModel)]="selectedSource"
+            />
             OscillatorNode
-        </tui-radio-labeled>
+        </label>
 
         <ng-container [ngSwitch]="selectedSource">
             <ng-container *ngSwitchCase="'buffer'">
@@ -126,34 +135,46 @@
     <section>
         <h2>Chain</h2>
 
-        <tui-radio-labeled
-            item="dry"
-            name="chain"
-            [(ngModel)]="selectedChain"
-        >
+        <label tuiLabel>
+            <input
+                name="chain"
+                tuiRadio
+                type="radio"
+                value="dry"
+                [(ngModel)]="selectedChain"
+            />
             Dry
-        </tui-radio-labeled>
-        <tui-radio-labeled
-            item="balance"
-            name="chain"
-            [(ngModel)]="selectedChain"
-        >
+        </label>
+        <label tuiLabel>
+            <input
+                name="chain"
+                tuiRadio
+                type="radio"
+                value="balance"
+                [(ngModel)]="selectedChain"
+            />
             Balance
-        </tui-radio-labeled>
-        <tui-radio-labeled
-            item="delay"
-            name="chain"
-            [(ngModel)]="selectedChain"
-        >
+        </label>
+        <label tuiLabel>
+            <input
+                name="chain"
+                tuiRadio
+                type="radio"
+                value="delay"
+                [(ngModel)]="selectedChain"
+            />
             Delay
-        </tui-radio-labeled>
-        <tui-radio-labeled
-            item="complex"
-            name="chain"
-            [(ngModel)]="selectedChain"
-        >
+        </label>
+        <label tuiLabel>
+            <input
+                name="chain"
+                tuiRadio
+                type="radio"
+                value="complex"
+                [(ngModel)]="selectedChain"
+            />
             Complex
-        </tui-radio-labeled>
+        </label>
 
         <ng-container [ngSwitch]="selectedChain">
             <ng-container *ngSwitchCase="'balance'">
@@ -259,7 +280,8 @@
                             [items]="items"
                         />
                     </tui-select>
-                    <label tuiLabel="gain">
+                    <label tuiLabel>
+                        gain
                         <input
                             max="1"
                             min="0"
@@ -269,7 +291,8 @@
                             [(ngModel)]="filterGain"
                         />
                     </label>
-                    <label tuiLabel="frequence">
+                    <label tuiLabel>
+                        frequence
                         <input
                             max="5000"
                             min="20"
@@ -278,7 +301,8 @@
                             [(ngModel)]="frequency"
                         />
                     </label>
-                    <label tuiLabel="Q">
+                    <label tuiLabel>
+                        Q
                         <input
                             max="100"
                             min="1"
@@ -287,7 +311,8 @@
                             [(ngModel)]="Q"
                         />
                     </label>
-                    <label tuiLabel="detune">
+                    <label tuiLabel>
+                        detune
                         <input
                             max="100"
                             min="0"
