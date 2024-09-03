@@ -113,7 +113,7 @@
         "@taiga-ui/cdk": "4.5.0",
         "@taiga-ui/commitlint-config": "0.149.0",
         "@taiga-ui/core": "4.5.0",
-        "@taiga-ui/editor": "^2.5.0",
+        "@taiga-ui/editor": "4.1.0",
         "@taiga-ui/eslint-plugin-experience": "0.149.0",
         "@taiga-ui/event-plugins": "4.0.2",
         "@taiga-ui/icons": "4.5.0",
