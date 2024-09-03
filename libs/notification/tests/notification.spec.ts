@@ -48,7 +48,7 @@ describe('Notification API', () => {
             expect(notificationSupportToken).toBe(true);
         });
 
-        it('method `requestPermission` (from `NotificationService`) returns `default` permission for the first time', async () => {
+        it('method `requestPermission` (from `NotificationService`) returns `default` permission for the first time', () => {
             expect(Notification.permission).toBe('default');
         });
     });
