@@ -9,6 +9,7 @@ import {WebAudioOscillator} from '../src/sources/oscillator';
 describe('Oscillator', () => {
     describe('OscillatorNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waOscillatorNode></div>
             `,
@@ -39,6 +40,7 @@ describe('Oscillator', () => {
 
     describe('OscillatorNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waOscillatorNode></div>
             `,

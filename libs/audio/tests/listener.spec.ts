@@ -9,6 +9,7 @@ import {WaWebAudio} from '../src/module';
 describe('Listener', () => {
     describe('AudioListener', () => {
         @Component({
+            standalone: true,
             template: `
                 <div
                     forwardX="237"
@@ -52,6 +53,7 @@ describe('Listener', () => {
 
     describe('AudioListener factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div
                     forwardX="237"

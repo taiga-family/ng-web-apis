@@ -12,9 +12,20 @@ jobs:
     steps:
       - uses: taiga-family/ci/actions/setup/checkout@v1.71.2
       - uses: taiga-family/ci/actions/setup/node@v1.71.2
-      - run: npm run prettier -- --check
       - run: npm run typecheck
-      - run: npm run lint
+      - run: |
+          if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
+              npm run prettier -- --write
+              npm run stylelint -- --fix
+              npm run lint -- --fix
+          else
+              npm run prettier -- --check
+              npm run stylelint
+              npm run lint
+          fi
+      - uses: taiga-family/ci/actions/auto/push@v1.71.2
+        with:
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
   group: lint-${{ github.workflow }}-${{ github.ref }}

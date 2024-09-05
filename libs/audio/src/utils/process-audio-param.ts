@@ -58,10 +58,6 @@ function processAutomation(
     currentTime: number,
 ): void {
     switch (mode) {
-        case 'instant':
-            param.setValueAtTime(guard(value), currentTime);
-            param.setValueAtTime(guard(value), currentTime + duration);
-            break;
         case 'exponential':
             if (value < 0 || value * param.value < 0) {
                 param.linearRampToValueAtTime(guard(value), currentTime + duration);
@@ -69,6 +65,10 @@ function processAutomation(
                 param.exponentialRampToValueAtTime(guard(value), currentTime + duration);
             }
 
+            param.setValueAtTime(guard(value), currentTime + duration);
+            break;
+        case 'instant':
+            param.setValueAtTime(guard(value), currentTime);
             param.setValueAtTime(guard(value), currentTime + duration);
             break;
         case 'linear':

@@ -2,7 +2,7 @@
 
 body,
 html {
-    height: 100%;
+    block-size: 100%;
     font-family: Roboto, 'Helvetica Neue Light', 'Helvetica Neue', Helvetica, Arial, 'Lucida Grande', sans-serif;
 }
 
@@ -17,7 +17,7 @@ h1 {
 
 markdown {
     display: block;
-    max-width: 800px;
+    max-inline-size: 50rem;
     margin: 0 auto;
 }
 

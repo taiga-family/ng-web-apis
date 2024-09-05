@@ -1,13 +1,13 @@
 :host {
     display: flex;
     justify-content: center;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
 @media (max-width: 1100px) {
     :host {
         flex-direction: column;
-        width: 320px;
+        inline-size: 320px;
         margin: 0 auto;
     }
 }
@@ -18,11 +18,11 @@ tui-radio-labeled {
 
 section {
     flex: 1;
-    max-width: 320px;
-    padding: 1px 10px 10px;
+    max-inline-size: 20rem;
+    padding: 0.0625rem 0.625rem 0.625rem;
     box-sizing: border-box;
     background: whitesmoke;
-    border-radius: 8px;
+    border-radius: 0.5rem;
 }
 
 audio {
@@ -46,7 +46,7 @@ fieldset {
 legend {
     background: white;
     box-shadow: 0 0 2px;
-    padding: 5px 10px;
+    padding: 0.3125rem 0.625rem;
     border-radius: 2px;
 }
 

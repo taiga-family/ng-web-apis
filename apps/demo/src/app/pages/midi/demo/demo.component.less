@@ -1,7 +1,7 @@
 :host {
-    margin: -12.5vw auto 12.5vw;
-    height: 50vw;
     display: flex;
+    margin: -12.5vw auto 12.5vw;
+    block-size: 50vw;
     flex-direction: row;
     transform-origin: bottom;
     transform-style: preserve-3d;
@@ -11,12 +11,12 @@
     &::after {
         content: '';
         position: absolute;
-        background: darken(#444, 3%);
-        background-clip: content-box;
         top: 0;
         left: 0.75vw;
         right: 0.75vw;
         bottom: 0;
+        background: darken(#444, 3%);
+        background-clip: content-box;
         transform: translateZ(-6.875vw);
         box-shadow:
             0 0 5vw fade(#444, 40%),
@@ -27,7 +27,7 @@
         left: 3.125vw;
         right: 3.125vw;
         bottom: auto;
-        height: 6.9vw;
+        block-size: 6.9vw;
         transform-origin: top;
         transform: rotateX(-90deg);
     }
@@ -48,8 +48,8 @@
 .key-10,
 .key-12 {
     position: relative;
-    width: 6.875vw;
-    height: 50vw;
+    inline-size: 6.875vw;
+    block-size: 50vw;
     padding: 0;
     border: none;
     border-top: 32.5vw solid transparent;
@@ -92,11 +92,11 @@
     &::before,
     &::after {
         content: '';
-        background: #edefee;
         position: absolute;
-        height: 32.5vw;
         top: -32.25vw;
         left: 0;
+        background: #edefee;
+        block-size: 32.5vw;
         box-shadow:
             inset 0 25vw 25vw -25vw fade(#444, 30%),
             inset 1.25vw 1.25vw 1.25vw -1.25vw fade(#444, 30%),
@@ -107,8 +107,8 @@
 
     &::after {
         top: 100%;
-        width: 100%;
-        height: 6.875vw;
+        inline-size: 100%;
+        block-size: 6.875vw;
         transform-origin: top;
         transform: rotateX(-90deg);
         box-shadow:
@@ -151,9 +151,10 @@
 .key-9,
 .key-11 {
     position: relative;
+    z-index: 1;
     color: #444;
-    width: 3vw;
-    height: 32.25vw;
+    inline-size: 3vw;
+    block-size: 32.25vw;
     border: none;
     padding: 0;
     outline: none;
@@ -168,7 +169,6 @@
         inset 0.5vw 0 0.625vw,
         inset -0.5vw 0 0.625vw,
         inset 0 0 0 120vw fade(lighten(#444, 10%), 50%);
-    z-index: 1;
     transition:
         background 0.3s ease,
         transform 0.3s ease;
@@ -191,13 +191,13 @@
     &::before {
         content: '';
         position: absolute;
+        top: 0;
+        left: 0.125vw;
         background: #444;
         border-top-left-radius: 0.75vw;
-        top: 0;
-        height: 100%;
-        width: 4.875vw;
+        block-size: 100%;
+        inline-size: 4.875vw;
         transform-origin: left;
-        left: 0.125vw;
         transform: rotateY(93deg);
         box-shadow: inset -6.25vw 0 6.25vw -6.25vw black;
         transition: background-color 0.3s;
@@ -208,11 +208,11 @@
         position: absolute;
         top: 100%;
         left: -0.25vw;
-        width: 100%;
+        inline-size: 100%;
         border-bottom: 3.875vw solid darken(#444, 2%);
         border-left: 0.25vw solid transparent;
         border-right: 0.25vw solid transparent;
-        height: 0;
+        block-size: 0;
         transform-origin: top;
         transform: rotateX(-90deg);
         box-shadow:
@@ -241,5 +241,5 @@
 }
 
 .key-9 {
-    margin: 0 -1.5vw 0 -1.5vw;
+    margin: 0 -1.5vw;
 }

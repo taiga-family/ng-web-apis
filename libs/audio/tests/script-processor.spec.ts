@@ -10,6 +10,7 @@ import {
 
 describe('ScriptProcessorNode', () => {
     @Component({
+        standalone: true,
         template: `
             <div waScriptProcessorNode></div>
         `,
@@ -37,7 +38,7 @@ describe('ScriptProcessorNode', () => {
         expect(testComponent.node instanceof ScriptProcessorNode).toBe(true);
     });
 
-    xit('100% coverage FTW!', () => {
+    it.skip('100% coverage FTW!', () => {
         TestBed.overrideProvider(AUDIO_CONTEXT, {useValue: null})
             .overrideProvider(AUDIO_NODE, {useValue: null})
             .runInInjectionContext(() => {

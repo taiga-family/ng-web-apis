@@ -11,6 +11,7 @@ import {FEEDFORWARD_COEFFICIENTS} from '../src/tokens/feedforward-coefficients';
 describe('IIR filter', () => {
     describe('IIRFilterNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waIIRFilterNode></div>
             `,
@@ -51,6 +52,7 @@ describe('IIR filter', () => {
 
     describe('IIRFilterNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waIIRFilterNode></div>
             `,

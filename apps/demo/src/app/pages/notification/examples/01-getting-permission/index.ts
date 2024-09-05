@@ -24,7 +24,7 @@ export class NotificationPageExample1 {
                     'Permission status:',
                     permission, // 'denied' | 'granted'
                 ),
-            error: (err) =>
+            error: (err: unknown) =>
                 // e.g. 'Notification API is not supported in your browser'
                 console.error(err),
         });

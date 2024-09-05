@@ -9,6 +9,7 @@ import {WebAudioBufferSource} from '../src/sources/buffer-source';
 describe('BufferSource', () => {
     describe('AudioBufferSourceNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waAudioBufferSourceNode></div>
             `,
@@ -39,6 +40,7 @@ describe('BufferSource', () => {
 
     describe('AudioBufferSourceNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waAudioBufferSourceNode></div>
             `,

@@ -9,6 +9,7 @@ import {WebAudioPanner} from '../src/nodes/panner';
 describe('Panner', () => {
     describe('PannerNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waPannerNode></div>
             `,
@@ -39,6 +40,7 @@ describe('Panner', () => {
 
     describe('PannerNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waPannerNode></div>
             `,

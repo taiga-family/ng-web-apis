@@ -9,6 +9,7 @@ import {providers} from '../src/constants/fallback';
 describe('Analyser', () => {
     describe('AnalyserNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waAnalyserNode></div>
             `,
@@ -71,6 +72,7 @@ describe('Analyser', () => {
 
     describe('AnalyserNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waAnalyserNode></div>
             `,

@@ -9,6 +9,7 @@ import {WebAudioMediaSource} from '../src/sources/media-source';
 describe('MediaSource', () => {
     describe('MediaElementAudioSourceNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <audio waMediaElementAudioSourceNode></audio>
             `,
@@ -39,6 +40,7 @@ describe('MediaSource', () => {
 
     describe('MediaElementAudioSourceNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <audio waMediaElementAudioSourceNode></audio>
             `,

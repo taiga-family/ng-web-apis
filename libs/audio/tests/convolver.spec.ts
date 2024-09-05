@@ -9,6 +9,7 @@ import {WebAudioConvolver} from '../src/nodes/convolver';
 describe('Convolver', () => {
     describe('ConvolverNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div
                     buffer="base/demo.mp3"
@@ -42,6 +43,7 @@ describe('Convolver', () => {
 
     describe('ConvolverNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div
                     buffer="base/demo.mp3"

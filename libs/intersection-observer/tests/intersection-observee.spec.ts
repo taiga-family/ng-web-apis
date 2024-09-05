@@ -9,6 +9,7 @@ import {INTERSECTION_THRESHOLD} from '../src/tokens/intersection-threshold';
 
 describe('WaIntersectionObservee', () => {
     @Component({
+        standalone: true,
         template: `
             <div id="manual_observee">Hello</div>
             <section

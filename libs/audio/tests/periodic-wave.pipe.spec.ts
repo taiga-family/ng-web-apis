@@ -5,7 +5,7 @@ describe('waPeriodicWave', () => {
     // TODO: need investigate why
     // Error: Failed to execute 'createPeriodicWave' on 'BaseAudioContext':
     // The length of the real array provided (1) is less than the minimum bound (2)
-    xit('creates PeriodicWave', () => {
+    it.skip('creates PeriodicWave', () => {
         TestBed.overrideProvider(AUDIO_CONTEXT, {
             useValue: new AudioContext(),
         }).runInInjectionContext(() => {

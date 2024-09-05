@@ -9,6 +9,7 @@ import {WaWebAudio} from '../src/module';
 describe('Channel', () => {
     describe('Channel', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waChannel></div>
             `,
@@ -39,6 +40,7 @@ describe('Channel', () => {
 
     describe('Channel factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waChannel></div>
             `,

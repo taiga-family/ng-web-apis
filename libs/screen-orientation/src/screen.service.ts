@@ -38,12 +38,12 @@ export class ScreenOrientationService extends Observable<OrientationType> {
                   ) as -90 | 0 | 90 | 180;
 
                   switch (angle) {
+                      case -90:
+                          return 'landscape-secondary';
                       case 180:
                           return 'portrait-secondary';
                       case 90:
                           return 'landscape-primary';
-                      case -90:
-                          return 'landscape-secondary';
                       case 0:
                       default:
                           return 'portrait-primary';

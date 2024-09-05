@@ -9,6 +9,7 @@ import {WebAudioBiquadFilter} from '../src/nodes/biquad-filter';
 describe('BiquadFilter', () => {
     describe('BiquadFilterNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waBiquadFilterNode></div>
             `,
@@ -39,6 +40,7 @@ describe('BiquadFilter', () => {
 
     describe('BiquadFilterNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waBiquadFilterNode></div>
             `,

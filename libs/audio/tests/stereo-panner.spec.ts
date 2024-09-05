@@ -9,6 +9,7 @@ import {WebAudioStereoPanner} from '../src/nodes/stereo-panner';
 describe('StereoPanner', () => {
     describe('StereoPannerNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waStereoPannerNode></div>
             `,
@@ -39,6 +40,7 @@ describe('StereoPanner', () => {
 
     describe('StereoPannerNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waStereoPannerNode></div>
             `,

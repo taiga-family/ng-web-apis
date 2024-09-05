@@ -11,6 +11,7 @@ import {WebAudioBufferSource} from '../src/sources/buffer-source';
 describe('Destination', () => {
     describe('AudioDestinationNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div
                     autoplay
@@ -71,7 +72,7 @@ describe('Destination', () => {
         });
 
         // TODO: investigate why
-        xit('fires output after destination has gone silent', (done) => {
+        it.skip('fires output after destination has gone silent', (done) => {
             testComponent.source.stop(testComponent.source.context.currentTime + 0.5);
             setTimeout(() => {
                 fixture.detectChanges();
@@ -85,6 +86,7 @@ describe('Destination', () => {
 
     describe('AudioDestinationNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waAudioDestinationNode></div>
             `,
