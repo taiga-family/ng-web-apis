@@ -5,6 +5,7 @@ import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
 
 describe('MutationObserverDirective', () => {
     @Component({
+        standalone: true,
         template: `
             <section
                 *ngIf="observe"

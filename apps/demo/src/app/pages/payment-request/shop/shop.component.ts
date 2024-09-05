@@ -1,6 +1,7 @@
 import {NgForOf, NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {WaPaymentRequest} from '@ng-web-apis/payment-request';
+import {TuiButton} from '@taiga-ui/core';
 
 class ShopItem implements PaymentItem {
     constructor(
@@ -20,7 +21,7 @@ class ShopItem implements PaymentItem {
 @Component({
     standalone: true,
     selector: 'app-shop',
-    imports: [NgForOf, NgIf, WaPaymentRequest],
+    imports: [NgForOf, NgIf, TuiButton, WaPaymentRequest],
     templateUrl: './shop.component.html',
     styleUrls: ['./shop.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

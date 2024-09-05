@@ -17,7 +17,7 @@ describe('AUDIO_WORKLET_PROCESSORS_READY', () => {
 
     // TODO: need investigate why
     // AUDIO_WORKLET_PROCESSORS_READY rejects Promise if worklets are not supported FAILED
-    xit('rejects Promise if worklets are not supported', (done) => {
+    it.skip('rejects Promise if worklets are not supported', (done) => {
         let rejected = false;
 
         TestBed.inject(AUDIO_WORKLET_PROCESSORS_READY).catch(() => {

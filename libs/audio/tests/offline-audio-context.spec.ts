@@ -7,6 +7,7 @@ import {WaWebAudio} from '../src/module';
 
 describe('OfflineAudioContext', () => {
     @Component({
+        standalone: true,
         template: `
             <div
                 length="44100"

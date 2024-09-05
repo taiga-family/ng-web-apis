@@ -9,6 +9,7 @@ import {WebAudioWaveShaper} from '../src/nodes/wave-shaper';
 describe('WaveShaper', () => {
     describe('WaveShaperNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waWaveShaperNode></div>
             `,
@@ -39,6 +40,7 @@ describe('WaveShaper', () => {
 
     describe('WaveShaperNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waWaveShaperNode></div>
             `,

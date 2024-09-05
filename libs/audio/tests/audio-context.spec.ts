@@ -7,6 +7,7 @@ import {WaWebAudio} from '../src/module';
 
 describe('AudioContext', () => {
     @Component({
+        standalone: true,
         template: `
             <div
                 sampleRate="22050"

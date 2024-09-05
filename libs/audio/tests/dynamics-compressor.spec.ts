@@ -9,6 +9,7 @@ import {WebAudioDynamicsCompressor} from '../src/nodes/dynamics-compressor';
 describe('Dynamics compressor', () => {
     describe('DynamicsCompressorNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waDynamicsCompressorNode></div>
             `,
@@ -39,6 +40,7 @@ describe('Dynamics compressor', () => {
 
     describe('DynamicsCompressorNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waDynamicsCompressorNode></div>
             `,

@@ -9,6 +9,7 @@ import {WebAudioChannelSplitter} from '../src/nodes/channel-splitter';
 describe('ChannelSplitter', () => {
     describe('ChannelSplitterNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waChannelSplitterNode></div>
             `,
@@ -39,6 +40,7 @@ describe('ChannelSplitter', () => {
 
     describe('ChannelSplitterNode with providers', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waChannelSplitterNode></div>
             `,

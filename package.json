@@ -42,6 +42,7 @@
         "publish": "npm run build && npm publish ./dist/common",
         "*** Workflow ***": "",
         "lint": "eslint .",
+        "stylelint": "stylelint '**/*.{less,css}' --config package.json",
         "typecheck": "tsc --noEmit --skipLibCheck",
         "test": "nx run-many --target test --all --output-style=stream --parallel=1 --nxBail",
         "prettier": "prettier !package-lock.json . --ignore-path .gitignore",
@@ -57,6 +58,9 @@
         ]
     },
     "lint-staged": {
+        "*.less": [
+            "stylelint --fix"
+        ],
         "*.{js,ts,html,md,less,json}": [
             "prettier --write",
             "git add"
@@ -75,12 +79,17 @@
             "plugin:@taiga-ui/experience/all"
         ],
         "rules": {
-            "jest/no-test-prefixes": "off",
+            "@angular-eslint/no-attribute-decorator": "off",
+            "@angular-eslint/prefer-output-readonly": "off",
             "jest/prefer-importing-jest-globals": "off",
-            "rxjs/no-implicit-any-catch": "off",
-            "@taiga-ui/experience/no-typeof": "off"
+            "rxjs/no-implicit-any-catch": "off"
         },
         "root": true
+    },
+    "stylelint": {
+        "extends": [
+            "@taiga-ui/stylelint-config"
+        ]
     },
     "devDependencies": {
         "@angular-builders/custom-webpack": "16.0.1",
@@ -109,19 +118,20 @@
         "@nx/workspace": "19.6.5",
         "@taiga-ui/addon-doc": "4.5.0",
         "@taiga-ui/addon-mobile": "4.5.0",
-        "@taiga-ui/browserslist-config": "0.157.1",
+        "@taiga-ui/browserslist-config": "0.158.0",
         "@taiga-ui/cdk": "4.5.0",
-        "@taiga-ui/commitlint-config": "0.157.1",
+        "@taiga-ui/commitlint-config": "0.158.0",
         "@taiga-ui/core": "4.5.0",
         "@taiga-ui/editor": "4.4.0",
-        "@taiga-ui/eslint-plugin-experience": "0.157.1",
+        "@taiga-ui/eslint-plugin-experience": "0.158.0",
         "@taiga-ui/event-plugins": "4.0.2",
         "@taiga-ui/icons": "4.5.0",
         "@taiga-ui/kit": "4.5.0",
         "@taiga-ui/legacy": "4.5.0",
-        "@taiga-ui/prettier-config": "0.157.1",
+        "@taiga-ui/prettier-config": "0.158.0",
+        "@taiga-ui/stylelint-config": "0.158.0",
         "@taiga-ui/styles": "4.5.0",
-        "@taiga-ui/tsconfig": "0.157.1",
+        "@taiga-ui/tsconfig": "0.158.0",
         "@types/dom-speech-recognition": "0.0.4",
         "@types/dom-view-transitions": "1.0.5",
         "@types/dompurify": "3.0.5",

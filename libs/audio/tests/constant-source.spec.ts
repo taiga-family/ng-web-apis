@@ -7,6 +7,7 @@ import {WebAudioConstantSource} from '../src/sources/constant-source';
 
 describe('ConstantSourceNode', () => {
     @Component({
+        standalone: true,
         template: `
             <div waConstantSourceNode></div>
         `,

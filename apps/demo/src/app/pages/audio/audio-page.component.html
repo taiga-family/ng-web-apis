@@ -2,6 +2,7 @@
     *ngIf="!started; else graph"
     appearance="secondary"
     tuiButton
+    type="button"
     (click)="start()"
 >
     Start AudioContext
@@ -61,6 +62,7 @@
                     buffer="assets/demo.mp3"
                     size="s"
                     tuiButton
+                    type="button"
                     waAudioBufferSourceNode
                     [loop]="true"
                     (click)="onClick(source, $any($event).target)"
@@ -96,6 +98,7 @@
                     #source="AudioNode"
                     size="s"
                     tuiButton
+                    type="button"
                     waOscillatorNode
                     [frequency]="100"
                     [periodicWave]="real | waPeriodicWave"

@@ -5,6 +5,7 @@
         <button
             appearance="secondary"
             tuiButton
+            type="button"
             (click)="workerThread.postMessage()"
         >
             Run in worker process
@@ -16,6 +17,7 @@
         <button
             appearance="secondary"
             tuiButton
+            type="button"
             (click)="emitter.next()"
         >
             Run in main process

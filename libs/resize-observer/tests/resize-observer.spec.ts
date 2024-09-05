@@ -5,6 +5,7 @@ import {WaResizeObserver} from '@ng-web-apis/resize-observer';
 
 describe('WaResizeObserver', () => {
     @Component({
+        standalone: true,
         template: `
             <section style="position: relative; height: 200px; overflow: auto;">
                 <h1

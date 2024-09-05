@@ -29,6 +29,7 @@
             <button
                 *ngFor="let item of voices$ | async; trackBy: voiceByName"
                 tuiOption
+                type="button"
                 [value]="item"
             >
                 {{ item.name }}

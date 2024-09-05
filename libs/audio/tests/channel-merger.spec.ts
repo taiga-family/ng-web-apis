@@ -9,6 +9,7 @@ import {WebAudioChannelMerger} from '../src/nodes/channel-merger';
 describe('ChannelMerger', () => {
     describe('ChannelMergerNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waChannelMergerNode></div>
             `,
@@ -39,6 +40,7 @@ describe('ChannelMerger', () => {
 
     describe('ChannelMergerNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waChannelMergerNode></div>
             `,

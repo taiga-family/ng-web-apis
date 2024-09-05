@@ -7,6 +7,7 @@ import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
 describe('Pipes', () => {
     @Component({
+        standalone: true,
         selector: 'canvas',
         template: `
             <canvas-path
@@ -36,6 +37,7 @@ describe('Pipes', () => {
     }
 
     @Component({
+        standalone: true,
         template: `
             <img
                 #img

@@ -14,6 +14,7 @@ describe('MediaStream', () => {
 
     describe('MediaStreamAudioSourceNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
             `,
@@ -50,6 +51,7 @@ describe('MediaStream', () => {
 
     describe('MediaStreamAudioSourceNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
             `,

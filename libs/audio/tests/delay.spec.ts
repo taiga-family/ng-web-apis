@@ -9,6 +9,7 @@ import {WebAudioDelay} from '../src/nodes/delay';
 describe('Delay', () => {
     describe('DelayNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waDelayNode></div>
             `,
@@ -39,6 +40,7 @@ describe('Delay', () => {
 
     describe('DelayNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waDelayNode></div>
             `,

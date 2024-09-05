@@ -7,6 +7,7 @@ import type {SpeechSynthesisUtteranceOptions} from '../src/interfaces/speech-syn
 
 describe('SpeechSynthesis', () => {
     @Component({
+        standalone: true,
         template: `
             <ng-container
                 [waTextToSpeech]="text | waUtterance: options"

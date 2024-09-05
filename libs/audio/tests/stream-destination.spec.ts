@@ -9,6 +9,7 @@ import {WaWebAudio} from '../src/module';
 describe('StreamDestination', () => {
     describe('MediaStreamAudioDestinationNode', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waMediaStreamAudioDestinationNode></div>
             `,
@@ -41,6 +42,7 @@ describe('StreamDestination', () => {
 
     describe('MediaStreamAudioDestinationNode factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div waMediaStreamAudioDestinationNode></div>
             `,

@@ -7,6 +7,7 @@ import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
 
 describe('WaCanvas2d', () => {
     @Component({
+        standalone: true,
         template: `
             <canvas
                 #canvas

@@ -9,6 +9,7 @@ import {AUDIO_WORKLET_PROCESSORS_READY} from '../src/tokens/audio-worklet-proces
 
 describe('AudioWorkletNode', () => {
     @Component({
+        standalone: true,
         template: `
             <div
                 *ngIf="ready | async"
@@ -49,7 +50,7 @@ describe('AudioWorkletNode', () => {
     });
 
     // TODO: need investigate why
-    xit('creates node', () => {
+    it.skip('creates node', () => {
         expect(testComponent.node instanceof AudioWorkletNode).toBe(true);
     });
 });

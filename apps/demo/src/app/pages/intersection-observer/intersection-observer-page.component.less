@@ -7,29 +7,29 @@
 
 .wrapper {
     position: relative;
-    height: 200px;
-    max-width: 600px;
+    block-size: 12.5rem;
+    max-inline-size: 37.5rem;
     margin: 0 auto;
     overflow: auto;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.75rem 2.25rem rgb(0 0 0 / 20%);
 
-    &:before {
+    &::before {
         content: '';
         display: block;
-        height: 900px;
+        block-size: 56.25rem;
     }
 }
 
 .element {
     position: absolute;
+    top: 18.75rem;
+    left: 0;
     display: flex;
     align-items: center;
     justify-content: center;
     margin: 0;
-    top: 300px;
-    left: 0;
-    width: 100%;
-    height: 200px;
+    inline-size: 100%;
+    block-size: 12.5rem;
     transition: background 0.1s;
 
     &[data-ratio='0'] {

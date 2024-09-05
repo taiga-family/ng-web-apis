@@ -1,5 +1,6 @@
 <button
     tuiButton
+    type="button"
     [disabled]="(denied$ | async)!"
     (click)="sendNotification()"
 >

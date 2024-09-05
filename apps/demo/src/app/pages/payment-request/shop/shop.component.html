@@ -42,6 +42,7 @@
         </div>
 
         <button
+            type="button"
             class="buy-button"
             [disabled]="shippingCart.length === 0"
             (waPaymentError)="onPaymentError($event)"

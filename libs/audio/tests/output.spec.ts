@@ -9,6 +9,7 @@ import {WaWebAudio} from '../src/module';
 describe('Output spec', () => {
     describe('Output', () => {
         @Component({
+            standalone: true,
             template: `
                 <div [waOutput]="destination"></div>
                 <div
@@ -43,6 +44,7 @@ describe('Output spec', () => {
 
     describe('Output factory fallback', () => {
         @Component({
+            standalone: true,
             template: `
                 <div [waOutput]="destination"></div>
                 <div

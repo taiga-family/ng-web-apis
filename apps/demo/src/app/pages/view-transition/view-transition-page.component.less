@@ -14,8 +14,8 @@
 }
 
 .photo {
-    width: 12rem;
     display: flex;
+    inline-size: 12rem;
     flex-direction: column;
     align-items: center;
     cursor: pointer;
@@ -30,7 +30,7 @@
 
     img {
         display: block;
-        width: 100%;
+        inline-size: 100%;
         border-radius: 0.5rem;
         transition: transform 0.2s;
 
@@ -41,16 +41,16 @@
 }
 
 .expanded-photo {
-    margin: 0 auto 1rem;
-    width: 20rem;
     display: flex;
+    margin: 0 auto 1rem;
+    inline-size: 20rem;
     cursor: pointer;
 
     img {
         display: block;
         view-transition-name: expandable-image;
         border-radius: 1rem;
-        box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
-        width: 100%;
+        box-shadow: 0 0.75rem 2.25rem rgb(0 0 0 / 20%);
+        inline-size: 100%;
     }
 }
