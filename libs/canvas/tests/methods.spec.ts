@@ -1,14 +1,14 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {CANVAS_2D_CONTEXT, WaCanvas, WaCanvasClipPath} from '@ng-web-apis/canvas';
 
-import {WaCanvasClipPath} from '../src/methods/clip-path';
-import {CanvasModule} from '../src/module';
-import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Methods', () => {
     @Component({
         standalone: true,
+        imports: [WaCanvas],
         template: `
             <canvas
                 #canvas
@@ -48,6 +48,7 @@ describe('Methods', () => {
                 ></canvas-text>
             </canvas>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
@@ -76,8 +77,7 @@ describe('Methods', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [CanvasModule],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

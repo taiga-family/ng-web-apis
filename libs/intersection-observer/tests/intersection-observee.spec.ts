@@ -1,15 +1,20 @@
-import {Component, ViewChild} from '@angular/core';
+import {NgIf} from '@angular/common';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {
+    INTERSECTION_ROOT_MARGIN,
+    INTERSECTION_THRESHOLD,
+    WaIntersectionObserver,
+    WaIntersectionObserverDirective,
+} from '@ng-web-apis/intersection-observer';
 
-import {WaIntersectionObserverDirective} from '../src/directives/intersection-observer.directive';
-import {WaIntersectionObserver} from '../src/module';
-import {INTERSECTION_ROOT_MARGIN} from '../src/tokens/intersection-root-margin';
-import {INTERSECTION_THRESHOLD} from '../src/tokens/intersection-threshold';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WaIntersectionObservee', () => {
     @Component({
         standalone: true,
+        imports: [NgIf, WaIntersectionObserver],
         template: `
             <div id="manual_observee">Hello</div>
             <section
@@ -37,6 +42,7 @@ describe('WaIntersectionObservee', () => {
                 </h1>
             </section>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         @ViewChild('root', {read: WaIntersectionObserverDirective})
@@ -52,8 +58,7 @@ describe('WaIntersectionObservee', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WaIntersectionObserver],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

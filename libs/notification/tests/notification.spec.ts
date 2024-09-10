@@ -2,6 +2,8 @@ import {TestBed} from '@angular/core/testing';
 import {NOTIFICATION_SUPPORT, NotificationService} from '@ng-web-apis/notification';
 import {firstValueFrom} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('Notification API', () => {
     describe('if Notification API is not supported', () => {
         let service: NotificationService;

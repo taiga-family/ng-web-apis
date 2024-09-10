@@ -1,6 +1,7 @@
+import {toTimeStamp} from '@ng-web-apis/midi';
 import {of} from 'rxjs';
 
-import {toTimeStamp} from '../src/operators/to-time-stamp';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('toTime', () => {
     it('extracts receivedTime timestamp', () => {

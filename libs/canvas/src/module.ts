@@ -58,4 +58,7 @@ export const WaCanvas = [
     WaCanvasTransformPipe,
 ];
 
+/**
+ * @deprecated: use {@link WaCanvas}
+ */
 export const CanvasModule = WaCanvas;

@@ -1,4 +1,6 @@
-import {fallbackAudioParam} from '../src/utils/fallback-audio-param';
+import {fallbackAudioParam} from '@ng-web-apis/audio/utils/fallback-audio-param';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('fallbackAudioParam', () => {
     it('works with undefined', () => {

@@ -1,6 +1,6 @@
-import {between} from '../src/utils/between';
-import {toFrequency} from '../src/utils/to-frequency';
-import {toNote} from '../src/utils/to-note';
+import {between, toFrequency, toNote} from '@ng-web-apis/midi';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('utility functions', () => {
     describe('between', () => {

@@ -1,10 +1,14 @@
 import {fakeAsync, TestBed, tick} from '@angular/core/testing';
+import {
+    PERMISSIONS,
+    PERMISSIONS_SUPPORT,
+    PermissionsService,
+} from '@ng-web-apis/permissions';
 
 import {FakePermissionStatus} from '../src/mocks/fake-permission-status';
 import {FakePermissions} from '../src/mocks/fake-permissions';
-import {PermissionsService} from '../src/services/permissions.service';
-import {PERMISSIONS} from '../src/tokens/permissions';
-import {PERMISSIONS_SUPPORT} from '../src/tokens/permissions-support';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('PermissionsService', () => {
     describe('PermissionsService', () => {

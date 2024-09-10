@@ -48,7 +48,7 @@
 
 header {
     display: flex;
-    border-bottom: 1px solid gainsboro;
+    border-bottom: 1px solid #dcdcdc;
 }
 
 main {
@@ -63,6 +63,6 @@ main {
 footer {
     padding: 16px;
     font-size: 0.75rem;
-    border-top: 1px solid gainsboro;
+    border-top: 1px solid #dcdcdc;
     text-align: center;
 }

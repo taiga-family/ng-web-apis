@@ -1,4 +1,6 @@
-import {FrequencyPipe} from './frequency.pipe';
+import {FrequencyPipe} from '@ng-web-apis/midi';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('FrequencyPipe', () => {
     const pipe = new FrequencyPipe();

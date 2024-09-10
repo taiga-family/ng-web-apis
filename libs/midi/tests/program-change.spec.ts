@@ -1,6 +1,7 @@
+import {programChange} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {programChange} from '../src/monotype-operators/program-change';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('programChange', () => {
     it('lets program change events through', () => {

@@ -1,6 +1,7 @@
+import {sustainPedal} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {sustainPedal} from '../src/monotype-operators/sustain-pedal';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('sustainPedal', () => {
     it('lets sustain pedal events through', () => {

@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {NAVIGATOR} from '@ng-web-apis/common';
 
-import {NAVIGATOR} from '../src/tokens/navigator';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WINDOW', () => {
     it('injects window.navigator object', () => {

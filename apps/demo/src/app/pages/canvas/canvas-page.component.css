@@ -29,7 +29,7 @@ fieldset {
     display: flex;
     flex-wrap: wrap;
     border: none;
-    background: whitesmoke;
+    background: #f5f5f5;
     padding: 0.75rem;
     margin: 0.75rem 0;
     gap: 0.75rem;

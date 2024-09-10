@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {provideUserAgent, SSR_USER_AGENT} from '@ng-web-apis/universal';
 
-import {SSR_USER_AGENT} from '../src/tokens/ssr-user-agent';
-import {provideUserAgent} from '../src/utils/provide-user-agent';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('provideUserAgent', () => {
     const req = {

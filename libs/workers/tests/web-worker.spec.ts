@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
-
 import type {TypedMessageEvent} from '@ng-web-apis/workers';
 import {WebWorker} from '@ng-web-apis/workers';
 import {Observable, take} from 'rxjs';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WebWorker', () => {
     // it is needed to ignore web worker errors
@@ -83,7 +83,6 @@ describe('WebWorker', () => {
 
     it('should fail if an inner promise is rejected', async () => {
         const worker = WebWorker.fromFunction<void, string>(() =>
-            // eslint-disable-next-line prefer-promise-reject-errors
             Promise.reject('reason'),
         );
 

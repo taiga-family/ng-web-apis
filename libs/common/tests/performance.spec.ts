@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {PERFORMANCE} from '@ng-web-apis/common';
 
-import {PERFORMANCE} from '../src/tokens/performance';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('PERFORMANCE', () => {
     it('injects window.performance object', () => {

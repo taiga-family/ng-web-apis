@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {MEDIA_DEVICES} from '@ng-web-apis/common';
 
-import {MEDIA_DEVICES} from '../src/tokens/media-devices';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('MEDIA_DEVICES', () => {
     it('injects window.navigator object', () => {

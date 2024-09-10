@@ -1,6 +1,7 @@
+import {pitchBend} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {pitchBend} from '../src/monotype-operators/pitch-bend';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('pitchBend', () => {
     it('lets pitch bend events through', () => {

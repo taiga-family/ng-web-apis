@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {SCREEN} from '@ng-web-apis/common';
 
-import {SCREEN} from '../src/tokens/screen';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('SCREEN', () => {
     it('injects window.screen object', () => {

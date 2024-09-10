@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
-import {RESIZE_OBSERVER_SUPPORT} from '../src/tokens/support';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('RESIZE_OBSERVER_SUPPORT', () => {
     it('true in modern browsers', () => {
