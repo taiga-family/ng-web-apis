@@ -3,6 +3,15 @@
 All notable changes to this project will be documented in this file. See
 [Conventional Commits](https://conventionalcommits.org) for commit guidelines.
 
+# [4.3.0](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/view-transition@4.2.1...@ng-web-apis/view-transition@4.3.0) (2024-09-10)
+
+**Note:** Version bump only for package @ng-web-apis/view-transition
+
+# Change Log
+
+All notable changes to this project will be documented in this file. See
+[Conventional Commits](https://conventionalcommits.org) for commit guidelines.
+
 ## [4.2.1](https://github.com/taiga-family/ng-web-apis/compare/@ng-web-apis/view-transition@4.2.0...@ng-web-apis/view-transition@4.2.1) (2024-08-03)
 
 **Note:** Version bump only for package @ng-web-apis/view-transition
