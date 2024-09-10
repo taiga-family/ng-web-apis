@@ -25,6 +25,6 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.2.1"
+        "@ng-web-apis/common": ">=4.3.0"
     }
 }

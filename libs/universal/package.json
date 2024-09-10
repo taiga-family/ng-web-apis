@@ -30,7 +30,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.2.1",
+        "@ng-web-apis/common": ">=4.3.0",
         "@types/node": ">=22.5.4",
         "rxjs": ">=7.0.0"
     }
