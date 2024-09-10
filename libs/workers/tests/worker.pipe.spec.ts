@@ -1,6 +1,8 @@
 import {WorkerPipe} from '@ng-web-apis/workers';
 import {take} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('WorkerPipe', () => {
     let pipe: WorkerPipe;
 
@@ -36,7 +38,6 @@ describe('WorkerPipe', () => {
     it('should terminate a previous worker', async () => {
         const worker = pipe.transform('a', (data: unknown) => data);
 
-        // eslint-disable-next-line rxjs/no-ignored-observable
         pipe.transform('a', (data: unknown) => data);
         await expectAsync(worker.toPromise()).toBeResolved();
     });

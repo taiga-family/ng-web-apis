@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {SPEECH_RECOGNITION} from '@ng-web-apis/common';
 
-import {SPEECH_RECOGNITION} from '../src/tokens/speech-recognition';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('SPEECH_RECOGNITION', () => {
     it('injects webkitSpeechRecognition class', () => {

@@ -1,12 +1,15 @@
 import {TestBed} from '@angular/core/testing';
+import {
+    inputById,
+    inputByName,
+    MIDI_ACCESS,
+    MIDI_INPUT,
+    MIDI_OUTPUT,
+    outputById,
+    outputByName,
+} from '@ng-web-apis/midi';
 
-import {MIDI_ACCESS} from '../src/tokens/midi-access';
-import {MIDI_INPUT} from '../src/tokens/midi-input';
-import {MIDI_OUTPUT} from '../src/tokens/midi-output';
-import {inputById} from '../src/utils/input-by-id';
-import {inputByName} from '../src/utils/input-by-name';
-import {outputById} from '../src/utils/output-by-id';
-import {outputByName} from '../src/utils/output-by-name';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('inputById', () => {
     const midiInput1 = {

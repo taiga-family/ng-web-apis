@@ -1,6 +1,7 @@
+import {polyphonicAftertouch} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {polyphonicAftertouch} from '../src/monotype-operators/polyphonic-aftertouch';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('polyphonicAftertouch', () => {
     it('lets polyphonic aftertouch events through', () => {

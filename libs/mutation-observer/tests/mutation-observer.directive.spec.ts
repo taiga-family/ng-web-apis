@@ -1,11 +1,15 @@
-import {Component} from '@angular/core';
+import {NgIf} from '@angular/common';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('MutationObserverDirective', () => {
     @Component({
         standalone: true,
+        imports: [NgIf, WaMutationObserver],
         template: `
             <section
                 *ngIf="observe"
@@ -24,6 +28,7 @@ describe('MutationObserverDirective', () => {
                 </div>
             </section>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         // eslint-disable-next-line jest/no-jasmine-globals
@@ -41,8 +46,7 @@ describe('MutationObserverDirective', () => {
 
     beforeEach((done) => {
         TestBed.configureTestingModule({
-            imports: [WaMutationObserver],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

@@ -1,13 +1,15 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import type {SpeechSynthesisUtteranceOptions} from '@ng-web-apis/speech';
 import {UtterancePipe, WaTextToSpeech} from '@ng-web-apis/speech';
 
-import type {SpeechSynthesisUtteranceOptions} from '../src/interfaces/speech-synthesis-utterance-options';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('SpeechSynthesis', () => {
     @Component({
         standalone: true,
+        imports: [UtterancePipe, WaTextToSpeech],
         template: `
             <ng-container
                 [waTextToSpeech]="text | waUtterance: options"
@@ -22,6 +24,7 @@ describe('SpeechSynthesis', () => {
                 (waTextToSpeechMark)="onMark()"
             ></ng-container>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         public options?: SpeechSynthesisUtteranceOptions;
@@ -43,8 +46,7 @@ describe('SpeechSynthesis', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WaTextToSpeech, UtterancePipe],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

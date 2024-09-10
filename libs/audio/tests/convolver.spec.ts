@@ -1,21 +1,22 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioConvolver} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WaWebAudio} from '../src/module';
-import {WebAudioConvolver} from '../src/nodes/convolver';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Convolver', () => {
     describe('ConvolverNode', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     buffer="base/demo.mp3"
                     waConvolverNode
                 ></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioConvolver)
@@ -27,8 +28,7 @@ describe('Convolver', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -44,12 +44,14 @@ describe('Convolver', () => {
     describe('ConvolverNode factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     buffer="base/demo.mp3"
                     waConvolverNode
                 ></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioConvolver)
@@ -61,8 +63,7 @@ describe('Convolver', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

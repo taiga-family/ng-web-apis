@@ -1,11 +1,10 @@
 import {TestBed} from '@angular/core/testing';
 import {WA_NAVIGATOR} from '@ng-web-apis/common';
+import {MIDI_ACCESS, SYSEX} from '@ng-web-apis/midi';
 
-import {MIDI_ACCESS} from '../src/tokens/midi-access';
-import {SYSEX} from '../src/tokens/sysex';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('MIDI_ACCESS', () => {
-    // eslint-disable-next-line jest/no-jasmine-globals
     const navigatorMock = jasmine.createSpyObj(['requestMIDIAccess']);
 
     it('sYSEX is false by default', () => {

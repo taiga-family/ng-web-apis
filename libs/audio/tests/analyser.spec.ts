@@ -1,18 +1,20 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {WaWebAudio, WebAudioAnalyser} from '@ng-web-apis/audio';
+import {providers, WaWebAudio, WebAudioAnalyser} from '@ng-web-apis/audio';
 import {take} from 'rxjs';
 
-import {providers} from '../src/constants/fallback';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Analyser', () => {
     describe('AnalyserNode', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waAnalyserNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioAnalyser)
@@ -24,8 +26,7 @@ describe('Analyser', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -73,9 +74,11 @@ describe('Analyser', () => {
     describe('AnalyserNode factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waAnalyserNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioAnalyser)
@@ -87,8 +90,7 @@ describe('Analyser', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

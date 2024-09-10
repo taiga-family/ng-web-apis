@@ -8,6 +8,8 @@ import {
 } from '@ng-web-apis/intersection-observer';
 import {take} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('IntersectionObserverService', () => {
     it('works', (done) => {
         let called = false;

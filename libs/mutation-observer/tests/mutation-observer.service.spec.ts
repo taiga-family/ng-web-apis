@@ -6,6 +6,8 @@ import {
 } from '@ng-web-apis/mutation-observer';
 import {first} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('MutationObserver service', () => {
     it('works', (done) => {
         const element = document.createElement('DIV');

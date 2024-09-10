@@ -1,15 +1,15 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioContext} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WebAudioContext} from '../src/directives/audio-context';
-import {WaWebAudio} from '../src/module';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Listener', () => {
     describe('AudioListener', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     forwardX="237"
@@ -26,6 +26,7 @@ describe('Listener', () => {
                     <div waAudioDestinationNode></div>
                 </div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioContext)
@@ -37,8 +38,7 @@ describe('Listener', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -54,6 +54,7 @@ describe('Listener', () => {
     describe('AudioListener factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     forwardX="237"
@@ -70,6 +71,7 @@ describe('Listener', () => {
                     <div waAudioDestinationNode></div>
                 </div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioContext)
@@ -81,8 +83,7 @@ describe('Listener', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

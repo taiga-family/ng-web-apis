@@ -6,6 +6,8 @@ import {
 } from '@ng-web-apis/geolocation';
 import {catchError, EMPTY, interval, skip, take, timer} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('GeolocationService', () => {
     describe('Geolocation service', () => {
         let service: GeolocationService;

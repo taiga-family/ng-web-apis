@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {AudioBufferService} from '@ng-web-apis/audio';
 
-import {AudioBufferService} from '../src/services/audio-buffer.service';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('AudioBufferService', () => {
     let service: AudioBufferService;

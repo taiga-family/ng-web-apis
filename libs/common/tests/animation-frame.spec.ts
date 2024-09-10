@@ -3,6 +3,8 @@ import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {first} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('ANIMATION_FRAME', () => {
     it('passes DOMHighResTimeStamp to the subscriber', (done) => {
         TestBed.configureTestingModule({});

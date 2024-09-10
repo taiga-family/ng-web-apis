@@ -1,7 +1,8 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
+import {ViewTransitionService} from '@ng-web-apis/view-transition';
 
-import {ViewTransitionService} from '../src/services/view-transition.service';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('ViewTransitionService', () => {
     describe('not supported provider', () => {

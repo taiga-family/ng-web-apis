@@ -1,16 +1,16 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import type {AudioParamInput} from '@ng-web-apis/audio';
+import {providers, WaWebAudio, WebAudioGain} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WaWebAudio} from '../src/module';
-import {WebAudioGain} from '../src/nodes/gain';
-import type {AudioParamInput} from '../src/types/audio-param-input';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Audio gain', () => {
     describe('GainNode', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     waGainNode
@@ -19,6 +19,7 @@ describe('Audio gain', () => {
                     <div waAudioDestinationNode></div>
                 </div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioGain)
@@ -32,8 +33,7 @@ describe('Audio gain', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -47,7 +47,7 @@ describe('Audio gain', () => {
 
         describe('AudioParam', () => {
             // TODO: need investigate why
-            it.skip('sets gain instantly', (done) => {
+            xit('sets gain instantly', (done) => {
                 testComponent.gain = 10;
                 fixture.detectChanges();
 
@@ -58,7 +58,7 @@ describe('Audio gain', () => {
                 }, 100);
             });
 
-            it.skip('sets gain linearly', (done) => {
+            xit('sets gain linearly', (done) => {
                 testComponent.gain = {
                     value: 10,
                     duration: 2,
@@ -81,7 +81,7 @@ describe('Audio gain', () => {
             });
 
             // TODO: need investigate why
-            it.skip('sets gain exponentially', (done) => {
+            xit('sets gain exponentially', (done) => {
                 testComponent.gain = {
                     value: 10,
                     duration: 2,
@@ -104,7 +104,7 @@ describe('Audio gain', () => {
             });
 
             // TODO: need investigate why
-            it.skip('sets gain curve', (done) => {
+            xit('sets gain curve', (done) => {
                 testComponent.gain = {
                     value: [10, 5, 10],
                     duration: 2,
@@ -126,7 +126,7 @@ describe('Audio gain', () => {
             });
 
             // TODO: need investigate why
-            it.skip('schedules multiple changes', (done) => {
+            xit('schedules multiple changes', (done) => {
                 testComponent.gain = [
                     {
                         value: 5,
@@ -167,9 +167,11 @@ describe('Audio gain', () => {
     describe('GainNode factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waGainNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioGain)
@@ -181,8 +183,7 @@ describe('Audio gain', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

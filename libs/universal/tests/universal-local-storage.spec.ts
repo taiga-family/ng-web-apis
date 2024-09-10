@@ -1,7 +1,8 @@
 import {TestBed} from '@angular/core/testing';
 import {WA_LOCAL_STORAGE} from '@ng-web-apis/common';
+import {UNIVERSAL_LOCAL_STORAGE} from '@ng-web-apis/universal';
 
-import {UNIVERSAL_LOCAL_STORAGE} from '../src/constants/universal-local-storage';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('UNIVERSAL_LOCAL_STORAGE', () => {
     beforeEach(() => {

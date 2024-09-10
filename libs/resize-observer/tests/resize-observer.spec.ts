@@ -1,11 +1,14 @@
-import {Component} from '@angular/core';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {WaResizeObserver} from '@ng-web-apis/resize-observer';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('WaResizeObserver', () => {
     @Component({
         standalone: true,
+        imports: [WaResizeObserver],
         template: `
             <section style="position: relative; height: 200px; overflow: auto;">
                 <h1
@@ -17,6 +20,7 @@ describe('WaResizeObserver', () => {
                 </h1>
             </section>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         // eslint-disable-next-line jest/no-jasmine-globals
@@ -29,8 +33,7 @@ describe('WaResizeObserver', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WaResizeObserver],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

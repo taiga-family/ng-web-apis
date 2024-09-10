@@ -1,17 +1,21 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {
+    providers,
+    WaWebAudio,
+    WebAudioBufferSource,
+    WebAudioDestination,
+} from '@ng-web-apis/audio';
 import {Observable} from 'rxjs';
 
-import {providers} from '../src/constants/fallback';
-import {WebAudioDestination} from '../src/directives/destination';
-import {WaWebAudio} from '../src/module';
-import {WebAudioBufferSource} from '../src/sources/buffer-source';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Destination', () => {
     describe('AudioDestinationNode', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     autoplay
@@ -24,6 +28,7 @@ describe('Destination', () => {
                     ></div>
                 </div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioDestination)
@@ -42,8 +47,7 @@ describe('Destination', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -72,7 +76,7 @@ describe('Destination', () => {
         });
 
         // TODO: investigate why
-        it.skip('fires output after destination has gone silent', (done) => {
+        xit('fires output after destination has gone silent', (done) => {
             testComponent.source.stop(testComponent.source.context.currentTime + 0.5);
             setTimeout(() => {
                 fixture.detectChanges();
@@ -87,9 +91,11 @@ describe('Destination', () => {
     describe('AudioDestinationNode factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waAudioDestinationNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioDestination)
@@ -101,8 +107,7 @@ describe('Destination', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

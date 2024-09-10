@@ -3,6 +3,8 @@ import {filterByKey, STORAGE_EVENT, StorageService, toValue} from '@ng-web-apis/
 import type {Observable} from 'rxjs';
 import {first} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('StorageService', () => {
     let event$: Observable<StorageEvent>;
     let service: StorageService;

@@ -3,6 +3,8 @@ import {WA_PAGE_VISIBILITY} from '@ng-web-apis/common';
 import type {Observable} from 'rxjs';
 import {first} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('PAGE_VISIBILITY', () => {
     it('watching for page visibility state', (done) => {
         TestBed.configureTestingModule({});

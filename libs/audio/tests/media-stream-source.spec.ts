@@ -1,11 +1,10 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {MEDIA_STREAM, WaWebAudio, WebAudioMediaStreamSource} from '@ng-web-apis/audio';
+import {CONSTRUCTOR_SUPPORT} from '@ng-web-apis/audio/tokens/constructor-support';
 
-import {WaWebAudio} from '../src/module';
-import {WebAudioMediaStreamSource} from '../src/sources/media-stream-source';
-import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
-import {MEDIA_STREAM} from '../src/tokens/media-stream';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('MediaStream', () => {
     const context = new AudioContext();
@@ -15,9 +14,11 @@ describe('MediaStream', () => {
     describe('MediaStreamAudioSourceNode', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioMediaStreamSource)
@@ -29,8 +30,7 @@ describe('MediaStream', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers: [
                     {
                         provide: MEDIA_STREAM,
@@ -52,9 +52,11 @@ describe('MediaStream', () => {
     describe('MediaStreamAudioSourceNode factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioMediaStreamSource)
@@ -66,8 +68,7 @@ describe('MediaStream', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers: [
                     {
                         provide: MEDIA_STREAM,

@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {NAVIGATOR, NETWORK_INFORMATION} from '@ng-web-apis/common';
 
-import {NAVIGATOR} from '../src/tokens/navigator';
-import {NETWORK_INFORMATION} from '../src/tokens/network-information';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('NETWORK_INFORMATION', () => {
     it('injects window.navigator.connection object', () => {

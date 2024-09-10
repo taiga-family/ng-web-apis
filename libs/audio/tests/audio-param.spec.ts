@@ -1,4 +1,6 @@
-import {audioParam} from '../src/decorators/audio-param';
+import {audioParam} from '@ng-web-apis/audio';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('audioParam decorator', () => {
     it('falls back to plain property when not used on proper AudioParam', () => {

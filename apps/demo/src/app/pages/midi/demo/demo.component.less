@@ -20,7 +20,7 @@
         transform: translateZ(-6.875vw);
         box-shadow:
             0 0 5vw fade(#444, 40%),
-            0 0 0 12.5vw white;
+            0 0 0 12.5vw #fff;
     }
 
     &::after {
@@ -61,21 +61,21 @@
     transform-origin: top;
     transform-style: preserve-3d;
     box-shadow:
-        inset 0.25vw 0 0.25vw -0.125vw fade(white, 80%),
-        inset -0.25vw 0 0.25vw -0.125vw fade(white, 80%),
+        inset 0.25vw 0 0.25vw -0.125vw fade(#fff, 80%),
+        inset -0.25vw 0 0.25vw -0.125vw fade(#fff, 80%),
         inset 1.25vw -1.25vw 1.25vw -1.25vw fade(#444, 30%),
         inset -1.25vw 0 1.25vw -1.25vw fade(#444, 30%),
-        inset 0 -25vw 25vw -25vw fade(white, 70%),
+        inset 0 -25vw 25vw -25vw fade(#fff, 70%),
         inset 0 0 0 120vw fade(#edefee, 50%);
     transition:
         background-color 0.3s ease,
         transform 0.3s ease;
 
     &:hover {
-        background-color: white;
+        background-color: #fff;
 
         &::before {
-            background: white;
+            background: #fff;
         }
     }
 
@@ -112,10 +112,10 @@
         transform-origin: top;
         transform: rotateX(-90deg);
         box-shadow:
-            inset 0 -3.75vw 6.25vw -3.75vw fade(black, 30%),
-            inset 0 0.25vw 0.125vw white,
-            inset 0 0.5vw fade(black, 10%),
-            inset 0 1.25vw 1.25vw -1.25vw fade(black, 40%);
+            inset 0 -3.75vw 6.25vw -3.75vw fade(#000, 30%),
+            inset 0 0.25vw 0.125vw #fff,
+            inset 0 0.5vw fade(#000, 10%),
+            inset 0 1.25vw 1.25vw -1.25vw fade(#000, 40%);
     }
 }
 
@@ -174,7 +174,7 @@
         transform 0.3s ease;
 
     &:hover {
-        background: darken(white, 50%);
+        background: darken(#fff, 50%);
     }
 
     &._active {
@@ -199,7 +199,7 @@
         inline-size: 4.875vw;
         transform-origin: left;
         transform: rotateY(93deg);
-        box-shadow: inset -6.25vw 0 6.25vw -6.25vw black;
+        box-shadow: inset -6.25vw 0 6.25vw -6.25vw #000;
         transition: background-color 0.3s;
     }
 
@@ -216,8 +216,8 @@
         transform-origin: top;
         transform: rotateX(-90deg);
         box-shadow:
-            0 0.875vw 2.5vw fade(black, 25%),
-            0 0.375vw 0.625vw -0.25vw fade(white, 80%),
+            0 0.875vw 2.5vw fade(#000, 25%),
+            0 0.375vw 0.625vw -0.25vw fade(#fff, 80%),
             0 0.625vw,
             0 2.5vw darken(#444, 2%),
             0 5vw darken(#444, 2%);

@@ -1,15 +1,15 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioOutput} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WebAudioOutput} from '../src/directives/output';
-import {WaWebAudio} from '../src/module';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Output spec', () => {
     describe('Output', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div [waOutput]="destination"></div>
                 <div
@@ -17,6 +17,7 @@ describe('Output spec', () => {
                     waAudioDestinationNode
                 ></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioOutput)
@@ -28,8 +29,7 @@ describe('Output spec', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -45,6 +45,7 @@ describe('Output spec', () => {
     describe('Output factory fallback', () => {
         @Component({
             standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div [waOutput]="destination"></div>
                 <div
@@ -52,6 +53,7 @@ describe('Output spec', () => {
                     waAudioDestinationNode
                 ></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioOutput)
@@ -63,8 +65,7 @@ describe('Output spec', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

@@ -1,8 +1,7 @@
 :host {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
+    place-content: flex-start center;
 }
 
 .link {
@@ -10,7 +9,7 @@
     max-inline-size: 23.75rem;
     color: #444;
     border-radius: 4px;
-    border: 1px solid gainsboro;
+    border: 1px solid #dcdcdc;
     font-size: 0.875rem;
     padding: 0 16px 16px;
     margin: 0.625rem;

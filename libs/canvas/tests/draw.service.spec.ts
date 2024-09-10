@@ -5,6 +5,8 @@ import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, WaDrawService} from '@ng-web-apis/
 import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import {of} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('WaDrawService', () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d')!;
@@ -16,7 +18,7 @@ describe('WaDrawService', () => {
         runOutsideAngular: (fn: any) => fn(),
     } as unknown as NgZone;
 
-    it.skip('calls hooks with context', () => {
+    xit('calls hooks with context', () => {
         TestBed.overrideProvider(CANVAS_PROPERTIES, {useValue: []})
             .overrideProvider(CANVAS_PROPERTIES, {useValue: [prop]})
             .overrideProvider(CANVAS_2D_CONTEXT, {useValue: context})

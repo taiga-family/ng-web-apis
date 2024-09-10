@@ -1,6 +1,7 @@
+import {toDataByte} from '@ng-web-apis/midi';
 import {of} from 'rxjs';
 
-import {toDataByte} from '../src/operators/to-data-byte';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('toDataByte', () => {
     it('extracts data byte', () => {

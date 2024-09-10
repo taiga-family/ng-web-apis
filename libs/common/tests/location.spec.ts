@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {LOCATION} from '@ng-web-apis/common';
 
-import {LOCATION} from '../src/tokens/location';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('LOCATION', () => {
     it('injects window.location object', () => {
