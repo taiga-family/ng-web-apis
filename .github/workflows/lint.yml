@@ -10,8 +10,8 @@ jobs:
     name: Lint
     runs-on: ubuntu-latest
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.71.2
-      - uses: taiga-family/ci/actions/setup/node@v1.71.2
+      - uses: taiga-family/ci/actions/setup/checkout@v1.72.0
+      - uses: taiga-family/ci/actions/setup/node@v1.72.0
       - run: npm run typecheck
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
@@ -23,7 +23,7 @@ jobs:
               npm run stylelint
               npm run lint
           fi
-      - uses: taiga-family/ci/actions/auto/push@v1.71.2
+      - uses: taiga-family/ci/actions/auto/push@v1.72.0
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
