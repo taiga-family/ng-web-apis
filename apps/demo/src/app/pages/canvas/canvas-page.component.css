@@ -42,5 +42,5 @@ canvas {
     block-size: 9.375rem;
     margin: 0 auto 2.5rem;
     border-radius: 0.375rem;
-    box-shadow: 0 0.75rem 2.25rem rgb(0 0 0 / 20%);
+    box-shadow: 0 0.75rem 2.25rem rgba(0, 0, 0, 20%);
 }

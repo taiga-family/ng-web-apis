@@ -11,16 +11,17 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: taiga-family/ci/actions/setup/checkout@v1.71.2
+      - uses: taiga-family/ci/actions/setup/variables@v1.71.2
       - uses: taiga-family/ci/actions/setup/node@v1.71.2
       - run: npm run typecheck
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
-              npm run prettier -- --write
               npm run stylelint -- --fix
+              npm run prettier -- --write
               npm run lint -- --fix
           else
-              npm run prettier -- --check
               npm run stylelint
+              npm run prettier -- --check
               npm run lint
           fi
       - uses: taiga-family/ci/actions/auto/push@v1.71.2
