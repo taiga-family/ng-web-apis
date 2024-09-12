@@ -6,7 +6,7 @@
         "tagName": "v${version}"
     },
     "github": {
-        "release": false,
+        "release": true,
         "releaseNotes": "npx auto-changelog --stdout"
     },
     "npm": {
@@ -14,22 +14,8 @@
         "skipChecks": true,
         "allowSameVersion": true
     },
-    "plugins": {
-        "@semabit/release-it-bumper": {
-            "out": [
-                {
-                    "file": "libs/**/package.json",
-                    "path": "version"
-                },
-                {
-                    "file": "libs/**/package.json",
-                    "path": "peerDependencies['@ng-web-apis/common']"
-                }
-            ]
-        }
-    },
     "hooks": {
-        "after:bump": "npx nx run-many -t build --parallel=false --exclude demo && npx nx run-many -t publish --parallel=false --exclude demo",
+        "after:bump": "npx auto-changelog -p && npx ts-node scripts/postbump && npx nx run-many -t build --parallel=false --exclude demo && npx nx run-many -t publish --parallel=false --exclude demo",
         "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
 }
