@@ -14,19 +14,16 @@
         "allowSameVersion": true
     },
     "plugins": {
-        "@release-it-plugins/workspaces": {
-            "skipChecks": true,
-            "publish": false
-        },
-        "@release-it/conventional-changelog": {
-            "preset": "angular",
-            "infile": "CHANGELOG.md"
-        },
         "@release-it/bumper": {
             "out": [
                 {
                     "file": "libs/**/package.json",
-                    "prefix": ">="
+                    "path": "version"
+                },
+                {
+                    "file": "libs/**/package.json",
+                    "path": "peerDependencies.@ng-web-apis/common",
+                    "versionPrefix": ">="
                 }
             ]
         }
