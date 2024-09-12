@@ -40,7 +40,7 @@ High quality lightweight wrappers for native Web APIs for idiomatic use with Ang
             </div>
         </td>
         <td align="center">
-            <a href="http://marsibarsi.me"
+            <a href="https://github.com/marsibarsi"
                 ><img
                     src="https://github.com/marsibarsi.png?size=200"
                     width="100"

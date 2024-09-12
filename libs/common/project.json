@@ -6,21 +6,21 @@
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["{workspaceRoot}/coverage/common"],
+            "outputs": ["{workspaceRoot}/coverage/{projectName}"],
             "options": {
-                "main": "libs/common/test.ts",
+                "main": "libs/{projectName}/test.ts",
                 "tsConfig": "tsconfig.spec.json",
-                "karmaConfig": "libs/common/karma.conf.js",
+                "karmaConfig": "libs/{projectName}/karma.conf.js",
                 "codeCoverage": true,
                 "browsers": "ChromeHeadless"
             }
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["{workspaceRoot}/dist/common"],
+            "outputs": ["{workspaceRoot}/dist/{projectName}"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
-                "project": "libs/common/ng-package.json"
+                "project": "libs/{projectName}/ng-package.json"
             },
             "dependsOn": [
                 {
@@ -30,11 +30,24 @@
                 }
             ]
         },
+        "prepublish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "cp ./LICENSE ./dist/{projectName}"
+            }
+        },
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "npm publish ./dist/common --ignore-scripts || echo \"already published\""
-            }
+                "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+            },
+            "dependsOn": [
+                {
+                    "target": "prepublish",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
         }
     }
 }

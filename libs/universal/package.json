@@ -23,7 +23,7 @@
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
+        "Roman Sedov <79601794011@ya.ru>"
     ],
     "sideEffects": [
         "mocks.js"

@@ -6,21 +6,21 @@
     "targets": {
         "test": {
             "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["{workspaceRoot}/coverage/notification"],
+            "outputs": ["{workspaceRoot}/coverage/{projectName}"],
             "options": {
-                "main": "libs/notification/test.ts",
+                "main": "libs/{projectName}/test.ts",
                 "tsConfig": "tsconfig.spec.json",
-                "karmaConfig": "libs/notification/karma.conf.js",
+                "karmaConfig": "libs/{projectName}/karma.conf.js",
                 "codeCoverage": true,
                 "browsers": "ChromeHeadless"
             }
         },
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["{workspaceRoot}/dist/notification"],
+            "outputs": ["{workspaceRoot}/dist/{projectName}"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
-                "project": "libs/notification/ng-package.json"
+                "project": "libs/{projectName}/ng-package.json"
             },
             "dependsOn": [
                 {
@@ -30,11 +30,24 @@
                 }
             ]
         },
+        "prepublish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "command": "cp ./LICENSE ./dist/{projectName}"
+            }
+        },
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "npm publish ./dist/notification --ignore-scripts || echo \"already published\""
-            }
+                "command": "npm publish ./dist/{projectName} --ignore-scripts || echo \"already published\""
+            },
+            "dependsOn": [
+                {
+                    "target": "prepublish",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
         }
     }
 }
