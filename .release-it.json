@@ -5,8 +5,8 @@
         "tagName": "v${version}"
     },
     "github": {
-        "release": true,
-        "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main"
+        "release": false,
+        "releaseNotes": "npx auto-changelog --stdout"
     },
     "npm": {
         "publish": false,
@@ -24,10 +24,6 @@
         },
         "@release-it/bumper": {
             "out": [
-                {
-                    "file": "package.json",
-                    "path": "version"
-                },
                 {
                     "file": "libs/**/package.json",
                     "prefix": ">="
