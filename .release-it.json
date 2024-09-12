@@ -1,4 +1,5 @@
 {
+    "verbose": true,
     "git": {
         "requireBranch": "main",
         "commitMessage": "chore(release): v${version}",
@@ -14,7 +15,7 @@
         "allowSameVersion": true
     },
     "plugins": {
-        "@release-it/bumper": {
+        "@semabit/release-it-bumper": {
             "out": [
                 {
                     "file": "libs/**/package.json",
@@ -22,14 +23,13 @@
                 },
                 {
                     "file": "libs/**/package.json",
-                    "path": "peerDependencies.@ng-web-apis/common",
-                    "versionPrefix": ">="
+                    "path": "peerDependencies['@ng-web-apis/common']"
                 }
             ]
         }
     },
     "hooks": {
-        "after:bump": "npx auto-changelog -p && npx nx run-many -t build --parallel=false --exclude demo && npx nx run-many -t publish --parallel=false --exclude demo",
+        "after:bump": "npx nx run-many -t build --parallel=false --exclude demo && npx nx run-many -t publish --parallel=false --exclude demo",
         "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
 }

@@ -129,6 +129,7 @@
         "@release-it-plugins/workspaces": "4.2.0",
         "@release-it/bumper": "6.0.1",
         "@release-it/conventional-changelog": "8.0.2",
+        "@semabit/release-it-bumper": "2.1.0",
         "@taiga-ui/addon-doc": "4.6.0",
         "@taiga-ui/addon-mobile": "4.6.0",
         "@taiga-ui/browserslist-config": "0.174.0",
