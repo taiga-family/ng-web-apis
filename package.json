@@ -189,11 +189,10 @@
     },
     "auto-changelog": {
         "ignoreCommitPattern": "^(?!(feat|fix|perf|refactor|revert))(.*)$",
-        "commitLimit": true,
+        "commitLimit": false,
         "output": "CHANGELOG.md",
         "template": "compact",
-        "unreleasedOnly": true,
-        "unreleased": true
+        "unreleased": false
     },
     "release-it": {
         "verbose": true,
