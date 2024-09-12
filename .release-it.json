@@ -1,5 +1,6 @@
 {
     "git": {
+        "requireBranch": "main",
         "commitMessage": "chore(release): v${version}",
         "tagName": "v${version}"
     },
@@ -22,11 +23,20 @@
             "infile": "CHANGELOG.md"
         },
         "@release-it/bumper": {
-            "out": "libs/**/package.json"
+            "out": [
+                {
+                    "file": "package.json",
+                    "path": "version"
+                },
+                {
+                    "file": "libs/**/package.json",
+                    "prefix": ">="
+                }
+            ]
         }
     },
     "hooks": {
-        "after:bump": "npx nx build ng-event-plugins && npx nx publish ng-event-plugins",
+        "after:bump": "npx auto-changelog -p && npx nx run-many -t build --parallel=false --exclude demo && npx nx run-many -t publish --parallel=false --exclude demo",
         "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
     }
 }
