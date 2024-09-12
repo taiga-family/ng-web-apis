@@ -1,0 +1,32 @@
+{
+    "git": {
+        "commitMessage": "chore(release): v${version}",
+        "tagName": "v${version}"
+    },
+    "github": {
+        "release": true,
+        "releaseNotes": "git log --no-merges --pretty=format:\"* %s %h\" ${latestTag}...main"
+    },
+    "npm": {
+        "publish": false,
+        "skipChecks": true,
+        "allowSameVersion": true
+    },
+    "plugins": {
+        "@release-it-plugins/workspaces": {
+            "skipChecks": true,
+            "publish": false
+        },
+        "@release-it/conventional-changelog": {
+            "preset": "angular",
+            "infile": "CHANGELOG.md"
+        },
+        "@release-it/bumper": {
+            "out": "libs/**/package.json"
+        }
+    },
+    "hooks": {
+        "after:bump": "npx nx build ng-event-plugins && npx nx publish ng-event-plugins",
+        "after:release": "echo Successfully released ${name} v${version} to ${repo.repository}."
+    }
+}

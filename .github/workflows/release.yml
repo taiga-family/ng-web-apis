@@ -1,14 +1,14 @@
-name: ⚠️ Release @ng-web-apis
+name: ⚠️ Release
 on:
   workflow_dispatch:
     inputs:
       forcePush:
         type: boolean
         required: false
-        description: --force-publish all package
+        description: --force-publish package
       mode:
         type: choice
-        description: force all packages to be versioned (depend --force-publish)
+        description: force package to be versioned (depend --force-publish)
         required: false
         default: minor
         options:
@@ -17,41 +17,18 @@ on:
           - major
 
 jobs:
-  run-release:
-    name: Run release
+  release:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Fetch from origin repo
-        uses: taiga-family/ci/actions/setup/checkout@v1.72.0
+      - uses: taiga-family/ci/actions/setup/checkout@v1.72.0
+      - uses: taiga-family/ci/actions/run/release-it@v1.72.0
         with:
-          fetch-depth: 0
-          persist-credentials: false
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-
-      - uses: taiga-family/ci/actions/setup/node@v1.72.0
-      - uses: taiga-family/ci/actions/setup/config/git@v1.72.0
-        with:
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/config/npm@v1.72.0
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-
-      - name: Lerna update version of packages
-        if: always()
-        run: |
-          if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
-            npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
-          else
-              npx lerna version --no-private
-          fi
-
-      - run: npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo
-
-      - run: npx nx run-many --target=publish --parallel=1 --output-style=stream
-        if: always()
+          ref: ${{ github.ref }}
+          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          npmToken: ${{ secrets.TAIGA_UI_SCOPE_NPM_TOKEN }}
+          forcePush: ${{ github.event.inputs.forcePush }}
+          mode: ${{ github.event.inputs.mode }}
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}

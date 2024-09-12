@@ -1,5 +1,6 @@
 {
     "name": "ng-web-apis",
+    "version": "4.3.0",
     "private": true,
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": [
@@ -30,6 +31,9 @@
         "Andrew Grekov <hr@thekiba.io>",
         "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>",
         "Vsevolod Arutiunov <sevaru@inbox.ru>"
+    ],
+    "workspaces": [
+        "libs/*"
     ],
     "scripts": {
         "prepare": "husky",
@@ -122,6 +126,9 @@
         "@nx/devkit": "19.7.2",
         "@nx/node": "19.7.2",
         "@nx/workspace": "19.7.2",
+        "@release-it-plugins/workspaces": "4.2.0",
+        "@release-it/bumper": "6.0.1",
+        "@release-it/conventional-changelog": "8.0.2",
         "@taiga-ui/addon-doc": "4.6.0",
         "@taiga-ui/addon-mobile": "4.6.0",
         "@taiga-ui/browserslist-config": "0.174.0",
@@ -162,13 +169,13 @@
         "karma-coverage": "2.2.1",
         "karma-jasmine": "5.1.0",
         "karma-jasmine-html-reporter": "2.1.0",
-        "lerna": "8.1.8",
         "lint-staged": "15.2.10",
         "ng-packagr": "16.2.3",
         "ngx-highlightjs": "10.0.0",
         "ngx-markdown": "16.0.0",
         "nx": "19.7.2",
         "prettier": "3.3.3",
+        "release-it": "17.6.0",
         "rxjs": "7.8.1",
         "standard-version": "9.5.0",
         "ts-node": "10.9.2",
