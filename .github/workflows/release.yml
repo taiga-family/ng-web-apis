@@ -4,7 +4,7 @@ on:
     inputs:
       mode:
         type: choice
-        description: increment type of (patch|minor|major)
+        description: Bump version as requested
         required: true
         options:
           - patch
