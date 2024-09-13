@@ -2,15 +2,10 @@ name: ⚠️ Release
 on:
   workflow_dispatch:
     inputs:
-      forcePush:
-        type: boolean
-        required: false
-        description: --force-publish package
       mode:
         type: choice
-        description: force package to be versioned (depend --force-publish)
-        required: false
-        default: minor
+        description: increment type of (patch|minor|major)
+        required: true
         options:
           - patch
           - minor
@@ -26,9 +21,9 @@ jobs:
         with:
           ref: ${{ github.ref }}
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-          npmToken: ${{ secrets.TAIGA_UI_SCOPE_NPM_TOKEN }}
-          forcePush: ${{ github.event.inputs.forcePush }}
+          npmToken: ${{ secrets.NPM_TOKEN }}
           mode: ${{ github.event.inputs.mode }}
+          forcePush: true
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
