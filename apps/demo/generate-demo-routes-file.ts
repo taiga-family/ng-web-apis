@@ -1,7 +1,6 @@
+/// <reference lib="es2021" />
 import {readFileSync, writeFileSync} from 'node:fs';
 import {join} from 'node:path';
-
-import {infoLog, SMALL_TAB_SYMBOL, titleLog} from './helpers/colored-log';
 
 /**
  * This script is required for correct of `nx prerender demo` command.
@@ -20,8 +19,8 @@ import {infoLog, SMALL_TAB_SYMBOL, titleLog} from './helpers/colored-log';
             .match(/['"`](.*)['"`]/g)
             ?.map((route) => route.replaceAll(/['"`]/g, '')) || [];
 
-    titleLog('Generated routes:');
-    routes.forEach((route) => infoLog(`${SMALL_TAB_SYMBOL}* ${route}`));
+    console.info('Generated routes:');
+    routes.forEach((route) => console.info(`* ${route}`));
 
     writeFileSync(
         join(process.cwd(), 'apps', 'demo', 'routesFile.txt'),

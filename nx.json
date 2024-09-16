@@ -25,6 +25,5 @@
         ],
         "production": ["default"]
     },
-    "parallel": 1,
     "defaultBase": "origin/main"
 }

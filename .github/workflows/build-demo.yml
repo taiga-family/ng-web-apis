@@ -1,9 +1,7 @@
-name: ⚙️ Build
+name: ⚙️ Build demo
 
 on:
   pull_request:
-  push:
-    branches: [main]
 
 jobs:
   build:
@@ -12,7 +10,7 @@ jobs:
     steps:
       - uses: taiga-family/ci/actions/setup/checkout@v1.73.1
       - uses: taiga-family/ci/actions/setup/node@v1.73.1
-      - run: npx nx build demo
+      - run: npx nx build-gh-pages demo
 
 concurrency:
   group: build-demo-${{ github.workflow }}-${{ github.ref }}

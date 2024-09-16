@@ -38,23 +38,11 @@
     "scripts": {
         "prepare": "husky",
         "start": "nx serve demo --open",
-        "build": "nx run-many --target=build",
-        "release": "standard-version",
-        "release:patch": "npm run release -- --release-as patch",
-        "release:minor": "npm run release -- --release-as minor",
-        "release:major": "npm run release -- --release-as major",
-        "publish": "npm run build && npm publish ./dist/common",
-        "*** Workflow ***": "",
         "lint": "eslint .",
         "stylelint": "stylelint '**/*.{less,css}' --config package.json",
         "typecheck": "tsc --noEmit --skipLibCheck",
-        "test": "nx run-many --target test --all --output-style=stream --parallel=1 --nxBail",
+        "test": "nx run-many --target test --all --output-style=stream --nxBail",
         "prettier": "prettier !package-lock.json . --ignore-path .gitignore",
-        "*** CI ***": "",
-        "affected:test:libs": "nx affected --target test --exclude demo --output-style=stream --nxBail",
-        "affected:build:libs": "nx affected --target build --exclude demo --output-style=stream --nxBail",
-        "run-many:build:libs": "nx run-many --target build --exclude demo--output-style=stream --nxBail",
-        "run-many:publish:libs": "nx run-many --target publish --output-style=stream --nxBail",
         "prebump": "npx syncer && npx nx run-many -t build --exclude demo",
         "bump": "npx nx run-many -t publish --exclude demo"
     },
@@ -179,16 +167,10 @@
         "nx": "19.7.3",
         "prettier": "3.3.3",
         "rxjs": "7.8.1",
-        "standard-version": "9.5.0",
         "ts-node": "10.9.2",
         "tslib": "2.7.0",
         "typescript": "5.0.4",
         "webpack": "5.94.0"
-    },
-    "engines": {
-        "node": ">=20",
-        "npm": ">=10",
-        "yarn": "Please use npm instead of yarn to install dependencies"
     },
     "syncer": {
         "includePaths": [
