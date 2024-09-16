@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/audio",
-    "version": "4.5.0",
+    "version": "4.5.1",
     "description": "This is a library for declarative use of Web Audio API with Angular",
     "keywords": [
         "angular",
@@ -26,5 +26,8 @@
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
         "rxjs": ">=7.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

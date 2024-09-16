@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/view-transition",
-    "version": "4.5.0",
+    "version": "4.5.1",
     "description": "This is a library for declarative use of View Transition API with Angular",
     "keywords": [
         "angular",
@@ -27,5 +27,8 @@
         "@angular/common": ">=16.0.0",
         "@angular/core": ">=16.0.0",
         "@types/dom-view-transitions": ">=1.0.5"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

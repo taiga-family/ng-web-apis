@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "4.5.0",
+    "version": "4.5.1",
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": [
         "angular",
@@ -29,5 +29,8 @@
         "@angular/common": ">=16.0.0",
         "@angular/core": ">=16.0.0",
         "rxjs": ">=7.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }
