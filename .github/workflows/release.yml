@@ -7,8 +7,8 @@ on:
         description: Bump version as requested
         required: true
         options:
-          - patch
           - minor
+          - patch
           - major
 
 jobs:
@@ -20,10 +20,9 @@ jobs:
       - uses: taiga-family/ci/actions/run/release-it@v1.74.0
         with:
           ref: ${{ github.ref }}
-          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-          npmToken: ${{ secrets.NPM_TOKEN }}
           mode: ${{ github.event.inputs.mode }}
-          forcePush: true
+          npmToken: ${{ secrets.NPM_TOKEN }}
+          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
   group: release-${{ github.workflow }}-${{ github.ref }}
