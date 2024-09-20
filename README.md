@@ -1,7 +1,5 @@
 # ![ng-web-apis logo](apps/demo/src/assets/images/web-api.svg) Web APIs for Angular
 
-[![build.yml](https://github.com/taiga-family/ng-web-apis/actions/workflows/build.yml/badge.svg?branch=main)](https://github.com/taiga-family/ng-web-apis/actions/workflows/build.yml)
-
 High quality lightweight wrappers for native Web APIs for idiomatic use with Angular.
 
 ## Authors
