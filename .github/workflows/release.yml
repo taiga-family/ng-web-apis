@@ -1,5 +1,10 @@
 name: ⚠️ Release
 on:
+  push:
+    branches:
+      - main
+    paths:
+      - libs/**
   workflow_dispatch:
     inputs:
       mode:
