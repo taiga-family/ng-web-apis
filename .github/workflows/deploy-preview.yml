@@ -1,26 +1,18 @@
 name: 🚀 Deploy / preview
 
-on: pull_request
-
-env:
-  IS_FORK: ${{ github.event.pull_request.head.repo.full_name != github.repository }}
-  IS_DEPENDABOT: ${{ github.actor == 'dependabot[bot]' || github.actor == 'dependabot-preview[bot]' }}
-
 jobs:
   build_and_preview:
     name: Firebase
     runs-on: ubuntu-latest
     steps:
       - uses: taiga-family/ci/actions/setup/checkout@v1.80.0
+      - uses: taiga-family/ci/actions/setup/variables@v1.80.0
       - uses: taiga-family/ci/actions/setup/node@v1.80.0
       - run: npx nx build demo
 
-      - name: Debug output
-        run: tree dist/demo -P '*.html'
-
       - uses: FirebaseExtended/action-hosting-deploy@v0
         continue-on-error: true
-        if: ${{ env.IS_FORK == 'false' && env.IS_DEPENDABOT == 'false' }}
+        if: ${{ env.SUPPORT_AUTO_PUSH == 'true' }}
         with:
           repoToken: ${{ secrets.GITHUB_TOKEN }}
           firebaseServiceAccount: ${{ secrets.FIREBASE_SERVICE_ACCOUNT_NG_WEB_APIS_COMMON }}
@@ -28,5 +20,5 @@ jobs:
           expires: 1d
 
 concurrency:
-  group: firebase-${{ github.workflow }}-${{ github.ref }}
+  group: deploy-preview-${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

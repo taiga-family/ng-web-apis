@@ -1,4 +1,4 @@
-name: ⚙️ Lint
+name: ⚙️ CI
 
 on:
   pull_request:
@@ -6,14 +6,17 @@ on:
     branches: [main]
 
 jobs:
-  lint:
-    name: Lint
+  ci:
     runs-on: ubuntu-latest
     steps:
       - uses: taiga-family/ci/actions/setup/checkout@v1.80.0
       - uses: taiga-family/ci/actions/setup/variables@v1.80.0
       - uses: taiga-family/ci/actions/setup/node@v1.80.0
       - run: npm run typecheck
+      - run: npx nx run-many -t build --exclude demo
+      - run: npx nx run-many -t test
+      - run: npx nx build-gh-pages demo
+
       - run: |
           if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
               npm run stylelint -- --fix
