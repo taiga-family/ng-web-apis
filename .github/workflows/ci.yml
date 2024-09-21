@@ -9,9 +9,9 @@ jobs:
   ci:
     runs-on: ubuntu-latest
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.80.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.80.0
-      - uses: taiga-family/ci/actions/setup/node@v1.80.0
+      - uses: taiga-family/ci/actions/setup/checkout@v1.83.0
+      - uses: taiga-family/ci/actions/setup/variables@v1.83.0
+      - uses: taiga-family/ci/actions/setup/node@v1.83.0
       - run: npm run typecheck
       - run: npx nx run-many -t build --exclude demo
       - run: npx nx run-many -t test
@@ -27,7 +27,7 @@ jobs:
               npm run prettier -- --check
               npm run lint
           fi
-      - uses: taiga-family/ci/actions/auto/push@v1.80.0
+      - uses: taiga-family/ci/actions/auto/push@v1.83.0
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
