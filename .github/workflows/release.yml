@@ -29,10 +29,8 @@ jobs:
           npmToken: ${{ secrets.NPM_TOKEN }}
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - id: info
-        run: |
-          echo "version=v$(node -p "require('./package.json').version")" >> $GITHUB_OUTPUT
-          echo "name=$(node -p "require('./package.json').name")" >> $GITHUB_OUTPUT
+      - uses: taiga-family/ci/actions/run/read-package-json@v1.83.0
+        id: info
 
       - name: Announce to Telegram
         uses: taiga-family/ci/actions/messenger/telegram/announce@v1.83.0
@@ -42,3 +40,7 @@ jobs:
           token: ${{ secrets.TAIGA_TELEGRAM_BOT_TOKEN }}
           version: ${{ steps.info.outputs.version }}
           textLink: ${{ steps.info.outputs.name }}
+
+concurrency:
+  group: release-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
