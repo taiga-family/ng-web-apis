@@ -43,8 +43,7 @@
         "typecheck": "tsc --noEmit --skipLibCheck",
         "test": "nx run-many --target test --all --output-style=stream --nxBail",
         "prettier": "prettier !package-lock.json . --ignore-path .gitignore",
-        "prebump": "npx syncer && npx nx run-many -t build --exclude demo",
-        "bump": "npx nx run-many -t publish --exclude demo"
+        "release": "npx syncer && npx nx run-many -t publish"
     },
     "commitlint": {
         "extends": [
