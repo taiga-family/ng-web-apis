@@ -3,6 +3,8 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
+### [4.6.3](https://github.com/taiga-family/ng-web-apis/compare/v4.6.2...v4.6.3) (2024-09-24)
+
 ### [4.6.2](https://github.com/taiga-family/ng-web-apis/compare/v4.6.1...v4.6.2) (2024-09-23)
 
 ### [4.6.1](https://github.com/taiga-family/ng-web-apis/compare/v4.6.0...v4.6.1) (2024-09-23)
