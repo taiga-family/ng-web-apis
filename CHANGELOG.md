@@ -3,7 +3,14 @@
 All notable changes to this project will be documented in this file. See
 [`conventional commits`](https://www.conventionalcommits.org/) guidelines.
 
-### [4.6.3](https://github.com/taiga-family/ng-web-apis/compare/v4.6.2...v4.6.3) (2024-09-24)
+### [4.6.4](https://github.com/taiga-family/ng-web-apis/compare/v4.6.3...v4.6.4) (2024-09-25)
+
+### 🐞 Bug Fixes
+
+- **deps**: update dependency @types/node to &gt;=22.7.0 (#889)
+  [(afaa064)](https://github.com/taiga-family/ng-web-apis/commit/afaa064b0bcd1e1c73a446d28e27f7b6b63b7e05)
+
+### [4.6.3](https://github.com/taiga-family/ng-web-apis/compare/v4.6.2...v4.6.3) (2024-09-23)
 
 ### [4.6.2](https://github.com/taiga-family/ng-web-apis/compare/v4.6.1...v4.6.2) (2024-09-23)
 
