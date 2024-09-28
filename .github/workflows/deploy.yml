@@ -12,7 +12,7 @@ jobs:
       - uses: taiga-family/ci/actions/setup/node@v1.87.5
       - run: npx nx build-gh-pages demo
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.6.6
+        uses: JamesIves/github-pages-deploy-action@v4.6.7
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           branch: gh-pages
