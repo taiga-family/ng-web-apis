@@ -81,7 +81,9 @@
             "jest/prefer-importing-jest-globals": "off",
             "rxjs/no-ignored-observable": "off",
             "rxjs/no-implicit-any-catch": "off",
-            "rxjs/no-topromise": "off"
+            "rxjs/no-topromise": "off",
+            "sonarjs/no-async-constructor": "off",
+            "sonarjs/no-skipped-test": "off"
         },
         "root": true
     },
