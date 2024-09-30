@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1727721385348,
+  "timestamp": 1727722311625,
   "index": "/ng-web-apis/index.html",
   "assetGroups": [
     {
@@ -1315,6 +1315,8 @@
         "/ng-web-apis/assets/taiga-ui/icons/file-type.svg",
         "/ng-web-apis/assets/taiga-ui/icons/file-up-filled.svg",
         "/ng-web-apis/assets/taiga-ui/icons/file-up.svg",
+        "/ng-web-apis/assets/taiga-ui/icons/file-user-filled.svg",
+        "/ng-web-apis/assets/taiga-ui/icons/file-user.svg",
         "/ng-web-apis/assets/taiga-ui/icons/file-video-2-filled.svg",
         "/ng-web-apis/assets/taiga-ui/icons/file-video-2.svg",
         "/ng-web-apis/assets/taiga-ui/icons/file-video-filled.svg",
@@ -2217,6 +2219,8 @@
         "/ng-web-apis/assets/taiga-ui/icons/message-square-filled.svg",
         "/ng-web-apis/assets/taiga-ui/icons/message-square-heart-filled.svg",
         "/ng-web-apis/assets/taiga-ui/icons/message-square-heart.svg",
+        "/ng-web-apis/assets/taiga-ui/icons/message-square-lock-filled.svg",
+        "/ng-web-apis/assets/taiga-ui/icons/message-square-lock.svg",
         "/ng-web-apis/assets/taiga-ui/icons/message-square-more-filled.svg",
         "/ng-web-apis/assets/taiga-ui/icons/message-square-more.svg",
         "/ng-web-apis/assets/taiga-ui/icons/message-square-off-filled.svg",
@@ -4776,6 +4780,8 @@
     "/ng-web-apis/assets/taiga-ui/icons/file-type.svg": "8ef8e6e42a2c29cd4eb16abef2aa061eeb2442d4",
     "/ng-web-apis/assets/taiga-ui/icons/file-up-filled.svg": "38aa2820ce72a82ee7d6bf7f0c6ee2870d0b552f",
     "/ng-web-apis/assets/taiga-ui/icons/file-up.svg": "893a0db588cba1e2c503a0ca174d2d8656d47f2c",
+    "/ng-web-apis/assets/taiga-ui/icons/file-user-filled.svg": "88c07037d8fa6ac6d3ebe357cdaea9fee79c9eef",
+    "/ng-web-apis/assets/taiga-ui/icons/file-user.svg": "c38bb5230ca8df5df98cfd9ae166ecc9483fad15",
     "/ng-web-apis/assets/taiga-ui/icons/file-video-2-filled.svg": "c4ad8232b8ad722d4f969d1e4434ed29d20bea5d",
     "/ng-web-apis/assets/taiga-ui/icons/file-video-2.svg": "c1cddaee51eedd7a7abb2148be22cf98ea33af30",
     "/ng-web-apis/assets/taiga-ui/icons/file-video-filled.svg": "368f7f5cba4a1766a92874ed5d0bf99780252c7d",
@@ -5678,6 +5684,8 @@
     "/ng-web-apis/assets/taiga-ui/icons/message-square-filled.svg": "748a02c5d2bc6caa6f4b66b64996ce82eaa0edd5",
     "/ng-web-apis/assets/taiga-ui/icons/message-square-heart-filled.svg": "1b135dbfb5b19b62e848afd707d6bd662b4ab81b",
     "/ng-web-apis/assets/taiga-ui/icons/message-square-heart.svg": "200ca8fc6a7e1c79641ab8b6f3f99fe0ff2e3b57",
+    "/ng-web-apis/assets/taiga-ui/icons/message-square-lock-filled.svg": "1f4f17e09b130efba2d066f1be31c21e751118e0",
+    "/ng-web-apis/assets/taiga-ui/icons/message-square-lock.svg": "578be74303367e8a353da53ee1cd06799a91961c",
     "/ng-web-apis/assets/taiga-ui/icons/message-square-more-filled.svg": "12e1134ea2d84ee72e66219e8cc82976effff2bc",
     "/ng-web-apis/assets/taiga-ui/icons/message-square-more.svg": "836263e47b05d5358e4e87cf564736b79a54e456",
     "/ng-web-apis/assets/taiga-ui/icons/message-square-off-filled.svg": "68799a0fb47bf883ebb0e2c702530e9f46347865",
