@@ -37,7 +37,3 @@ jobs:
           token: ${{ secrets.TAIGA_TELEGRAM_BOT_TOKEN }}
           version: v${{ steps.info.outputs.version }}
           textLink: ${{ steps.info.outputs.name }}
-
-concurrency:
-  group: ${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
