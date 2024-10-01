@@ -10,8 +10,10 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.87.8
-      - uses: taiga-family/ci/actions/setup/node@v1.87.8
+        with:
+          persist-credentials: false
+      - uses: taiga-family/ci/actions/setup/variables@v1.89.0
+      - uses: taiga-family/ci/actions/setup/node@v1.89.0
       - run: npm run typecheck
       - run: npx nx run-many -t build --exclude demo
       - run: npx nx run-many -t test
@@ -27,10 +29,10 @@ jobs:
               npm run prettier -- --check
               npm run lint
           fi
-      - uses: taiga-family/ci/actions/auto/push@v1.87.8
+      - uses: taiga-family/ci/actions/auto/push@v1.89.0
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
 concurrency:
-  group: lint-${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

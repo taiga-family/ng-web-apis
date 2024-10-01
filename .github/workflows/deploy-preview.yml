@@ -6,8 +6,8 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4.2.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.87.8
-      - uses: taiga-family/ci/actions/setup/node@v1.87.8
+      - uses: taiga-family/ci/actions/setup/variables@v1.89.0
+      - uses: taiga-family/ci/actions/setup/node@v1.89.0
       - run: npx nx build demo
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
@@ -20,5 +20,5 @@ jobs:
           expires: 1d
 
 concurrency:
-  group: deploy-preview-${{ github.workflow }}-${{ github.ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true
