@@ -11,7 +11,7 @@
         "useDefineForClassFields": true,
         "lib": ["esnext", "dom"],
         "typeRoots": ["node_modules/@types"],
-        "types": ["node", "webmidi", "dom-view-transitions", "dom-speech-recognition"],
+        "types": ["node", "jasmine", "webmidi", "dom-view-transitions", "dom-speech-recognition"],
         "paths": {
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
             "@ng-web-apis/common": ["./libs/common/src/index.ts"],
@@ -34,6 +34,7 @@
             "@ng-web-apis/resize-observer": ["./libs/resize-observer/src/index.ts"],
             "@ng-web-apis/view-transition": ["./libs/view-transition/src/index.ts"],
             "@ng-web-apis/notification": ["./libs/notification/src/index.ts"],
+            "@ng-web-apis/platform": ["./libs/platform/src/index.ts"],
             "rxjs": ["node_modules/rxjs"],
             "rxjs/*": ["node_modules/rxjs/*"]
         }

@@ -23,6 +23,7 @@
             "@ng-web-apis/resize-observer": ["./dist/resize-observer"],
             "@ng-web-apis/view-transition": ["./dist/view-transition"],
             "@ng-web-apis/notification": ["./dist/notification"],
+            "@ng-web-apis/platform": ["./dist/platform"],
             "rxjs": ["node_modules/rxjs"],
             "rxjs/*": ["node_modules/rxjs/*"]
         }

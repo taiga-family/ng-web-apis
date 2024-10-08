@@ -116,6 +116,7 @@
         "@nguniversal/express-engine": "16.2.0",
         "@nx/devkit": "20.0.0",
         "@nx/node": "20.0.0",
+        "@nx/rollup": "20.0.0",
         "@nx/workspace": "20.0.0",
         "@taiga-ui/addon-doc": "4.9.0",
         "@taiga-ui/addon-mobile": "4.9.0",

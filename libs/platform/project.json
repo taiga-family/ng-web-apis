@@ -1,0 +1,42 @@
+{
+    "name": "platform",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/platform",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@nx/rollup:rollup",
+            "outputs": ["{workspaceRoot}/dist/{projectName}"],
+            "options": {
+                "project": "{projectRoot}/package.json",
+                "outputPath": "dist/{projectName}",
+                "entryFile": "{projectRoot}/src/index.ts",
+                "tsConfig": "{projectRoot}/tsconfig.lib.json",
+                "format": ["esm", "cjs"],
+                "compiler": "tsc",
+                "external": "all",
+                "assets": [
+                    {
+                        "glob": "{projectRoot}/README.md",
+                        "input": ".",
+                        "output": "."
+                    }
+                ]
+            }
+        },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "parallel": false,
+                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
+        }
+    }
+}
