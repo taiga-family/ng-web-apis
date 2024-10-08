@@ -1,3 +1,10 @@
+### [4.8.0](https://github.com/taiga-family/ng-web-apis/compare/v4.7.0...v4.8.0) (2024-10-08)
+
+### 🐞 Bug Fixes
+
+- typo platform package name (#943)
+  [(29b8dc7)](https://github.com/taiga-family/ng-web-apis/commit/29b8dc7a5b0a1c8ea89f1f6cfd3f075129c26429)
+
 ### [4.7.0](https://github.com/taiga-family/ng-web-apis/compare/v4.6.5...v4.7.0) (2024-10-08)
 
 ### 🚀 Features
