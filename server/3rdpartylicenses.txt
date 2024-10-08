@@ -300,6 +300,9 @@ Apache-2.0
 @ng-web-apis/permissions
 Apache-2.0
 
+@ng-web-apis/platfrorm
+Apache-2.0
+
 @ng-web-apis/resize-observer
 Apache-2.0
                                  Apache License
