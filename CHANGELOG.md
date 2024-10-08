@@ -1,3 +1,15 @@
+### [4.7.0](https://github.com/taiga-family/ng-web-apis/compare/v4.6.5...v4.7.0) (2024-10-08)
+
+### 🚀 Features
+
+- add `platform` package (#939)
+  [(64db626)](https://github.com/taiga-family/ng-web-apis/commit/64db62666d12e69a6b9ffc1ef04c7b1425af822f)
+
+### 🐞 Bug Fixes
+
+- **deps**: update dependency @types/node to &gt;=22.7.5 (#941)
+  [(35b605f)](https://github.com/taiga-family/ng-web-apis/commit/35b605fe21bcae72f87e9fe8a30765456530e813)
+
 # Changelog
 
 All notable changes to this project will be documented in this file. See
