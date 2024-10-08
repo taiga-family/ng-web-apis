@@ -297,7 +297,7 @@ Apache-2.0
 @ng-web-apis/permissions
 Apache-2.0
 
-@ng-web-apis/platfrorm
+@ng-web-apis/platform
 Apache-2.0
 
 @ng-web-apis/resize-observer
