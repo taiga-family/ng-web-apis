@@ -127,7 +127,7 @@
         "@taiga-ui/core": "4.9.0",
         "@taiga-ui/editor": "4.15.0",
         "@taiga-ui/eslint-plugin-experience": "0.222.5",
-        "@taiga-ui/event-plugins": "4.2.4",
+        "@taiga-ui/event-plugins": "4.3.0",
         "@taiga-ui/icons": "4.9.0",
         "@taiga-ui/kit": "4.9.0",
         "@taiga-ui/legacy": "4.9.0",
