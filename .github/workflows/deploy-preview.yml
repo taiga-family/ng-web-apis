@@ -1,4 +1,5 @@
 name: 🚀 Deploy / preview
+on: pull_request
 
 jobs:
   build_and_preview:
