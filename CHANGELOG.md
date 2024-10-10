@@ -1,3 +1,10 @@
+### [4.9.0](https://github.com/taiga-family/ng-web-apis/compare/v4.8.0...v4.9.0) (2024-10-10)
+
+### 🚀 Features
+
+- **platform**: add `WA_IS_TOUCH`, `WA_IS_WEBKIT`, `WA_IS_ANDROID`, `WA_IS_IOS`, `WA_IS_MOBILE` (#944)
+  [(70543f1)](https://github.com/taiga-family/ng-web-apis/commit/70543f1548e31c0478a093c92214b2e0e65c0b9d)
+
 ### [4.8.0](https://github.com/taiga-family/ng-web-apis/compare/v4.7.0...v4.8.0) (2024-10-08)
 
 ### 🐞 Bug Fixes
