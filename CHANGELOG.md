@@ -1,3 +1,10 @@
+### [4.10.1](https://github.com/taiga-family/ng-web-apis/compare/v4.10.0...v4.10.1) (2024-10-10)
+
+### 🐞 Bug Fixes
+
+- **intersection-observer**: fix wrong attributes aliasing (#948)
+  [(22a8cde)](https://github.com/taiga-family/ng-web-apis/commit/22a8cde3685086064aa7ad6bacfa84f88d25cef5)
+
 ### [4.10.0](https://github.com/taiga-family/ng-web-apis/compare/v4.9.0...v4.10.0) (2024-10-10)
 
 ### 🐞 Bug Fixes

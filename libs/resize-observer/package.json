@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/resize-observer",
-    "version": "4.10.0",
+    "version": "4.10.1",
     "description": "A library for declarative use of Resize Observer API with Angular",
     "keywords": [
         "angular",
@@ -22,7 +22,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.10.0"
+        "@ng-web-apis/common": ">=4.10.1"
     },
     "publishConfig": {
         "access": "public"
