@@ -38,7 +38,7 @@ const PHOTOS: readonly Photo[] = [
 ];
 
 const USAGE_SAMPLE = `
-    // 1) Import service throught DI
+    // 1) Import service through DI
     // In Constructor
     constructor(private viewTransitionService: ViewTransitionService) {}
     // or with inject (Angular 14+)

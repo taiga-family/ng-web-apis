@@ -102,7 +102,7 @@ describe('GeolocationService', () => {
     });
 
     describe('Geolocation Service if unsupported', () => {
-        it('cannot recieve and throws an error if Geolocation is not supported', (done) => {
+        it('cannot receive and throws an error if Geolocation is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
                     {provide: GEOLOCATION_SUPPORT, useValue: false},

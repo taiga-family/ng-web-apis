@@ -15,6 +15,7 @@ jobs:
       - uses: taiga-family/ci/actions/setup/variables@v1.93.2
       - uses: taiga-family/ci/actions/setup/node@v1.93.2
       - run: npm run typecheck
+      - run: npm run cspell
       - run: npx nx run-many -t build --exclude demo
       - run: npx nx run-many -t test
       - run: npx nx build-gh-pages demo
