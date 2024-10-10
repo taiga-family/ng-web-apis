@@ -10,7 +10,7 @@ import {thresholdFactory} from '../utils/threshold-factory';
 @Directive({
     standalone: true,
     selector: '[waIntersectionObserver]',
-    inputs: ['waIntersectionRootMargin: margin', 'waIntersectionThreshold: threshold'],
+    inputs: ['margin: waIntersectionRootMargin', 'threshold: waIntersectionThreshold'],
     exportAs: 'IntersectionObserver',
 })
 export class WaIntersectionObserverDirective extends SafeObserver implements OnDestroy {
