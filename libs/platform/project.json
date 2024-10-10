@@ -4,25 +4,31 @@
     "sourceRoot": "libs/platform",
     "projectType": "library",
     "targets": {
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "outputs": ["{workspaceRoot}/coverage/{projectName}"],
+            "options": {
+                "main": "libs/{projectName}/test.ts",
+                "tsConfig": "tsconfig.spec.json",
+                "karmaConfig": "libs/{projectName}/karma.conf.js",
+                "codeCoverage": true,
+                "browsers": "ChromeHeadless"
+            }
+        },
         "build": {
-            "executor": "@nx/rollup:rollup",
+            "executor": "@angular-devkit/build-angular:ng-packagr",
             "outputs": ["{workspaceRoot}/dist/{projectName}"],
             "options": {
-                "project": "{projectRoot}/package.json",
-                "outputPath": "dist/{projectName}",
-                "entryFile": "{projectRoot}/src/index.ts",
-                "tsConfig": "{projectRoot}/tsconfig.lib.json",
-                "format": ["esm", "cjs"],
-                "compiler": "tsc",
-                "external": "all",
-                "assets": [
-                    {
-                        "glob": "{projectRoot}/README.md",
-                        "input": ".",
-                        "output": "."
-                    }
-                ]
-            }
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/{projectName}/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "params": "forward",
+                    "dependencies": true
+                }
+            ]
         },
         "publish": {
             "executor": "nx:run-commands",
