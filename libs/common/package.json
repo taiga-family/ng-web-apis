@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "4.9.0",
+    "version": "4.10.0",
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": [
         "angular",

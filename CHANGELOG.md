@@ -1,3 +1,10 @@
+### [4.10.0](https://github.com/taiga-family/ng-web-apis/compare/v4.9.0...v4.10.0) (2024-10-10)
+
+### 🐞 Bug Fixes
+
+- **platform**: correct behavior for `isApple` util (#946)
+  [(9a36f07)](https://github.com/taiga-family/ng-web-apis/commit/9a36f07e3e16131f654b6d29a4cd37adf0862d87)
+
 ### [4.9.0](https://github.com/taiga-family/ng-web-apis/compare/v4.8.0...v4.9.0) (2024-10-10)
 
 ### 🚀 Features
