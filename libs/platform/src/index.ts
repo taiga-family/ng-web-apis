@@ -1,3 +1,4 @@
+export * from './constants';
 export * from './is-android';
 export * from './is-apple';
 export * from './is-edge';

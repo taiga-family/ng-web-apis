@@ -1,15 +1,10 @@
 import {inject, InjectionToken} from '@angular/core';
 import {WA_NAVIGATOR} from '@ng-web-apis/common';
 
-import {isApple} from './is-apple';
+import {WA_IOS_REG_EXP as ios, WA_SAFARI_REG_EXP as safari} from './constants';
 
-const IOS_REG_EXP = /ipad|iphone|ipod/;
-
-export function isIos(navigator: Navigator): boolean {
-    return (
-        IOS_REG_EXP.test(navigator.userAgent.toLowerCase()) ||
-        (isApple(navigator) && navigator.maxTouchPoints > 1)
-    );
+export function isIos({userAgent, maxTouchPoints}: Navigator): boolean {
+    return ios.test(userAgent) || (safari.test(userAgent) && maxTouchPoints > 1);
 }
 
 export const WA_IS_IOS = new InjectionToken<boolean>('', {
