@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/audio",
-    "version": "4.10.1",
+    "version": "4.10.2",
     "description": "This is a library for declarative use of Web Audio API with Angular",
     "keywords": [
         "angular",

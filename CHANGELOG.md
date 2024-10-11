@@ -1,3 +1,10 @@
+### [4.10.2](https://github.com/taiga-family/ng-web-apis/compare/v4.10.1...v4.10.2) (2024-10-11)
+
+### 🐞 Bug Fixes
+
+- **platform**: invalid regexp for ios (#950)
+  [(34f3458)](https://github.com/taiga-family/ng-web-apis/commit/34f3458dab6790a4f95f34ef94df99dad1c0e029)
+
 ### [4.10.1](https://github.com/taiga-family/ng-web-apis/compare/v4.10.0...v4.10.1) (2024-10-10)
 
 ### 🐞 Bug Fixes
