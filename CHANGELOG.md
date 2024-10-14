@@ -1,3 +1,10 @@
+### [4.11.1](https://github.com/taiga-family/ng-web-apis/compare/v4.11.0...v4.11.1) (2024-10-14)
+
+### 🐞 Bug Fixes
+
+- **screen-orientation**: `Viewport` fix initial value (#952)
+  [(ab6d632)](https://github.com/taiga-family/ng-web-apis/commit/ab6d63241cecea7471b2e34416037093419d834a)
+
 ### [4.11.0](https://github.com/taiga-family/ng-web-apis/compare/v4.10.2...v4.11.0) (2024-10-14)
 
 ### 🚀 Features

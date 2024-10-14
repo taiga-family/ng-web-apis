@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/platform",
-    "version": "4.11.0",
+    "version": "4.11.1",
     "description": "A basic library for web apis",
     "keywords": [
         "angular",
