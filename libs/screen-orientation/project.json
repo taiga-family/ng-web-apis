@@ -6,10 +6,10 @@
     "targets": {
         "build": {
             "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["{workspaceRoot}/dist/screen-orientation"],
+            "outputs": ["{workspaceRoot}/dist/{projectName}"],
             "options": {
                 "tsConfig": "tsconfig.build.json",
-                "project": "libs/screen-orientation/ng-package.json"
+                "project": "libs/{projectName}/ng-package.json"
             },
             "dependsOn": [
                 {
@@ -22,8 +22,16 @@
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "npm publish ./dist/screen-orientation --ignore-scripts --access=public || echo \"already published\""
-            }
+                "parallel": false,
+                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
         }
     }
 }

@@ -1,7 +1,8 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
+import {WINDOW} from '@ng-web-apis/common';
 
-import {WINDOW} from '../src/tokens/window';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WINDOW', () => {
     it('injects global object', () => {

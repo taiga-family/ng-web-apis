@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "4.1.2",
+    "version": "4.10.2",
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": [
         "angular",
@@ -20,7 +20,7 @@
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)",
+        "Roman Sedov <79601794011@ya.ru>",
         "Dmitryi Khirnyi",
         "Andrew Grekov <hr@thekiba.io>",
         "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>"
@@ -29,5 +29,8 @@
         "@angular/common": ">=16.0.0",
         "@angular/core": ">=16.0.0",
         "rxjs": ">=7.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

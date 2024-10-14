@@ -1,18 +1,21 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {WaWebAudio, WebAudioContext} from '@ng-web-apis/audio';
 
-import {WebAudioContext} from '../src/directives/audio-context';
-import {WaWebAudio} from '../src/module';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('AudioContext', () => {
     @Component({
+        standalone: true,
+        imports: [WaWebAudio],
         template: `
             <div
                 sampleRate="22050"
                 waAudioContext
             ></div>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         @ViewChild(WebAudioContext)
@@ -24,8 +27,7 @@ describe('AudioContext', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WaWebAudio],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

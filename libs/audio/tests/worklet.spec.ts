@@ -1,14 +1,20 @@
-import {Component, inject, ViewChild} from '@angular/core';
+import {AsyncPipe, NgIf} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {
+    AUDIO_WORKLET_PROCESSORS,
+    AUDIO_WORKLET_PROCESSORS_READY,
+    WaWebAudio,
+    WebAudioWorklet,
+} from '@ng-web-apis/audio';
 
-import {WaWebAudio} from '../src/module';
-import {WebAudioWorklet} from '../src/nodes/worklet';
-import {AUDIO_WORKLET_PROCESSORS} from '../src/tokens/audio-worklet-processors';
-import {AUDIO_WORKLET_PROCESSORS_READY} from '../src/tokens/audio-worklet-processors-ready';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('AudioWorkletNode', () => {
     @Component({
+        standalone: true,
+        imports: [AsyncPipe, NgIf, WaWebAudio],
         template: `
             <div
                 *ngIf="ready | async"
@@ -16,6 +22,7 @@ describe('AudioWorkletNode', () => {
                 waAudioWorkletNode
             ></div>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         protected readonly ready = inject(AUDIO_WORKLET_PROCESSORS_READY);
@@ -29,8 +36,7 @@ describe('AudioWorkletNode', () => {
 
     beforeEach((done) => {
         TestBed.configureTestingModule({
-            imports: [WaWebAudio],
-            declarations: [Test],
+            imports: [Test],
             providers: [
                 {
                     provide: AUDIO_WORKLET_PROCESSORS,

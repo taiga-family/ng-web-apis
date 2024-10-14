@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {USER_AGENT} from '@ng-web-apis/common';
 
-import {USER_AGENT} from '../src/tokens/user-agent';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('USER_AGENT', () => {
     it('injects window.navigator.userAgent string', () => {

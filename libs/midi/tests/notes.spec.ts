@@ -1,6 +1,7 @@
+import {notes} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {notes} from '../src/monotype-operators/notes';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('notes', () => {
     it('lets note played events through and converts noteOff to noteOn with 0 velocity', () => {

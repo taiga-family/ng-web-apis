@@ -3,6 +3,8 @@ import {TestBed} from '@angular/core/testing';
 import {ResizeObserverService} from '@ng-web-apis/resize-observer';
 import {catchError} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('ResizeObserver', () => {
     describe('Resize Observer token', () => {
         let service: ResizeObserverService;
@@ -31,6 +33,7 @@ describe('ResizeObserver', () => {
 
         it('disconnect', () => {
             service.subscribe().unsubscribe();
+
             expect(service).toBeDefined();
         });
     });

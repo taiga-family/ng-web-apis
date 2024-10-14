@@ -1,10 +1,15 @@
-import {Component} from '@angular/core';
+import {NgIf} from '@angular/common';
+import {ChangeDetectionStrategy, Component} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
-import {MutationObserverDirective} from '@ng-web-apis/mutation-observer';
+import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('MutationObserverDirective', () => {
     @Component({
+        standalone: true,
+        imports: [NgIf, WaMutationObserver],
         template: `
             <section
                 *ngIf="observe"
@@ -23,6 +28,7 @@ describe('MutationObserverDirective', () => {
                 </div>
             </section>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         // eslint-disable-next-line jest/no-jasmine-globals
@@ -40,8 +46,7 @@ describe('MutationObserverDirective', () => {
 
     beforeEach((done) => {
         TestBed.configureTestingModule({
-            imports: [MutationObserverDirective],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);
@@ -66,6 +71,7 @@ describe('MutationObserverDirective', () => {
 
         setTimeout(() => {
             expect(testComponent.onMutation).toHaveBeenCalled();
+
             done();
         }, 100);
     });
@@ -77,6 +83,7 @@ describe('MutationObserverDirective', () => {
 
         setTimeout(() => {
             expect(testComponent.onAttributes).toHaveBeenCalled();
+
             done();
         }, 100);
     });
@@ -87,6 +94,7 @@ describe('MutationObserverDirective', () => {
 
         setTimeout(() => {
             expect(testComponent.onAttributes).not.toHaveBeenCalled();
+
             done();
         }, 100);
     });

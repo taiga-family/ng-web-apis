@@ -1,17 +1,19 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioDynamicsCompressor} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WaWebAudio} from '../src/module';
-import {WebAudioDynamicsCompressor} from '../src/nodes/dynamics-compressor';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Dynamics compressor', () => {
     describe('DynamicsCompressorNode', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waDynamicsCompressorNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioDynamicsCompressor)
@@ -23,8 +25,7 @@ describe('Dynamics compressor', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -39,9 +40,12 @@ describe('Dynamics compressor', () => {
 
     describe('DynamicsCompressorNode factory fallback', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waDynamicsCompressorNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioDynamicsCompressor)
@@ -53,8 +57,7 @@ describe('Dynamics compressor', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

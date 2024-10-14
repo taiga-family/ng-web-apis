@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/permissions",
-    "version": "4.1.2",
+    "version": "4.10.2",
     "description": "A library for comfortable use of Permissions API in Angular applications",
     "keywords": [
         "angular",
@@ -27,7 +27,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.1.2"
+        "@ng-web-apis/common": ">=4.10.2"
     },
     "publishConfig": {
         "access": "public"

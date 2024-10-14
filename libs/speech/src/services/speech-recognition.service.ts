@@ -1,16 +1,16 @@
 import {inject, Injectable, LOCALE_ID, NgZone} from '@angular/core';
-import {SPEECH_RECOGNITION} from '@ng-web-apis/common';
+import {WA_SPEECH_RECOGNITION} from '@ng-web-apis/common';
 import {Observable} from 'rxjs';
 
-import {SPEECH_RECOGNITION_MAX_ALTERNATIVES} from '../tokens/speech-recognition-max-alternatives';
+import {WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES} from '../tokens/speech-recognition-max-alternatives';
 
 @Injectable({
     providedIn: 'root',
 })
 export class SpeechRecognitionService extends Observable<SpeechRecognitionResult[]> {
-    private readonly classRef = inject(SPEECH_RECOGNITION);
+    private readonly classRef = inject(WA_SPEECH_RECOGNITION);
     private readonly lang = inject(LOCALE_ID, {optional: true});
-    private readonly maxAlternatives = inject(SPEECH_RECOGNITION_MAX_ALTERNATIVES);
+    private readonly maxAlternatives = inject(WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES);
     private readonly ngZone = inject(NgZone);
 
     constructor() {
@@ -18,14 +18,14 @@ export class SpeechRecognitionService extends Observable<SpeechRecognitionResult
             if (!this.classRef) {
                 subscriber.error(new Error('SpeechRecognition is not supported'));
 
-                return;
+                return () => {};
             }
 
             // eslint-disable-next-line new-cap
             const speechRecognition = new this.classRef();
 
             speechRecognition.maxAlternatives = this.maxAlternatives;
-            speechRecognition.lang = this.lang || '';
+            speechRecognition.lang = this.lang ?? '';
             speechRecognition.interimResults = true;
             speechRecognition.onerror = (error: unknown) => subscriber.error(error);
             speechRecognition.onend = () => subscriber.complete();

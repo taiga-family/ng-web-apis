@@ -6,6 +6,8 @@ import {
 } from '@ng-web-apis/geolocation';
 import {catchError, EMPTY, interval, skip, take, timer} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('GeolocationService', () => {
     describe('Geolocation service', () => {
         let service: GeolocationService;
@@ -41,6 +43,7 @@ describe('GeolocationService', () => {
         it('gives a position', (done) => {
             service.pipe(take(1)).subscribe((position) => {
                 expect(position).toMatch('0');
+
                 done();
             });
         });
@@ -54,6 +57,7 @@ describe('GeolocationService', () => {
 
             service.pipe(skip(2), take(1)).subscribe((position) => {
                 expect(position).toEqual(firstPosition);
+
                 done();
             });
         });
@@ -67,6 +71,7 @@ describe('GeolocationService', () => {
             secondSubscription.unsubscribe();
 
             expect(clearWatchCount).toBe(1);
+
             done();
         });
 
@@ -75,6 +80,7 @@ describe('GeolocationService', () => {
             service.subscribe();
 
             expect(clearWatchCount).toBe(0);
+
             done();
         });
 
@@ -85,6 +91,7 @@ describe('GeolocationService', () => {
                 .pipe(
                     catchError((error) => {
                         expect(error).toBe('error');
+
                         done();
 
                         return EMPTY;
@@ -95,7 +102,7 @@ describe('GeolocationService', () => {
     });
 
     describe('Geolocation Service if unsupported', () => {
-        it('cannot recieve and throws an error if Geolocation is not supported', (done) => {
+        it('cannot receive and throws an error if Geolocation is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
                     {provide: GEOLOCATION_SUPPORT, useValue: false},
@@ -109,6 +116,7 @@ describe('GeolocationService', () => {
                 () => {},
                 (error) => {
                     expect(error).toBe('Geolocation is not supported in your browser');
+
                     done();
                 },
             );

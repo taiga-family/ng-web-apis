@@ -1,17 +1,19 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioChannelSplitter} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WaWebAudio} from '../src/module';
-import {WebAudioChannelSplitter} from '../src/nodes/channel-splitter';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('ChannelSplitter', () => {
     describe('ChannelSplitterNode', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waChannelSplitterNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioChannelSplitter)
@@ -23,8 +25,7 @@ describe('ChannelSplitter', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -39,9 +40,12 @@ describe('ChannelSplitter', () => {
 
     describe('ChannelSplitterNode with providers', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waChannelSplitterNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioChannelSplitter)
@@ -53,8 +57,7 @@ describe('ChannelSplitter', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

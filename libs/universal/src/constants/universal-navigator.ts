@@ -1,6 +1,6 @@
 import type {FactoryProvider} from '@angular/core';
 import {Optional} from '@angular/core';
-import {NAVIGATOR} from '@ng-web-apis/common';
+import {WA_NAVIGATOR} from '@ng-web-apis/common';
 
 import {SSR_USER_AGENT} from '../tokens/ssr-user-agent';
 import {EVENT_TARGET} from '../utils/event-target';
@@ -13,8 +13,7 @@ import {
     emptyObject,
 } from '../utils/functions';
 
-// eslint-disable-next-line @typescript-eslint/explicit-function-return-type
-function getArray<T>() {
+function getArray<T>(): T[] {
     return new (class extends Array<T> {
         public item = (): null => null;
         public namedItem = (): null => null;
@@ -118,10 +117,10 @@ export const NAVIGATOR_MOCK: Navigator = {
 } as unknown as Navigator;
 
 export const UNIVERSAL_NAVIGATOR: FactoryProvider = {
-    provide: NAVIGATOR,
+    provide: WA_NAVIGATOR,
     deps: [[new Optional(), SSR_USER_AGENT]],
     useFactory: (userAgent: string | null): Navigator => ({
         ...NAVIGATOR_MOCK,
-        userAgent: userAgent || '',
+        userAgent: userAgent ?? '',
     }),
 };

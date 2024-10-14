@@ -2,8 +2,10 @@ import {NgZone} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import type {CanvasMethod} from '@ng-web-apis/canvas';
 import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, WaDrawService} from '@ng-web-apis/canvas';
-import {ANIMATION_FRAME} from '@ng-web-apis/common';
+import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import {of} from 'rxjs';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WaDrawService', () => {
     const canvas = document.createElement('canvas');
@@ -20,7 +22,7 @@ describe('WaDrawService', () => {
         TestBed.overrideProvider(CANVAS_PROPERTIES, {useValue: []})
             .overrideProvider(CANVAS_PROPERTIES, {useValue: [prop]})
             .overrideProvider(CANVAS_2D_CONTEXT, {useValue: context})
-            .overrideProvider(ANIMATION_FRAME, {useValue: of(0)})
+            .overrideProvider(WA_ANIMATION_FRAME, {useValue: of(0)})
             .overrideProvider(NgZone, {useValue: zone})
             .runInInjectionContext(() => {
                 const service = new WaDrawService();

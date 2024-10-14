@@ -3,8 +3,8 @@ import {Observable, share} from 'rxjs';
 
 import {WINDOW} from './window';
 
-export const ANIMATION_FRAME = new InjectionToken<Observable<DOMHighResTimeStamp>>(
-    '[ANIMATION_FRAME]: Shared Observable based on `window.requestAnimationFrame`',
+export const WA_ANIMATION_FRAME = new InjectionToken<Observable<DOMHighResTimeStamp>>(
+    '[WA_ANIMATION_FRAME]',
     {
         factory: () => {
             const {requestAnimationFrame, cancelAnimationFrame} = inject(WINDOW);
@@ -26,3 +26,8 @@ export const ANIMATION_FRAME = new InjectionToken<Observable<DOMHighResTimeStamp
         },
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_ANIMATION_FRAME}
+ */
+export const ANIMATION_FRAME = WA_ANIMATION_FRAME;

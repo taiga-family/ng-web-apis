@@ -1,9 +1,14 @@
 import {InjectionToken} from '@angular/core';
 
-export const WEB_AUDIO_SUPPORT = new InjectionToken<boolean>(
-    '[WEB_AUDIO_SUPPORT]: Web Audio API support',
+export const WA_WEB_AUDIO_SUPPORT = new InjectionToken<boolean>(
+    '[WA_WEB_AUDIO_SUPPORT]',
     {
         providedIn: 'root',
         factory: () => !!AudioContext,
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_WEB_AUDIO_SUPPORT}
+ */
+export const WEB_AUDIO_SUPPORT = WA_WEB_AUDIO_SUPPORT;

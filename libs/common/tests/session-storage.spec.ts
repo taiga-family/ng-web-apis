@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {SESSION_STORAGE} from '@ng-web-apis/common';
 
-import {SESSION_STORAGE} from '../src/tokens/session-storage';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('SESSION_STORAGE', () => {
     it('injects window.sessionStorage object', () => {

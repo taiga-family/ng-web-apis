@@ -2,18 +2,17 @@ name: 🚀 Deploy
 
 on:
   push:
-    branches:
-      - main
+    branches: [main]
 
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: taiga-family/ci/actions/setup/checkout@v1.65.2
-      - uses: taiga-family/ci/actions/setup/node@v1.65.2
+      - uses: actions/checkout@v4.2.1
+      - uses: taiga-family/ci/actions/setup/node@v1.93.2
       - run: npx nx build-gh-pages demo
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@v4.6.3
+        uses: JamesIves/github-pages-deploy-action@v4.6.8
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           branch: gh-pages
@@ -22,5 +21,5 @@ jobs:
           clean: true
 
 concurrency:
-  group: deploy-${{ github.head_ref }}
+  group: ${{ github.workflow }}-${{ github.ref }}
   cancel-in-progress: true

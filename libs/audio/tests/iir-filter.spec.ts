@@ -1,19 +1,25 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {
+    FEEDBACK_COEFFICIENTS,
+    FEEDFORWARD_COEFFICIENTS,
+    WaWebAudio,
+    WebAudioIIRFilter,
+} from '@ng-web-apis/audio';
+import {CONSTRUCTOR_SUPPORT} from '@ng-web-apis/audio/tokens/constructor-support';
 
-import {WaWebAudio} from '../src/module';
-import {WebAudioIIRFilter} from '../src/nodes/iir-filter';
-import {CONSTRUCTOR_SUPPORT} from '../src/tokens/constructor-support';
-import {FEEDBACK_COEFFICIENTS} from '../src/tokens/feedback-coefficients';
-import {FEEDFORWARD_COEFFICIENTS} from '../src/tokens/feedforward-coefficients';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('IIR filter', () => {
     describe('IIRFilterNode', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waIIRFilterNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioIIRFilter)
@@ -25,8 +31,7 @@ describe('IIR filter', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers: [
                     {
                         provide: FEEDFORWARD_COEFFICIENTS,
@@ -51,9 +56,12 @@ describe('IIR filter', () => {
 
     describe('IIRFilterNode factory fallback', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waIIRFilterNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioIIRFilter)
@@ -65,8 +73,7 @@ describe('IIR filter', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers: [
                     {
                         provide: FEEDFORWARD_COEFFICIENTS,

@@ -1,6 +1,7 @@
+import {filterByChannel} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {filterByChannel} from '../src/monotype-operators/filter-by-channel';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('aftertouch', () => {
     it('filters events by channel', () => {

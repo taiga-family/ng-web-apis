@@ -1,58 +1,41 @@
-name: ⚠️ Release @ng-web-apis
+name: ⚠️ Release
 on:
   workflow_dispatch:
     inputs:
-      forcePush:
-        type: boolean
-        required: false
-        description: --force-publish all package
       mode:
         type: choice
-        description: force all packages to be versioned (depend --force-publish)
-        required: false
-        default: minor
+        description: Bump version as requested
+        required: true
         options:
-          - patch
           - minor
+          - patch
           - major
+  schedule:
+    - cron: '0 7 * * 1'
 
 jobs:
-  run-release:
-    name: Run release
+  release:
     runs-on: ubuntu-latest
-    env:
-      GH_TOKEN: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+    if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
-      - name: Fetch from origin repo
-        uses: taiga-family/ci/actions/setup/checkout@v1.65.2
+      - uses: actions/checkout@v4.2.1
+      - uses: taiga-family/ci/actions/run/release-it@v1.93.2
+        id: release-it
         with:
-          fetch-depth: 0
-          persist-credentials: false
-          ref: ${{ github.head_ref }}
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+          ref: ${{ github.ref }}
+          mode: ${{ github.event.inputs.mode }}
+          npmToken: ${{ secrets.NPM_TOKEN }}
+          githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - uses: taiga-family/ci/actions/setup/node@v1.65.2
-      - uses: taiga-family/ci/actions/setup/config/git@v1.65.2
+      - uses: taiga-family/ci/actions/run/read-package-json@v1.93.2
+        id: info
+
+      - name: Announce to Telegram
+        if: steps.release-it.outputs.released == 'true'
+        uses: taiga-family/ci/actions/messenger/telegram/announce@v1.93.2
         with:
-          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
-      - uses: taiga-family/ci/actions/setup/config/npm@v1.65.2
-        with:
-          token: ${{ secrets.NPM_TOKEN }}
-
-      - name: Lerna update version of packages
-        if: always()
-        run: |
-          if [[ ${{ github.event.inputs.forcePush }} == "true" ]]; then
-            npx lerna version ${{ github.event.inputs.mode }} --no-private --force-publish
-          else
-              npx lerna version --no-private
-          fi
-
-      - run: npx nx run-many --target=build --parallel=1 --output-style=stream --exclude=demo
-
-      - run: npx nx run-many --target=publish --parallel=1 --output-style=stream
-        if: always()
-
-concurrency:
-  group: release-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+          chatId: ${{ secrets.TAIGA_TELEGRAM_CHAT_ID }}
+          topicId: ${{ secrets.TAIGA_TELEGRAM_CHAT_THREAD_ID }}
+          token: ${{ secrets.TAIGA_TELEGRAM_BOT_TOKEN }}
+          version: v${{ steps.info.outputs.version }}
+          textLink: ${{ steps.info.outputs.name }}

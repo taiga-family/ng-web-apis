@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/view-transition",
-    "version": "4.1.2",
+    "version": "4.10.2",
     "description": "This is a library for declarative use of View Transition API with Angular",
     "keywords": [
         "angular",
@@ -21,11 +21,14 @@
         "Roman Sedov <79601794011@ya.ru>"
     ],
     "dependencies": {
-        "tslib": "2.6.3"
+        "tslib": "2.7.0"
     },
     "peerDependencies": {
         "@angular/common": ">=16.0.0",
         "@angular/core": ">=16.0.0",
-        "@types/dom-view-transitions": ">=1.0.4"
+        "@types/dom-view-transitions": ">=1.0.5"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

@@ -1,17 +1,19 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioBiquadFilter} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WaWebAudio} from '../src/module';
-import {WebAudioBiquadFilter} from '../src/nodes/biquad-filter';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('BiquadFilter', () => {
     describe('BiquadFilterNode', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waBiquadFilterNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioBiquadFilter)
@@ -23,8 +25,7 @@ describe('BiquadFilter', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -39,9 +40,12 @@ describe('BiquadFilter', () => {
 
     describe('BiquadFilterNode factory fallback', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waBiquadFilterNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioBiquadFilter)
@@ -53,8 +57,7 @@ describe('BiquadFilter', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

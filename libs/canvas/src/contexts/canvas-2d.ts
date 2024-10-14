@@ -1,4 +1,4 @@
-import {Attribute, Directive, ElementRef, inject} from '@angular/core';
+import {Directive, ElementRef, inject, Input} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
@@ -9,19 +9,10 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
     providers: [
         {
             provide: CANVAS_2D_CONTEXT,
-            deps: [
-                ElementRef,
-                // TODO: find any solution for that
-                // [new Attribute('waOpaque')],
-                // [new Attribute('waDesynchronized')],
-            ],
-            useFactory: (
-                {nativeElement}: ElementRef<HTMLCanvasElement>,
-                opaque: string | null = nativeElement.getAttribute('waOpaque'),
-                desynchronized: string | null = nativeElement.getAttribute(
-                    'waDesynchronized',
-                ),
-            ): CanvasRenderingContext2D => {
+            useFactory: (): CanvasRenderingContext2D => {
+                const {nativeElement} = inject(ElementRef);
+                const opaque = nativeElement.getAttribute('waOpaque');
+                const desynchronized = nativeElement.getAttribute('waDesynchronized');
                 const context = nativeElement.getContext('2d', {
                     alpha: opaque === null,
                     desynchronized: desynchronized !== null,
@@ -41,10 +32,13 @@ export class WaCanvas2d {
     private readonly context = inject(CANVAS_2D_CONTEXT);
     private readonly method = inject(WaDrawService);
 
-    constructor(
-        @Attribute('opaque') _opaque: string | null,
-        @Attribute('desynchronized') _desynchronized: string | null,
-    ) {
+    @Input()
+    public waOpaque = '' as const;
+
+    @Input()
+    public waDesynchronized = '' as const;
+
+    constructor() {
         this.context.strokeStyle = 'transparent';
 
         this.method.call = (context) => {

@@ -176,7 +176,7 @@
         "generate-routes-file": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "ts-node ./scripts/generate-demo-routes-file.ts"
+                "command": "ts-node ./apps/demo/generate-demo-routes-file.ts"
             },
             "configurations": {
                 "github": {}

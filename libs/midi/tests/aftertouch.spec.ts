@@ -1,6 +1,7 @@
+import {aftertouch} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {aftertouch} from '../src/monotype-operators/aftertouch';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('aftertouch', () => {
     it('lets aftertouch events through', () => {

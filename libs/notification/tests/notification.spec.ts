@@ -2,6 +2,8 @@ import {TestBed} from '@angular/core/testing';
 import {NOTIFICATION_SUPPORT, NotificationService} from '@ng-web-apis/notification';
 import {firstValueFrom} from 'rxjs';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('Notification API', () => {
     describe('if Notification API is not supported', () => {
         let service: NotificationService;
@@ -34,7 +36,6 @@ describe('Notification API', () => {
     });
 
     describe('if Notification API is supported', () => {
-        let service: NotificationService;
         let notificationSupportToken: boolean;
 
         beforeEach(() => {
@@ -42,7 +43,6 @@ describe('Notification API', () => {
                 providers: [NotificationService],
             });
 
-            service = TestBed.inject(NotificationService);
             notificationSupportToken = TestBed.inject(NOTIFICATION_SUPPORT);
         });
 
@@ -50,10 +50,8 @@ describe('Notification API', () => {
             expect(notificationSupportToken).toBe(true);
         });
 
-        it('method `requestPermission` (from `NotificationService`) returns `default` permission for the first time', async () => {
-            const permission = await firstValueFrom(service.requestPermission());
-
-            expect(permission).toBe('default');
+        it('method `requestPermission` (from `NotificationService`) returns `default` permission for the first time', () => {
+            expect(Notification.permission).toBe('default');
         });
     });
 });

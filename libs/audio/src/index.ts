@@ -1,3 +1,5 @@
+export * from './constants/fallback';
+export * from './constants/polling-time';
 export * from './decorators/audio-param';
 export * from './directives/audio-context';
 export * from './directives/channel';

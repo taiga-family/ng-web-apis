@@ -1,10 +1,15 @@
 import {inject, InjectionToken} from '@angular/core';
-import {WINDOW} from '@ng-web-apis/common';
+import {WA_WINDOW} from '@ng-web-apis/common';
 
-export const RESIZE_OBSERVER_SUPPORT = new InjectionToken<boolean>(
-    '[RESIZE_OBSERVER_SUPPORT]: Resize Observer API support',
+export const WA_RESIZE_OBSERVER_SUPPORT = new InjectionToken<boolean>(
+    '[WA_RESIZE_OBSERVER_SUPPORT]',
     {
         providedIn: 'root',
-        factory: () => !!(inject(WINDOW) as any).ResizeObserver,
+        factory: () => !!(inject(WA_WINDOW) as any).ResizeObserver,
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_RESIZE_OBSERVER_SUPPORT}
+ */
+export const RESIZE_OBSERVER_SUPPORT = WA_RESIZE_OBSERVER_SUPPORT;

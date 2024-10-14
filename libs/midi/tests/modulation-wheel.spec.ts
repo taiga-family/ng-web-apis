@@ -1,6 +1,7 @@
+import {modulationWheel} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {modulationWheel} from '../src/monotype-operators/modulation-wheel';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('modulationWheel', () => {
     it('lets main volume events through', () => {

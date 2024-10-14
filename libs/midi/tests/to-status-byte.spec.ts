@@ -1,6 +1,7 @@
+import {toStatusByte} from '@ng-web-apis/midi';
 import {of} from 'rxjs';
 
-import {toStatusByte} from '../src/operators/to-status-byte';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('toStatusByte', () => {
     it('extracts status byte', () => {

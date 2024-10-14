@@ -1,17 +1,19 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {
-    MUTATION_OBSERVER_INIT,
     MutationObserverService,
+    WA_MUTATION_OBSERVER_INIT,
 } from '@ng-web-apis/mutation-observer';
 import {first} from 'rxjs';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('MutationObserver service', () => {
     it('works', (done) => {
         const element = document.createElement('DIV');
         const elementRef = new ElementRef(element);
 
-        TestBed.overrideProvider(MUTATION_OBSERVER_INIT, {
+        TestBed.overrideProvider(WA_MUTATION_OBSERVER_INIT, {
             useValue: {
                 attributeFilter: ['title'],
             },
@@ -33,6 +35,7 @@ describe('MutationObserver service', () => {
 
                 setTimeout(() => {
                     expect(flag).toBe(true);
+
                     done();
                 }, 50);
             });
