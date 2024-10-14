@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/mutation-observer",
-    "version": "4.10.2",
+    "version": "4.11.0",
     "description": "A library for declarative use of Mutation Observer API with Angular",
     "keywords": [
         "angular",
@@ -21,7 +21,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.10.2"
+        "@ng-web-apis/common": ">=4.11.0"
     },
     "publishConfig": {
         "access": "public"
