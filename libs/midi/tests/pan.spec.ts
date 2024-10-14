@@ -1,6 +1,7 @@
+import {pan} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {pan} from '../src/monotype-operators/pan';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('pan', () => {
     it('lets main volume events through', () => {

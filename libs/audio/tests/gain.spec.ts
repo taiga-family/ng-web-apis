@@ -1,15 +1,16 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import type {AudioParamInput} from '@ng-web-apis/audio';
+import {providers, WaWebAudio, WebAudioGain} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WaWebAudio} from '../src/module';
-import {WebAudioGain} from '../src/nodes/gain';
-import type {AudioParamInput} from '../src/types/audio-param-input';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Audio gain', () => {
     describe('GainNode', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div
                     waGainNode
@@ -18,6 +19,7 @@ describe('Audio gain', () => {
                     <div waAudioDestinationNode></div>
                 </div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioGain)
@@ -31,8 +33,7 @@ describe('Audio gain', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -52,6 +53,7 @@ describe('Audio gain', () => {
 
                 setTimeout(() => {
                     expect(testComponent.node.gain.value).toBe(10);
+
                     done();
                 }, 100);
             });
@@ -69,8 +71,10 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 6 &&
                             testComponent.node.gain.value > 4,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                         done();
                     }, 1000);
                 }, 1000);
@@ -90,8 +94,10 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 4 &&
                             testComponent.node.gain.value > 2,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                         done();
                     }, 1000);
                 }, 1000);
@@ -110,8 +116,10 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 6 &&
                             testComponent.node.gain.value > 4,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                         done();
                     }, 1500);
                 }, 1000);
@@ -138,13 +146,16 @@ describe('Audio gain', () => {
                         testComponent.node.gain.value < 6 &&
                             testComponent.node.gain.value > 4,
                     ).toBe(true);
+
                     setTimeout(() => {
                         expect(
                             testComponent.node.gain.value < 9 &&
                                 testComponent.node.gain.value > 7,
                         ).toBe(true);
+
                         setTimeout(() => {
                             expect(Math.round(testComponent.node.gain.value)).toBe(10);
+
                             done();
                         }, 1500);
                     }, 2000);
@@ -155,9 +166,12 @@ describe('Audio gain', () => {
 
     describe('GainNode factory fallback', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waGainNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioGain)
@@ -169,8 +183,7 @@ describe('Audio gain', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

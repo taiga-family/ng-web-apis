@@ -1,7 +1,8 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
+import {ViewTransitionService} from '@ng-web-apis/view-transition';
 
-import {ViewTransitionService} from '../src/services/view-transition.service';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('ViewTransitionService', () => {
     describe('not supported provider', () => {
@@ -26,6 +27,7 @@ describe('ViewTransitionService', () => {
                     expect(error.message).toBe(
                         'startViewTransition is not supported in your browser',
                     );
+
                     done();
                 },
             });
@@ -38,7 +40,7 @@ describe('ViewTransitionService', () => {
         const mockDocument = {
             querySelectorAll: () => [],
             startViewTransition: (callback: () => Promise<void> | void) => {
-                void callback();
+                callback();
 
                 return {
                     updateCallbackDone: Promise.resolve(),
@@ -78,6 +80,7 @@ describe('ViewTransitionService', () => {
             observable.subscribe((viewTransition) => {
                 expect(viewTransition).toBeTruthy();
                 expect(callbackCalled).toBe(true);
+
                 done();
             });
         });
@@ -94,7 +97,7 @@ describe('ViewTransitionService', () => {
             const mockDocument = {
                 querySelectorAll: () => [],
                 startViewTransition: (callback: () => Promise<void> | void) => {
-                    void callback();
+                    callback();
 
                     return viewTransitionValue;
                 },

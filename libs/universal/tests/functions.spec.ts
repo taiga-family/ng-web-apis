@@ -7,7 +7,9 @@ import {
     emptyFunction,
     emptyObject,
     identity,
-} from '../src/utils/functions';
+} from '@ng-web-apis/universal';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Functions', () => {
     it('identity returns the same item', () => {

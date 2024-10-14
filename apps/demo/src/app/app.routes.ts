@@ -11,6 +11,10 @@ export const ROUTES: Routes = [
         loadComponent: async () => import('./pages/common/common-page.component'),
     },
     {
+        path: DemoPath.PlatformPage,
+        loadComponent: async () => import('./pages/platform'),
+    },
+    {
         path: DemoPath.UniversalPage,
         loadComponent: async () => import('./pages/universal/universal-page.component'),
     },

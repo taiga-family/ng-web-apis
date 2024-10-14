@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/universal",
-    "version": "4.1.2",
+    "version": "4.10.2",
     "description": "A set of fallback for @ng-web-apis/common for Angular Universal",
     "keywords": [
         "angular",
@@ -23,15 +23,18 @@
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
+        "Roman Sedov <79601794011@ya.ru>"
     ],
     "sideEffects": [
         "mocks.js"
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.1.2",
-        "@types/node": ">=20.14.10",
+        "@ng-web-apis/common": ">=4.10.2",
+        "@types/node": ">=22.7.5",
         "rxjs": ">=7.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

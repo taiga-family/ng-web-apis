@@ -1,12 +1,14 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
-import {CanvasModule} from '../src/module';
-import {CANVAS_2D_CONTEXT} from '../src/tokens/canvas-2d-context';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('Properties', () => {
     @Component({
+        standalone: true,
+        imports: [WaCanvas],
         template: `
             <canvas
                 #canvas
@@ -61,6 +63,7 @@ describe('Properties', () => {
                 </canvas-path>
             </canvas>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
@@ -72,8 +75,7 @@ describe('Properties', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [CanvasModule],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);
@@ -86,6 +88,7 @@ describe('Properties', () => {
             expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
                 0, 128, 0, 255,
             ]);
+
             done();
         }, 50);
     });
@@ -95,6 +98,7 @@ describe('Properties', () => {
             expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 128, 0, 255,
             ]);
+
             done();
         }, 50);
     });

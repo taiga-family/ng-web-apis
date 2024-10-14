@@ -1,5 +1,10 @@
 import {InjectionToken} from '@angular/core';
 
-export const FEEDFORWARD_COEFFICIENTS = new InjectionToken<number[]>(
-    '[FEEDFORWARD_COEFFICIENTS]: A sequence of feedforward coefficients for IIRFilterNode',
+export const WA_FEEDFORWARD_COEFFICIENTS = new InjectionToken<number[]>(
+    '[WA_FEEDFORWARD_COEFFICIENTS]',
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_FEEDFORWARD_COEFFICIENTS}
+ */
+export const FEEDFORWARD_COEFFICIENTS = WA_FEEDFORWARD_COEFFICIENTS;

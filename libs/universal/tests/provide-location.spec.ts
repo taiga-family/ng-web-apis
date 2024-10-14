@@ -1,9 +1,9 @@
 import type {IncomingMessage} from 'node:http';
 
 import {TestBed} from '@angular/core/testing';
+import {provideLocation, SSR_LOCATION} from '@ng-web-apis/universal';
 
-import {SSR_LOCATION} from '../src/tokens/ssr-location';
-import {provideLocation} from '../src/utils/provide-location';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('provideLocation', () => {
     it('parses request', () => {

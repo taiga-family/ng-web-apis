@@ -1,7 +1,7 @@
 import type {KeyValue} from '@angular/common';
 import {CommonModule} from '@angular/common';
 import type {TrackByFunction} from '@angular/core';
-import {ChangeDetectionStrategy, Component, HostListener, inject} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {WaWebAudio} from '@ng-web-apis/audio';
 import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
 import type {Observable} from 'rxjs';
@@ -23,10 +23,14 @@ import {RESPONSE_BUFFER} from './response';
 @Component({
     standalone: true,
     selector: 'demo',
-    imports: [WaWebAudio, CommonModule, FrequencyPipe, AdsrPipe],
+    imports: [AdsrPipe, CommonModule, FrequencyPipe, WaWebAudio],
     templateUrl: './demo.component.html',
     styleUrls: ['./demo.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,
+    host: {
+        '(document:mouseup)': 'onMouseUp()',
+        '(document:touchend)': 'onMouseUp()',
+    },
 })
 export class Demo {
     private readonly mousedown$ = new Subject<number>();
@@ -56,7 +60,10 @@ export class Demo {
             ),
             mouseInitiated$,
         ).pipe(
-            scan((map, [_, note, volume]) => map.set(note, volume / 512), new Map()),
+            scan(
+                (map, [_, note, volume]) => map.set(note, (volume ?? 0) / 512),
+                new Map(),
+            ),
             switchMap((notes) =>
                 this.silent$.pipe(
                     map((key) => notes.set(key, null)),
@@ -67,8 +74,6 @@ export class Demo {
         );
     }
 
-    @HostListener('document:mouseup')
-    @HostListener('document:touchend')
     protected onMouseUp(): void {
         this.mouseup$.next();
     }
@@ -86,7 +91,9 @@ export class Demo {
     }
 
     protected onQuiet(key?: number): void {
-        key && this.silent$.next(key);
+        if (key) {
+            this.silent$.next(key);
+        }
     }
 
     protected onMouseDown(note: number): void {

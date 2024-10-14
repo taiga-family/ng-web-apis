@@ -1,22 +1,22 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {LOCAL_STORAGE} from '@ng-web-apis/common';
+import {WA_LOCAL_STORAGE} from '@ng-web-apis/common';
 import {filterByKey, STORAGE_EVENT, StorageService, toValue} from '@ng-web-apis/storage';
-import {TuiNotificationModule} from '@taiga-ui/core';
-import {TuiInputModule} from '@taiga-ui/kit';
+import {TuiNotification} from '@taiga-ui/core';
+import {TuiInputModule} from '@taiga-ui/legacy';
 import type {Observable} from 'rxjs';
 
 @Component({
     standalone: true,
     selector: 'example',
-    imports: [CommonModule, TuiNotificationModule, TuiInputModule, FormsModule],
+    imports: [CommonModule, FormsModule, TuiInputModule, TuiNotification],
     templateUrl: './example.template.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class Example {
     private readonly storageService = inject(StorageService);
-    private readonly storage = inject(LOCAL_STORAGE);
+    private readonly storage = inject(WA_LOCAL_STORAGE);
 
     protected readonly value$: Observable<string | null> = inject(STORAGE_EVENT).pipe(
         filterByKey('value'),

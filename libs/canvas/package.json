@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/canvas",
-    "version": "4.1.2",
+    "version": "4.10.2",
     "description": "A library for declarative use of Canvas API with Angular",
     "keywords": [
         "angular",
@@ -25,6 +25,9 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.1.2"
+        "@ng-web-apis/common": ">=4.10.2"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

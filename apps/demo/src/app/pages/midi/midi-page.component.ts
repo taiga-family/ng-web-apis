@@ -3,14 +3,14 @@ import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {WaWebAudio} from '@ng-web-apis/audio';
 import {MIDI_SUPPORT} from '@ng-web-apis/midi';
-import {TuiButtonModule} from '@taiga-ui/core';
+import {TuiButton} from '@taiga-ui/core';
 
 import {Demo} from './demo/demo.component';
 
 @Component({
     standalone: true,
     selector: 'midi-page',
-    imports: [CommonModule, TuiButtonModule, FormsModule, WaWebAudio, Demo],
+    imports: [CommonModule, Demo, FormsModule, TuiButton, WaWebAudio],
     templateUrl: './midi-page.component.html',
     styleUrls: ['./midi-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

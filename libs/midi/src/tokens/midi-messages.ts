@@ -4,13 +4,13 @@ import {from, fromEvent, merge, share, startWith, switchMap, throwError} from 'r
 
 import {MIDI_ACCESS} from './midi-access';
 
-export const MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
-    '[MIDI_MESSAGES]: All incoming MIDI messages stream',
+export const WA_MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
+    '[WA_MIDI_MESSAGES]',
     {
         providedIn: 'root',
         factory: () =>
-            from(inject(MIDI_ACCESS).catch((e: Error) => e)).pipe(
-                switchMap((access) =>
+            from(inject(MIDI_ACCESS).catch((e: unknown) => e as Error)).pipe(
+                switchMap((access: Error | MIDIAccess) =>
                     access instanceof Error
                         ? throwError(access)
                         : fromEvent(access as any, 'statechange').pipe(
@@ -32,3 +32,8 @@ export const MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
             ) as unknown as Observable<MIDIMessageEvent>,
     },
 );
+
+/**
+ * @deprecated: drop in v5.0, use {@link WA_MIDI_MESSAGES}
+ */
+export const MIDI_MESSAGES = WA_MIDI_MESSAGES;

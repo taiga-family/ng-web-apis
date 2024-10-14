@@ -1,13 +1,9 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {MutationObserverDirective} from '@ng-web-apis/mutation-observer';
-import {
-    TuiButtonModule,
-    TuiGroupModule,
-    TuiTextfieldControllerModule,
-} from '@taiga-ui/core';
-import {TuiInputModule} from '@taiga-ui/kit';
+import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
+import {TuiButton, TuiGroup} from '@taiga-ui/core';
+import {TuiInputModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
 
 @Component({
     standalone: true,
@@ -15,11 +11,11 @@ import {TuiInputModule} from '@taiga-ui/kit';
     imports: [
         CommonModule,
         FormsModule,
-        TuiButtonModule,
-        TuiGroupModule,
+        TuiButton,
+        TuiGroup,
         TuiInputModule,
-        MutationObserverDirective,
         TuiTextfieldControllerModule,
+        WaMutationObserver,
     ],
     templateUrl: './mutation-observer-page.component.html',
     styleUrls: ['./mutation-observer-page.component.less'],

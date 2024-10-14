@@ -1,4 +1,4 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
 import {
@@ -8,11 +8,16 @@ import {
     WebAudioScriptProcessor,
 } from '@ng-web-apis/audio';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('ScriptProcessorNode', () => {
     @Component({
+        standalone: true,
+        imports: [WaWebAudio],
         template: `
             <div waScriptProcessorNode></div>
         `,
+        changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
         @ViewChild(WebAudioScriptProcessor)
@@ -24,8 +29,7 @@ describe('ScriptProcessorNode', () => {
 
     beforeEach(() => {
         TestBed.configureTestingModule({
-            imports: [WaWebAudio],
-            declarations: [Test],
+            imports: [Test],
         });
 
         fixture = TestBed.createComponent(Test);

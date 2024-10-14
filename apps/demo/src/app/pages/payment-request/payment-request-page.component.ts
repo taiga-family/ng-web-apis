@@ -10,7 +10,7 @@ import {Shop} from './shop/shop.component';
 @Component({
     standalone: true,
     selector: 'payment-request-page',
-    imports: [CommonModule, HighlightModule, WaPaymentRequest, Shop],
+    imports: [CommonModule, HighlightModule, Shop, WaPaymentRequest],
     templateUrl: './payment-request-page.component.html',
     styleUrls: ['./payment-request-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

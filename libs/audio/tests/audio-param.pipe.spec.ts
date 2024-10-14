@@ -1,4 +1,6 @@
-import {WebAudioParamPipe} from '../src/pipes/audio-param.pipe';
+import {WebAudioParamPipe} from '@ng-web-apis/audio';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WebAudioParamPipe', () => {
     const pipe = new WebAudioParamPipe();

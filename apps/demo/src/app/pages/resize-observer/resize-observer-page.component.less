@@ -12,15 +12,15 @@
 }
 
 .slider {
-    margin: 10px;
+    margin: 0.625rem;
 }
 
 .wrapper {
+    position: relative;
     display: flex;
     flex-direction: column;
     align-items: center;
-    position: relative;
-    width: 100%;
+    inline-size: 100%;
     overflow: hidden;
 }
 
@@ -29,10 +29,10 @@
     align-items: center;
     justify-content: center;
     text-align: center;
-    padding: 10px;
-    width: 80%;
-    min-width: 124px;
-    height: 200px;
+    padding: 0.625rem;
+    inline-size: 80%;
+    min-inline-size: 7.75rem;
+    block-size: 12.5rem;
     transition: background 0.1s;
 
     &[data-ratio='1'] {

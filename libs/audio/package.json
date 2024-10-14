@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/audio",
-    "version": "4.1.2",
+    "version": "4.10.2",
     "description": "This is a library for declarative use of Web Audio API with Angular",
     "keywords": [
         "angular",
@@ -18,7 +18,7 @@
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru> (http://marsibarsi.me/)"
+        "Roman Sedov <79601794011@ya.ru>"
     ],
     "sideEffects": [
         "polyfill.js"
@@ -26,5 +26,8 @@
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
         "rxjs": ">=7.0.0"
+    },
+    "publishConfig": {
+        "access": "public"
     }
 }

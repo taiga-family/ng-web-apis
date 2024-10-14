@@ -33,8 +33,16 @@
         "publish": {
             "executor": "nx:run-commands",
             "options": {
-                "command": "npm publish ./dist/workers --ignore-scripts || echo \"already published\""
-            }
+                "parallel": false,
+                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
         }
     }
 }

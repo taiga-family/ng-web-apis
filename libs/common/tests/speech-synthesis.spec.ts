@@ -1,6 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
-import {SPEECH_SYNTHESIS} from '../src/tokens/speech-synthesis';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('SPEECH_SYNTHESIS', () => {
     it('injects window.speechSynthesis object', () => {

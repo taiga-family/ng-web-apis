@@ -1,24 +1,24 @@
 :host {
     display: block;
-    max-width: 800px;
+    max-inline-size: 50rem;
     margin: 0 auto;
 }
 
 .row {
     display: flex;
-    min-width: 100%;
-    gap: 12px;
+    min-inline-size: 100%;
+    gap: 0.75rem;
 }
 
 .child {
     flex: 1;
-    min-width: 100px;
+    min-inline-size: 6.25rem;
 }
 
 .controls {
     display: flex;
     flex-direction: column;
-    gap: 12px;
+    gap: 0.75rem;
 }
 
 input {
@@ -29,18 +29,18 @@ fieldset {
     display: flex;
     flex-wrap: wrap;
     border: none;
-    background: whitesmoke;
-    padding: 12px;
-    margin: 12px 0;
-    gap: 12px;
+    background: #f5f5f5;
+    padding: 0.75rem;
+    margin: 0.75rem 0;
+    gap: 0.75rem;
     border-radius: 1.25rem;
 }
 
 canvas {
     display: block;
-    width: 300px;
-    height: 150px;
-    margin: 0 auto 40px;
-    border-radius: 6px;
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    inline-size: 18.75rem;
+    block-size: 9.375rem;
+    margin: 0 auto 2.5rem;
+    border-radius: 0.375rem;
+    box-shadow: 0 0.75rem 2.25rem rgba(0, 0, 0, 0.2);
 }

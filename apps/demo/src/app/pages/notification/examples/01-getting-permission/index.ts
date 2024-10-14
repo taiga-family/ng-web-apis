@@ -2,12 +2,12 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {NotificationService} from '@ng-web-apis/notification';
 import {PermissionsService} from '@ng-web-apis/permissions';
-import {TuiBadgeModule} from '@taiga-ui/kit';
+import {TuiBadge} from '@taiga-ui/kit';
 
 @Component({
     standalone: true,
     selector: 'notification-page-example-1',
-    imports: [CommonModule, TuiBadgeModule],
+    imports: [CommonModule, TuiBadge],
     templateUrl: './index.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
@@ -24,7 +24,7 @@ export class NotificationPageExample1 {
                     'Permission status:',
                     permission, // 'denied' | 'granted'
                 ),
-            error: (err) =>
+            error: (err: unknown) =>
                 // e.g. 'Notification API is not supported in your browser'
                 console.error(err),
         });

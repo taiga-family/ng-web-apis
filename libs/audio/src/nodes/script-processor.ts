@@ -26,9 +26,9 @@ export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDe
 
         try {
             const result = context.createScriptProcessor(
-                parseInt(bufferSize || '', 10) || 0,
-                parseInt(numberOfInputChannels || '', 10) || 2,
-                parseInt(numberOfOutputChannels || '', 10) || 2,
+                parseInt(bufferSize ?? '', 10) || 0,
+                parseInt(numberOfInputChannels ?? '', 10) || 2,
+                parseInt(numberOfOutputChannels ?? '', 10) || 2,
             ) as WebAudioScriptProcessor;
 
             Object.setPrototypeOf(result, WebAudioScriptProcessor.prototype);
@@ -40,9 +40,7 @@ export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDe
             result.onaudioprocess = (e) => audioprocess.emit(e);
 
             return result;
-        } catch (_) {
-            // noop
-        }
+        } catch {}
 
         super();
     }

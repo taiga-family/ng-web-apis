@@ -1,17 +1,19 @@
-import {Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import type {ComponentFixture} from '@angular/core/testing';
 import {TestBed} from '@angular/core/testing';
+import {providers, WaWebAudio, WebAudioMediaStreamDestination} from '@ng-web-apis/audio';
 
-import {providers} from '../src/constants/fallback';
-import {WebAudioMediaStreamDestination} from '../src/directives/stream-destination';
-import {WaWebAudio} from '../src/module';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('StreamDestination', () => {
     describe('MediaStreamAudioDestinationNode', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waMediaStreamAudioDestinationNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioMediaStreamDestination)
@@ -23,8 +25,7 @@ describe('StreamDestination', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
             });
 
             fixture = TestBed.createComponent(Test);
@@ -41,9 +42,12 @@ describe('StreamDestination', () => {
 
     describe('MediaStreamAudioDestinationNode factory fallback', () => {
         @Component({
+            standalone: true,
+            imports: [WaWebAudio],
             template: `
                 <div waMediaStreamAudioDestinationNode></div>
             `,
+            changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
             @ViewChild(WebAudioMediaStreamDestination)
@@ -55,8 +59,7 @@ describe('StreamDestination', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                imports: [WaWebAudio],
-                declarations: [Test],
+                imports: [Test],
                 providers,
             });
 

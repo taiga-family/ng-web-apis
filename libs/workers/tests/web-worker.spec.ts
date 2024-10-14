@@ -1,8 +1,8 @@
-/* eslint-disable @typescript-eslint/promise-function-async */
-
 import type {TypedMessageEvent} from '@ng-web-apis/workers';
 import {WebWorker} from '@ng-web-apis/workers';
 import {Observable, take} from 'rxjs';
+
+window.onbeforeunload = jasmine.createSpy();
 
 describe('WebWorker', () => {
     // it is needed to ignore web worker errors
@@ -56,6 +56,7 @@ describe('WebWorker', () => {
 
         worker.postMessage('a');
         worker.postMessage('b');
+
         expect(await promise).toBe('a');
     });
 
@@ -82,15 +83,14 @@ describe('WebWorker', () => {
 
     it('should fail if an inner promise is rejected', async () => {
         const worker = WebWorker.fromFunction<void, string>(() =>
-            // eslint-disable-next-line prefer-promise-reject-errors
             Promise.reject('reason'),
         );
 
         worker.postMessage();
 
-        expect(await worker.toPromise().catch((err: Error) => err.message)).toBe(
-            'Uncaught reason',
-        );
+        expect(
+            await worker.toPromise().catch((err: unknown) => (err as Error).message),
+        ).toBe('Uncaught reason');
     });
 
     it('should close all subscriptions, if the worker was terminated', () => {
@@ -103,6 +103,7 @@ describe('WebWorker', () => {
         ];
 
         worker.terminate();
+
         expect(subscriptions.map((s) => s.closed)).toEqual([true, true, true]);
     });
 
@@ -111,6 +112,7 @@ describe('WebWorker', () => {
 
         worker.terminate();
         worker.terminate();
+
         expect(await worker.toPromise()).toBeUndefined();
     });
 });

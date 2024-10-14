@@ -1,6 +1,7 @@
+import {toData} from '@ng-web-apis/midi';
 import {of} from 'rxjs';
 
-import {toData} from '../src/operators/to-data';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('toData', () => {
     it('extracts data array', () => {

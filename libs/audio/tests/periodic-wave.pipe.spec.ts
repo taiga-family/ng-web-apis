@@ -1,6 +1,8 @@
 import {TestBed} from '@angular/core/testing';
 import {AUDIO_CONTEXT, WebAudioPeriodicWavePipe} from '@ng-web-apis/audio';
 
+window.onbeforeunload = jasmine.createSpy();
+
 describe('waPeriodicWave', () => {
     // TODO: need investigate why
     // Error: Failed to execute 'createPeriodicWave' on 'BaseAudioContext':

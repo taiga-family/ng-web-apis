@@ -8,8 +8,8 @@ import {
 } from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
-import {TuiLetModule} from '@taiga-ui/cdk';
-import {TuiLinkModule} from '@taiga-ui/core';
+import {TuiLet} from '@taiga-ui/cdk';
+import {TuiLink} from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';
 import {BehaviorSubject} from 'rxjs';
 
@@ -38,7 +38,7 @@ const PHOTOS: readonly Photo[] = [
 ];
 
 const USAGE_SAMPLE = `
-    // 1) Import service throught DI
+    // 1) Import service through DI
     // In Constructor
     constructor(private viewTransitionService: ViewTransitionService) {}
     // or with inject (Angular 14+)
@@ -57,7 +57,7 @@ const USAGE_SAMPLE = `
 @Component({
     standalone: true,
     selector: 'view-transition-page',
-    imports: [CommonModule, HighlightModule, TuiLinkModule, TuiLetModule],
+    imports: [CommonModule, HighlightModule, TuiLet, TuiLink],
     templateUrl: './view-transition-page.component.html',
     styleUrls: ['./view-transition-page.component.less'],
     changeDetection: ChangeDetectionStrategy.OnPush,

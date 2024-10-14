@@ -1,6 +1,7 @@
+import {mainVolume} from '@ng-web-apis/midi';
 import {from} from 'rxjs';
 
-import {mainVolume} from '../src/monotype-operators/main-volume';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('mainVolume', () => {
     it('lets main volume events through', () => {

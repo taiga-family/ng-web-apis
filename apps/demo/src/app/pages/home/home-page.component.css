@@ -1,39 +1,38 @@
 :host {
     display: flex;
     flex-wrap: wrap;
-    align-content: flex-start;
-    justify-content: center;
+    place-content: flex-start center;
 }
 
 .link {
     display: flex;
-    max-width: 380px;
+    max-inline-size: 23.75rem;
     color: #444;
     border-radius: 4px;
-    border: 1px solid gainsboro;
-    font-size: 14px;
+    border: 1px solid #dcdcdc;
+    font-size: 0.875rem;
     padding: 0 16px 16px;
-    margin: 10px;
+    margin: 0.625rem;
     box-sizing: border-box;
     transition: box-shadow 0.3s;
 }
 
 .link:hover {
-    box-shadow: 0 12px 36px rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0.75rem 2.25rem rgba(0, 0, 0, 0.2);
 }
 
 .not-supported {
     opacity: 0.5;
 }
 
-.not-supported h2:after {
+.not-supported h2::after {
     content: 'Not supported by your browser';
     display: block;
     font-size: 0.6em;
-    color: var(--tui-error-fill);
+    color: var(--tui-status-negative);
 }
 
 .icon {
     flex-shrink: 0;
-    margin: 24px 6px 0 20px;
+    margin: 1.5rem 0.375rem 0 1.25rem;
 }

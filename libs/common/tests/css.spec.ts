@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
+import {CSS, WINDOW} from '@ng-web-apis/common';
 
-import {CSS} from '../src/tokens/css';
-import {WINDOW} from '../src/tokens/window';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('CSS', () => {
     it('injects window.CSS object', () => {

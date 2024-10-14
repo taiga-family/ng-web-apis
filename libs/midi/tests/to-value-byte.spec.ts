@@ -1,6 +1,7 @@
+import {toValueByte} from '@ng-web-apis/midi';
 import {of} from 'rxjs';
 
-import {toValueByte} from '../src/operators/to-value-byte';
+window.onbeforeunload = jasmine.createSpy();
 
 describe('toValueByte', () => {
     it('extracts value byte', () => {

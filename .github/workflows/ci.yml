@@ -1,0 +1,39 @@
+name: ⚙️ CI
+
+on:
+  pull_request:
+  push:
+    branches: [main]
+
+jobs:
+  ci:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4.2.1
+        with:
+          persist-credentials: false
+      - uses: taiga-family/ci/actions/setup/variables@v1.93.2
+      - uses: taiga-family/ci/actions/setup/node@v1.93.2
+      - run: npm run typecheck
+      - run: npm run cspell
+      - run: npx nx run-many -t build --exclude demo
+      - run: npx nx run-many -t test
+      - run: npx nx build-gh-pages demo
+
+      - run: |
+          if [[ "${{ env.SUPPORT_AUTO_PUSH }}" == "true" ]]; then
+              npm run stylelint -- --fix
+              npm run prettier -- --write
+              npm run lint -- --fix
+          else
+              npm run stylelint
+              npm run prettier -- --check
+              npm run lint
+          fi
+      - uses: taiga-family/ci/actions/auto/push@v1.93.2
+        with:
+          token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
+
+concurrency:
+  group: ${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
