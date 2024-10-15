@@ -25,5 +25,6 @@
         ],
         "production": ["default"]
     },
-    "defaultBase": "origin/main"
+    "defaultBase": "origin/main",
+    "useLegacyCache": true
 }
