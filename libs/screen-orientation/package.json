@@ -8,7 +8,7 @@
         "screen",
         "orientation"
     ],
-    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/intersection-observer/README.md",
+    "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/screen-orientation/README.md",
     "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
     "repository": "https://github.com/taiga-family/ng-web-apis",
     "license": "Apache-2.0",
