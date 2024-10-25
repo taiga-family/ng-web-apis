@@ -6,5 +6,9 @@
 npm i @ng-web-apis/platform
 ```
 
-- `isApple`
-- `isIos`
+## Tokens
+
+- `WA_IS_MOBILE`
+- `WA_IS_IOS`
+- `WA_IS_ANDROID`
+- `WA_IS_WEBKIT`
