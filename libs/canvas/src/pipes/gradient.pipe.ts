@@ -26,6 +26,7 @@ export class WaCanvasGradientPipe implements PipeTransform {
         y1: number,
         r1: number,
     ): CanvasGradient;
+    // eslint-disable-next-line @typescript-eslint/max-params
     public transform(
         stops: Map<number, string>,
         a1: number,

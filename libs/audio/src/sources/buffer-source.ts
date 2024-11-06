@@ -68,6 +68,7 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
         }
     }
 
+    // eslint-disable-next-line @typescript-eslint/max-params
     protected static init(
         that: WebAudioBufferSource,
         _node: AudioNode | null,

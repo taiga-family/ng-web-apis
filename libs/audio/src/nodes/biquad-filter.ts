@@ -33,6 +33,7 @@ export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy 
     @audioParam('Q')
     public qParam?: AudioParamInput;
 
+    // eslint-disable-next-line @typescript-eslint/max-params
     constructor(
         @Attribute('detune') detuneArg: string | null,
         @Attribute('frequency') frequencyArg: string | null,

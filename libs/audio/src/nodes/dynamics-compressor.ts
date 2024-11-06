@@ -40,6 +40,7 @@ export class WebAudioDynamicsCompressor
     @audioParam('threshold')
     public thresholdParam?: AudioParamInput;
 
+    // eslint-disable-next-line @typescript-eslint/max-params
     constructor(
         @Attribute('attack') attackArg: string | null,
         @Attribute('knee') kneeArg: string | null,
