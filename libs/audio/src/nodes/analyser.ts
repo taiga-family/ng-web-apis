@@ -38,6 +38,7 @@ export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
     @Output()
     public timeFloat$!: Observable<Float32Array>;
 
+    // eslint-disable-next-line @typescript-eslint/max-params
     constructor(
         @Attribute('fftSize') fftSizeArg: string | null,
         @Attribute('maxDecibels') maxDecibelsArg: string | null,

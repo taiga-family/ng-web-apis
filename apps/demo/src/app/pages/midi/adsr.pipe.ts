@@ -7,6 +7,7 @@ import type {AudioParamInput} from '@ng-web-apis/audio';
     name: 'adsr',
 })
 export class AdsrPipe implements PipeTransform {
+    // eslint-disable-next-line @typescript-eslint/max-params
     public transform(
         value: number,
         attack: number,

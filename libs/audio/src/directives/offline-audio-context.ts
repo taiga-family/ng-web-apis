@@ -16,6 +16,7 @@ export class WebAudioOfflineContext extends OfflineAudioContext {
     @Output()
     public readonly complete = new EventEmitter<AudioBuffer>();
 
+    // eslint-disable-next-line @typescript-eslint/max-params
     constructor(
         @Attribute('length') length: string,
         @Attribute('sampleRate') sampleRate: string,
