@@ -151,7 +151,7 @@
         "@types/react-dom": "19.0.2",
         "@types/webmidi": "2.1.0",
         "babel-loader": "9.2.1",
-        "core-js": "3.39.0",
+        "core-js": "3.40.0",
         "glob": "11.0.0",
         "highlight.js": "11.11.1",
         "http-server": "14.1.1",
