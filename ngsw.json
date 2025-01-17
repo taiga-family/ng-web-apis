@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1737053557502,
+  "timestamp": 1737136425479,
   "index": "/ng-web-apis/index.html",
   "assetGroups": [
     {
@@ -52,7 +52,7 @@
         "/ng-web-apis/994.dd06cbcb7b287c4f.js",
         "/ng-web-apis/common.8492cebfb5ad0245.js",
         "/ng-web-apis/index.html",
-        "/ng-web-apis/main.7efc785413bc6737.js",
+        "/ng-web-apis/main.926a0a9d3b9c25e4.js",
         "/ng-web-apis/manifest.webmanifest",
         "/ng-web-apis/polyfills.438fa0b065f1e28a.js",
         "/ng-web-apis/runtime.26e418711fb54e45.js",
@@ -7023,8 +7023,8 @@
     "/ng-web-apis/assets/taiga-ui/icons/zoom-out-filled.svg": "2375a2dc138f75cecc59625dfbab6e630939f0d9",
     "/ng-web-apis/assets/taiga-ui/icons/zoom-out.svg": "d3bd47ee87f118fbc4a21d8c38ec7b77ce2b89fd",
     "/ng-web-apis/common.8492cebfb5ad0245.js": "f53e790715366bc1229332d23a77f6f37324cfc2",
-    "/ng-web-apis/index.html": "c10dfc46a2e53beed58d43c4e472d8f38b2bd52a",
-    "/ng-web-apis/main.7efc785413bc6737.js": "8fff9295fd91d98c8576a7dbf14ab96b7935279b",
+    "/ng-web-apis/index.html": "fa4e59cddd2fd0b37f5efbcf25082188f6092618",
+    "/ng-web-apis/main.926a0a9d3b9c25e4.js": "caf0a39b1dd91bf0a364debdaf3612f9a198c235",
     "/ng-web-apis/manifest.webmanifest": "7c2c6821006405e87e1d216c6e47f8f8f4b0d8f7",
     "/ng-web-apis/polyfills.438fa0b065f1e28a.js": "684b9fc2e659086f5ab1049746c6dcdd7bb475e4",
     "/ng-web-apis/runtime.26e418711fb54e45.js": "3f0568c97cec86dbf09cf7f20f59674632ba8f68",
