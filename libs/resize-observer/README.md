@@ -23,7 +23,7 @@ npm i @ng-web-apis/resize-observer
 
 ## Usage
 
-1. Import `ResizeObserverModule` to the module where you plan to use it.
+1. Import `WaResizeObserver`
 2. Use `waResizeObserver` directive to observe an element:
 
 ```html
