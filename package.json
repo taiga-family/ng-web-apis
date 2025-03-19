@@ -145,7 +145,7 @@
         "@types/dom-view-transitions": "1.0.6",
         "@types/dompurify": "3.2.0",
         "@types/estree": "1.0.6",
-        "@types/express": "5.0.0",
+        "@types/express": "5.0.1",
         "@types/highlight.js": "10.1.0",
         "@types/jasmine": "5.1.7",
         "@types/jasminewd2": "2.0.13",
