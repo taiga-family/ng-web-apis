@@ -1,4 +1,5 @@
-import {InjectionToken, type Provider} from '@angular/core';
+import type {Provider} from '@angular/core';
+import {InjectionToken} from '@angular/core';
 
 export const WA_MUTATION_OBSERVER_INIT = new InjectionToken<MutationObserverInit>(
     '[WA_MUTATION_OBSERVER_INIT]',
@@ -13,5 +14,5 @@ export function provideMutationObserverInit(useValue: MutationObserverInit): Pro
     return {
         provide: WA_MUTATION_OBSERVER_INIT,
         useValue,
-    }
+    };
 }
