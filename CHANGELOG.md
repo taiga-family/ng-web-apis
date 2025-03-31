@@ -1,3 +1,10 @@
+### [4.12.0](https://github.com/taiga-family/ng-web-apis/compare/v4.11.1...v4.12.0) (2025-03-28)
+
+### 🚀 Features
+
+- **mutation-observer**: add `provideMutationObserverInit` (#1198)
+  [(df39965)](https://github.com/taiga-family/ng-web-apis/commit/df39965986dab7dfec2c28244d068c94a12a0763)
+
 ### [4.11.1](https://github.com/taiga-family/ng-web-apis/compare/v4.11.0...v4.11.1) (2024-10-14)
 
 ### 🐞 Bug Fixes

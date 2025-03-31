@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/midi",
-    "version": "4.11.1",
+    "version": "4.12.0",
     "description": "An Observable based library for the use of Web MIDI API with Angular",
     "keywords": [
         "angular",
@@ -24,7 +24,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=16.0.0",
-        "@ng-web-apis/common": ">=4.11.1",
+        "@ng-web-apis/common": ">=4.12.0",
         "@types/webmidi": ">=2.1.0",
         "rxjs": ">=7.0.0"
     },
