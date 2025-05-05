@@ -147,7 +147,7 @@
         "@types/estree": "1.0.7",
         "@types/express": "5.0.1",
         "@types/highlight.js": "10.1.0",
-        "@types/jasmine": "5.1.7",
+        "@types/jasmine": "5.1.8",
         "@types/jasminewd2": "2.0.13",
         "@types/react": "19.1.2",
         "@types/react-dom": "19.1.3",
