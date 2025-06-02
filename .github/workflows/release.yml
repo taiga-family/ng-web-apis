@@ -19,7 +19,7 @@ jobs:
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
     steps:
       - uses: actions/checkout@v4.2.2
-      - uses: taiga-family/ci/actions/run/release-it@v1.126.0
+      - uses: taiga-family/ci/actions/run/release-it@v1.127.0
         id: release-it
         with:
           ref: ${{ github.ref }}
@@ -27,12 +27,12 @@ jobs:
           npmToken: ${{ secrets.NPM_TOKEN }}
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - uses: taiga-family/ci/actions/run/read-package-json@v1.126.0
+      - uses: taiga-family/ci/actions/run/read-package-json@v1.127.0
         id: info
 
       - name: Announce to Telegram
         if: steps.release-it.outputs.released == 'true'
-        uses: taiga-family/ci/actions/messenger/telegram/announce@v1.126.0
+        uses: taiga-family/ci/actions/messenger/telegram/announce@v1.127.0
         with:
           chatId: ${{ secrets.TAIGA_TELEGRAM_CHAT_ID }}
           topicId: ${{ secrets.TAIGA_TELEGRAM_CHAT_THREAD_ID }}
