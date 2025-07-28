@@ -1,5 +1,5 @@
+import {DOCUMENT} from '@angular/common';
 import {inject, Injectable} from '@angular/core';
-import {WINDOW} from '@ng-web-apis/common';
 import {
     EMPTY,
     filter,
@@ -15,16 +15,16 @@ import {
     providedIn: 'root',
 })
 export class ViewportService extends Observable<VisualViewport> {
-    private readonly visualViewport = inject(WINDOW).visualViewport;
+    private readonly doc = inject(DOCUMENT);
 
-    private readonly stream$ = this.visualViewport
+    private readonly stream$ = this.doc.defaultView?.visualViewport
         ? merge(
-              fromEvent(this.visualViewport, 'resize'),
-              fromEvent(this.visualViewport, 'scroll'),
-              fromEvent(this.visualViewport, 'scrollend'),
+              fromEvent(this.doc.defaultView.visualViewport, 'resize'),
+              fromEvent(this.doc.defaultView.visualViewport, 'scroll'),
+              fromEvent(this.doc.defaultView.visualViewport, 'scrollend'),
           ).pipe(
               startWith(null),
-              map(() => this.visualViewport),
+              map(() => this.doc.defaultView?.visualViewport),
               filter(Boolean),
               shareReplay({bufferSize: 1, refCount: true}),
           )
