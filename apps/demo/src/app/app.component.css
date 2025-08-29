@@ -4,7 +4,7 @@
 }
 
 .logo {
-    margin-right: 1.25rem;
+    margin-inline-end: 1.25rem;
     cursor: pointer;
 }
 
@@ -16,7 +16,7 @@
     display: block;
     font-size: 1rem;
     font-weight: bold;
-    margin-top: 0.5rem;
+    margin-block-start: 0.5rem;
 }
 
 .back.active {
@@ -26,7 +26,7 @@
 .back tui-svg {
     block-size: 1rem;
     inline-size: 1rem;
-    margin-right: 0.25rem;
+    margin-inline-end: 0.25rem;
     vertical-align: -0.1rem;
 }
 
@@ -61,7 +61,7 @@ main {
 }
 
 footer {
-    padding: 16px;
+    padding: 1rem;
     font-size: 0.75rem;
     border-top: 1px solid #dcdcdc;
     text-align: center;
