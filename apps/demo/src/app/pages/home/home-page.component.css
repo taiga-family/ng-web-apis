@@ -8,10 +8,10 @@
     display: flex;
     max-inline-size: 23.75rem;
     color: #444;
-    border-radius: 4px;
+    border-radius: 0.25rem;
     border: 1px solid #dcdcdc;
     font-size: 0.875rem;
-    padding: 0 16px 16px;
+    padding: 0 1rem 1rem;
     margin: 0.625rem;
     box-sizing: border-box;
     transition: box-shadow 0.3s;
