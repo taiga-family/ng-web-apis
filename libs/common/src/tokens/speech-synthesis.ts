@@ -6,6 +6,7 @@ export const WA_SPEECH_SYNTHESIS = new InjectionToken<SpeechSynthesis>(
     '[WA_SPEECH_SYNTHESIS]',
     {
         factory: () => inject(WINDOW).speechSynthesis,
+        providedIn: 'platform',
     },
 );
 

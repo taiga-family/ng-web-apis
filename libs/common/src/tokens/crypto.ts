@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_CRYPTO = new InjectionToken<Crypto>('[WA_CRYPTO]', {
     factory: () => inject(WINDOW).crypto,
+    providedIn: 'platform',
 });
 
 /**
