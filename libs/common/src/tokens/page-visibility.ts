@@ -16,6 +16,7 @@ export const WA_PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
                 shareReplay({refCount: false, bufferSize: 1}),
             );
         },
+        providedIn: 'platform',
     },
 );
 

@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_LOCATION = new InjectionToken<Location>('[WA_LOCATION]', {
     factory: () => inject(WINDOW).location,
+    providedIn: 'platform',
 });
 
 /**

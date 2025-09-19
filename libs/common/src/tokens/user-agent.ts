@@ -4,6 +4,7 @@ import {NAVIGATOR} from './navigator';
 
 export const WA_USER_AGENT = new InjectionToken<string>('[WA_USER_AGENT]', {
     factory: () => inject(NAVIGATOR).userAgent,
+    providedIn: 'platform',
 });
 
 /**

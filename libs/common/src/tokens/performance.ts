@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_PERFORMANCE = new InjectionToken<Performance>('[WA_PERFORMANCE]', {
     factory: () => inject(WINDOW).performance,
+    providedIn: 'platform',
 });
 
 /**

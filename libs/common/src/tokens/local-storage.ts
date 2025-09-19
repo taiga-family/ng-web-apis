@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_LOCAL_STORAGE = new InjectionToken<Storage>('[WA_LOCAL_STORAGE]', {
     factory: () => inject(WINDOW).localStorage,
+    providedIn: 'platform',
 });
 
 /**

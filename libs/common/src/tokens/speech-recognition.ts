@@ -11,6 +11,7 @@ export const WA_SPEECH_RECOGNITION = new InjectionToken<
 
         return windowRef.speechRecognition || windowRef.webkitSpeechRecognition || null;
     },
+    providedIn: 'platform',
 });
 
 /**

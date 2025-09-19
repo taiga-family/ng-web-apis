@@ -24,6 +24,7 @@ export const WA_ANIMATION_FRAME = new InjectionToken<Observable<DOMHighResTimeSt
 
             return animationFrame$.pipe(share());
         },
+        providedIn: 'platform',
     },
 );
 

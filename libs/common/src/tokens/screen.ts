@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_SCREEN = new InjectionToken<Screen>('[WA_SCREEN]', {
     factory: () => inject(WINDOW).screen,
+    providedIn: 'platform',
 });
 
 /**

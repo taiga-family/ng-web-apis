@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_SESSION_STORAGE = new InjectionToken<Storage>('[WA_SESSION_STORAGE]', {
     factory: () => inject(WINDOW).sessionStorage,
+    providedIn: 'platform',
 });
 
 /**

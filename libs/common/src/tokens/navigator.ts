@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_NAVIGATOR = new InjectionToken<Navigator>('[WA_NAVIGATOR]', {
     factory: () => inject(WINDOW).navigator,
+    providedIn: 'platform',
 });
 
 /**
