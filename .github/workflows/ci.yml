@@ -12,8 +12,8 @@ jobs:
       - uses: actions/checkout@v4.3.0
         with:
           persist-credentials: false
-      - uses: taiga-family/ci/actions/setup/variables@v1.159.0
-      - uses: taiga-family/ci/actions/setup/node@v1.159.0
+      - uses: taiga-family/ci/actions/setup/variables@v1.160.0
+      - uses: taiga-family/ci/actions/setup/node@v1.160.0
       - run: npm run typecheck
       - run: npm run cspell
       - run: npx nx run-many -t build --exclude demo
@@ -30,7 +30,7 @@ jobs:
               npm run prettier -- --check
               npm run lint
           fi
-      - uses: taiga-family/ci/actions/auto/push@v1.159.0
+      - uses: taiga-family/ci/actions/auto/push@v1.160.0
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
