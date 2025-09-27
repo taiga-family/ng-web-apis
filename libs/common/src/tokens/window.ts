@@ -11,6 +11,7 @@ export const WA_WINDOW = new InjectionToken<Window>('[WA_WINDOW]', {
 
         return defaultView;
     },
+    providedIn: 'platform',
 });
 
 /**

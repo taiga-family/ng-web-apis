@@ -8,6 +8,7 @@ export const WA_NETWORK_INFORMATION = new InjectionToken<
 >('[WA_NETWORK_INFORMATION]', {
     // @ts-ignore
     factory: () => inject(WA_NAVIGATOR).connection || null,
+    providedIn: 'platform',
 });
 
 /**

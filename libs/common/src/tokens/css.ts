@@ -16,6 +16,7 @@ export const WA_CSS = new InjectionToken<typeof CSS>('[WA_CSS]', {
             // eslint-disable-next-line no-restricted-syntax
             supports: () => false,
         } satisfies typeof CSS),
+    providedIn: 'platform',
 });
 
 /**

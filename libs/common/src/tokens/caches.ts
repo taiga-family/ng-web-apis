@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_CACHES = new InjectionToken<CacheStorage>('[WA_CACHES]', {
     factory: () => inject(WINDOW).caches,
+    providedIn: 'platform',
 });
 
 /**
