@@ -4,6 +4,7 @@ import {WINDOW} from './window';
 
 export const WA_HISTORY = new InjectionToken<History>('[WA_HISTORY]', {
     factory: () => inject(WINDOW).history,
+    providedIn: 'platform',
 });
 
 /**
