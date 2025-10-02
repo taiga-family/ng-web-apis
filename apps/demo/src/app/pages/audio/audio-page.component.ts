@@ -24,7 +24,7 @@ import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
         WaWebAudio,
     ],
     templateUrl: './audio-page.component.html',
-    styleUrls: ['./audio-page.component.css'],
+    styleUrl: './audio-page.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AudioPage {
@@ -55,7 +55,7 @@ export default class AudioPage {
 
     protected filterGain = 0;
 
-    protected Q = 1;
+    protected q = 1;
 
     protected type: BiquadFilterType = 'lowpass';
 

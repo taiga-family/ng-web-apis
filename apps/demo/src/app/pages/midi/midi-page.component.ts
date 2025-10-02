@@ -12,7 +12,7 @@ import {Demo} from './demo/demo.component';
     selector: 'midi-page',
     imports: [CommonModule, Demo, FormsModule, TuiButton, WaWebAudio],
     templateUrl: './midi-page.component.html',
-    styleUrls: ['./midi-page.component.less'],
+    styleUrl: './midi-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class MidiPage {

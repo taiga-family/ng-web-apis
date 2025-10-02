@@ -1,5 +1,4 @@
-import type {TypedMessageEvent} from '@ng-web-apis/workers';
-import {WebWorker} from '@ng-web-apis/workers';
+import {type TypedMessageEvent, WebWorker} from '@ng-web-apis/workers';
 import {Observable, take} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -37,6 +36,7 @@ describe('WebWorker', () => {
     });
 
     it('should resolve the last value before completing', async () => {
+        // eslint-disable-next-line @typescript-eslint/promise-function-async
         const worker = WebWorker.fromFunction((data: string) => Promise.resolve(data));
 
         const promise = worker
@@ -64,12 +64,14 @@ describe('WebWorker', () => {
         const workerPromise: Promise<TypedMessageEvent<string>> = WebWorker.execute<
             string,
             string
+            // eslint-disable-next-line @typescript-eslint/promise-function-async
         >((data) => Promise.resolve().then(() => data), 'some data');
 
         expect((await workerPromise).data).toBe('some data');
     }, 10000);
 
     it('should create worker', async () => {
+        // eslint-disable-next-line @typescript-eslint/promise-function-async
         const thread = WebWorker.fromFunction<string, string>((data) =>
             Promise.resolve(data),
         );
@@ -82,6 +84,7 @@ describe('WebWorker', () => {
     }, 10000);
 
     it('should fail if an inner promise is rejected', async () => {
+        // eslint-disable-next-line @typescript-eslint/promise-function-async
         const worker = WebWorker.fromFunction<void, string>(() =>
             Promise.reject('reason'),
         );

@@ -1,5 +1,5 @@
 import {InjectionToken} from '@angular/core';
-import type {Observable} from 'rxjs';
+import {type Observable} from 'rxjs';
 
 import {getPortsStream} from '../utils/get-ports-stream';
 

@@ -1,3 +1,7 @@
+/* eslint-disable @typescript-eslint/no-empty-function */
+/**
+ * @type {Window | undefined}
+ */
 const windowRef = typeof window === 'undefined' ? global : window;
 
 windowRef.AudioContext = windowRef.AudioContext || windowRef.webkitAudioContext;

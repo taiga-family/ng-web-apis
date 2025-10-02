@@ -1,9 +1,9 @@
-import type {OnDestroy} from '@angular/core';
-import {Attribute, Directive, inject, Input} from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
+import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import type {AudioParamInput} from '../types/audio-param-input';
+import {type AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {fallbackAudioParam} from '../utils/fallback-audio-param';
 import {parse} from '../utils/parse';
@@ -23,7 +23,6 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
         const pan = parse(panArg, 0);
 
         try {
-            // eslint-disable-next-line
             new StereoPannerNode(context);
         } catch {
             const result = context.createPanner() as unknown as WebAudioStereoPanner;

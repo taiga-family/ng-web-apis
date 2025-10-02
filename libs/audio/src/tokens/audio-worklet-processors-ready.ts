@@ -13,8 +13,10 @@ export const WA_AUDIO_WORKLET_PROCESSORS_READY = new InjectionToken<Promise<bool
             const processors = inject(WA_AUDIO_WORKLET_PROCESSORS);
 
             if (!inject(WA_AUDIO_WORKLET_SUPPORT)) {
-                // eslint-disable-next-line no-restricted-syntax,prefer-promise-reject-errors
-                return Promise.reject('AudioWorklet is not supported').catch(() => false);
+                return Promise.reject('AudioWorklet is not supported').catch(
+                    // eslint-disable-next-line no-restricted-syntax
+                    () => false,
+                );
             }
 
             return Promise.all(

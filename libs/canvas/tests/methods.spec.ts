@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {CANVAS_2D_CONTEXT, WaCanvas, WaCanvasClipPath} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -17,19 +16,19 @@ describe('Methods', () => {
                 width="100"
             >
                 <canvas-clip-path>
-                    <canvas-rect></canvas-rect>
-                    <canvas-rect></canvas-rect>
+                    <canvas-rect />
+                    <canvas-rect />
                 </canvas-clip-path>
                 <!--Empty image doesn't throw (in case it is still loading)-->
-                <canvas-draw-image [image]="loading"></canvas-draw-image>
-                <canvas-draw-image [image]="image"></canvas-draw-image>
+                <canvas-draw-image [image]="loading" />
+                <canvas-draw-image [image]="image" />
                 <canvas-draw-image
                     [dHeight]="10"
                     [dWidth]="10"
                     [dX]="10"
                     [dY]="10"
                     [image]="image"
-                ></canvas-draw-image>
+                />
                 <canvas-draw-image
                     [dHeight]="1"
                     [dWidth]="1"
@@ -40,12 +39,12 @@ describe('Methods', () => {
                     [sWidth]="1"
                     [sX]="1"
                     [sY]="1"
-                ></canvas-draw-image>
+                />
                 <canvas-text
                     text="No crash"
                     textBaseline="top"
                     [x]="50"
-                ></canvas-text>
+                />
             </canvas>
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,

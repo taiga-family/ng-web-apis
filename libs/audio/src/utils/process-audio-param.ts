@@ -1,12 +1,13 @@
-import type {AudioParamAutomation} from '../types/audio-param-automation';
-import type {AudioParamCurve} from '../types/audio-param-curve';
-import type {AudioParamInput} from '../types/audio-param-input';
+import {type AudioParamAutomation} from '../types/audio-param-automation';
+import {type AudioParamCurve} from '../types/audio-param-curve';
+import {type AudioParamInput} from '../types/audio-param-input';
 
 export function processAudioParam(
     param: AudioParam,
     value: AudioParamInput,
     currentTime = 0,
 ): void {
+    // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (param.cancelAndHoldAtTime) {
         param.cancelAndHoldAtTime(currentTime);
     } else {

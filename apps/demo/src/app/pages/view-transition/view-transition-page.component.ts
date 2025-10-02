@@ -59,7 +59,7 @@ const USAGE_SAMPLE = `
     selector: 'view-transition-page',
     imports: [CommonModule, HighlightModule, TuiLet, TuiLink],
     templateUrl: './view-transition-page.component.html',
-    styleUrls: ['./view-transition-page.component.less'],
+    styleUrl: './view-transition-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ViewTransitionPage {

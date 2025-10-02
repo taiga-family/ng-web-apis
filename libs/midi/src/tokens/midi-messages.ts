@@ -1,10 +1,18 @@
 import {inject, InjectionToken} from '@angular/core';
-import type {Observable} from 'rxjs';
-import {from, fromEvent, merge, share, startWith, switchMap, throwError} from 'rxjs';
+import {
+    from,
+    fromEvent,
+    merge,
+    type Observable,
+    share,
+    startWith,
+    switchMap,
+    throwError,
+} from 'rxjs';
 
 import {MIDI_ACCESS} from './midi-access';
 
-export const WA_MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>(
+export const WA_MIDI_MESSAGES = new InjectionToken<Observable<WebMidi.MIDIMessageEvent>>(
     '[WA_MIDI_MESSAGES]',
     {
         providedIn: 'root',
@@ -29,7 +37,7 @@ export const WA_MIDI_MESSAGES = new InjectionToken<Observable<MIDIMessageEvent>>
                           ),
                 ),
                 share(),
-            ) as unknown as Observable<MIDIMessageEvent>,
+            ) as unknown as Observable<WebMidi.MIDIMessageEvent>,
     },
 );
 

@@ -1,5 +1,4 @@
-import type {OnDestroy} from '@angular/core';
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject, Input, type OnDestroy} from '@angular/core';
 import {of, Subject, switchMap} from 'rxjs';
 
 import {AudioBufferService} from '../services/audio-buffer.service';

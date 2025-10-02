@@ -6,7 +6,7 @@
     "prefix": "app",
     "targets": {
         "build": {
-            "executor": "@angular-builders/custom-webpack:browser",
+            "executor": "@nx/angular:webpack-browser",
             "outputs": ["{workspaceRoot}/dist/demo"],
             "options": {
                 "baseHref": "/",
@@ -116,19 +116,20 @@
             }
         },
         "serve": {
-            "executor": "@angular-builders/custom-webpack:dev-server",
-            "options": {
-                "browserTarget": "demo:build:development"
-            },
+            "executor": "@nx/angular:dev-server",
             "configurations": {
+                "production": {
+                    "buildTarget": "{projectName}:build:production",
+                    "aot": true
+                },
                 "development": {
-                    "browserTarget": "demo:build:development"
+                    "buildTarget": "{projectName}:build:development"
                 }
             },
             "defaultConfiguration": "development"
         },
         "serve-ssr": {
-            "executor": "@nguniversal/builders:ssr-dev-server",
+            "executor": "@angular-devkit/build-angular:ssr-dev-server",
             "options": {},
             "configurations": {
                 "production": {
@@ -148,31 +149,6 @@
                 "command": "nx mkcert demo && nx serve demo --ssl --open --host 0.0.0.0 --disable-host-check"
             }
         },
-        "serve-pwa": {
-            "executor": "nx:run-commands",
-            "options": {
-                "parallel": false,
-                "commands": [
-                    "echo \"TODO: delete serve-pwa command (and delete http-server dev-dep) after upgrade to Angular 14.2\"",
-                    "echo \"Learn more: https://github.com/angular/angular-cli/pull/23679\"",
-                    "echo \"Learn more: https://www.bitovi.com/blog/how-to-use-ng-serve-with-service-worker-support\"",
-                    "echo ------",
-                    "echo \"Warning: re-run this command after any code changes\"",
-                    "echo ------",
-                    "http-server dist/demo --ssl --cert=.ssl/localhost.pem --key=.ssl/localhost-key.pem --port=3333"
-                ]
-            },
-            "dependsOn": [
-                {
-                    "target": "build",
-                    "params": "ignore"
-                },
-                {
-                    "target": "mkcert",
-                    "params": "ignore"
-                }
-            ]
-        },
         "generate-routes-file": {
             "executor": "nx:run-commands",
             "options": {
@@ -184,7 +160,7 @@
             "defaultConfiguration": "github"
         },
         "server": {
-            "executor": "@angular-builders/custom-webpack:server",
+            "executor": "@nx/angular:webpack-server",
             "options": {
                 "customWebpackConfig": {
                     "path": "apps/demo/webpack.config.ts"
@@ -206,7 +182,7 @@
             "defaultConfiguration": "production"
         },
         "prerender": {
-            "executor": "@nguniversal/builders:prerender",
+            "executor": "@angular-devkit/build-angular:prerender",
             "options": {
                 "browserTarget": "demo:build:production",
                 "serverTarget": "demo:server:production",

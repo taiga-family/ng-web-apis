@@ -12,7 +12,7 @@ import {SAMPLE} from './samples/basic';
     selector: 'permissions-page',
     imports: [CommonModule, HighlightModule],
     templateUrl: './permissions-page.component.html',
-    styleUrls: ['./permissions-page.component.css'],
+    styleUrl: './permissions-page.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class PermissionsPage {
@@ -26,7 +26,6 @@ export default class PermissionsPage {
         .pipe(
             tap((state) => {
                 if (state === 'prompt') {
-                    // eslint-disable-next-line no-alert
                     alert(
                         'After you acknowledge this message the browser will ask your permission to allow location access!',
                     );

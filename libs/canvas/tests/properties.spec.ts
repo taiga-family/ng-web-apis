@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -22,7 +21,7 @@ describe('Properties', () => {
                         [width]="20"
                         [x]="5"
                         [y]="5"
-                    ></canvas-rect>
+                    />
                 </canvas-clip-path>
                 <canvas-path
                     fillStyle="red"
@@ -33,7 +32,7 @@ describe('Properties', () => {
                         [width]="20"
                         [x]="0"
                         [y]="0"
-                    ></canvas-rect>
+                    />
                 </canvas-path>
                 <canvas-path
                     fillStyle="green"
@@ -44,7 +43,7 @@ describe('Properties', () => {
                         [width]="20"
                         [x]="0"
                         [y]="0"
-                    ></canvas-rect>
+                    />
                 </canvas-path>
                 <canvas-path
                     imageSmoothingQuality="high"
@@ -59,7 +58,7 @@ describe('Properties', () => {
                         [width]="20"
                         [x]="0"
                         [y]="0"
-                    ></canvas-rect>
+                    />
                 </canvas-path>
             </canvas>
         `,

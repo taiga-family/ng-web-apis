@@ -1,7 +1,6 @@
-import type {MonoTypeOperatorFunction} from 'rxjs';
-import {filter} from 'rxjs';
+import {filter, type MonoTypeOperatorFunction} from 'rxjs';
 
-import type {MidiChannel} from '../types/midi-channel';
+import {type MidiChannel} from '../types/midi-channel';
 
 /**
  * Filter MIDI messages by channel

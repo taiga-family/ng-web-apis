@@ -5,14 +5,14 @@ import {
     QueryList,
 } from '@angular/core';
 
-import type {CanvasMethod} from '../interfaces/canvas-method';
+import {type CanvasMethod} from '../interfaces/canvas-method';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Component({
     standalone: true,
     selector: 'canvas-clip-path',
     template: `
-        <ng-content></ng-content>
+        <ng-content />
     `,
     changeDetection: ChangeDetectionStrategy.OnPush,
 })

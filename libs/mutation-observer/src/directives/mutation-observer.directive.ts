@@ -1,6 +1,12 @@
-/* eslint-disable @angular-eslint/no-attribute-decorator */
-import type {OnDestroy} from '@angular/core';
-import {Directive, ElementRef, EventEmitter, inject, Input, Output} from '@angular/core';
+import {
+    Directive,
+    ElementRef,
+    EventEmitter,
+    inject,
+    Input,
+    type OnDestroy,
+    Output,
+} from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
 import {MUTATION_OBSERVER_INIT} from '../tokens/mutation-observer-init';

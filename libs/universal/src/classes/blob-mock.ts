@@ -6,5 +6,9 @@ export class BlobMock implements Blob {
     public arrayBuffer = async (): Promise<any> => alwaysRejected();
     public stream = (): ReadableStream => new ReadableStream();
     public text = async (): Promise<any> => alwaysRejected();
-    public slice = (): this => this;
+    public slice = (): Blob => this as unknown as Blob;
+
+    public async bytes(): Promise<Uint8Array> {
+        return Promise.resolve(new Uint8Array());
+    }
 }

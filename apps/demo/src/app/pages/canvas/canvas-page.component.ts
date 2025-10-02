@@ -29,7 +29,7 @@ import {
         TuiTextfieldControllerModule,
     ],
     templateUrl: './canvas-page.component.html',
-    styleUrls: ['./canvas-page.component.css'],
+    styleUrl: './canvas-page.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CanvasPage {
@@ -70,7 +70,7 @@ export default class CanvasPage {
         };
     }
 
-    protected onFile(file: File): void {
+    protected onFile(file: File | null): void {
         this.file = file;
 
         if (file) {

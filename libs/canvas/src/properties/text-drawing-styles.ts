@@ -1,6 +1,6 @@
 import {Directive, Input} from '@angular/core';
 
-import type {CanvasMethod} from '../interfaces/canvas-method';
+import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
@@ -24,6 +24,12 @@ export class WaCanvasTextDrawingStyles implements CanvasMethod, CanvasTextDrawin
 
     @Input()
     public textBaseline: CanvasTextBaseline = 'alphabetic';
+
+    declare public fontStretch: CanvasFontStretch;
+    declare public fontVariantCaps: CanvasFontVariantCaps;
+    declare public letterSpacing: string;
+    declare public textRendering: CanvasTextRendering;
+    declare public wordSpacing: string;
 
     public call(context: CanvasRenderingContext2D): void {
         context.direction = this.direction;

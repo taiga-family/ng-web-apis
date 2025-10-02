@@ -1,7 +1,6 @@
 import {NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     INTERSECTION_ROOT_MARGIN,
     INTERSECTION_THRESHOLD,
@@ -48,7 +47,6 @@ describe('WaIntersectionObservee', () => {
         @ViewChild('root', {read: WaIntersectionObserverDirective})
         public observer!: WaIntersectionObserverDirective;
 
-        // eslint-disable-next-line jest/no-jasmine-globals
         public onIntersection = jasmine.createSpy('onIntersection');
         public observe = true;
     }

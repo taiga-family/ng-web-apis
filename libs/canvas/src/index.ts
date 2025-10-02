@@ -1,5 +1,5 @@
 export * from './contexts/canvas-2d';
-export * from './interfaces/canvas-method';
+export type * from './interfaces/canvas-method';
 export * from './methods/clip-path';
 export * from './methods/draw-image';
 export * from './methods/path';
@@ -32,4 +32,4 @@ export * from './services/draw.service';
 export * from './tokens/canvas-2d-context';
 export * from './tokens/canvas-method';
 export * from './tokens/canvas-properties';
-export * from './types/context-processor';
+export type * from './types/context-processor';

@@ -12,7 +12,7 @@ export class AudioBufferService {
     public async fetch(url: string): Promise<AudioBuffer> {
         return new Promise<AudioBuffer>((resolve, reject) => {
             if (this.cache.has(url)) {
-                resolve(this.cache.get(url) as AudioBuffer);
+                resolve(this.cache.get(url)!);
 
                 return;
             }

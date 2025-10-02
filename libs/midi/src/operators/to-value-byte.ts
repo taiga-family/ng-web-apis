@@ -1,5 +1,4 @@
-import type {OperatorFunction} from 'rxjs';
-import {map} from 'rxjs';
+import {map, type OperatorFunction} from 'rxjs';
 
 /**
  * Extract value byte (3rd) from MIDI message

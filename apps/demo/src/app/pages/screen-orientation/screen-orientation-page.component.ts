@@ -10,7 +10,7 @@ import {SAMPLE_HTML, SAMPLE_TS} from './samples/sample';
     selector: 'screen-orientation-page',
     imports: [CommonModule, HighlightModule],
     templateUrl: './screen-orientation-page.component.html',
-    styleUrls: ['./screen-orientation-page.component.less'],
+    styleUrl: './screen-orientation-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ScreenOrientationPage {

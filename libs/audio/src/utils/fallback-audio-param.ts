@@ -1,4 +1,4 @@
-import type {AudioParamInput} from '../types/audio-param-input';
+import {type AudioParamInput} from '../types/audio-param-input';
 
 export function fallbackAudioParam(value?: AudioParamInput): number {
     if (!value) {
@@ -16,7 +16,7 @@ export function fallbackAudioParam(value?: AudioParamInput): number {
     }
 
     if (value.value instanceof Array) {
-        return value.value?.[value.value.length - 1] ?? 0;
+        return value.value[value.value.length - 1] ?? 0;
     }
 
     return value.value;

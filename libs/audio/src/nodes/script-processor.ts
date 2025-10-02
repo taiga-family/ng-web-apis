@@ -1,5 +1,12 @@
-import type {OnDestroy} from '@angular/core';
-import {Attribute, Directive, EventEmitter, inject, Output} from '@angular/core';
+import {
+    // eslint-disable-next-line no-restricted-imports
+    Attribute,
+    Directive,
+    EventEmitter,
+    inject,
+    type OnDestroy,
+    Output,
+} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';

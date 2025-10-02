@@ -1,7 +1,6 @@
 import {inject, InjectionToken} from '@angular/core';
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
-import type {Observable} from 'rxjs';
-import {fromEvent, map, startWith} from 'rxjs';
+import {fromEvent, map, type Observable, startWith} from 'rxjs';
 
 export const WA_SPEECH_SYNTHESIS_VOICES = new InjectionToken<
     Observable<readonly SpeechSynthesisVoice[]>

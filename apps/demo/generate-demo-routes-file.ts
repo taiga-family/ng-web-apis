@@ -24,6 +24,6 @@ import {join} from 'node:path';
 
     writeFileSync(
         join(process.cwd(), 'apps', 'demo', 'routesFile.txt'),
-        routes?.join('\n') || '',
+        routes.join('\n') || '',
     );
 })();

@@ -21,7 +21,6 @@ export class SpeechRecognitionService extends Observable<SpeechRecognitionResult
                 return () => {};
             }
 
-            // eslint-disable-next-line new-cap
             const speechRecognition = new this.classRef();
 
             speechRecognition.maxAlternatives = this.maxAlternatives;

@@ -23,7 +23,7 @@
         "Roman Sedov <79601794011@ya.ru>"
     ],
     "peerDependencies": {
-        "@angular/core": ">=16.0.0",
+        "@angular/core": ">=19.0.0",
         "@ng-web-apis/common": ">=4.12.0",
         "@types/webmidi": ">=2.1.0",
         "rxjs": ">=7.0.0"

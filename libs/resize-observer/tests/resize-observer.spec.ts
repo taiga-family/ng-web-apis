@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WaResizeObserver} from '@ng-web-apis/resize-observer';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -23,7 +22,6 @@ describe('WaResizeObserver', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        // eslint-disable-next-line jest/no-jasmine-globals
         public onResize = jasmine.createSpy('onResize');
         public observe = true;
     }

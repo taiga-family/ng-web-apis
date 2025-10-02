@@ -15,7 +15,7 @@ import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
     selector: 'home-page',
     imports: [RouterLink],
     templateUrl: './home-page.component.html',
-    styleUrls: ['./home-page.component.css'],
+    styleUrl: './home-page.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class HomePage {

@@ -1,7 +1,11 @@
 import {NgZone} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import type {CanvasMethod} from '@ng-web-apis/canvas';
-import {CANVAS_2D_CONTEXT, CANVAS_PROPERTIES, WaDrawService} from '@ng-web-apis/canvas';
+import {
+    CANVAS_2D_CONTEXT,
+    CANVAS_PROPERTIES,
+    type CanvasMethod,
+    WaDrawService,
+} from '@ng-web-apis/canvas';
 import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import {of} from 'rxjs';
 
@@ -11,7 +15,6 @@ describe('WaDrawService', () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d')!;
     const prop: CanvasMethod = {
-        // eslint-disable-next-line jest/no-jasmine-globals
         call: jasmine.createSpy('call'),
     };
     const zone = {

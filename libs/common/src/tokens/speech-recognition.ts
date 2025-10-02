@@ -1,17 +1,19 @@
-import {inject, InjectionToken} from '@angular/core';
+import {inject, InjectionToken, type Type} from '@angular/core';
 
 import {WINDOW} from './window';
 
-export const WA_SPEECH_RECOGNITION = new InjectionToken<
-    // @ts-ignore
-    (typeof window)['speechRecognition'] | null
->('[WA_SPEECH_RECOGNITION]: [SPEECH_RECOGNITION]', {
-    factory: () => {
-        const windowRef: any = inject(WINDOW);
+export const WA_SPEECH_RECOGNITION = new InjectionToken<Type<SpeechRecognition> | null>(
+    '[WA_SPEECH_RECOGNITION]: [SPEECH_RECOGNITION]',
+    {
+        factory: () => {
+            const windowRef: any = inject(WINDOW);
 
-        return windowRef.speechRecognition || windowRef.webkitSpeechRecognition || null;
+            return (
+                windowRef.speechRecognition || windowRef.webkitSpeechRecognition || null
+            );
+        },
     },
-});
+);
 
 /**
  * @deprecated: drop in v5.0, use {@link WA_SPEECH_RECOGNITION}

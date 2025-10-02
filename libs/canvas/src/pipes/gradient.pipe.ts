@@ -1,5 +1,4 @@
-import type {PipeTransform} from '@angular/core';
-import {inject, Pipe} from '@angular/core';
+import {inject, Pipe, type PipeTransform} from '@angular/core';
 
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
@@ -26,7 +25,7 @@ export class WaCanvasGradientPipe implements PipeTransform {
         y1: number,
         r1: number,
     ): CanvasGradient;
-    // eslint-disable-next-line @typescript-eslint/max-params
+    // eslint-disable-next-line max-params,@typescript-eslint/max-params
     public transform(
         stops: Map<number, string>,
         a1: number,

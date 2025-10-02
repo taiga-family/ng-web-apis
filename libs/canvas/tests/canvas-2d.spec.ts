@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -25,7 +24,7 @@ describe('WaCanvas2d', () => {
                         [width]="20"
                         [x]="10"
                         [y]="10"
-                    ></canvas-rect>
+                    />
                 </canvas-path>
             </canvas>
         `,

@@ -1,4 +1,4 @@
-import type {Provider} from '@angular/core';
+import {type Provider} from '@angular/core';
 
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 

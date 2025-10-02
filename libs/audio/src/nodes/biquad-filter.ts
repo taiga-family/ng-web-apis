@@ -1,11 +1,11 @@
-import type {OnDestroy} from '@angular/core';
-import {Attribute, Directive, inject, Input} from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
+import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import type {AudioParamInput} from '../types/audio-param-input';
+import {type AudioParamInput} from '../types/audio-param-input';
 import {connect} from '../utils/connect';
 import {parse} from '../utils/parse';
 
@@ -33,7 +33,6 @@ export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy 
     @audioParam('Q')
     public qParam?: AudioParamInput;
 
-    // eslint-disable-next-line @typescript-eslint/max-params
     constructor(
         @Attribute('detune') detuneArg: string | null,
         @Attribute('frequency') frequencyArg: string | null,

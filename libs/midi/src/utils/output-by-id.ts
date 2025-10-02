@@ -1,4 +1,4 @@
-import type {Provider} from '@angular/core';
+import {type Provider} from '@angular/core';
 
 import {WA_MIDI_ACCESS} from '../tokens/midi-access';
 import {WA_MIDI_OUTPUT} from '../tokens/midi-output';

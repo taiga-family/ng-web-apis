@@ -1,4 +1,4 @@
-export * from './interfaces/speech-synthesis-utterance-options';
+export type * from './interfaces/speech-synthesis-utterance-options';
 export * from './modules/speech-synthesis/text-to-speech.directive';
 export * from './modules/speech-synthesis/utterance.pipe';
 export * from './operators/confidence-above';

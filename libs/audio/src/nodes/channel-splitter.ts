@@ -1,5 +1,12 @@
-import type {OnDestroy, QueryList} from '@angular/core';
-import {Attribute, ContentChildren, Directive, inject} from '@angular/core';
+import {
+    // eslint-disable-next-line no-restricted-imports
+    Attribute,
+    ContentChildren,
+    Directive,
+    inject,
+    type OnDestroy,
+    type QueryList,
+} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {AUDIO_NODE} from '../tokens/audio-node';
@@ -48,7 +55,7 @@ export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDe
         channels
             .filter((node) => !!node)
             .forEach((node, index) => {
-                this.connect(node!, index);
+                this.connect(node, index);
             });
     }
 }

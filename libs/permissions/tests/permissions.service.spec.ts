@@ -38,7 +38,6 @@ describe('PermissionsService', () => {
                 }, QUERY_DELAY);
             });
 
-            // eslint-disable-next-line jest/no-jasmine-globals
             return spyOn(permissions, 'query').and.returnValue(queryPromise);
         }
 
@@ -124,7 +123,6 @@ describe('PermissionsService', () => {
         it('should not addEventListener if unsubscribed before query promise got resolved', fakeAsync(() => {
             createQuerySpy();
 
-            // eslint-disable-next-line jest/no-jasmine-globals
             const addEventListenerSpy = spyOn(
                 permissionStatus,
                 'addEventListener',
@@ -147,12 +145,11 @@ describe('PermissionsService', () => {
         it('should clean up eventListener if it was added', fakeAsync(() => {
             createQuerySpy();
 
-            // eslint-disable-next-line jest/no-jasmine-globals
             const addEventListenerSpy = spyOn(
                 permissionStatus,
                 'addEventListener',
             ).and.callThrough();
-            // eslint-disable-next-line jest/no-jasmine-globals
+
             const removeEventListenerSpy = spyOn(
                 permissionStatus,
                 'removeEventListener',
@@ -211,7 +208,6 @@ describe('PermissionsService', () => {
         });
 
         it('should throw an error and .query() should not be called', () => {
-            // eslint-disable-next-line jest/no-jasmine-globals
             const querySpy = spyOn(permissions, 'query').and.stub();
             let actualError = '';
 

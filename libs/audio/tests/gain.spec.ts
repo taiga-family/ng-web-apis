@@ -1,8 +1,11 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
-import type {AudioParamInput} from '@ng-web-apis/audio';
-import {providers, WaWebAudio, WebAudioGain} from '@ng-web-apis/audio';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
+import {
+    type AudioParamInput,
+    providers,
+    WaWebAudio,
+    WebAudioGain,
+} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 

@@ -1,5 +1,4 @@
-import type {OnDestroy} from '@angular/core';
-import {Directive, ElementRef, inject} from '@angular/core';
+import {Directive, ElementRef, inject, type OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';

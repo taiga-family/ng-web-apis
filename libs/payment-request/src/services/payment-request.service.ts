@@ -1,8 +1,7 @@
 import {inject, Injectable} from '@angular/core';
 
 import {PAYMENT_METHODS} from '../tokens/payment-methods';
-import type {PaymentOptions} from '../tokens/payment-options';
-import {PAYMENT_OPTIONS} from '../tokens/payment-options';
+import {PAYMENT_OPTIONS, type PaymentOptions} from '../tokens/payment-options';
 import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
 @Injectable({

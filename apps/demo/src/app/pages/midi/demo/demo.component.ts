@@ -1,15 +1,18 @@
-import type {KeyValue} from '@angular/common';
-import {CommonModule} from '@angular/common';
-import type {TrackByFunction} from '@angular/core';
-import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {CommonModule, type KeyValue} from '@angular/common';
+import {
+    ChangeDetectionStrategy,
+    Component,
+    inject,
+    type TrackByFunction,
+} from '@angular/core';
 import {WaWebAudio} from '@ng-web-apis/audio';
 import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
-import type {Observable} from 'rxjs';
 import {
     catchError,
     EMPTY,
     map,
     merge,
+    type Observable,
     scan,
     startWith,
     Subject,
@@ -25,7 +28,7 @@ import {RESPONSE_BUFFER} from './response';
     selector: 'demo',
     imports: [AdsrPipe, CommonModule, FrequencyPipe, WaWebAudio],
     templateUrl: './demo.component.html',
-    styleUrls: ['./demo.component.less'],
+    styleUrl: './demo.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
     host: {
         '(document:mouseup)': 'onMouseUp()',

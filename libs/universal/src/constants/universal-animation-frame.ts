@@ -1,4 +1,4 @@
-import type {ValueProvider} from '@angular/core';
+import {type ValueProvider} from '@angular/core';
 import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
 import {NEVER} from 'rxjs';
 

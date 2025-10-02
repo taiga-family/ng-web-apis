@@ -1,4 +1,4 @@
-import type {ClassProvider} from '@angular/core';
+import {type ClassProvider} from '@angular/core';
 import {WA_SESSION_STORAGE} from '@ng-web-apis/common';
 
 import {StorageMock} from '../classes/storage-mock';

@@ -10,7 +10,7 @@ import {
     selector: 'intersection-observer-page',
     imports: [CommonModule, WaIntersectionObserver],
     templateUrl: './intersection-observer-page.component.html',
-    styleUrls: ['./intersection-observer-page.component.less'],
+    styleUrl: './intersection-observer-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class IntersectionObserverPage {
