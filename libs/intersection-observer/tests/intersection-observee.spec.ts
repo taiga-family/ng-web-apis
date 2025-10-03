@@ -1,4 +1,3 @@
-import {NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
@@ -13,33 +12,35 @@ window.onbeforeunload = jasmine.createSpy();
 describe('WaIntersectionObservee', () => {
     @Component({
         standalone: true,
-        imports: [NgIf, WaIntersectionObserver],
+        imports: [WaIntersectionObserver],
         template: `
             <div id="manual_observee">Hello</div>
-            <section
-                *ngIf="observe"
-                #root
-                id="observer_root"
-                style="position: relative; height: 200px; overflow: auto;"
-                waIntersectionObserver
-                waIntersectionRoot
-                waIntersectionThreshold="0.5"
-            >
-                <div style="height: 900px;">Height expander</div>
-                <h1
-                    style="position: absolute; top: 200px; height: 200px;"
-                    (waIntersectionObservee)="onIntersection($event)"
-                >
-                    I'm being observed
-                </h1>
-                <h1
-                    style="position: absolute; top: 200px; height: 200px;"
+
+            @if (observe) {
+                <section
+                    #root
+                    id="observer_root"
+                    style="position: relative; height: 200px; overflow: auto;"
                     waIntersectionObserver
-                    (waIntersectionObservee)="onIntersection($event)"
+                    waIntersectionRoot
+                    waIntersectionThreshold="0.5"
                 >
-                    Default values
-                </h1>
-            </section>
+                    <div style="height: 900px;">Height expander</div>
+                    <h1
+                        style="position: absolute; top: 200px; height: 200px;"
+                        (waIntersectionObservee)="onIntersection($event)"
+                    >
+                        I'm being observed
+                    </h1>
+                    <h1
+                        style="position: absolute; top: 200px; height: 200px;"
+                        waIntersectionObserver
+                        (waIntersectionObservee)="onIntersection($event)"
+                    >
+                        Default values
+                    </h1>
+                </section>
+            }
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })

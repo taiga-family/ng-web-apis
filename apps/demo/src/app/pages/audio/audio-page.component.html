@@ -1,13 +1,13 @@
-<button
-    *ngIf="!started; else graph"
-    appearance="secondary"
-    tuiButton
-    type="button"
-    (click)="start()"
->
-    Start AudioContext
-</button>
-<ng-template #graph>
+@if (!started) {
+    <button
+        appearance="secondary"
+        tuiButton
+        type="button"
+        (click)="start()"
+    >
+        Start AudioContext
+    </button>
+} @else {
     <section>
         <h2>Description</h2>
         <p>
@@ -54,20 +54,37 @@
             OscillatorNode
         </label>
 
-        <ng-container [ngSwitch]="selectedSource">
-            <ng-container *ngSwitchCase="'buffer'">
-                <button
-                    *ngFor="let _ of buffers"
-                    #source="AudioNode"
-                    buffer="assets/demo.mp3"
-                    size="s"
-                    tuiButton
-                    type="button"
-                    waAudioBufferSourceNode
-                    [loop]="true"
-                    (click)="onClick(source, $any($event).target)"
+        @switch (selectedSource) {
+            @case ('buffer') {
+                @for (_ of buffers; track $index) {
+                    <button
+                        #source="AudioNode"
+                        buffer="assets/demo.mp3"
+                        size="s"
+                        tuiButton
+                        type="button"
+                        waAudioBufferSourceNode
+                        [loop]="true"
+                        (click)="onClick(source, $any($event).target)"
+                    >
+                        Play
+                        <ng-container
+                            waAnalyserNode
+                            [fftSize]="fftSize"
+                            (timeByte$)="onTimeDomain($event)"
+                        >
+                            <ng-container [waOutput]="chain || fallback" />
+                        </ng-container>
+                    </button>
+                }
+            }
+            @case ('media') {
+                <audio
+                    controls
+                    loop
+                    src="assets/demo.mp3"
+                    waMediaElementAudioSourceNode
                 >
-                    Play
                     <ng-container
                         waAnalyserNode
                         [fftSize]="fftSize"
@@ -75,46 +92,32 @@
                     >
                         <ng-container [waOutput]="chain || fallback" />
                     </ng-container>
-                </button>
-            </ng-container>
-            <audio
-                *ngSwitchCase="'media'"
-                controls
-                loop
-                src="assets/demo.mp3"
-                waMediaElementAudioSourceNode
-            >
-                <ng-container
-                    waAnalyserNode
-                    [fftSize]="fftSize"
-                    (timeByte$)="onTimeDomain($event)"
-                >
-                    <ng-container [waOutput]="chain || fallback" />
-                </ng-container>
-            </audio>
-            <ng-container *ngSwitchCase="'oscillator'">
-                <button
-                    *ngFor="let _ of buffers"
-                    #source="AudioNode"
-                    size="s"
-                    tuiButton
-                    type="button"
-                    waOscillatorNode
-                    [frequency]="100"
-                    [periodicWave]="real | waPeriodicWave"
-                    (click)="onClick(source, $any($event).target)"
-                >
-                    Play
-                    <ng-container
-                        waAnalyserNode
-                        [fftSize]="fftSize"
-                        (timeByte$)="onTimeDomain($event)"
+                </audio>
+            }
+            @case ('oscillator') {
+                @for (_ of buffers; track $index) {
+                    <button
+                        #source="AudioNode"
+                        size="s"
+                        tuiButton
+                        type="button"
+                        waOscillatorNode
+                        [frequency]="100"
+                        [periodicWave]="real | waPeriodicWave"
+                        (click)="onClick(source, $any($event).target)"
                     >
-                        <ng-container [waOutput]="chain || fallback" />
-                    </ng-container>
-                </button>
-            </ng-container>
-        </ng-container>
+                        Play
+                        <ng-container
+                            waAnalyserNode
+                            [fftSize]="fftSize"
+                            (timeByte$)="onTimeDomain($event)"
+                        >
+                            <ng-container [waOutput]="chain || fallback" />
+                        </ng-container>
+                    </button>
+                }
+            }
+        }
 
         <p>
             <canvas
@@ -179,8 +182,8 @@
             Complex
         </label>
 
-        <ng-container [ngSwitch]="selectedChain">
-            <ng-container *ngSwitchCase="'balance'">
+        @switch (selectedChain) {
+            @case ('balance') {
                 <fieldset
                     #chain="AudioNode"
                     waGainNode
@@ -213,9 +216,8 @@
                         </fieldset>
                     </fieldset>
                 </fieldset>
-            </ng-container>
-
-            <ng-container *ngSwitchCase="'delay'">
+            }
+            @case ('delay') {
                 <fieldset
                     #chain="AudioNode"
                     waGainNode
@@ -260,9 +262,8 @@
                         <legend>AudioDestinationNode</legend>
                     </fieldset>
                 </fieldset>
-            </ng-container>
-
-            <ng-container *ngSwitchCase="'complex'">
+            }
+            @case ('complex') {
                 <fieldset
                     #chain="AudioNode"
                     waBiquadFilterNode
@@ -355,7 +356,7 @@
                         </ng-container>
                     </fieldset>
                 </fieldset>
-            </ng-container>
-        </ng-container>
+            }
+        }
     </section>
-</ng-template>
+}

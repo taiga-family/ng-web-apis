@@ -8,7 +8,6 @@ import {
 } from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
 import {ViewTransitionService} from '@ng-web-apis/view-transition';
-import {TuiLet} from '@taiga-ui/cdk';
 import {TuiLink} from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';
 import {BehaviorSubject} from 'rxjs';
@@ -57,7 +56,7 @@ const USAGE_SAMPLE = `
 @Component({
     standalone: true,
     selector: 'view-transition-page',
-    imports: [CommonModule, HighlightModule, TuiLet, TuiLink],
+    imports: [CommonModule, HighlightModule, TuiLink],
     templateUrl: './view-transition-page.component.html',
     styleUrl: './view-transition-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,

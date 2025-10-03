@@ -1,4 +1,4 @@
-<ng-container *ngIf="isBrowser">
+@if (isBrowser) {
     <label
         tuiLabel
         class="recognition"
@@ -8,17 +8,21 @@
             Speech recognition
             <tui-tooltip content="Say «Ok, Angular» to start recording and «Thank you, Angular» to end" />
         </ng-template>
-        <ng-container *ngIf="record$ | async as result; else placeholder">
-            <span
-                *ngFor="let result of result"
-                class="transcript"
-                [class.transcript_final]="result.isFinal"
-            >
-                {{ result[0]?.transcript }}
-            </span>
-            &nbsp;
-        </ng-container>
-        <ng-template #placeholder>Say «Ok, Angular»...</ng-template>
+
+        @let result = record$ | async;
+
+        @if (result) {
+            @for (item of result; track $index) {
+                <span
+                    class="transcript"
+                    [class.transcript_final]="item.isFinal"
+                >
+                    {{ item[0]?.transcript }}
+                </span>
+            }
+        } @else {
+            Say «Ok, Angular»...
+        }
     </label>
     <tui-select
         [valueContent]="nameExtractor"
@@ -26,14 +30,17 @@
     >
         Voice
         <tui-data-list *tuiDataList>
-            <button
-                *ngFor="let item of voices$ | async; trackBy: voiceByName"
-                tuiOption
-                type="button"
-                [value]="item"
-            >
-                {{ item.name }}
-            </button>
+            @let voices = voices$ | async;
+
+            @for (item of voices; track voiceByName) {
+                <button
+                    tuiOption
+                    type="button"
+                    [value]="item"
+                >
+                    {{ item.name }}
+                </button>
+            }
         </tui-data-list>
     </tui-select>
     <tui-textarea
@@ -120,4 +127,4 @@
             Tip: say «Hide sidebar» when you're done
         </div>
     </div>
-</ng-container>
+}

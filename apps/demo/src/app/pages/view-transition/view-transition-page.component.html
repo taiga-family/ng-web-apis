@@ -7,44 +7,41 @@
 <pre><code [highlight]="codeSample" [languages]="['ts']"></code></pre>
 <h2>Basic example</h2>
 
-<ng-container *tuiLet="{detailInfo: detailInfo$ | async, activeIndex: activeIndex$ | async} as context">
-    <div
-        *ngIf="!context.detailInfo"
-        class="photos"
-    >
-        <div
-            *ngFor="let item of data; let index = index"
-            class="photo"
-            (click)="open(index)"
-        >
-            <span class="author">
-                Photo by
-                <a
-                    target="_blank"
-                    [href]="item.url"
-                >
-                    {{ item.author }}
-                </a>
-            </span>
-            <img
-                alt="img"
-                [src]="item.src"
-                [style.viewTransitionName]="context.activeIndex === index ? 'expandable-image' : null"
-            />
-        </div>
-    </div>
+@let context = {detailInfo: detailInfo$ | async, activeIndex: activeIndex$ | async};
 
-    <div
-        *ngIf="context.detailInfo"
-        class="expanded-photo"
-    >
+@if (context.detailInfo) {
+    <div class="expanded-photo">
         <img
             alt="image"
             [src]="context.detailInfo.src"
             (click)="close()"
         />
     </div>
-</ng-container>
+} @else {
+    <div class="photos">
+        @for (item of data; track $index) {
+            <div
+                class="photo"
+                (click)="open($index)"
+            >
+                <span class="author">
+                    Photo by
+                    <a
+                        target="_blank"
+                        [href]="item.url"
+                    >
+                        {{ item.author }}
+                    </a>
+                </span>
+                <img
+                    alt="img"
+                    [src]="item.src"
+                    [style.viewTransitionName]="context.activeIndex === $index ? 'expandable-image' : null"
+                />
+            </div>
+        }
+    </div>
+}
 
 <a
     href="https://www.pexels.com"

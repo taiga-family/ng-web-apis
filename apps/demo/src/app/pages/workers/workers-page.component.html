@@ -1,4 +1,4 @@
-<ng-container *ngIf="isBrowser">
+@if (isBrowser) {
     <app-clock />
 
     <div class="example">
@@ -25,4 +25,4 @@
         <p>Execution time: {{ result$ | async }}</p>
         <tui-notification size="m">This would freeze your main thread for several seconds</tui-notification>
     </div>
-</ng-container>
+}

@@ -1,6 +1,10 @@
-<p *ngIf="!supported">Web MIDI API is not supported by your browser</p>
-<demo *ngIf="started; else button" />
-<ng-template #button>
+@if (!supported) {
+    <p>Web MIDI API is not supported by your browser</p>
+}
+
+@if (started) {
+    <demo />
+} @else {
     <button
         appearance="secondary"
         tuiButton
@@ -9,4 +13,4 @@
     >
         Start AudioContext
     </button>
-</ng-template>
+}

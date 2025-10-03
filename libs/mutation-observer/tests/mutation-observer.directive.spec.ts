@@ -1,4 +1,3 @@
-import {NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
@@ -8,24 +7,26 @@ window.onbeforeunload = jasmine.createSpy();
 describe('MutationObserverDirective', () => {
     @Component({
         standalone: true,
-        imports: [NgIf, WaMutationObserver],
+        imports: [WaMutationObserver],
         template: `
-            <section
-                *ngIf="observe"
-                childList
-                (waMutationObserver)="onMutation()"
-            >
-                Content
-                <div
-                    *ngIf="child"
-                    attributeFilter="title"
-                    [attr.aria-label]="label"
-                    [title]="title"
-                    (waMutationObserver)="onAttributes()"
+            @if (observe) {
+                <section
+                    childList
+                    (waMutationObserver)="onMutation()"
                 >
-                    Child
-                </div>
-            </section>
+                    Content
+                    @if (child) {
+                        <div
+                            attributeFilter="title"
+                            [attr.aria-label]="label"
+                            [title]="title"
+                            (waMutationObserver)="onAttributes()"
+                        >
+                            Child
+                        </div>
+                    }
+                </section>
+            }
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })

@@ -48,8 +48,10 @@
     (waMutationObserver)="log($event)"
 >
     I am being observed for text changes, DOM changes and "title" and "disabled" attributes: {{ text }}
-    <div *ngIf="toggled; else default">I am dynamically added DOM element</div>
-    <ng-template #default>
+
+    @if (toggled) {
+        I am dynamically added DOM element
+    } @else {
         <div>See console for logged mutations</div>
-    </ng-template>
+    }
 </div>

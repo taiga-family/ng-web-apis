@@ -33,153 +33,160 @@
     Inject it into your component and investigate all example above.
 </p>
 
-<section *ngIf="notificationPermissionState$ | async as notificationPermission">
-    <tui-doc-example
-        heading="Getting Permissions"
-        [content]="gettingPermissionExample"
-        [description]="permissionDescription"
-    >
-        <ng-template #permissionDescription>
-            Before an app can send a notification, the user must grant the application the right to do so.
+@let notificationPermission = notificationPermissionState$ | async;
 
-            <p>
+@if (notificationPermission) {
+    <section>
+        <tui-doc-example
+            heading="Getting Permissions"
+            [content]="gettingPermissionExample"
+            [description]="permissionDescription"
+        >
+            <ng-template #permissionDescription>
+                Before an app can send a notification, the user must grant the application the right to do so.
+
+                <p>
+                    Use
+                    <code>requestPermission</code>
+                    method to request consent to display notifications.
+                    <br />
+                    It returns Observable which emits value after user select option inside system prompt.
+                </p>
+            </ng-template>
+
+            <tui-notification
+                appearance="warning"
+                size="m"
+            >
+                <div>
+                    Notification prompting can only be done from a user gesture (e.g. clicking a button)!
+                    <br />
+                    Otherwise, some browsers will silently disallow notification permission requests.
+                </div>
+            </tui-notification>
+
+            <notification-page-example-1 />
+        </tui-doc-example>
+
+        <tui-doc-example
+            heading="Create notification"
+            [content]="createNotificationExample"
+            [description]="createNotificationDescription"
+        >
+            <ng-template #createNotificationDescription>
                 Use
-                <code>requestPermission</code>
-                method to request consent to display notifications.
-                <br />
-                It returns Observable which emits value after user select option inside system prompt.
-            </p>
-        </ng-template>
+                <code>open</code>
+                method to create a notification.
+                <p>
+                    The first argument is a
+                    <strong>title</strong>
+                    to display within the notification.
+                </p>
+                <p>
+                    The second argument contains many experimental
+                    <strong>options</strong>
+                    to enhance the notification behavior and appearance.
+                    <br />
+                    See the full
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/Notification"
+                        rel="noreferrer"
+                        target="_blank"
+                        tuiLink
+                    >
+                        list of available options
+                    </a>
+                    .
+                </p>
+            </ng-template>
 
-        <tui-notification
-            appearance="warning"
-            size="m"
-        >
-            <div>
-                Notification prompting can only be done from a user gesture (e.g. clicking a button)!
-                <br />
-                Otherwise, some browsers will silently disallow notification permission requests.
-            </div>
-        </tui-notification>
-
-        <notification-page-example-1 />
-    </tui-doc-example>
-
-    <tui-doc-example
-        heading="Create notification"
-        [content]="createNotificationExample"
-        [description]="createNotificationDescription"
-    >
-        <ng-template #createNotificationDescription>
-            Use
-            <code>open</code>
-            method to create a notification.
-            <p>
-                The first argument is a
-                <strong>title</strong>
-                to display within the notification.
-            </p>
-            <p>
-                The second argument contains many experimental
-                <strong>options</strong>
-                to enhance the notification behavior and appearance.
-                <br />
-                See the full
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/API/Notification/Notification"
-                    rel="noreferrer"
-                    target="_blank"
-                    tuiLink
+            @if (notificationPermission === 'denied') {
+                <tui-notification
+                    appearance="error"
+                    size="m"
                 >
-                    list of available options
-                </a>
-                .
-            </p>
-        </ng-template>
+                    {{ deniedPermissionNotification }}
+                </tui-notification>
+            }
 
-        <tui-notification
-            *ngIf="notificationPermission === 'denied'"
-            appearance="error"
-            size="m"
+            <notification-page-example-2 />
+        </tui-doc-example>
+
+        <tui-doc-example
+            heading="Close notification"
+            [content]="closeNotificationExample"
+            [description]="closeNotificationDescription"
         >
-            {{ deniedPermissionNotification }}
-        </tui-notification>
+            <ng-template #closeNotificationDescription>
+                <p>
+                    The observable (returned by
+                    <code>open</code>
+                    method) automatically
+                    <strong>completes</strong>
+                    the stream when the notification is closed (e.g. user clicks the close button).
+                </p>
 
-        <notification-page-example-2 />
-    </tui-doc-example>
+                <p>
+                    You can also close the notification manually by closing the stream by
+                    <code>takeUntil</code>
+                    operator.
+                </p>
+            </ng-template>
 
-    <tui-doc-example
-        heading="Close notification"
-        [content]="closeNotificationExample"
-        [description]="closeNotificationDescription"
-    >
-        <ng-template #closeNotificationDescription>
-            <p>
+            @if (notificationPermission === 'denied') {
+                <tui-notification
+                    appearance="error"
+                    size="m"
+                >
+                    {{ deniedPermissionNotification }}
+                </tui-notification>
+            }
+
+            <notification-page-example-3 />
+        </tui-doc-example>
+
+        <tui-doc-example
+            heading="Listen to notification events"
+            [content]="listenNotificationEventsExample"
+            [description]="listenEventDescription"
+        >
+            <ng-template #listenEventDescription>
                 The observable (returned by
                 <code>open</code>
-                method) automatically
-                <strong>completes</strong>
-                the stream when the notification is closed (e.g. user clicks the close button).
-            </p>
-
-            <p>
-                You can also close the notification manually by closing the stream by
-                <code>takeUntil</code>
-                operator.
-            </p>
-        </ng-template>
-
-        <tui-notification
-            *ngIf="notificationPermission === 'denied'"
-            appearance="error"
-            size="m"
-        >
-            {{ deniedPermissionNotification }}
-        </tui-notification>
-
-        <notification-page-example-3 />
-    </tui-doc-example>
-
-    <tui-doc-example
-        heading="Listen to notification events"
-        [content]="listenNotificationEventsExample"
-        [description]="listenEventDescription"
-    >
-        <ng-template #listenEventDescription>
-            The observable (returned by
-            <code>open</code>
-            method) emits
-            <code>Notification</code>
-            instance after its successful creation.
-
-            <p>
-                Use rxjs function
-                <code>fromEvent</code>
-                to listen events that can be triggered on the
+                method) emits
                 <code>Notification</code>
-                instance.
-                <br />
-                See the full
-                <a
-                    href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API#notification_events"
-                    rel="noreferrer"
-                    target="_blank"
-                    tuiLink
+                instance after its successful creation.
+
+                <p>
+                    Use rxjs function
+                    <code>fromEvent</code>
+                    to listen events that can be triggered on the
+                    <code>Notification</code>
+                    instance.
+                    <br />
+                    See the full
+                    <a
+                        href="https://developer.mozilla.org/en-US/docs/Web/API/Notifications_API/Using_the_Notifications_API#notification_events"
+                        rel="noreferrer"
+                        target="_blank"
+                        tuiLink
+                    >
+                        list of available events
+                    </a>
+                    .
+                </p>
+            </ng-template>
+
+            @if (notificationPermission === 'denied') {
+                <tui-notification
+                    appearance="error"
+                    size="m"
                 >
-                    list of available events
-                </a>
-                .
-            </p>
-        </ng-template>
+                    {{ deniedPermissionNotification }}
+                </tui-notification>
+            }
 
-        <tui-notification
-            *ngIf="notificationPermission === 'denied'"
-            appearance="error"
-            size="m"
-        >
-            {{ deniedPermissionNotification }}
-        </tui-notification>
-
-        <notification-page-example-4 />
-    </tui-doc-example>
-</section>
+            <notification-page-example-4 />
+        </tui-doc-example>
+    </section>
+}
