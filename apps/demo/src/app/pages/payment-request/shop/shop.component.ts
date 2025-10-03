@@ -1,4 +1,3 @@
-import {NgForOf, NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {WaPaymentRequest} from '@ng-web-apis/payment-request';
 
@@ -20,7 +19,7 @@ class ShopItem implements PaymentItem {
 @Component({
     standalone: true,
     selector: 'app-shop',
-    imports: [NgForOf, NgIf, WaPaymentRequest],
+    imports: [WaPaymentRequest],
     templateUrl: './shop.component.html',
     styleUrl: './shop.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,

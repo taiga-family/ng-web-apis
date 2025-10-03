@@ -1,6 +1,8 @@
-<ng-container *ngIf="notes$ | async as notes">
-    <ng-container *ngFor="let note of notes | keyvalue; trackBy: noteKey">
-        <ng-container *ngIf="note.value !== null">
+@let notes = notes$ | async;
+
+@if (notes) {
+    @for (note of notes | keyvalue; track noteKey) {
+        @if (note.value !== null) {
             <ng-container
                 autoplay
                 detune="5"
@@ -31,8 +33,9 @@
                     <ng-container [waOutput]="convolver" />
                 </ng-container>
             </ng-container>
-        </ng-container>
-    </ng-container>
+        }
+    }
+
     <ng-container
         #convolver="AudioNode"
         waConvolverNode
@@ -41,10 +44,11 @@
         <ng-container waAudioDestinationNode />
     </ng-container>
 
-    <div
-        *ngFor="let key of octaves"
-        [class]="getClass(notes, key)"
-        (mousedown)="onMouseDown(key)"
-        (touchstart)="onMouseDown(key)"
-    ></div>
-</ng-container>
+    @for (key of octaves; track $index) {
+        <div
+            [class]="getClass(notes, key)"
+            (mousedown)="onMouseDown(key)"
+            (touchstart)="onMouseDown(key)"
+        ></div>
+    }
+}

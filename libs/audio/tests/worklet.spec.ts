@@ -1,4 +1,4 @@
-import {AsyncPipe, NgIf} from '@angular/common';
+import {AsyncPipe} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
@@ -13,18 +13,21 @@ window.onbeforeunload = jasmine.createSpy();
 describe('AudioWorkletNode', () => {
     @Component({
         standalone: true,
-        imports: [AsyncPipe, NgIf, WaWebAudio],
+        imports: [AsyncPipe, WaWebAudio],
         template: `
-            <div
-                *ngIf="ready | async"
-                name="test"
-                waAudioWorkletNode
-            ></div>
+            @let ready = ready$ | async;
+
+            @if (ready) {
+                <div
+                    name="test"
+                    waAudioWorkletNode
+                ></div>
+            }
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        protected readonly ready = inject(AUDIO_WORKLET_PROCESSORS_READY);
+        protected readonly ready$ = inject(AUDIO_WORKLET_PROCESSORS_READY);
 
         @ViewChild(WebAudioWorklet)
         public node!: AudioNode;

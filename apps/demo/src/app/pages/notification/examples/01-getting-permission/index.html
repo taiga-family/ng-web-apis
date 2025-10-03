@@ -1,24 +1,17 @@
-<ng-container [ngSwitch]="notificationPermissionState$ | async">
-    <tui-badge
-        *ngSwitchCase="'granted'"
-        appearance="success"
-    >
-        Permission is granted
-    </tui-badge>
-
-    <tui-badge
-        *ngSwitchCase="'denied'"
-        appearance="error"
-    >
-        Permission is denied
-    </tui-badge>
-
-    <button
-        *ngSwitchDefault
-        tuiButton
-        type="button"
-        (click)="requestPermission()"
-    >
-        Request permission
-    </button>
-</ng-container>
+@switch (notificationPermissionState$ | async) {
+    @case ('granted') {
+        <tui-badge appearance="success">Permission is granted</tui-badge>
+    }
+    @case ('denied') {
+        <tui-badge appearance="error">Permission is denied</tui-badge>
+    }
+    @default {
+        <button
+            tuiButton
+            type="button"
+            (click)="requestPermission()"
+        >
+            Request permission
+        </button>
+    }
+}

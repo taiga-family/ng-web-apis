@@ -32,24 +32,25 @@ to use with
     RxJS operator. Service is cold, meaning if there are no Subscribers, it doesn't track position
 </p>
 
-<button
-    *ngIf="!watch"
-    appearance="secondary"
-    tuiButton
-    type="button"
-    (click)="watch = true"
->
-    Get my position!
-</button>
+@if (watch) {
+    @let position = geolocation$ | async;
 
-<ng-container *ngIf="watch">
-    <iframe
-        *ngIf="geolocation$ | async as position; else loading"
-        alt="url"
-        title="geolocation"
-        [src]="getUrl(position)"
-    ></iframe>
-    <ng-template #loading>
+    @if (position) {
+        <iframe
+            alt="url"
+            title="geolocation"
+            [src]="getUrl(position)"
+        ></iframe>
+    } @else {
         <tui-loader />
-    </ng-template>
-</ng-container>
+    }
+} @else {
+    <button
+        appearance="secondary"
+        tuiButton
+        type="button"
+        (click)="watch = true"
+    >
+        Get my position!
+    </button>
+}

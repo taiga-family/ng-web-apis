@@ -140,11 +140,12 @@
         </label>
 
         <tui-files>
-            <tui-file
-                *ngIf="file"
-                tuiItem
-                [file]="file"
-            />
+            @if (file) {
+                <tui-file
+                    tuiItem
+                    [file]="file"
+                />
+            }
         </tui-files>
 
         <tui-expand
