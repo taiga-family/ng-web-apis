@@ -1,5 +1,11 @@
-import type {OnChanges} from '@angular/core';
-import {Directive, EventEmitter, inject, Input, Output} from '@angular/core';
+import {
+    Directive,
+    EventEmitter,
+    inject,
+    Input,
+    type OnChanges,
+    Output,
+} from '@angular/core';
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({

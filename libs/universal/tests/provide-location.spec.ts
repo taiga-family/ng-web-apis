@@ -1,4 +1,4 @@
-import type {IncomingMessage} from 'node:http';
+import {type IncomingMessage} from 'node:http';
 
 import {TestBed} from '@angular/core/testing';
 import {provideLocation, SSR_LOCATION} from '@ng-web-apis/universal';

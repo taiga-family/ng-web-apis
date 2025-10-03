@@ -1,5 +1,4 @@
-import type {Signal} from '@angular/core';
-import {inject, InjectionToken} from '@angular/core';
+import {inject, InjectionToken, type Signal} from '@angular/core';
 import {toSignal} from '@angular/core/rxjs-interop';
 import {WA_WINDOW} from '@ng-web-apis/common';
 import {fromEvent, map} from 'rxjs';

@@ -1,5 +1,5 @@
-import type {OnDestroy} from '@angular/core';
-import {Attribute, Directive, forwardRef} from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
+import {Attribute, Directive, forwardRef, type OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {latencyHintFactory} from '../utils/latency-hint-factory';

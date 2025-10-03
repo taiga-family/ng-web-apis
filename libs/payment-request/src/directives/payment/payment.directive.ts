@@ -1,7 +1,6 @@
-import type {QueryList} from '@angular/core';
-import {ContentChildren, Directive, Input} from '@angular/core';
+import {ContentChildren, Directive, Input, type QueryList} from '@angular/core';
 
-import type {PaymentShippingOption} from '../../tokens/payment-options';
+import {type PaymentShippingOption} from '../../tokens/payment-options';
 import {WaPaymentItem} from '../payment-item/payment-item.directive';
 
 @Directive({

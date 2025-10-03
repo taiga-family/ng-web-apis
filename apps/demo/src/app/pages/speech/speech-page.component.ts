@@ -1,24 +1,22 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import type {SpeechSynthesisUtteranceOptions} from '@ng-web-apis/speech';
 import {
     continuous,
     isSaid,
     skipUntilSaid,
     SPEECH_SYNTHESIS_VOICES,
     SpeechRecognitionService,
+    type SpeechSynthesisUtteranceOptions,
     takeUntilSaid,
     UtterancePipe,
     WaTextToSpeech,
 } from '@ng-web-apis/speech';
 import {TuiSidebar} from '@taiga-ui/addon-mobile';
-import type {TuiContext} from '@taiga-ui/cdk';
-import {TuiLet, tuiPure} from '@taiga-ui/cdk';
+import {type TuiContext, tuiPure} from '@taiga-ui/cdk';
 import {TuiButton, TuiDataList, TuiLabel} from '@taiga-ui/core';
 import {TuiSelectModule, TuiTextareaModule, TuiTooltipModule} from '@taiga-ui/legacy';
-import type {Observable} from 'rxjs';
-import {filter, map, merge, repeat, retry, share} from 'rxjs';
+import {filter, map, merge, type Observable, repeat, retry, share} from 'rxjs';
 
 @Component({
     standalone: true,
@@ -29,7 +27,6 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
         TuiButton,
         TuiDataList,
         TuiLabel,
-        TuiLet,
         TuiSelectModule,
         TuiSidebar,
         TuiTextareaModule,
@@ -38,7 +35,7 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
         WaTextToSpeech,
     ],
     templateUrl: './speech-page.component.html',
-    styleUrls: ['./speech-page.component.less'],
+    styleUrl: './speech-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class SpeechPage {

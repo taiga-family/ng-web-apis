@@ -8,7 +8,7 @@ import {RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-obs
     selector: 'resize-observer-page',
     imports: [CommonModule, FormsModule, WaResizeObserver],
     templateUrl: './resize-observer-page.component.html',
-    styleUrls: ['./resize-observer-page.component.less'],
+    styleUrl: './resize-observer-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ResizeObserverPage {

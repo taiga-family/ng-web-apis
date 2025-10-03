@@ -1,5 +1,13 @@
-import type {OnDestroy} from '@angular/core';
-import {Attribute, Directive, EventEmitter, inject, Input, Output} from '@angular/core';
+import {
+    // eslint-disable-next-line no-restricted-imports
+    Attribute,
+    Directive,
+    EventEmitter,
+    inject,
+    Input,
+    type OnDestroy,
+    Output,
+} from '@angular/core';
 import {of, Subject, switchMap} from 'rxjs';
 
 import {audioParam} from '../decorators/audio-param';
@@ -7,7 +15,7 @@ import {AudioBufferService} from '../services/audio-buffer.service';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
 import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import type {AudioParamInput} from '../types/audio-param-input';
+import {type AudioParamInput} from '../types/audio-param-input';
 import {parse} from '../utils/parse';
 
 @Directive({
@@ -68,7 +76,6 @@ export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDes
         }
     }
 
-    // eslint-disable-next-line @typescript-eslint/max-params
     protected static init(
         that: WebAudioBufferSource,
         _node: AudioNode | null,

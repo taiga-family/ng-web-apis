@@ -1,5 +1,4 @@
-import type {MonoTypeOperatorFunction} from 'rxjs';
-import {filter, map} from 'rxjs';
+import {filter, map, type MonoTypeOperatorFunction} from 'rxjs';
 
 import {between} from '../utils/between';
 
@@ -14,8 +13,13 @@ export function notes(): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
             filter(({data}) => between(data[0] ?? 0, 128, 159)),
             map((event) => {
                 if (between(event.data[0] ?? 0, 128, 143)) {
-                    event.data[0] += 16;
-                    event.data[2] = 0;
+                    if (event.data[0]) {
+                        event.data[0] += 16;
+                    }
+
+                    if (event.data[2]) {
+                        event.data[2] = 0;
+                    }
                 }
 
                 return event;

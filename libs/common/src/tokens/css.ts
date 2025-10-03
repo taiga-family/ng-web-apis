@@ -4,7 +4,7 @@ import {WINDOW} from './window';
 
 declare global {
     interface Window {
-        CSS: typeof CSS;
+        CSS: typeof CSS | null;
     }
 }
 
@@ -12,10 +12,10 @@ export const WA_CSS = new InjectionToken<typeof CSS>('[WA_CSS]', {
     factory: () =>
         inject(WINDOW).CSS ??
         ({
-            escape: (v) => v,
+            escape: (v: string) => v,
             // eslint-disable-next-line no-restricted-syntax
             supports: () => false,
-        } satisfies typeof CSS),
+        } as unknown as typeof CSS),
 });
 
 /**

@@ -1,6 +1,6 @@
 import {Directive, Input} from '@angular/core';
 
-import type {CanvasMethod} from '../interfaces/canvas-method';
+import {type CanvasMethod} from '../interfaces/canvas-method';
 import {WaCanvasClipPath} from '../methods/clip-path';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 

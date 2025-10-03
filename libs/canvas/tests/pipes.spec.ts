@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -16,15 +15,15 @@ describe('Pipes', () => {
                 [fillStyle]="grad | gradient: 0 : 0 : 1 : 1"
                 [strokeStyle]="img | pattern"
             >
-                <canvas-arc [endAngle]="360 | rad"></canvas-arc>
+                <canvas-arc [endAngle]="360 | rad" />
                 <canvas-rect
                     [height]="100"
                     [width]="100"
                     [x]="0"
                     [y]="0"
-                ></canvas-rect>
+                />
             </canvas-path>
-            <canvas-path [path]="'L 1 1' | path"></canvas-path>
+            <canvas-path [path]="'L 1 1' | path" />
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })

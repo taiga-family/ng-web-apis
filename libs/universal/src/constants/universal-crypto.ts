@@ -1,4 +1,4 @@
-import type {ValueProvider} from '@angular/core';
+import {type ValueProvider} from '@angular/core';
 import {CRYPTO} from '@ng-web-apis/common';
 
 import {alwaysRejected, identity} from '../utils/functions';

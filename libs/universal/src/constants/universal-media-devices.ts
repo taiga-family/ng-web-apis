@@ -1,4 +1,4 @@
-import type {ValueProvider} from '@angular/core';
+import {type ValueProvider} from '@angular/core';
 import {MEDIA_DEVICES} from '@ng-web-apis/common';
 
 import {NAVIGATOR_MOCK} from './universal-navigator';

@@ -1,6 +1,14 @@
 import {Directive, ElementRef, inject, Output} from '@angular/core';
-import type {Observable} from 'rxjs';
-import {catchError, filter, from, fromEvent, of, share, switchMap} from 'rxjs';
+import {
+    catchError,
+    filter,
+    from,
+    fromEvent,
+    type Observable,
+    of,
+    share,
+    switchMap,
+} from 'rxjs';
 
 import {PaymentRequestService} from '../../services/payment-request.service';
 import {PAYMENT_METHODS} from '../../tokens/payment-methods';

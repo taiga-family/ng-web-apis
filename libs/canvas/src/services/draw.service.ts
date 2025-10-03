@@ -1,12 +1,11 @@
-import type {OnDestroy} from '@angular/core';
-import {inject, Injectable, NgZone} from '@angular/core';
+import {inject, Injectable, NgZone, type OnDestroy} from '@angular/core';
 import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
-import type {Subscription} from 'rxjs';
+import {type Subscription} from 'rxjs';
 
-import type {CanvasMethod} from '../interfaces/canvas-method';
+import {type CanvasMethod} from '../interfaces/canvas-method';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 import {CANVAS_PROPERTIES} from '../tokens/canvas-properties';
-import type {Context2dProcessor} from '../types/context-processor';
+import {type Context2dProcessor} from '../types/context-processor';
 
 @Injectable()
 export class WaDrawService implements OnDestroy, CanvasMethod {

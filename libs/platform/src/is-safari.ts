@@ -1,3 +1,5 @@
+/* eslint-disable @typescript-eslint/no-unnecessary-condition,@typescript-eslint/no-unnecessary-type-conversion */
+
 // TODO: Drop change to Document in v5
 export function isSafari({ownerDocument: doc}: Element): boolean {
     const win = doc?.defaultView as unknown as Window & {safari?: any};

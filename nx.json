@@ -4,6 +4,9 @@
         "libsDir": "libs",
         "appsDir": "apps"
     },
+    "tui": {
+        "enabled": false
+    },
     "targetDefaults": {
         "build": {
             "inputs": ["production", "^production"],

@@ -1,7 +1,6 @@
-import type {OnDestroy} from '@angular/core';
-import {Attribute, Directive, inject, Output} from '@angular/core';
-import type {Observable} from 'rxjs';
-import {animationFrameScheduler, interval, map, share} from 'rxjs';
+// eslint-disable-next-line no-restricted-imports
+import {Attribute, Directive, inject, type OnDestroy, Output} from '@angular/core';
+import {animationFrameScheduler, interval, map, type Observable, share} from 'rxjs';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -38,7 +37,6 @@ export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
     @Output()
     public timeFloat$!: Observable<Float32Array>;
 
-    // eslint-disable-next-line @typescript-eslint/max-params
     constructor(
         @Attribute('fftSize') fftSizeArg: string | null,
         @Attribute('maxDecibels') maxDecibelsArg: string | null,

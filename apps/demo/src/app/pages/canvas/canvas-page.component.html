@@ -131,17 +131,21 @@
     </fieldset>
 
     <fieldset>
-        <!-- TODO: (Taiga UI migration) Native input inside is now required and the wrapper has changed from <tui-input-files to <label tuiInputFiles, control moved to native input. See interactive example https://taiga-ui.dev/components/input-files -->
-        <tui-input-files
-            class="child"
-            [ngModel]="file"
-            (ngModelChange)="onFile($event)"
-        >
+        <label tuiInputFiles>
             <input
-                accept="image/*"
                 tuiInputFiles
+                [ngModel]="file"
+                (ngModelChange)="onFile($event)"
             />
-        </tui-input-files>
+        </label>
+
+        <tui-files>
+            <tui-file
+                *ngIf="file"
+                tuiItem
+                [file]="file"
+            />
+        </tui-files>
 
         <tui-expand
             class="child"

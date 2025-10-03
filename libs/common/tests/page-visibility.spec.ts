@@ -1,7 +1,6 @@
 import {TestBed} from '@angular/core/testing';
 import {WA_PAGE_VISIBILITY} from '@ng-web-apis/common';
-import type {Observable} from 'rxjs';
-import {first} from 'rxjs';
+import {first, type Observable} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 

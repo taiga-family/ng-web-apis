@@ -269,7 +269,7 @@
                     [detune]="detune | waAudioParam: 0.1"
                     [frequency]="frequency | waAudioParam: 0.1"
                     [gain]="filterGain | waAudioParam: 0.1"
-                    [Q]="Q | waAudioParam: 0.1"
+                    [Q]="q | waAudioParam: 0.1"
                     [type]="type"
                 >
                     <legend>BiquadFilterNode</legend>
@@ -311,7 +311,7 @@
                             min="1"
                             tuiSlider
                             type="range"
-                            [(ngModel)]="Q"
+                            [(ngModel)]="q"
                         />
                     </label>
                     <label tuiLabel>

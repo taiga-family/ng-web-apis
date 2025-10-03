@@ -1,6 +1,6 @@
 import {ContentChildren, Directive, inject, Input, QueryList} from '@angular/core';
 
-import type {CanvasMethod} from '../interfaces/canvas-method';
+import {type CanvasMethod} from '../interfaces/canvas-method';
 import {WaDrawService} from '../services/draw.service';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 

@@ -1,4 +1,4 @@
-import type {ValueProvider} from '@angular/core';
+import {type ValueProvider} from '@angular/core';
 import {CACHES} from '@ng-web-apis/common';
 
 import {alwaysRejected} from '../utils/functions';

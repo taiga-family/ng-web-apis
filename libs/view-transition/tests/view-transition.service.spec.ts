@@ -114,7 +114,6 @@ describe('ViewTransitionService', () => {
             });
             const service = TestBed.inject(ViewTransitionService);
 
-            // eslint-disable-next-line jest/no-jasmine-globals
             const skipSpy = spyOn(viewTransitionValue, 'skipTransition');
             const observable = service.startViewTransition(() => {});
 

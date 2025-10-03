@@ -1,5 +1,12 @@
-import type {OnDestroy, QueryList} from '@angular/core';
-import {Attribute, ContentChildren, Directive, inject} from '@angular/core';
+import {
+    // eslint-disable-next-line no-restricted-imports
+    Attribute,
+    ContentChildren,
+    Directive,
+    inject,
+    type OnDestroy,
+    type QueryList,
+} from '@angular/core';
 
 import {WebAudioChannel} from '../directives/channel';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';

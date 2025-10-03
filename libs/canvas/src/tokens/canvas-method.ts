@@ -1,7 +1,6 @@
-import type {ExistingProvider, Type} from '@angular/core';
-import {InjectionToken} from '@angular/core';
+import {type ExistingProvider, InjectionToken, type Type} from '@angular/core';
 
-import type {CanvasMethod} from '../interfaces/canvas-method';
+import {type CanvasMethod} from '../interfaces/canvas-method';
 
 export const WA_CANVAS_METHOD = new InjectionToken<CanvasMethod>('[WA_CANVAS_METHOD]');
 

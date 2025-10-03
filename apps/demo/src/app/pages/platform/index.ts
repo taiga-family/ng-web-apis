@@ -8,7 +8,7 @@ import {MarkdownModule} from 'ngx-markdown';
     selector: 'platform-page',
     imports: [CommonModule, MarkdownModule],
     templateUrl: './index.html',
-    styles: ['.example {max-inline-size: 50rem; margin: 2rem auto }'],
+    styles: '.example {max-inline-size: 50rem; margin: 2rem auto }',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CommonPage {

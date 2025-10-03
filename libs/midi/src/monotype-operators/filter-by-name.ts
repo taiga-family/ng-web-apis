@@ -1,5 +1,4 @@
-import type {MonoTypeOperatorFunction} from 'rxjs';
-import {filter} from 'rxjs';
+import {filter, type MonoTypeOperatorFunction} from 'rxjs';
 
 /**
  * Filter MIDI messages by MIDIInput name

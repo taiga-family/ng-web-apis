@@ -1,9 +1,12 @@
 export class FakePermissionStatus implements PermissionStatus {
     public readonly name: string = 'fakePermissionStatus';
+    public state: PermissionState;
 
     public onchange: ((this: PermissionStatus, ev: Event) => any) | null = null;
 
-    constructor(public state: PermissionState) {}
+    constructor(state: PermissionState) {
+        this.state = state;
+    }
 
     public simulateStateChange(state: PermissionState): void {
         this.state = state;
@@ -20,7 +23,7 @@ export class FakePermissionStatus implements PermissionStatus {
         listener: (this: PermissionStatus, ev: PermissionStatusEventMap[K]) => any,
         _options?: AddEventListenerOptions | boolean,
     ): void {
-        if (type !== 'change') {
+        if ((type as string) !== 'change') {
             throw new Error(`Listeners for event "${type}" are not supported`);
         }
 
@@ -32,7 +35,7 @@ export class FakePermissionStatus implements PermissionStatus {
         _listener: (this: PermissionStatus, ev: PermissionStatusEventMap[K]) => any,
         _options?: EventListenerOptions | boolean,
     ): void {
-        if (type !== 'change') {
+        if ((type as string) !== 'change') {
             throw new Error(`Listeners for event "${type}" are not supported`);
         }
 

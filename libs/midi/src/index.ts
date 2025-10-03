@@ -24,7 +24,7 @@ export * from './tokens/midi-output';
 export * from './tokens/midi-outputs';
 export * from './tokens/midi-support';
 export * from './tokens/sysex';
-export * from './types/midi-channel';
+export type * from './types/midi-channel';
 export * from './utils/between';
 export * from './utils/input-by-id';
 export * from './utils/input-by-name';

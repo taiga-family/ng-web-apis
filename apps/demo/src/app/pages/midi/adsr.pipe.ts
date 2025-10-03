@@ -1,13 +1,11 @@
-import type {PipeTransform} from '@angular/core';
-import {Pipe} from '@angular/core';
-import type {AudioParamInput} from '@ng-web-apis/audio';
+import {Pipe, type PipeTransform} from '@angular/core';
+import {type AudioParamInput} from '@ng-web-apis/audio';
 
 @Pipe({
     standalone: true,
     name: 'adsr',
 })
 export class AdsrPipe implements PipeTransform {
-    // eslint-disable-next-line @typescript-eslint/max-params
     public transform(
         value: number,
         attack: number,

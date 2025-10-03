@@ -1,9 +1,9 @@
-import type {AudioNodeWithParams} from '../types/audio-node-with-params';
-import type {
-    AudioParamDecorator,
-    AudioParamWorkletDecorator,
+import {type AudioNodeWithParams} from '../types/audio-node-with-params';
+import {
+    type AudioParamDecorator,
+    type AudioParamWorkletDecorator,
 } from '../types/audio-param-decorator';
-import type {AudioParamInput} from '../types/audio-param-input';
+import {type AudioParamInput} from '../types/audio-param-input';
 import {processAudioParam} from '../utils/process-audio-param';
 
 export function audioParam(): AudioParamWorkletDecorator;

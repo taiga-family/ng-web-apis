@@ -6,7 +6,7 @@ import {fromEvent, map, Observable, shareReplay, startWith} from 'rxjs';
     providedIn: 'root',
 })
 export class ScreenOrientationService extends Observable<OrientationType> {
-    private readonly win: Window = inject(WA_WINDOW);
+    private readonly win = inject(WA_WINDOW);
 
     private readonly stream$ = (this.isModern
         ? fromEvent(this.win.screen.orientation, 'change').pipe(
@@ -57,6 +57,6 @@ export class ScreenOrientationService extends Observable<OrientationType> {
     }
 
     private get isModern(): boolean {
-        return !!this.win?.screen?.orientation;
+        return !!this.win.screen.orientation;
     }
 }

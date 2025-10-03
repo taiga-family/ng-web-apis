@@ -1,7 +1,6 @@
 import {NgIf} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -31,9 +30,8 @@ describe('MutationObserverDirective', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        // eslint-disable-next-line jest/no-jasmine-globals
         public onMutation = jasmine.createSpy('onMutation');
-        // eslint-disable-next-line jest/no-jasmine-globals
+
         public onAttributes = jasmine.createSpy('onAttributes');
         public observe = true;
         public child = true;

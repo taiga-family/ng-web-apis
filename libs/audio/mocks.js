@@ -1,3 +1,4 @@
+/* eslint-disable @typescript-eslint/no-extraneous-class */
 (function () {
     global.AudioContext = class {};
     global.OfflineAudioContext = class {};

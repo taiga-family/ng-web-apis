@@ -1,8 +1,10 @@
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
-import type {SpeechSynthesisUtteranceOptions} from '@ng-web-apis/speech';
-import {UtterancePipe, WaTextToSpeech} from '@ng-web-apis/speech';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
+import {
+    type SpeechSynthesisUtteranceOptions,
+    UtterancePipe,
+    WaTextToSpeech,
+} from '@ng-web-apis/speech';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -15,14 +17,14 @@ describe('SpeechSynthesis', () => {
                 [waTextToSpeech]="text | waUtterance: options"
                 [waTextToSpeechPaused]="paused"
                 (waTextToSpeechError)="onError($event.error)"
-            ></ng-container>
+            />
             <ng-container
                 [waTextToSpeech]="utterance"
                 [waTextToSpeechPaused]="paused"
                 (waTextToSpeechBoundary)="onBoundary()"
                 (waTextToSpeechEnd)="onEnd()"
                 (waTextToSpeechMark)="onMark()"
-            ></ng-container>
+            />
         `,
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
@@ -31,13 +33,13 @@ describe('SpeechSynthesis', () => {
         public text = 'Test 1';
         public paused = true;
         public readonly utterance = new SpeechSynthesisUtterance('Test 2');
-        // eslint-disable-next-line jest/no-jasmine-globals
+
         public readonly onError = jasmine.createSpy('onError');
-        // eslint-disable-next-line jest/no-jasmine-globals
+
         public readonly onMark = jasmine.createSpy('onMark');
-        // eslint-disable-next-line jest/no-jasmine-globals
+
         public readonly onBoundary = jasmine.createSpy('onBoundary');
-        // eslint-disable-next-line jest/no-jasmine-globals
+
         public readonly onEnd = jasmine.createSpy('onEnd');
     }
 

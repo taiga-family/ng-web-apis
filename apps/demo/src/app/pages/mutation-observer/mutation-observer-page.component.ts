@@ -18,7 +18,7 @@ import {TuiInputModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
         WaMutationObserver,
     ],
     templateUrl: './mutation-observer-page.component.html',
-    styleUrls: ['./mutation-observer-page.component.less'],
+    styleUrl: './mutation-observer-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class MutationObserverPage {

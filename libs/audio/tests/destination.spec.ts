@@ -1,6 +1,5 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
-import type {ComponentFixture} from '@angular/core/testing';
-import {TestBed} from '@angular/core/testing';
+import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     providers,
     WaWebAudio,
@@ -53,12 +52,11 @@ describe('Destination', () => {
             fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
             fixture.detectChanges();
-            // eslint-disable-next-line jest/no-jasmine-globals
+
             jasmine.DEFAULT_TIMEOUT_INTERVAL = 10000;
         });
 
         afterEach(() => {
-            // eslint-disable-next-line jest/no-jasmine-globals
             jasmine.DEFAULT_TIMEOUT_INTERVAL = timeout;
             testComponent.source.stop();
         });

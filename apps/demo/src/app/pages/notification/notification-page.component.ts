@@ -1,10 +1,8 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {PermissionsService} from '@ng-web-apis/permissions';
-import type {TuiRawLoaderContent} from '@taiga-ui/addon-doc';
-import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {TuiButton, TuiLink, TuiNotification} from '@taiga-ui/core';
-import {TuiBadge} from '@taiga-ui/kit';
+import {TuiAddonDoc, type TuiRawLoaderContent} from '@taiga-ui/addon-doc';
+import {TuiLink, TuiNotification} from '@taiga-ui/core';
 
 import {NotificationPageExample1} from './examples/01-getting-permission';
 import {NotificationPageExample2} from './examples/02-create-notification';
@@ -21,13 +19,11 @@ import {NotificationPageExample4} from './examples/04-listen-notification-events
         NotificationPageExample3,
         NotificationPageExample4,
         TuiAddonDoc,
-        TuiBadge,
-        TuiButton,
         TuiLink,
         TuiNotification,
     ],
     templateUrl: './notification-page.template.html',
-    styleUrls: ['./notification-page.style.less'],
+    styleUrl: './notification-page.style.less',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class NotificationPage {

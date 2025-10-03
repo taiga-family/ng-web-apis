@@ -7,7 +7,7 @@ import {TuiIcon, TuiLink, TuiRoot} from '@taiga-ui/core';
     selector: 'app',
     imports: [RouterLink, RouterLinkActive, RouterOutlet, TuiIcon, TuiLink, TuiRoot],
     templateUrl: './app.component.html',
-    styleUrls: ['./app.component.css'],
+    styleUrl: './app.component.css',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class App {}

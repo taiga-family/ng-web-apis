@@ -22,8 +22,6 @@ export class PermissionsService {
     private readonly permissions = inject(WA_PERMISSIONS);
     private readonly permissionsSupported = inject(WA_PERMISSIONS_SUPPORT);
 
-    public state(name: PermissionName): Observable<PermissionState>;
-    public state(descriptor: PermissionsQueryArgs): Observable<PermissionState>;
     public state(
         nameOrDescriptor: PermissionName | PermissionsQueryArgs,
     ): Observable<PermissionState> {

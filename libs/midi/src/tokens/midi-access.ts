@@ -8,7 +8,7 @@ export const WA_MIDI_ACCESS = new InjectionToken<Promise<globalThis.MIDIAccess>>
     {
         providedIn: 'root',
         factory: async () => {
-            const navigatorRef = inject(WA_NAVIGATOR);
+            const navigatorRef = inject<Navigator | Partial<Navigator>>(WA_NAVIGATOR);
             const sysex = inject(SYSEX);
 
             return navigatorRef.requestMIDIAccess
