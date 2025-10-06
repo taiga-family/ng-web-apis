@@ -10,8 +10,6 @@ on:
           - minor
           - patch
           - major
-  schedule:
-    - cron: '0 7 * * 1'
 
 jobs:
   release:
