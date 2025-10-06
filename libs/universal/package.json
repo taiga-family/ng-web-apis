@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/universal",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "A set of fallback for @ng-web-apis/common for Angular Universal",
     "keywords": [
         "angular",

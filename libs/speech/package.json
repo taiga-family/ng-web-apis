@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/speech",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "A library for using Web Speech API with Angular",
     "keywords": [
         "angular",
