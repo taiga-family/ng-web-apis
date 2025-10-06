@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
@@ -65,8 +65,9 @@ describe('Properties', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        public readonly context!: CanvasRenderingContext2D;
+        public readonly context = viewChild.required('canvas', {
+            read: CANVAS_2D_CONTEXT,
+        });
     }
 
     let fixture: ComponentFixture<Test>;
@@ -84,7 +85,7 @@ describe('Properties', () => {
 
     it('clipping works', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(0, 0, 1, 1).data]).toEqual([
                 0, 128, 0, 255,
             ]);
 
@@ -94,7 +95,7 @@ describe('Properties', () => {
 
     it('overlays layers with given mode', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 128, 0, 255,
             ]);
 

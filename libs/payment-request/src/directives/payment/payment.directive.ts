@@ -1,4 +1,4 @@
-import {ContentChildren, Directive, Input, type QueryList} from '@angular/core';
+import {contentChildren, Directive, effect, input} from '@angular/core';
 
 import {type PaymentShippingOption} from '../../tokens/payment-options';
 import {WaPaymentItem} from '../payment-item/payment-item.directive';
@@ -8,24 +8,26 @@ import {WaPaymentItem} from '../payment-item/payment-item.directive';
     selector: '[waPayment][paymentTotal]',
 })
 export class WaPayment implements PaymentDetailsInit {
-    @Input('paymentTotal')
+    private readonly paymentItems = contentChildren<PaymentItem>(WaPaymentItem);
+
+    protected readonly $ = effect(() => {
+        this.displayItems = this.paymentItems() as PaymentItem[];
+        this.total = this.paymentTotal();
+        this.id = this.paymentId();
+        this.modifiers = this.paymentModifiers();
+        this.shippingOptions = this.paymentShippingOptions();
+    });
+
+    public readonly paymentTotal = input.required<PaymentItem>();
+    public readonly paymentId = input<string>();
+    public readonly paymentModifiers = input<PaymentDetailsModifier[]>();
+    public readonly paymentShippingOptions = input<PaymentShippingOption[]>();
+
     public total!: PaymentItem;
-
-    @Input('paymentId')
     public id?: string;
-
-    @Input('paymentModifiers')
     public modifiers?: PaymentDetailsModifier[];
-
-    @Input('paymentShippingOptions')
     public shippingOptions?: PaymentShippingOption[];
-
     public displayItems?: PaymentItem[];
-
-    @ContentChildren(WaPaymentItem)
-    protected set paymentItems(items: QueryList<PaymentItem>) {
-        this.displayItems = items.toArray();
-    }
 }
 
 /**

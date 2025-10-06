@@ -1,5 +1,5 @@
 // eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
+import {Attribute, Directive, inject, input, type OnDestroy} from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
@@ -17,6 +17,19 @@ import {processAudioParam} from '../utils/process-audio-param';
     exportAs: 'AudioNode',
 })
 export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy {
+    public readonly panParam = input(undefined, {
+        alias: 'pan',
+        transform: (pan: AudioParamInput) => {
+            if ('setPosition' in this) {
+                /** fallback for browsers not supporting {@link StereoPannerNode} */
+                // @ts-ignore
+                this.fallbackToPannerNode(fallbackAudioParam(pan));
+            } else {
+                processAudioParam(this.pan, pan, this.context.currentTime);
+            }
+        },
+    });
+
     constructor(@Attribute('pan') panArg: string | null) {
         const context = inject(AUDIO_CONTEXT);
         const node = inject(AUDIO_NODE, {skipSelf: true});
@@ -36,17 +49,6 @@ export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy 
 
         super(context, {pan});
         connect(node, this);
-    }
-
-    @Input('pan')
-    public set panParam(pan: AudioParamInput) {
-        if ('setPosition' in this) {
-            /** fallback for browsers not supporting {@link StereoPannerNode} */
-            // @ts-ignore
-            this.fallbackToPannerNode(fallbackAudioParam(pan));
-        } else {
-            processAudioParam(this.pan, pan, this.context.currentTime);
-        }
     }
 
     public ngOnDestroy(): void {

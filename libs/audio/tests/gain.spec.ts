@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     type AudioParamInput,
@@ -25,8 +25,7 @@ describe('Audio gain', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioGain)
-            public node!: GainNode;
+            public readonly node = viewChild.required(WebAudioGain);
 
             public gain: AudioParamInput = 1;
         }
@@ -45,7 +44,7 @@ describe('Audio gain', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof GainNode).toBe(true);
+            expect(testComponent.node() instanceof GainNode).toBe(true);
         });
 
         describe('AudioParam', () => {
@@ -55,7 +54,7 @@ describe('Audio gain', () => {
                 fixture.detectChanges();
 
                 setTimeout(() => {
-                    expect(testComponent.node.gain.value).toBe(10);
+                    expect(testComponent.node().gain.value).toBe(10);
 
                     done();
                 }, 100);
@@ -71,12 +70,12 @@ describe('Audio gain', () => {
 
                 setTimeout(() => {
                     expect(
-                        testComponent.node.gain.value < 6 &&
-                            testComponent.node.gain.value > 4,
+                        testComponent.node().gain.value < 6 &&
+                            testComponent.node().gain.value > 4,
                     ).toBe(true);
 
                     setTimeout(() => {
-                        expect(Math.round(testComponent.node.gain.value)).toBe(10);
+                        expect(Math.round(testComponent.node().gain.value)).toBe(10);
 
                         done();
                     }, 1000);
@@ -94,12 +93,12 @@ describe('Audio gain', () => {
 
                 setTimeout(() => {
                     expect(
-                        testComponent.node.gain.value < 4 &&
-                            testComponent.node.gain.value > 2,
+                        testComponent.node().gain.value < 4 &&
+                            testComponent.node().gain.value > 2,
                     ).toBe(true);
 
                     setTimeout(() => {
-                        expect(Math.round(testComponent.node.gain.value)).toBe(10);
+                        expect(Math.round(testComponent.node().gain.value)).toBe(10);
 
                         done();
                     }, 1000);
@@ -116,12 +115,12 @@ describe('Audio gain', () => {
 
                 setTimeout(() => {
                     expect(
-                        testComponent.node.gain.value < 6 &&
-                            testComponent.node.gain.value > 4,
+                        testComponent.node().gain.value < 6 &&
+                            testComponent.node().gain.value > 4,
                     ).toBe(true);
 
                     setTimeout(() => {
-                        expect(Math.round(testComponent.node.gain.value)).toBe(10);
+                        expect(Math.round(testComponent.node().gain.value)).toBe(10);
 
                         done();
                     }, 1500);
@@ -146,18 +145,18 @@ describe('Audio gain', () => {
 
                 setTimeout(() => {
                     expect(
-                        testComponent.node.gain.value < 6 &&
-                            testComponent.node.gain.value > 4,
+                        testComponent.node().gain.value < 6 &&
+                            testComponent.node().gain.value > 4,
                     ).toBe(true);
 
                     setTimeout(() => {
                         expect(
-                            testComponent.node.gain.value < 9 &&
-                                testComponent.node.gain.value > 7,
+                            testComponent.node().gain.value < 9 &&
+                                testComponent.node().gain.value > 7,
                         ).toBe(true);
 
                         setTimeout(() => {
-                            expect(Math.round(testComponent.node.gain.value)).toBe(10);
+                            expect(Math.round(testComponent.node().gain.value)).toBe(10);
 
                             done();
                         }, 1500);
@@ -177,8 +176,7 @@ describe('Audio gain', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioGain)
-            public node!: GainNode;
+            public readonly node = viewChild.required(WebAudioGain);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -196,7 +194,7 @@ describe('Audio gain', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof GainNode).toBe(true);
+            expect(testComponent.node() instanceof GainNode).toBe(true);
         });
     });
 });

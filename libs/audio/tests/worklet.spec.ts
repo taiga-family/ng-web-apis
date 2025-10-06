@@ -1,5 +1,5 @@
 import {AsyncPipe} from '@angular/common';
-import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, inject, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     AUDIO_WORKLET_PROCESSORS,
@@ -29,8 +29,7 @@ describe('AudioWorkletNode', () => {
     class Test {
         protected readonly ready$ = inject(AUDIO_WORKLET_PROCESSORS_READY);
 
-        @ViewChild(WebAudioWorklet)
-        public node!: AudioNode;
+        public readonly node = viewChild.required(WebAudioWorklet);
     }
 
     let fixture: ComponentFixture<Test>;
@@ -58,6 +57,6 @@ describe('AudioWorkletNode', () => {
 
     // TODO: need investigate why
     xit('creates node', () => {
-        expect(testComponent.node instanceof AudioWorkletNode).toBe(true);
+        expect(testComponent.node() instanceof AudioWorkletNode).toBe(true);
     });
 });

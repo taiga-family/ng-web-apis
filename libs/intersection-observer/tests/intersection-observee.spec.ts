@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     INTERSECTION_ROOT_MARGIN,
@@ -45,8 +45,9 @@ describe('WaIntersectionObservee', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('root', {read: WaIntersectionObserverDirective})
-        public observer!: WaIntersectionObserverDirective;
+        public readonly observer = viewChild('root', {
+            read: WaIntersectionObserverDirective,
+        });
 
         public onIntersection = jasmine.createSpy('onIntersection');
         public observe = true;
@@ -83,7 +84,9 @@ describe('WaIntersectionObservee', () => {
 
     it('compatible with native method signature', () => {
         expect(() =>
-            testComponent.observer.observe(document.querySelector('#manual_observee')!),
+            testComponent
+                .observer()
+                ?.observe(document.querySelector('#manual_observee')!),
         ).not.toThrow();
     });
 

@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, effect, input} from '@angular/core';
 
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
@@ -11,16 +11,21 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     providers: [asCanvasProperty(WaCanvasShadowStyles)],
 })
 export class WaCanvasShadowStyles implements CanvasShadowStyles {
-    @Input()
+    protected readonly $ = effect(() => {
+        this.shadowBlur = this.inputShadowBlur();
+        this.shadowColor = this.inputShadowColor();
+        this.shadowOffsetX = this.inputShadowOffsetX();
+        this.shadowOffsetY = this.inputShadowOffsetY();
+    });
+
+    public readonly inputShadowBlur = input(0, {alias: 'shadowBlur'});
+    public readonly inputShadowColor = input('transparent', {alias: 'shadowColor'});
+    public readonly inputShadowOffsetX = input(0, {alias: 'shadowOffsetX'});
+    public readonly inputShadowOffsetY = input(0, {alias: 'shadowOffsetY'});
+
     public shadowBlur = 0;
-
-    @Input()
     public shadowColor = 'transparent';
-
-    @Input()
     public shadowOffsetX = 0;
-
-    @Input()
     public shadowOffsetY = 0;
 
     public call(context: CanvasRenderingContext2D): void {

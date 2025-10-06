@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, input} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
@@ -9,20 +9,13 @@ import {asCanvasMethod} from '../tokens/canvas-method';
     providers: [asCanvasMethod(WaCanvasRect)],
 })
 export class WaCanvasRect implements CanvasMethod {
-    @Input()
-    public x = 0;
-
-    @Input()
-    public y = 0;
-
-    @Input()
-    public width = 0;
-
-    @Input()
-    public height = 0;
+    public readonly x = input(0);
+    public readonly y = input(0);
+    public readonly width = input(0);
+    public readonly height = input(0);
 
     public call(context: CanvasRenderingContext2D): void {
-        context.rect(this.x, this.y, this.width, this.height);
+        context.rect(this.x(), this.y(), this.width(), this.height());
     }
 }
 

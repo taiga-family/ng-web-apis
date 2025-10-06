@@ -1,13 +1,5 @@
-import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    type OnDestroy,
-    Output,
-} from '@angular/core';
+// eslint-disable-next-line no-restricted-imports
+import {Attribute, Directive, inject, Input, type OnDestroy, output} from '@angular/core';
 
 import {audioParam} from '../decorators/audio-param';
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -27,8 +19,7 @@ export class WebAudioConstantSource extends ConstantSourceNode implements OnDest
     @audioParam('offset')
     public offsetParam?: AudioParamInput;
 
-    @Output()
-    public ended = new EventEmitter<void>();
+    public readonly ended = output();
 
     constructor(
         @Attribute('autoplay') autoplay: string | null,

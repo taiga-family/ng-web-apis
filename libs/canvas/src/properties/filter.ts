@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, input} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
@@ -9,11 +9,19 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     providers: [asCanvasProperty(WaCanvasFilter)],
 })
 export class WaCanvasFilter implements CanvasMethod, CanvasFilters {
-    @Input()
     public filter = 'none';
 
+    public readonly inputFilter = input(this.filter, {
+        alias: 'filter',
+        transform: (value: string) => {
+            this.filter = value;
+
+            return value;
+        },
+    });
+
     public call(context: CanvasRenderingContext2D): void {
-        context.filter = this.filter;
+        context.filter = this.inputFilter();
     }
 }
 

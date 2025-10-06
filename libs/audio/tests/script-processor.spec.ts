@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     AUDIO_CONTEXT,
@@ -19,8 +19,7 @@ describe('ScriptProcessorNode', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild(WebAudioScriptProcessor)
-        public node!: AudioNode;
+        public readonly node = viewChild.required(WebAudioScriptProcessor);
     }
 
     let fixture: ComponentFixture<Test>;
@@ -37,7 +36,7 @@ describe('ScriptProcessorNode', () => {
     });
 
     it('creates node', () => {
-        expect(testComponent.node instanceof ScriptProcessorNode).toBe(true);
+        expect(testComponent.node() instanceof ScriptProcessorNode).toBe(true);
     });
 
     xit('100% coverage FTW!', () => {

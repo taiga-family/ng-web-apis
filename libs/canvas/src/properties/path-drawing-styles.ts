@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, effect, input} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
@@ -13,23 +13,28 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 export class WaCanvasPathDrawingStyles
     implements CanvasMethod, Omit<CanvasPathDrawingStyles, 'getLineDash' | 'setLineDash'>
 {
-    @Input()
-    public lineCap: CanvasLineCap = 'butt';
+    protected readonly $ = effect(() => {
+        this.lineCap = this.inputLineCap();
+        this.lineDashOffset = this.inputLineDashOffset();
+        this.lineJoin = this.inputLineJoin();
+        this.lineWidth = this.inputLineWidth();
+        this.lineDash = this.inputLineDash();
+        this.miterLimit = this.inputMiterLimit();
+    });
 
-    @Input()
-    public lineDashOffset = 0;
+    public readonly inputLineCap = input<CanvasLineCap>('butt', {alias: 'lineCap'});
+    public readonly inputLineDashOffset = input(0, {alias: 'lineDashOffset'});
+    public readonly inputLineJoin = input<CanvasLineJoin>('miter', {alias: 'lineJoin'});
+    public readonly inputLineWidth = input(1, {alias: 'lineWidth'});
+    public readonly inputLineDash = input<number[]>([], {alias: 'lineDash'});
+    public readonly inputMiterLimit = input(10, {alias: 'miterLimit'});
 
-    @Input()
-    public lineJoin: CanvasLineJoin = 'miter';
-
-    @Input()
-    public lineWidth = 1;
-
-    @Input()
-    public lineDash: number[] = [];
-
-    @Input()
-    public miterLimit = 10;
+    public lineCap = this.inputLineCap();
+    public lineDashOffset = this.inputLineDashOffset();
+    public lineJoin: CanvasLineJoin = this.inputLineJoin();
+    public lineWidth = this.inputLineWidth();
+    public lineDash = this.inputLineDash();
+    public miterLimit = this.inputMiterLimit();
 
     public call(context: CanvasRenderingContext2D): void {
         context.lineCap = this.lineCap;

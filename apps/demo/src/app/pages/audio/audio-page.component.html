@@ -73,7 +73,7 @@
                             [fftSize]="fftSize"
                             (timeByte$)="onTimeDomain($event)"
                         >
-                            <ng-container [waOutput]="chain || fallback" />
+                            <ng-container [waOutput]="chain() || fallback" />
                         </ng-container>
                     </button>
                 }
@@ -90,7 +90,7 @@
                         [fftSize]="fftSize"
                         (timeByte$)="onTimeDomain($event)"
                     >
-                        <ng-container [waOutput]="chain || fallback" />
+                        <ng-container [waOutput]="chain() || fallback" />
                     </ng-container>
                 </audio>
             }
@@ -112,7 +112,7 @@
                             [fftSize]="fftSize"
                             (timeByte$)="onTimeDomain($event)"
                         >
-                            <ng-container [waOutput]="chain || fallback" />
+                            <ng-container [waOutput]="chain() || fallback" />
                         </ng-container>
                     </button>
                 }

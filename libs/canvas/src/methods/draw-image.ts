@@ -1,4 +1,4 @@
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject, input} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 
@@ -10,68 +10,56 @@ import {WaDrawService} from '../services/draw.service';
 export class WaCanvasDrawImage {
     private readonly method = inject(WaDrawService);
 
-    @Input()
-    public image?: CanvasImageSource;
-
-    @Input()
-    public dX = 0;
-
-    @Input()
-    public dY = 0;
-
-    @Input()
-    public dWidth?: number;
-
-    @Input()
-    public dHeight?: number;
-
-    @Input()
-    public sX?: number;
-
-    @Input()
-    public sY?: number;
-
-    @Input()
-    public sWidth?: number;
-
-    @Input()
-    public sHeight?: number;
+    public readonly image = input<CanvasImageSource>();
+    public readonly dX = input(0);
+    public readonly dY = input(0);
+    public readonly dWidth = input<number>();
+    public readonly dHeight = input<number>();
+    public readonly sX = input<number>();
+    public readonly sY = input<number>();
+    public readonly sWidth = input<number>();
+    public readonly sHeight = input<number>();
 
     constructor() {
         this.method.call = (context) => {
-            if (!this.image) {
+            const image = this.image();
+
+            if (!image) {
                 return;
             }
 
+            const sX = this.sX();
+            const sY = this.sY();
+            const sWidth = this.sWidth();
+            const sHeight = this.sHeight();
+            const dX = this.dX();
+            const dY = this.dY();
+            const dWidth = this.dWidth();
+            const dHeight = this.dHeight();
+
             if (
-                this.sWidth !== undefined &&
-                this.sHeight !== undefined &&
-                this.sX !== undefined &&
-                this.sY !== undefined &&
-                this.dWidth !== undefined &&
-                this.dHeight !== undefined
+                sWidth !== undefined &&
+                sHeight !== undefined &&
+                sX !== undefined &&
+                sY !== undefined &&
+                dWidth !== undefined &&
+                dHeight !== undefined
             ) {
                 context.drawImage(
-                    this.image,
-                    this.sX,
-                    this.sY,
-                    this.sWidth,
-                    this.sHeight,
-                    this.dX,
-                    this.dY,
-                    this.dWidth,
-                    this.dHeight,
+                    image,
+                    sX,
+                    sY,
+                    sWidth,
+                    sHeight,
+                    dX,
+                    dY,
+                    dWidth,
+                    dHeight,
                 );
-            } else if (this.dWidth !== undefined && this.dHeight !== undefined) {
-                context.drawImage(
-                    this.image,
-                    this.dX,
-                    this.dY,
-                    this.dWidth,
-                    this.dHeight,
-                );
+            } else if (dWidth !== undefined && dHeight !== undefined) {
+                context.drawImage(image, dX, dY, dWidth, dHeight);
             } else {
-                context.drawImage(this.image, this.dX, this.dY);
+                context.drawImage(image, dX, dY);
             }
         };
     }

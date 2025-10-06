@@ -24,7 +24,6 @@ import {parse} from '../utils/parse';
     exportAs: 'AudioNode',
 })
 export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
-    // '!' because it is actually set in constructor
     @Output()
     public frequencyByte$!: Observable<Uint8Array>;
 

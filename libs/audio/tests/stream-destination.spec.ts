@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {providers, WaWebAudio, WebAudioMediaStreamDestination} from '@ng-web-apis/audio';
 
@@ -15,8 +15,7 @@ describe('StreamDestination', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioMediaStreamDestination)
-            public node!: MediaStreamAudioDestinationNode;
+            public readonly node = viewChild.required(WebAudioMediaStreamDestination);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -33,7 +32,7 @@ describe('StreamDestination', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof MediaStreamAudioDestinationNode).toBe(
+            expect(testComponent.node() instanceof MediaStreamAudioDestinationNode).toBe(
                 true,
             );
         });
@@ -49,8 +48,7 @@ describe('StreamDestination', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioMediaStreamDestination)
-            public node!: MediaStreamAudioDestinationNode;
+            public readonly node = viewChild.required(WebAudioMediaStreamDestination);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -68,7 +66,7 @@ describe('StreamDestination', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof MediaStreamAudioDestinationNode).toBe(
+            expect(testComponent.node() instanceof MediaStreamAudioDestinationNode).toBe(
                 true,
             );
         });
