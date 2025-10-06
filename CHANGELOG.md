@@ -1,3 +1,12 @@
+### [4.12.1](https://github.com/taiga-family/ng-web-apis/compare/v4.12.0...v4.12.1) (2025-10-06)
+
+### 🚀 Features
+
+- control flow (#1429)
+  [(0ef83ad)](https://github.com/taiga-family/ng-web-apis/commit/0ef83ad12c4bc63cc8fdc03b9dce13820e1f48d6)
+- upgrade to Angular 19 (#1426)
+  [(63538c1)](https://github.com/taiga-family/ng-web-apis/commit/63538c1da952c329294d22a2a131f675be86db42)
+
 ### [4.12.0](https://github.com/taiga-family/ng-web-apis/compare/v4.11.1...v4.12.0) (2025-03-28)
 
 ### 🚀 Features
