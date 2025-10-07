@@ -134,7 +134,7 @@
             "configurations": {
                 "production": {
                     "browserTarget": "demo:build:production",
-                    "serverTarget": "demo:server:production"
+                    "serverTarget": "demo:server:development"
                 },
                 "development": {
                     "serverTarget": "demo:server:development",
@@ -185,7 +185,7 @@
             "executor": "@angular-devkit/build-angular:prerender",
             "options": {
                 "browserTarget": "demo:build:production",
-                "serverTarget": "demo:server:production",
+                "serverTarget": "demo:server:development",
                 "routesFile": "./apps/demo/routesFile.txt"
             },
             "configurations": {

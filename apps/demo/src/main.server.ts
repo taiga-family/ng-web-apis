@@ -1,21 +1,16 @@
-import {
-    type ApplicationRef,
-    importProvidersFrom,
-    mergeApplicationConfig,
-} from '@angular/core';
+import '@ng-web-apis/audio/polyfill';
+
+import {type ApplicationRef, mergeApplicationConfig} from '@angular/core';
 import {bootstrapApplication, type BootstrapContext} from '@angular/platform-browser';
-import {provideServerRendering, ServerModule} from '@angular/platform-server';
+import {provideNoopAnimations} from '@angular/platform-browser/animations';
+import {provideServerRendering} from '@angular/platform-server';
 import {UNIVERSAL_PROVIDERS} from '@ng-web-apis/universal';
 
 import {App} from './app/app.component';
 import {config} from './app/app.config';
 
 const serverConfig = mergeApplicationConfig(config, {
-    providers: [
-        importProvidersFrom(ServerModule),
-        provideServerRendering(),
-        UNIVERSAL_PROVIDERS,
-    ],
+    providers: [provideServerRendering(), provideNoopAnimations(), UNIVERSAL_PROVIDERS],
 });
 
 export default async (context: BootstrapContext): Promise<ApplicationRef> =>

@@ -1,6 +1,6 @@
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {type ApplicationConfig, importProvidersFrom} from '@angular/core';
-import {provideAnimations} from '@angular/platform-browser/animations';
+import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
 import {provideRouter, withInMemoryScrolling} from '@angular/router';
 import {POSITION_OPTIONS} from '@ng-web-apis/geolocation';
 import {NG_EVENT_PLUGINS} from '@taiga-ui/event-plugins';
@@ -11,7 +11,7 @@ import {ROUTES} from './app.routes';
 
 export const config: ApplicationConfig = {
     providers: [
-        provideAnimations(),
+        provideAnimationsAsync(),
         importProvidersFrom(MarkdownModule.forRoot()),
         provideRouter(
             ROUTES,
