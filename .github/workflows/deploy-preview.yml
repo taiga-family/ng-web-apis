@@ -9,7 +9,7 @@ jobs:
       - uses: actions/checkout@v4.3.0
       - uses: taiga-family/ci/actions/setup/variables@v1.164.0
       - uses: taiga-family/ci/actions/setup/node@v1.164.0
-      - run: npx nx build demo
+      - run: npx nx prerender demo
 
       - uses: FirebaseExtended/action-hosting-deploy@v0
         continue-on-error: true
