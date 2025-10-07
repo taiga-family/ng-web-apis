@@ -14,7 +14,7 @@
                     "path": "apps/demo/webpack.config.ts"
                 },
                 "aot": true,
-                "outputPath": "dist/demo",
+                "outputPath": "dist/demo/browser",
                 "index": "apps/demo/src/index.html",
                 "main": "apps/demo/src/main.ts",
                 "polyfills": "apps/demo/src/polyfills.ts",
@@ -110,7 +110,7 @@
                     "echo 'Read more: https://angular.io/guide/deployment#deploy-to-github-pages'",
                     "echo ------",
                     "nx build demo -c github",
-                    "cp dist/demo/index.html dist/demo/404.html",
+                    "cp dist/demo/browser/index.html dist/demo/browser/404.html",
                     "nx run demo:prerender -c github"
                 ]
             }

@@ -16,7 +16,7 @@ jobs:
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           branch: gh-pages
-          folder: dist/demo
+          folder: dist/demo/browser
           silent: false
           clean: true
 

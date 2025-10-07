@@ -3,7 +3,7 @@
         "default": "ng-web-apis-common"
     },
     "hosting": {
-        "public": "dist/demo",
+        "public": "dist/demo/browser",
         "ignore": ["firebase.json", "**/.*", "**/node_modules/**"],
         "rewrites": [
             {
