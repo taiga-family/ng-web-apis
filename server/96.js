@@ -1,1 +1,0 @@
-"use strict";exports.id=96,exports.ids=[96],exports.modules={2096:module=>{module.exports='<button\n    tuiButton\n    type="button"\n    [disabled]="(denied$ | async)!"\n    (click)="sendNotification()"\n>\n    Send notification\n</button>\n'}};
