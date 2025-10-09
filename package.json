@@ -131,7 +131,7 @@
         "@types/webmidi": "2.1.0",
         "babel-loader": "9.2.1",
         "browser-sync": "3.0.4",
-        "core-js": "3.45.1",
+        "core-js": "3.46.0",
         "glob": "11.0.3",
         "highlight.js": "11.11.1",
         "husky": "9.1.7",
