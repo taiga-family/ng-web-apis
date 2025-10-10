@@ -1,4 +1,5 @@
-import {Directive, ElementRef, inject, Input} from '@angular/core';
+import {isPlatformServer} from '@angular/common';
+import {Directive, ElementRef, inject, Input, PLATFORM_ID} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
@@ -10,6 +11,10 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
         {
             provide: CANVAS_2D_CONTEXT,
             useFactory: (): CanvasRenderingContext2D => {
+                if (isPlatformServer(inject(PLATFORM_ID))) {
+                    return {} as unknown as CanvasRenderingContext2D;
+                }
+
                 const {nativeElement} = inject(ElementRef);
                 const opaque = nativeElement.getAttribute('waOpaque');
                 const desynchronized = nativeElement.getAttribute('waDesynchronized');

@@ -1,5 +1,5 @@
-import {CommonModule} from '@angular/common';
-import {ChangeDetectionStrategy, Component} from '@angular/core';
+import {CommonModule, isPlatformBrowser} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {CanvasModule} from '@ng-web-apis/canvas';
 import {TuiExpand, TuiLabel} from '@taiga-ui/core';
@@ -61,19 +61,26 @@ export default class CanvasPage {
 
     protected file: File | null = null;
 
-    protected readonly image = new Image();
+    protected readonly image = isPlatformBrowser(inject(PLATFORM_ID))
+        ? new Image()
+        : null;
+
     protected readonly items = ['source-over', 'multiply', 'screen'];
 
     constructor() {
-        this.image.onload = () => {
-            URL.revokeObjectURL(this.image.src);
-        };
+        if (this.image) {
+            const img = this.image;
+
+            img.onload = () => {
+                URL.revokeObjectURL(img.src);
+            };
+        }
     }
 
     protected onFile(file: File | null): void {
         this.file = file;
 
-        if (file) {
+        if (file && this.image) {
             this.image.src = URL.createObjectURL(file);
         }
     }

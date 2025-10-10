@@ -202,13 +202,16 @@
 </section>
 
 <canvas waCanvas2d>
-    <canvas-draw-image
-        [dHeight]="dHeight"
-        [dWidth]="dWidth"
-        [dX]="dX"
-        [dY]="dY"
-        [image]="image"
-    />
+    @if (image) {
+        <canvas-draw-image
+            [dHeight]="dHeight"
+            [dWidth]="dWidth"
+            [dX]="dX"
+            [dY]="dY"
+            [image]="image"
+        />
+    }
+
     <canvas-path fillStyle="#f00">
         <canvas-rect
             [height]="h1"

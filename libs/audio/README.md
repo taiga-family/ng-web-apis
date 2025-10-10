@@ -11,8 +11,8 @@ README for additional features and special use cases.
 
 ## How to use
 
-> After you installed the package, you **must** add `@ng-web-apis/audio/polyfill` to your `polyfills.ts`. It is required
-> to normalize things like `webkitAudioContext`, otherwise your code would fail.
+> After you installed the package, you **can** add `@ng-web-apis/audio/polyfills` to your `polyfills.ts`. It helps to
+> normalize things like `webkitAudioContext`, otherwise your code might fail.
 
 You can build audio graph with directives. For example, here's a typical echo feedback loop:
 
@@ -388,7 +388,7 @@ not support it
 If you want to use this package with SSR, you need to mock native Web Audio API classes on the server:
 
 ```ts
-import '@ng-web-apis/audio/mocks';
+import '@ng-web-apis/audio/polyfill';
 ```
 
 > It is recommended to keep the import statement at the top of your `server.ts` or `main.server.ts` file.

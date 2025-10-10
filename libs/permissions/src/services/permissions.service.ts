@@ -1,5 +1,7 @@
-import {inject, Injectable} from '@angular/core';
+import {isPlatformServer} from '@angular/common';
+import {inject, Injectable, PLATFORM_ID} from '@angular/core';
 import {
+    EMPTY,
     from,
     fromEvent,
     map,
@@ -19,6 +21,7 @@ export type PermissionsQueryArgs = Parameters<typeof Permissions.prototype.query
     providedIn: 'root',
 })
 export class PermissionsService {
+    private readonly isServer = isPlatformServer(inject(PLATFORM_ID));
     private readonly permissions = inject(WA_PERMISSIONS);
     private readonly permissionsSupported = inject(WA_PERMISSIONS_SUPPORT);
 
@@ -30,23 +33,25 @@ export class PermissionsService {
                 ? {name: nameOrDescriptor}
                 : nameOrDescriptor;
 
-        return new Observable<PermissionState>((subscriber) => {
-            if (!this.permissionsSupported) {
-                subscriber.error('Permissions is not supported in your browser');
+        return this.isServer
+            ? EMPTY
+            : new Observable<PermissionState>((subscriber) => {
+                  if (!this.permissionsSupported) {
+                      subscriber.error('Permissions is not supported in your browser');
 
-                return new Subscription();
-            }
+                      return new Subscription();
+                  }
 
-            return from(this.permissions.query(descriptor))
-                .pipe(
-                    switchMap((status) =>
-                        fromEvent(status, 'change').pipe(
-                            startWith(null),
-                            map(() => status.state),
-                        ),
-                    ),
-                )
-                .subscribe(subscriber);
-        }).pipe(shareReplay({bufferSize: 1, refCount: true}));
+                  return from(this.permissions.query(descriptor))
+                      .pipe(
+                          switchMap((status) =>
+                              fromEvent(status, 'change').pipe(
+                                  startWith(null),
+                                  map(() => status.state),
+                              ),
+                          ),
+                      )
+                      .subscribe(subscriber);
+              }).pipe(shareReplay({bufferSize: 1, refCount: true}));
     }
 }

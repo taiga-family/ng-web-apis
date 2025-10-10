@@ -17,7 +17,6 @@
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
             "@ng-web-apis/audio": ["./libs/audio/src/index.ts"],
             "@ng-web-apis/audio/*": ["./libs/audio/src/*"],
-            "@ng-web-apis/audio/mocks": ["./libs/audio/mocks.js"],
             "@ng-web-apis/canvas": ["./libs/canvas/src/index.ts"],
             "@ng-web-apis/common": ["./libs/common/src/index.ts"],
             "@ng-web-apis/geolocation": ["./libs/geolocation/src/index.ts"],

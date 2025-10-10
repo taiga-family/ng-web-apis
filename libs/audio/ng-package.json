@@ -1,6 +1,7 @@
 {
     "$schema": "../../node_modules/ng-packagr/ng-package.schema.json",
     "assets": [
+        "polyfill.js",
         "logo.svg",
         "README.md"
     ],

@@ -25,9 +25,6 @@
     "contributors": [
         "Roman Sedov <79601794011@ya.ru>"
     ],
-    "sideEffects": [
-        "mocks.js"
-    ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
         "@ng-web-apis/common": ">=4.12.1",
