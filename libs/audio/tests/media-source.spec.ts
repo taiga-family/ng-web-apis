@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {providers, WaWebAudio, WebAudioMediaSource} from '@ng-web-apis/audio';
 
@@ -15,8 +15,7 @@ describe('MediaSource', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioMediaSource)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioMediaSource);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -33,7 +32,9 @@ describe('MediaSource', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof MediaElementAudioSourceNode).toBe(true);
+            expect(testComponent.node() instanceof MediaElementAudioSourceNode).toBe(
+                true,
+            );
         });
     });
 
@@ -47,8 +48,7 @@ describe('MediaSource', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioMediaSource)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioMediaSource);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -66,7 +66,9 @@ describe('MediaSource', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof MediaElementAudioSourceNode).toBe(true);
+            expect(testComponent.node() instanceof MediaElementAudioSourceNode).toBe(
+                true,
+            );
         });
     });
 });

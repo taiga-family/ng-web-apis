@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, input, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
@@ -13,7 +13,7 @@ describe('Pipes', () => {
             <canvas-path
                 [closed]="true"
                 [fillStyle]="grad | gradient: 0 : 0 : 1 : 1"
-                [strokeStyle]="img | pattern"
+                [strokeStyle]="img() | pattern"
             >
                 <canvas-arc [endAngle]="360 | rad" />
                 <canvas-rect
@@ -33,8 +33,7 @@ describe('Pipes', () => {
             [1, 'blue'],
         ]);
 
-        @Input()
-        public img!: HTMLImageElement;
+        public readonly img = input.required<HTMLImageElement>();
     }
 
     @Component({
@@ -62,8 +61,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        public readonly context!: CanvasRenderingContext2D;
+        public readonly context = viewChild('canvas', {read: CANVAS_2D_CONTEXT});
     }
 
     let fixture: ComponentFixture<Test>;
@@ -81,9 +79,9 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
 
     it('gradient works', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
-                127, 0, 127, 255,
-            ]);
+            expect(
+                Array.from(testComponent.context()?.getImageData(0, 0, 1, 1).data ?? []),
+            ).toEqual([127, 0, 127, 255]);
 
             done();
         }, 50);

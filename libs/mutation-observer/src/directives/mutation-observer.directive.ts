@@ -1,11 +1,10 @@
 import {
     Directive,
     ElementRef,
-    EventEmitter,
     inject,
-    Input,
+    input,
     type OnDestroy,
-    Output,
+    output,
 } from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
@@ -27,29 +26,14 @@ export class WaMutationObserver extends SafeObserver implements OnDestroy {
     private readonly nativeElement: Node = inject(ElementRef).nativeElement;
     private readonly config = inject(MUTATION_OBSERVER_INIT);
 
-    @Input()
-    public attributeFilter = '';
-
-    @Input()
-    public attributeOldValue = '' as const;
-
-    @Input()
-    public attributes = '' as const;
-
-    @Input()
-    public characterData = '' as const;
-
-    @Input()
-    public characterDataOldValue = '' as const;
-
-    @Input()
-    public childList = '' as const;
-
-    @Input()
-    public subtree = '' as const;
-
-    @Output()
-    public readonly waMutationObserver = new EventEmitter<MutationRecord[]>();
+    public readonly attributeFilter = input('');
+    public readonly attributeOldValue = input('' as const);
+    public readonly attributes = input('' as const);
+    public readonly characterData = input('' as const);
+    public readonly characterDataOldValue = input('' as const);
+    public readonly childList = input('' as const);
+    public readonly subtree = input('' as const);
+    public readonly waMutationObserver = output<MutationRecord[]>();
 
     constructor() {
         super((records) => {

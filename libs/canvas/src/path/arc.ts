@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, input} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
@@ -9,32 +9,21 @@ import {asCanvasMethod} from '../tokens/canvas-method';
     providers: [asCanvasMethod(WaCanvasArc)],
 })
 export class WaCanvasArc implements CanvasMethod {
-    @Input()
-    public x = 0;
-
-    @Input()
-    public y = 0;
-
-    @Input()
-    public radius = 0;
-
-    @Input()
-    public startAngle = 0;
-
-    @Input()
-    public endAngle = 0;
-
-    @Input()
-    public anticlockwise = false;
+    public readonly x = input(0);
+    public readonly y = input(0);
+    public readonly radius = input(0);
+    public readonly startAngle = input(0);
+    public readonly endAngle = input(0);
+    public readonly anticlockwise = input(false);
 
     public call(context: CanvasRenderingContext2D): void {
         context.arc(
-            this.x,
-            this.y,
-            this.radius,
-            this.startAngle,
-            this.endAngle,
-            this.anticlockwise,
+            this.x(),
+            this.y(),
+            this.radius(),
+            this.startAngle(),
+            this.endAngle(),
+            this.anticlockwise(),
         );
     }
 }

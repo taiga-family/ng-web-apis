@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {providers, WaWebAudio, WebAudioWaveShaper} from '@ng-web-apis/audio';
 
@@ -15,8 +15,7 @@ describe('WaveShaper', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioWaveShaper)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioWaveShaper);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -33,7 +32,7 @@ describe('WaveShaper', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof WaveShaperNode).toBe(true);
+            expect(testComponent.node() instanceof WaveShaperNode).toBe(true);
         });
     });
 
@@ -47,8 +46,7 @@ describe('WaveShaper', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioWaveShaper)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioWaveShaper);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -66,7 +64,7 @@ describe('WaveShaper', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof WaveShaperNode).toBe(true);
+            expect(testComponent.node() instanceof WaveShaperNode).toBe(true);
         });
     });
 });

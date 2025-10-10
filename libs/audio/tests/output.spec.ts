@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {providers, WaWebAudio, WebAudioOutput} from '@ng-web-apis/audio';
 
@@ -19,8 +19,7 @@ describe('Output spec', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioOutput)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioOutput);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -37,7 +36,7 @@ describe('Output spec', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof AudioNode).toBe(true);
+            expect(testComponent.node() instanceof AudioNode).toBe(true);
         });
     });
 
@@ -55,8 +54,7 @@ describe('Output spec', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioOutput)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioOutput);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -74,7 +72,7 @@ describe('Output spec', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof AudioNode).toBe(true);
+            expect(testComponent.node() instanceof AudioNode).toBe(true);
         });
     });
 });

@@ -1,11 +1,5 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    ContentChildren,
-    QueryList,
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, contentChildren} from '@angular/core';
 
-import {type CanvasMethod} from '../interfaces/canvas-method';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Component({
@@ -17,8 +11,7 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WaCanvasClipPath {
-    @ContentChildren(CANVAS_METHOD)
-    public readonly pathSteps = new QueryList<CanvasMethod>();
+    public readonly pathSteps = contentChildren(CANVAS_METHOD);
 }
 
 /**

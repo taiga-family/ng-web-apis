@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WaWebAudio, WebAudioConstantSource} from '@ng-web-apis/audio';
 
@@ -14,8 +14,7 @@ describe('ConstantSourceNode', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild(WebAudioConstantSource)
-        public node!: AudioNode;
+        public readonly node = viewChild.required(WebAudioConstantSource);
     }
 
     let fixture: ComponentFixture<Test>;
@@ -32,6 +31,6 @@ describe('ConstantSourceNode', () => {
     });
 
     it('creates node', () => {
-        expect(testComponent.node instanceof ConstantSourceNode).toBe(true);
+        expect(testComponent.node() instanceof ConstantSourceNode).toBe(true);
     });
 });

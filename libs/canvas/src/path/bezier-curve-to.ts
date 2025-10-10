@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, input} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
@@ -9,26 +9,22 @@ import {asCanvasMethod} from '../tokens/canvas-method';
     providers: [asCanvasMethod(WaCanvasBezierCurveTo)],
 })
 export class WaCanvasBezierCurveTo implements CanvasMethod {
-    @Input()
-    public cp1x = 0;
-
-    @Input()
-    public cp1y = 0;
-
-    @Input()
-    public cp2x = 0;
-
-    @Input()
-    public cp2y = 0;
-
-    @Input()
-    public x = 0;
-
-    @Input()
-    public y = 0;
+    public readonly cp1x = input(0);
+    public readonly cp1y = input(0);
+    public readonly cp2x = input(0);
+    public readonly cp2y = input(0);
+    public readonly x = input(0);
+    public readonly y = input(0);
 
     public call(context: CanvasRenderingContext2D): void {
-        context.bezierCurveTo(this.cp1x, this.cp1y, this.cp2x, this.cp2y, this.x, this.y);
+        context.bezierCurveTo(
+            this.cp1x(),
+            this.cp1y(),
+            this.cp2x(),
+            this.cp2y(),
+            this.x(),
+            this.y(),
+        );
     }
 }
 

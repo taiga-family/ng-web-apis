@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {providers, WaWebAudio, WebAudioAnalyser} from '@ng-web-apis/audio';
 import {take} from 'rxjs';
@@ -16,8 +16,7 @@ describe('Analyser', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioAnalyser)
-            public node!: WebAudioAnalyser;
+            public readonly node = viewChild.required(WebAudioAnalyser);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -34,39 +33,51 @@ describe('Analyser', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof AnalyserNode).toBe(true);
+            expect(testComponent.node() instanceof AnalyserNode).toBe(true);
         });
 
         it('emits frequency byte array', (done) => {
-            testComponent.node.frequencyByte$.pipe(take(1)).subscribe((array) => {
-                expect(array instanceof Uint8Array).toBe(true);
+            testComponent
+                .node()
+                .frequencyByte$.pipe(take(1))
+                .subscribe((array) => {
+                    expect(array instanceof Uint8Array).toBe(true);
 
-                done();
-            });
+                    done();
+                });
         });
 
         it('emits frequency float array', (done) => {
-            testComponent.node.frequencyFloat$.pipe(take(1)).subscribe((array) => {
-                expect(array instanceof Float32Array).toBe(true);
+            testComponent
+                .node()
+                .frequencyFloat$.pipe(take(1))
+                .subscribe((array) => {
+                    expect(array instanceof Float32Array).toBe(true);
 
-                done();
-            });
+                    done();
+                });
         });
 
         it('emits time byte array', (done) => {
-            testComponent.node.timeByte$.pipe(take(1)).subscribe((array) => {
-                expect(array instanceof Uint8Array).toBe(true);
+            testComponent
+                .node()
+                .timeByte$.pipe(take(1))
+                .subscribe((array) => {
+                    expect(array instanceof Uint8Array).toBe(true);
 
-                done();
-            });
+                    done();
+                });
         });
 
         it('emits time float array', (done) => {
-            testComponent.node.timeFloat$.pipe(take(1)).subscribe((array) => {
-                expect(array instanceof Float32Array).toBe(true);
+            testComponent
+                .node()
+                .timeFloat$.pipe(take(1))
+                .subscribe((array) => {
+                    expect(array instanceof Float32Array).toBe(true);
 
-                done();
-            });
+                    done();
+                });
         });
     });
 
@@ -80,8 +91,7 @@ describe('Analyser', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioAnalyser)
-            public node!: WebAudioAnalyser;
+            public readonly node = viewChild.required(WebAudioAnalyser);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -99,7 +109,7 @@ describe('Analyser', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof AnalyserNode).toBe(true);
+            expect(testComponent.node() instanceof AnalyserNode).toBe(true);
         });
     });
 });

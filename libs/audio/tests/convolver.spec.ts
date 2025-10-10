@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {providers, WaWebAudio, WebAudioConvolver} from '@ng-web-apis/audio';
 
@@ -18,8 +18,7 @@ describe('Convolver', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioConvolver)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioConvolver);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -36,7 +35,7 @@ describe('Convolver', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof ConvolverNode).toBe(true);
+            expect(testComponent.node() instanceof ConvolverNode).toBe(true);
         });
     });
 
@@ -53,8 +52,7 @@ describe('Convolver', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioConvolver)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioConvolver);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -72,7 +70,7 @@ describe('Convolver', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof ConvolverNode).toBe(true);
+            expect(testComponent.node() instanceof ConvolverNode).toBe(true);
         });
     });
 });

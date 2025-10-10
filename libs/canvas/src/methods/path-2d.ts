@@ -1,4 +1,4 @@
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject, input} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 
@@ -10,16 +10,14 @@ import {WaDrawService} from '../services/draw.service';
 export class WaCanvasPath2d {
     private readonly method = inject(WaDrawService);
 
-    @Input()
-    public path = new Path2D();
+    public readonly path = input(new Path2D());
 
-    @Input()
-    public fillRule?: CanvasFillRule;
+    public readonly fillRule = input<CanvasFillRule>();
 
     constructor() {
         this.method.call = (context) => {
-            context.fill(this.path, this.fillRule);
-            context.stroke(this.path);
+            context.fill(this.path(), this.fillRule());
+            context.stroke(this.path());
         };
     }
 }

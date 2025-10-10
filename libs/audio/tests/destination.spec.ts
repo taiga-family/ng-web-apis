@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     providers,
@@ -30,11 +30,8 @@ describe('Destination', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDestination)
-            public node!: WebAudioDestination;
-
-            @ViewChild(WebAudioBufferSource)
-            public source!: WebAudioBufferSource;
+            public readonly node = viewChild(WebAudioDestination);
+            public readonly source = viewChild(WebAudioBufferSource);
 
             public quiet = false;
         }
@@ -58,15 +55,15 @@ describe('Destination', () => {
 
         afterEach(() => {
             jasmine.DEFAULT_TIMEOUT_INTERVAL = timeout;
-            testComponent.source.stop();
+            testComponent.source()?.stop();
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof AudioNode).toBe(true);
+            expect(testComponent.node() instanceof AudioNode).toBe(true);
         });
 
         it('inits output', () => {
-            expect(testComponent.node.quiet instanceof Observable).toBe(true);
+            expect(testComponent.node()?.quiet instanceof Observable).toBe(true);
         });
 
         it('does not fire output initially', () => {
@@ -75,7 +72,9 @@ describe('Destination', () => {
 
         // TODO: investigate why
         xit('fires output after destination has gone silent', (done) => {
-            testComponent.source.stop(testComponent.source.context.currentTime + 0.5);
+            testComponent
+                .source()
+                ?.stop((testComponent.source()?.context.currentTime ?? 0) + 0.5);
             setTimeout(() => {
                 fixture.detectChanges();
 
@@ -96,8 +95,7 @@ describe('Destination', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDestination)
-            public node!: WebAudioDestination;
+            public readonly node = viewChild(WebAudioDestination);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -115,7 +113,7 @@ describe('Destination', () => {
         });
 
         it('works with fallback mode', () => {
-            expect(testComponent.node instanceof AudioNode).toBe(true);
+            expect(testComponent.node() instanceof AudioNode).toBe(true);
         });
     });
 });
