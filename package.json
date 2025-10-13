@@ -127,7 +127,7 @@
         "@types/jasmine": "5.1.9",
         "@types/jasminewd2": "2.0.13",
         "@types/react": "19.2.2",
-        "@types/react-dom": "19.2.1",
+        "@types/react-dom": "19.2.2",
         "@types/webmidi": "2.1.0",
         "babel-loader": "9.2.1",
         "browser-sync": "3.0.4",
