@@ -62,18 +62,12 @@ export default class SpeechPage {
         return merge(
             this.result$.pipe(
                 filter(isSaid('Show sidebar')),
-                map(
-                    // eslint-disable-next-line no-restricted-syntax
-                    () => true,
-                ),
+                map(() => true),
             ),
             this.result$.pipe(
                 filter(isSaid('Hide sidebar')),
 
-                map(
-                    // eslint-disable-next-line no-restricted-syntax
-                    () => false,
-                ),
+                map(() => false),
             ),
         );
     }
