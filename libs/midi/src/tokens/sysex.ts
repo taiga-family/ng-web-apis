@@ -2,7 +2,7 @@ import {InjectionToken} from '@angular/core';
 
 export const WA_SYSEX = new InjectionToken<boolean>('[WA_SYSEX]', {
     providedIn: 'root',
-    // eslint-disable-next-line no-restricted-syntax
+
     factory: () => false,
 });
 

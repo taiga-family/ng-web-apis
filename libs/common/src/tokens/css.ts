@@ -13,7 +13,7 @@ export const WA_CSS = new InjectionToken<typeof CSS>('[WA_CSS]', {
         inject(WINDOW).CSS ??
         ({
             escape: (v: string) => v,
-            // eslint-disable-next-line no-restricted-syntax
+
             supports: () => false,
         } as unknown as typeof CSS),
 });
