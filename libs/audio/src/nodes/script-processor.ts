@@ -5,7 +5,8 @@ import {
     EventEmitter,
     inject,
     type OnDestroy,
-    Output,
+    output,
+    type OutputEmitterRef,
 } from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -20,8 +21,9 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioScriptProcessor extends ScriptProcessorNode implements OnDestroy {
-    @Output()
-    public audioprocess?: EventEmitter<AudioProcessingEvent>;
+    public audioprocess:
+        | EventEmitter<AudioProcessingEvent>
+        | OutputEmitterRef<AudioProcessingEvent> = output<AudioProcessingEvent>();
 
     constructor(
         @Attribute('bufferSize') bufferSize: string | null,

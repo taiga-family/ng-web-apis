@@ -1,5 +1,5 @@
 import {isPlatformServer} from '@angular/common';
-import {Directive, ElementRef, inject, Input, PLATFORM_ID} from '@angular/core';
+import {Directive, ElementRef, inject, input, PLATFORM_ID} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
@@ -37,11 +37,8 @@ export class WaCanvas2d {
     private readonly context = inject(CANVAS_2D_CONTEXT);
     private readonly method = inject(WaDrawService);
 
-    @Input()
-    public waOpaque = '' as const;
-
-    @Input()
-    public waDesynchronized = '' as const;
+    public readonly waOpaque = input<''>('' as const);
+    public readonly waDesynchronized = input<''>('' as const);
 
     constructor() {
         this.context.strokeStyle = 'transparent';

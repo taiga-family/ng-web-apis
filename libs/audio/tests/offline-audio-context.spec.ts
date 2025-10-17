@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WaWebAudio, WebAudioOfflineContext} from '@ng-web-apis/audio';
 
@@ -18,8 +18,7 @@ describe('OfflineAudioContext', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild(WebAudioOfflineContext)
-        public audioContext!: OfflineAudioContext;
+        public readonly audioContext = viewChild.required(WebAudioOfflineContext);
     }
 
     let fixture: ComponentFixture<Test>;
@@ -36,14 +35,14 @@ describe('OfflineAudioContext', () => {
     });
 
     it('creates context', () => {
-        expect(testComponent.audioContext instanceof OfflineAudioContext).toBe(true);
+        expect(testComponent.audioContext() instanceof OfflineAudioContext).toBe(true);
     });
 
     it('parses sampleRate', () => {
-        expect(testComponent.audioContext.sampleRate).toBe(22050);
+        expect(testComponent.audioContext().sampleRate).toBe(22050);
     });
 
     it('parses length', () => {
-        expect(testComponent.audioContext.length).toBe(44100);
+        expect(testComponent.audioContext().length).toBe(44100);
     });
 });

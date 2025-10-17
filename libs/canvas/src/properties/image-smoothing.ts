@@ -1,4 +1,4 @@
-import {Directive, Input} from '@angular/core';
+import {Directive, effect, input} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
@@ -12,11 +12,21 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
     providers: [asCanvasProperty(WaCanvasImageSmoothing)],
 })
 export class WaCanvasImageSmoothing implements CanvasMethod, CanvasImageSmoothing {
-    @Input()
-    public imageSmoothingEnabled = true;
+    protected readonly $ = effect(() => {
+        this.imageSmoothingEnabled = this.inputImageSmoothingEnabled();
+        this.imageSmoothingQuality = this.inputImageSmoothingQuality();
+    });
 
-    @Input()
-    public imageSmoothingQuality: ImageSmoothingQuality = 'low';
+    public readonly inputImageSmoothingEnabled = input(true, {
+        alias: 'imageSmoothingEnabled',
+    });
+
+    public readonly inputImageSmoothingQuality = input<ImageSmoothingQuality>('low', {
+        alias: 'imageSmoothingQuality',
+    });
+
+    public imageSmoothingEnabled = this.inputImageSmoothingEnabled();
+    public imageSmoothingQuality = this.inputImageSmoothingQuality();
 
     public call(context: CanvasRenderingContext2D): void {
         context.imageSmoothingEnabled = this.imageSmoothingEnabled;

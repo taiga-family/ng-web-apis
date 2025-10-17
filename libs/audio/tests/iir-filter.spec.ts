@@ -1,4 +1,4 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     FEEDBACK_COEFFICIENTS,
@@ -21,8 +21,7 @@ describe('IIR filter', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioIIRFilter)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioIIRFilter);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -49,7 +48,7 @@ describe('IIR filter', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof IIRFilterNode).toBe(true);
+            expect(testComponent.node() instanceof IIRFilterNode).toBe(true);
         });
     });
 
@@ -63,8 +62,7 @@ describe('IIR filter', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioIIRFilter)
-            public node!: AudioNode;
+            public readonly node = viewChild.required(WebAudioIIRFilter);
         }
 
         let fixture: ComponentFixture<Test>;
@@ -95,7 +93,7 @@ describe('IIR filter', () => {
         });
 
         it('creates node', () => {
-            expect(testComponent.node instanceof IIRFilterNode).toBe(true);
+            expect(testComponent.node() instanceof IIRFilterNode).toBe(true);
         });
     });
 });

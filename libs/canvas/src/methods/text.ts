@@ -1,4 +1,4 @@
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject, input} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 
@@ -10,22 +10,15 @@ import {WaDrawService} from '../services/draw.service';
 export class WaCanvasText {
     private readonly method = inject(WaDrawService);
 
-    @Input()
-    public text = '';
-
-    @Input()
-    public x = 0;
-
-    @Input()
-    public y = 0;
-
-    @Input()
-    public maxWidth?: number;
+    public readonly text = input('');
+    public readonly x = input(0);
+    public readonly y = input(0);
+    public readonly maxWidth = input<number>();
 
     constructor() {
         this.method.call = (context) => {
-            context.fillText(this.text, this.x, this.y, this.maxWidth);
-            context.strokeText(this.text, this.x, this.y, this.maxWidth);
+            context.fillText(this.text(), this.x(), this.y(), this.maxWidth());
+            context.strokeText(this.text(), this.x(), this.y(), this.maxWidth());
         };
     }
 }

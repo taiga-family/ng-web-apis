@@ -1,5 +1,5 @@
 import {isPlatformBrowser} from '@angular/common';
-import {Directive, inject, Input, PLATFORM_ID} from '@angular/core';
+import {Directive, inject, input, PLATFORM_ID} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
@@ -16,15 +16,16 @@ export class WaCanvasTransform implements CanvasMethod {
         optional: true,
     });
 
-    @Input()
-    public transform: DOMMatrix | null = isPlatformBrowser(inject(PLATFORM_ID))
-        ? new DOMMatrix()
-        : null;
+    public readonly transform = input<DOMMatrix | null>(
+        isPlatformBrowser(inject(PLATFORM_ID)) ? new DOMMatrix() : null,
+    );
 
     public call(context: CanvasRenderingContext2D): void {
-        if (this.transform) {
+        const transform = this.transform();
+
+        if (transform) {
             context.setTransform(
-                this.parent?.transform?.multiply(this.transform) || this.transform,
+                this.parent?.transform()?.multiply(transform) || transform,
             );
         }
     }

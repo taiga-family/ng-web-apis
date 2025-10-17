@@ -2,10 +2,9 @@ import {
     // eslint-disable-next-line no-restricted-imports
     Attribute,
     Directive,
-    EventEmitter,
     inject,
     type OnDestroy,
-    Output,
+    output,
 } from '@angular/core';
 
 import {AUDIO_CONTEXT} from '../tokens/audio-context';
@@ -20,8 +19,7 @@ import {connect} from '../utils/connect';
     exportAs: 'AudioNode',
 })
 export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
-    @Output()
-    public processorerror = new EventEmitter<void>();
+    public readonly processorerror = output();
 
     constructor(@Attribute('name') name: string) {
         const context = inject(AUDIO_CONTEXT);

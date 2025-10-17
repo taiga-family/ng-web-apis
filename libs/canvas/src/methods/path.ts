@@ -1,6 +1,5 @@
-import {ContentChildren, Directive, inject, Input, QueryList} from '@angular/core';
+import {contentChildren, Directive, inject, input} from '@angular/core';
 
-import {type CanvasMethod} from '../interfaces/canvas-method';
 import {WaDrawService} from '../services/draw.service';
 import {CANVAS_METHOD} from '../tokens/canvas-method';
 
@@ -10,31 +9,28 @@ import {CANVAS_METHOD} from '../tokens/canvas-method';
     providers: [WaDrawService],
 })
 export class WaCanvasPath {
-    @ContentChildren(CANVAS_METHOD)
-    private readonly pathSteps = new QueryList<CanvasMethod>();
+    private readonly pathSteps = contentChildren(CANVAS_METHOD);
 
     private readonly method = inject(WaDrawService);
 
-    @Input()
-    public closed = false;
+    public readonly closed = input(false);
 
-    @Input()
-    public fillRule?: CanvasFillRule;
+    public readonly fillRule = input<CanvasFillRule>();
 
     constructor() {
         this.method.call = (context) => {
             context.beginPath();
 
-            this.pathSteps.forEach((step) => {
+            this.pathSteps().forEach((step) => {
                 step.call(context);
             });
 
-            if (this.closed) {
+            if (this.closed()) {
                 context.closePath();
             }
 
             context.stroke();
-            context.fill(this.fillRule);
+            context.fill(this.fillRule());
         };
     }
 }

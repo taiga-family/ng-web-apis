@@ -1,11 +1,4 @@
-import {
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    type OnChanges,
-    Output,
-} from '@angular/core';
+import {Directive, inject, input, type OnChanges, output} from '@angular/core';
 import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({
@@ -15,36 +8,38 @@ import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 export class WaTextToSpeech implements OnChanges {
     private readonly speechSynthesisRef = inject(SPEECH_SYNTHESIS);
 
-    @Input('waTextToSpeechPaused')
-    public paused = false;
+    public readonly paused = input(false, {alias: 'waTextToSpeechPaused'});
 
-    @Output('waTextToSpeechError')
-    public readonly onerror = new EventEmitter<SpeechSynthesisErrorEvent>();
+    public readonly onerror = output<SpeechSynthesisErrorEvent>({
+        alias: 'waTextToSpeechError',
+    });
 
-    @Output('waTextToSpeechEnd')
-    public readonly onend = new EventEmitter<SpeechSynthesisEvent>();
+    public readonly onend = output<SpeechSynthesisEvent>({alias: 'waTextToSpeechEnd'});
 
-    @Output('waTextToSpeechMark')
-    public readonly onmark = new EventEmitter<SpeechSynthesisEvent>();
+    public readonly onmark = output<SpeechSynthesisEvent>({alias: 'waTextToSpeechMark'});
 
-    @Output('waTextToSpeechBoundary')
-    public readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
+    public readonly onboundary = output<SpeechSynthesisEvent>({
+        alias: 'waTextToSpeechBoundary',
+    });
 
-    @Input()
-    public set waTextToSpeech(utterance: SpeechSynthesisUtterance) {
-        this.speechSynthesisRef.cancel();
-        this.speechSynthesisRef.pause();
+    public readonly waTextToSpeech = input(undefined, {
+        transform: (utterance: SpeechSynthesisUtterance) => {
+            this.speechSynthesisRef.cancel();
+            this.speechSynthesisRef.pause();
 
-        utterance.onerror = (e) => this.onerror.emit(e);
-        utterance.onend = (e) => this.onend.emit(e);
-        utterance.onmark = (e) => this.onmark.emit(e);
-        utterance.onboundary = (e) => this.onboundary.emit(e);
+            utterance.onerror = (e) => this.onerror.emit(e);
+            utterance.onend = (e) => this.onend.emit(e);
+            utterance.onmark = (e) => this.onmark.emit(e);
+            utterance.onboundary = (e) => this.onboundary.emit(e);
 
-        this.speechSynthesisRef.speak(utterance);
-    }
+            this.speechSynthesisRef.speak(utterance);
+
+            return utterance;
+        },
+    });
 
     public ngOnChanges(): void {
-        if (this.paused) {
+        if (this.paused()) {
             this.speechSynthesisRef.pause();
         } else {
             this.speechSynthesisRef.resume();
