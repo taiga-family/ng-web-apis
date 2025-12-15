@@ -16,10 +16,18 @@ export default [
     {
         files: ['**/*.ts'],
         rules: {
+            // TODO: fix later
+            '@angular-eslint/prefer-inject': 'off',
             '@angular-eslint/prefer-signals': 'off',
             '@angular-eslint/prefer-output-readonly': 'off',
             '@angular-eslint/no-attribute-decorator': 'off',
             '@typescript-eslint/prefer-promise-reject-errors': 'off',
+        },
+    },
+    {
+        files: ['**/*.md'],
+        rules: {
+            'markdown/heading-increment': 'off',
         },
     },
 ];

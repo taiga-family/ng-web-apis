@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/common",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": [
         "angular",
@@ -13,17 +13,31 @@
     ],
     "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/common/README.md",
     "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
-    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taiga-family/ng-web-apis"
+    },
     "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru>",
-        "Dmitryi Khirnyi",
-        "Andrew Grekov <hr@thekiba.io>",
-        "Debmallya Bhattacharya <debmallya.bhattacharya@blueface.com>"
+        {
+            "name": "Roman Sedov",
+            "email": "79601794011@ya.ru"
+        },
+        {
+            "name": "Dmitryi Khirnyi"
+        },
+        {
+            "name": "Andrew Grekov",
+            "email": "hr@thekiba.io"
+        },
+        {
+            "name": "Debmallya Bhattacharya",
+            "email": "debmallya.bhattacharya@blueface.com"
+        }
     ],
     "peerDependencies": {
         "@angular/common": ">=19.0.0",

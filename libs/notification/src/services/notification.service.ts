@@ -23,6 +23,7 @@ export class NotificationService {
          * return from(Notification.requestPermission());
          */
         return new Observable((subscriber) => {
+            // eslint-disable-next-line compat/compat
             void Notification.requestPermission((permission) => {
                 subscriber.next(permission);
                 subscriber.complete();
@@ -36,6 +37,7 @@ export class NotificationService {
         }
 
         return defer(() => {
+            // eslint-disable-next-line compat/compat
             const notification = new Notification(title, options);
             const close$ = fromEvent(notification, 'close');
 

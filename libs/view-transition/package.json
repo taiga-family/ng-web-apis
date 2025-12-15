@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/view-transition",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "This is a library for declarative use of View Transition API with Angular",
     "keywords": [
         "angular",
@@ -10,15 +10,24 @@
     ],
     "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/view-transition/README.md",
     "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
-    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taiga-family/ng-web-apis"
+    },
     "license": "Apache-2.0",
     "author": {
         "name": "Vsevolod Arutiunov",
         "email": "sevaru@inbox.ru"
     },
     "contributors": [
-        "Alex Inkin <alexander@inkin.ru>",
-        "Roman Sedov <79601794011@ya.ru>"
+        {
+            "name": "Roman Sedov",
+            "email": "79601794011@ya.ru"
+        },
+        {
+            "name": "Alexander Inkin",
+            "email": "alexander@inkin.ru"
+        }
     ],
     "dependencies": {
         "tslib": "2.8.1"
