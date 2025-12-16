@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/audio",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "This is a library for declarative use of Web Audio API with Angular",
     "keywords": [
         "angular",
@@ -11,14 +11,20 @@
     ],
     "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/audio/README.md",
     "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
-    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taiga-family/ng-web-apis"
+    },
     "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru>"
+        {
+            "name": "Roman Sedov",
+            "email": "79601794011@ya.ru"
+        }
     ],
     "sideEffects": [
         "polyfill.js"

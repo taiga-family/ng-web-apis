@@ -55,7 +55,7 @@ function processSchedule(
 
 function processAutomation(
     param: AudioParam,
-    {value, mode = 'instant', duration}: AudioParamAutomation,
+    {value, mode, duration}: AudioParamAutomation,
     currentTime: number,
 ): void {
     switch (mode) {

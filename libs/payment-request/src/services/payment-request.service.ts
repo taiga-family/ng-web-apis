@@ -23,6 +23,7 @@ export class PaymentRequestService {
             );
         }
 
+        // eslint-disable-next-line compat/compat
         const gateway = new PaymentRequest(
             methods,
             details,

@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/universal",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "A set of fallback for @ng-web-apis/common for Angular Universal",
     "keywords": [
         "angular",
@@ -16,14 +16,24 @@
     ],
     "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/universal/README.md",
     "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
-    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taiga-family/ng-web-apis"
+    },
     "license": "Apache-2.0",
     "author": {
         "name": "Alex Inkin",
         "email": "alexander@inkin.ru"
     },
     "contributors": [
-        "Roman Sedov <79601794011@ya.ru>"
+        {
+            "name": "Roman Sedov",
+            "email": "79601794011@ya.ru"
+        },
+        {
+            "name": "Alexander Inkin",
+            "email": "alexander@inkin.ru"
+        }
     ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",

@@ -15,8 +15,8 @@ export const WaIntersectionObserver = [
  */
 @NgModule({
     imports: [
-        WaIntersectionObserverDirective,
         WaIntersectionObservee,
+        WaIntersectionObserverDirective,
         WaIntersectionRoot,
     ],
     exports: [

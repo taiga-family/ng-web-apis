@@ -326,4 +326,4 @@ All notable changes to this project will be documented in this file. See
 - **readme**: fix badges
   [(7e02824)](https://github.com/taiga-family/ng-web-apis/commit/7e028245ca4e512c8d9d1b1ac102b816f15e749a)
 
-### [1.0.0]() (2020-01-21)
+### [1.0.0](https://github.com/taiga-family/ng-web-apis/releases/tag/v1.0.0) (2020-01-21)

@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/payment-request",
-    "version": "4.12.1",
+    "version": "4.12.2",
     "description": "This is a library for declarative use of Payment Request API with Angular",
     "keywords": [
         "angular",
@@ -14,14 +14,20 @@
     ],
     "homepage": "https://github.com/taiga-family/ng-web-apis/blob/main/libs/payment-request/README.md",
     "bugs": "https://github.com/taiga-family/ng-web-apis/issues",
-    "repository": "https://github.com/taiga-family/ng-web-apis",
+    "repository": {
+        "type": "git",
+        "url": "https://github.com/taiga-family/ng-web-apis"
+    },
     "license": "Apache-2.0",
     "author": {
         "name": "Roman Sedov",
         "email": "79601794011@ya.ru"
     },
     "contributors": [
-        "Alex Inkin <alexander@inkin.ru>"
+        {
+            "name": "Alex Inkin",
+            "email": "alexander@inkin.ru"
+        }
     ],
     "peerDependencies": {
         "@angular/common": ">=19.0.0",

@@ -45,7 +45,7 @@ describe('IntersectionObserverService', () => {
                     expect(called).toBe(true);
 
                     done();
-                });
+                }, 100);
             });
     });
 });
