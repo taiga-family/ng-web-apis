@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {PermissionsService} from '@ng-web-apis/permissions';
+import {WaPermissionsService} from '@ng-web-apis/permissions';
 import {TuiAddonDoc, type TuiRawLoaderContent} from '@taiga-ui/addon-doc';
 import {TuiLink, TuiNotification} from '@taiga-ui/core';
 
@@ -27,7 +27,7 @@ import {NotificationPageExample4} from './examples/04-listen-notification-events
 })
 export default class NotificationPage {
     protected readonly notificationPermissionState$ =
-        inject(PermissionsService).state('notifications');
+        inject(WaPermissionsService).state('notifications');
 
     protected readonly deniedPermissionNotification =
         'You have denied notification permission. Please, change it in browser settings.';

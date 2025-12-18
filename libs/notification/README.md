@@ -15,20 +15,17 @@ npm i @ng-web-apis/notification
 
 ## Usage
 
-1. Import the `NotificationService` into your Angular component or service where you want to use it.
+1. Import the `WaNotificationService` into your Angular component or service where you want to use it.
 
 ```ts
-import {NotificationService} from '@ng-web-apis/notification';
+import {WaNotificationService} from '@ng-web-apis/notification';
 ```
 
-2. Inject the `NotificationService` into your component's constructor or with `inject` (Angular 14+).
+2. Inject the `WaNotificationService` into your component.
 
 ```ts
-// in constructor
-constructor(private notificationAPIService: NotificationService) {}
-
 // via inject
-notificationAPIService = inject(NotificationService);
+notificationAPIService = inject(WaNotificationService);
 ```
 
 3. Use the `requestPermission` and `open` methods to request permission and open a notification.

@@ -1,4 +1,4 @@
-export const SAMPLE = `import { PermissionsService } from '@ng-web-apis/permissions';
+export const SAMPLE = `import { WaPermissionsService } from '@ng-web-apis/permissions';
 
 @Component({
   selector: 'main',
@@ -11,7 +11,7 @@ export class App {
   geolocationState$ = this.permissionsService.state('geolocation');
 
   constructor(
-    private readonly permissionsService: PermissionsService,
+    private readonly permissionsService: WaPermissionsService,
   ) {}
 }
 `;

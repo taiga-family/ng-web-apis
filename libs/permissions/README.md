@@ -23,15 +23,16 @@ npm i @ng-web-apis/permissions
 
 ## How to use
 
-### PermissionsService
+### WaPermissionsService
 
 Import service in your component:
 
 ```ts
-import { PermissionsService } from '@ng-web-apis/permissions';
+import { inject } from "@angular/core";
+import { WaPermissionsService } from '@ng-web-apis/permissions';
 
 ...
-constructor(private readonly permissions: PermissionsService) {}
+private readonly permissions = inject(WaPermissionsService)
 ```
 
 Now, use the service to retrieve the
@@ -58,12 +59,12 @@ The observable is cold, meaning if there are no active subscriptions, it doesn't
 The library also provides a tokens to simplify working with
 [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API):
 
-- `PERMISSIONS_SUPPORT` returns `true` if user's browser supports
+- `WA_PERMISSIONS_SUPPORT` returns `true` if user's browser supports
   [Permissions API](https://developer.mozilla.org/en-US/docs/Web/API/Permissions_API)
 
 ```ts
 export class Example {
-  constructor(@Inject(PERMISSIONS_SUPPORT) private readonly permissionsSupport: boolean) {}
+  constructor(@Inject(WA_PERMISSIONS_SUPPORT) private readonly permissionsSupport: boolean) {}
 }
 ```
 

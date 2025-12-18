@@ -17,10 +17,8 @@ import {WA_PERMISSIONS_SUPPORT} from '../tokens/permissions-support';
 
 export type PermissionsQueryArgs = Parameters<typeof Permissions.prototype.query>[0];
 
-@Injectable({
-    providedIn: 'root',
-})
-export class PermissionsService {
+@Injectable({providedIn: 'root'})
+export class WaPermissionsService {
     private readonly isServer = isPlatformServer(inject(PLATFORM_ID));
     private readonly permissions = inject(WA_PERMISSIONS);
     private readonly permissionsSupported = inject(WA_PERMISSIONS_SUPPORT);

@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {WA_NAVIGATOR} from '@ng-web-apis/common';
-import {PermissionsService} from '@ng-web-apis/permissions';
+import {WaPermissionsService} from '@ng-web-apis/permissions';
 import {HighlightModule} from 'ngx-highlightjs';
 import {BehaviorSubject, catchError, of, tap} from 'rxjs';
 
@@ -20,7 +20,7 @@ export default class PermissionsPage {
     protected error$ = new BehaviorSubject<string | null>(null);
     protected basicSample = SAMPLE;
 
-    protected geolocationState$ = inject(PermissionsService)
+    protected geolocationState$ = inject(WaPermissionsService)
         .state('geolocation')
         .pipe(
             tap((state) => {
