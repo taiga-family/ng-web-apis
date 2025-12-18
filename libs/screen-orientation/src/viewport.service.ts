@@ -11,12 +11,9 @@ import {
     startWith,
 } from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class ViewportService extends Observable<VisualViewport> {
+@Injectable({providedIn: 'root'})
+export class WaViewportService extends Observable<VisualViewport> {
     private readonly visualViewport = inject(WA_WINDOW).visualViewport;
-
     private readonly stream$ = this.visualViewport
         ? merge(
               fromEvent(this.visualViewport, 'resize'),
@@ -34,3 +31,8 @@ export class ViewportService extends Observable<VisualViewport> {
         super((subscriber) => this.stream$.subscribe(subscriber));
     }
 }
+
+/**
+ * @deprecated DO NOT USE!!!
+ */
+export const ViewportService = WaViewportService;

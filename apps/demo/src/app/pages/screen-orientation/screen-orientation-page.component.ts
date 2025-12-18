@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {ScreenOrientationService} from '@ng-web-apis/screen-orientation';
+import {WaScreenOrientationService} from '@ng-web-apis/screen-orientation';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {SAMPLE_HTML, SAMPLE_TS} from './samples/sample';
@@ -13,7 +13,7 @@ import {SAMPLE_HTML, SAMPLE_TS} from './samples/sample';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ScreenOrientationPage {
-    protected readonly orientation$ = inject(ScreenOrientationService);
+    protected readonly orientation$ = inject(WaScreenOrientationService);
     protected readonly sample = SAMPLE_TS;
     protected readonly sampleHtml = SAMPLE_HTML;
 }
