@@ -26,7 +26,7 @@ npm i @ng-web-apis/workers
 Create a worker and use it in a template with `AsyncPipe`:
 
 ```ts
-import {WebWorker} from '@ng-web-apis/workers';
+import {WaWebWorker} from '@ng-web-apis/workers';
 
 function compute(data: number): number {
   return data ** 2;
@@ -43,14 +43,14 @@ function compute(data: number): number {
   `,
 })
 class My {
-  readonly worker = WebWorker.fromFunction<number, number>(compute);
+  readonly worker = WaWebWorker.fromFunction<number, number>(compute);
 }
 ```
 
 To get data from the worker event, use the toData operator
 
 ```ts
-import {toData, WebWorker} from '@ng-web-apis/workers';
+import {toData, WaWebWorker} from '@ng-web-apis/workers';
 
 function compute(data: number): number {
   return data ** 2;
@@ -66,12 +66,12 @@ function compute(data: number): number {
   `,
 })
 class My {
-  readonly worker = WebWorker.fromFunction<number, number>(compute);
+  readonly worker = WaWebWorker.fromFunction<number, number>(compute);
   readonly workerData$ = this.worker.pipe(toData());
 }
 ```
 
-It's the same with `WorkerPipe` only:
+It's the same with `WaWorkerPipe` only:
 
 ```ts
 import {WorkerModule} from '@ng-web-apis/workers';
@@ -85,7 +85,7 @@ class SomeModule {}
 ```
 
 ```ts
-import {WorkerExecutor, WebWorker} from '@ng-web-apis/workers';
+import {WorkerExecutor, WaWebWorker} from '@ng-web-apis/workers';
 import {FormControl} from '@angular/forms';
 
 @Component({

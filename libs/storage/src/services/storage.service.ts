@@ -2,7 +2,7 @@ import {inject, Injectable} from '@angular/core';
 import {WA_LOCAL_STORAGE, WA_WINDOW} from '@ng-web-apis/common';
 
 @Injectable({providedIn: 'root'})
-export class StorageService implements Storage {
+export class WaStorageService implements Storage {
     private readonly localStorage = inject(WA_LOCAL_STORAGE);
     private readonly windowRef = inject(WA_WINDOW);
 

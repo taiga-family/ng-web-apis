@@ -15,20 +15,20 @@ npm i @ng-web-apis/view-transition
 
 ## How to use
 
-1. Import the `ViewTransitionService` into your Angular component or service where you want to use it.
+1. Import the `WaViewTransitionService` into your Angular component or service where you want to use it.
 
 ```ts
-import {ViewTransitionService} from '@ng-web-apis/view-transition';
+import {WaViewTransitionService} from '@ng-web-apis/view-transition';
 ```
 
-2. Inject the `ViewTransitionService` into your component's constructor or with `inject` (Angular 14+).
+2. Inject the `WaViewTransitionService` into your component's constructor or with `inject` (Angular 14+).
 
 ```ts
 // in constructor
-constructor(private viewTransitionService: ViewTransitionService) {}
+constructor(private viewTransitionService: WaViewTransitionService) {}
 
 // via inject
-viewTransitionService = inject(ViewTransitionService);
+viewTransitionService = inject(WaViewTransitionService);
 ```
 
 3. Use the `startViewTransition` method to initiate a view transition. This method takes a callback function that

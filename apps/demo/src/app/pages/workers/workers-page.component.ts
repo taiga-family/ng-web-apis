@@ -1,6 +1,6 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
-import {toData, WebWorker} from '@ng-web-apis/workers';
+import {toData, WaWebWorker} from '@ng-web-apis/workers';
 import {TuiButton, TuiNotification} from '@taiga-ui/core';
 import {map, Subject} from 'rxjs';
 
@@ -26,7 +26,10 @@ function startCompute(): number {
 export default class WorkersPage {
     protected readonly platformId = inject(PLATFORM_ID);
     protected readonly isBrowser = isPlatformBrowser(this.platformId);
-    protected readonly workerThread = WebWorker.fromFunction<void, number>(startCompute);
+    protected readonly workerThread = WaWebWorker.fromFunction<void, number>(
+        startCompute,
+    );
+
     protected readonly workerData$ = this.workerThread.pipe(toData());
     protected readonly emitter = new Subject<void>();
     protected readonly result$ = this.emitter.pipe(map(startCompute));

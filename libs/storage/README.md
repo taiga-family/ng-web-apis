@@ -25,11 +25,11 @@ npm i @ng-web-apis/storage
 
 Web Storage API consists of storage synthesis and storage recognition.
 
-1. Use `STORAGE_EVENT` token to inject an `Observable` of
+1. Use `WA_STORAGE_EVENT` token to inject an `Observable` of
    [`StorageEvent`](https://developer.mozilla.org/en-US/docs/Web/API/StorageEvent).
 2. Use `filterByKey` and `toValue` utility operators to work with this `Observable`.
 3. Native `StorageEvent` only fires when changes are made from another tab. To capture events from the same tab use
-   `StorageService` to work with `localStorage`
+   `WaStorageService` to work with `localStorage`
 
 See [demo](https://taiga-family.github.io/ng-web-apis/storage) for concrete usage example.
 

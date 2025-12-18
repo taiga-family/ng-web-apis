@@ -1,7 +1,7 @@
 import {type IncomingMessage} from 'node:http';
 
 import {TestBed} from '@angular/core/testing';
-import {provideLocation, SSR_LOCATION} from '@ng-web-apis/universal';
+import {provideLocation, WA_SSR_LOCATION} from '@ng-web-apis/universal';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -21,7 +21,7 @@ describe('provideLocation', () => {
             providers: [provideLocation(req as IncomingMessage)],
         });
 
-        expect(String(TestBed.inject(SSR_LOCATION))).toBe(
+        expect(String(TestBed.inject(WA_SSR_LOCATION))).toBe(
             'https://localhost:8080/hapica',
         );
     });
@@ -39,8 +39,10 @@ describe('provideLocation', () => {
             providers: [provideLocation(req as IncomingMessage)],
         });
 
-        expect(String(TestBed.inject(SSR_LOCATION))).toBe('http://localhost:8080/hapica');
-        expect(TestBed.inject(SSR_LOCATION).ancestorOrigins.contains('')).toBe(false);
-        expect(TestBed.inject(SSR_LOCATION).ancestorOrigins.item(-1)).toBeNull();
+        expect(String(TestBed.inject(WA_SSR_LOCATION))).toBe(
+            'http://localhost:8080/hapica',
+        );
+        expect(TestBed.inject(WA_SSR_LOCATION).ancestorOrigins.contains('')).toBe(false);
+        expect(TestBed.inject(WA_SSR_LOCATION).ancestorOrigins.item(-1)).toBeNull();
     });
 });

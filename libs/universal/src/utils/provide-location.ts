@@ -3,7 +3,7 @@ import {type IncomingMessage} from 'node:http';
 import {type ValueProvider} from '@angular/core';
 
 import {DOMStringListMock} from '../classes/dom-string-list-mock';
-import {SSR_LOCATION} from '../tokens/ssr-location';
+import {WA_SSR_LOCATION} from '../tokens/ssr-location';
 import {emptyFunction} from './functions';
 
 export function provideLocation(req: IncomingMessage): ValueProvider {
@@ -16,7 +16,7 @@ export function provideLocation(req: IncomingMessage): ValueProvider {
     url.ancestorOrigins = new DOMStringListMock();
 
     return {
-        provide: SSR_LOCATION,
+        provide: WA_SSR_LOCATION,
         useValue: url,
     };
 }

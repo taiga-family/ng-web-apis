@@ -1,7 +1,7 @@
 import {type FactoryProvider, Optional} from '@angular/core';
 import {WA_NAVIGATOR} from '@ng-web-apis/common';
 
-import {SSR_USER_AGENT} from '../tokens/ssr-user-agent';
+import {WA_SSR_USER_AGENT} from '../tokens/ssr-user-agent';
 import {EVENT_TARGET} from '../utils/event-target';
 import {
     alwaysFalse,
@@ -117,7 +117,7 @@ export const NAVIGATOR_MOCK: Navigator = {
 
 export const UNIVERSAL_NAVIGATOR: FactoryProvider = {
     provide: WA_NAVIGATOR,
-    deps: [[new Optional(), SSR_USER_AGENT]],
+    deps: [[new Optional(), WA_SSR_USER_AGENT]],
     useFactory: (userAgent: string | null): Navigator => ({
         ...NAVIGATOR_MOCK,
         userAgent: userAgent ?? '',

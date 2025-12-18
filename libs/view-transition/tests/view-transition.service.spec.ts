@@ -1,15 +1,15 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
-import {ViewTransitionService} from '@ng-web-apis/view-transition';
+import {WaViewTransitionService} from '@ng-web-apis/view-transition';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('ViewTransitionService', () => {
+describe('WaViewTransitionService', () => {
     describe('not supported provider', () => {
         it('throw error if startViewTransition is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
-                    ViewTransitionService,
+                    WaViewTransitionService,
                     {
                         provide: DOCUMENT,
                         useValue: {
@@ -18,7 +18,7 @@ describe('ViewTransitionService', () => {
                     },
                 ],
             });
-            const service = TestBed.inject(ViewTransitionService);
+            const service = TestBed.inject(WaViewTransitionService);
 
             const observable = service.startViewTransition(() => {});
 
@@ -35,7 +35,7 @@ describe('ViewTransitionService', () => {
     });
 
     describe('supported provider', () => {
-        let service: ViewTransitionService;
+        let service: WaViewTransitionService;
 
         const mockDocument = {
             querySelectorAll: () => [],
@@ -54,11 +54,11 @@ describe('ViewTransitionService', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    ViewTransitionService,
+                    WaViewTransitionService,
                     {provide: DOCUMENT, useValue: mockDocument},
                 ],
             });
-            service = TestBed.inject(ViewTransitionService);
+            service = TestBed.inject(WaViewTransitionService);
         });
 
         it('complete the observable when transition finishes', (done) => {
@@ -105,14 +105,14 @@ describe('ViewTransitionService', () => {
 
             TestBed.configureTestingModule({
                 providers: [
-                    ViewTransitionService,
+                    WaViewTransitionService,
                     {
                         provide: DOCUMENT,
                         useValue: mockDocument,
                     },
                 ],
             });
-            const service = TestBed.inject(ViewTransitionService);
+            const service = TestBed.inject(WaViewTransitionService);
 
             const skipSpy = spyOn(viewTransitionValue, 'skipTransition');
             const observable = service.startViewTransition(() => {});
