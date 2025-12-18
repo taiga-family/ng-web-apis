@@ -1,19 +1,16 @@
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 
 @Directive({
-    standalone: true,
     selector: 'canvas-path[path]',
+    inputs: ['path', 'fillRule'],
     providers: [WaDrawService],
 })
 export class WaCanvasPath2d {
     private readonly method = inject(WaDrawService);
 
-    @Input()
     public path = new Path2D();
-
-    @Input()
     public fillRule?: CanvasFillRule;
 
     constructor() {
@@ -23,8 +20,3 @@ export class WaCanvasPath2d {
         };
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasPath2d}
- */
-export const Path2dDirective = WaCanvasPath2d;

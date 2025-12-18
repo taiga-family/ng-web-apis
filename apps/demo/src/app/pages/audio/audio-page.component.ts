@@ -2,7 +2,7 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {AUDIO_CONTEXT, WaWebAudio} from '@ng-web-apis/audio';
-import {CanvasModule} from '@ng-web-apis/canvas';
+import {WaCanvas} from '@ng-web-apis/canvas';
 import {TuiButton, TuiLabel} from '@taiga-ui/core';
 import {TuiDataListWrapper, TuiRadio, TuiSlider} from '@taiga-ui/kit';
 import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
@@ -10,7 +10,6 @@ import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
 @Component({
     selector: 'audio-page',
     imports: [
-        CanvasModule,
         CommonModule,
         FormsModule,
         TuiButton,
@@ -20,6 +19,7 @@ import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
         TuiSelectModule,
         TuiSlider,
         TuiTextfieldControllerModule,
+        WaCanvas,
         WaWebAudio,
     ],
     templateUrl: './audio-page.component.html',

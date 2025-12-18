@@ -1,10 +1,7 @@
 import {isPlatformBrowser} from '@angular/common';
 import {inject, Pipe, type PipeTransform, PLATFORM_ID} from '@angular/core';
 
-@Pipe({
-    standalone: true,
-    name: 'transform',
-})
+@Pipe({name: 'transform'})
 export class WaCanvasTransformPipe implements PipeTransform {
     private readonly isBrowser = isPlatformBrowser(inject(PLATFORM_ID));
 
@@ -12,8 +9,3 @@ export class WaCanvasTransformPipe implements PipeTransform {
         return this.isBrowser ? new DOMMatrix(value) : null;
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasTransformPipe}
- */
-export const TransformPipe = WaCanvasTransformPipe;

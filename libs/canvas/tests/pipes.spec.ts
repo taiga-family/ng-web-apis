@@ -1,12 +1,11 @@
-import {ChangeDetectionStrategy, Component, Input, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, Input, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
+import {WA_CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Pipes', () => {
     @Component({
-        standalone: true,
         selector: 'canvas',
         imports: [WaCanvas],
         template: `
@@ -38,7 +37,6 @@ describe('Pipes', () => {
     }
 
     @Component({
-        standalone: true,
         imports: [Canvas, WaCanvas],
         template: `
             <img
@@ -62,8 +60,9 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        public readonly context!: CanvasRenderingContext2D;
+        public readonly context = viewChild.required('canvas', {
+            read: WA_CANVAS_2D_CONTEXT,
+        });
     }
 
     let fixture: ComponentFixture<Test>;
@@ -81,7 +80,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
 
     it('gradient works', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(0, 0, 1, 1).data]).toEqual([
                 127, 0, 127, 255,
             ]);
 

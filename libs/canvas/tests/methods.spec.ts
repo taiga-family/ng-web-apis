@@ -1,12 +1,11 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {CANVAS_2D_CONTEXT, WaCanvas, WaCanvasClipPath} from '@ng-web-apis/canvas';
+import {WA_CANVAS_2D_CONTEXT, WaCanvas, WaCanvasClipPath} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Methods', () => {
     @Component({
-        standalone: true,
         imports: [WaCanvas],
         template: `
             <canvas
@@ -50,11 +49,11 @@ describe('Methods', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        public readonly context!: CanvasRenderingContext2D;
+        public readonly context = viewChild.required('canvas', {
+            read: WA_CANVAS_2D_CONTEXT,
+        });
 
-        @ViewChild(WaCanvasClipPath)
-        public readonly clipPath!: WaCanvasClipPath;
+        public readonly clipPath = viewChild.required(WaCanvasClipPath);
 
         public readonly image = new Image();
 
@@ -90,10 +89,10 @@ describe('Methods', () => {
 
     it('draws an image', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(1, 1, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(1, 1, 1, 1).data]).toEqual([
                 0, 0, 0, 0,
             ]);
-            expect([...testComponent.context.getImageData(0, 0, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(0, 0, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
             ]);
 
@@ -103,13 +102,13 @@ describe('Methods', () => {
 
     it('draws an image with offset and scale', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(10, 10, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(10, 10, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
             ]);
-            expect([...testComponent.context.getImageData(19, 19, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(19, 19, 1, 1).data]).toEqual([
                 255, 0, 0, 255,
             ]);
-            expect([...testComponent.context.getImageData(20, 20, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(20, 20, 1, 1).data]).toEqual([
                 0, 0, 0, 0,
             ]);
 
@@ -119,7 +118,7 @@ describe('Methods', () => {
 
     it('draws an image with offset in the source', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(30, 30, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(30, 30, 1, 1).data]).toEqual([
                 0, 255, 0, 255,
             ]);
 
@@ -128,6 +127,6 @@ describe('Methods', () => {
     });
 
     it('clip collects path segments', () => {
-        expect(testComponent.clipPath.pathSteps.length).toBe(2);
+        expect(testComponent.clipPath().pathSteps.length).toBe(2);
     });
 });

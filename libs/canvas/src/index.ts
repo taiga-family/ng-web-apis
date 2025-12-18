@@ -1,3 +1,4 @@
+export * from './canvas';
 export * from './contexts/canvas-2d';
 export type * from './interfaces/canvas-method';
 export * from './methods/clip-path';
@@ -5,7 +6,6 @@ export * from './methods/draw-image';
 export * from './methods/path';
 export * from './methods/path-2d';
 export * from './methods/text';
-export * from './module';
 export * from './path/arc';
 export * from './path/arc-to';
 export * from './path/bezier-curve-to';

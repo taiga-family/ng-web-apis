@@ -1,36 +1,21 @@
-import {Directive, Input} from '@angular/core';
+import {Directive} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasMethod} from '../tokens/canvas-method';
 
 @Directive({
-    standalone: true,
     selector: 'canvas-ellipse',
+    inputs: ['x', 'y', 'radiusX', 'radiusY', 'startAngle', 'endAngle', 'anticlockwise'],
     providers: [asCanvasMethod(WaCanvasEllipse)],
 })
 export class WaCanvasEllipse implements CanvasMethod {
-    @Input()
     public x = 0;
-
-    @Input()
     public y = 0;
-
-    @Input()
     public radiusX = 0;
-
-    @Input()
     public radiusY = 0;
-
-    @Input()
     public rotation = 0;
-
-    @Input()
     public startAngle = 0;
-
-    @Input()
     public endAngle = 0;
-
-    @Input()
     public anticlockwise = false;
 
     public call(context: CanvasRenderingContext2D): void {
@@ -46,8 +31,3 @@ export class WaCanvasEllipse implements CanvasMethod {
         );
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasEllipse}
- */
-export const EllipseDirective = WaCanvasEllipse;
