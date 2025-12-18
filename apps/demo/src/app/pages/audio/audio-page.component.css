@@ -30,7 +30,17 @@ audio {
 }
 
 label {
+    align-items: center;
     margin-block-start: 0.5rem;
+
+    [type='range'] {
+        width: 10rem;
+    }
+}
+
+fieldset label {
+    width: 100% !important;
+    justify-content: space-between;
 }
 
 input {

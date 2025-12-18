@@ -54,20 +54,38 @@
             OscillatorNode
         </label>
 
-        @switch (selectedSource) {
-            @case ('buffer') {
-                @for (_ of buffers; track $index) {
-                    <button
-                        #source="AudioNode"
-                        buffer="assets/demo.mp3"
-                        size="s"
-                        tuiButton
-                        type="button"
-                        waAudioBufferSourceNode
-                        [loop]="true"
-                        (click)="onClick(source, $any($event).target)"
+        <p>
+            @switch (selectedSource) {
+                @case ('buffer') {
+                    @for (_ of buffers; track _) {
+                        <button
+                            #source="AudioNode"
+                            buffer="assets/demo.mp3"
+                            size="s"
+                            tuiButton
+                            type="button"
+                            waAudioBufferSourceNode
+                            [loop]="true"
+                            (click)="onClick(source, $any($event).target)"
+                        >
+                            Play
+                            <ng-container
+                                waAnalyserNode
+                                [fftSize]="fftSize"
+                                (timeByte$)="onTimeDomain($event)"
+                            >
+                                <ng-container [waOutput]="chain || fallback" />
+                            </ng-container>
+                        </button>
+                    }
+                }
+                @case ('media') {
+                    <audio
+                        controls
+                        loop
+                        src="assets/demo.mp3"
+                        waMediaElementAudioSourceNode
                     >
-                        Play
                         <ng-container
                             waAnalyserNode
                             [fftSize]="fftSize"
@@ -75,49 +93,33 @@
                         >
                             <ng-container [waOutput]="chain || fallback" />
                         </ng-container>
-                    </button>
+                    </audio>
                 }
-            }
-            @case ('media') {
-                <audio
-                    controls
-                    loop
-                    src="assets/demo.mp3"
-                    waMediaElementAudioSourceNode
-                >
-                    <ng-container
-                        waAnalyserNode
-                        [fftSize]="fftSize"
-                        (timeByte$)="onTimeDomain($event)"
-                    >
-                        <ng-container [waOutput]="chain || fallback" />
-                    </ng-container>
-                </audio>
-            }
-            @case ('oscillator') {
-                @for (_ of buffers; track $index) {
-                    <button
-                        #source="AudioNode"
-                        size="s"
-                        tuiButton
-                        type="button"
-                        waOscillatorNode
-                        [frequency]="100"
-                        [periodicWave]="real | waPeriodicWave"
-                        (click)="onClick(source, $any($event).target)"
-                    >
-                        Play
-                        <ng-container
-                            waAnalyserNode
-                            [fftSize]="fftSize"
-                            (timeByte$)="onTimeDomain($event)"
+                @case ('oscillator') {
+                    @for (_ of buffers; track _) {
+                        <button
+                            #source="AudioNode"
+                            size="s"
+                            tuiButton
+                            waOscillatorNode
+                            [attr.type]="'button'"
+                            [frequency]="100"
+                            [periodicWave]="real | waPeriodicWave"
+                            (click)="onClick(source, $any($event).target)"
                         >
-                            <ng-container [waOutput]="chain || fallback" />
-                        </ng-container>
-                    </button>
+                            Play
+                            <ng-container
+                                waAnalyserNode
+                                [fftSize]="fftSize"
+                                (timeByte$)="onTimeDomain($event)"
+                            >
+                                <ng-container [waOutput]="chain || fallback" />
+                            </ng-container>
+                        </button>
+                    }
                 }
             }
-        }
+        </p>
 
         <p>
             <canvas
@@ -274,16 +276,26 @@
                     [type]="type"
                 >
                     <legend>BiquadFilterNode</legend>
-                    <tui-select
+                    <tui-textfield
+                        tuiChevron
                         tuiTextfieldSize="m"
-                        [(ngModel)]="type"
                     >
-                        Type
+                        <label
+                            tuiLabel
+                            [style.margin]="0"
+                        >
+                            Type
+                        </label>
+                        <input
+                            tuiSelect
+                            [(ngModel)]="type"
+                        />
                         <tui-data-list-wrapper
-                            *tuiDataList
+                            *tuiTextfieldDropdown
+                            new
                             [items]="items"
                         />
-                    </tui-select>
+                    </tui-textfield>
                     <label tuiLabel>
                         gain
                         <input

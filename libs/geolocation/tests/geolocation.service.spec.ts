@@ -1,16 +1,16 @@
 import {TestBed} from '@angular/core/testing';
 import {
-    GEOLOCATION,
-    GEOLOCATION_SUPPORT,
-    GeolocationService,
+    WA_GEOLOCATION,
+    WA_GEOLOCATION_SUPPORT,
+    WaGeolocationService,
 } from '@ng-web-apis/geolocation';
 import {catchError, EMPTY, interval, skip, take, timer} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('GeolocationService', () => {
+describe('WaGeolocationService', () => {
     describe('Geolocation service', () => {
-        let service: GeolocationService;
+        let service: WaGeolocationService;
         let clearWatchCount: number;
 
         class FakeGeolocation {
@@ -29,12 +29,12 @@ describe('GeolocationService', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    {provide: GEOLOCATION, useClass: FakeGeolocation},
-                    GeolocationService,
+                    {provide: WA_GEOLOCATION, useClass: FakeGeolocation},
+                    WaGeolocationService,
                 ],
             });
 
-            service = TestBed.inject(GeolocationService).pipe(
+            service = TestBed.inject(WaGeolocationService).pipe(
                 catchError((_err, caught) => caught),
             );
             clearWatchCount = 0;
@@ -85,7 +85,7 @@ describe('GeolocationService', () => {
         });
 
         it('error', (done) => {
-            service = TestBed.inject(GeolocationService);
+            service = TestBed.inject(WaGeolocationService);
 
             service
                 .pipe(
@@ -105,12 +105,12 @@ describe('GeolocationService', () => {
         it('cannot receive and throws an error if Geolocation is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
-                    {provide: GEOLOCATION_SUPPORT, useValue: false},
-                    GeolocationService,
+                    {provide: WA_GEOLOCATION_SUPPORT, useValue: false},
+                    WaGeolocationService,
                 ],
             });
 
-            const service$: GeolocationService = TestBed.inject(GeolocationService);
+            const service$: WaGeolocationService = TestBed.inject(WaGeolocationService);
 
             service$.subscribe(
                 () => {},

@@ -23,28 +23,27 @@ npm i @ng-web-apis/geolocation
 
 ## How to use
 
-### GeolocationService
+### WaGeolocationService
 
-`GeolocationService` is an `Observable`, that emits
+`WaGeolocationService` is an `Observable`, that emits
 [Position](https://developer.mozilla.org/en-US/docs/Web/API/GeolocationPosition) object
 
 Import service in your component:
 
 ```ts
-import {GeolocationService} from '@ng-web-apis/geolocation';
-
-// ...
-constructor(private readonly geolocation$: GeolocationService) {}
+export class Example {
+  private readonly geolocation$ = inject(WaGeolocationService);
+}
 ```
 
 Now, to observe user position, you can subscribe to `geolocation$`:
 
 ```ts
-geolocation$.subscribe((position) => doSomethingWithPosition(position));
+this.geolocation$.subscribe((position) => doSomethingWithPosition(position));
 ```
 
 If you need to get position just once and stop observing user location, you can subscribe to `geolocation$` and use
-`take(1)` RxJs operator:
+`take(1)` RxJS operator:
 
 ```ts
 geolocation$.pipe(take(1)).subscribe((position) => doSomethingWithPosition(position));
@@ -53,9 +52,7 @@ geolocation$.pipe(take(1)).subscribe((position) => doSomethingWithPosition(posit
 Or you can use async pipe to get position directly in template:
 
 ```html
-<div *ngIf="geolocation$ | async as position">
-  <span>{{position.coords.latitude}}</span>
-</div>
+@if (geolocation$ | async; as position) { {{position.coords.latitude}} }
 ```
 
 Service is cold, meaning if there are no active subscriptions, it doesn't track position.
@@ -65,34 +62,32 @@ Service is cold, meaning if there are no active subscriptions, it doesn't track 
 The library also provides some tokens to simplify working with
 [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API):
 
-- `GEOLOCATION_SUPPORT` returns `true` if user's browser supports
+- `WA_GEOLOCATION_SUPPORT` returns `true` if user's browser supports
   [Geolocation API](https://developer.mozilla.org/en-US/docs/Web/API/Geolocation_API)
 
 ```ts
 export class Example {
-  constructor(@Inject(GEOLOCATION_SUPPORT) private readonly geolocationSupport: boolean) {}
+  private readonly geolocationSupport = inject(WA_GEOLOCATION_SUPPORT);
 }
 ```
 
 - You can provide [PositionOptions](https://developer.mozilla.org/en-US/docs/Web/API/PositionOptions) through
-  `POSITION_OPTIONS` token with optional properties named `enableHighAccuracy`, `timeout` and `maximumAge`. It uses `{}`
-  by default.
+  `WA_POSITION_OPTIONS` token with optional properties named `enableHighAccuracy`, `timeout` and `maximumAge`. It uses
+  `{}` by default.
 
 ```ts
-@NgModule({
-    ...
+bootstrapApplication(App, {
   providers: [
-        {
-            provide: POSITION_OPTIONS,
-            useValue: {enableHighAccuracy: true, timeout: 3000, maximumAge: 1000},
-        },
-    ],
-})
-export class AppModule {}
+    {
+      provide: WA_POSITION_OPTIONS,
+      useValue: {enableHighAccuracy: true, timeout: 3000, maximumAge: 1000},
+    },
+  ],
+});
 ```
 
 - [navigator.geolocation](https://developer.mozilla.org/ru/docs/Web/API/Navigator/geolocation) can be injected through
-  `GEOLOCATION` token.
+  `WA_GEOLOCATION` token.
 
 ## Browser support
 
