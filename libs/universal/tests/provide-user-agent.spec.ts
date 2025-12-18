@@ -1,3 +1,4 @@
+import {REQUEST} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {provideUserAgent, WA_SSR_USER_AGENT} from '@ng-web-apis/universal';
 
@@ -13,6 +14,14 @@ describe('provideUserAgent', () => {
     it('parses request', () => {
         TestBed.configureTestingModule({
             providers: [provideUserAgent(req)],
+        });
+
+        expect(TestBed.inject(WA_SSR_USER_AGENT) satisfies string).toBe('Chrome');
+    });
+
+    it('parses request from REQUEST token', () => {
+        TestBed.configureTestingModule({
+            providers: [{provide: REQUEST, useValue: {headers: {get: () => 'Chrome'}}}],
         });
 
         expect(TestBed.inject(WA_SSR_USER_AGENT) satisfies string).toBe('Chrome');

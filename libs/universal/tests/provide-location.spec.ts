@@ -1,5 +1,6 @@
 import {type IncomingMessage} from 'node:http';
 
+import {REQUEST} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {provideLocation, WA_SSR_LOCATION} from '@ng-web-apis/universal';
 
@@ -19,6 +20,23 @@ describe('provideLocation', () => {
 
         TestBed.configureTestingModule({
             providers: [provideLocation(req as IncomingMessage)],
+        });
+
+        expect(String(TestBed.inject(WA_SSR_LOCATION))).toBe(
+            'https://localhost:8080/hapica',
+        );
+    });
+
+    it('parses request from REQUEST tokens', () => {
+        const req: any = {
+            url: 'https://localhost:8080/hapica',
+            headers: {
+                host: 'localhost:8080',
+            },
+        };
+
+        TestBed.configureTestingModule({
+            providers: [{provide: REQUEST, useValue: req}],
         });
 
         expect(String(TestBed.inject(WA_SSR_LOCATION))).toBe(

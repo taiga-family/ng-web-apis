@@ -53,3 +53,6 @@ app.get('/**/*', (req: Request, res: Response) => {
   });
 });
 ```
+
+> ⚠️ **Note:** If you're using `AngularNodeAppEngine`, you **don't need** to manually call `provideLocation` or
+> `provideUserAgent` — these tokens rely on the REQUEST token and are already properly provided by the engine.
