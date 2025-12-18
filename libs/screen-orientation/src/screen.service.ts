@@ -2,13 +2,10 @@ import {inject, Injectable} from '@angular/core';
 import {WA_WINDOW} from '@ng-web-apis/common';
 import {fromEvent, map, Observable, shareReplay, startWith} from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class ScreenOrientationService extends Observable<OrientationType> {
+@Injectable({providedIn: 'root'})
+export class WaScreenOrientationService extends Observable<OrientationType> {
     private readonly win = inject(WA_WINDOW);
     private readonly screen = this.win.screen as Screen | null; // SSR
-
     private readonly stream$ = (this.screen
         ? fromEvent(this.screen.orientation, 'change').pipe(
               startWith(null),

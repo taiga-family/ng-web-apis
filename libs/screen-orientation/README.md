@@ -9,11 +9,12 @@ npm i @ng-web-apis/screen-orientation
 ## Examples
 
 ```ts
-import {ScreenOrientationService} from '@ng-web-apis/screen-orientation';
+import {inject} from '@angular/core';
+import {WaScreenOrientationService} from '@ng-web-apis/screen-orientation';
 
 // ...
 export class Example {
-  constructor(readonly orientation$: ScreenOrientationService) {}
+  protected readonly orientation$ = inject(WaScreenOrientationService);
 }
 ```
 
