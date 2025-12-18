@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {NotificationService} from '@ng-web-apis/notification';
-import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions';
+import {WaNotificationService} from '@ng-web-apis/notification';
+import {isDenied, isGranted, WaPermissionsService} from '@ng-web-apis/permissions';
 import {TuiButton} from '@taiga-ui/core';
 import {filter, map, switchMap, takeUntil, timer} from 'rxjs';
 
@@ -12,9 +12,9 @@ import {filter, map, switchMap, takeUntil, timer} from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample3 {
-    private readonly notifications: NotificationService = inject(NotificationService);
+    private readonly notifications: WaNotificationService = inject(WaNotificationService);
 
-    protected readonly denied$ = inject(PermissionsService)
+    protected readonly denied$ = inject(WaPermissionsService)
         .state('notifications')
         .pipe(map(isDenied));
 

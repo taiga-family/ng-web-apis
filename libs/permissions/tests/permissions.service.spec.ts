@@ -1,8 +1,8 @@
 import {fakeAsync, TestBed, tick} from '@angular/core/testing';
 import {
-    PERMISSIONS,
-    PERMISSIONS_SUPPORT,
-    PermissionsService,
+    WA_PERMISSIONS,
+    WA_PERMISSIONS_SUPPORT,
+    WaPermissionsService,
 } from '@ng-web-apis/permissions';
 
 import {FakePermissionStatus} from '../src/mocks/fake-permission-status';
@@ -10,9 +10,9 @@ import {FakePermissions} from '../src/mocks/fake-permissions';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('PermissionsService', () => {
-    describe('PermissionsService', () => {
-        let service: PermissionsService;
+describe('WaPermissionsService', () => {
+    describe('WaPermissionsService', () => {
+        let service: WaPermissionsService;
         let permissions: Permissions;
         let permissionStatus: FakePermissionStatus;
         const QUERY_DELAY = 300;
@@ -43,11 +43,11 @@ describe('PermissionsService', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                providers: [{provide: PERMISSIONS, useClass: FakePermissions}],
+                providers: [{provide: WA_PERMISSIONS, useClass: FakePermissions}],
             });
 
-            service = TestBed.inject(PermissionsService);
-            permissions = TestBed.inject(PERMISSIONS);
+            service = TestBed.inject(WaPermissionsService);
+            permissions = TestBed.inject(WA_PERMISSIONS);
         });
 
         it('service init', () => {
@@ -191,20 +191,20 @@ describe('PermissionsService', () => {
         }));
     });
 
-    describe('PermissionsService is unsupported', () => {
-        let service: PermissionsService;
+    describe('WaPermissionsService is unsupported', () => {
+        let service: WaPermissionsService;
         let permissions: Permissions;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    {provide: PERMISSIONS, useClass: FakePermissions},
-                    {provide: PERMISSIONS_SUPPORT, useValue: false},
+                    {provide: WA_PERMISSIONS, useClass: FakePermissions},
+                    {provide: WA_PERMISSIONS_SUPPORT, useValue: false},
                 ],
             });
 
-            service = TestBed.inject(PermissionsService);
-            permissions = TestBed.inject(PERMISSIONS);
+            service = TestBed.inject(WaPermissionsService);
+            permissions = TestBed.inject(WA_PERMISSIONS);
         });
 
         it('should throw an error and .query() should not be called', () => {
@@ -223,13 +223,13 @@ describe('PermissionsService', () => {
         });
     });
 
-    describe('Token: PERMISSIONS', () => {
+    describe('Token: WA_PERMISSIONS', () => {
         let permissions: Permissions;
 
         beforeEach(() => {
             TestBed.configureTestingModule({});
 
-            permissions = TestBed.inject(PERMISSIONS);
+            permissions = TestBed.inject(WA_PERMISSIONS);
         });
 
         it('should be defined', () => {

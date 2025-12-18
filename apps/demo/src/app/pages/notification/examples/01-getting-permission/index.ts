@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
-import {NotificationService} from '@ng-web-apis/notification';
-import {PermissionsService} from '@ng-web-apis/permissions';
+import {WaNotificationService} from '@ng-web-apis/notification';
+import {WaPermissionsService} from '@ng-web-apis/permissions';
 import {TuiButton} from '@taiga-ui/core';
 import {TuiBadge} from '@taiga-ui/kit';
 
@@ -12,10 +12,10 @@ import {TuiBadge} from '@taiga-ui/kit';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class NotificationPageExample1 {
-    private readonly notifications: NotificationService = inject(NotificationService);
+    private readonly notifications: WaNotificationService = inject(WaNotificationService);
 
     protected readonly notificationPermissionState$ =
-        inject(PermissionsService).state('notifications');
+        inject(WaPermissionsService).state('notifications');
 
     protected requestPermission(): void {
         this.notifications.requestPermission().subscribe({

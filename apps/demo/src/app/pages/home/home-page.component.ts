@@ -5,9 +5,9 @@ import {WEB_AUDIO_SUPPORT} from '@ng-web-apis/audio';
 import {WA_GEOLOCATION_SUPPORT} from '@ng-web-apis/geolocation';
 import {WA_INTERSECTION_OBSERVER_SUPPORT} from '@ng-web-apis/intersection-observer';
 import {WA_MIDI_SUPPORT} from '@ng-web-apis/midi';
-import {NOTIFICATION_SUPPORT} from '@ng-web-apis/notification';
+import {WA_NOTIFICATION_SUPPORT} from '@ng-web-apis/notification';
 import {WA_PAYMENT_REQUEST_SUPPORT} from '@ng-web-apis/payment-request';
-import {PERMISSIONS_SUPPORT} from '@ng-web-apis/permissions';
+import {WA_PERMISSIONS_SUPPORT} from '@ng-web-apis/permissions';
 import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
 @Component({
@@ -25,6 +25,6 @@ export default class HomePage {
     protected readonly resizeSupport = inject(RESIZE_OBSERVER_SUPPORT);
     protected readonly midiSupport = inject(WA_MIDI_SUPPORT);
     protected readonly audioSupport = inject(WEB_AUDIO_SUPPORT);
-    protected readonly permissionsSupport = inject(PERMISSIONS_SUPPORT);
-    protected readonly notificationSupport = inject(NOTIFICATION_SUPPORT);
+    protected readonly permissionsSupport = inject(WA_PERMISSIONS_SUPPORT);
+    protected readonly notificationSupport = inject(WA_NOTIFICATION_SUPPORT);
 }

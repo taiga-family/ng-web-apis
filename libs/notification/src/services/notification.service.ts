@@ -1,17 +1,15 @@
 import {inject, Injectable} from '@angular/core';
 import {defer, fromEvent, Observable, takeUntil, throwError} from 'rxjs';
 
-import {NOTIFICATION_SUPPORT} from '../tokens/support';
+import {WA_NOTIFICATION_SUPPORT} from '../tokens/support';
 
 const NOT_SUPPORTED_ERROR$ = throwError(
     () => new Error('Notification API is not supported in your browser'),
 );
 
-@Injectable({
-    providedIn: 'root',
-})
-export class NotificationService {
-    private readonly support = inject(NOTIFICATION_SUPPORT);
+@Injectable({providedIn: 'root'})
+export class WaNotificationService {
+    private readonly support = inject(WA_NOTIFICATION_SUPPORT);
 
     public requestPermission(): Observable<NotificationPermission> {
         if (!this.support) {
