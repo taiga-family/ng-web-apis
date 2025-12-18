@@ -23,7 +23,7 @@ npm i @ng-web-apis/intersection-observer
 
 ## Usage
 
-1. Import `IntersectionObserverModule` for directives to work
+1. Import `WaIntersectionObserver` for directives to work
 2. Create [IntersectionObserver](https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver) with
    `waIntersectionObserver` directive
 3. Observe elements with `waIntersectionObservee` directive
@@ -85,27 +85,26 @@ Alternatively you can use `Observable`-based services:
   providers: [
     IntersectionObserverService,
     {
-      provide: INTERSECTION_THRESHOLD,
+      provide: WA_INTERSECTION_THRESHOLD,
       useValue: 0.5,
     },
     {
-      provide: INTERSECTION_ROOT_MARGIN,
+      provide: WA_INTERSECTION_ROOT_MARGIN,
       useValue: '10px',
     },
   ],
 })
 export class Example {
-  constructor(@Inject(IntersectionObserverService) entries$: IntersectionObserverService) {
-    entries$.subscribe((entries) => {
-      // Don't forget to unsubscribe
+  protected readonly sub = inject(IntersectionObserverService)
+    .pipe(takeUntilDestroyed())
+    .subscribe((entries) => {
       console.log(entries);
     });
-  }
 }
 ```
 
-> In this case provide `INTERSECTION_ROOT` up the DI tree if you want to observe intersection with a particular parent
-> element
+> In this case provide `WA_INTERSECTION_ROOT` up the DI tree if you want to observe intersection with a particular
+> parent element
 
 ## Browser support
 
@@ -114,12 +113,6 @@ export class Example {
 |                                                                                                15+                                                                                                |                                                                                                  55+                                                                                                  |                                                                                                51+                                                                                                 |                                                                                               12.2+                                                                                                |
 
 > You can use [polyfill](https://www.npmjs.com/package/intersection-observer) to support older browsers
-
-## Angular Universal
-
-If you want to use this package with SSR, you need to mock `IntersectionObserver` class on the server. You can use our
-Universal package for this, see
-[this example](https://github.com/taiga-family/ng-web-apis/tree/main/libs/universal#mocks).
 
 ## Demo
 

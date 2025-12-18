@@ -1,8 +1,8 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
-    INTERSECTION_ROOT_MARGIN,
-    INTERSECTION_THRESHOLD,
+    WA_INTERSECTION_ROOT_MARGIN,
+    WA_INTERSECTION_THRESHOLD,
     WaIntersectionObserver,
     WaIntersectionObserverDirective,
 } from '@ng-web-apis/intersection-observer';
@@ -11,7 +11,6 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('WaIntersectionObservee', () => {
     @Component({
-        standalone: true,
         imports: [WaIntersectionObserver],
         template: `
             <div id="manual_observee">Hello</div>
@@ -45,8 +44,9 @@ describe('WaIntersectionObservee', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('root', {read: WaIntersectionObserverDirective})
-        public observer!: WaIntersectionObserverDirective;
+        public readonly observer = viewChild.required('root', {
+            read: WaIntersectionObserverDirective,
+        });
 
         public onIntersection = jasmine.createSpy('onIntersection');
         public observe = true;
@@ -83,13 +83,13 @@ describe('WaIntersectionObservee', () => {
 
     it('compatible with native method signature', () => {
         expect(() =>
-            testComponent.observer.observe(document.querySelector('#manual_observee')!),
+            testComponent.observer().observe(document.querySelector('#manual_observee')!),
         ).not.toThrow();
     });
 
     it('default options', () => {
         // https://developer.mozilla.org/en-US/docs/Web/API/IntersectionObserver/IntersectionObserver
-        expect(TestBed.inject(INTERSECTION_ROOT_MARGIN)).toBe('0px 0px 0px 0px');
-        expect(TestBed.inject(INTERSECTION_THRESHOLD)).toBe(0);
+        expect(TestBed.inject(WA_INTERSECTION_ROOT_MARGIN)).toBe('0px 0px 0px 0px');
+        expect(TestBed.inject(WA_INTERSECTION_THRESHOLD)).toBe(0);
     });
 });
