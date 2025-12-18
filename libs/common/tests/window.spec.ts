@@ -1,14 +1,14 @@
 import {DOCUMENT} from '@angular/common';
 import {TestBed} from '@angular/core/testing';
-import {WINDOW} from '@ng-web-apis/common';
+import {WA_WINDOW} from '@ng-web-apis/common';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('WINDOW', () => {
+describe('WA_WINDOW', () => {
     it('injects global object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.inject(WINDOW)).toBe(window);
+        expect(TestBed.inject(WA_WINDOW)).toBe(window);
     });
 
     it('throws error if global object not available', () => {
@@ -23,6 +23,6 @@ describe('WINDOW', () => {
             ],
         });
 
-        expect(() => TestBed.inject(WINDOW)).toThrow();
+        expect(() => TestBed.inject(WA_WINDOW)).toThrow();
     });
 });

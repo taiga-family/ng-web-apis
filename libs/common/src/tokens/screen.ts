@@ -1,12 +1,7 @@
 import {inject, InjectionToken} from '@angular/core';
 
-import {WINDOW} from './window';
+import {WA_WINDOW} from './window';
 
 export const WA_SCREEN = new InjectionToken<Screen>('[WA_SCREEN]', {
-    factory: () => inject(WINDOW).screen,
+    factory: () => inject(WA_WINDOW).screen,
 });
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_SCREEN}
- */
-export const SCREEN = WA_SCREEN;

@@ -4,7 +4,7 @@ import {first, type Observable} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('ANIMATION_FRAME', () => {
+describe('WA_ANIMATION_FRAME', () => {
     it('passes DOMHighResTimeStamp to the subscriber', (done) => {
         TestBed.configureTestingModule({});
 

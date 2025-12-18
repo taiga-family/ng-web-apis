@@ -29,7 +29,7 @@ export class Example {
     protected index = 0;
 
     protected withStorage(value: string): void {
-        this.storage.setItem('value', value);
+        this.storage?.setItem('value', value);
         this.native = value;
     }
 

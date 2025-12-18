@@ -1,21 +1,21 @@
 import {TestBed} from '@angular/core/testing';
-import {CSS, WINDOW} from '@ng-web-apis/common';
+import {WA_CSS, WA_WINDOW} from '@ng-web-apis/common';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('CSS', () => {
+describe('WA_CSS', () => {
     it('injects window.CSS object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.inject(CSS)).toBe(window.CSS);
+        expect(TestBed.inject(WA_CSS)).toBe(window.CSS);
     });
 
     it('injects mock when CSS is not available', () => {
         TestBed.configureTestingModule({
-            providers: [{provide: WINDOW, useValue: {}}],
+            providers: [{provide: WA_WINDOW, useValue: {}}],
         });
 
-        const css = TestBed.inject(CSS);
+        const css = TestBed.inject(WA_CSS);
 
         expect(css.supports('display', 'block')).toBe(false);
         expect(css.escape('<&>hapica$')).toBe('<&>hapica$');

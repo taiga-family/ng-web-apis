@@ -1,12 +1,7 @@
 import {inject, InjectionToken} from '@angular/core';
 
-import {WINDOW} from './window';
+import {WA_WINDOW} from './window';
 
 export const WA_HISTORY = new InjectionToken<History>('[WA_HISTORY]', {
-    factory: () => inject(WINDOW).history,
+    factory: () => inject(WA_WINDOW).history,
 });
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_HISTORY}
- */
-export const HISTORY = WA_HISTORY;

@@ -4,7 +4,7 @@ import {first, type Observable} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('PAGE_VISIBILITY', () => {
+describe('WA_PAGE_VISIBILITY', () => {
     it('watching for page visibility state', (done) => {
         TestBed.configureTestingModule({});
 

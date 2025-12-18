@@ -1,12 +1,12 @@
 import {TestBed} from '@angular/core/testing';
-import {HISTORY} from '@ng-web-apis/common';
+import {WA_HISTORY} from '@ng-web-apis/common';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('HISTORY', () => {
+describe('WA_HISTORY', () => {
     it('injects window.history object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.inject(HISTORY)).toBe(window.history);
+        expect(TestBed.inject(WA_HISTORY)).toBe(window.history);
     });
 });

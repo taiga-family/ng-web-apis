@@ -1,12 +1,12 @@
 import {TestBed} from '@angular/core/testing';
-import {CACHES} from '@ng-web-apis/common';
+import {WA_CACHES} from '@ng-web-apis/common';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('CACHES', () => {
+describe('WA_CACHES', () => {
     it('injects window.caches object', () => {
         TestBed.configureTestingModule({});
 
-        expect(TestBed.inject(CACHES)).toBe(window.caches);
+        expect(TestBed.inject(WA_CACHES)).toBe(window.caches);
     });
 });

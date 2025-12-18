@@ -1,12 +1,7 @@
 import {inject, InjectionToken} from '@angular/core';
 
-import {WINDOW} from './window';
+import {WA_WINDOW} from './window';
 
 export const WA_LOCATION = new InjectionToken<Location>('[WA_LOCATION]', {
-    factory: () => inject(WINDOW).location,
+    factory: () => inject(WA_WINDOW).location,
 });
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_LOCATION}
- */
-export const LOCATION = WA_LOCATION;
