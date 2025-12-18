@@ -11,10 +11,7 @@ import {WA_MIDI_INPUT_QUERY} from '../tokens/midi-input-query';
  */
 export function inputById(id: string): Provider[] {
     return [
-        {
-            provide: WA_MIDI_INPUT_QUERY,
-            useValue: id,
-        },
+        {provide: WA_MIDI_INPUT_QUERY, useValue: id},
         {
             provide: WA_MIDI_INPUT,
             deps: [WA_MIDI_ACCESS, WA_MIDI_INPUT_QUERY],

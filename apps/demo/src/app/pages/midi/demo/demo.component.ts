@@ -6,7 +6,7 @@ import {
     type TrackByFunction,
 } from '@angular/core';
 import {WaWebAudio} from '@ng-web-apis/audio';
-import {FrequencyPipe, MIDI_MESSAGES, notes, toData} from '@ng-web-apis/midi';
+import {FrequencyPipe, notes, toData, WA_MIDI_MESSAGES} from '@ng-web-apis/midi';
 import {
     catchError,
     EMPTY,
@@ -55,7 +55,7 @@ export class Demo {
         );
 
         this.notes$ = merge(
-            inject(MIDI_MESSAGES).pipe(
+            inject(WA_MIDI_MESSAGES).pipe(
                 catchError(() => EMPTY),
                 notes(),
                 toData(),

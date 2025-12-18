@@ -11,10 +11,7 @@ import {WA_MIDI_OUTPUT_QUERY} from '../tokens/midi-output-query';
  */
 export function outputById(id: string): Provider[] {
     return [
-        {
-            provide: WA_MIDI_OUTPUT_QUERY,
-            useValue: id,
-        },
+        {provide: WA_MIDI_OUTPUT_QUERY, useValue: id},
         {
             provide: WA_MIDI_OUTPUT,
             deps: [WA_MIDI_ACCESS, WA_MIDI_OUTPUT_QUERY],
