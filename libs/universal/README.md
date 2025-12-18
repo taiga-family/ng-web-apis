@@ -19,13 +19,15 @@ SSR.
 
 ## Tokens
 
-You can import `UNIVERSAL_PROVIDERS` in the following manner:
+You can provide universal providers in the following manner:
 
 ```ts
+import {provideUniversal} from '@ng-web-apis/universal';
+
 const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
-    UNIVERSAL_PROVIDERS, // <-- add this
+    provideUniversal(), // <-- add this
   ],
 };
 
