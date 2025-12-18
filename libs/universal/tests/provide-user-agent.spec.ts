@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {provideUserAgent, SSR_USER_AGENT} from '@ng-web-apis/universal';
+import {provideUserAgent, WA_SSR_USER_AGENT} from '@ng-web-apis/universal';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -15,6 +15,6 @@ describe('provideUserAgent', () => {
             providers: [provideUserAgent(req)],
         });
 
-        expect(TestBed.inject(SSR_USER_AGENT) satisfies string).toBe('Chrome');
+        expect(TestBed.inject(WA_SSR_USER_AGENT) satisfies string).toBe('Chrome');
     });
 });

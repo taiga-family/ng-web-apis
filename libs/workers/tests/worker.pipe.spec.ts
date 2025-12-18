@@ -1,13 +1,13 @@
-import {WorkerPipe} from '@ng-web-apis/workers';
+import {WaWorkerPipe} from '@ng-web-apis/workers';
 import {take} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('WorkerPipe', () => {
-    let pipe: WorkerPipe;
+describe('WaWorkerPipe', () => {
+    let pipe: WaWorkerPipe;
 
     beforeEach(() => {
-        pipe = new WorkerPipe();
+        pipe = new WaWorkerPipe();
     });
 
     it('should emit the first value', async () => {

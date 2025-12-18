@@ -127,7 +127,7 @@ All notable changes to this project will be documented in this file. See
   [(d915504)](https://github.com/taiga-family/ng-web-apis/commit/d9155041b19549f5006daa7d112a4af577c8b94e)
 - **permissions**: remove deprecated `PushPermissionState` (#261)
   [(ac19010)](https://github.com/taiga-family/ng-web-apis/commit/ac190101ed85810d6778fdbb7997fe5b5c524917)
-- add `ScreenOrientationService` (#226)
+- add `WaScreenOrientationService` (#226)
   [(0c2fc5e)](https://github.com/taiga-family/ng-web-apis/commit/0c2fc5e7e605b8209720bf7bf258a5f7bd49a0d3)
 - new `@ng-web-apis/notification` package (Notification API) (#123)
   [(b2bdc30)](https://github.com/taiga-family/ng-web-apis/commit/b2bdc30d5d171552b78db68314039a9c2d935ed5)

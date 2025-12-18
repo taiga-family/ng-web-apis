@@ -4,7 +4,7 @@ import {WORKER_BLANK_FN} from '../consts/worker-fn-template';
 import {type TypedMessageEvent} from '../types/typed-message-event';
 import {type WorkerFunction} from '../types/worker-function';
 
-export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>> {
+export class WaWebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>> {
     private readonly worker: Worker | undefined;
     private readonly url: string;
     private readonly destroy$: Subject<void>;
@@ -48,15 +48,15 @@ export class WebWorker<T = any, R = any> extends Observable<TypedMessageEvent<R>
     public static fromFunction<T, R>(
         fn: WorkerFunction<T, R>,
         options?: WorkerOptions,
-    ): WebWorker<T, R> {
-        return new WebWorker<T, R>(WebWorker.createFnUrl(fn), options);
+    ): WaWebWorker<T, R> {
+        return new WaWebWorker<T, R>(WaWebWorker.createFnUrl(fn), options);
     }
 
     public static async execute<T, R>(
         fn: WorkerFunction<T, R>,
         data: T,
     ): Promise<TypedMessageEvent<R>> {
-        const worker = WebWorker.fromFunction(fn);
+        const worker = WaWebWorker.fromFunction(fn);
         // eslint-disable-next-line rxjs/no-topromise
         const promise = worker.pipe(take(1)).toPromise();
 

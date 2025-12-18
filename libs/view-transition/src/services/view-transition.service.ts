@@ -2,10 +2,8 @@ import {DOCUMENT} from '@angular/common';
 import {inject, Injectable} from '@angular/core';
 import {Observable, throwError} from 'rxjs';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class ViewTransitionService {
+@Injectable({providedIn: 'root'})
+export class WaViewTransitionService {
     private readonly document = inject(DOCUMENT);
 
     public get isSupported(): boolean {

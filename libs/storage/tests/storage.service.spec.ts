@@ -1,19 +1,24 @@
 import {TestBed} from '@angular/core/testing';
-import {filterByKey, STORAGE_EVENT, StorageService, toValue} from '@ng-web-apis/storage';
+import {
+    filterByKey,
+    toValue,
+    WA_STORAGE_EVENT,
+    WaStorageService,
+} from '@ng-web-apis/storage';
 import {first, type Observable} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('StorageService', () => {
+describe('WaStorageService', () => {
     let event$: Observable<StorageEvent>;
-    let service: StorageService;
+    let service: WaStorageService;
     let result: any;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
 
-        event$ = TestBed.inject(STORAGE_EVENT);
-        service = TestBed.inject(StorageService);
+        event$ = TestBed.inject(WA_STORAGE_EVENT);
+        service = TestBed.inject(WaStorageService);
         result = '';
     });
 
@@ -21,7 +26,7 @@ describe('StorageService', () => {
         localStorage.clear();
     });
 
-    it('notifies STORAGE_EVENT upon addition', (done) => {
+    it('notifies WA_STORAGE_EVENT upon addition', (done) => {
         event$.pipe(first(), filterByKey('value'), toValue()).subscribe((value) => {
             result = value;
             done();
@@ -32,7 +37,7 @@ describe('StorageService', () => {
         expect(result).toBe('value');
     });
 
-    it('notifies STORAGE_EVENT upon removal', (done) => {
+    it('notifies WA_STORAGE_EVENT upon removal', (done) => {
         localStorage.setItem('value', 'value');
         event$.pipe(first(), filterByKey('value'), toValue()).subscribe((value) => {
             result = value;
@@ -44,7 +49,7 @@ describe('StorageService', () => {
         expect(result).toBeNull();
     });
 
-    it('notifies STORAGE_EVENT upon clearing', (done) => {
+    it('notifies WA_STORAGE_EVENT upon clearing', (done) => {
         localStorage.setItem('value', 'value');
         event$.pipe(first(), filterByKey('value'), toValue()).subscribe((value) => {
             result = value;

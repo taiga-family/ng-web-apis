@@ -1,9 +1,9 @@
-import {type TypedMessageEvent, WebWorker} from '@ng-web-apis/workers';
+import {type TypedMessageEvent, WaWebWorker} from '@ng-web-apis/workers';
 import {Observable, take} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('WebWorker', () => {
+describe('WaWebWorker', () => {
     // it is needed to ignore web worker errors
     window.onerror = () => {};
 
@@ -12,7 +12,7 @@ describe('WebWorker', () => {
 
         delete (globalThis as any).Worker;
 
-        const worker = WebWorker.fromFunction<void, void>((d) => d);
+        const worker = WaWebWorker.fromFunction<void, void>((d) => d);
 
         expect(() => worker.terminate()).not.toThrow();
         expect(() => worker.postMessage()).not.toThrow();
@@ -23,21 +23,21 @@ describe('WebWorker', () => {
     });
 
     it('should create worker from a function', () => {
-        const worker = WebWorker.fromFunction((d) => d);
+        const worker = WaWebWorker.fromFunction((d) => d);
 
-        expect(worker instanceof WebWorker).toBe(true);
+        expect(worker instanceof WaWebWorker).toBe(true);
         expect((worker as any).worker instanceof Worker).toBe(true);
     });
 
     it('should trigger an error if URL was not found', async () => {
-        const worker = new WebWorker('some/wrong/url');
+        const worker = new WaWebWorker('some/wrong/url');
 
         await expectAsync(worker.toPromise()).toBeRejected();
     });
 
     it('should resolve the last value before completing', async () => {
         // eslint-disable-next-line @typescript-eslint/promise-function-async
-        const worker = WebWorker.fromFunction((data: string) => Promise.resolve(data));
+        const worker = WaWebWorker.fromFunction((data: string) => Promise.resolve(data));
 
         const promise = worker
             .pipe(
@@ -45,7 +45,7 @@ describe('WebWorker', () => {
                     new Observable((subscriber) => {
                         source.subscribe({
                             next({data}: TypedMessageEvent<string>) {
-                                (source as WebWorker).terminate();
+                                (source as WaWebWorker).terminate();
                                 subscriber.next(data);
                                 subscriber.complete();
                             },
@@ -61,7 +61,7 @@ describe('WebWorker', () => {
     });
 
     it('should run a worker and return a correct data', async () => {
-        const workerPromise: Promise<TypedMessageEvent<string>> = WebWorker.execute<
+        const workerPromise: Promise<TypedMessageEvent<string>> = WaWebWorker.execute<
             string,
             string
             // eslint-disable-next-line @typescript-eslint/promise-function-async
@@ -72,7 +72,7 @@ describe('WebWorker', () => {
 
     it('should create worker', async () => {
         // eslint-disable-next-line @typescript-eslint/promise-function-async
-        const thread = WebWorker.fromFunction<string, string>((data) =>
+        const thread = WaWebWorker.fromFunction<string, string>((data) =>
             Promise.resolve(data),
         );
 
@@ -85,7 +85,7 @@ describe('WebWorker', () => {
 
     it('should fail if an inner promise is rejected', async () => {
         // eslint-disable-next-line @typescript-eslint/promise-function-async
-        const worker = WebWorker.fromFunction<void, string>(() =>
+        const worker = WaWebWorker.fromFunction<void, string>(() =>
             Promise.reject('reason'),
         );
 
@@ -97,7 +97,7 @@ describe('WebWorker', () => {
     });
 
     it('should close all subscriptions, if the worker was terminated', () => {
-        const worker = WebWorker.fromFunction<void, string>(() => 'some data');
+        const worker = WaWebWorker.fromFunction<void, string>(() => 'some data');
 
         const subscriptions = [
             worker.subscribe(),
@@ -111,7 +111,7 @@ describe('WebWorker', () => {
     });
 
     it("shouldn't throw any errors, if the worker was terminated twice", async () => {
-        const worker = WebWorker.fromFunction<void, string>(() => 'some data');
+        const worker = WaWebWorker.fromFunction<void, string>(() => 'some data');
 
         worker.terminate();
         worker.terminate();

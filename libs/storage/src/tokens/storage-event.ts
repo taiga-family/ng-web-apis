@@ -8,8 +8,3 @@ export const WA_STORAGE_EVENT = new InjectionToken<Observable<StorageEvent>>(
         factory: () => fromEvent<StorageEvent>(inject(WA_WINDOW), 'storage'),
     },
 );
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_STORAGE_EVENT}
- */
-export const STORAGE_EVENT = WA_STORAGE_EVENT;

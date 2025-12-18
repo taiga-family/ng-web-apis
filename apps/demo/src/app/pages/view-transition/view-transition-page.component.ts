@@ -7,7 +7,7 @@ import {
     inject,
 } from '@angular/core';
 import {takeUntilDestroyed} from '@angular/core/rxjs-interop';
-import {ViewTransitionService} from '@ng-web-apis/view-transition';
+import {WaViewTransitionService} from '@ng-web-apis/view-transition';
 import {TuiLink} from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';
 import {BehaviorSubject} from 'rxjs';
@@ -39,9 +39,9 @@ const PHOTOS: readonly Photo[] = [
 const USAGE_SAMPLE = `
     // 1) Import service through DI
     // In Constructor
-    constructor(private viewTransitionService: ViewTransitionService) {}
+    constructor(private viewTransitionService: WaViewTransitionService) {}
     // or with inject (Angular 14+)
-    private service = inject(ViewTransitionService);
+    private service = inject(WaViewTransitionService);
 
     // 2) Call startViewTransition method and pass callback that would change the DOM
     private showMyComponent(): void {
@@ -61,7 +61,7 @@ const USAGE_SAMPLE = `
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ViewTransitionPage {
-    private readonly viewTransitionService = inject(ViewTransitionService);
+    private readonly viewTransitionService = inject(WaViewTransitionService);
     private readonly cdr = inject(ChangeDetectorRef);
     private readonly destroyRef = inject(DestroyRef);
 

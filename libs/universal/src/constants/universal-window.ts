@@ -5,8 +5,8 @@ import {WA_WINDOW} from '@ng-web-apis/common';
 import {BlobMock} from '../classes/blob-mock';
 import {LocationMock} from '../classes/location-mock';
 import {StorageMock} from '../classes/storage-mock';
-import {SSR_LOCATION} from '../tokens/ssr-location';
-import {SSR_USER_AGENT} from '../tokens/ssr-user-agent';
+import {WA_SSR_LOCATION} from '../tokens/ssr-location';
+import {WA_SSR_USER_AGENT} from '../tokens/ssr-user-agent';
 import {EVENT_TARGET} from '../utils/event-target';
 import {
     alwaysFalse,
@@ -67,7 +67,11 @@ const WINDOW_HANDLER: ProxyHandler<Window> = {
 
 export const UNIVERSAL_WINDOW: FactoryProvider = {
     provide: WA_WINDOW,
-    deps: [DOCUMENT, [new Optional(), SSR_LOCATION], [new Optional(), SSR_USER_AGENT]],
+    deps: [
+        DOCUMENT,
+        [new Optional(), WA_SSR_LOCATION],
+        [new Optional(), WA_SSR_USER_AGENT],
+    ],
     useFactory: (
         document: Document,
         location: Location | null,
