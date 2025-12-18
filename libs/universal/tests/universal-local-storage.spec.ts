@@ -14,34 +14,34 @@ describe('UNIVERSAL_LOCAL_STORAGE', () => {
     it('sets and retrieves item', () => {
         const localStorage = TestBed.inject(WA_LOCAL_STORAGE);
 
-        localStorage.setItem('test', 'value');
+        localStorage?.setItem('test', 'value');
 
-        expect(localStorage.getItem('test')).toBe('value');
-        expect(localStorage.length).toBe(1);
-        expect(localStorage.key(0)).toBe('test');
+        expect(localStorage?.getItem('test')).toBe('value');
+        expect(localStorage?.length).toBe(1);
+        expect(localStorage?.key(0)).toBe('test');
     });
 
     it('removes item', () => {
         const localStorage = TestBed.inject(WA_LOCAL_STORAGE);
 
-        localStorage.setItem('test', 'value');
-        localStorage.removeItem('test');
+        localStorage?.setItem('test', 'value');
+        localStorage?.removeItem('test');
 
-        expect(localStorage.getItem('test')).toBeNull();
-        expect(localStorage.length).toBe(0);
-        expect(localStorage.key(0)).toBeNull();
+        expect(localStorage?.getItem('test')).toBeNull();
+        expect(localStorage?.length).toBe(0);
+        expect(localStorage?.key(0)).toBeNull();
     });
 
     it('clears storage', () => {
         const localStorage = TestBed.inject(WA_LOCAL_STORAGE);
 
-        localStorage.setItem('test1', 'value1');
-        localStorage.setItem('test2', 'value2');
+        localStorage?.setItem('test1', 'value1');
+        localStorage?.setItem('test2', 'value2');
 
-        expect(localStorage.length).toBe(2);
+        expect(localStorage?.length).toBe(2);
 
-        localStorage.clear();
+        localStorage?.clear();
 
-        expect(localStorage.length).toBe(0);
+        expect(localStorage?.length).toBe(0);
     });
 });
