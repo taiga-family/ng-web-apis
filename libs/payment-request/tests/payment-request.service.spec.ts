@@ -1,7 +1,7 @@
 import {TestBed} from '@angular/core/testing';
 import {
-    PAYMENT_REQUEST_SUPPORT,
     PaymentRequestService,
+    WA_PAYMENT_REQUEST_SUPPORT,
 } from '@ng-web-apis/payment-request';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -87,7 +87,7 @@ describe('PaymentRequestService', () => {
         it('cannot request and throws an error if Payment Request is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
-                    {provide: PAYMENT_REQUEST_SUPPORT, useValue: false},
+                    {provide: WA_PAYMENT_REQUEST_SUPPORT, useValue: false},
                     PaymentRequestService,
                 ],
             });

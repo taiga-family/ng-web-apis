@@ -3,8 +3,3 @@ import {WaPaymentItem} from './directives/payment-item/payment-item.directive';
 import {WaPaymentSubmit} from './directives/payment-submit/payment-submit.directive';
 
 export const WaPaymentRequest = [WaPayment, WaPaymentItem, WaPaymentSubmit];
-
-/**
- * @deprecated: use {@link WaPaymentRequest}
- */
-export const PaymentRequestModule = WaPaymentRequest;

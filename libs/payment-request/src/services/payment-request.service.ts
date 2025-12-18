@@ -1,21 +1,21 @@
 import {inject, Injectable} from '@angular/core';
 
-import {PAYMENT_METHODS} from '../tokens/payment-methods';
-import {PAYMENT_OPTIONS, type PaymentOptions} from '../tokens/payment-options';
-import {PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
+import {WA_PAYMENT_METHODS} from '../tokens/payment-methods';
+import {WA_PAYMENT_OPTIONS, type WaPaymentOptions} from '../tokens/payment-options';
+import {WA_PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
 @Injectable({
     providedIn: 'root',
 })
 export class PaymentRequestService {
-    private readonly supported = inject(PAYMENT_REQUEST_SUPPORT);
-    private readonly paymentMethods = inject(PAYMENT_METHODS);
-    private readonly paymentOptions = inject(PAYMENT_OPTIONS);
+    private readonly supported = inject(WA_PAYMENT_REQUEST_SUPPORT);
+    private readonly paymentMethods = inject(WA_PAYMENT_METHODS);
+    private readonly paymentOptions = inject(WA_PAYMENT_OPTIONS);
 
     public async request(
         details: PaymentDetailsInit,
         methods: PaymentMethodData[] = this.paymentMethods,
-        options: PaymentOptions = this.paymentOptions,
+        options: WaPaymentOptions = this.paymentOptions,
     ): Promise<PaymentResponse> {
         if (!this.supported) {
             return Promise.reject(
