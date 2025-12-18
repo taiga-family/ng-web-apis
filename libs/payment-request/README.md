@@ -27,10 +27,10 @@ npm i @ng-web-apis/payment-request
 As an Angular service:
 
 ```ts
-import {PaymentRequestService} from '@ng-web-apis/payment-request';
+import {WaPaymentRequestService} from '@ng-web-apis/payment-request';
 
 ...
-constructor(private readonly paymentRequest: PaymentRequestService) {}
+constructor(private readonly paymentRequest: WaPaymentRequestService) {}
 
 pay(details: PaymentDetailsInit) {
     this.paymentRequest.request(details).then(

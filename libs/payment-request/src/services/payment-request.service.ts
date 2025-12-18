@@ -4,10 +4,8 @@ import {WA_PAYMENT_METHODS} from '../tokens/payment-methods';
 import {WA_PAYMENT_OPTIONS, type WaPaymentOptions} from '../tokens/payment-options';
 import {WA_PAYMENT_REQUEST_SUPPORT} from '../tokens/payment-request-support';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class PaymentRequestService {
+@Injectable({providedIn: 'root'})
+export class WaPaymentRequestService {
     private readonly supported = inject(WA_PAYMENT_REQUEST_SUPPORT);
     private readonly paymentMethods = inject(WA_PAYMENT_METHODS);
     private readonly paymentOptions = inject(WA_PAYMENT_OPTIONS);
@@ -24,12 +22,7 @@ export class PaymentRequestService {
         }
 
         // eslint-disable-next-line compat/compat
-        const gateway = new PaymentRequest(
-            methods,
-            details,
-            // @ts-ignore
-            options,
-        );
+        const gateway = new PaymentRequest(methods, details, options);
 
         return gateway
             .canMakePayment()

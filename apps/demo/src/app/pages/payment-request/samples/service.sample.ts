@@ -1,8 +1,8 @@
-export const SERVICE_SAMPLE = `import {PaymentRequestService} from '@ng-web-apis/payment-request';
+export const SERVICE_SAMPLE = `import {WaPaymentRequestService} from '@ng-web-apis/payment-request';
 
 // ...
 
-constructor(private readonly paymentRequest: PaymentRequestService) {}
+private readonly paymentRequest = inject(WaPaymentRequestService)
 
 pay(details: PaymentDetailsInit) {
     this.paymentRequest.request(details).then(

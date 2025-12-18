@@ -2,7 +2,7 @@ import {Directive, ElementRef, inject} from '@angular/core';
 import {outputFromObservable} from '@angular/core/rxjs-interop';
 import {catchError, filter, from, fromEvent, of, share, switchMap} from 'rxjs';
 
-import {PaymentRequestService} from '../../services/payment-request.service';
+import {WaPaymentRequestService} from '../../services/payment-request.service';
 import {WA_PAYMENT_METHODS} from '../../tokens/payment-methods';
 import {WA_PAYMENT_OPTIONS} from '../../tokens/payment-options';
 import {isError} from '../../utils/is-error';
@@ -13,7 +13,7 @@ import {WaPayment} from '../payment/payment.directive';
 })
 export class WaPaymentSubmit {
     private readonly paymentHost = inject(WaPayment);
-    private readonly paymentRequest = inject(PaymentRequestService);
+    private readonly paymentRequest = inject(WaPaymentRequestService);
     private readonly nativeElement: HTMLElement = inject(ElementRef).nativeElement;
     private readonly methods = inject(WA_PAYMENT_METHODS);
     private readonly options = inject(WA_PAYMENT_OPTIONS);
