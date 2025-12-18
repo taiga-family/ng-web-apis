@@ -1,8 +1,8 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {
-    MutationObserverService,
     WA_MUTATION_OBSERVER_INIT,
+    WaMutationObserverService,
 } from '@ng-web-apis/mutation-observer';
 import {first} from 'rxjs';
 
@@ -22,7 +22,7 @@ describe('MutationObserver service', () => {
                 useValue: elementRef,
             })
             .runInInjectionContext(() => {
-                const service = new MutationObserverService();
+                const service = new WaMutationObserverService();
 
                 let flag = false;
 

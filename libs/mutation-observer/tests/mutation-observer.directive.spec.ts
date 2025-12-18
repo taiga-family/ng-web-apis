@@ -6,7 +6,6 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('MutationObserverDirective', () => {
     @Component({
-        standalone: true,
         imports: [WaMutationObserver],
         template: `
             @if (observe) {
