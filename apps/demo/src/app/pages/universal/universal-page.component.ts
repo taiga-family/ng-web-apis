@@ -3,7 +3,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {MarkdownModule} from 'ngx-markdown';
 
 @Component({
-    standalone: true,
     selector: 'universal-page',
     imports: [CommonModule, MarkdownModule],
     templateUrl: './universal-page.component.html',

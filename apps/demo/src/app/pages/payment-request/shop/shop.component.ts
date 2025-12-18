@@ -17,7 +17,6 @@ class ShopItem implements PaymentItem {
 }
 
 @Component({
-    standalone: true,
     selector: 'app-shop',
     imports: [WaPaymentRequest],
     templateUrl: './shop.component.html',

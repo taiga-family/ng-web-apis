@@ -27,10 +27,10 @@ npm i @ng-web-apis/payment-request
 As an Angular service:
 
 ```ts
-import {PaymentRequestService} from '@ng-web-apis/payment-request';
+import {WaPaymentRequestService} from '@ng-web-apis/payment-request';
 
 ...
-constructor(private readonly paymentRequest: PaymentRequestService) {}
+constructor(private readonly paymentRequest: WaPaymentRequestService) {}
 
 pay(details: PaymentDetailsInit) {
     this.paymentRequest.request(details).then(
@@ -66,19 +66,19 @@ As a set of directives:
 </div>
 ```
 
-Do not forget to import PaymentRequestModule:
+Do not forget to import `WaPaymentRequest`:
 
 ```ts
-import {PaymentRequestModule} from '@ng-web-apis/payment-request';
+import {WaPaymentRequest} from '@ng-web-apis/payment-request';
 ...
-@NgModule({
+@Component({
     ...
     imports: [
         ...
-        PaymentRequestModule
+        WaPaymentRequest,
     ]
 })
-export class YourModule {}
+export class YourComponent {}
 ```
 
 As a good example of usage you can take a look at
@@ -117,7 +117,7 @@ Additional inputs:
   [PaymentDetailsModifier](https://microsoft.github.io/PowerBI-JavaScript/interfaces/_node_modules_typedoc_node_modules_typescript_lib_lib_dom_d_.paymentdetailsmodifier.html)
 
 - `paymentShippingOptions` is a
-  [PaymentShippingOption](https://microsoft.github.io/PowerBI-JavaScript/interfaces/_node_modules_typedoc_node_modules_typescript_lib_lib_dom_d_.paymentshippingoption.html)
+  [WaPaymentShippingOption](https://microsoft.github.io/PowerBI-JavaScript/interfaces/_node_modules_typedoc_node_modules_typescript_lib_lib_dom_d_.paymentshippingoption.html)
   object for the payment.
 
 #### waPaymentItem
@@ -191,23 +191,23 @@ Outputs:
 
 The library also provides some tokens to simplify working with Payment Request API:
 
-- `PAYMENT_REQUEST_SUPPORT` returns `true` if user's browser supports Payment Request API
+- `WA_PAYMENT_REQUEST_SUPPORT` returns `true` if user's browser supports Payment Request API
 
 ```ts
 export class Example {
-  constructor(@Inject(PAYMENT_REQUEST_SUPPORT) private readonly canRequest: boolean) {}
+  constructor(@Inject(WA_PAYMENT_REQUEST_SUPPORT) private readonly canRequest: boolean) {}
 }
 ```
 
-- You can provide `PAYMENT_METHODS` as an array of supported API methods. It uses `[{supportedMethods: 'basic-card'}]`
-  by default
+- You can provide `WA_PAYMENT_METHODS` as an array of supported API methods. It uses
+  `[{supportedMethods: 'basic-card'}]` by default
 
 ```ts
 @Component({
   //  ...
   providers: [
     {
-      provide: [PAYMENT_METHODS],
+      provide: [WA_PAYMENT_METHODS],
       useValue: [
         // a sample with Google Pay from https://developers.google.com/pay/api/web/guides/paymentrequest/tutorial?hl=en
         {supportedMethods: 'https://google.com/pay', data: googlePaymentDataRequest},
@@ -221,14 +221,14 @@ export class Example {
 }
 ```
 
-- You can provide `PAYMENT_OPTIONS` as an object with info that you need about a payer. It uses `{}` by default
+- You can provide `WA_PAYMENT_OPTIONS` as an object with info that you need about a payer. It uses `{}` by default
 
 ```ts
 @Component({
   // ...
   providers: [
     {
-      provide: [PAYMENT_OPTIONS],
+      provide: [WA_PAYMENT_OPTIONS],
       useValue: {
         shippingType: 'express',
         requestPayerName: true,

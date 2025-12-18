@@ -24,7 +24,6 @@ import {AdsrPipe} from '../adsr.pipe';
 import {RESPONSE_BUFFER} from './response';
 
 @Component({
-    standalone: true,
     selector: 'demo',
     imports: [AdsrPipe, CommonModule, FrequencyPipe, WaWebAudio],
     templateUrl: './demo.component.html',

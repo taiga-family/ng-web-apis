@@ -3,7 +3,6 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {map, type Observable, timer} from 'rxjs';
 
 @Component({
-    standalone: true,
     selector: 'app-clock',
     imports: [CommonModule],
     template: `

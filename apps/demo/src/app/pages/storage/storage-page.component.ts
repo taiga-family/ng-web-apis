@@ -7,7 +7,6 @@ import {TuiInputModule} from '@taiga-ui/legacy';
 import {Example} from './example/example.component';
 
 @Component({
-    standalone: true,
     selector: 'common-page',
     imports: [CommonModule, Example, FormsModule, TuiAddonDoc, TuiInputModule],
     templateUrl: './storage-page.component.html',

@@ -1,6 +1,6 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {PAYMENT_METHODS, WaPaymentRequest} from '@ng-web-apis/payment-request';
+import {WA_PAYMENT_METHODS, WaPaymentRequest} from '@ng-web-apis/payment-request';
 import {HighlightModule} from 'ngx-highlightjs';
 
 import {DIRECTIVES_SAMPLE} from './samples/directives.sample';
@@ -8,7 +8,6 @@ import {SERVICE_SAMPLE} from './samples/service.sample';
 import {Shop} from './shop/shop.component';
 
 @Component({
-    standalone: true,
     selector: 'payment-request-page',
     imports: [CommonModule, HighlightModule, Shop, WaPaymentRequest],
     templateUrl: './payment-request-page.component.html',
@@ -16,7 +15,7 @@ import {Shop} from './shop/shop.component';
     changeDetection: ChangeDetectionStrategy.OnPush,
     providers: [
         {
-            provide: PAYMENT_METHODS,
+            provide: WA_PAYMENT_METHODS,
             useValue: [
                 {
                     // Apple Pay sample will start in Safari

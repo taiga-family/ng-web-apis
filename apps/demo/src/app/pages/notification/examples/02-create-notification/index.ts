@@ -5,7 +5,6 @@ import {isDenied, isGranted, PermissionsService} from '@ng-web-apis/permissions'
 import {filter, map, switchMap} from 'rxjs';
 
 @Component({
-    standalone: true,
     selector: 'notification-page-example-2',
     imports: [CommonModule],
     templateUrl: './index.html',

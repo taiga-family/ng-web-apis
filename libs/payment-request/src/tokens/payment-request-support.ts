@@ -13,8 +13,3 @@ export const WA_PAYMENT_REQUEST_SUPPORT = new InjectionToken<boolean>(
         factory: () => !!inject(WA_WINDOW).PaymentRequest,
     },
 );
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_PAYMENT_REQUEST_SUPPORT}
- */
-export const PAYMENT_REQUEST_SUPPORT = WA_PAYMENT_REQUEST_SUPPORT;

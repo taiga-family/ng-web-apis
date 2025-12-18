@@ -1,12 +1,12 @@
 import {TestBed} from '@angular/core/testing';
 import {
-    PAYMENT_REQUEST_SUPPORT,
-    PaymentRequestService,
+    WA_PAYMENT_REQUEST_SUPPORT,
+    WaPaymentRequestService,
 } from '@ng-web-apis/payment-request';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('PaymentRequestService', () => {
+describe('WaPaymentRequestService', () => {
     const paymentDetails = {
         total: {
             label: 'Matreshka',
@@ -18,7 +18,7 @@ describe('PaymentRequestService', () => {
     };
 
     describe('Payment Request Service', () => {
-        let service: PaymentRequestService;
+        let service: WaPaymentRequestService;
 
         let canPay = false;
         let response: Partial<PaymentResponse> = {};
@@ -35,7 +35,7 @@ describe('PaymentRequestService', () => {
 
         beforeEach(() => {
             TestBed.configureTestingModule({
-                providers: [PaymentRequestService],
+                providers: [WaPaymentRequestService],
             });
 
             canPay = false;
@@ -48,7 +48,7 @@ describe('PaymentRequestService', () => {
                 toJSON: () => '',
             } as unknown as Partial<PaymentResponse>;
 
-            service = TestBed.inject(PaymentRequestService);
+            service = TestBed.inject(WaPaymentRequestService);
         });
 
         it('throws an error if Payment Request in cannot pay status', (done) => {
@@ -87,12 +87,14 @@ describe('PaymentRequestService', () => {
         it('cannot request and throws an error if Payment Request is not supported', (done) => {
             TestBed.configureTestingModule({
                 providers: [
-                    {provide: PAYMENT_REQUEST_SUPPORT, useValue: false},
-                    PaymentRequestService,
+                    {provide: WA_PAYMENT_REQUEST_SUPPORT, useValue: false},
+                    WaPaymentRequestService,
                 ],
             });
 
-            const service: PaymentRequestService = TestBed.inject(PaymentRequestService);
+            const service: WaPaymentRequestService = TestBed.inject(
+                WaPaymentRequestService,
+            );
             const promise = service.request(paymentDetails);
 
             promise.then(

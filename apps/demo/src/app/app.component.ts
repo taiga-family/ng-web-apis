@@ -3,7 +3,6 @@ import {RouterLink, RouterLinkActive, RouterOutlet} from '@angular/router';
 import {TuiIcon, TuiLink, TuiRoot} from '@taiga-ui/core';
 
 @Component({
-    standalone: true,
     selector: 'app',
     imports: [RouterLink, RouterLinkActive, RouterOutlet, TuiIcon, TuiLink, TuiRoot],
     templateUrl: './app.component.html',

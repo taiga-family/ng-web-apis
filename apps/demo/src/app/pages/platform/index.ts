@@ -4,7 +4,6 @@ import {WA_IS_IOS} from '@ng-web-apis/platform';
 import {MarkdownModule} from 'ngx-markdown';
 
 @Component({
-    standalone: true,
     selector: 'platform-page',
     imports: [CommonModule, MarkdownModule],
     templateUrl: './index.html',

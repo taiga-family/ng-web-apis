@@ -8,7 +8,6 @@ import {TuiDataListWrapper, TuiRadio, TuiSlider} from '@taiga-ui/kit';
 import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
 
 @Component({
-    standalone: true,
     selector: 'audio-page',
     imports: [
         CanvasModule,

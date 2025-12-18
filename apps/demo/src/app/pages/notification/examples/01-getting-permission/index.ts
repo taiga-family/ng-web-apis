@@ -6,7 +6,6 @@ import {TuiButton} from '@taiga-ui/core';
 import {TuiBadge} from '@taiga-ui/kit';
 
 @Component({
-    standalone: true,
     selector: 'notification-page-example-1',
     imports: [CommonModule, TuiBadge, TuiButton],
     templateUrl: './index.html',

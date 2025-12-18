@@ -17,7 +17,6 @@ function startCompute(): number {
 }
 
 @Component({
-    standalone: true,
     selector: 'workers-page',
     imports: [Clock, CommonModule, TuiButton, TuiNotification],
     templateUrl: './workers-page.component.html',
