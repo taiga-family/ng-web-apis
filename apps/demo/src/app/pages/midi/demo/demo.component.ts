@@ -6,7 +6,7 @@ import {
     type TrackByFunction,
 } from '@angular/core';
 import {WaWebAudio} from '@ng-web-apis/audio';
-import {FrequencyPipe, notes, toData, WA_MIDI_MESSAGES} from '@ng-web-apis/midi';
+import {notes, toData, WA_MIDI_MESSAGES, WaMidiFrequencyPipe} from '@ng-web-apis/midi';
 import {
     catchError,
     EMPTY,
@@ -25,7 +25,7 @@ import {RESPONSE_BUFFER} from './response';
 
 @Component({
     selector: 'demo',
-    imports: [AdsrPipe, CommonModule, FrequencyPipe, WaWebAudio],
+    imports: [AdsrPipe, CommonModule, WaMidiFrequencyPipe, WaWebAudio],
     templateUrl: './demo.component.html',
     styleUrl: './demo.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,

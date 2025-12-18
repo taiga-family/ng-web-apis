@@ -4,10 +4,8 @@ import {Observable} from 'rxjs';
 
 import {WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES} from '../tokens/speech-recognition-max-alternatives';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class SpeechRecognitionService extends Observable<SpeechRecognitionResult[]> {
+@Injectable({providedIn: 'root'})
+export class WaSpeechRecognitionService extends Observable<SpeechRecognitionResult[]> {
     private readonly classRef = inject(WA_SPEECH_RECOGNITION);
     private readonly lang = inject(LOCALE_ID, {optional: true});
     private readonly maxAlternatives = inject(WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES);

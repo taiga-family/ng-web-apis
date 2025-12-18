@@ -1,9 +1,9 @@
-import {FrequencyPipe} from '@ng-web-apis/midi';
+import {WaMidiFrequencyPipe} from '@ng-web-apis/midi';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('FrequencyPipe', () => {
-    const pipe = new FrequencyPipe();
+describe('WaMidiFrequencyPipe', () => {
+    const pipe = new WaMidiFrequencyPipe();
 
     it('default tuning', () => {
         expect(pipe.transform(69)).toBe(440);

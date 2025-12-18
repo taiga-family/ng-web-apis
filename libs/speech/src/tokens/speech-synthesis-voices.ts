@@ -14,8 +14,3 @@ export const WA_SPEECH_SYNTHESIS_VOICES = new InjectionToken<
         );
     },
 });
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_SPEECH_SYNTHESIS_VOICES}
- */
-export const SPEECH_SYNTHESIS_VOICES = WA_SPEECH_SYNTHESIS_VOICES;

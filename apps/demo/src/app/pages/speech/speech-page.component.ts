@@ -5,11 +5,11 @@ import {
     continuous,
     isSaid,
     skipUntilSaid,
-    SPEECH_SYNTHESIS_VOICES,
-    SpeechRecognitionService,
     type SpeechSynthesisUtteranceOptions,
     takeUntilSaid,
-    UtterancePipe,
+    WA_SPEECH_SYNTHESIS_VOICES,
+    WaSpeechRecognitionService,
+    WaSpeechUtterancePipe,
     WaTextToSpeech,
 } from '@ng-web-apis/speech';
 import {TuiSidebar} from '@taiga-ui/addon-mobile';
@@ -30,7 +30,7 @@ import {filter, map, merge, type Observable, repeat, retry, share} from 'rxjs';
         TuiSidebar,
         TuiTextareaModule,
         TuiTooltipModule,
-        UtterancePipe,
+        WaSpeechUtterancePipe,
         WaTextToSpeech,
     ],
     templateUrl: './speech-page.component.html',
@@ -38,9 +38,9 @@ import {filter, map, merge, type Observable, repeat, retry, share} from 'rxjs';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class SpeechPage {
-    private readonly recognition$ = inject(SpeechRecognitionService);
+    private readonly recognition$ = inject(WaSpeechRecognitionService);
     protected readonly platformId = inject(PLATFORM_ID);
-    protected readonly voices$ = inject(SPEECH_SYNTHESIS_VOICES);
+    protected readonly voices$ = inject(WA_SPEECH_SYNTHESIS_VOICES);
     protected readonly isBrowser = isPlatformBrowser(this.platformId);
     protected paused = true;
     protected voice = null;
