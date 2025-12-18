@@ -1,18 +1,16 @@
 import {inject, Injectable} from '@angular/core';
 import {finalize, Observable, shareReplay} from 'rxjs';
 
-import {GEOLOCATION} from '../tokens/geolocation';
-import {POSITION_OPTIONS} from '../tokens/geolocation-options';
-import {GEOLOCATION_SUPPORT} from '../tokens/geolocation-support';
+import {WA_GEOLOCATION} from '../tokens/geolocation';
+import {WA_POSITION_OPTIONS} from '../tokens/geolocation-options';
+import {WA_GEOLOCATION_SUPPORT} from '../tokens/geolocation-support';
 
-@Injectable({
-    providedIn: 'root',
-})
-export class GeolocationService extends Observable<GeolocationPosition> {
+@Injectable({providedIn: 'root'})
+export class WaGeolocationService extends Observable<GeolocationPosition> {
     constructor() {
-        const geolocationRef = inject(GEOLOCATION);
-        const geolocationSupported = inject(GEOLOCATION_SUPPORT);
-        const positionOptions = inject(POSITION_OPTIONS);
+        const geolocationRef = inject(WA_GEOLOCATION);
+        const geolocationSupported = inject(WA_GEOLOCATION_SUPPORT);
+        const positionOptions = inject(WA_POSITION_OPTIONS);
 
         let watchPositionId = 0;
 
@@ -31,6 +29,6 @@ export class GeolocationService extends Observable<GeolocationPosition> {
         return this.pipe(
             finalize(() => geolocationRef.clearWatch(watchPositionId)),
             shareReplay({bufferSize: 1, refCount: true}),
-        ) as GeolocationService;
+        ) as WaGeolocationService;
     }
 }

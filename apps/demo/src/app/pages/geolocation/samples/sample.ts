@@ -1,8 +1,8 @@
-export const SAMPLE = `import {GeolocationService} from '@ng-web-apis/geolocation';
+export const SAMPLE = `import {WaGeolocationService} from '@ng-web-apis/geolocation';
 
 // ...
 
-constructor(private readonly geolocation$: GeolocationService) {}
+constructor(private readonly geolocation$: WaGeolocationService) {}
 
 getPosition() {
   geolocation$.subscribe((position) => {

@@ -3,9 +3,14 @@ import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/co
 import {FormsModule} from '@angular/forms';
 import {AUDIO_CONTEXT, WaWebAudio} from '@ng-web-apis/audio';
 import {WaCanvas} from '@ng-web-apis/canvas';
-import {TuiButton, TuiLabel} from '@taiga-ui/core';
-import {TuiDataListWrapper, TuiRadio, TuiSlider} from '@taiga-ui/kit';
-import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
+import {TuiButton, TuiLabel, TuiTextfield} from '@taiga-ui/core';
+import {
+    TuiChevron,
+    TuiDataListWrapper,
+    TuiRadio,
+    TuiSelect,
+    TuiSlider,
+} from '@taiga-ui/kit';
 
 @Component({
     selector: 'audio-page',
@@ -13,12 +18,13 @@ import {TuiSelectModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
         CommonModule,
         FormsModule,
         TuiButton,
+        TuiChevron,
         TuiDataListWrapper,
         TuiLabel,
         TuiRadio,
-        TuiSelectModule,
+        TuiSelect,
         TuiSlider,
-        TuiTextfieldControllerModule,
+        TuiTextfield,
         WaCanvas,
         WaWebAudio,
     ],

@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, SecurityContext} from '@angular/core';
 import {DomSanitizer, type SafeResourceUrl} from '@angular/platform-browser';
-import {GeolocationService} from '@ng-web-apis/geolocation';
+import {WaGeolocationService} from '@ng-web-apis/geolocation';
 import {TuiButton, TuiLoader} from '@taiga-ui/core';
 import {HighlightModule} from 'ngx-highlightjs';
 
@@ -22,7 +22,7 @@ export default class GeolocationPage {
 
     protected readonly sample = SAMPLE;
     protected readonly sampleAsync = SAMPLE_ASYNC;
-    protected readonly geolocation$ = inject(GeolocationService);
+    protected readonly geolocation$ = inject(WaGeolocationService);
 
     protected getUrl({coords}: GeolocationPosition): SafeResourceUrl {
         const {longitude, latitude} = coords;
