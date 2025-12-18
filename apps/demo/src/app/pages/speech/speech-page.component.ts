@@ -7,9 +7,9 @@ import {
     skipUntilSaid,
     type SpeechSynthesisUtteranceOptions,
     takeUntilSaid,
-    UtterancePipe,
     WA_SPEECH_SYNTHESIS_VOICES,
     WaSpeechRecognitionService,
+    WaSpeechUtterancePipe,
     WaTextToSpeech,
 } from '@ng-web-apis/speech';
 import {TuiSidebar} from '@taiga-ui/addon-mobile';
@@ -30,7 +30,7 @@ import {filter, map, merge, type Observable, repeat, retry, share} from 'rxjs';
         TuiSidebar,
         TuiTextareaModule,
         TuiTooltipModule,
-        UtterancePipe,
+        WaSpeechUtterancePipe,
         WaTextToSpeech,
     ],
     templateUrl: './speech-page.component.html',

@@ -3,7 +3,7 @@ import {Pipe, type PipeTransform} from '@angular/core';
 import {type SpeechSynthesisUtteranceOptions} from '../interfaces/speech-synthesis-utterance-options';
 
 @Pipe({name: 'waUtterance'})
-export class UtterancePipe implements PipeTransform {
+export class WaSpeechUtterancePipe implements PipeTransform {
     public transform(
         text: string,
         {

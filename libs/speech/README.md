@@ -24,8 +24,8 @@ npm i @ng-web-apis/speech
 
 Web Speech API consists of speech synthesis and speech recognition.
 
-1. Use `SpeechSynthesisModule` to gain access to `TextToSpeechDirective` and `UtterancePipe`. Use them like the example
-   below for speech synthesis functionality:
+1. Use `SpeechSynthesisModule` to gain access to `TextToSpeechDirective` and `WaSpeechUtterancePipe`. Use them like the
+   example below for speech synthesis functionality:
 
 ```html
 <textarea

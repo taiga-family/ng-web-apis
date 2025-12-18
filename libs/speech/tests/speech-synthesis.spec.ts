@@ -2,7 +2,7 @@ import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
     type SpeechSynthesisUtteranceOptions,
-    UtterancePipe,
+    WaSpeechUtterancePipe,
     WaTextToSpeech,
 } from '@ng-web-apis/speech';
 
@@ -10,7 +10,7 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('SpeechSynthesis', () => {
     @Component({
-        imports: [UtterancePipe, WaTextToSpeech],
+        imports: [WaSpeechUtterancePipe, WaTextToSpeech],
         template: `
             <ng-container
                 [waTextToSpeech]="text | waUtterance: options"
