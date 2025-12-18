@@ -17,5 +17,4 @@ export * from './tokens/ssr-user-agent';
 export * from './utils/event-target';
 export * from './utils/functions';
 export * from './utils/provide-location';
-export * from './utils/provide-universal';
 export * from './utils/provide-user-agent';
