@@ -2,11 +2,11 @@ import {TestBed} from '@angular/core/testing';
 import {
     inputById,
     inputByName,
-    MIDI_ACCESS,
-    MIDI_INPUT,
-    MIDI_OUTPUT,
     outputById,
     outputByName,
+    WA_MIDI_ACCESS,
+    WA_MIDI_INPUT,
+    WA_MIDI_OUTPUT,
 } from '@ng-web-apis/midi';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -44,14 +44,14 @@ describe('inputById', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: MIDI_ACCESS,
+                    provide: WA_MIDI_ACCESS,
                     useValue: Promise.resolve(midiAccessMock),
                 },
                 inputById('input-0'),
             ],
         });
 
-        void TestBed.inject(MIDI_INPUT).then((input: any) => {
+        void TestBed.inject(WA_MIDI_INPUT).then((input: any) => {
             expect(input).toBe(midiInput1);
 
             done();
@@ -62,14 +62,14 @@ describe('inputById', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: MIDI_ACCESS,
+                    provide: WA_MIDI_ACCESS,
                     useValue: Promise.resolve(midiAccessMock),
                 },
                 inputByName('Roland'),
             ],
         });
 
-        void TestBed.inject(MIDI_INPUT).then((input: any) => {
+        void TestBed.inject(WA_MIDI_INPUT).then((input: any) => {
             expect(input).toBe(midiInput2);
 
             done();
@@ -80,14 +80,14 @@ describe('inputById', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: MIDI_ACCESS,
+                    provide: WA_MIDI_ACCESS,
                     useValue: Promise.resolve(midiAccessMock),
                 },
                 outputById('output-0'),
             ],
         });
 
-        void TestBed.inject(MIDI_OUTPUT).then((input: any) => {
+        void TestBed.inject(WA_MIDI_OUTPUT).then((input: any) => {
             expect(input).toBe(midiOutput1);
 
             done();
@@ -98,14 +98,14 @@ describe('inputById', () => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: MIDI_ACCESS,
+                    provide: WA_MIDI_ACCESS,
                     useValue: Promise.resolve(midiAccessMock),
                 },
                 outputByName('Roland'),
             ],
         });
 
-        void TestBed.inject(MIDI_OUTPUT).then((input: any) => {
+        void TestBed.inject(WA_MIDI_OUTPUT).then((input: any) => {
             expect(input).toBe(midiOutput2);
 
             done();

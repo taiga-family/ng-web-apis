@@ -10,14 +10,14 @@ import {
     switchMap,
 } from 'rxjs';
 
-import {MIDI_ACCESS} from '../tokens/midi-access';
+import {WA_MIDI_ACCESS} from '../tokens/midi-access';
 
 export function getPortsStream(ports: 'inputs'): Observable<MIDIInput[]>;
 export function getPortsStream(ports: 'outputs'): Observable<MIDIOutput[]>;
 export function getPortsStream(
     ports: 'inputs' | 'outputs',
 ): Observable<Array<MIDIInput | MIDIOutput>> {
-    return from(inject(MIDI_ACCESS).catch(() => null)).pipe(
+    return from(inject(WA_MIDI_ACCESS).catch(() => null)).pipe(
         switchMap((access) => {
             const inputs: Array<MIDIInput | MIDIOutput> = [];
 

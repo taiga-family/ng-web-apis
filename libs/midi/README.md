@@ -28,31 +28,31 @@ and utils included with this package:
 
 ### Tokens
 
-- `MIDI_SUPPORT` — `boolean` value checking browser support
-- `SYSEX` — `boolean` token responsible for system exclusive access, `false` by default
-- `MIDI_ACCESS` — a [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise)
-  with [MIDIAccess](https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess) object, depends on `SYSEX` token for
+- `WA_MIDI_SUPPORT` — `boolean` value checking browser support
+- `WA_SYSEX` — `boolean` token responsible for system exclusive access, `false` by default
+- `WA_MIDI_ACCESS` — a [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+  with [MIDIAccess](https://developer.mozilla.org/en-US/docs/Web/API/MIDIAccess) object, depends on `WA_SYSEX` token for
   access level
-- `MIDI_INPUT` — a [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise) with
-  [MIDIInput](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput). You would need to provide it yourself see
-  utility functions below
-- `MIDI_OUTPUT` — a [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+- `WA_MIDI_INPUT` — a [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise)
+  with [MIDIInput](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput). You would need to provide it yourself
+  see utility functions below
+- `WA_MIDI_OUTPUT` — a [Promise](https://developer.mozilla.org/ru/docs/Web/JavaScript/Reference/Global_Objects/Promise)
   with [MIDIOutput](https://developer.mozilla.org/en-US/docs/Web/API/MIDIOutput). You would need to provide it yourself
   see utility functions below
-- `MIDI_MESSAGES` — an Observable of
+- `WA_MIDI_MESSAGES` — an Observable of
   [MIDIMessageEvent](https://developer.mozilla.org/en-US/docs/Web/API/MIDIMessageEvent) from all
   [MIDIInputs](https://developer.mozilla.org/en-US/docs/Web/API/MIDIInput), use rxjs function below to narrow and
   process the stream
 
 ### Utility functions
 
-- You can provide `MIDI_INPUT` and `MIDI_OUTPUT` tokens with following functions:
+- You can provide `WA_MIDI_INPUT` and `WA_MIDI_OUTPUT` tokens with following functions:
 
   `inputById`, `inputByName`, `outputById`, `outputByName`:
 
 ```ts
 import {Component, Inject} from '@angular/core';
-import {inputById, MIDI_INPUT, MIDI_OUTPUT, outputByName} from '@ng-web-apis/midi';
+import {inputById, WA_MIDI_INPUT, WA_MIDI_OUTPUT, outputByName} from '@ng-web-apis/midi';
 
 @Component({
   selector: 'my-comp',
@@ -60,7 +60,7 @@ import {inputById, MIDI_INPUT, MIDI_OUTPUT, outputByName} from '@ng-web-apis/mid
   providers: [inputById('input-0'), outputByName('VirtualMIDISynth')],
 })
 export class Example {
-  constructor(@Inject(MIDI_INPUT) input: Promise<MIDIInput>, @Inject(MIDI_OUTPUT) output: Promise<MIDIOutput>) {}
+  constructor(@Inject(WA_MIDI_INPUT) input: Promise<MIDIInput>, @Inject(WA_MIDI_OUTPUT) output: Promise<MIDIOutput>) {}
 }
 ```
 
@@ -72,7 +72,7 @@ export class Example {
 
 #### Monotype operators
 
-These are filtering operators which you can use on `MIDI_MESSAGES` stream to narrow it to your needs. All of them are
+These are filtering operators which you can use on `WA_MIDI_MESSAGES` stream to narrow it to your needs. All of them are
 applied like that:
 
 ```ts
