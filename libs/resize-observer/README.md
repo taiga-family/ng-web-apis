@@ -44,21 +44,22 @@ Use `waResizeBox` to configure
 
 ## Service
 
-Alternatively you can use `Observable`-based `ResizeObserverService` and provide token `RESIZE_OPTION_BOX` manually:
+Alternatively you can use `Observable`-based `WaResizeObserverService` and provide token `WA_RESIZE_OPTION_BOX`
+manually:
 
 ```ts
 @Component({
   selector: 'my-component',
   providers: [
-    ResizeObserverService,
+    WaResizeObserverService,
     {
-      provide: RESIZE_OPTION_BOX,
+      provide: WA_RESIZE_OPTION_BOX,
       useValue: 'border-box',
     },
   ],
 })
 export class Example {
-  constructor(@Inject(ResizeObserverService) entries$: ResizeObserverService) {
+  constructor(@Inject(WaResizeObserverService) entries$: WaResizeObserverService) {
     entries$.subscribe((entries) => {
       // This will trigger when the component resizes
       // Don't forget to unsubscribe

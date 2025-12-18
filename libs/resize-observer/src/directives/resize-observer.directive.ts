@@ -1,30 +1,29 @@
 import {Directive, ElementRef, inject} from '@angular/core';
+import {outputFromObservable} from '@angular/core/rxjs-interop';
 
-import {ResizeObserverService} from '../services/resize-observer.service';
-import {RESIZE_OPTION_BOX, RESIZE_OPTION_BOX_DEFAULT} from '../tokens/resize-option-box';
+import {WaResizeObserverService} from '../services/resize-observer.service';
+import {
+    WA_RESIZE_OPTION_BOX,
+    WA_RESIZE_OPTION_BOX_DEFAULT,
+} from '../tokens/resize-option-box';
 
 @Directive({
-    standalone: true,
     selector: '[waResizeObserver]',
-    inputs: ['waResizeBox: box'],
-    outputs: ['waResizeObserver'],
+    inputs: ['waResizeBox'],
     providers: [
-        ResizeObserverService,
+        WaResizeObserverService,
         {
-            provide: RESIZE_OPTION_BOX,
+            provide: WA_RESIZE_OPTION_BOX,
             useFactory: (): ResizeObserverBoxOptions =>
                 inject(ElementRef).nativeElement.getAttribute('waResizeBox') ||
-                RESIZE_OPTION_BOX_DEFAULT,
+                WA_RESIZE_OPTION_BOX_DEFAULT,
         },
     ],
 })
 export class WaResizeObserver {
-    protected readonly waResizeObserver = inject(ResizeObserverService);
+    protected readonly waResizeObserver = outputFromObservable(
+        inject(WaResizeObserverService),
+    );
 
-    public box: ResizeObserverBoxOptions = RESIZE_OPTION_BOX_DEFAULT;
+    public waResizeBox = WA_RESIZE_OPTION_BOX_DEFAULT;
 }
-
-/**
- * @deprecated: use {@link WaResizeObserver}
- */
-export const ResizeObserverDirective = WaResizeObserver;
