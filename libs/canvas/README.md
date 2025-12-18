@@ -23,7 +23,7 @@ npm i @ng-web-apis/canvas
 
 ## Usage
 
-Add `CanvasModule` to your module declaration and use `waCanvas2d` directive on a
+Add `WaCanvas` to your imports and use `waCanvas2d` directive on a
 [`canvas`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas) element to declare 2D context scope. Then
 use other directives to draw inside [`canvas`](https://developer.mozilla.org/en-US/docs/Web/HTML/Element/canvas):
 

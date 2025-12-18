@@ -1,25 +1,18 @@
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 
 @Directive({
-    standalone: true,
     selector: 'canvas-text',
+    inputs: ['text', 'x', 'y', 'maxWidth'],
     providers: [WaDrawService],
 })
 export class WaCanvasText {
     private readonly method = inject(WaDrawService);
 
-    @Input()
     public text = '';
-
-    @Input()
     public x = 0;
-
-    @Input()
     public y = 0;
-
-    @Input()
     public maxWidth?: number;
 
     constructor() {
@@ -29,8 +22,3 @@ export class WaCanvasText {
         };
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasText}
- */
-export const TextDirective = WaCanvasText;

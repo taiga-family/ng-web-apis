@@ -1,27 +1,12 @@
-import {
-    ChangeDetectionStrategy,
-    Component,
-    ContentChildren,
-    QueryList,
-} from '@angular/core';
+import {ChangeDetectionStrategy, Component, contentChildren} from '@angular/core';
 
-import {type CanvasMethod} from '../interfaces/canvas-method';
-import {CANVAS_METHOD} from '../tokens/canvas-method';
+import {WA_CANVAS_METHOD} from '../tokens/canvas-method';
 
 @Component({
-    standalone: true,
     selector: 'canvas-clip-path',
-    template: `
-        <ng-content />
-    `,
+    template: '<ng-content />',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export class WaCanvasClipPath {
-    @ContentChildren(CANVAS_METHOD)
-    public readonly pathSteps = new QueryList<CanvasMethod>();
+    public readonly pathSteps = contentChildren(WA_CANVAS_METHOD);
 }
-
-/**
- * @deprecated: use {@link WaCanvasClipPath}
- */
-export const ClipPathComponent = WaCanvasClipPath;

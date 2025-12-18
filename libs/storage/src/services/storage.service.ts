@@ -1,42 +1,40 @@
 import {inject, Injectable} from '@angular/core';
 import {WA_LOCAL_STORAGE, WA_WINDOW} from '@ng-web-apis/common';
 
-@Injectable({
-    providedIn: 'root',
-})
+@Injectable({providedIn: 'root'})
 export class StorageService implements Storage {
-    private readonly localStorage = inject(WA_LOCAL_STORAGE);
+    private readonly localStorage: Storage | null = inject(WA_LOCAL_STORAGE);
     private readonly windowRef = inject(WA_WINDOW);
 
     public get length(): number {
-        return this.localStorage.length;
+        return this.localStorage?.length ?? NaN;
     }
 
     public getItem(key: string): string | null {
-        return this.localStorage.getItem(key);
+        return this.localStorage?.getItem(key) ?? null;
     }
 
     public setItem(key: string, value: string): void {
         const oldValue = this.getItem(key);
 
-        this.localStorage.setItem(key, value);
+        this.localStorage?.setItem(key, value);
         this.notify(key, value, oldValue);
     }
 
     public removeItem(key: string): void {
         const oldValue = this.getItem(key);
 
-        this.localStorage.removeItem(key);
+        this.localStorage?.removeItem(key);
         this.notify(key, null, oldValue);
     }
 
     public clear(): void {
-        this.localStorage.clear();
+        this.localStorage?.clear();
         this.notify(null, null, null);
     }
 
     public key(index: number): string | null {
-        return this.localStorage.key(index);
+        return this.localStorage?.key(index) ?? null;
     }
 
     private notify(

@@ -1,13 +1,13 @@
 import {isPlatformBrowser} from '@angular/common';
-import {Directive, inject, Input, PLATFORM_ID} from '@angular/core';
+import {Directive, inject, PLATFORM_ID} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
-    standalone: true,
     selector:
         'canvas[transform],canvas-draw-image[transform],canvas-path[transform],canvas-text[transform]',
+    inputs: ['transform'],
     providers: [asCanvasProperty(WaCanvasTransform)],
 })
 export class WaCanvasTransform implements CanvasMethod {
@@ -16,7 +16,6 @@ export class WaCanvasTransform implements CanvasMethod {
         optional: true,
     });
 
-    @Input()
     public transform: DOMMatrix | null = isPlatformBrowser(inject(PLATFORM_ID))
         ? new DOMMatrix()
         : null;
@@ -29,8 +28,3 @@ export class WaCanvasTransform implements CanvasMethod {
         }
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasTransform}
- */
-export const TransformDirective = WaCanvasTransform;

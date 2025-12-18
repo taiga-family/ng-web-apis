@@ -1,15 +1,15 @@
 import {isPlatformServer} from '@angular/common';
-import {Directive, ElementRef, inject, Input, PLATFORM_ID} from '@angular/core';
+import {Directive, ElementRef, inject, PLATFORM_ID} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
-import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
+import {WA_CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
 @Directive({
-    standalone: true,
     selector: 'canvas[waCanvas2d]',
+    inputs: ['waOpaque', 'waDesynchronized'],
     providers: [
         {
-            provide: CANVAS_2D_CONTEXT,
+            provide: WA_CANVAS_2D_CONTEXT,
             useFactory: (): CanvasRenderingContext2D => {
                 if (isPlatformServer(inject(PLATFORM_ID))) {
                     return {} as unknown as CanvasRenderingContext2D;
@@ -34,13 +34,10 @@ import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
     ],
 })
 export class WaCanvas2d {
-    private readonly context = inject(CANVAS_2D_CONTEXT);
+    private readonly context = inject(WA_CANVAS_2D_CONTEXT);
     private readonly method = inject(WaDrawService);
 
-    @Input()
     public waOpaque = '' as const;
-
-    @Input()
     public waDesynchronized = '' as const;
 
     constructor() {
@@ -51,8 +48,3 @@ export class WaCanvas2d {
         };
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvas2d}
- */
-export const Canvas2dDirective = WaCanvas2d;

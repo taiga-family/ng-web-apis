@@ -1,5 +1,5 @@
 import {type ValueProvider} from '@angular/core';
-import {HISTORY} from '@ng-web-apis/common';
+import {WA_HISTORY} from '@ng-web-apis/common';
 
 import {emptyFunction} from '../utils/functions';
 
@@ -15,6 +15,6 @@ export const HISTORY_MOCK = {
 };
 
 export const UNIVERSAL_HISTORY: ValueProvider = {
-    provide: HISTORY,
+    provide: WA_HISTORY,
     useValue: HISTORY_MOCK,
 };

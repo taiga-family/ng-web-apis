@@ -1,12 +1,11 @@
-import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
+import {ChangeDetectionStrategy, Component, viewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
+import {WA_CANVAS_2D_CONTEXT, WaCanvas} from '@ng-web-apis/canvas';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('WaCanvas2d', () => {
     @Component({
-        standalone: true,
         imports: [WaCanvas],
         template: `
             <canvas
@@ -31,8 +30,9 @@ describe('WaCanvas2d', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild('canvas', {read: CANVAS_2D_CONTEXT})
-        public readonly context!: CanvasRenderingContext2D;
+        public readonly context = viewChild.required('canvas', {
+            read: WA_CANVAS_2D_CONTEXT,
+        });
     }
 
     let fixture: ComponentFixture<Test>;
@@ -53,15 +53,15 @@ describe('WaCanvas2d', () => {
     });
 
     it('creates context', () => {
-        expect(testComponent.context instanceof CanvasRenderingContext2D).toBe(true);
+        expect(testComponent.context() instanceof CanvasRenderingContext2D).toBe(true);
     });
 
     it('draws a rectangle at given coordinates of given color with applied filter', (done) => {
         setTimeout(() => {
-            expect([...testComponent.context.getImageData(5, 5, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(5, 5, 1, 1).data]).toEqual([
                 0, 0, 0, 0,
             ]);
-            expect([...testComponent.context.getImageData(25, 25, 1, 1).data]).toEqual([
+            expect([...testComponent.context().getImageData(25, 25, 1, 1).data]).toEqual([
                 0, 109, 109, 255,
             ]);
 

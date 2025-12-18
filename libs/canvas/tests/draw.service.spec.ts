@@ -1,9 +1,9 @@
 import {NgZone} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {
-    CANVAS_2D_CONTEXT,
-    CANVAS_PROPERTIES,
     type CanvasMethod,
+    WA_CANVAS_2D_CONTEXT,
+    WA_CANVAS_PROPERTIES,
     WaDrawService,
 } from '@ng-web-apis/canvas';
 import {WA_ANIMATION_FRAME} from '@ng-web-apis/common';
@@ -22,9 +22,9 @@ describe('WaDrawService', () => {
     } as unknown as NgZone;
 
     xit('calls hooks with context', () => {
-        TestBed.overrideProvider(CANVAS_PROPERTIES, {useValue: []})
-            .overrideProvider(CANVAS_PROPERTIES, {useValue: [prop]})
-            .overrideProvider(CANVAS_2D_CONTEXT, {useValue: context})
+        TestBed.overrideProvider(WA_CANVAS_PROPERTIES, {useValue: []})
+            .overrideProvider(WA_CANVAS_PROPERTIES, {useValue: [prop]})
+            .overrideProvider(WA_CANVAS_2D_CONTEXT, {useValue: context})
             .overrideProvider(WA_ANIMATION_FRAME, {useValue: of(0)})
             .overrideProvider(NgZone, {useValue: zone})
             .runInInjectionContext(() => {

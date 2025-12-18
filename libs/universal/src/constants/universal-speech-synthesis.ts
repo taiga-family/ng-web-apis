@@ -1,5 +1,5 @@
 import {type ValueProvider} from '@angular/core';
-import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
+import {WA_SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 import {alwaysFalse, emptyArray, emptyFunction} from '../utils/functions';
 
@@ -19,6 +19,6 @@ export const SPEECH_SYNTHESIS_MOCK: SpeechSynthesis = {
 };
 
 export const UNIVERSAL_SPEECH_SYNTHESIS: ValueProvider = {
-    provide: SPEECH_SYNTHESIS,
+    provide: WA_SPEECH_SYNTHESIS,
     useValue: SPEECH_SYNTHESIS_MOCK,
 };

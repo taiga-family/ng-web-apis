@@ -1,5 +1,5 @@
 import {type ValueProvider} from '@angular/core';
-import {CRYPTO} from '@ng-web-apis/common';
+import {WA_CRYPTO} from '@ng-web-apis/common';
 
 import {alwaysRejected, identity} from '../utils/functions';
 
@@ -14,6 +14,6 @@ export const CRYPTO_MOCK = {
 };
 
 export const UNIVERSAL_CRYPTO: ValueProvider = {
-    provide: CRYPTO,
+    provide: WA_CRYPTO,
     useValue: CRYPTO_MOCK,
 };

@@ -300,7 +300,7 @@ All notable changes to this project will be documented in this file. See
 
 ### 🚀 Features
 
-- **tokens**: `LOCAL_STORAGE`, `LOCATION`, `USER_AGENT` add new tokens
+- **tokens**: `WA_LOCAL_STORAGE`, `WA_LOCATION`, `WA_USER_AGENT` add new tokens
   [(07c7bda)](https://github.com/taiga-family/ng-web-apis/commit/07c7bda84d65826fd8d120dee4b99408f2e9c25f)
 
 ### [1.2.0](https://github.com/taiga-family/ng-web-apis/compare/v1.1.0...v1.2.0) (2020-04-29)

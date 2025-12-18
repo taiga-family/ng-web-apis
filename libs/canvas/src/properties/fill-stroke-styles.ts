@@ -1,20 +1,17 @@
-import {Directive, Input} from '@angular/core';
+import {Directive} from '@angular/core';
 
 import {type CanvasMethod} from '../interfaces/canvas-method';
 import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
-    standalone: true,
     selector:
         'canvas-path[fillStyle],canvas-path[strokeStyle],' +
         'canvas-text[fillStyle],canvas-text[strokeStyle]',
+    inputs: ['fillStyle', 'strokeStyle'],
     providers: [asCanvasProperty(WaCanvasFillStrokeStyles)],
 })
 export class WaCanvasFillStrokeStyles implements CanvasMethod {
-    @Input()
     public fillStyle: CanvasGradient | CanvasPattern | string = 'black';
-
-    @Input()
     public strokeStyle: CanvasGradient | CanvasPattern | string = 'transparent';
 
     public call(context: CanvasRenderingContext2D): void {
@@ -22,8 +19,3 @@ export class WaCanvasFillStrokeStyles implements CanvasMethod {
         context.strokeStyle = this.strokeStyle;
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasFillStrokeStyles}
- */
-export const FillStrokeStylesDirective = WaCanvasFillStrokeStyles;

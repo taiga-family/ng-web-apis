@@ -1,5 +1,5 @@
 import {inject, Injectable} from '@angular/core';
-import {WINDOW} from '@ng-web-apis/common';
+import {WA_WINDOW} from '@ng-web-apis/common';
 import {
     EMPTY,
     filter,
@@ -15,7 +15,7 @@ import {
     providedIn: 'root',
 })
 export class ViewportService extends Observable<VisualViewport> {
-    private readonly visualViewport = inject(WINDOW).visualViewport;
+    private readonly visualViewport = inject(WA_WINDOW).visualViewport;
 
     private readonly stream$ = this.visualViewport
         ? merge(

@@ -1,7 +1,7 @@
 import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {CanvasModule} from '@ng-web-apis/canvas';
+import {WaCanvas} from '@ng-web-apis/canvas';
 import {TuiExpand, TuiLabel} from '@taiga-ui/core';
 import {TuiDataListWrapper, TuiFiles, TuiSlider} from '@taiga-ui/kit';
 import {
@@ -14,7 +14,6 @@ import {
 @Component({
     selector: 'canvas-page',
     imports: [
-        CanvasModule,
         CommonModule,
         FormsModule,
         TuiDataListWrapper,
@@ -26,6 +25,7 @@ import {
         TuiSelectModule,
         TuiSlider,
         TuiTextfieldControllerModule,
+        WaCanvas,
     ],
     templateUrl: './canvas-page.component.html',
     styleUrl: './canvas-page.component.css',

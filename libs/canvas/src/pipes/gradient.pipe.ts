@@ -1,13 +1,10 @@
 import {inject, Pipe, type PipeTransform} from '@angular/core';
 
-import {CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
+import {WA_CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 
-@Pipe({
-    standalone: true,
-    name: 'gradient',
-})
+@Pipe({name: 'gradient'})
 export class WaCanvasGradientPipe implements PipeTransform {
-    private readonly context = inject(CANVAS_2D_CONTEXT);
+    private readonly context = inject(WA_CANVAS_2D_CONTEXT);
 
     public transform(
         stops: Map<number, string>,
@@ -47,8 +44,3 @@ export class WaCanvasGradientPipe implements PipeTransform {
         return gradient;
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasGradientPipe}
- */
-export const GradientPipe = WaCanvasGradientPipe;

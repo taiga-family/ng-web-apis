@@ -1,40 +1,23 @@
-import {Directive, inject, Input} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
 import {WaDrawService} from '../services/draw.service';
 
 @Directive({
-    standalone: true,
     selector: 'canvas-draw-image',
+    inputs: ['image', 'dX', 'dY', 'dWidth', 'dHeight', 'sX', 'sY', 'sWidth', 'sHeight'],
     providers: [WaDrawService],
 })
 export class WaCanvasDrawImage {
     private readonly method = inject(WaDrawService);
 
-    @Input()
     public image?: CanvasImageSource;
-
-    @Input()
     public dX = 0;
-
-    @Input()
     public dY = 0;
-
-    @Input()
     public dWidth?: number;
-
-    @Input()
     public dHeight?: number;
-
-    @Input()
     public sX?: number;
-
-    @Input()
     public sY?: number;
-
-    @Input()
     public sWidth?: number;
-
-    @Input()
     public sHeight?: number;
 
     constructor() {
@@ -76,8 +59,3 @@ export class WaCanvasDrawImage {
         };
     }
 }
-
-/**
- * @deprecated: use {@link WaCanvasDrawImage}
- */
-export const DrawImageDirective = WaCanvasDrawImage;
