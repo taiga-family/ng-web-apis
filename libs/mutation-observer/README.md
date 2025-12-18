@@ -28,10 +28,10 @@ npm i @ng-web-apis/mutation-observer
 
 ## Usage
 
-Add `MutationObserverModule` and then use `(waMutationObserver)="onMutation($event)"` directive to watch mutation in an
+Add `WaMutationObserver` and then use `(waMutationObserver)="onMutation($event)"` directive to watch mutation in an
 element.
 
-Alternatively use an `Observable`-based `MutationObserverService` manually to get `MutationObserver` in an RxJS
+Alternatively use an `Observable`-based `WaMutationObserverService` manually to get `MutationObserver` in an RxJS
 `Observable` form.
 
 ## Configuring
