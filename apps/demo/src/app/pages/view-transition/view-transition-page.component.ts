@@ -54,7 +54,6 @@ const USAGE_SAMPLE = `
 `;
 
 @Component({
-    standalone: true,
     selector: 'view-transition-page',
     imports: [CommonModule, HighlightModule, TuiLink],
     templateUrl: './view-transition-page.component.html',

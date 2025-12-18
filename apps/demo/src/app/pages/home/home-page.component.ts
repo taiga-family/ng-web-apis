@@ -11,7 +11,6 @@ import {PERMISSIONS_SUPPORT} from '@ng-web-apis/permissions';
 import {RESIZE_OBSERVER_SUPPORT} from '@ng-web-apis/resize-observer';
 
 @Component({
-    standalone: true,
     selector: 'home-page',
     imports: [RouterLink],
     templateUrl: './home-page.component.html',

@@ -8,7 +8,6 @@ import {BehaviorSubject, catchError, of, tap} from 'rxjs';
 import {SAMPLE} from './samples/basic';
 
 @Component({
-    standalone: true,
     selector: 'permissions-page',
     imports: [CommonModule, HighlightModule],
     templateUrl: './permissions-page.component.html',

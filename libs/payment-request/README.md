@@ -66,19 +66,19 @@ As a set of directives:
 </div>
 ```
 
-Do not forget to import PaymentRequestModule:
+Do not forget to import `WaPaymentRequest`:
 
 ```ts
-import {PaymentRequestModule} from '@ng-web-apis/payment-request';
+import {WaPaymentRequest} from '@ng-web-apis/payment-request';
 ...
-@NgModule({
+@Component({
     ...
     imports: [
         ...
-        PaymentRequestModule
+        WaPaymentRequest,
     ]
 })
-export class YourModule {}
+export class YourComponent {}
 ```
 
 As a good example of usage you can take a look at

@@ -4,7 +4,6 @@ import {FormsModule} from '@angular/forms';
 import {RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-observer';
 
 @Component({
-    standalone: true,
     selector: 'resize-observer-page',
     imports: [CommonModule, FormsModule, WaResizeObserver],
     templateUrl: './resize-observer-page.component.html',

@@ -9,7 +9,6 @@ import {SAMPLE} from './samples/sample';
 import {SAMPLE_ASYNC} from './samples/sample-async';
 
 @Component({
-    standalone: true,
     selector: 'geolocation-page',
     imports: [CommonModule, HighlightModule, TuiButton, TuiLoader],
     templateUrl: './geolocation-page.component.html',

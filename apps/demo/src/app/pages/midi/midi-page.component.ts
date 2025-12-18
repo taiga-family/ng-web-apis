@@ -8,7 +8,6 @@ import {TuiButton} from '@taiga-ui/core';
 import {Demo} from './demo/demo.component';
 
 @Component({
-    standalone: true,
     selector: 'midi-page',
     imports: [CommonModule, Demo, FormsModule, TuiButton, WaWebAudio],
     templateUrl: './midi-page.component.html',

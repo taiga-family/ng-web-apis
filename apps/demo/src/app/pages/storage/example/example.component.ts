@@ -8,7 +8,6 @@ import {TuiInputModule} from '@taiga-ui/legacy';
 import {type Observable} from 'rxjs';
 
 @Component({
-    standalone: true,
     selector: 'example',
     imports: [CommonModule, FormsModule, TuiInputModule, TuiNotification],
     templateUrl: './example.template.html',

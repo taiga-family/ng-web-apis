@@ -19,7 +19,6 @@ import {TuiSelectModule, TuiTextareaModule, TuiTooltipModule} from '@taiga-ui/le
 import {filter, map, merge, type Observable, repeat, retry, share} from 'rxjs';
 
 @Component({
-    standalone: true,
     selector: 'speech-page',
     imports: [
         CommonModule,

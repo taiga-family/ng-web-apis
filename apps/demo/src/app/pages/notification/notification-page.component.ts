@@ -10,7 +10,6 @@ import {NotificationPageExample3} from './examples/03-close-notification';
 import {NotificationPageExample4} from './examples/04-listen-notification-events';
 
 @Component({
-    standalone: true,
     selector: 'notification-page',
     imports: [
         CommonModule,

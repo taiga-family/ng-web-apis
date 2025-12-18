@@ -8,7 +8,6 @@ import {SERVICE_SAMPLE} from './samples/service.sample';
 import {Shop} from './shop/shop.component';
 
 @Component({
-    standalone: true,
     selector: 'payment-request-page',
     imports: [CommonModule, HighlightModule, Shop, WaPaymentRequest],
     templateUrl: './payment-request-page.component.html',

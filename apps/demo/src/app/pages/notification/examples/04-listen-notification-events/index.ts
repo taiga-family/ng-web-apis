@@ -6,7 +6,6 @@ import {TuiButton} from '@taiga-ui/core';
 import {filter, fromEvent, map, switchMap} from 'rxjs';
 
 @Component({
-    standalone: true,
     selector: 'notification-page-example-4',
     imports: [CommonModule, TuiButton],
     templateUrl: './index.html',

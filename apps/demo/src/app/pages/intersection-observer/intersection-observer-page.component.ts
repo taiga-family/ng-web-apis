@@ -6,7 +6,6 @@ import {
 } from '@ng-web-apis/intersection-observer';
 
 @Component({
-    standalone: true,
     selector: 'intersection-observer-page',
     imports: [CommonModule, WaIntersectionObserver],
     templateUrl: './intersection-observer-page.component.html',
