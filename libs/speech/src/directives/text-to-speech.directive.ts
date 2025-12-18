@@ -1,35 +1,24 @@
-import {
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    type OnChanges,
-    Output,
-} from '@angular/core';
+import {Directive, inject, input, type OnChanges, output} from '@angular/core';
 import {WA_SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({
     selector: '[waTextToSpeech]',
+    inputs: ['waTextToSpeech'],
 })
 export class WaTextToSpeech implements OnChanges {
     private readonly speechSynthesisRef = inject(WA_SPEECH_SYNTHESIS);
 
-    @Input('waTextToSpeechPaused')
-    public paused = false;
+    public paused = input(false, {alias: 'waTextToSpeechPaused'});
+    public readonly onend = output<SpeechSynthesisEvent>({alias: 'waTextToSpeechEnd'});
+    public readonly onmark = output<SpeechSynthesisEvent>({alias: 'waTextToSpeechMark'});
+    public readonly onerror = output<SpeechSynthesisErrorEvent>({
+        alias: 'waTextToSpeechError',
+    });
 
-    @Output('waTextToSpeechError')
-    public readonly onerror = new EventEmitter<SpeechSynthesisErrorEvent>();
+    public readonly onboundary = output<SpeechSynthesisEvent>({
+        alias: 'waTextToSpeechBoundary',
+    });
 
-    @Output('waTextToSpeechEnd')
-    public readonly onend = new EventEmitter<SpeechSynthesisEvent>();
-
-    @Output('waTextToSpeechMark')
-    public readonly onmark = new EventEmitter<SpeechSynthesisEvent>();
-
-    @Output('waTextToSpeechBoundary')
-    public readonly onboundary = new EventEmitter<SpeechSynthesisEvent>();
-
-    @Input()
     public set waTextToSpeech(utterance: SpeechSynthesisUtterance) {
         this.speechSynthesisRef.cancel();
         this.speechSynthesisRef.pause();
@@ -43,15 +32,10 @@ export class WaTextToSpeech implements OnChanges {
     }
 
     public ngOnChanges(): void {
-        if (this.paused) {
+        if (this.paused()) {
             this.speechSynthesisRef.pause();
         } else {
             this.speechSynthesisRef.resume();
         }
     }
 }
-
-/**
- * @deprecated: use {@link WaTextToSpeech}
- */
-export const TextToSpeechDirective = WaTextToSpeech;

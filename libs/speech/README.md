@@ -37,11 +37,11 @@ Web Speech API consists of speech synthesis and speech recognition.
 />
 ```
 
-2. For speech recognition use `SpeechRecognitionService` in supporting browsers (only Chrome at this point)
+2. For speech recognition use `WaSpeechRecognitionService` in supporting browsers (only Chrome at this point)
 
 ## Operators
 
-`SpeechRecognitionService` provides access to speech recognition in familiar RxJS Observable model. To work with the
+`WaSpeechRecognitionService` provides access to speech recognition in familiar RxJS Observable model. To work with the
 stream there are certain operators included in this library:
 
 1. `confidenceAbove` to filter recognitions to desired level of confidence
@@ -79,10 +79,10 @@ this.torpedoes$ = this.speechRecognition$.pipe(retry(), repeat(), filter(isSaid(
 
 There are also a couple of tokens included in this library:
 
-1. `SPEECH_RECOGNITION_MAX_ALTERNATIVES` to configure number of alternatives presented in `SpeechRecognitionResult`
-2. `SPEECH_RECOGNITION_SUPPORT` to check if browser supports speech recognition
-3. `SPEECH_SYNTHESIS_SUPPORT` to check if browser supports speech synthesis
-4. `SPEECH_SYNTHESIS_VOICES` to get the list of available voices for speech synthesis
+1. `WA_SPEECH_RECOGNITION_MAX_ALTERNATIVES` to configure number of alternatives presented in `SpeechRecognitionResult`
+2. `WA_SPEECH_RECOGNITION_SUPPORT` to check if browser supports speech recognition
+3. `WA_SPEECH_SYNTHESIS_SUPPORT` to check if browser supports speech synthesis
+4. `WA_SPEECH_SYNTHESIS_VOICES` to get the list of available voices for speech synthesis
 
 ## See also
 

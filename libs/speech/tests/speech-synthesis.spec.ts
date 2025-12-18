@@ -10,7 +10,6 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('SpeechSynthesis', () => {
     @Component({
-        standalone: true,
         imports: [UtterancePipe, WaTextToSpeech],
         template: `
             <ng-container
