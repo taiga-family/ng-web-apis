@@ -1,18 +1,18 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
-import {ResizeObserverService} from '@ng-web-apis/resize-observer';
+import {WaResizeObserverService} from '@ng-web-apis/resize-observer';
 import {catchError} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('ResizeObserver', () => {
     describe('Resize Observer token', () => {
-        let service: ResizeObserverService;
+        let service: WaResizeObserverService;
 
         beforeEach(() => {
             TestBed.configureTestingModule({
                 providers: [
-                    ResizeObserverService,
+                    WaResizeObserverService,
                     {
                         provide: ElementRef,
                         useValue: {
@@ -22,7 +22,7 @@ describe('ResizeObserver', () => {
                 ],
             });
 
-            service = TestBed.inject(ResizeObserverService).pipe(
+            service = TestBed.inject(WaResizeObserverService).pipe(
                 catchError((_err, caught) => caught),
             );
         });

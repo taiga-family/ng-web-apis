@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-observer';
+import {WA_RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-observer';
 
 @Component({
     selector: 'resize-observer-page',
@@ -11,7 +11,7 @@ import {RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-obs
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class ResizeObserverPage {
-    protected readonly support = inject(RESIZE_OBSERVER_SUPPORT);
+    protected readonly support = inject(WA_RESIZE_OBSERVER_SUPPORT);
 
     protected ratio = 0;
     protected widthPercent = 50;

@@ -6,7 +6,6 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('WaResizeObserver', () => {
     @Component({
-        standalone: true,
         imports: [WaResizeObserver],
         template: `
             <section style="position: relative; height: 200px; overflow: auto;">
