@@ -1,12 +1,11 @@
 import {Directive, inject, type OnDestroy} from '@angular/core';
 
 import {SafeObserver} from '../classes/safe-observer';
-import {INTERSECTION_ROOT} from '../tokens/intersection-root';
+import {WA_INTERSECTION_ROOT} from '../tokens/intersection-root';
 import {rootMarginFactory} from '../utils/root-margin-factory';
 import {thresholdFactory} from '../utils/threshold-factory';
 
 @Directive({
-    standalone: true,
     selector: '[waIntersectionObserver]',
     inputs: ['margin: waIntersectionRootMargin', 'threshold: waIntersectionThreshold'],
     exportAs: 'IntersectionObserver',
@@ -18,7 +17,7 @@ export class WaIntersectionObserverDirective extends SafeObserver implements OnD
     public threshold = '';
 
     constructor() {
-        const root = inject(INTERSECTION_ROOT, {optional: true});
+        const root = inject(WA_INTERSECTION_ROOT, {optional: true});
 
         super(
             (entries) => {
@@ -53,13 +52,3 @@ export class WaIntersectionObserverDirective extends SafeObserver implements OnD
         this.disconnect();
     }
 }
-
-/**
- * @deprecated: use {@link WaIntersectionObserverDirective}
- */
-export const IntersectionObserverDirective = WaIntersectionObserverDirective;
-
-/**
- * @deprecated: use {@link WaIntersectionObserver}
- */
-export const WaObserver = WaIntersectionObserverDirective;
