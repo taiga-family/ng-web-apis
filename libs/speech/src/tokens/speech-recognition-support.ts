@@ -1,10 +1,10 @@
 import {inject, InjectionToken} from '@angular/core';
-import {SPEECH_RECOGNITION} from '@ng-web-apis/common';
+import {WA_SPEECH_RECOGNITION} from '@ng-web-apis/common';
 
 export const WA_SPEECH_RECOGNITION_SUPPORT = new InjectionToken<boolean>(
     '[WA_SPEECH_RECOGNITION_SUPPORT]',
     {
-        factory: () => !!inject(SPEECH_RECOGNITION),
+        factory: () => !!inject(WA_SPEECH_RECOGNITION),
     },
 );
 

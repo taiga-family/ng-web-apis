@@ -127,6 +127,6 @@ describe('Methods', () => {
     });
 
     it('clip collects path segments', () => {
-        expect(testComponent.clipPath().pathSteps.length).toBe(2);
+        expect(testComponent.clipPath().pathSteps().length).toBe(2);
     });
 });

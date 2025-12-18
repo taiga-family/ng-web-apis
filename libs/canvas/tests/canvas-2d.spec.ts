@@ -53,7 +53,7 @@ describe('WaCanvas2d', () => {
     });
 
     it('creates context', () => {
-        expect(testComponent.context instanceof CanvasRenderingContext2D).toBe(true);
+        expect(testComponent.context() instanceof CanvasRenderingContext2D).toBe(true);
     });
 
     it('draws a rectangle at given coordinates of given color with applied filter', (done) => {

@@ -1,5 +1,5 @@
 import {type ValueProvider} from '@angular/core';
-import {CACHES} from '@ng-web-apis/common';
+import {WA_CACHES} from '@ng-web-apis/common';
 
 import {alwaysRejected} from '../utils/functions';
 
@@ -12,6 +12,6 @@ export const CACHES_MOCK = {
 };
 
 export const UNIVERSAL_CACHES: ValueProvider = {
-    provide: CACHES,
+    provide: WA_CACHES,
     useValue: CACHES_MOCK,
 };
