@@ -8,21 +8,22 @@ A set of common utils for consuming Web APIs with Angular
 
 ## Tokens
 
-- `WINDOW` — provides access to global `window` object
-- `NAVIGATOR` — provides access to `window.navigator` object
-- `NETWORK_INFORMATION` — provides access to `window.navigator.connection` object
-- `USER_AGENT` — provides access to `window.navigator.userAgent` string
-- `MEDIA_DEVICES` — provides access to `window.navigator.mediaDevices` object
-- `PERFORMANCE` — provides access to `window.performance` object
-- `ANIMATION_FRAME` — shared `Observable` based on `window.requestAnimationFrame`
-- `CACHES` — provides access to `window.caches` object
-- `CSS` — provides access to `window.CSS` object or mock object if it's not available (i.e. in IE)
-- `CRYPTO` — provides access to `window.crypto` object
-- `LOCATION` — provides access to `window.location` object
-- `LOCAL_STORAGE` — provides access to `window.localStorage` object
-- `SCREEN` — provides access to `window.screen` object
-- `SESSION_STORAGE` — provides access to `window.sessionStorage` object
-- `SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or returns `null` if browser does not support it
-- `SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
-- `PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
-- `HISTORY` — provides access to `window.history` object
+- `WA_WINDOW` — provides access to global `window` object
+- `WA_NAVIGATOR` — provides access to `window.navigator` object
+- `WA_NETWORK_INFORMATION` — provides access to `window.navigator.connection` object
+- `WA_USER_AGENT` — provides access to `window.navigator.userAgent` string
+- `WA_MEDIA_DEVICES` — provides access to `window.navigator.mediaDevices` object
+- `WA_PERFORMANCE` — provides access to `window.performance` object
+- `WA_ANIMATION_FRAME` — shared `Observable` based on `window.requestAnimationFrame`
+- `WA_CACHES` — provides access to `window.caches` object
+- `WA_CSS` — provides access to `window.CSS` object or mock object if it's not available (i.e. in IE)
+- `WA_CRYPTO` — provides access to `window.crypto` object
+- `WA_LOCATION` — provides access to `window.location` object
+- `WA_LOCAL_STORAGE` — provides access to `window.localStorage` object
+- `WA_SCREEN` — provides access to `window.screen` object
+- `WA_SESSION_STORAGE` — provides access to `window.sessionStorage` object
+- `WA_SPEECH_RECOGNITION` — provides access to `SpeechRecognition` class or returns `null` if browser does not support
+  it
+- `WA_SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
+- `WA_PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
+- `WA_HISTORY` — provides access to `window.history` object

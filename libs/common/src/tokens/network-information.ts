@@ -53,8 +53,3 @@ export const WA_NETWORK_INFORMATION = new InjectionToken<NetworkInformation | nu
             inject<NavigatorNetworkInformation>(WA_NAVIGATOR).connection || null,
     },
 );
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_NETWORK_INFORMATION}
- */
-export const NETWORK_INFORMATION = WA_NETWORK_INFORMATION;

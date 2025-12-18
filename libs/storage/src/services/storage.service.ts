@@ -3,7 +3,7 @@ import {WA_LOCAL_STORAGE, WA_WINDOW} from '@ng-web-apis/common';
 
 @Injectable({providedIn: 'root'})
 export class StorageService implements Storage {
-    private readonly localStorage: Storage | null = inject(WA_LOCAL_STORAGE);
+    private readonly localStorage = inject(WA_LOCAL_STORAGE);
     private readonly windowRef = inject(WA_WINDOW);
 
     public get length(): number {

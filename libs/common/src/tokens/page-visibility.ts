@@ -24,8 +24,3 @@ export const WA_PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
         },
     },
 );
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_PAGE_VISIBILITY}
- */
-export const PAGE_VISIBILITY = WA_PAGE_VISIBILITY;

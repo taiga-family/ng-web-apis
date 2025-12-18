@@ -1,12 +1,7 @@
 import {inject, InjectionToken} from '@angular/core';
 
-import {WINDOW} from './window';
+import {WA_WINDOW} from './window';
 
 export const WA_NAVIGATOR = new InjectionToken<Navigator>('[WA_NAVIGATOR]', {
-    factory: () => inject(WINDOW).navigator,
+    factory: () => inject(WA_WINDOW).navigator,
 });
-
-/**
- * @deprecated: drop in v5.0, use {@link WA_NAVIGATOR}
- */
-export const NAVIGATOR = WA_NAVIGATOR;

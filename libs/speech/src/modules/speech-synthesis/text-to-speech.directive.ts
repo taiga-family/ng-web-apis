@@ -6,14 +6,13 @@ import {
     type OnChanges,
     Output,
 } from '@angular/core';
-import {SPEECH_SYNTHESIS} from '@ng-web-apis/common';
+import {WA_SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 
 @Directive({
-    standalone: true,
     selector: '[waTextToSpeech]',
 })
 export class WaTextToSpeech implements OnChanges {
-    private readonly speechSynthesisRef = inject(SPEECH_SYNTHESIS);
+    private readonly speechSynthesisRef = inject(WA_SPEECH_SYNTHESIS);
 
     @Input('waTextToSpeechPaused')
     public paused = false;
