@@ -2,11 +2,13 @@ import {type AudioParamAutomation} from '../types/audio-param-automation';
 import {type AudioParamCurve} from '../types/audio-param-curve';
 import {type AudioParamInput} from '../types/audio-param-input';
 
-export function processAudioParam(
+export function audioParam(
     param: AudioParam,
     value: AudioParamInput,
     currentTime = 0,
 ): void {
+    value = typeof value === 'string' ? Number.parseFloat(value) : value;
+
     // eslint-disable-next-line @typescript-eslint/no-unnecessary-condition
     if (param.cancelAndHoldAtTime) {
         param.cancelAndHoldAtTime(currentTime);

@@ -1,13 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {providers, WaWebAudio, WebAudioDelay} from '@ng-web-apis/audio';
+import {WaDelay, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Delay', () => {
     describe('DelayNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waDelayNode></div>
@@ -15,7 +14,7 @@ describe('Delay', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDelay)
+            @ViewChild(WaDelay)
             public node!: AudioNode;
         }
 
@@ -39,7 +38,6 @@ describe('Delay', () => {
 
     describe('DelayNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waDelayNode></div>
@@ -47,7 +45,7 @@ describe('Delay', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDelay)
+            @ViewChild(WaDelay)
             public node!: AudioNode;
         }
 
@@ -57,7 +55,6 @@ describe('Delay', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

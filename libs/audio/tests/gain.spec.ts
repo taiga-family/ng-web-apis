@@ -1,18 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {
-    type AudioParamInput,
-    providers,
-    WaWebAudio,
-    WebAudioGain,
-} from '@ng-web-apis/audio';
+import {type AudioParamInput, WaGain, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Audio gain', () => {
     describe('GainNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div
@@ -25,7 +19,7 @@ describe('Audio gain', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioGain)
+            @ViewChild(WaGain)
             public node!: GainNode;
 
             public gain: AudioParamInput = 1;
@@ -169,7 +163,6 @@ describe('Audio gain', () => {
 
     describe('GainNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waGainNode></div>
@@ -177,7 +170,7 @@ describe('Audio gain', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioGain)
+            @ViewChild(WaGain)
             public node!: GainNode;
         }
 
@@ -187,7 +180,6 @@ describe('Audio gain', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

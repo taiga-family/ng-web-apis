@@ -1,40 +1,24 @@
-import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    type OnDestroy,
-    Output,
-} from '@angular/core';
+import {Directive, HostAttributeToken, inject, input, output} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {connect} from '../utils/connect';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 
+// TODO: Add AudioWorkletNodeOptions
 @Directive({
-    standalone: true,
     selector: '[waAudioWorkletNode][name]',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioWorklet)],
+    providers: [asAudioNode(WaWorklet)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioWorklet extends AudioWorkletNode implements OnDestroy {
-    @Output()
-    public processorerror = new EventEmitter<void>();
+export class WaWorklet extends AudioWorkletNode {
+    public readonly name = input('');
+    public readonly processorerror = output();
 
-    constructor(@Attribute('name') name: string) {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-
-        super(context, name);
-
-        connect(node, this);
+    constructor() {
+        super(inject(WA_AUDIO_CONTEXT), inject(new HostAttributeToken('name')));
     }
 
     public override readonly onprocessorerror = (): void => this.processorerror.emit();
-
-    public ngOnDestroy(): void {
-        this.disconnect();
-    }
 }

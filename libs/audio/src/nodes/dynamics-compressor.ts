@@ -1,81 +1,62 @@
-// eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {connect} from '../utils/connect';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waDynamicsCompressorNode]',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioDynamicsCompressor)],
+    inputs: [
+        'attackSetter: attack',
+        'kneeSetter: knee',
+        'ratioSetter: ratio',
+        'releaseSetter: release',
+        'thresholdSetter: threshold',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
+    ],
+    providers: [asAudioNode(WaDynamicsCompressor)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioDynamicsCompressor
-    extends DynamicsCompressorNode
-    implements OnDestroy
-{
-    @Input('attack')
-    @audioParam('attack')
-    public attackParam?: AudioParamInput;
+export class WaDynamicsCompressor extends DynamicsCompressorNode {
+    constructor() {
+        const attack = inject(new HostAttributeToken('attack'), {optional: true});
+        const knee = inject(new HostAttributeToken('knee'), {optional: true});
+        const ratio = inject(new HostAttributeToken('ratio'), {optional: true});
+        const release = inject(new HostAttributeToken('release'), {optional: true});
+        const threshold = inject(new HostAttributeToken('threshold'), {optional: true});
 
-    @Input('knee')
-    @audioParam('knee')
-    public kneeParam?: AudioParamInput;
-
-    @Input('ratio')
-    @audioParam('ratio')
-    public ratioParam?: AudioParamInput;
-
-    @Input('release')
-    @audioParam('release')
-    public releaseParam?: AudioParamInput;
-
-    @Input('threshold')
-    @audioParam('threshold')
-    public thresholdParam?: AudioParamInput;
-
-    constructor(
-        @Attribute('attack') attackArg: string | null,
-        @Attribute('knee') kneeArg: string | null,
-        @Attribute('ratio') ratioArg: string | null,
-        @Attribute('release') releaseArg: string | null,
-        @Attribute('threshold') thresholdArg: string | null,
-    ) {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const attack = parse(attackArg, 0.003);
-        const knee = parse(kneeArg, 30);
-        const ratio = parse(ratioArg, 12);
-        const release = parse(releaseArg, 0.25);
-        const threshold = parse(thresholdArg, -24);
-
-        if (modern) {
-            super(context, {attack, knee, ratio, release, threshold});
-            connect(node, this);
-        } else {
-            const result =
-                context.createDynamicsCompressor() as WebAudioDynamicsCompressor;
-
-            Object.setPrototypeOf(result, WebAudioDynamicsCompressor.prototype);
-            connect(node, result);
-            result.attack.value = attack;
-            result.knee.value = knee;
-            result.ratio.value = ratio;
-            result.release.value = release;
-            result.threshold.value = threshold;
-
-            return result;
-        }
+        super(inject(WA_AUDIO_CONTEXT), {
+            attack: parse(attack, 0.003),
+            knee: parse(knee, 30),
+            ratio: parse(ratio, 12),
+            release: parse(release, 0.25),
+            threshold: parse(threshold, -24),
+        });
     }
 
-    public ngOnDestroy(): void {
-        this.disconnect();
+    public set attackSetter(value: AudioParamInput) {
+        audioParam(this.attack, value, this.context.currentTime);
+    }
+
+    public set kneeSetter(value: AudioParamInput) {
+        audioParam(this.knee, value, this.context.currentTime);
+    }
+
+    public set ratioSetter(value: AudioParamInput) {
+        audioParam(this.ratio, value, this.context.currentTime);
+    }
+
+    public set releaseSetter(value: AudioParamInput) {
+        audioParam(this.release, value, this.context.currentTime);
+    }
+
+    public set thresholdSetter(value: AudioParamInput) {
+        audioParam(this.threshold, value, this.context.currentTime);
     }
 }

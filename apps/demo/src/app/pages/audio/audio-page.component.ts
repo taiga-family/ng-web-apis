@@ -1,7 +1,7 @@
 import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {FormsModule} from '@angular/forms';
-import {AUDIO_CONTEXT, WaWebAudio} from '@ng-web-apis/audio';
+import {WA_AUDIO_CONTEXT, WaWebAudio} from '@ng-web-apis/audio';
 import {WaCanvas} from '@ng-web-apis/canvas';
 import {TuiButton, TuiLabel, TuiTextfield} from '@taiga-ui/core';
 import {
@@ -33,7 +33,7 @@ import {
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class AudioPage {
-    private readonly context = inject<AudioContext>(AUDIO_CONTEXT);
+    private readonly context = inject<AudioContext>(WA_AUDIO_CONTEXT);
 
     @ViewChild('chain')
     protected readonly chain?: AudioNode;

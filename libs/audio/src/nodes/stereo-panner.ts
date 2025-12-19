@@ -1,65 +1,32 @@
-// eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {connect} from '../utils/connect';
-import {fallbackAudioParam} from '../utils/fallback-audio-param';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
-import {processAudioParam} from '../utils/process-audio-param';
 
 @Directive({
-    standalone: true,
     selector: '[waStereoPannerNode]',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioStereoPanner)],
+    inputs: [
+        'panSetter: pan',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
+    ],
+    providers: [asAudioNode(WaStereoPanner)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioStereoPanner extends StereoPannerNode implements OnDestroy {
-    constructor(@Attribute('pan') panArg: string | null) {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const pan = parse(panArg, 0);
+export class WaStereoPanner extends StereoPannerNode {
+    constructor() {
+        const pan = inject(new HostAttributeToken('pan'), {optional: true});
 
-        try {
-            new StereoPannerNode(context);
-        } catch {
-            const result = context.createPanner() as unknown as WebAudioStereoPanner;
-
-            Object.setPrototypeOf(result, WebAudioStereoPanner.prototype);
-            result.fallbackToPannerNode(fallbackAudioParam(pan));
-            connect(node, result);
-
-            return result;
-        }
-
-        super(context, {pan});
-        connect(node, this);
+        super(inject(WA_AUDIO_CONTEXT), {pan: parse(pan, 0)});
     }
 
-    @Input('pan')
-    public set panParam(pan: AudioParamInput) {
-        if ('setPosition' in this) {
-            /** fallback for browsers not supporting {@link StereoPannerNode} */
-            // @ts-ignore
-            this.fallbackToPannerNode(fallbackAudioParam(pan));
-        } else {
-            processAudioParam(this.pan, pan, this.context.currentTime);
-        }
-    }
-
-    public ngOnDestroy(): void {
-        this.disconnect();
-    }
-
-    private fallbackToPannerNode(pan: number): void {
-        const xDeg = pan * 100;
-        const zDeg = xDeg > 0 ? 270 - xDeg : xDeg + 90;
-        const x = Math.sin(xDeg * (Math.PI / 180));
-        const z = Math.sin(zDeg * (Math.PI / 180));
-
-        // @ts-ignore
-        this.setPosition(x, 0, z);
+    public set panSetter(value: AudioParamInput) {
+        audioParam(this.pan, value, this.context.currentTime);
     }
 }

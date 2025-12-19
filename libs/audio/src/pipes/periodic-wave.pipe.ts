@@ -1,13 +1,10 @@
 import {inject, Pipe, type PipeTransform} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 
-@Pipe({
-    standalone: true,
-    name: 'waPeriodicWave',
-})
-export class WebAudioPeriodicWavePipe implements PipeTransform {
-    private readonly context = inject(AUDIO_CONTEXT);
+@Pipe({name: 'waPeriodicWave'})
+export class WaPeriodicWavePipe implements PipeTransform {
+    private readonly context = inject(WA_AUDIO_CONTEXT);
 
     /**
      * Creates {@link PeriodicWave} to use with {@link OscillatorNode}
@@ -24,9 +21,7 @@ export class WebAudioPeriodicWavePipe implements PipeTransform {
         return this.context.createPeriodicWave(
             new Float32Array(real),
             imag ? new Float32Array(imag) : new Float32Array(real.length),
-            {
-                disableNormalization: !!disableNormalization,
-            },
+            {disableNormalization: !!disableNormalization},
         );
     }
 }

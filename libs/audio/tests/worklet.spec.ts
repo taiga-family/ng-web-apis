@@ -2,17 +2,16 @@ import {AsyncPipe} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
-    AUDIO_WORKLET_PROCESSORS,
-    AUDIO_WORKLET_PROCESSORS_READY,
+    WA_AUDIO_WORKLET_PROCESSORS,
+    WA_AUDIO_WORKLET_PROCESSORS_READY,
     WaWebAudio,
-    WebAudioWorklet,
+    WaWorklet,
 } from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('AudioWorkletNode', () => {
     @Component({
-        standalone: true,
         imports: [AsyncPipe, WaWebAudio],
         template: `
             @let ready = ready$ | async;
@@ -27,9 +26,9 @@ describe('AudioWorkletNode', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        protected readonly ready$ = inject(AUDIO_WORKLET_PROCESSORS_READY);
+        protected readonly ready$ = inject(WA_AUDIO_WORKLET_PROCESSORS_READY);
 
-        @ViewChild(WebAudioWorklet)
+        @ViewChild(WaWorklet)
         public node!: AudioNode;
     }
 
@@ -41,7 +40,7 @@ describe('AudioWorkletNode', () => {
             imports: [Test],
             providers: [
                 {
-                    provide: AUDIO_WORKLET_PROCESSORS,
+                    provide: WA_AUDIO_WORKLET_PROCESSORS,
                     useValue: ['base/test.js'],
                 },
             ],

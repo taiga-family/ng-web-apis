@@ -1,27 +1,19 @@
-import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    type OnDestroy,
-    Output,
-} from '@angular/core';
-import {of, Subject, switchMap} from 'rxjs';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AudioBufferService} from '../services/audio-buffer.service';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WaSource} from '../directives/source';
+import {WaAudioBufferService} from '../services/audio-buffer.service';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {type AudioParamInput} from '../types/audio-param-input';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waAudioBufferSourceNode]',
     inputs: [
+        'bufferSetter: buffer',
+        'detuneSetter: detune',
+        'playbackRateSetter: playbackRate',
         'loop',
         'loopStart',
         'loopEnd',
@@ -29,96 +21,40 @@ import {parse} from '../utils/parse';
         'channelCountMode',
         'channelInterpretation',
     ],
-    providers: [asAudioNode(WebAudioBufferSource)],
+    providers: [asAudioNode(WaBufferSource)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaSource],
 })
-export class WebAudioBufferSource extends AudioBufferSourceNode implements OnDestroy {
-    protected buffer$!: Subject<AudioBuffer | string | null>;
+export class WaBufferSource extends AudioBufferSourceNode {
+    private readonly service = inject(WaAudioBufferService);
 
-    @Input('detune')
-    @audioParam('detune')
-    public detuneParam?: AudioParamInput;
+    constructor() {
+        const detune = inject(new HostAttributeToken('detune'), {optional: true});
+        const playbackRate = inject(new HostAttributeToken('playbackRate'), {
+            optional: true,
+        });
 
-    @Input('playbackRate')
-    @audioParam('playbackRate')
-    public playbackRateParam?: AudioParamInput;
-
-    @Output()
-    public ended?: EventEmitter<void>;
-
-    constructor(
-        @Attribute('autoplay') autoplay: string | null,
-        @Attribute('detune') detuneArg: string | null,
-        @Attribute('playbackRate') playbackRateArg: string | null,
-    ) {
-        const audioBufferService = inject(AudioBufferService);
-        const context = inject(AUDIO_CONTEXT);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const detune = parse(detuneArg, 0);
-        const playbackRate = parse(playbackRateArg, 1);
-
-        if (modern) {
-            super(context, {detune, playbackRate});
-            WebAudioBufferSource.init(this, null, autoplay, audioBufferService);
-        } else {
-            const result = context.createBufferSource() as WebAudioBufferSource;
-
-            Object.setPrototypeOf(
-                WebAudioBufferSource.prototype,
-                Object.getPrototypeOf(result),
-            );
-            Object.setPrototypeOf(result, WebAudioBufferSource.prototype);
-
-            result.playbackRate.value = playbackRate;
-            WebAudioBufferSource.init(result, null, autoplay, audioBufferService);
-
-            return result;
-        }
+        super(inject(WA_AUDIO_CONTEXT), {
+            detune: parse(detune, 0),
+            playbackRate: parse(playbackRate, 1),
+        });
     }
 
-    protected static init(
-        that: WebAudioBufferSource,
-        _node: AudioNode | null,
-        autoplay: string | null,
-        audioBufferService: AudioBufferService,
-    ): void {
-        if (autoplay !== null) {
-            that.start();
-        }
-
-        const ended = new EventEmitter<void>();
-
-        that.ended = ended;
-        that.onended = () => ended.emit();
-        that.buffer$ = new Subject<AudioBuffer | string | null>();
-        that.buffer$
-            .pipe(
-                // eslint-disable-next-line @typescript-eslint/promise-function-async
-                switchMap((source) =>
-                    typeof source === 'string'
-                        ? audioBufferService.fetch(source)
-                        : of(source),
-                ),
-            )
-            .subscribe((buffer) => {
-                that.buffer = buffer;
-            });
+    public set detuneSetter(value: AudioParamInput) {
+        audioParam(this.detune, value, this.context.currentTime);
     }
 
-    @Input('buffer')
+    public set playbackRateSetter(value: AudioParamInput) {
+        audioParam(this.playbackRate, value, this.context.currentTime);
+    }
+
     public set bufferSetter(source: AudioBuffer | string | null) {
-        this.buffer$.next(source);
-    }
-
-    public ngOnDestroy(): void {
-        this.buffer$.complete();
-
-        try {
-            this.stop();
-        } catch {
-            // noop
+        if (typeof source === 'string') {
+            this.service.fetch(source).then((result) => {
+                this.buffer = result;
+            });
+        } else {
+            this.buffer = source;
         }
-
-        this.disconnect();
     }
 }

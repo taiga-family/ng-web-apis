@@ -1,76 +1,56 @@
-// eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {connect} from '../utils/connect';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waBiquadFilterNode]',
-    inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioBiquadFilter)],
+    inputs: [
+        'detuneSetter: detune',
+        'frequencySetter: frequency',
+        'gainSetter: gain',
+        'qSetter: Q',
+        'type',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
+    ],
+    providers: [asAudioNode(WaBiquadFilter)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioBiquadFilter extends BiquadFilterNode implements OnDestroy {
-    @Input('detune')
-    @audioParam('detune')
-    public detuneParam?: AudioParamInput;
+export class WaBiquadFilter extends BiquadFilterNode {
+    constructor() {
+        const detune = inject(new HostAttributeToken('detune'), {optional: true});
+        const frequency = inject(new HostAttributeToken('frequency'), {optional: true});
+        const gain = inject(new HostAttributeToken('gain'), {optional: true});
+        const Q = inject(new HostAttributeToken('Q'), {optional: true});
 
-    @Input('frequency')
-    @audioParam('frequency')
-    public frequencyParam?: AudioParamInput;
-
-    @Input('gain')
-    @audioParam('gain')
-    public gainParam?: AudioParamInput;
-
-    @Input('Q')
-    @audioParam('Q')
-    public qParam?: AudioParamInput;
-
-    constructor(
-        @Attribute('detune') detuneArg: string | null,
-        @Attribute('frequency') frequencyArg: string | null,
-        @Attribute('gain') gainArg: string | null,
-        @Attribute('Q') QArg: string | null,
-    ) {
-        const context = inject(AUDIO_CONTEXT);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const detune = parse(detuneArg, 0);
-        const frequency = parse(frequencyArg, 350);
-        const gain = parse(gainArg, 0);
-        const Q = parse(QArg, 1);
-
-        if (modern) {
-            super(context, {detune, frequency, gain, Q});
-            connect(node, this);
-        } else {
-            const result = context.createBiquadFilter() as WebAudioBiquadFilter;
-
-            Object.setPrototypeOf(result, WebAudioBiquadFilter.prototype);
-
-            result.detune.value = detune;
-            result.frequency.value = frequency;
-            result.gain.value = gain;
-            result.Q.value = Q;
-
-            connect(node, result);
-
-            return result;
-        }
+        super(inject(WA_AUDIO_CONTEXT), {
+            detune: parse(detune, 0),
+            frequency: parse(frequency, 350),
+            gain: parse(gain, 0),
+            Q: parse(Q, 1),
+        });
     }
 
-    protected static init(that: WebAudioBiquadFilter, node: AudioNode | null): void {
-        connect(node, that);
+    public set detuneSetter(value: AudioParamInput) {
+        audioParam(this.detune, value, this.context.currentTime);
     }
 
-    public ngOnDestroy(): void {
-        this.disconnect();
+    public set frequencySetter(value: AudioParamInput) {
+        audioParam(this.frequency, value, this.context.currentTime);
+    }
+
+    public set gainSetter(value: AudioParamInput) {
+        audioParam(this.gain, value, this.context.currentTime);
+    }
+
+    public set qSetter(value: AudioParamInput) {
+        audioParam(this.Q, value, this.context.currentTime);
     }
 }

@@ -1,12 +1,11 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {WaWebAudio, WebAudioConstantSource} from '@ng-web-apis/audio';
+import {WaConstantSource, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('ConstantSourceNode', () => {
     @Component({
-        standalone: true,
         imports: [WaWebAudio],
         template: `
             <div waConstantSourceNode></div>
@@ -14,7 +13,7 @@ describe('ConstantSourceNode', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild(WebAudioConstantSource)
+        @ViewChild(WaConstantSource)
         public node!: AudioNode;
     }
 

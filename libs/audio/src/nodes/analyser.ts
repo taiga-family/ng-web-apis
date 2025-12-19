@@ -1,15 +1,13 @@
-// eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, inject, type OnDestroy, Output} from '@angular/core';
-import {animationFrameScheduler, interval, map, type Observable, share} from 'rxjs';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
+import {outputFromObservable} from '@angular/core/rxjs-interop';
+import {animationFrameScheduler, interval, map} from 'rxjs';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {connect} from '../utils/connect';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waAnalyserNode]',
     inputs: [
         'fftSize',
@@ -20,117 +18,84 @@ import {parse} from '../utils/parse';
         'channelCountMode',
         'channelInterpretation',
     ],
-    providers: [asAudioNode(WebAudioAnalyser)],
+    providers: [asAudioNode(WaAnalyser)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioAnalyser extends AnalyserNode implements OnDestroy {
-    // '!' because it is actually set in constructor
-    @Output()
-    public frequencyByte$!: Observable<Uint8Array>;
+export class WaAnalyser extends AnalyserNode {
+    private fByte = new Uint8Array(this.frequencyBinCount);
+    private fFloat = new Float32Array(this.frequencyBinCount);
+    private tByte = new Uint8Array(this.fftSize);
+    private tFloat = new Float32Array(this.fftSize);
 
-    @Output()
-    public frequencyFloat$!: Observable<Float32Array>;
-
-    @Output()
-    public timeByte$!: Observable<Uint8Array>;
-
-    @Output()
-    public timeFloat$!: Observable<Float32Array>;
-
-    constructor(
-        @Attribute('fftSize') fftSizeArg: string | null,
-        @Attribute('maxDecibels') maxDecibelsArg: string | null,
-        @Attribute('minDecibels') minDecibelsArg: string | null,
-        @Attribute('smoothingTimeConstant') smoothingTimeConstantArg: string | null,
-    ) {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const fftSize = parse(fftSizeArg, 2048);
-        const maxDecibels = parse(maxDecibelsArg, -30);
-        const minDecibels = parse(minDecibelsArg, -100);
-        const smoothingTimeConstant = parse(smoothingTimeConstantArg, 0.8);
-
-        if (modern) {
-            super(context, {fftSize, maxDecibels, minDecibels, smoothingTimeConstant});
-            WebAudioAnalyser.init(this, node);
-        } else {
-            const result = context.createAnalyser() as WebAudioAnalyser;
-
-            Object.setPrototypeOf(result, WebAudioAnalyser.prototype);
-            WebAudioAnalyser.init(result, node);
-
-            result.fftSize = fftSize;
-            result.maxDecibels = maxDecibels;
-            result.minDecibels = minDecibels;
-            result.smoothingTimeConstant = smoothingTimeConstant;
-
-            return result;
-        }
-    }
-
-    protected static init(that: WebAudioAnalyser, node: AudioNode | null): void {
-        connect(node, that);
-
-        let freqByte = new Uint8Array(that.frequencyBinCount);
-        let freqFloat = new Float32Array(that.frequencyBinCount);
-        let timeByte = new Uint8Array(that.fftSize);
-        let timeFloat = new Float32Array(that.fftSize);
-
-        that.frequencyByte$ = interval(0, animationFrameScheduler).pipe(
+    public readonly frequencyByte = outputFromObservable(
+        interval(0, animationFrameScheduler).pipe(
             map(() => {
-                if (freqByte.length !== that.frequencyBinCount) {
-                    freqByte = new Uint8Array(that.frequencyBinCount);
+                if (this.fByte.length !== this.frequencyBinCount) {
+                    this.fByte = new Uint8Array(this.frequencyBinCount);
                 }
 
-                that.getByteFrequencyData(freqByte);
+                this.getByteFrequencyData(this.fByte);
 
-                return freqByte;
+                return this.fByte;
             }),
-            share(),
-        );
+        ),
+    );
 
-        that.frequencyFloat$ = interval(0, animationFrameScheduler).pipe(
+    public readonly frequencyFloat = outputFromObservable(
+        interval(0, animationFrameScheduler).pipe(
             map(() => {
-                if (freqFloat.length !== that.frequencyBinCount) {
-                    freqFloat = new Float32Array(that.frequencyBinCount);
+                if (this.fFloat.length !== this.frequencyBinCount) {
+                    this.fFloat = new Float32Array(this.frequencyBinCount);
                 }
 
-                that.getFloatFrequencyData(freqFloat);
+                this.getFloatFrequencyData(this.fFloat);
 
-                return freqFloat;
+                return this.fFloat;
             }),
-            share(),
-        );
+        ),
+    );
 
-        that.timeByte$ = interval(0, animationFrameScheduler).pipe(
+    public readonly timeByte = outputFromObservable(
+        interval(0, animationFrameScheduler).pipe(
             map(() => {
-                if (timeByte.length !== that.fftSize) {
-                    timeByte = new Uint8Array(that.frequencyBinCount);
+                if (this.tByte.length !== this.fftSize) {
+                    this.tByte = new Uint8Array(this.frequencyBinCount);
                 }
 
-                that.getByteTimeDomainData(timeByte);
+                this.getByteTimeDomainData(this.tByte);
 
-                return timeByte;
+                return this.tByte;
             }),
-            share(),
-        );
+        ),
+    );
 
-        that.timeFloat$ = interval(0, animationFrameScheduler).pipe(
+    public readonly timeFloat = outputFromObservable(
+        interval(0, animationFrameScheduler).pipe(
             map(() => {
-                if (timeFloat.length !== that.fftSize) {
-                    timeFloat = new Float32Array(that.frequencyBinCount);
+                if (this.tFloat.length !== this.fftSize) {
+                    this.tFloat = new Float32Array(this.frequencyBinCount);
                 }
 
-                that.getFloatTimeDomainData(timeFloat);
+                this.getFloatTimeDomainData(this.tFloat);
 
-                return timeFloat;
+                return this.tFloat;
             }),
-            share(),
-        );
-    }
+        ),
+    );
 
-    public ngOnDestroy(): void {
-        this.disconnect();
+    constructor() {
+        const O = {optional: true} as const;
+        const fftSize = inject(new HostAttributeToken('fftSize'), O);
+        const minDecibels = inject(new HostAttributeToken('minDecibels'), O);
+        const maxDecibels = inject(new HostAttributeToken('maxDecibels'), O);
+        const time = inject(new HostAttributeToken('smoothingTimeConstant'), O);
+
+        super(inject(WA_AUDIO_CONTEXT), {
+            fftSize: parse(fftSize, 2048),
+            maxDecibels: parse(maxDecibels, -30),
+            minDecibels: parse(minDecibels, -100),
+            smoothingTimeConstant: parse(time, 0.8),
+        });
     }
 }

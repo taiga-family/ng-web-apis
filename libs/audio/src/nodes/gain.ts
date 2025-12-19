@@ -1,47 +1,32 @@
-// eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, inject, Input, type OnDestroy} from '@angular/core';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {connect} from '../utils/connect';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waGainNode]',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioGain)],
+    inputs: [
+        'gainSetter: gain',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
+    ],
+    providers: [asAudioNode(WaGain)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioGain extends GainNode implements OnDestroy {
-    @Input('gain')
-    @audioParam('gain')
-    public gainParam?: AudioParamInput | string;
+export class WaGain extends GainNode {
+    constructor() {
+        const gain = inject(new HostAttributeToken('gain'), {optional: true});
 
-    constructor(@Attribute('gain') gainArg: AudioParamInput | string | null) {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const gain = parse(gainArg, 1);
-
-        if (modern) {
-            super(context, {gain});
-            connect(node, this);
-        } else {
-            const result = context.createGain() as WebAudioGain;
-
-            Object.setPrototypeOf(result, WebAudioGain.prototype);
-            connect(node, result);
-            result.gain.value = gain;
-
-            return result;
-        }
+        super(inject(WA_AUDIO_CONTEXT), {gain: parse(gain, 1)});
     }
 
-    public ngOnDestroy(): void {
-        this.disconnect();
+    public set gainSetter(value: AudioParamInput) {
+        audioParam(this.gain, value, this.context.currentTime);
     }
 }

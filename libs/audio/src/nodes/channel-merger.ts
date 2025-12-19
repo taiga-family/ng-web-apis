@@ -1,50 +1,42 @@
 import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    ContentChildren,
+    contentChildren,
     Directive,
+    effect,
+    HostAttributeToken,
     inject,
+    input,
     type OnDestroy,
-    type QueryList,
 } from '@angular/core';
 
-import {WebAudioChannel} from '../directives/channel';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WaChannel} from '../directives/channel';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 
 @Directive({
-    standalone: true,
     selector: '[waChannelMergerNode]',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioChannelMerger)],
+    providers: [asAudioNode(WaChannelMerger)],
     exportAs: 'AudioNode',
 })
-export class WebAudioChannelMerger extends ChannelMergerNode implements OnDestroy {
-    constructor(@Attribute('numberOfInputs') inputs: string | null) {
-        const context = inject(AUDIO_CONTEXT);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const numberOfInputs = parseInt(inputs ?? '', 10) || 6;
+export class WaChannelMerger extends ChannelMergerNode implements OnDestroy {
+    private readonly channels = contentChildren(WaChannel, {descendants: false});
 
-        if (modern) {
-            super(context, {numberOfInputs});
-        } else {
-            const result = context.createChannelMerger(numberOfInputs);
+    public readonly inputs = input('', {alias: 'numberOfInputs'});
 
-            Object.setPrototypeOf(result, WebAudioChannelMerger.prototype);
+    constructor() {
+        const attr = inject(new HostAttributeToken('numberOfInputs'), {optional: true});
+        const numberOfInputs = parseInt(attr || '', 10) || 6;
 
-            return result as WebAudioChannelMerger;
-        }
+        super(inject(WA_AUDIO_CONTEXT), {numberOfInputs});
+
+        effect(() => {
+            this.channels().forEach((node, index) => {
+                node.connect(this, 0, index);
+            });
+        });
     }
 
     public ngOnDestroy(): void {
         this.disconnect();
-    }
-
-    @ContentChildren(WebAudioChannel, {descendants: false})
-    protected set channels(channels: QueryList<AudioNode>) {
-        channels.forEach((node, index) => {
-            node.connect(this, 0, index);
-        });
     }
 }

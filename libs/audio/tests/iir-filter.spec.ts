@@ -1,19 +1,17 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {
-    FEEDBACK_COEFFICIENTS,
-    FEEDFORWARD_COEFFICIENTS,
+    WA_FEEDBACK_COEFFICIENTS,
+    WA_FEEDFORWARD_COEFFICIENTS,
+    WaIIRFilter,
     WaWebAudio,
-    WebAudioIIRFilter,
 } from '@ng-web-apis/audio';
-import {CONSTRUCTOR_SUPPORT} from '@ng-web-apis/audio/tokens/constructor-support';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('IIR filter', () => {
     describe('IIRFilterNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waIIRFilterNode></div>
@@ -21,7 +19,7 @@ describe('IIR filter', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioIIRFilter)
+            @ViewChild(WaIIRFilter)
             public node!: AudioNode;
         }
 
@@ -33,11 +31,11 @@ describe('IIR filter', () => {
                 imports: [Test],
                 providers: [
                     {
-                        provide: FEEDFORWARD_COEFFICIENTS,
+                        provide: WA_FEEDFORWARD_COEFFICIENTS,
                         useValue: [1],
                     },
                     {
-                        provide: FEEDBACK_COEFFICIENTS,
+                        provide: WA_FEEDBACK_COEFFICIENTS,
                         useValue: [1],
                     },
                 ],
@@ -55,7 +53,6 @@ describe('IIR filter', () => {
 
     describe('IIRFilterNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waIIRFilterNode></div>
@@ -63,7 +60,7 @@ describe('IIR filter', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioIIRFilter)
+            @ViewChild(WaIIRFilter)
             public node!: AudioNode;
         }
 
@@ -75,16 +72,12 @@ describe('IIR filter', () => {
                 imports: [Test],
                 providers: [
                     {
-                        provide: FEEDFORWARD_COEFFICIENTS,
+                        provide: WA_FEEDFORWARD_COEFFICIENTS,
                         useValue: [1],
                     },
                     {
-                        provide: FEEDBACK_COEFFICIENTS,
+                        provide: WA_FEEDBACK_COEFFICIENTS,
                         useValue: [1],
-                    },
-                    {
-                        provide: CONSTRUCTOR_SUPPORT,
-                        useValue: false,
                     },
                 ],
             });

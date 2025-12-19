@@ -1,17 +1,20 @@
-import {Directive, inject, Input, type OnChanges, type OnDestroy} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {connect} from '../utils/connect';
-import {fallbackAudioParam} from '../utils/fallback-audio-param';
+import {audioParam} from '../utils/audio-param';
 
 @Directive({
-    standalone: true,
     selector: '[waPannerNode]',
     inputs: [
+        'orientationXSetter: orientationX',
+        'orientationYSetter: orientationY',
+        'orientationZSetter: orientationZ',
+        'positionXSetter: positionX',
+        'positionYSetter: positionY',
+        'positionZSetter: positionZ',
         'coneInnerAngle',
         'coneOuterAngle',
         'coneOuterGain',
@@ -24,71 +27,36 @@ import {fallbackAudioParam} from '../utils/fallback-audio-param';
         'channelCountMode',
         'channelInterpretation',
     ],
-    providers: [asAudioNode(WebAudioPanner)],
+    providers: [asAudioNode(WaPanner)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioPanner extends PannerNode implements OnDestroy, OnChanges {
-    @Input()
-    @audioParam('orientationX')
-    public orientationXParam?: AudioParamInput;
-
-    @Input()
-    @audioParam('orientationY')
-    public orientationYParam?: AudioParamInput;
-
-    @Input()
-    @audioParam('orientationZ')
-    public orientationZParam?: AudioParamInput;
-
-    @Input()
-    @audioParam('positionX')
-    public positionXParam?: AudioParamInput;
-
-    @Input()
-    @audioParam('positionY')
-    public positionYParam?: AudioParamInput;
-
-    @Input()
-    @audioParam('positionZ')
-    public positionZParam?: AudioParamInput;
-
+export class WaPanner extends PannerNode {
     constructor() {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-
-        if (modern) {
-            super(context);
-            connect(node, this);
-        } else {
-            const result = context.createPanner() as WebAudioPanner;
-
-            Object.setPrototypeOf(result, WebAudioPanner.prototype);
-            connect(node, result);
-
-            return result;
-        }
+        super(inject(WA_AUDIO_CONTEXT));
     }
 
-    public ngOnChanges(): void {
-        if (this.positionX instanceof AudioParam) {
-            return;
-        }
-
-        // Fallback for older browsers
-        this.setOrientation(
-            fallbackAudioParam(this.orientationXParam),
-            fallbackAudioParam(this.orientationYParam),
-            fallbackAudioParam(this.orientationZParam),
-        );
-        this.setPosition(
-            fallbackAudioParam(this.positionXParam),
-            fallbackAudioParam(this.positionYParam),
-            fallbackAudioParam(this.positionZParam),
-        );
+    public set orientationXSetter(value: AudioParamInput) {
+        audioParam(this.orientationX, value, this.context.currentTime);
     }
 
-    public ngOnDestroy(): void {
-        this.disconnect();
+    public set orientationYSetter(value: AudioParamInput) {
+        audioParam(this.orientationY, value, this.context.currentTime);
+    }
+
+    public set orientationZSetter(value: AudioParamInput) {
+        audioParam(this.orientationZ, value, this.context.currentTime);
+    }
+
+    public set positionXSetter(value: AudioParamInput) {
+        audioParam(this.positionX, value, this.context.currentTime);
+    }
+
+    public set positionYSetter(value: AudioParamInput) {
+        audioParam(this.positionY, value, this.context.currentTime);
+    }
+
+    public set positionZSetter(value: AudioParamInput) {
+        audioParam(this.positionZ, value, this.context.currentTime);
     }
 }

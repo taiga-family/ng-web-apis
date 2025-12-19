@@ -1,12 +1,11 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {WaWebAudio, WebAudioOfflineContext} from '@ng-web-apis/audio';
+import {WaOfflineContext, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('OfflineAudioContext', () => {
     @Component({
-        standalone: true,
         imports: [WaWebAudio],
         template: `
             <div
@@ -18,7 +17,7 @@ describe('OfflineAudioContext', () => {
         changeDetection: ChangeDetectionStrategy.OnPush,
     })
     class Test {
-        @ViewChild(WebAudioOfflineContext)
+        @ViewChild(WaOfflineContext)
         public audioContext!: OfflineAudioContext;
     }
 

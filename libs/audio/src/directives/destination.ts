@@ -1,61 +1,41 @@
-import {Directive, inject, type OnDestroy, Output} from '@angular/core';
+import {Directive, inject, type OnDestroy} from '@angular/core';
+import {outputFromObservable} from '@angular/core/rxjs-interop';
 import {
     debounceTime,
     distinctUntilChanged,
     filter,
     interval,
     map,
-    type Observable,
     skipWhile,
     tap,
 } from 'rxjs';
 
-import {POLLING_TIME} from '../constants/polling-time';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WA_AUDIO_NODE} from '../tokens/audio-node';
 import {connect} from '../utils/connect';
 
 @Directive({
-    standalone: true,
     selector: '[waAudioDestinationNode]',
     exportAs: 'AudioNode',
 })
-export class WebAudioDestination extends AnalyserNode implements OnDestroy {
-    @Output()
-    public quiet!: Observable<unknown>;
-
-    constructor() {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-
-        if (modern) {
-            super(context);
-            WebAudioDestination.init(this, node);
-        } else {
-            const result = context.createAnalyser() as WebAudioDestination;
-
-            Object.setPrototypeOf(result, WebAudioDestination.prototype);
-            WebAudioDestination.init(result, node);
-
-            return result;
-        }
-    }
-
-    protected static init(that: WebAudioDestination, node: AudioNode | null): void {
-        connect(node, that);
-        that.fftSize = 256;
-        that.connect(that.context.destination);
-        that.quiet = interval(POLLING_TIME).pipe(
-            map(() => new Float32Array(that.fftSize)),
-            tap((array) => that.getFloatTimeDomainData(array)),
-            map((array) => that.isSilent(array)),
+export class WaDestination extends AnalyserNode implements OnDestroy {
+    public readonly quiet = outputFromObservable<unknown>(
+        interval(100).pipe(
+            map(() => new Float32Array(this.fftSize)),
+            tap((array) => this.getFloatTimeDomainData(array)),
+            map((array) => this.isSilent(array)),
             distinctUntilChanged(),
             skipWhile((isSilent) => isSilent),
             debounceTime(5000),
             filter((isSilent) => isSilent),
-        );
+        ),
+    );
+
+    constructor() {
+        super(inject(WA_AUDIO_CONTEXT), {fftSize: 256});
+
+        connect(inject(WA_AUDIO_NODE), this);
+        this.connect(this.context.destination);
     }
 
     public ngOnDestroy(): void {

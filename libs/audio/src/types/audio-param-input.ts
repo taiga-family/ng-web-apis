@@ -5,4 +5,5 @@ export type AudioParamInput =
     | Array<AudioParamAutomation | AudioParamCurve>
     | AudioParamAutomation
     | AudioParamCurve
-    | number;
+    | number
+    | string;
