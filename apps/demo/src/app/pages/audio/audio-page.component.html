@@ -72,7 +72,7 @@
                             <ng-container
                                 waAnalyserNode
                                 [fftSize]="fftSize"
-                                (timeByte$)="onTimeDomain($event)"
+                                (timeByte)="onTimeDomain($event)"
                             >
                                 <ng-container [waOutput]="chain || fallback" />
                             </ng-container>
@@ -89,7 +89,7 @@
                         <ng-container
                             waAnalyserNode
                             [fftSize]="fftSize"
-                            (timeByte$)="onTimeDomain($event)"
+                            (timeByte)="onTimeDomain($event)"
                         >
                             <ng-container [waOutput]="chain || fallback" />
                         </ng-container>
@@ -111,7 +111,7 @@
                             <ng-container
                                 waAnalyserNode
                                 [fftSize]="fftSize"
-                                (timeByte$)="onTimeDomain($event)"
+                                (timeByte)="onTimeDomain($event)"
                             >
                                 <ng-container [waOutput]="chain || fallback" />
                             </ng-container>

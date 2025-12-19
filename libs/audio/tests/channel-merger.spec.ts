@@ -1,13 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {providers, WaWebAudio, WebAudioChannelMerger} from '@ng-web-apis/audio';
+import {WaChannelMerger, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('ChannelMerger', () => {
     describe('ChannelMergerNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waChannelMergerNode></div>
@@ -15,7 +14,7 @@ describe('ChannelMerger', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioChannelMerger)
+            @ViewChild(WaChannelMerger)
             public node!: AudioNode;
         }
 
@@ -39,7 +38,6 @@ describe('ChannelMerger', () => {
 
     describe('ChannelMergerNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waChannelMergerNode></div>
@@ -47,7 +45,7 @@ describe('ChannelMerger', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioChannelMerger)
+            @ViewChild(WaChannelMerger)
             public node!: AudioNode;
         }
 
@@ -57,7 +55,6 @@ describe('ChannelMerger', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

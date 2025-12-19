@@ -1,13 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {providers, WaWebAudio, WebAudioOscillator} from '@ng-web-apis/audio';
+import {WaOscillator, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Oscillator', () => {
     describe('OscillatorNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waOscillatorNode></div>
@@ -15,7 +14,7 @@ describe('Oscillator', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioOscillator)
+            @ViewChild(WaOscillator)
             public node!: AudioNode;
         }
 
@@ -39,7 +38,6 @@ describe('Oscillator', () => {
 
     describe('OscillatorNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waOscillatorNode></div>
@@ -47,7 +45,7 @@ describe('Oscillator', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioOscillator)
+            @ViewChild(WaOscillator)
             public node!: AudioNode;
         }
 
@@ -57,7 +55,6 @@ describe('Oscillator', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

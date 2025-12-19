@@ -1,6 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {MEDIA_STREAM, WaWebAudio, WebAudioMediaStreamSource} from '@ng-web-apis/audio';
+import {WA_MEDIA_STREAM, WaMediaStreamSource, WaWebAudio} from '@ng-web-apis/audio';
 import {CONSTRUCTOR_SUPPORT} from '@ng-web-apis/audio/tokens/constructor-support';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -12,7 +12,6 @@ describe('MediaStream', () => {
 
     describe('MediaStreamAudioSourceNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
@@ -20,7 +19,7 @@ describe('MediaStream', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioMediaStreamSource)
+            @ViewChild(WaMediaStreamSource)
             public node!: AudioNode;
         }
 
@@ -32,7 +31,7 @@ describe('MediaStream', () => {
                 imports: [Test],
                 providers: [
                     {
-                        provide: MEDIA_STREAM,
+                        provide: WA_MEDIA_STREAM,
                         useValue: STREAM,
                     },
                 ],
@@ -50,7 +49,6 @@ describe('MediaStream', () => {
 
     describe('MediaStreamAudioSourceNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <audio waMediaStreamAudioSourceNode></audio>
@@ -58,7 +56,7 @@ describe('MediaStream', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioMediaStreamSource)
+            @ViewChild(WaMediaStreamSource)
             public node!: AudioNode;
         }
 
@@ -70,7 +68,7 @@ describe('MediaStream', () => {
                 imports: [Test],
                 providers: [
                     {
-                        provide: MEDIA_STREAM,
+                        provide: WA_MEDIA_STREAM,
                         useValue: STREAM,
                     },
                     {

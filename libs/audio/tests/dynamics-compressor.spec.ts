@@ -1,13 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {providers, WaWebAudio, WebAudioDynamicsCompressor} from '@ng-web-apis/audio';
+import {WaDynamicsCompressor, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Dynamics compressor', () => {
     describe('DynamicsCompressorNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waDynamicsCompressorNode></div>
@@ -15,7 +14,7 @@ describe('Dynamics compressor', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDynamicsCompressor)
+            @ViewChild(WaDynamicsCompressor)
             public node!: AudioNode;
         }
 
@@ -39,7 +38,6 @@ describe('Dynamics compressor', () => {
 
     describe('DynamicsCompressorNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waDynamicsCompressorNode></div>
@@ -47,7 +45,7 @@ describe('Dynamics compressor', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDynamicsCompressor)
+            @ViewChild(WaDynamicsCompressor)
             public node!: AudioNode;
         }
 
@@ -57,7 +55,6 @@ describe('Dynamics compressor', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

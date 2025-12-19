@@ -38,9 +38,9 @@ You can build audio graph with directives. For example, here's a typical echo fe
 </audio>
 ```
 
-## 💡 AudioBufferService
+## 💡 WaAudioBufferService
 
-This library has `AudioBufferService` with `fetch` method, returning
+This library has `WaAudioBufferService` with `fetch` method, returning
 [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) which allows you to
 easily turn your hosted audio file into [AudioBuffer](https://developer.mozilla.org/en-US/docs/Web/API/AudioBuffer)
 through GET requests. Result is stored in service's cache so same file is not requested again while application is
@@ -152,7 +152,7 @@ browsers. To register your
   declarations: [AppComponent],
   providers: [
     {
-      provide: AUDIO_WORKLET_PROCESSORS,
+      provide: WA_AUDIO_WORKLET_PROCESSORS,
       useValue: 'assets/my-processor.js',
       multi: true,
     },
@@ -167,7 +167,7 @@ export class AppModule {}
   templateUrl: './app.component.html',
 })
 export class App {
-  constructor(@Inject(AUDIO_WORKLET_PROCESSORS_READY) readonly processorsReady: Promise<boolean>) {}
+  constructor(@Inject(WA_AUDIO_WORKLET_PROCESSORS_READY) readonly processorsReady: Promise<boolean>) {}
 
   // ...
 }
@@ -187,24 +187,18 @@ You can then instantiate your [AudioWorkletNode](https://developer.mozilla.org/e
 
 If you need to create your own node with custom
 [AudioParam](https://developer.mozilla.org/en-US/docs/Web/API/AudioParam) and control it declaratively you can extend
-`WebAudioWorklet` class and add `audioParam` decorator to new component's inputs:
+`WaWorklet` class and add `audioParam` decorator to new component's inputs:
 
 ```ts
 @Directive({
   selector: '[my-worklet-node]',
+  inputs: ['paramSetter: param'],
   exportAs: 'AudioNode',
   providers: [asAudioNode(MyWorklet)],
 })
-export class MyWorklet extends WebAudioWorklet {
-  @Input()
-  @audioParam()
-  customParam?: AudioParamInput;
-
-  constructor(
-    @Inject(AUDIO_CONTEXT) context: BaseAudioContext,
-    @SkipSelf() @Inject(AUDIO_NODE) node: AudioNode | null,
-  ) {
-    super(context, node, 'my-processor');
+export class MyWorklet extends WaWorklet {
+  set paramSetter(value: AudioParamInput) {
+    audioParam(this.param, value, this.context.currentTime);
   }
 }
 ```
@@ -337,25 +331,23 @@ const envelope = [
 ## 💡 Tokens
 
 - You can check [Web Audio API](https://developer.mozilla.org/en-US/docs/Web/API/Web_Audio_API) support in current
-  browser by injecting `WEB_AUDIO_SUPPORT` token
-- You can check [AudioWorklet](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet) support in current browser
-  by injecting `AUDIO_WORKLET_SUPPORT` token
+  browser by injecting `WA_WEB_AUDIO_SUPPORT` token
 - You can inject [BaseAudioContext](https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext) through
-  `AUDIO_CONTEXT` token
+  `WA_AUDIO_CONTEXT` token
 - [AudioContext](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext) is created by default with default
   options when token is requested
 - You can also provide custom [BaseAudioContext](https://developer.mozilla.org/en-US/docs/Web/API/BaseAudioContext)
   through that token
-- Provide `FEEDBACK_COEFFICIENTS` and `FEEDFORWARD_COEFFICIENTS` tokens to be able to create
+- Provide `WA_FEEDBACK_COEFFICIENTS` and `WA_FEEDFORWARD_COEFFICIENTS` tokens to be able to create
   [IIRFilterNode](https://developer.mozilla.org/en-US/docs/Web/API/IIRFilterNode)
-- Provide `MEDIA_STREAM` token to be able to create
+- Provide `WA_MEDIA_STREAM` token to be able to create
   [MediaStreamAudioSourceNode](https://developer.mozilla.org/en-US/docs/Web/API/MediaStreamAudioSourceNode)
 - All node directives provide underlying [AudioNode](https://developer.mozilla.org/en-US/docs/Web/API/AudioNode) as
-  `AUDIO_NODE` token
-- Use `AUDIO_WORKLET_PROCESSORS` token to declare array of
+  `WA_AUDIO_NODE` token
+- Use `WA_AUDIO_WORKLET_PROCESSORS` token to declare array of
   [AudioWorkletProcessors](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletProcessor) to be added to
   default [AudioContext](https://developer.mozilla.org/en-US/docs/Web/API/AudioContext)
-- Inject `AUDIO_WORKLET_PROCESSORS_READY` token to initialize provided
+- Inject `WA_AUDIO_WORKLET_PROCESSORS_READY` token to initialize provided
   [AudioWorkletProcessors](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletProcessor) loading and watch for
   [Promise](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Global_Objects/Promise) resolution before
   instantiating dependent [AudioWorkletNodes](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorkletNode)
@@ -364,7 +356,7 @@ const envelope = [
 
 | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/edge/edge_48x48.png" alt="IE / Edge" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/firefox/firefox_48x48.png" alt="Firefox" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/chrome/chrome_48x48.png" alt="Chrome" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) | [<img src="https://raw.githubusercontent.com/alrra/browser-logos/master/src/safari/safari_48x48.png" alt="Safari" width="24px" height="24px" />](http://godban.github.io/browsers-support-badges/) |
 | :-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :---------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: | :------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------: |
-|                                                                                                12+                                                                                                |                                                                                                  31+                                                                                                  |                                                                                                34+                                                                                                 |                                                                                                 9+                                                                                                 |
+|                                                                                                79+                                                                                                |                                                                                                  76+                                                                                                  |                                                                                                66+                                                                                                 |                                                                                                14+                                                                                                 |
 
 > Note that some features ([AudioWorklet](https://developer.mozilla.org/en-US/docs/Web/API/AudioWorklet) etc.) were
 > added later and are supported only by more recent versions

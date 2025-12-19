@@ -1,100 +1,47 @@
-import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    type OnDestroy,
-    Output,
-} from '@angular/core';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WaSource} from '../directives/source';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {connect} from '../utils/connect';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waOscillatorNode]',
-    inputs: ['type', 'channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioOscillator)],
+    inputs: [
+        'detuneSetter: detune',
+        'frequencySetter: frequency',
+        'type',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
+        'periodicWave',
+    ],
+    providers: [asAudioNode(WaOscillator)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaSource],
 })
-export class WebAudioOscillator extends OscillatorNode implements OnDestroy {
-    @Input('detune')
-    @audioParam('detune')
-    public detuneParam?: AudioParamInput | string;
+export class WaOscillator extends OscillatorNode {
+    constructor() {
+        const detune = inject(new HostAttributeToken('detune'), {optional: true});
+        const frequency = inject(new HostAttributeToken('frequency'), {optional: true});
 
-    @Input('frequency')
-    @audioParam('frequency')
-    public frequencyParam?: AudioParamInput | string;
-
-    @Output()
-    public ended?: EventEmitter<void>;
-
-    constructor(
-        @Attribute('autoplay') autoplay: string | null,
-        @Attribute('detune') detuneArg: string | null,
-        @Attribute('frequency') frequencyArg: string | null,
-    ) {
-        const context = inject(AUDIO_CONTEXT);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const detune = parse(detuneArg, 0);
-        const frequency = parse(frequencyArg, 440);
-
-        if (modern) {
-            super(context, {detune, frequency});
-            WebAudioOscillator.init(this, null, autoplay);
-        } else {
-            const result = context.createOscillator() as WebAudioOscillator;
-
-            Object.setPrototypeOf(
-                WebAudioOscillator.prototype,
-                Object.getPrototypeOf(result),
-            );
-            Object.setPrototypeOf(result, WebAudioOscillator.prototype);
-
-            result.detune.value = detune;
-            result.frequency.value = frequency;
-            WebAudioOscillator.init(result, null, autoplay);
-
-            return result;
-        }
+        super(inject(WA_AUDIO_CONTEXT), {
+            detune: parse(detune, 0),
+            frequency: parse(frequency, 440),
+        });
     }
 
-    protected static init(
-        that: WebAudioOscillator,
-        node: AudioNode | null,
-        autoplay: string | null,
-    ): void {
-        connect(node, that);
-
-        if (autoplay !== null) {
-            that.start();
-        }
-
-        const ended = new EventEmitter<void>();
-
-        that.ended = ended;
-        that.onended = () => ended.emit();
-    }
-
-    @Input()
     public set periodicWave(periodicWave: PeriodicWave) {
         this.setPeriodicWave(periodicWave);
     }
 
-    public ngOnDestroy(): void {
-        try {
-            this.stop();
-        } catch {
-            // noop
-        }
+    public set detuneSetter(value: AudioParamInput) {
+        audioParam(this.detune, value, this.context.currentTime);
+    }
 
-        this.disconnect();
+    public set frequencySetter(value: AudioParamInput) {
+        audioParam(this.frequency, value, this.context.currentTime);
     }
 }

@@ -1,14 +1,14 @@
 import {TestBed} from '@angular/core/testing';
-import {AudioBufferService} from '@ng-web-apis/audio';
+import {WaAudioBufferService} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('AudioBufferService', () => {
-    let service: AudioBufferService;
+describe('WaAudioBufferService', () => {
+    let service: WaAudioBufferService;
 
     beforeEach(() => {
         TestBed.configureTestingModule({});
-        service = TestBed.inject(AudioBufferService);
+        service = TestBed.inject(WaAudioBufferService);
     });
 
     it('turns audio file to AudioBuffer', (done) => {

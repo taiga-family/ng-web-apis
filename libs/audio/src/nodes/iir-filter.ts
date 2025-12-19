@@ -1,44 +1,23 @@
-import {Directive, inject, type OnDestroy} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {FEEDBACK_COEFFICIENTS} from '../tokens/feedback-coefficients';
-import {FEEDFORWARD_COEFFICIENTS} from '../tokens/feedforward-coefficients';
-import {connect} from '../utils/connect';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
+import {WA_FEEDBACK_COEFFICIENTS} from '../tokens/feedback-coefficients';
+import {WA_FEEDFORWARD_COEFFICIENTS} from '../tokens/feedforward-coefficients';
 
 @Directive({
-    standalone: true,
     selector: '[waIIRFilterNode]',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioIIRFilter)],
+    providers: [asAudioNode(WaIIRFilter)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioIIRFilter extends IIRFilterNode implements OnDestroy {
+export class WaIIRFilter extends IIRFilterNode {
     constructor() {
-        const feedback = inject(FEEDBACK_COEFFICIENTS);
-        const feedforward = inject(FEEDFORWARD_COEFFICIENTS);
-        const context = inject(AUDIO_CONTEXT);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
+        const feedback = inject(WA_FEEDBACK_COEFFICIENTS);
+        const feedforward = inject(WA_FEEDFORWARD_COEFFICIENTS);
 
-        if (modern) {
-            super(context, {feedback, feedforward});
-            connect(node, this);
-        } else {
-            const result = context.createIIRFilter(
-                feedforward,
-                feedback,
-            ) as WebAudioIIRFilter;
-
-            Object.setPrototypeOf(result, WebAudioIIRFilter.prototype);
-            connect(node, result);
-
-            return result;
-        }
-    }
-
-    public ngOnDestroy(): void {
-        this.disconnect();
+        super(inject(WA_AUDIO_CONTEXT), {feedback, feedforward});
     }
 }

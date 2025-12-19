@@ -1,11 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {
-    providers,
-    WaWebAudio,
-    WebAudioBufferSource,
-    WebAudioDestination,
-} from '@ng-web-apis/audio';
+import {WaBufferSource, WaDestination, WaWebAudio} from '@ng-web-apis/audio';
 import {Observable} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
@@ -13,7 +8,6 @@ window.onbeforeunload = jasmine.createSpy();
 describe('Destination', () => {
     describe('AudioDestinationNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div
@@ -30,11 +24,11 @@ describe('Destination', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDestination)
-            public node!: WebAudioDestination;
+            @ViewChild(WaDestination)
+            public node!: WaDestination;
 
-            @ViewChild(WebAudioBufferSource)
-            public source!: WebAudioBufferSource;
+            @ViewChild(WaBufferSource)
+            public source!: WaBufferSource;
 
             public quiet = false;
         }
@@ -88,7 +82,6 @@ describe('Destination', () => {
 
     describe('AudioDestinationNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waAudioDestinationNode></div>
@@ -96,8 +89,8 @@ describe('Destination', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioDestination)
-            public node!: WebAudioDestination;
+            @ViewChild(WaDestination)
+            public node!: WaDestination;
         }
 
         let fixture: ComponentFixture<Test>;
@@ -106,7 +99,6 @@ describe('Destination', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

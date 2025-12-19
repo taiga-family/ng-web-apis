@@ -1,31 +1,17 @@
 import {Directive, inject} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WA_AUDIO_NODE} from '../tokens/audio-node';
 import {connect} from '../utils/connect';
 
 @Directive({
-    standalone: true,
     selector: '[waMediaStreamAudioDestinationNode]',
     exportAs: 'AudioNode',
 })
-export class WebAudioMediaStreamDestination extends MediaStreamAudioDestinationNode {
+export class WaMediaStreamDestination extends MediaStreamAudioDestinationNode {
     constructor() {
-        const context = inject<AudioContext>(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE);
-        const modern = inject(CONSTRUCTOR_SUPPORT);
+        super(inject<AudioContext>(WA_AUDIO_CONTEXT));
 
-        if (modern) {
-            super(context);
-            connect(node, this);
-        } else {
-            const result = context.createMediaStreamDestination();
-
-            Object.setPrototypeOf(result, WebAudioMediaStreamDestination.prototype);
-            connect(node, result);
-
-            return result as WebAudioMediaStreamDestination;
-        }
+        connect(inject(WA_AUDIO_NODE), this);
     }
 }

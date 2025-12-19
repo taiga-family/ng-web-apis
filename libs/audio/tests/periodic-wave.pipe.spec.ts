@@ -1,5 +1,5 @@
 import {TestBed} from '@angular/core/testing';
-import {AUDIO_CONTEXT, WebAudioPeriodicWavePipe} from '@ng-web-apis/audio';
+import {WA_AUDIO_CONTEXT, WaPeriodicWavePipe} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -8,10 +8,10 @@ describe('waPeriodicWave', () => {
     // Error: Failed to execute 'createPeriodicWave' on 'BaseAudioContext':
     // The length of the real array provided (1) is less than the minimum bound (2)
     xit('creates PeriodicWave', () => {
-        TestBed.overrideProvider(AUDIO_CONTEXT, {
+        TestBed.overrideProvider(WA_AUDIO_CONTEXT, {
             useValue: new AudioContext(),
         }).runInInjectionContext(() => {
-            const pipe = new WebAudioPeriodicWavePipe();
+            const pipe = new WaPeriodicWavePipe();
 
             expect(pipe.transform([10]) instanceof PeriodicWave).toBe(true);
         });

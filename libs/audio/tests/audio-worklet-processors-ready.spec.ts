@@ -1,14 +1,14 @@
 import {TestBed} from '@angular/core/testing';
-import {AUDIO_CONTEXT, AUDIO_WORKLET_PROCESSORS_READY} from '@ng-web-apis/audio';
+import {WA_AUDIO_CONTEXT, WA_AUDIO_WORKLET_PROCESSORS_READY} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('AUDIO_WORKLET_PROCESSORS_READY', () => {
+describe('WA_AUDIO_WORKLET_PROCESSORS_READY', () => {
     beforeEach(() => {
         TestBed.configureTestingModule({
             providers: [
                 {
-                    provide: AUDIO_CONTEXT,
+                    provide: WA_AUDIO_CONTEXT,
                     useValue: {},
                 },
             ],
@@ -16,11 +16,11 @@ describe('AUDIO_WORKLET_PROCESSORS_READY', () => {
     });
 
     // TODO: need investigate why
-    // AUDIO_WORKLET_PROCESSORS_READY rejects Promise if worklets are not supported FAILED
+    // WA_AUDIO_WORKLET_PROCESSORS_READY rejects Promise if worklets are not supported FAILED
     xit('rejects Promise if worklets are not supported', (done) => {
         let rejected = false;
 
-        TestBed.inject(AUDIO_WORKLET_PROCESSORS_READY).catch(() => {
+        TestBed.inject(WA_AUDIO_WORKLET_PROCESSORS_READY).catch(() => {
             rejected = true;
         });
 

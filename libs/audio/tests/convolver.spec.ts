@@ -1,13 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {providers, WaWebAudio, WebAudioConvolver} from '@ng-web-apis/audio';
+import {WaConvolver, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Convolver', () => {
     describe('ConvolverNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div
@@ -18,7 +17,7 @@ describe('Convolver', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioConvolver)
+            @ViewChild(WaConvolver)
             public node!: AudioNode;
         }
 
@@ -42,7 +41,6 @@ describe('Convolver', () => {
 
     describe('ConvolverNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div
@@ -53,7 +51,7 @@ describe('Convolver', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioConvolver)
+            @ViewChild(WaConvolver)
             public node!: AudioNode;
         }
 
@@ -63,7 +61,6 @@ describe('Convolver', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

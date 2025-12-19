@@ -1,121 +1,61 @@
-import {Directive, inject, Input, type OnChanges} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 import {type AudioParamInput} from '../types/audio-param-input';
-import {fallbackAudioParam} from '../utils/fallback-audio-param';
+import {audioParam} from '../utils/audio-param';
 
 @Directive({
-    standalone: true,
     selector: '[waAudioContext],[waOfflineAudioContext][length][sampleRate]',
+    inputs: [
+        'forwardXSetter: forwardX',
+        'forwardYSetter: forwardY',
+        'forwardZSetter: forwardZ',
+        'positionXSetter: positionX',
+        'positionYSetter: positionY',
+        'positionZSetter: positionZ',
+        'upXSetter: upX',
+        'upYSetter: upY',
+        'upZSetter: upZ',
+    ],
 })
-export class WebAudioListener extends GainNode implements OnChanges {
-    @Input('forwardX')
-    @audioParam('forwardX')
-    public forwardXParam?: AudioParamInput;
-
-    @Input('forwardY')
-    @audioParam('forwardY')
-    public forwardYParam?: AudioParamInput;
-
-    @Input('forwardZ')
-    @audioParam('forwardZ')
-    public forwardZParam?: AudioParamInput;
-
-    @Input('positionX')
-    @audioParam('positionX')
-    public positionXParam?: AudioParamInput;
-
-    @Input('positionY')
-    @audioParam('positionY')
-    public positionYParam?: AudioParamInput;
-
-    @Input('positionZ')
-    @audioParam('positionZ')
-    public positionZParam?: AudioParamInput;
-
-    @Input('upX')
-    @audioParam('upX')
-    public upXParam?: AudioParamInput;
-
-    @Input('upY')
-    @audioParam('upY')
-    public upYParam?: AudioParamInput;
-
-    @Input('upZ')
-    @audioParam('upZ')
-    public upZParam?: AudioParamInput;
-
+export class WaListener extends GainNode {
     constructor() {
-        const context = inject(AUDIO_CONTEXT, {self: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-
-        if (modern) {
-            super(context);
-        } else {
-            const result = context.createGain();
-
-            Object.setPrototypeOf(result, WebAudioListener.prototype);
-
-            return result as WebAudioListener;
-        }
+        super(inject(WA_AUDIO_CONTEXT, {self: true}));
     }
 
-    public get forwardX(): AudioParam {
-        return this.context.listener.forwardX;
+    public set forwardXSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.forwardX, value, this.context.currentTime);
     }
 
-    public get forwardY(): AudioParam {
-        return this.context.listener.forwardY;
+    public set forwardYSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.forwardY, value, this.context.currentTime);
     }
 
-    public get forwardZ(): AudioParam {
-        return this.context.listener.forwardZ;
+    public set forwardZSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.forwardZ, value, this.context.currentTime);
     }
 
-    public get positionX(): AudioParam {
-        return this.context.listener.positionX;
+    public set positionXSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.positionX, value, this.context.currentTime);
     }
 
-    public get positionY(): AudioParam {
-        return this.context.listener.positionY;
+    public set positionYSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.positionY, value, this.context.currentTime);
     }
 
-    public get positionZ(): AudioParam {
-        return this.context.listener.positionZ;
+    public set positionZSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.positionZ, value, this.context.currentTime);
     }
 
-    public get upX(): AudioParam {
-        return this.context.listener.upX;
+    public set upXSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.upX, value, this.context.currentTime);
     }
 
-    public get upY(): AudioParam {
-        return this.context.listener.upY;
+    public set upYSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.upX, value, this.context.currentTime);
     }
 
-    public get upZ(): AudioParam {
-        return this.context.listener.upZ;
-    }
-
-    public ngOnChanges(): void {
-        if (this.context.listener.positionX instanceof AudioParam) {
-            return;
-        }
-
-        // Fallback for older browsers
-        this.context.listener.setOrientation(
-            fallbackAudioParam(this.forwardXParam),
-            fallbackAudioParam(this.forwardYParam),
-            fallbackAudioParam(this.forwardZParam),
-            fallbackAudioParam(this.upXParam),
-            fallbackAudioParam(this.upYParam),
-            fallbackAudioParam(this.upZParam),
-        );
-        this.context.listener.setPosition(
-            fallbackAudioParam(this.positionXParam),
-            fallbackAudioParam(this.positionYParam),
-            fallbackAudioParam(this.positionZParam),
-        );
+    public set upZSetter(value: AudioParamInput) {
+        audioParam(this.context.listener.upX, value, this.context.currentTime);
     }
 }

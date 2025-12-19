@@ -1,9 +1,9 @@
-import {WebAudioParamPipe} from '@ng-web-apis/audio';
+import {WaAudioParamPipe} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
-describe('WebAudioParamPipe', () => {
-    const pipe = new WebAudioParamPipe();
+describe('WaAudioParamPipe', () => {
+    const pipe = new WaAudioParamPipe();
 
     it('uses exponential mode by default', () => {
         expect(pipe.transform(10, 1)).toEqual({

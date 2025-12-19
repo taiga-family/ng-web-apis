@@ -4,11 +4,8 @@ import {type AudioParamAutomation} from '../types/audio-param-automation';
 import {type AudioParamAutomationMode} from '../types/audio-param-automation-mode';
 import {type AudioParamCurve} from '../types/audio-param-curve';
 
-@Pipe({
-    standalone: true,
-    name: 'waAudioParam',
-})
-export class WebAudioParamPipe implements PipeTransform {
+@Pipe({name: 'waAudioParam'})
+export class WaAudioParamPipe implements PipeTransform {
     /**
      * Creates {@link AudioParamAutomation} to use with {@link AudioParam} inputs
      *
@@ -21,15 +18,6 @@ export class WebAudioParamPipe implements PipeTransform {
         duration: number,
         mode: AudioParamAutomationMode = 'exponential',
     ): AudioParamAutomation | AudioParamCurve {
-        return value instanceof Array
-            ? {
-                  value,
-                  duration,
-              }
-            : {
-                  value,
-                  duration,
-                  mode,
-              };
+        return value instanceof Array ? {value, duration} : {value, duration, mode};
     }
 }

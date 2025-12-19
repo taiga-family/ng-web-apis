@@ -1,59 +1,32 @@
-import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    Directive,
-    EventEmitter,
-    inject,
-    Input,
-    type OnDestroy,
-    Output,
-} from '@angular/core';
+import {Directive, HostAttributeToken, inject} from '@angular/core';
 
-import {audioParam} from '../decorators/audio-param';
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WaSource} from '../directives/source';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 import {asAudioNode} from '../tokens/audio-node';
 import {type AudioParamInput} from '../types/audio-param-input';
+import {audioParam} from '../utils/audio-param';
 import {parse} from '../utils/parse';
 
 @Directive({
-    standalone: true,
     selector: '[waConstantSourceNode]',
-    inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [asAudioNode(WebAudioConstantSource)],
+    inputs: [
+        'offsetSetter: offset',
+        'channelCount',
+        'channelCountMode',
+        'channelInterpretation',
+    ],
+    providers: [asAudioNode(WaConstantSource)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaSource],
 })
-export class WebAudioConstantSource extends ConstantSourceNode implements OnDestroy {
-    @Input('offset')
-    @audioParam('offset')
-    public offsetParam?: AudioParamInput;
-
-    @Output()
-    public ended = new EventEmitter<void>();
-
-    constructor(
-        @Attribute('autoplay') autoplay: string | null,
-        @Attribute('offset') offset: string | null,
-    ) {
-        const context = inject(AUDIO_CONTEXT);
-
-        super(context, {
-            offset: parse(offset, 0),
+export class WaConstantSource extends ConstantSourceNode {
+    constructor() {
+        super(inject(WA_AUDIO_CONTEXT), {
+            offset: parse(inject(new HostAttributeToken('offset'), {optional: true}), 0),
         });
-
-        if (autoplay !== null) {
-            this.start();
-        }
     }
 
-    public override readonly onended = (): void => this.ended.emit();
-
-    public ngOnDestroy(): void {
-        try {
-            this.stop();
-        } catch {
-            // noop
-        }
-
-        this.disconnect();
+    public set offsetSetter(value: AudioParamInput) {
+        audioParam(this.offset, value, this.context.currentTime);
     }
 }

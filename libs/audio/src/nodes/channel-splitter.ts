@@ -1,61 +1,41 @@
 import {
-    // eslint-disable-next-line no-restricted-imports
-    Attribute,
-    ContentChildren,
+    contentChildren,
     Directive,
+    effect,
+    HostAttributeToken,
     inject,
-    type OnDestroy,
-    type QueryList,
+    input,
 } from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {connect} from '../utils/connect';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WA_AUDIO_NODE} from '../tokens/audio-node';
 
 @Directive({
-    standalone: true,
     selector: '[waChannelSplitterNode]',
     inputs: ['channelCount', 'channelCountMode', 'channelInterpretation'],
-    providers: [
-        {
-            provide: AUDIO_NODE,
-            useValue: null,
-        },
-    ],
+    providers: [{provide: WA_AUDIO_NODE, useValue: null}],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioChannelSplitter extends ChannelSplitterNode implements OnDestroy {
-    constructor(@Attribute('numberOfOutputs') outputs: string | null) {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-        const numberOfOutputs = parseInt(outputs ?? '', 10) || 6;
+export class WaChannelSplitter extends ChannelSplitterNode {
+    private readonly channels = contentChildren(WA_AUDIO_NODE, {descendants: false});
 
-        if (modern) {
-            super(context, {numberOfOutputs});
-            connect(node, this);
-        } else {
-            const result = context.createChannelSplitter(numberOfOutputs);
+    public readonly outputs = input('', {alias: 'numberOfOutputs'});
 
-            Object.setPrototypeOf(result, WebAudioChannelSplitter.prototype);
-            connect(node, result);
+    constructor() {
+        const attr = inject(new HostAttributeToken('numberOfOutputs'), {optional: true});
+        const numberOfOutputs = parseInt(attr || '', 10) || 6;
 
-            return result as WebAudioChannelSplitter;
-        }
-    }
+        super(inject(WA_AUDIO_CONTEXT), {numberOfOutputs});
 
-    public ngOnDestroy(): void {
-        this.disconnect();
-    }
-
-    @ContentChildren(AUDIO_NODE, {descendants: false})
-    protected set channels(channels: QueryList<AudioNode | null>) {
-        this.disconnect();
-        channels
-            .filter((node) => !!node)
-            .forEach((node, index) => {
-                this.connect(node, index);
-            });
+        effect(() => {
+            this.disconnect();
+            this.channels()
+                .filter((node) => !!node)
+                .forEach((node, index) => {
+                    this.connect(node, index);
+                });
+        });
     }
 }

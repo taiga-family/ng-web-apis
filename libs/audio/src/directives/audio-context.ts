@@ -1,24 +1,28 @@
-// eslint-disable-next-line no-restricted-imports
-import {Attribute, Directive, forwardRef, type OnDestroy} from '@angular/core';
+import {
+    Directive,
+    HostAttributeToken,
+    inject,
+    input,
+    type OnDestroy,
+} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
 import {latencyHintFactory} from '../utils/latency-hint-factory';
 
 @Directive({
-    standalone: true,
     selector: '[waAudioContext]',
-    providers: [
-        {
-            provide: AUDIO_CONTEXT,
-            useExisting: forwardRef(() => WebAudioContext),
-        },
-    ],
+    providers: [{provide: WA_AUDIO_CONTEXT, useExisting: WaAudioContext}],
 })
-export class WebAudioContext extends AudioContext implements OnDestroy {
-    constructor(
-        @Attribute('latencyHint') latencyHint: AudioContextLatencyCategory | null,
-        @Attribute('sampleRate') sampleRate: string | null,
-    ) {
+export class WaAudioContext extends AudioContext implements OnDestroy {
+    public readonly rate = input('', {alias: 'sampleRate'});
+    public readonly latencyHint = input<AudioContextLatencyCategory>();
+
+    constructor() {
+        const sampleRate = inject(new HostAttributeToken('sampleRate'), {optional: true});
+        const latencyHint: any = inject(new HostAttributeToken('latencyHint'), {
+            optional: true,
+        });
+
         super({
             latencyHint: latencyHintFactory(latencyHint),
             sampleRate: parseInt(sampleRate ?? '', 10) || undefined,

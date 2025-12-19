@@ -1,12 +1,10 @@
-import {Directive, inject, type OnDestroy} from '@angular/core';
+import {Directive, inject} from '@angular/core';
 
-import {AUDIO_CONTEXT} from '../tokens/audio-context';
-import {asAudioNode, AUDIO_NODE} from '../tokens/audio-node';
-import {CONSTRUCTOR_SUPPORT} from '../tokens/constructor-support';
-import {connect} from '../utils/connect';
+import {WaNode} from '../directives/node';
+import {WA_AUDIO_CONTEXT} from '../tokens/audio-context';
+import {asAudioNode} from '../tokens/audio-node';
 
 @Directive({
-    standalone: true,
     selector: '[waWaveShaperNode]',
     inputs: [
         'oversample',
@@ -15,29 +13,12 @@ import {connect} from '../utils/connect';
         'channelCountMode',
         'channelInterpretation',
     ],
-    providers: [asAudioNode(WebAudioWaveShaper)],
+    providers: [asAudioNode(WaWaveShaper)],
     exportAs: 'AudioNode',
+    hostDirectives: [WaNode],
 })
-export class WebAudioWaveShaper extends WaveShaperNode implements OnDestroy {
+export class WaWaveShaper extends WaveShaperNode {
     constructor() {
-        const context = inject(AUDIO_CONTEXT);
-        const node = inject(AUDIO_NODE, {skipSelf: true});
-        const modern = inject(CONSTRUCTOR_SUPPORT);
-
-        if (modern) {
-            super(context);
-            connect(node, this);
-        } else {
-            const result = context.createWaveShaper() as WebAudioWaveShaper;
-
-            Object.setPrototypeOf(result, WebAudioWaveShaper.prototype);
-            connect(node, result);
-
-            return result;
-        }
-    }
-
-    public ngOnDestroy(): void {
-        this.disconnect();
+        super(inject(WA_AUDIO_CONTEXT));
     }
 }

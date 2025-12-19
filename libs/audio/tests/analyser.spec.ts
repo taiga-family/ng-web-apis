@@ -1,14 +1,12 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
-import {providers, WaWebAudio, WebAudioAnalyser} from '@ng-web-apis/audio';
-import {take} from 'rxjs';
+import {WaAnalyser, WaWebAudio} from '@ng-web-apis/audio';
 
 window.onbeforeunload = jasmine.createSpy();
 
 describe('Analyser', () => {
     describe('AnalyserNode', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waAnalyserNode></div>
@@ -16,8 +14,8 @@ describe('Analyser', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioAnalyser)
-            public node!: WebAudioAnalyser;
+            @ViewChild(WaAnalyser)
+            public node!: WaAnalyser;
         }
 
         let fixture: ComponentFixture<Test>;
@@ -38,7 +36,8 @@ describe('Analyser', () => {
         });
 
         it('emits frequency byte array', (done) => {
-            testComponent.node.frequencyByte$.pipe(take(1)).subscribe((array) => {
+            const sub = testComponent.node.frequencyByte.subscribe((array) => {
+                sub.unsubscribe();
                 expect(array instanceof Uint8Array).toBe(true);
 
                 done();
@@ -46,7 +45,8 @@ describe('Analyser', () => {
         });
 
         it('emits frequency float array', (done) => {
-            testComponent.node.frequencyFloat$.pipe(take(1)).subscribe((array) => {
+            const sub = testComponent.node.frequencyFloat.subscribe((array) => {
+                sub.unsubscribe();
                 expect(array instanceof Float32Array).toBe(true);
 
                 done();
@@ -54,7 +54,8 @@ describe('Analyser', () => {
         });
 
         it('emits time byte array', (done) => {
-            testComponent.node.timeByte$.pipe(take(1)).subscribe((array) => {
+            const sub = testComponent.node.timeByte.subscribe((array) => {
+                sub.unsubscribe();
                 expect(array instanceof Uint8Array).toBe(true);
 
                 done();
@@ -62,7 +63,8 @@ describe('Analyser', () => {
         });
 
         it('emits time float array', (done) => {
-            testComponent.node.timeFloat$.pipe(take(1)).subscribe((array) => {
+            const sub = testComponent.node.timeFloat.subscribe((array) => {
+                sub.unsubscribe();
                 expect(array instanceof Float32Array).toBe(true);
 
                 done();
@@ -72,7 +74,6 @@ describe('Analyser', () => {
 
     describe('AnalyserNode factory fallback', () => {
         @Component({
-            standalone: true,
             imports: [WaWebAudio],
             template: `
                 <div waAnalyserNode></div>
@@ -80,8 +81,8 @@ describe('Analyser', () => {
             changeDetection: ChangeDetectionStrategy.OnPush,
         })
         class Test {
-            @ViewChild(WebAudioAnalyser)
-            public node!: WebAudioAnalyser;
+            @ViewChild(WaAnalyser)
+            public node!: WaAnalyser;
         }
 
         let fixture: ComponentFixture<Test>;
@@ -90,7 +91,6 @@ describe('Analyser', () => {
         beforeEach(() => {
             TestBed.configureTestingModule({
                 imports: [Test],
-                providers,
             });
 
             fixture = TestBed.createComponent(Test);

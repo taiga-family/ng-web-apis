@@ -1,5 +1,5 @@
 import {inject, InjectionToken} from '@angular/core';
-import {AUDIO_CONTEXT} from '@ng-web-apis/audio';
+import {WA_AUDIO_CONTEXT} from '@ng-web-apis/audio';
 
 /**
  * Stackblitz does not support audio assets, so we have to encode it in base64
@@ -10,7 +10,7 @@ const RESPONSE =
 export const RESPONSE_BUFFER = new InjectionToken<Promise<AudioBuffer>>(
     '[RESPONSE_BUFFER]',
     {
-        factory: async () => inject(AUDIO_CONTEXT).decodeAudioData(decode(RESPONSE)),
+        factory: async () => inject(WA_AUDIO_CONTEXT).decodeAudioData(decode(RESPONSE)),
     },
 );
 
