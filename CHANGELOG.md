@@ -1,3 +1,10 @@
+### [5.0.1](https://github.com/taiga-family/ng-web-apis/compare/v5.0.0...v5.0.1) (2025-12-19)
+
+### 🐞 Bug Fixes
+
+- **platform**: add forgotten import for WA_IS_E2E (#1502)
+  [(1b41d80)](https://github.com/taiga-family/ng-web-apis/commit/1b41d80303dae480e81b9a0203efbe18ceb0f811)
+
 ## [5.0.0](https://github.com/taiga-family/ng-web-apis/compare/v4.14.0...v5.0.0) (2025-12-19)
 
 ### 🚀 Features

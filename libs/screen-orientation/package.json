@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/screen-orientation",
-    "version": "5.0.0",
+    "version": "5.0.1",
     "description": "A library for declarative use of screen orientation with Angular",
     "keywords": [
         "angular",
