@@ -26,5 +26,5 @@ export {
     /**
      * @deprecated use {@link WaResizeObserverService}
      */
-    WaResizeObserverService as ResizeObserverService
-}
+    WaResizeObserverService as ResizeObserverService,
+};

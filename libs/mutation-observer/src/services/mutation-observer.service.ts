@@ -28,5 +28,5 @@ export {
     /**
      * @deprecated: use {@link WaMutationObserverService}
      */
-    WaMutationObserverService as MutationObserverService
-}
+    WaMutationObserverService as MutationObserverService,
+};

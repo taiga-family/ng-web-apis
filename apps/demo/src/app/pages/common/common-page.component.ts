@@ -11,7 +11,8 @@ import {MarkdownModule} from 'ngx-markdown';
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
 export default class CommonPage {
-    protected readonly readme = import(
-        '../../../../../../libs/common/README.md?raw'
-    ).then((a) => a.default.replace('![logo](logo.svg) ', '')) as any as Promise<string>;
+    protected readonly readme =
+        import('../../../../../../libs/common/README.md?raw').then((a) =>
+            a.default.replace('![logo](logo.svg) ', ''),
+        ) as any as Promise<string>;
 }
