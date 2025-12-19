@@ -1,4 +1,4 @@
-import {type Provider} from '@angular/core';
+import {type EnvironmentProviders, type Provider} from '@angular/core';
 
 import {UNIVERSAL_ANIMATION_FRAME} from './universal-animation-frame';
 import {UNIVERSAL_CACHES} from './universal-caches';
@@ -29,3 +29,7 @@ export const UNIVERSAL_PROVIDERS: Provider[] = [
     UNIVERSAL_USER_AGENT,
     UNIVERSAL_WINDOW,
 ];
+
+export function provideUniversal(): Array<EnvironmentProviders | Provider> {
+    return UNIVERSAL_PROVIDERS;
+}

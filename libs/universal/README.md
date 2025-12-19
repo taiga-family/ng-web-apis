@@ -19,13 +19,15 @@ SSR.
 
 ## Tokens
 
-You can import `UNIVERSAL_PROVIDERS` in the following manner:
+You can provide universal providers in the following manner:
 
 ```ts
+import {provideUniversal} from '@ng-web-apis/universal';
+
 const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
-    UNIVERSAL_PROVIDERS, // <-- add this
+    provideUniversal(), // <-- add this
   ],
 };
 
@@ -53,3 +55,6 @@ app.get('/**/*', (req: Request, res: Response) => {
   });
 });
 ```
+
+> ⚠️ **Note:** If you're using `AngularNodeAppEngine`, you **don't need** to manually call `provideLocation` or
+> `provideUserAgent` — these tokens rely on the REQUEST token and are already properly provided by the engine.
