@@ -1,4 +1,7 @@
 {
     "name": "ng-web-apis-demo",
-    "private": true
+    "private": true,
+    "devDependencies": {
+        "@taiga-ui/addon-doc": "4.66.0"
+    }
 }
