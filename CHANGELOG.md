@@ -1,3 +1,45 @@
+## [5.0.0](https://github.com/taiga-family/ng-web-apis/compare/v4.14.0...v5.0.0) (2025-12-19)
+
+### 🚀 Features
+
+- web audio (#1499)
+  [(4574f00)](https://github.com/taiga-family/ng-web-apis/commit/4574f00b704ec6b47014d61e589b6c6c6bf063e0)
+- update `WA_SSR_LOCATION` and `WA_SSR_USER_AGENT` to support AngularNodeAppEngine (#1489)
+  [(16b8395)](https://github.com/taiga-family/ng-web-apis/commit/16b83957ed1cce8ac17b676aec0521b47fe1ec89)
+- platform (#1488)
+  [(59283a4)](https://github.com/taiga-family/ng-web-apis/commit/59283a4bb1921dc585d7b8a84a08b51008b7ebe3)
+- mutation observer (#1481)
+  [(a38b3ee)](https://github.com/taiga-family/ng-web-apis/commit/a38b3ee59416889831ae84c17000d28072427c99)
+- screen (#1487)
+  [(8cf45bc)](https://github.com/taiga-family/ng-web-apis/commit/8cf45bc55860c1c5678c0eabc0cd7be99c5ba137)
+- resize observer (#1484)
+  [(b24be4c)](https://github.com/taiga-family/ng-web-apis/commit/b24be4c07d327fec3495eeb5d493942752997653)
+- speech (#1485)
+  [(b152c57)](https://github.com/taiga-family/ng-web-apis/commit/b152c579ab8ee0bb64ab07151df95bb7c69b9c03)
+- some services (#1482)
+  [(929a64b)](https://github.com/taiga-family/ng-web-apis/commit/929a64b1673688fd022405983114bf8ec340117b)
+- midi (#1480) [(a93bfbf)](https://github.com/taiga-family/ng-web-apis/commit/a93bfbf807872b41b91641c9d0b837ee7ade98c8)
+- intersection observer (#1479)
+  [(2b49937)](https://github.com/taiga-family/ng-web-apis/commit/2b49937ffb6f6e8fceb3f1ba70debd4ba866fe18)
+- geo (#1478) [(70f3cbf)](https://github.com/taiga-family/ng-web-apis/commit/70f3cbf6246484df1a5353485d6e9ba7552bbd88)
+- common (#1477)
+  [(bdcee99)](https://github.com/taiga-family/ng-web-apis/commit/bdcee9953cd28d7a7062592cc57bdfd9a82d62d4)
+- canvas (#1476)
+  [(e5f94c7)](https://github.com/taiga-family/ng-web-apis/commit/e5f94c76042b217d809331cc86085597e4ea1809)
+- payment request (#1475)
+  [(aecc7d7)](https://github.com/taiga-family/ng-web-apis/commit/aecc7d790954202e3eace533538e15b38839ae07)
+- improve SSR compatibility (#1441)
+  [(b220acd)](https://github.com/taiga-family/ng-web-apis/commit/b220acd8fef99fe46f0deb0ee2b2ec3056c07f7a)
+- control flow (#1429)
+  [(0ef83ad)](https://github.com/taiga-family/ng-web-apis/commit/0ef83ad12c4bc63cc8fdc03b9dce13820e1f48d6)
+- upgrade to Angular 19 (#1426)
+  [(63538c1)](https://github.com/taiga-family/ng-web-apis/commit/63538c1da952c329294d22a2a131f675be86db42)
+
+### 🐞 Bug Fixes
+
+- revert browserlist (#1447)
+  [(949b657)](https://github.com/taiga-family/ng-web-apis/commit/949b657e86d0baef7013b1132373e8895e02c254)
+
 ### [4.12.1](https://github.com/taiga-family/ng-web-apis/compare/v4.12.0...v4.12.1) (2025-10-06)
 
 ### 🚀 Features

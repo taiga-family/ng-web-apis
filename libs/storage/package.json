@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/storage",
-    "version": "4.14.0",
+    "version": "5.0.0",
     "description": "A library to use Web Storage API with Observables",
     "keywords": [
         "angular",
