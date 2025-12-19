@@ -5,7 +5,7 @@ import {emptyFunction} from '../utils/functions';
 
 export const WA_SSR_LOCATION = new InjectionToken<Location>('[WA_SSR_LOCATION]', {
     factory: () => {
-        const req = inject(REQUEST);
+        const req = inject(REQUEST, {optional: true});
 
         if (req) {
             const url: any = new URL(req.url);
