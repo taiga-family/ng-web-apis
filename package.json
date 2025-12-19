@@ -61,6 +61,7 @@
         }
     ],
     "workspaces": [
+        "apps/*",
         "libs/*"
     ],
     "scripts": {
@@ -125,10 +126,8 @@
         "@nx/node": "22.2.6",
         "@nx/rollup": "22.2.6",
         "@nx/workspace": "22.2.6",
-        "@taiga-ui/addon-doc": "4.66.0",
         "@taiga-ui/auto-changelog-config": "0.373.0",
         "@taiga-ui/browserslist-config": "0.329.0",
-        "@taiga-ui/cdk": "4.66.0",
         "@taiga-ui/commitlint-config": "0.373.0",
         "@taiga-ui/core": "4.66.0",
         "@taiga-ui/cspell-config": "0.373.0",
