@@ -137,7 +137,7 @@
         "@taiga-ui/layout": "4.65.0",
         "@taiga-ui/legacy": "4.65.0",
         "@taiga-ui/prettier-config": "0.327.0",
-        "@taiga-ui/release-it-config": "0.327.0",
+        "@taiga-ui/release-it-config": "0.374.0",
         "@taiga-ui/stylelint-config": "0.327.0",
         "@taiga-ui/styles": "4.65.0",
         "@taiga-ui/syncer": "0.327.0",
