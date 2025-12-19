@@ -1,6 +1,6 @@
 import {Directive, inject, type OnDestroy, type OnInit} from '@angular/core';
-import {WA_AUDIO_NODE} from '@ng-web-apis/audio';
 
+import {WA_AUDIO_NODE} from '../tokens/audio-node';
 import {connect} from '../utils/connect';
 
 @Directive()
