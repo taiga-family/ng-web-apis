@@ -34,11 +34,13 @@ provide the same functionality on the server side as you have in browser. In oth
 and you can at least be sure you will not have <code>cannot read property of null</code> or <code>undefined is not a function</code> errors in
 SSR.</p>
 <h2>Tokens</h2>
-<p>You can import <code>UNIVERSAL_PROVIDERS</code> in the following manner:</p>
-<pre><code class="language-ts">const serverConfig: ApplicationConfig = {
+<p>You can provide universal providers in the following manner:</p>
+<pre><code class="language-ts">import {provideUniversal} from '@ng-web-apis/universal';
+
+const serverConfig: ApplicationConfig = {
   providers: [
     provideServerRendering(),
-    UNIVERSAL_PROVIDERS, // &lt;-- add this
+    provideUniversal(), // &lt;-- add this
   ],
 };
 
@@ -61,7 +63,11 @@ app.get('/**/*', (req: Request, res: Response) =&gt; {
   });
 });
 </code></pre>
+<blockquote>
+<p>⚠️ <strong>Note:</strong> If you're using <code>AngularNodeAppEngine</code>, you <strong>don't need</strong> to manually call <code>provideLocation</code> or
+<code>provideUserAgent</code> — these tokens rely on the REQUEST token and are already properly provided by the engine.</p>
+</blockquote>
 </markdown><!----></universal-page><!----></main><footer _ngcontent-ng-c3008790120> Icons made by <a _ngcontent-ng-c3008790120 href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a _ngcontent-ng-c3008790120 href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com </a></footer></div></div><tui-scroll-controls class="t-root-scrollbar" _nghost-ng-c586047382><!----><!----><!----><!----><!----><!----></tui-scroll-controls><!----><tui-popups><!----></tui-popups><tui-dialogs _nghost-ng-c242000724><div _ngcontent-ng-c242000724 class="t-overlay"></div><!----></tui-dialogs><tui-alerts><!----></tui-alerts><tui-dropdowns style="position: absolute; width: 100%; top: 0;"><!----></tui-dropdowns><tui-hints aria-live="polite" _nghost-ng-c2886978137><!----></tui-hints><!----><!----></tui-root></app>
-    <script src="runtime.42bb54128fec3441.js" type="module"></script><script src="polyfills.11587fc1499c6fef.js" type="module"></script><script src="scripts.e8ba841a1d0314ba.js" defer></script><script src="main.f5f670e30f98644c.js" type="module"></script>
+    <script src="runtime.b0531997d305fb82.js" type="module"></script><script src="polyfills.11587fc1499c6fef.js" type="module"></script><script src="scripts.e8ba841a1d0314ba.js" defer></script><script src="main.f5f670e30f98644c.js" type="module"></script>
 
 </body></html>
