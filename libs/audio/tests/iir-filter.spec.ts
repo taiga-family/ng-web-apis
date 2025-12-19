@@ -6,7 +6,6 @@ import {
     WaIIRFilter,
     WaWebAudio,
 } from '@ng-web-apis/audio';
-import {CONSTRUCTOR_SUPPORT} from '@ng-web-apis/audio/tokens/constructor-support';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -79,10 +78,6 @@ describe('IIR filter', () => {
                     {
                         provide: WA_FEEDBACK_COEFFICIENTS,
                         useValue: [1],
-                    },
-                    {
-                        provide: CONSTRUCTOR_SUPPORT,
-                        useValue: false,
                     },
                 ],
             });

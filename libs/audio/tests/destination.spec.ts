@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WaBufferSource, WaDestination, WaWebAudio} from '@ng-web-apis/audio';
-import {Observable} from 'rxjs';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -57,10 +56,6 @@ describe('Destination', () => {
 
         it('creates node', () => {
             expect(testComponent.node instanceof AudioNode).toBe(true);
-        });
-
-        it('inits output', () => {
-            expect(testComponent.node.quiet instanceof Observable).toBe(true);
         });
 
         it('does not fire output initially', () => {

@@ -1,7 +1,6 @@
 import {ChangeDetectionStrategy, Component, ViewChild} from '@angular/core';
 import {type ComponentFixture, TestBed} from '@angular/core/testing';
 import {WA_MEDIA_STREAM, WaMediaStreamSource, WaWebAudio} from '@ng-web-apis/audio';
-import {CONSTRUCTOR_SUPPORT} from '@ng-web-apis/audio/tokens/constructor-support';
 
 window.onbeforeunload = jasmine.createSpy();
 
@@ -70,10 +69,6 @@ describe('MediaStream', () => {
                     {
                         provide: WA_MEDIA_STREAM,
                         useValue: STREAM,
-                    },
-                    {
-                        provide: CONSTRUCTOR_SUPPORT,
-                        useValue: false,
                     },
                 ],
             });
