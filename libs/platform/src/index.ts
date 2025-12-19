@@ -1,4 +1,5 @@
 export * from './tokens/is-android';
+export * from './tokens/is-e2e';
 export * from './tokens/is-ios';
 export * from './tokens/is-mobile';
 export * from './tokens/is-touch';
