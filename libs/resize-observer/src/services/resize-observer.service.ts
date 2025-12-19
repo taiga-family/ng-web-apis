@@ -5,7 +5,7 @@ import {SafeObserver} from '../classes/safe-observer';
 import {RESIZE_OPTION_BOX} from '../tokens/resize-option-box';
 
 @Injectable()
-export class ResizeObserverService extends Observable<readonly ResizeObserverEntry[]> {
+export class WaResizeObserverService extends Observable<readonly ResizeObserverEntry[]> {
     constructor() {
         const nativeElement: HTMLElement = inject(ElementRef).nativeElement;
         const box = inject(RESIZE_OPTION_BOX);
@@ -20,4 +20,11 @@ export class ResizeObserverService extends Observable<readonly ResizeObserverEnt
             };
         });
     }
+}
+
+export {
+    /**
+     * @deprecated use {@link WaResizeObserverService}
+     */
+    WaResizeObserverService as ResizeObserverService
 }

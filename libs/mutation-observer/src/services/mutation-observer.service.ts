@@ -5,7 +5,7 @@ import {SafeObserver} from '../classes/safe-observer';
 import {MUTATION_OBSERVER_INIT} from '../tokens/mutation-observer-init';
 
 @Injectable()
-export class MutationObserverService extends Observable<readonly MutationRecord[]> {
+export class WaMutationObserverService extends Observable<readonly MutationRecord[]> {
     constructor() {
         const nativeElement: Node = inject(ElementRef).nativeElement;
         const config = inject(MUTATION_OBSERVER_INIT);
@@ -22,4 +22,11 @@ export class MutationObserverService extends Observable<readonly MutationRecord[
             };
         });
     }
+}
+
+export {
+    /**
+     * @deprecated: use {@link WaMutationObserverService}
+     */
+    WaMutationObserverService as MutationObserverService
 }
