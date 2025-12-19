@@ -44,3 +44,7 @@ canvas {
     border-radius: 0.375rem;
     box-shadow: 0 0.75rem 2.25rem rgba(0, 0, 0, 0.2);
 }
+
+label {
+    align-items: center;
+}

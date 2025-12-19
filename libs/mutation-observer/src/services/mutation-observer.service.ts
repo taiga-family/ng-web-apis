@@ -23,8 +23,3 @@ export class WaMutationObserverService extends Observable<readonly MutationRecor
         });
     }
 }
-
-/**
- * @deprecated DO NOT USE!!!
- */
-export const MutationObserverService = WaMutationObserverService;

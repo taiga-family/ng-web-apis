@@ -1,14 +1,11 @@
-import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
-import {FormsModule} from '@angular/forms';
 import {TuiAddonDoc} from '@taiga-ui/addon-doc';
-import {TuiInputModule} from '@taiga-ui/legacy';
 
 import {Example} from './example/example.component';
 
 @Component({
     selector: 'common-page',
-    imports: [CommonModule, Example, FormsModule, TuiAddonDoc, TuiInputModule],
+    imports: [Example, TuiAddonDoc],
     templateUrl: './storage-page.component.html',
     styleUrl: './storage-page.component.less',
     changeDetection: ChangeDetectionStrategy.OnPush,

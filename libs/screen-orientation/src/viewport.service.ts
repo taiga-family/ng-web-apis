@@ -31,8 +31,3 @@ export class WaViewportService extends Observable<VisualViewport> {
         super((subscriber) => this.stream$.subscribe(subscriber));
     }
 }
-
-/**
- * @deprecated DO NOT USE!!!
- */
-export const ViewportService = WaViewportService;

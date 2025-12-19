@@ -4,18 +4,22 @@
     : {{ value$ | async }}
 </h3>
 <p tuiGroup>
-    <tui-input
-        [ngModel]="native"
-        (ngModelChange)="withStorage($event)"
-    >
-        Native update
-    </tui-input>
-    <tui-input
-        [ngModel]="service"
-        (ngModelChange)="withService($event)"
-    >
-        With service
-    </tui-input>
+    <tui-textfield>
+        <label tuiLabel>Native update</label>
+        <input
+            tuiTextfield
+            [ngModel]="native"
+            (ngModelChange)="withStorage($event)"
+        />
+    </tui-textfield>
+    <tui-textfield>
+        <label tuiLabel>With service</label>
+        <input
+            tuiTextfield
+            [ngModel]="service"
+            (ngModelChange)="withService($event)"
+        />
+    </tui-textfield>
 </p>
 <tui-notification size="m">
     <div>
