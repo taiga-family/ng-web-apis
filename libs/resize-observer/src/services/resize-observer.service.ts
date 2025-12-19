@@ -21,8 +21,3 @@ export class WaResizeObserverService extends Observable<readonly ResizeObserverE
         });
     }
 }
-
-/**
- * @deprecated DO NOT USE!!!
- */
-export const ResizeObserverService = WaResizeObserverService;

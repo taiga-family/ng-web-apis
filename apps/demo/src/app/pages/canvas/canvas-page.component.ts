@@ -2,29 +2,30 @@ import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {WaCanvas} from '@ng-web-apis/canvas';
-import {TuiExpand, TuiLabel} from '@taiga-ui/core';
-import {TuiDataListWrapper, TuiFiles, TuiSlider} from '@taiga-ui/kit';
+import {TuiExpand, TuiLabel, TuiTextfield} from '@taiga-ui/core';
 import {
-    TuiInputColorModule,
-    TuiInputModule,
-    TuiSelectModule,
-    TuiTextfieldControllerModule,
-} from '@taiga-ui/legacy';
+    TuiChevron,
+    TuiDataListWrapper,
+    TuiFiles,
+    TuiInputColor,
+    TuiSelect,
+    TuiSlider,
+} from '@taiga-ui/kit';
 
 @Component({
     selector: 'canvas-page',
     imports: [
         CommonModule,
         FormsModule,
+        TuiChevron,
         TuiDataListWrapper,
         TuiExpand,
         TuiFiles,
-        TuiInputColorModule,
-        TuiInputModule,
+        TuiInputColor,
         TuiLabel,
-        TuiSelectModule,
+        TuiSelect,
         TuiSlider,
-        TuiTextfieldControllerModule,
+        TuiTextfield,
         WaCanvas,
     ],
     templateUrl: './canvas-page.component.html',

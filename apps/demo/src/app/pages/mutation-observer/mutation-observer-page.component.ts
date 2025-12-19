@@ -2,8 +2,7 @@ import {CommonModule} from '@angular/common';
 import {ChangeDetectionStrategy, Component} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {WaMutationObserver} from '@ng-web-apis/mutation-observer';
-import {TuiButton, TuiGroup} from '@taiga-ui/core';
-import {TuiInputModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
+import {TuiButton, TuiGroup, TuiTextfield} from '@taiga-ui/core';
 
 @Component({
     selector: 'mutation-observer-page',
@@ -12,8 +11,7 @@ import {TuiInputModule, TuiTextfieldControllerModule} from '@taiga-ui/legacy';
         FormsModule,
         TuiButton,
         TuiGroup,
-        TuiInputModule,
-        TuiTextfieldControllerModule,
+        TuiTextfield,
         WaMutationObserver,
     ],
     templateUrl: './mutation-observer-page.component.html',

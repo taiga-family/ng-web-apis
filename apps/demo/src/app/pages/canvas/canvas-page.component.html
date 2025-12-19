@@ -1,5 +1,5 @@
 <h2>Basic example</h2>
-<section>
+<section tuiTextfieldSize="m">
     <fieldset>
         <label
             tuiLabel
@@ -109,24 +109,28 @@
             />
         </label>
         <div class="row">
-            <tui-select
-                tuiTextfieldSize="m"
+            <tui-textfield
+                tuiChevron
                 class="child"
-                [(ngModel)]="globalCompositeOperation"
             >
-                Overlay
+                <label tuiLabel>Overlay</label>
+                <input
+                    tuiSelect
+                    [(ngModel)]="globalCompositeOperation"
+                />
                 <tui-data-list-wrapper
-                    *tuiDataList
+                    *tuiTextfieldDropdown
+                    new
                     [items]="items"
                 />
-            </tui-select>
-            <tui-input-color
-                tuiTextfieldSize="m"
-                class="child"
-                [(ngModel)]="c2"
-            >
-                Color
-            </tui-input-color>
+            </tui-textfield>
+            <tui-textfield class="child">
+                <label tuiLabel>Color</label>
+                <input
+                    tuiInputColor
+                    [(ngModel)]="c2"
+                />
+            </tui-textfield>
         </div>
     </fieldset>
 
@@ -234,7 +238,7 @@
 </canvas>
 <h2>Path example</h2>
 
-<section>
+<section tuiTextfieldSize="m">
     <fieldset>
         <label
             tuiLabel
@@ -277,27 +281,27 @@
         </label>
     </fieldset>
     <fieldset>
-        <tui-input
-            tuiTextfieldSize="m"
-            class="child"
-            [(ngModel)]="text"
-        >
-            Text
-        </tui-input>
-        <tui-input
-            tuiTextfieldSize="m"
-            class="child"
-            [(ngModel)]="font"
-        >
-            Font
-        </tui-input>
-        <tui-input-color
-            tuiTextfieldSize="m"
-            class="child"
-            [(ngModel)]="color"
-        >
-            color
-        </tui-input-color>
+        <tui-textfield class="child">
+            <label tuiLabel>Text</label>
+            <input
+                tuiTextfield
+                [(ngModel)]="text"
+            />
+        </tui-textfield>
+        <tui-textfield class="child">
+            <label tuiLabel>Font</label>
+            <input
+                tuiTextfield
+                [(ngModel)]="font"
+            />
+        </tui-textfield>
+        <tui-textfield class="child">
+            <label tuiLabel>Color</label>
+            <input
+                tuiInputColor
+                [(ngModel)]="color"
+            />
+        </tui-textfield>
     </fieldset>
 </section>
 <canvas

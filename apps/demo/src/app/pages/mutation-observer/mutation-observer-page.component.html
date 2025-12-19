@@ -21,20 +21,28 @@
 <p
     tuiGroup
     tuiTextfieldSize="m"
-    [tuiTextfieldLabelOutside]="true"
 >
-    <tui-input
-        aria-label="title"
-        [(ngModel)]="title"
-    />
-    <tui-input
-        aria-label="text"
-        [(ngModel)]="text"
-    />
-    <tui-input
-        aria-label="ignored"
-        [(ngModel)]="ignored"
-    />
+    <tui-textfield>
+        <input
+            aria-label="title"
+            tuiTextfield
+            [(ngModel)]="title"
+        />
+    </tui-textfield>
+    <tui-textfield>
+        <input
+            aria-label="text"
+            tuiTextfield
+            [(ngModel)]="text"
+        />
+    </tui-textfield>
+    <tui-textfield>
+        <input
+            aria-label="ignored"
+            tuiTextfield
+            [(ngModel)]="ignored"
+        />
+    </tui-textfield>
 </p>
 <div
     attributeFilter="title, disabled"
