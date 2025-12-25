@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/payment-request",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "This is a library for declarative use of Payment Request API with Angular",
     "keywords": [
         "angular",
@@ -32,7 +32,7 @@
     "peerDependencies": {
         "@angular/common": ">=19.0.0",
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.1",
+        "@ng-web-apis/common": "^5.0.2",
         "rxjs": ">=7.0.0"
     },
     "publishConfig": {

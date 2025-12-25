@@ -1,3 +1,12 @@
+### [5.0.2](https://github.com/taiga-family/ng-web-apis/compare/v5.0.1...v5.0.2) (2025-12-25)
+
+### 🐞 Bug Fixes
+
+- `IntersectionObserver` add `wa` prefix (#1509)
+  [(2ccdeab)](https://github.com/taiga-family/ng-web-apis/commit/2ccdeabb8cece3165679ef2d34d97e7754f84433)
+- **all**: invalid version for peer dependency `@ng-web-apis/common` (#1507)
+  [(f8da9b8)](https://github.com/taiga-family/ng-web-apis/commit/f8da9b819b1792de7f96165a42fc1a3bcd945b66)
+
 ### [5.0.1](https://github.com/taiga-family/ng-web-apis/compare/v5.0.0...v5.0.1) (2025-12-19)
 
 ### 🐞 Bug Fixes

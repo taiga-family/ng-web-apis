@@ -1,6 +1,6 @@
 {
     "name": "ng-web-apis",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "private": true,
     "description": "A set of common utils for consuming Web APIs with Angular",
     "keywords": [

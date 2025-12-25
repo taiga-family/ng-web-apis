@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/workers",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "A library for comfortable use of Web Workers API in Angular",
     "keywords": [
         "angular",
@@ -33,7 +33,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.1"
+        "@ng-web-apis/common": "^5.0.2"
     },
     "publishConfig": {
         "access": "public"

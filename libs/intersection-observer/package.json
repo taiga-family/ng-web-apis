@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/intersection-observer",
-    "version": "5.0.1",
+    "version": "5.0.2",
     "description": "A library for declarative use of Intersection Observer API with Angular",
     "keywords": [
         "angular",
@@ -31,7 +31,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.1"
+        "@ng-web-apis/common": "^5.0.2"
     },
     "publishConfig": {
         "access": "public"
