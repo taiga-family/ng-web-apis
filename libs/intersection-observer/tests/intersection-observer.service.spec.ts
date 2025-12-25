@@ -1,10 +1,10 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {
-    IntersectionObserverService,
     WA_INTERSECTION_ROOT,
     WA_INTERSECTION_ROOT_MARGIN,
     WA_INTERSECTION_THRESHOLD,
+    WaIntersectionObserverService,
 } from '@ng-web-apis/intersection-observer';
 import {take} from 'rxjs';
 
@@ -31,7 +31,7 @@ describe('IntersectionObserverService', () => {
                 },
             })
             .runInInjectionContext(() => {
-                const service = new IntersectionObserverService();
+                const service = new WaIntersectionObserverService();
 
                 service.pipe(take(1)).subscribe({
                     next: () => {
