@@ -7,7 +7,7 @@ import {WA_INTERSECTION_ROOT_MARGIN} from '../tokens/intersection-root-margin';
 import {WA_INTERSECTION_THRESHOLD} from '../tokens/intersection-threshold';
 
 @Injectable()
-export class IntersectionObserverService extends Observable<IntersectionObserverEntry[]> {
+export class WaIntersectionObserverService extends Observable<IntersectionObserverEntry[]> {
     private readonly nativeElement: Element = inject(ElementRef).nativeElement;
     private readonly rootMargin = inject(WA_INTERSECTION_ROOT_MARGIN);
     private readonly threshold = inject(WA_INTERSECTION_THRESHOLD);
