@@ -4,7 +4,9 @@ import {Observable, share} from 'rxjs';
 import {WaIntersectionObserverDirective} from '../directives/intersection-observer.directive';
 
 @Injectable()
-export class WaIntersectionObserveeService extends Observable<IntersectionObserverEntry[]> {
+export class WaIntersectionObserveeService extends Observable<
+    IntersectionObserverEntry[]
+> {
     constructor() {
         const nativeElement: Element = inject(ElementRef).nativeElement;
         const observer = inject(WaIntersectionObserverDirective);

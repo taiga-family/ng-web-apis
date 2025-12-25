@@ -1,10 +1,10 @@
 import {ElementRef} from '@angular/core';
 import {TestBed} from '@angular/core/testing';
 import {
-    WaIntersectionObserverService,
     WA_INTERSECTION_ROOT,
     WA_INTERSECTION_ROOT_MARGIN,
     WA_INTERSECTION_THRESHOLD,
+    WaIntersectionObserverService,
 } from '@ng-web-apis/intersection-observer';
 import {take} from 'rxjs';
 
