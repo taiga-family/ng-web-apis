@@ -10,6 +10,7 @@
         "target": "ES2022",
         "module": "ES2022",
         "useDefineForClassFields": true,
+        "experimentalDecorators": true,
         "lib": ["esnext", "dom"],
         "typeRoots": ["node_modules/@types"],
         "types": ["node", "jasmine", "webmidi", "dom-view-transitions", "dom-speech-recognition"],
