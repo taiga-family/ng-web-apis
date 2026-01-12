@@ -42,6 +42,7 @@
     "peerDependencies": {
         "@angular/common": ">=19.0.0",
         "@angular/core": ">=19.0.0",
+        "@types/dom-speech-recognition": "^0.0.7",
         "rxjs": ">=7.0.0"
     },
     "publishConfig": {
