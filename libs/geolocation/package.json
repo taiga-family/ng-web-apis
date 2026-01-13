@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/geolocation",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "description": "This is a library for declarative use of Geolocation API with Angular",
     "keywords": [
         "angular",
@@ -37,7 +37,7 @@
     "peerDependencies": {
         "@angular/common": ">=19.0.0",
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.2"
+        "@ng-web-apis/common": "^5.0.3"
     },
     "publishConfig": {
         "access": "public"

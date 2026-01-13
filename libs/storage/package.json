@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/storage",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "description": "A library to use Web Storage API with Observables",
     "keywords": [
         "angular",
@@ -34,7 +34,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.2",
+        "@ng-web-apis/common": "^5.0.3",
         "rxjs": ">=7.0.0"
     },
     "publishConfig": {

@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/speech",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "description": "A library for using Web Speech API with Angular",
     "keywords": [
         "angular",
@@ -36,7 +36,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=6.0.0",
-        "@ng-web-apis/common": "^5.0.2",
+        "@ng-web-apis/common": "^5.0.3",
         "@types/dom-speech-recognition": ">=0.0.7"
     },
     "publishConfig": {

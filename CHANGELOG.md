@@ -1,3 +1,10 @@
+### [5.0.3](https://github.com/taiga-family/ng-web-apis/compare/v5.0.2...v5.0.3) (2026-01-13)
+
+### 🐞 Bug Fixes
+
+- **common**: prevents TS errors when a consumer has `skipLibCheck: false` (#1513)
+  [(c1fa44e)](https://github.com/taiga-family/ng-web-apis/commit/c1fa44edc2ca16bf503636fc109b0476de2cfef3)
+
 ### [5.0.2](https://github.com/taiga-family/ng-web-apis/compare/v5.0.1...v5.0.2) (2025-12-25)
 
 ### 🐞 Bug Fixes

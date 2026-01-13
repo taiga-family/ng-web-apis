@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/universal",
-    "version": "5.0.2",
+    "version": "5.0.3",
     "description": "A set of fallback for @ng-web-apis/common for Angular Universal",
     "keywords": [
         "angular",
@@ -37,7 +37,7 @@
     ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.2",
+        "@ng-web-apis/common": "^5.0.3",
         "@types/node": ">=24.10.7",
         "rxjs": ">=7.0.0"
     },
