@@ -43,9 +43,7 @@ describe('MutationObserverDirective', () => {
     let testComponent: Test;
 
     beforeEach((done) => {
-        TestBed.configureTestingModule({
-            imports: [Test],
-        });
+        TestBed.configureTestingModule({imports: [Test]});
 
         fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;

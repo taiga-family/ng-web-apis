@@ -39,9 +39,7 @@ describe('Notification API', () => {
         let notificationSupportToken: boolean;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                providers: [WaNotificationService],
-            });
+            TestBed.configureTestingModule({providers: [WaNotificationService]});
 
             notificationSupportToken = TestBed.inject(WA_NOTIFICATION_SUPPORT);
         });

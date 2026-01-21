@@ -12,9 +12,7 @@ describe('WaViewTransitionService', () => {
                     WaViewTransitionService,
                     {
                         provide: DOCUMENT,
-                        useValue: {
-                            querySelectorAll: () => [],
-                        },
+                        useValue: {querySelectorAll: () => []},
                     },
                 ],
             });

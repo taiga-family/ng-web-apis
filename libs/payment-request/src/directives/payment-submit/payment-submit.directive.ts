@@ -8,9 +8,7 @@ import {WA_PAYMENT_OPTIONS} from '../../tokens/payment-options';
 import {isError} from '../../utils/is-error';
 import {WaPayment} from '../payment/payment.directive';
 
-@Directive({
-    selector: '[waPaymentSubmit]',
-})
+@Directive({selector: '[waPaymentSubmit]'})
 export class WaPaymentSubmit {
     private readonly paymentHost = inject(WaPayment);
     private readonly paymentRequest = inject(WaPaymentRequestService);

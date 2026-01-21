@@ -11,9 +11,7 @@ describe('WA_CSS', () => {
     });
 
     it('injects mock when CSS is not available', () => {
-        TestBed.configureTestingModule({
-            providers: [{provide: WA_WINDOW, useValue: {}}],
-        });
+        TestBed.configureTestingModule({providers: [{provide: WA_WINDOW, useValue: {}}]});
 
         const css = TestBed.inject(WA_CSS);
 

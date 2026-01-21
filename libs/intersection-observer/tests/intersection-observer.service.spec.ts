@@ -16,19 +16,11 @@ describe('IntersectionObserverService', () => {
 
         const nativeElement = document.createElement('div');
 
-        TestBed.overrideProvider(ElementRef, {
-            useValue: {nativeElement},
-        })
-            .overrideProvider(WA_INTERSECTION_ROOT_MARGIN, {
-                useValue: '0px 0px 0px 0px',
-            })
-            .overrideProvider(WA_INTERSECTION_THRESHOLD, {
-                useValue: 0,
-            })
+        TestBed.overrideProvider(ElementRef, {useValue: {nativeElement}})
+            .overrideProvider(WA_INTERSECTION_ROOT_MARGIN, {useValue: '0px 0px 0px 0px'})
+            .overrideProvider(WA_INTERSECTION_THRESHOLD, {useValue: 0})
             .overrideProvider(WA_INTERSECTION_ROOT, {
-                useValue: {
-                    nativeElement: document.body,
-                },
+                useValue: {nativeElement: document.body},
             })
             .runInInjectionContext(() => {
                 const service = new WaIntersectionObserverService();

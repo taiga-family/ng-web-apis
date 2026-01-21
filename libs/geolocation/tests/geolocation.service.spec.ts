@@ -15,10 +15,14 @@ describe('WaGeolocationService', () => {
 
         class FakeGeolocation {
             protected watchPosition(success: any, error: any): void {
-                interval(300).subscribe((number) => success(number.toString()));
+                interval(300).subscribe((number) => {
+                    success(number.toString());
+                });
                 timer(1000)
                     .pipe(take(1))
-                    .subscribe(() => error('error'));
+                    .subscribe(() => {
+                        error('error');
+                    });
             }
 
             protected clearWatch(): void {

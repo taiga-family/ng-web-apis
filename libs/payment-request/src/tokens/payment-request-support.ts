@@ -9,7 +9,5 @@ declare global {
 
 export const WA_PAYMENT_REQUEST_SUPPORT = new InjectionToken<boolean>(
     '[WA_PAYMENT_REQUEST_SUPPORT]',
-    {
-        factory: () => !!inject(WA_WINDOW).PaymentRequest,
-    },
+    {factory: () => !!inject(WA_WINDOW).PaymentRequest},
 );

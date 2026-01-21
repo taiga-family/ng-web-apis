@@ -39,9 +39,7 @@ describe('WaCanvas2d', () => {
     let testComponent: Test;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [Test],
-        });
+        TestBed.configureTestingModule({imports: [Test]});
 
         fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;

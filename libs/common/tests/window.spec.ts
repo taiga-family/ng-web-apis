@@ -16,9 +16,7 @@ describe('WA_WINDOW', () => {
             providers: [
                 {
                     provide: DOCUMENT,
-                    useValue: {
-                        querySelectorAll: () => [],
-                    },
+                    useValue: {querySelectorAll: () => []},
                 },
             ],
         });

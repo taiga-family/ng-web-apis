@@ -21,7 +21,9 @@ export function getPortsStream(
         switchMap((access) => {
             const inputs: Array<MIDIInput | MIDIOutput> = [];
 
-            access?.[ports].forEach((input) => inputs.push(input));
+            access?.[ports].forEach((input) => {
+                inputs.push(input);
+            });
 
             return access
                 ? fromEvent(access, 'statechange').pipe(

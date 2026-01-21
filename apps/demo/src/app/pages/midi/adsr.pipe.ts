@@ -1,9 +1,7 @@
 import {Pipe, type PipeTransform} from '@angular/core';
 import {type AudioParamInput} from '@ng-web-apis/audio';
 
-@Pipe({
-    name: 'adsr',
-})
+@Pipe({name: 'adsr'})
 export class AdsrPipe implements PipeTransform {
     public transform(
         value: number,

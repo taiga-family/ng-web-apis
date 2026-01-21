@@ -39,9 +39,7 @@ const COMPUTED_STYLES_PROXY = new Proxy<CSSStyleDeclaration>(
 const CSS_RULES = new (class extends Array<CSSRule> implements CSSRuleList {
     public item = (): null => null;
 })();
-const BAR_PROP: BarProp = {
-    visible: false,
-};
+const BAR_PROP: BarProp = {visible: false};
 const DB_REQUEST: IDBOpenDBRequest = {
     ...EVENT_TARGET,
     onblocked: null,

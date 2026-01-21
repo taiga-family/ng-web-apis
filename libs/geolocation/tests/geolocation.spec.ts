@@ -8,9 +8,7 @@ describe('Geolocation token', () => {
     let service: any;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            providers: [WaGeolocationService],
-        });
+        TestBed.configureTestingModule({providers: [WaGeolocationService]});
 
         service = TestBed.inject(WaGeolocationService).pipe(
             catchError((_err, caught) => caught),

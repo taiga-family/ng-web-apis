@@ -38,9 +38,7 @@ describe('Destination', () => {
         const timeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                imports: [Test],
-            });
+            TestBed.configureTestingModule({imports: [Test]});
 
             fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
@@ -92,9 +90,7 @@ describe('Destination', () => {
         let testComponent: Test;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                imports: [Test],
-            });
+            TestBed.configureTestingModule({imports: [Test]});
 
             fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
