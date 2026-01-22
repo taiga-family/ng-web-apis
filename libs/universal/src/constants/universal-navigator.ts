@@ -88,9 +88,7 @@ export const NAVIGATOR_MOCK: Navigator = {
     msManipulationViewsEnabled: false,
     msMaxTouchPoints: 0,
     msPointerEnabled: false,
-    permissions: {
-        query: alwaysRejected,
-    },
+    permissions: {query: alwaysRejected},
     plugins: getArray<Plugin>(),
     pointerEnabled: false,
     serviceWorker: {

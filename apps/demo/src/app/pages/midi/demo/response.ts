@@ -9,9 +9,7 @@ const RESPONSE =
 
 export const RESPONSE_BUFFER = new InjectionToken<Promise<AudioBuffer>>(
     '[RESPONSE_BUFFER]',
-    {
-        factory: async () => inject(WA_AUDIO_CONTEXT).decodeAudioData(decode(RESPONSE)),
-    },
+    {factory: async () => inject(WA_AUDIO_CONTEXT).decodeAudioData(decode(RESPONSE))},
 );
 
 function decode(base64: string): ArrayBuffer {

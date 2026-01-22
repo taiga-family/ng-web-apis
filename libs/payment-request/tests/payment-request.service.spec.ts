@@ -34,9 +34,7 @@ describe('WaPaymentRequestService', () => {
         }
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                providers: [WaPaymentRequestService],
-            });
+            TestBed.configureTestingModule({providers: [WaPaymentRequestService]});
 
             canPay = false;
             response = {

@@ -5,16 +5,10 @@ import {provideUserAgent, UNIVERSAL_NAVIGATOR} from '@ng-web-apis/universal';
 window.onbeforeunload = jasmine.createSpy();
 
 describe('UNIVERSAL_NAVIGATOR', () => {
-    const req = {
-        headers: {
-            'user-agent': 'Chrome',
-        },
-    };
+    const req = {headers: {'user-agent': 'Chrome'}};
 
     it('mocks the hell out of window.navigator', () => {
-        TestBed.configureTestingModule({
-            providers: [UNIVERSAL_NAVIGATOR],
-        });
+        TestBed.configureTestingModule({providers: [UNIVERSAL_NAVIGATOR]});
 
         const mock: Navigator = TestBed.inject(WA_NAVIGATOR);
 

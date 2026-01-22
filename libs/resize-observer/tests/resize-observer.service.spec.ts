@@ -15,9 +15,7 @@ describe('ResizeObserver', () => {
                     WaResizeObserverService,
                     {
                         provide: ElementRef,
-                        useValue: {
-                            nativeElement: document.createElement('DIV'),
-                        },
+                        useValue: {nativeElement: document.createElement('DIV')},
                     },
                 ],
             });

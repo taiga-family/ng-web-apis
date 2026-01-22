@@ -6,9 +6,7 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('UNIVERSAL_LOCAL_STORAGE', () => {
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            providers: [UNIVERSAL_LOCAL_STORAGE],
-        });
+        TestBed.configureTestingModule({providers: [UNIVERSAL_LOCAL_STORAGE]});
     });
 
     it('sets and retrieves item', () => {

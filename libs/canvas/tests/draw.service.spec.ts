@@ -14,12 +14,9 @@ window.onbeforeunload = jasmine.createSpy();
 describe('WaDrawService', () => {
     const canvas = document.createElement('canvas');
     const context = canvas.getContext('2d')!;
-    const prop: CanvasMethod = {
-        call: jasmine.createSpy('call'),
-    };
-    const zone = {
-        runOutsideAngular: (fn: any) => fn(),
-    } as unknown as NgZone;
+    // eslint-disable-next-line @typescript-eslint/strict-void-return
+    const prop: CanvasMethod = {call: jasmine.createSpy('call')};
+    const zone = {runOutsideAngular: (fn: any) => fn()} as unknown as NgZone;
 
     xit('calls hooks with context', () => {
         TestBed.overrideProvider(WA_CANVAS_PROPERTIES, {useValue: []})

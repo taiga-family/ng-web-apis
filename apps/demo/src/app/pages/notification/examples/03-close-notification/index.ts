@@ -30,8 +30,6 @@ export class NotificationPageExample3 {
                 ),
                 takeUntil(timer(5_000)), // close stream after 5 seconds
             )
-            .subscribe({
-                complete: () => console.info('Notification closed!'),
-            });
+            .subscribe({complete: () => console.info('Notification closed!')});
     }
 }

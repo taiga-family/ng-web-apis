@@ -22,9 +22,7 @@ describe('Channel', () => {
         let testComponent: Test;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                imports: [Test],
-            });
+            TestBed.configureTestingModule({imports: [Test]});
         });
 
         it('creates node', () => {
@@ -53,9 +51,7 @@ describe('Channel', () => {
         let testComponent: Test;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                imports: [Test],
-            });
+            TestBed.configureTestingModule({imports: [Test]});
         });
 
         it('creates node', () => {

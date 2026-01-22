@@ -32,9 +32,7 @@ describe('Browsers', () => {
 
             expect(
                 isSafari({
-                    ownerDocument: {
-                        defaultView: {navigator: {}},
-                    },
+                    ownerDocument: {defaultView: {navigator: {}}},
                 } as unknown as Element),
             ).toBe(false);
         });

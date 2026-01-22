@@ -10,12 +10,8 @@ describe('provideLocation', () => {
     it('parses request', () => {
         const req: any = {
             url: '/hapica',
-            socket: {
-                encrypted: true,
-            },
-            headers: {
-                host: 'localhost:8080',
-            },
+            socket: {encrypted: true},
+            headers: {host: 'localhost:8080'},
         };
 
         TestBed.configureTestingModule({
@@ -30,14 +26,10 @@ describe('provideLocation', () => {
     it('parses request from REQUEST tokens', () => {
         const req: any = {
             url: 'https://localhost:8080/hapica',
-            headers: {
-                host: 'localhost:8080',
-            },
+            headers: {host: 'localhost:8080'},
         };
 
-        TestBed.configureTestingModule({
-            providers: [{provide: REQUEST, useValue: req}],
-        });
+        TestBed.configureTestingModule({providers: [{provide: REQUEST, useValue: req}]});
 
         expect(String(TestBed.inject(WA_SSR_LOCATION))).toBe(
             'https://localhost:8080/hapica',
@@ -48,9 +40,7 @@ describe('provideLocation', () => {
         const req: any = {
             url: '/hapica',
             socket: {},
-            headers: {
-                host: 'localhost:8080',
-            },
+            headers: {host: 'localhost:8080'},
         };
 
         TestBed.configureTestingModule({

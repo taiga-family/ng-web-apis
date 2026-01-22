@@ -69,9 +69,7 @@ guWw6aFjsVMkkIr7g77ZKPJjPZqIyd7sJAgVGoEGv2xsBxqNgYPj/gAwXEQA7"
     let testComponent: Test;
 
     beforeEach(() => {
-        TestBed.configureTestingModule({
-            imports: [Test, Canvas],
-        });
+        TestBed.configureTestingModule({imports: [Test, Canvas]});
 
         fixture = TestBed.createComponent(Test);
         testComponent = fixture.componentInstance;

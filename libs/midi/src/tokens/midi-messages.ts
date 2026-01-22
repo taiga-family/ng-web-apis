@@ -25,7 +25,9 @@ export const WA_MIDI_MESSAGES = new InjectionToken<Observable<WebMidi.MIDIMessag
                               switchMap(() => {
                                   const inputs: MIDIInput[] = [];
 
-                                  access.inputs.forEach((input) => inputs.push(input));
+                                  access.inputs.forEach((input) => {
+                                      inputs.push(input);
+                                  });
 
                                   return merge(
                                       ...inputs.map((input) =>

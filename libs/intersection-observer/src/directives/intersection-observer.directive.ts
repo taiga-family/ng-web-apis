@@ -24,7 +24,9 @@ export class WaIntersectionObserverDirective extends SafeObserver implements OnD
                 this.callbacks.forEach((callback, element) => {
                     const filtered = entries.filter(({target}) => target === element);
 
-                    return filtered.length && callback(filtered, this);
+                    if (filtered.length) {
+                        callback(filtered, this);
+                    }
                 });
             },
             {

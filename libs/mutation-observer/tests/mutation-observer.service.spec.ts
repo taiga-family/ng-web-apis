@@ -14,13 +14,9 @@ describe('MutationObserver service', () => {
         const elementRef = new ElementRef(element);
 
         TestBed.overrideProvider(WA_MUTATION_OBSERVER_INIT, {
-            useValue: {
-                attributeFilter: ['title'],
-            },
+            useValue: {attributeFilter: ['title']},
         })
-            .overrideProvider(ElementRef, {
-                useValue: elementRef,
-            })
+            .overrideProvider(ElementRef, {useValue: elementRef})
             .runInInjectionContext(() => {
                 const service = new WaMutationObserverService();
 

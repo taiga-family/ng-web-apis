@@ -29,9 +29,7 @@ describe('Audio gain', () => {
         let testComponent: Test;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                imports: [Test],
-            });
+            TestBed.configureTestingModule({imports: [Test]});
 
             fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;
@@ -178,9 +176,7 @@ describe('Audio gain', () => {
         let testComponent: Test;
 
         beforeEach(() => {
-            TestBed.configureTestingModule({
-                imports: [Test],
-            });
+            TestBed.configureTestingModule({imports: [Test]});
 
             fixture = TestBed.createComponent(Test);
             testComponent = fixture.componentInstance;

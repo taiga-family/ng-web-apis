@@ -4,12 +4,7 @@ import {WA_CRYPTO} from '@ng-web-apis/common';
 import {alwaysRejected, identity} from '../utils/functions';
 
 export const CRYPTO_MOCK = {
-    subtle: new Proxy(
-        {},
-        {
-            get: () => () => alwaysRejected,
-        },
-    ),
+    subtle: new Proxy({}, {get: () => () => alwaysRejected}),
     getRandomValues: identity,
 };
 

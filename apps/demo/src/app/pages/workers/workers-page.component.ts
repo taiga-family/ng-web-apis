@@ -9,9 +9,9 @@ import {Clock} from './clock.component';
 function startCompute(): number {
     const start = performance.now();
 
-    Array.from({length: 16000}).forEach((_, index) =>
-        Array.from({length: index}).reduce<number>((sum: number) => sum + 1, 0),
-    );
+    Array.from({length: 16000}).forEach((_, index) => {
+        Array.from({length: index}).reduce<number>((sum: number) => sum + 1, 0);
+    });
 
     return performance.now() - start;
 }
