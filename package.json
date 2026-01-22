@@ -131,7 +131,7 @@
         "@taiga-ui/commitlint-config": "0.393.0",
         "@taiga-ui/core": "4.67.0",
         "@taiga-ui/cspell-config": "0.393.0",
-        "@taiga-ui/editor": "4.50.0",
+        "@taiga-ui/editor": "4.52.0",
         "@taiga-ui/eslint-plugin-experience-next": "0.393.0",
         "@taiga-ui/event-plugins": "4.7.0",
         "@taiga-ui/icons": "4.67.0",
