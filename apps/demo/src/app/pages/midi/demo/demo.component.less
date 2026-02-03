@@ -11,10 +11,10 @@
     &::after {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0.75vw;
-        right: 0.75vw;
-        bottom: 0;
+        inset-block-start: 0;
+        inset-inline-start: 0.75vw;
+        inset-inline-end: 0.75vw;
+        inset-block-end: 0;
         background: darken(#444, 3%);
         background-clip: content-box;
         transform: translateZ(-6.875vw);
@@ -24,9 +24,9 @@
     }
 
     &::after {
-        left: 3.125vw;
-        right: 3.125vw;
-        bottom: auto;
+        inset-inline-start: 3.125vw;
+        inset-inline-end: 3.125vw;
+        inset-block-end: auto;
         block-size: 6.9vw;
         transform-origin: top;
         transform: rotateX(-90deg);
@@ -52,7 +52,7 @@
     block-size: 50vw;
     padding: 0;
     border: none;
-    border-top: 32.5vw solid transparent;
+    border-block-start: 32.5vw solid transparent;
     box-sizing: border-box;
     background-color: #edefee;
     background-clip: content-box;
@@ -93,8 +93,8 @@
     &::after {
         content: '';
         position: absolute;
-        top: -32.25vw;
-        left: 0;
+        inset-block-start: -32.25vw;
+        inset-inline-start: 0;
         background: #edefee;
         block-size: 32.5vw;
         box-shadow:
@@ -106,7 +106,7 @@
     }
 
     &::after {
-        top: 100%;
+        inset-block-start: 100%;
         inline-size: 100%;
         block-size: 6.875vw;
         transform-origin: top;
@@ -121,28 +121,28 @@
 
 .key-1::before,
 .key-6::before {
-    right: 2.5vw;
+    inset-inline-end: 2.5vw;
 }
 
 .key-3::before {
-    left: 1vw;
-    right: 1vw;
+    inset-inline-start: 1vw;
+    inset-inline-end: 1vw;
 }
 
 .key-5::before,
 .key-12::before {
-    left: 2.5vw;
-    right: 0;
+    inset-inline-start: 2.5vw;
+    inset-inline-end: 0;
 }
 
 .key-8::before {
-    left: 1.5vw;
-    right: 2vw;
+    inset-inline-start: 1.5vw;
+    inset-inline-end: 2vw;
 }
 
 .key-10::before {
-    left: 2vw;
-    right: 1.5vw;
+    inset-inline-start: 2vw;
+    inset-inline-end: 1.5vw;
 }
 
 .key-2,
@@ -184,15 +184,15 @@
         &::before,
         &::after {
             background-color: #4bc9f3;
-            border-bottom-color: #4bc9f3;
+            border-block-end-color: #4bc9f3;
         }
     }
 
     &::before {
         content: '';
         position: absolute;
-        top: 0;
-        left: 0.125vw;
+        inset-block-start: 0;
+        inset-inline-start: 0.125vw;
         background: #444;
         border-top-left-radius: 0.75vw;
         block-size: 100%;
@@ -206,12 +206,12 @@
     &::after {
         content: '';
         position: absolute;
-        top: 100%;
-        left: -0.25vw;
+        inset-block-start: 100%;
+        inset-inline-start: -0.25vw;
         inline-size: 100%;
-        border-bottom: 3.875vw solid darken(#444, 2%);
-        border-left: 0.25vw solid transparent;
-        border-right: 0.25vw solid transparent;
+        border-block-end: 3.875vw solid darken(#444, 2%);
+        border-inline-start: 0.25vw solid transparent;
+        border-inline-end: 0.25vw solid transparent;
         block-size: 0;
         transform-origin: top;
         transform: rotateX(-90deg);
@@ -225,7 +225,7 @@
     }
 
     &:nth-child(-n + 12)::before {
-        left: 99%;
+        inset-inline-start: 99%;
         transform: rotateY(87deg);
     }
 }
