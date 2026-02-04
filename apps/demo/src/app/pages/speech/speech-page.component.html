@@ -28,7 +28,7 @@
             tuiSelect
             [(ngModel)]="voice"
         />
-        <tui-data-list *tuiTextfieldDropdown>
+        <tui-data-list *tuiDropdown>
             @for (item of voices$ | async; track $index) {
                 <button
                     new

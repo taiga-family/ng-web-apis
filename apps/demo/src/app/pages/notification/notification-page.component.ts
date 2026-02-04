@@ -34,17 +34,17 @@ export default class NotificationPage {
 
     protected readonly gettingPermissionExample: Record<string, TuiRawLoaderContent> = {
         'index.ts': import('./examples/01-getting-permission/index.ts?raw'),
-        'index.html': import('./examples/01-getting-permission/index.html?raw'),
+        'index.html': import('./examples/01-getting-permission/index.html'),
     };
 
     protected readonly createNotificationExample: Record<string, TuiRawLoaderContent> = {
         'index.ts': import('./examples/02-create-notification/index.ts?raw'),
-        'index.html': import('./examples/02-create-notification/index.html?raw'),
+        'index.html': import('./examples/02-create-notification/index.html'),
     };
 
     protected readonly closeNotificationExample: Record<string, TuiRawLoaderContent> = {
         'index.ts': import('./examples/03-close-notification/index.ts?raw'),
-        'index.html': import('./examples/03-close-notification/index.html?raw'),
+        'index.html': import('./examples/03-close-notification/index.html'),
     };
 
     protected readonly listenNotificationEventsExample: Record<
@@ -52,6 +52,6 @@ export default class NotificationPage {
         TuiRawLoaderContent
     > = {
         'index.ts': import('./examples/04-listen-notification-events/index.ts?raw'),
-        'index.html': import('./examples/04-listen-notification-events/index.html?raw'),
+        'index.html': import('./examples/04-listen-notification-events/index.html'),
     };
 }

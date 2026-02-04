@@ -56,4 +56,4 @@ export const WaCanvas = [
     WaCanvasRadPipe,
     WaCanvasTransform,
     WaCanvasTransformPipe,
-];
+] as const;

@@ -1,28 +1,23 @@
 {
     "name": "demo",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/demo/src",
+    "sourceRoot": "projects/{projectName}",
     "projectType": "application",
     "prefix": "app",
     "targets": {
         "build": {
-            "executor": "@nx/angular:webpack-browser",
+            "executor": "@nx/angular:application",
             "outputs": ["{workspaceRoot}/dist/demo"],
             "options": {
                 "baseHref": "/",
-                "customWebpackConfig": {
-                    "path": "apps/demo/webpack.config.ts"
-                },
-                "aot": true,
-                "outputPath": "dist/demo/browser",
-                "index": "apps/demo/src/index.html",
-                "main": "apps/demo/src/main.ts",
-                "polyfills": "apps/demo/src/polyfills.ts",
-                "tsConfig": "apps/demo/tsconfig.app.json",
+                "outputPath": "dist/{projectName}",
+                "index": "{projectRoot}/src/index.html",
+                "browser": "{projectRoot}/src/main.ts",
+                "polyfills": ["./apps/demo/src/polyfills.ts"],
+                "tsConfig": "{projectRoot}/tsconfig.app.json",
                 "styles": [
                     "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
                     "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
-                    "node_modules/@taiga-ui/styles/taiga-ui-global.less",
                     "apps/demo/src/styles.css",
                     "node_modules/prismjs/themes/prism-okaidia.css"
                 ],
@@ -33,6 +28,17 @@
                     "node_modules/prismjs/components/prism-markup.min.js",
                     "node_modules/prismjs/components/prism-typescript.min.js"
                 ],
+                "server": "{projectRoot}/src/main.server.ts",
+                "ssr": {
+                    "entry": "{projectRoot}/src/server.ts"
+                },
+                "outputMode": "server",
+                "loader": {
+                    ".md": "text",
+                    ".html": "text",
+                    ".less": "text",
+                    ".svg": "text"
+                },
                 "assets": [
                     {
                         "glob": "**/*",
@@ -55,33 +61,20 @@
                         "output": "/"
                     }
                 ],
-                "serviceWorker": true,
-                "ngswConfigPath": "apps/demo/ngsw-config.json"
+                "plugins": ["apps/demo/esbuild-plugins/ng-web-apis-as-taiga-ui-dep.plugin.js"],
+                "serviceWorker": false
             },
             "configurations": {
                 "development": {
-                    "buildOptimizer": false,
                     "optimization": false,
-                    "vendorChunk": true,
                     "extractLicenses": false,
                     "sourceMap": true,
-                    "namedChunks": true
+                    "server": false,
+                    "ssr": false,
+                    "outputMode": "static"
                 },
                 "github": {
-                    "baseHref": "/ng-web-apis/",
-                    "fileReplacements": [
-                        {
-                            "replace": "apps/demo/src/environments/environment.ts",
-                            "with": "apps/demo/src/environments/environment.prod.ts"
-                        }
-                    ],
-                    "optimization": true,
-                    "outputHashing": "all",
-                    "sourceMap": false,
-                    "namedChunks": false,
-                    "buildOptimizer": true,
-                    "statsJson": false,
-                    "progress": false
+                    "baseHref": "/ng-web-apis/"
                 },
                 "production": {
                     "fileReplacements": [
@@ -90,37 +83,23 @@
                             "with": "apps/demo/src/environments/environment.prod.ts"
                         }
                     ],
-                    "optimization": true,
+                    "tsConfig": "{projectRoot}/tsconfig.app.prod.json",
+                    "serviceWorker": "apps/demo/ngsw-config.json",
                     "outputHashing": "all",
-                    "sourceMap": false,
-                    "namedChunks": false,
-                    "buildOptimizer": true,
-                    "statsJson": false,
-                    "progress": false
+                    "outputMode": "server"
                 }
             },
             "defaultConfiguration": "production"
         },
-        "build-gh-pages": {
-            "executor": "nx:run-commands",
-            "options": {
-                "parallel": false,
-                "commands": [
-                    "echo 'Github pages require special baseHref + 404.html'",
-                    "echo 'Read more: https://angular.io/guide/deployment#deploy-to-github-pages'",
-                    "echo ------",
-                    "nx build demo -c github",
-                    "cp dist/demo/browser/index.html dist/demo/browser/404.html",
-                    "nx run demo:prerender -c github"
-                ]
-            }
-        },
         "serve": {
+            "continuous": true,
             "executor": "@nx/angular:dev-server",
+            "options": {
+                "prebundle": false
+            },
             "configurations": {
                 "production": {
-                    "buildTarget": "{projectName}:build:production",
-                    "aot": true
+                    "buildTarget": "{projectName}:build:production"
                 },
                 "development": {
                     "buildTarget": "{projectName}:build:development"
@@ -128,92 +107,24 @@
             },
             "defaultConfiguration": "development"
         },
-        "serve-ssr": {
-            "executor": "@angular-devkit/build-angular:ssr-dev-server",
-            "options": {},
-            "configurations": {
-                "production": {
-                    "browserTarget": "demo:build:production",
-                    "serverTarget": "demo:server:production"
-                },
-                "development": {
-                    "serverTarget": "demo:server:development",
-                    "browserTarget": "demo:build:development"
-                }
-            },
-            "defaultConfiguration": "development"
-        },
-        "serve-ssl": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "nx mkcert demo && nx serve demo --ssl --open --host 0.0.0.0 --disable-host-check"
-            }
-        },
-        "generate-routes-file": {
-            "executor": "nx:run-commands",
-            "options": {
-                "command": "ts-node ./apps/demo/generate-demo-routes-file.ts"
-            },
-            "configurations": {
-                "github": {}
-            },
-            "defaultConfiguration": "github"
-        },
-        "server": {
-            "executor": "@nx/angular:webpack-server",
-            "options": {
-                "customWebpackConfig": {
-                    "path": "apps/demo/webpack.config.ts"
-                },
-                "outputPath": "dist/demo/server",
-                "main": "apps/demo/server.ts",
-                "tsConfig": "apps/demo/tsconfig.server.json",
-                "sourceMap": true,
-                "optimization": false
-            },
-            "configurations": {
-                "production": {
-                    "outputHashing": "media",
-                    "sourceMap": false,
-                    "optimization": true
-                },
-                "development": {}
-            },
-            "defaultConfiguration": "production"
-        },
-        "prerender": {
-            "executor": "@angular-devkit/build-angular:prerender",
-            "options": {
-                "browserTarget": "demo:build:production",
-                "serverTarget": "demo:server:production",
-                "routesFile": "./apps/demo/routesFile.txt"
-            },
-            "configurations": {
-                "production": {
-                    "browserTarget": "demo:build:production"
-                },
-                "github": {
-                    "browserTarget": "demo:build:github"
-                }
-            },
-            "dependsOn": [
-                {
-                    "target": "generate-routes-file",
-                    "params": "ignore"
-                }
-            ]
-        },
-        "mkcert": {
+        "build-firebase-preview": {
             "executor": "nx:run-commands",
             "options": {
                 "parallel": false,
                 "commands": [
-                    "echo \"mkcert is a simple tool for making locally-trusted development certificates\"",
-                    "echo \"Read about installation and more: https://github.com/FiloSottile/mkcert\"",
-                    "echo ------",
-                    "mkcert -install",
-                    "mkdir -p .ssl",
-                    "mkcert -key-file .ssl/localhost-key.pem -cert-file .ssl/localhost.pem localhost 127.0.0.1 $(ifconfig | grep \"inet \" | grep -Fv 127.0.0.1 | awk '{print $2}' | tr '\\n' ' ') ::1"
+                    "nx build demo -c production",
+                    "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"
+                ]
+            }
+        },
+        "build-gh-pages": {
+            "executor": "nx:run-commands",
+            "options": {
+                "parallel": false,
+                "commands": [
+                    "nx build demo -c github,production",
+                    "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html",
+                    "cp dist/demo/browser/index.html dist/demo/browser/404.html"
                 ]
             }
         }

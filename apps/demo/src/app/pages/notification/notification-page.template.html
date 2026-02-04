@@ -54,16 +54,17 @@
                 </p>
             </ng-template>
 
-            <tui-notification
+            <div
                 appearance="warning"
                 size="m"
+                tuiNotification
             >
                 <div>
                     Notification prompting can only be done from a user gesture (e.g. clicking a button)!
                     <br />
                     Otherwise, some browsers will silently disallow notification permission requests.
                 </div>
-            </tui-notification>
+            </div>
 
             <notification-page-example-1 />
         </tui-doc-example>
@@ -101,12 +102,13 @@
             </ng-template>
 
             @if (notificationPermission === 'denied') {
-                <tui-notification
+                <div
                     appearance="error"
                     size="m"
+                    tuiNotification
                 >
                     {{ deniedPermissionNotification }}
-                </tui-notification>
+                </div>
             }
 
             <notification-page-example-2 />
@@ -134,12 +136,13 @@
             </ng-template>
 
             @if (notificationPermission === 'denied') {
-                <tui-notification
+                <div
                     appearance="error"
                     size="m"
+                    tuiNotification
                 >
                     {{ deniedPermissionNotification }}
-                </tui-notification>
+                </div>
             }
 
             <notification-page-example-3 />
@@ -178,12 +181,13 @@
             </ng-template>
 
             @if (notificationPermission === 'denied') {
-                <tui-notification
+                <div
                     appearance="error"
                     size="m"
+                    tuiNotification
                 >
                     {{ deniedPermissionNotification }}
-                </tui-notification>
+                </div>
             }
 
             <notification-page-example-4 />

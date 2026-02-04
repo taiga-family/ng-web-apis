@@ -1,9 +1,9 @@
 import taiga from '@taiga-ui/eslint-plugin-experience-next';
-import {globalIgnores} from 'eslint/config';
+// import {globalIgnores} from 'eslint/config';
 
 export default [
     ...taiga.configs.recommended,
-    globalIgnores(['*.js', '**/*.js']),
+    // globalIgnores(['*.js', '**/*.js']),
     {
         files: ['**/*.spec.ts'],
         rules: {

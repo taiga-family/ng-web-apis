@@ -1,10 +1,5 @@
-import {CommonModule, type KeyValue} from '@angular/common';
-import {
-    ChangeDetectionStrategy,
-    Component,
-    inject,
-    type TrackByFunction,
-} from '@angular/core';
+import {CommonModule} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
 import {WaWebAudio} from '@ng-web-apis/audio';
 import {notes, toData, WA_MIDI_MESSAGES, WaMidiFrequencyPipe} from '@ng-web-apis/midi';
 import {
@@ -79,11 +74,6 @@ export class Demo {
     protected onMouseUp(): void {
         this.mouseup$.next();
     }
-
-    protected noteKey: TrackByFunction<KeyValue<number, number | null>> = (
-        _index: number,
-        {key}: KeyValue<number, number | null>,
-    ): number => key;
 
     protected getClass(notes: Map<number, number | null>, note: number): string {
         const className = !notes.get(note) ? '' : '_active';

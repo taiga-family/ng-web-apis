@@ -7,10 +7,10 @@
             "@ng-web-apis/common": ["./dist/common"],
             "@ng-web-apis/universal": ["./dist/universal"],
             "@ng-web-apis/universal/*": ["./dist/universal/*"],
-            "@ng-web-apis/audio": ["./dist/universal"],
+            "@ng-web-apis/audio": ["./dist/audio"],
+            "@ng-web-apis/audio/*": ["./dist/audio/*"],
             "@ng-web-apis/storage": ["./dist/storage"],
-            "@ng-web-apis/audio/*": ["./dist/universal/*"],
-            "@ng-web-apis/canvas": ["./dist/universal"],
+            "@ng-web-apis/canvas": ["./dist/canvas"],
             "@ng-web-apis/speech": ["./dist/speech"],
             "@ng-web-apis/geolocation": ["./dist/geolocation"],
             "@ng-web-apis/mutation-observer": ["./dist/mutation-observer"],
@@ -23,9 +23,7 @@
             "@ng-web-apis/resize-observer": ["./dist/resize-observer"],
             "@ng-web-apis/view-transition": ["./dist/view-transition"],
             "@ng-web-apis/notification": ["./dist/notification"],
-            "@ng-web-apis/platform": ["./dist/platform"],
-            "rxjs": ["node_modules/rxjs"],
-            "rxjs/*": ["node_modules/rxjs/*"]
+            "@ng-web-apis/platform": ["./dist/platform"]
         }
     }
 }

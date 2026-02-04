@@ -13,8 +13,7 @@ import {MarkdownModule} from 'ngx-markdown';
 export default class CommonPage {
     protected readonly isIos = inject(WA_IS_IOS);
 
-    protected readonly readme =
-        import('../../../../../../libs/platform/README.md?raw').then((a) =>
-            a.default.replace('![logo](logo.svg) ', ''),
-        ) as any as Promise<string>;
+    protected readonly readme = import('../../../../../../libs/platform/README.md').then(
+        (a) => a.default.replace('![logo](logo.svg) ', ''),
+    ) as any as Promise<string>;
 }
