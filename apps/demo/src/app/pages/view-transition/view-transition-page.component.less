@@ -48,9 +48,12 @@
 
     img {
         display: block;
-        view-transition-name: expandable-image;
         border-radius: 1rem;
         box-shadow: 0 0.75rem 2.25rem rgba(0, 0, 0, 0.2);
         inline-size: 100%;
+
+        @supports (view-transition-name: expandable-image) {
+            view-transition-name: expandable-image;
+        }
     }
 }

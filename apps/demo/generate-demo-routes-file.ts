@@ -16,7 +16,7 @@ import {join} from 'node:path';
     );
     const routes =
         demoPathEnumContent
-            .match(/['"`](.*)['"`]/g)
+            .match(/['"`].*['"`]/g)
             ?.map((route) => route.replaceAll(/['"`]/g, '')) || [];
 
     console.info('Generated routes:');
