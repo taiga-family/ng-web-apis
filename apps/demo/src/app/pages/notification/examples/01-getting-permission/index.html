@@ -1,9 +1,19 @@
 @switch (notificationPermissionState$ | async) {
     @case ('granted') {
-        <tui-badge appearance="success">Permission is granted</tui-badge>
+        <span
+            appearance="success"
+            tuiBadge
+        >
+            Permission is granted
+        </span>
     }
     @case ('denied') {
-        <tui-badge appearance="error">Permission is denied</tui-badge>
+        <span
+            appearance="error"
+            tuiBadge
+        >
+            Permission is denied
+        </span>
     }
     @default {
         <button

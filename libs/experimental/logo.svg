@@ -1,17 +1,26 @@
 <svg xmlns="http://www.w3.org/2000/svg" width="64" height="64" viewBox="0 0 512 512">
-    <g>
-        <style type="text/css">
-            .st0 {
-                fill: #e90364;
-            }
-            .st1 {
-                fill: #f637e3;
-            }
-            .st2 {
-                fill: #ffffff;
-            }
-        </style>
+    <defs>
+        <linearGradient id="edgeGradient" x1="0%" y1="0%" x2="100%" y2="100%">
+            <stop offset="0%" stop-color="#00f0ff" />
+            <stop offset="35%" stop-color="#00c8ff" />
+            <stop offset="65%" stop-color="#6a5cff" />
+            <stop offset="100%" stop-color="#e90364" />
+        </linearGradient>
+    </defs>
 
+    <style type="text/css">
+        .st0 {
+            fill: url(#edgeGradient);
+        }
+        .st1 {
+            fill: url(#edgeGradient);
+        }
+        .st2 {
+            fill: #ffffff;
+        }
+    </style>
+
+    <g>
         <g transform="matrix(2.51222,0,0,2.51222,-1123.504,-1123.467)">
             <polygon
                 points="549.3164,448.91835 456.2164,482.11837 470.4164,605.21834 549.3164,648.91836 628.21643,605.21834 642.41644,482.11837"
@@ -23,7 +32,8 @@
             />
         </g>
 
-        <g transform="translate(256 256) scale(1.1)">
+        <!-- Увеличенная молния -->
+        <g transform="translate(256 256) scale(1.45)">
             <path class="st2" d="M-20 -110 L30 -20 H5 L35 90 L-35 0 H-5 Z" />
         </g>
     </g>

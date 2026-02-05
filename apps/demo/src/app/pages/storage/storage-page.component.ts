@@ -13,6 +13,6 @@ import {Example} from './example/example.component';
 export default class StoragePage {
     protected readonly example = {
         TypeScript: import('./example/example.component.ts?raw'),
-        HTML: import('./example/example.template.html?raw'),
+        HTML: import('./example/example.template.html'),
     };
 }

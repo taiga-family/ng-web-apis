@@ -1,7 +1,7 @@
 @let notes = notes$ | async;
 
 @if (notes) {
-    @for (note of notes | keyvalue; track noteKey) {
+    @for (note of notes | keyvalue; track note.key) {
         @if (note.value !== null) {
             <ng-container
                 autoplay

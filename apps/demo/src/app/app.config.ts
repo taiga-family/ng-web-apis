@@ -1,25 +1,25 @@
 import {LocationStrategy, PathLocationStrategy} from '@angular/common';
 import {type ApplicationConfig, importProvidersFrom} from '@angular/core';
 import {provideAnimationsAsync} from '@angular/platform-browser/animations/async';
-// import {provideRouter, withInMemoryScrolling} from '@angular/router';
+import {provideRouter, withInMemoryScrolling} from '@angular/router';
 import {WA_POSITION_OPTIONS} from '@ng-web-apis/geolocation';
-import {provideEventPlugins} from '@taiga-ui/event-plugins';
+import {provideTaiga} from '@taiga-ui/core';
 import {HIGHLIGHT_OPTIONS} from 'ngx-highlightjs';
 import {MarkdownModule} from 'ngx-markdown';
 
-// import {ROUTES} from './app.routes';
+import {ROUTES} from './app.routes';
 
 export const config: ApplicationConfig = {
     providers: [
         provideAnimationsAsync(),
         importProvidersFrom(MarkdownModule.forRoot()),
-        // provideRouter(
-        //     ROUTES,
-        //     withInMemoryScrolling({
-        //         scrollPositionRestoration: 'enabled',
-        //         anchorScrolling: 'enabled',
-        //     }),
-        // ),
+        provideRouter(
+            ROUTES,
+            withInMemoryScrolling({
+                scrollPositionRestoration: 'enabled',
+                anchorScrolling: 'enabled',
+            }),
+        ),
         {
             provide: HIGHLIGHT_OPTIONS,
             useValue: {
@@ -35,6 +35,6 @@ export const config: ApplicationConfig = {
             provide: WA_POSITION_OPTIONS,
             useValue: {enableHighAccuracy: true, timeout: 3000, maximumAge: 1000},
         },
-        provideEventPlugins(),
+        provideTaiga(),
     ],
 };

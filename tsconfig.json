@@ -8,12 +8,12 @@
         "esModuleInterop": true,
         "outDir": "./dist",
         "target": "ES2022",
-        "module": "ES2022",
+        "module": "ESNext",
         "useDefineForClassFields": true,
         "experimentalDecorators": true,
         "lib": ["esnext", "dom"],
-        "typeRoots": ["node_modules/@types"],
-        "types": ["node", "jasmine", "webmidi", "dom-view-transitions", "dom-speech-recognition"],
+        "typeRoots": ["node_modules/@types", "node_modules/@taiga-ui/tsconfig"],
+        "types": ["node", "jasmine", "webmidi", "dom-view-transitions", "dom-speech-recognition", "ng-dev-mode"],
         "paths": {
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
             "@ng-web-apis/audio": ["./libs/audio/src/index.ts"],
@@ -28,6 +28,7 @@
             "@ng-web-apis/payment-request": ["./libs/payment-request/src/index.ts"],
             "@ng-web-apis/permissions": ["./libs/permissions/src/index.ts"],
             "@ng-web-apis/platform": ["./libs/platform/src/index.ts"],
+            "@ng-web-apis/platform/*": ["./libs/platform/src/*"],
             "@ng-web-apis/resize-observer": ["./libs/resize-observer/src/index.ts"],
             "@ng-web-apis/screen-orientation": ["./libs/screen-orientation/src/index.ts"],
             "@ng-web-apis/speech": ["./libs/speech/src/index.ts"],
@@ -35,9 +36,7 @@
             "@ng-web-apis/universal": ["./libs/universal/src/index.ts"],
             "@ng-web-apis/universal/*": ["./libs/universal/*"],
             "@ng-web-apis/view-transition": ["./libs/view-transition/src/index.ts"],
-            "@ng-web-apis/workers": ["./libs/workers/src/index.ts"],
-            "rxjs": ["node_modules/rxjs"],
-            "rxjs/*": ["node_modules/rxjs/*"]
+            "@ng-web-apis/workers": ["./libs/workers/src/index.ts"]
         },
         "skipLibCheck": true
     }

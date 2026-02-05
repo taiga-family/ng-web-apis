@@ -1,4 +1,4 @@
-# ![logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/common/logo.svg) experimental utils for Web APIs
+# ![logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/experimental/logo.svg) experimental utils for Web APIs
 
 [![npm version](https://img.shields.io/npm/v/@ng-web-apis/experimental.svg)](https://npmjs.com/package/@ng-web-apis/common)
 

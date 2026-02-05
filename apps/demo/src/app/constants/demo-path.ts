@@ -3,6 +3,7 @@ export enum DemoPath {
     HomePage = 'home',
     CommonPage = 'common',
     PlatformPage = 'platform',
+    ExperimentalPage = 'experimental',
     UniversalPage = 'universal',
     AudioPage = 'audio',
     ResizeObserverPage = 'resize-observer',

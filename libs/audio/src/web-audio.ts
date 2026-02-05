@@ -54,4 +54,4 @@ export const WaWebAudio = [
     WaWorklet,
     WaAudioParamPipe,
     WaPeriodicWavePipe,
-];
+] as const;
