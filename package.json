@@ -154,7 +154,7 @@
         "karma-chrome-launcher": "3.2.0",
         "karma-coverage": "2.2.1",
         "karma-jasmine": "5.1.0",
-        "karma-jasmine-html-reporter": "2.1.0",
+        "karma-jasmine-html-reporter": "2.2.0",
         "ng-packagr": "19.2.2",
         "ngx-highlightjs": "10.0.0",
         "ngx-markdown": "19.1.1",
