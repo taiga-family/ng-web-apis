@@ -73,9 +73,6 @@
                     "ssr": false,
                     "outputMode": "static"
                 },
-                "github": {
-                    "baseHref": "/ng-web-apis/"
-                },
                 "production": {
                     "fileReplacements": [
                         {
@@ -111,10 +108,7 @@
             "executor": "nx:run-commands",
             "options": {
                 "parallel": false,
-                "commands": [
-                    "nx build demo -c production",
-                    "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"
-                ]
+                "commands": ["nx build demo", "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"]
             }
         },
         "build-gh-pages": {
@@ -122,7 +116,7 @@
             "options": {
                 "parallel": false,
                 "commands": [
-                    "nx build demo -c github,production",
+                    "nx build demo --base-href /ng-web-apis/",
                     "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html",
                     "cp dist/demo/browser/index.html dist/demo/browser/404.html"
                 ]
