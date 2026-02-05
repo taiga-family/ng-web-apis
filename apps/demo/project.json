@@ -108,10 +108,7 @@
             "executor": "nx:run-commands",
             "options": {
                 "parallel": false,
-                "commands": [
-                    "nx build demo",
-                    "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"
-                ]
+                "commands": ["nx build demo", "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"]
             }
         },
         "build-gh-pages": {
