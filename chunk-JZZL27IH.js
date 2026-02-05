@@ -1,0 +1,1 @@
+import"./chunk-GAL4ENT6.js";var s="# ![ng-web-apis logo](https://raw.githubusercontent.com/taiga-family/ng-web-apis/main/libs/platform/logo.svg) Platform\n\n## Install\n\n```bash\nnpm i @ng-web-apis/platform\n```\n\n## Tokens\n\n- `WA_IS_MOBILE`\n- `WA_IS_IOS`\n- `WA_IS_ANDROID`\n- `WA_IS_WEBKIT`\n";export{s as default};

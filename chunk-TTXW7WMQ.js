@@ -1,0 +1,20 @@
+import{b as q}from"./chunk-MXA5LQK5.js";import{b as Y}from"./chunk-NSMAPXG6.js";import"./chunk-PEJ7EE5R.js";import"./chunk-OTLIHRLE.js";import"./chunk-JYWUUMHF.js";import"./chunk-34U4OIOH.js";import"./chunk-5OKOC4JC.js";import"./chunk-UNR3ZOEG.js";import"./chunk-Y7XNAN3T.js";import"./chunk-PCT2X63S.js";import{i as v,j as z,l as g,p as K}from"./chunk-X37QOLRV.js";import{B as b,Bb as k,Bc as l,C as O,E as $,N as S,Oc as m,Pb as L,Pc as d,Qc as V,Rb as j,Sa as I,Xb as a,Yb as p,Zb as A,ca as N,e as D,ea as T,fc as U,h as f,jb as R,jc as E,lc as y,n as P,pa as B,u as c,wa as x,xa as W,zc as s}from"./chunk-KG2R5REB.js";import{g as F}from"./chunk-GAL4ENT6.js";var G=`
+function(fn){
+    function isFunction(type){
+        return type === 'function';
+    }
+
+    self.addEventListener('message', function(e) {
+        var result = fn.call(null, e.data);
+        if (result && [typeof result.then, typeof result.catch].every(isFunction)){
+            result
+                .then(postMessage)
+                .catch(function(error) {
+                    setTimeout(function(){throw error}, 0)
+                })
+        } else {
+            postMessage(result);
+        }
+    })
+}
+`;var u=class r extends D{worker;url;destroy$;constructor(o,e){let t,i;try{t=new Worker(o,e)}catch(n){i=n}super(n=>{let _=P;i?n.error(i):this.destroy$.isStopped?n.complete():t&&(_=$(b(t,"message").pipe(T(h=>n.next(h))),b(t,"error").pipe(T(h=>n.error(h)))).pipe(N(this.destroy$))),_.subscribe().add(n)}),this.worker=t,this.url=o,this.destroy$=new f}static fromFunction(o,e){return new r(r.createFnUrl(o),e)}static execute(o,e){return F(this,null,function*(){let t=r.fromFunction(o),i=t.pipe(S(1)).toPromise();return t.postMessage(e),i.then(n=>(t.terminate(),n))})}static createFnUrl(o){let e=`(${G})(${o});`,t=new Blob([e],{type:"text/javascript"});return URL.createObjectURL(t)}terminate(){this.destroy$.isStopped||(this.worker&&this.worker.terminate(),URL.revokeObjectURL(this.url),this.destroy$.next(),this.destroy$.complete())}postMessage(o){this.worker&&this.worker.postMessage(o)}};function M(){return c(({data:r})=>r)}var w=class r{date$=O(0,1e3).pipe(c(()=>Date.now()));static \u0275fac=function(e){return new(e||r)};static \u0275cmp=k({type:r,selectors:[["app-clock"]],decls:3,vars:6,template:function(e,t){e&1&&(s(0),m(1,"async"),m(2,"date")),e&2&&l(" ",V(2,3,d(1,1,t.date$),"mediumTime")," ")},dependencies:[g,v,z],encapsulation:2,changeDetection:0})};function Z(r,o){if(r&1){let e=U();A(0,"app-clock"),a(1,"div",0)(2,"button",1),E("click",function(){x(e);let i=y();return W(i.workerThread.postMessage())}),s(3," Run in worker process "),p(),a(4,"p"),s(5),m(6,"async"),p(),a(7,"div",2),s(8," This would be calculated in several seconds in a background thread "),p()(),a(9,"div",0)(10,"button",1),E("click",function(){x(e);let i=y();return W(i.emitter.next())}),s(11," Run in main process "),p(),a(12,"p"),s(13),m(14,"async"),p(),a(15,"div",2),s(16," This would freeze your main thread for several seconds "),p()()}if(r&2){let e=y();R(5),l("Execution time: ",d(6,2,e.workerData$)),R(8),l("Execution time: ",d(14,4,e.result$))}}function H(){let r=performance.now();return Array.from({length:16e3}).forEach((o,e)=>{Array.from({length:e}).reduce(t=>t+1,0)}),performance.now()-r}var C=class r{platformId=B(I);isBrowser=K(this.platformId);workerThread=u.fromFunction(H);workerData$=this.workerThread.pipe(M());emitter=new f;result$=this.emitter.pipe(c(H));static \u0275fac=function(e){return new(e||r)};static \u0275cmp=k({type:r,selectors:[["workers-page"]],decls:1,vars:1,consts:[[1,"example"],["appearance","secondary","tuiButton","","type","button",3,"click"],["size","m","tuiNotification",""]],template:function(e,t){e&1&&L(0,Z,17,6),e&2&&j(t.isBrowser?0:-1)},dependencies:[w,g,Y,q,v],styles:["[_nghost-%COMP%]{display:block;max-inline-size:37.5rem;margin:0 auto}.example[_ngcontent-%COMP%]{min-inline-size:22.5rem;border-block-start:1px solid #dcdcdc;margin-block-start:1rem;padding-block-start:1rem}"],changeDetection:0})};export{C as default};

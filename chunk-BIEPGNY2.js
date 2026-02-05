@@ -1,0 +1,35 @@
+import"./chunk-GAL4ENT6.js";var i=`<h3>
+    Value from
+    <code>WA_STORAGE_EVENT</code>
+    : {{ value$ | async }}
+</h3>
+<p tuiGroup>
+    <tui-textfield>
+        <label tuiLabel>Native update</label>
+        <input
+            tuiTextfield
+            [ngModel]="native"
+            (ngModelChange)="withStorage($event)"
+        />
+    </tui-textfield>
+    <tui-textfield>
+        <label tuiLabel>With service</label>
+        <input
+            tuiTextfield
+            [ngModel]="service"
+            (ngModelChange)="withService($event)"
+        />
+    </tui-textfield>
+</p>
+<div
+    size="m"
+    tuiNotification
+>
+    <div>
+        Native event is only triggered with update happens in another tab. Try opening this page in another tab and type
+        into the first input. Use
+        <code>WaStorageService</code>
+        if you need to know about changes in the same tab too.
+    </div>
+</div>
+`;export{i as default};
