@@ -1,0 +1,37 @@
+{
+    "name": "experimental",
+    "$schema": "../../node_modules/nx/schemas/project-schema.json",
+    "sourceRoot": "libs/experimental",
+    "projectType": "library",
+    "targets": {
+        "build": {
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "outputs": ["{workspaceRoot}/dist/{projectName}"],
+            "options": {
+                "tsConfig": "tsconfig.build.json",
+                "project": "libs/{projectName}/ng-package.json"
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "params": "forward",
+                    "dependencies": true
+                }
+            ]
+        },
+        "publish": {
+            "executor": "nx:run-commands",
+            "options": {
+                "parallel": false,
+                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"]
+            },
+            "dependsOn": [
+                {
+                    "target": "build",
+                    "params": "ignore",
+                    "dependencies": false
+                }
+            ]
+        }
+    }
+}
