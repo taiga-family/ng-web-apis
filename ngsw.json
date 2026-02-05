@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1770232342967,
+  "timestamp": 1770273390755,
   "index": "/ng-web-apis/index.html",
   "assetGroups": [
     {
@@ -45,6 +45,7 @@
         "/ng-web-apis/assets/logos/audio/logo.svg",
         "/ng-web-apis/assets/logos/canvas/logo.svg",
         "/ng-web-apis/assets/logos/common/logo.svg",
+        "/ng-web-apis/assets/logos/experimental/logo.svg",
         "/ng-web-apis/assets/logos/geolocation/logo.svg",
         "/ng-web-apis/assets/logos/intersection-observer/logo.svg",
         "/ng-web-apis/assets/logos/midi/logo.svg",
@@ -4084,6 +4085,7 @@
     "/ng-web-apis/assets/logos/audio/logo.svg": "5b03e6f71a2f5135b463aec5ac7dc8aee3994946",
     "/ng-web-apis/assets/logos/canvas/logo.svg": "8826a62851d06b9bd31a88e4c3f6d17661edff68",
     "/ng-web-apis/assets/logos/common/logo.svg": "6afb8ab973e242f2e870b51f14a89e72ec83b65d",
+    "/ng-web-apis/assets/logos/experimental/logo.svg": "dd9e1e8b5abfee0af788c7a13bac259abcb48fd1",
     "/ng-web-apis/assets/logos/geolocation/logo.svg": "556f5d6169a929191a199a1c2e12b87b0fc835ac",
     "/ng-web-apis/assets/logos/intersection-observer/logo.svg": "65ff56176f30fa479fd4f5857ae56714cfd242b4",
     "/ng-web-apis/assets/logos/midi/logo.svg": "4b3f256007675b035210609b0f91311da3b70162",
