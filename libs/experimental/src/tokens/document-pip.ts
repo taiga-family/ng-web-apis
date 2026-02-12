@@ -28,3 +28,8 @@ export const WA_DOCUMENT_PIP = new InjectionToken<DocumentPictureInPicture | nul
     '[WA_DOCUMENT_PIP]',
     {factory: () => inject<ModernWindow>(WA_WINDOW).documentPictureInPicture ?? null},
 );
+
+export const WA_DOCUMENT_PIP_SUPPORTED = new InjectionToken<boolean>(
+    '[WA_DOCUMENT_PIP_SUPPORTED]',
+    {factory: () => !!inject(WA_DOCUMENT_PIP)?.requestWindow},
+);
