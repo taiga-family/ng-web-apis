@@ -37,7 +37,7 @@
     "peerDependencies": {
         "@angular/core": ">=6.0.0",
         "@ng-web-apis/common": "^5.0.3",
-        "@types/dom-speech-recognition": ">=0.0.7"
+        "@types/dom-speech-recognition": ">=0.0.8"
     },
     "publishConfig": {
         "access": "public"
