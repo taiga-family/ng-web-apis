@@ -8,7 +8,7 @@ import {WaIntersectionObserveeService} from '../services/intersection-observee.s
     providers: [WaIntersectionObserveeService],
 })
 export class WaIntersectionObservee {
-    protected readonly waIntersectionObservee = outputFromObservable(
+    public readonly waIntersectionObservee = outputFromObservable(
         inject(WaIntersectionObserveeService),
     );
 }

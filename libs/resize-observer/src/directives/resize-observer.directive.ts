@@ -21,7 +21,7 @@ import {
     ],
 })
 export class WaResizeObserver {
-    protected readonly waResizeObserver = outputFromObservable(
+    public readonly waResizeObserver = outputFromObservable(
         inject(WaResizeObserverService),
     );
 
