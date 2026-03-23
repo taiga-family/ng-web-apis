@@ -1,3 +1,15 @@
+### [5.0.4](https://github.com/taiga-family/ng-web-apis/compare/v5.0.3...v5.0.4) (2026-03-23)
+
+### 🚀 Features
+
+- **experimental**: add limited availability APIs (#1530)
+  [(50d951f)](https://github.com/taiga-family/ng-web-apis/commit/50d951f7fee62c42574742dd109029b087ffb827)
+
+### 🐞 Bug Fixes
+
+- make outputs public (#1566)
+  [(2d5f313)](https://github.com/taiga-family/ng-web-apis/commit/2d5f313c269ba90a679ba55c960e4962b9017db7)
+
 ### [5.0.3](https://github.com/taiga-family/ng-web-apis/compare/v5.0.2...v5.0.3) (2026-01-13)
 
 ### 🐞 Bug Fixes
