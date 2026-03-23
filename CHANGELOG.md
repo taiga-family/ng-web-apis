@@ -1,3 +1,10 @@
+### [5.2.0](https://github.com/taiga-family/ng-web-apis/compare/v5.0.4...v5.2.0) (2026-03-23)
+
+### 🚀 Features
+
+- use ngDevMode to omit token names in production (#1570)
+  [(7057335)](https://github.com/taiga-family/ng-web-apis/commit/7057335ce93609a5aba0a7ec6975d83d45648efc)
+
 ### [5.0.4](https://github.com/taiga-family/ng-web-apis/compare/v5.0.3...v5.0.4) (2026-03-23)
 
 ### 🚀 Features
