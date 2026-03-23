@@ -1,6 +1,6 @@
 {
     "name": "@ng-web-apis/experimental",
-    "version": "5.0.4",
+    "version": "5.1.0",
     "description": "This is an experimental technology with Angular",
     "keywords": [
         "angular",
@@ -21,7 +21,7 @@
     "peerDependencies": {
         "@angular/common": ">=19.0.0",
         "@angular/core": ">=19.0.0",
-        "@ng-web-apis/common": "^5.0.4",
+        "@ng-web-apis/common": "^5.1.0",
         "rxjs": ">=7.0.0"
     },
     "publishConfig": {
