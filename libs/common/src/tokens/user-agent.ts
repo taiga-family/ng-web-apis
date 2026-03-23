@@ -4,7 +4,5 @@ import {WA_NAVIGATOR} from './navigator';
 
 export const WA_USER_AGENT = new InjectionToken<string>(
     ngDevMode ? '[WA_USER_AGENT]' : '',
-    {
-        factory: () => inject(WA_NAVIGATOR).userAgent,
-    },
+    {factory: () => inject(WA_NAVIGATOR).userAgent},
 );

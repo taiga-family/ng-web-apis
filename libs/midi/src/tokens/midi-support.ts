@@ -3,7 +3,5 @@ import {WA_NAVIGATOR} from '@ng-web-apis/common';
 
 export const WA_MIDI_SUPPORT = new InjectionToken<boolean>(
     ngDevMode ? '[WA_MIDI_SUPPORT]' : '',
-    {
-        factory: () => !!inject(WA_NAVIGATOR).requestMIDIAccess,
-    },
+    {factory: () => !!inject(WA_NAVIGATOR).requestMIDIAccess},
 );

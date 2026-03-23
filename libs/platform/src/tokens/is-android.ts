@@ -5,7 +5,5 @@ import {WA_IS_MOBILE} from './is-mobile';
 
 export const WA_IS_ANDROID = new InjectionToken<boolean>(
     ngDevMode ? '[WA_IS_ANDROID]' : '',
-    {
-        factory: () => inject(WA_IS_MOBILE) && !inject(WA_IS_IOS),
-    },
+    {factory: () => inject(WA_IS_MOBILE) && !inject(WA_IS_IOS)},
 );

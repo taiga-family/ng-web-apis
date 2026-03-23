@@ -4,7 +4,5 @@ import {WA_WINDOW} from './window';
 
 export const WA_LOCATION = new InjectionToken<Location>(
     ngDevMode ? '[WA_LOCATION]' : '',
-    {
-        factory: () => inject(WA_WINDOW).location,
-    },
+    {factory: () => inject(WA_WINDOW).location},
 );

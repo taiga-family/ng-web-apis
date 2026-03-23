@@ -4,7 +4,5 @@ import {WA_NAVIGATOR} from './navigator';
 
 export const WA_MEDIA_DEVICES = new InjectionToken<MediaDevices>(
     ngDevMode ? '[WA_MEDIA_DEVICES]' : '',
-    {
-        factory: () => inject(WA_NAVIGATOR).mediaDevices,
-    },
+    {factory: () => inject(WA_NAVIGATOR).mediaDevices},
 );
