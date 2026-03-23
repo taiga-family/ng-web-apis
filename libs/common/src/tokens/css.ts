@@ -8,7 +8,7 @@ declare global {
     }
 }
 
-export const WA_CSS = new InjectionToken<typeof CSS>('[WA_CSS]', {
+export const WA_CSS = new InjectionToken<typeof CSS>(ngDevMode ? '[WA_CSS]' : '', {
     factory: () =>
         inject(WA_WINDOW).CSS ??
         ({
