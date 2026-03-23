@@ -3,7 +3,7 @@ import {type ExistingProvider, InjectionToken, type Type} from '@angular/core';
 import {type CanvasMethod} from '../interfaces/canvas-method';
 
 export const WA_CANVAS_PROPERTIES = new InjectionToken<CanvasMethod[]>(
-    '[WA_CANVAS_PROPERTIES]',
+    ngDevMode ? '[WA_CANVAS_PROPERTIES]' : '',
     {factory: () => []},
 );
 

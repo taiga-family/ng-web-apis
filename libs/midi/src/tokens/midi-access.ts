@@ -4,7 +4,7 @@ import {WA_NAVIGATOR} from '@ng-web-apis/common';
 import {WA_SYSEX} from './sysex';
 
 export const WA_MIDI_ACCESS = new InjectionToken<Promise<globalThis.MIDIAccess>>(
-    '[WA_MIDI_ACCESS]',
+    ngDevMode ? '[WA_MIDI_ACCESS]' : '',
     {
         factory: async () => {
             const navigatorRef = inject<Navigator | Partial<Navigator>>(WA_NAVIGATOR);

@@ -13,7 +13,7 @@ import {
 import {WA_MIDI_ACCESS} from './midi-access';
 
 export const WA_MIDI_MESSAGES = new InjectionToken<Observable<WebMidi.MIDIMessageEvent>>(
-    '[WA_MIDI_MESSAGES]',
+    ngDevMode ? '[WA_MIDI_MESSAGES]' : '',
     {
         factory: () =>
             from(inject(WA_MIDI_ACCESS).catch((e: unknown) => e as Error)).pipe(

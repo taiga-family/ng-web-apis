@@ -47,7 +47,7 @@ interface NetworkInformation extends EventTarget {
 }
 
 export const WA_NETWORK_INFORMATION = new InjectionToken<NetworkInformation | null>(
-    '[WA_NETWORK_INFORMATION]',
+    ngDevMode ? '[WA_NETWORK_INFORMATION]' : '',
     {
         factory: () =>
             inject<NavigatorNetworkInformation>(WA_NAVIGATOR).connection || null,

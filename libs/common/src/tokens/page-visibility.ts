@@ -10,7 +10,7 @@ import {
 } from 'rxjs';
 
 export const WA_PAGE_VISIBILITY = new InjectionToken<Observable<boolean>>(
-    '[WA_PAGE_VISIBILITY]',
+    ngDevMode ? '[WA_PAGE_VISIBILITY]' : '',
     {
         factory: () => {
             const documentRef = inject(DOCUMENT);

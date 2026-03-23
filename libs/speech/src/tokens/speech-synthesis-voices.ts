@@ -4,7 +4,7 @@ import {fromEvent, map, type Observable, startWith} from 'rxjs';
 
 export const WA_SPEECH_SYNTHESIS_VOICES = new InjectionToken<
     Observable<readonly SpeechSynthesisVoice[]>
->('[WA_SPEECH_SYNTHESIS_VOICES]', {
+>(ngDevMode ? '[WA_SPEECH_SYNTHESIS_VOICES]' : '', {
     factory: () => {
         const speechSynthesisRef = inject(WA_SPEECH_SYNTHESIS);
 

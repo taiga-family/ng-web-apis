@@ -25,6 +25,6 @@ interface DocumentPictureInPictureEvent extends Event {
 }
 
 export const WA_DOCUMENT_PIP = new InjectionToken<DocumentPictureInPicture | null>(
-    '[WA_DOCUMENT_PIP]',
+    ngDevMode ? '[WA_DOCUMENT_PIP]' : '',
     {factory: () => inject<ModernWindow>(WA_WINDOW).documentPictureInPicture ?? null},
 );
