@@ -28,5 +28,6 @@
         ],
         "production": ["default"]
     },
-    "defaultBase": "origin/main"
+    "defaultBase": "origin/main",
+    "analytics": true
 }
