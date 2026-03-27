@@ -12,3 +12,4 @@ npm i @ng-web-apis/platform
 - `WA_IS_IOS`
 - `WA_IS_ANDROID`
 - `WA_IS_WEBKIT`
+- `WA_REDUCED_MOTION` — a `Signal<boolean>` that returns `true` if user has requested reduced motion via `prefers-reduced-motion: reduce` media query. Automatically updates when the media query changes
