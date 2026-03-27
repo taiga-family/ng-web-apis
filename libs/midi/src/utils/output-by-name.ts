@@ -19,7 +19,6 @@ export function outputByName(name: string): Provider[] {
                 midiAccess: Promise<MIDIAccess>,
                 name: string,
             ): Promise<MIDIOutput | undefined> =>
-                // eslint-disable-next-line compat/compat
                 midiAccess.then((access: MIDIAccess): MIDIOutput | undefined => {
                     let result: MIDIOutput | undefined;
 

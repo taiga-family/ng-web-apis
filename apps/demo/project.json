@@ -16,8 +16,8 @@
                 "polyfills": ["./apps/demo/src/polyfills.ts"],
                 "tsConfig": "{projectRoot}/tsconfig.app.json",
                 "styles": [
-                    "node_modules/@taiga-ui/core/styles/taiga-ui-theme.less",
-                    "node_modules/@taiga-ui/core/styles/taiga-ui-fonts.less",
+                    "node_modules/@taiga-ui/styles/taiga-ui-fonts.less",
+                    "node_modules/@taiga-ui/styles/taiga-ui-theme.less",
                     "apps/demo/src/styles.css",
                     "node_modules/prismjs/themes/prism-okaidia.css"
                 ],

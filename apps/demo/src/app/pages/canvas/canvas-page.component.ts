@@ -2,14 +2,13 @@ import {CommonModule, isPlatformBrowser} from '@angular/common';
 import {ChangeDetectionStrategy, Component, inject, PLATFORM_ID} from '@angular/core';
 import {FormsModule} from '@angular/forms';
 import {WaCanvas} from '@ng-web-apis/canvas';
-import {TuiExpand, TuiLabel, TuiTextfield} from '@taiga-ui/core';
+import {TuiExpand, TuiLabel, TuiSlider, TuiTextfield} from '@taiga-ui/core';
 import {
     TuiChevron,
     TuiDataListWrapper,
     TuiFiles,
     TuiInputColor,
     TuiSelect,
-    TuiSlider,
 } from '@taiga-ui/kit';
 
 @Component({
