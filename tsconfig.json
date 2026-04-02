@@ -1,19 +1,13 @@
 {
     "extends": "@taiga-ui/tsconfig",
-    "include": ["apps/**/*", "libs/**/*"],
-    "exclude": ["**/*.spec.ts", "libs/**/test.ts", "**/schematics/**/*"],
     "compilerOptions": {
         "baseUrl": "./",
         "checkJs": false,
         "esModuleInterop": true,
-        "outDir": "./dist",
-        "target": "ES2022",
-        "module": "ESNext",
-        "useDefineForClassFields": true,
         "experimentalDecorators": true,
         "lib": ["esnext", "dom"],
-        "typeRoots": ["node_modules/@types", "node_modules/@taiga-ui/tsconfig"],
-        "types": ["node", "jasmine", "webmidi", "dom-view-transitions", "dom-speech-recognition", "ng-dev-mode"],
+        "module": "ESNext",
+        "outDir": "./dist",
         "paths": {
             "@demo/constants": ["./apps/demo/src/app/constants/index.ts"],
             "@ng-web-apis/audio": ["./libs/audio/src/index.ts"],
@@ -38,6 +32,23 @@
             "@ng-web-apis/view-transition": ["./libs/view-transition/src/index.ts"],
             "@ng-web-apis/workers": ["./libs/workers/src/index.ts"]
         },
-        "skipLibCheck": true
-    }
+        "skipLibCheck": true,
+        "target": "ES2022",
+        "typeRoots": ["node_modules/@types", "node_modules/@taiga-ui/tsconfig"],
+        "types": [
+            "node",
+            "jasmine",
+            "webmidi",
+            "dom-view-transitions",
+            "dom-speech-recognition",
+            "ng-dev-mode"
+        ],
+        "useDefineForClassFields": true
+    },
+    "include": ["apps/**/*", "libs/**/*"],
+    "exclude": [
+        "**/*.spec.ts",
+        "libs/**/test.ts",
+        "**/schematics/**/*"
+    ]
 }

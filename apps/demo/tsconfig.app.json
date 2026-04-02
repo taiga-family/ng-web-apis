@@ -1,12 +1,12 @@
 {
     "extends": "../../tsconfig.json",
-    "files": ["./src/typings.d.ts"],
-    "include": ["./src/**/*.ts"],
     "angularCompilerOptions": {
-        "strictMetadataEmit": false,
         "compilationMode": "full",
         "extendedDiagnostics": {
             "defaultCategory": "warning"
-        }
-    }
+        },
+        "strictMetadataEmit": false
+    },
+    "files": ["./src/typings.d.ts"],
+    "include": ["./src/**/*.ts"]
 }

@@ -16,17 +16,17 @@
     },
     "license": "Apache-2.0",
     "author": {
-        "name": "Vsevolod Arutiunov",
-        "email": "sevaru@inbox.ru"
+        "email": "sevaru@inbox.ru",
+        "name": "Vsevolod Arutiunov"
     },
     "contributors": [
         {
-            "name": "Roman Sedov",
-            "email": "79601794011@ya.ru"
+            "email": "79601794011@ya.ru",
+            "name": "Roman Sedov"
         },
         {
-            "name": "Alexander Inkin",
-            "email": "alexander@inkin.ru"
+            "email": "alexander@inkin.ru",
+            "name": "Alexander Inkin"
         }
     ],
     "dependencies": {

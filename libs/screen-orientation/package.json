@@ -16,8 +16,8 @@
     },
     "license": "Apache-2.0",
     "author": {
-        "name": "Maksim Ivanov",
-        "email": "splincodewd@yandex.ru"
+        "email": "splincodewd@yandex.ru",
+        "name": "Maksim Ivanov"
     },
     "peerDependencies": {
         "@angular/core": ">=19.0.0",

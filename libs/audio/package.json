@@ -17,18 +17,16 @@
     },
     "license": "Apache-2.0",
     "author": {
-        "name": "Alex Inkin",
-        "email": "alexander@inkin.ru"
+        "email": "alexander@inkin.ru",
+        "name": "Alex Inkin"
     },
     "contributors": [
         {
-            "name": "Roman Sedov",
-            "email": "79601794011@ya.ru"
+            "email": "79601794011@ya.ru",
+            "name": "Roman Sedov"
         }
     ],
-    "sideEffects": [
-        "polyfill.js"
-    ],
+    "sideEffects": ["polyfill.js"],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
         "rxjs": ">=7.0.0"

@@ -20,26 +20,26 @@
     },
     "license": "Apache-2.0",
     "author": {
-        "name": "Alex Inkin",
         "email": "alexander@inkin.ru",
+        "name": "Alex Inkin",
         "url": "https://twitter.com/Waterplea"
     },
     "contributors": [
         {
-            "name": "Roman Sedov",
-            "email": "79601794011@ya.ru"
+            "email": "79601794011@ya.ru",
+            "name": "Roman Sedov"
         },
         {
-            "name": "Vladimir Potekhin",
-            "email": "vladimir.potekh@gmail.com>"
+            "email": "vladimir.potekh@gmail.com>",
+            "name": "Vladimir Potekhin"
         },
         {
-            "name": "Maksim Ivanov",
-            "email": "splincodewd@yandex.ru"
+            "email": "splincodewd@yandex.ru",
+            "name": "Maksim Ivanov"
         },
         {
-            "name": "Igor Katsuba",
-            "email": "katsuba.igor@gmail.com"
+            "email": "katsuba.igor@gmail.com",
+            "name": "Igor Katsuba"
         },
         {
             "name": "Dmitryi Khirnyi"
@@ -48,22 +48,19 @@
             "name": "Dmitry Efimenko"
         },
         {
-            "name": "Andrew Grekov",
-            "email": "hr@thekiba.io"
+            "email": "hr@thekiba.io",
+            "name": "Andrew Grekov"
         },
         {
-            "name": "Debmallya Bhattacharya",
-            "email": "debmallya.bhattacharya@blueface.com"
+            "email": "debmallya.bhattacharya@blueface.com",
+            "name": "Debmallya Bhattacharya"
         },
         {
-            "name": "Vsevolod Arutiunov",
-            "email": "sevaru@inbox.ru"
+            "email": "sevaru@inbox.ru",
+            "name": "Vsevolod Arutiunov"
         }
     ],
-    "workspaces": [
-        "apps/*",
-        "libs/*"
-    ],
+    "workspaces": ["apps/*", "libs/*"],
     "scripts": {
         "cspell": "cspell --relative --no-progress --dot --gitignore .",
         "lint": "eslint .",
@@ -76,31 +73,17 @@
         "typecheck": "tsc --noEmit --skipLibCheck"
     },
     "commitlint": {
-        "extends": [
-            "@taiga-ui/commitlint-config"
-        ]
+        "extends": ["@taiga-ui/commitlint-config"]
     },
     "lint-staged": {
-        "*.less": [
-            "stylelint --fix"
-        ],
-        "*.{js,ts,html,md,less,json}": [
-            "prettier --write",
-            "git add"
-        ],
-        "*.{js,ts}": [
-            "eslint --fix",
-            "git add"
-        ]
+        "*.less": ["stylelint --fix"],
+        "*.{js,ts,html,md,less,json}": ["prettier --write", "git add"],
+        "*.{js,ts}": ["eslint --fix", "git add"]
     },
-    "browserslist": [
-        "extends @taiga-ui/browserslist-config"
-    ],
+    "browserslist": ["extends @taiga-ui/browserslist-config"],
     "prettier": "@taiga-ui/prettier-config",
     "stylelint": {
-        "extends": [
-            "@taiga-ui/stylelint-config"
-        ]
+        "extends": ["@taiga-ui/stylelint-config"]
     },
     "devDependencies": {
         "@angular-devkit/build-angular": "20.3.15",
@@ -128,13 +111,13 @@
         "@nx/rollup": "22.6.4",
         "@nx/workspace": "22.6.4",
         "@taiga-ui/addon-doc": "5.0.0",
-        "@taiga-ui/configs": "0.446.0",
+        "@taiga-ui/configs": "0.447.0",
         "@taiga-ui/core": "5.0.0",
         "@taiga-ui/icons": "5.0.0",
         "@taiga-ui/kit": "5.0.0",
         "@taiga-ui/layout": "5.0.0",
         "@taiga-ui/legacy": "5.0.0",
-        "@taiga-ui/syncer": "0.446.0",
+        "@taiga-ui/syncer": "0.447.0",
         "@types/dompurify": "3.2.0",
         "@types/estree": "1.0.8",
         "@types/express": "5.0.6",
@@ -163,13 +146,7 @@
         "typescript": "5.8.3"
     },
     "syncer": {
-        "includePaths": [
-            "./libs",
-            "./package-lock.json"
-        ],
-        "matchPackageNames": [
-            "@ng-web-apis/*",
-            "ng-web-apis"
-        ]
+        "includePaths": ["./libs", "./package-lock.json"],
+        "matchPackageNames": ["@ng-web-apis/*", "ng-web-apis"]
     }
 }

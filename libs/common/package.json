@@ -19,24 +19,24 @@
     },
     "license": "Apache-2.0",
     "author": {
-        "name": "Alex Inkin",
-        "email": "alexander@inkin.ru"
+        "email": "alexander@inkin.ru",
+        "name": "Alex Inkin"
     },
     "contributors": [
         {
-            "name": "Roman Sedov",
-            "email": "79601794011@ya.ru"
+            "email": "79601794011@ya.ru",
+            "name": "Roman Sedov"
         },
         {
             "name": "Dmitryi Khirnyi"
         },
         {
-            "name": "Andrew Grekov",
-            "email": "hr@thekiba.io"
+            "email": "hr@thekiba.io",
+            "name": "Andrew Grekov"
         },
         {
-            "name": "Debmallya Bhattacharya",
-            "email": "debmallya.bhattacharya@blueface.com"
+            "email": "debmallya.bhattacharya@blueface.com",
+            "name": "Debmallya Bhattacharya"
         }
     ],
     "peerDependencies": {

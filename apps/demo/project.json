@@ -1,44 +1,36 @@
 {
-    "name": "demo",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "projects/{projectName}",
-    "projectType": "application",
+    "name": "demo",
     "prefix": "app",
+    "projectType": "application",
+    "sourceRoot": "projects/{projectName}",
     "targets": {
         "build": {
+            "configurations": {
+                "development": {
+                    "extractLicenses": false,
+                    "optimization": false,
+                    "outputMode": "static",
+                    "server": false,
+                    "sourceMap": true,
+                    "ssr": false
+                },
+                "production": {
+                    "fileReplacements": [
+                        {
+                            "replace": "apps/demo/src/environments/environment.ts",
+                            "with": "apps/demo/src/environments/environment.prod.ts"
+                        }
+                    ],
+                    "outputHashing": "all",
+                    "outputMode": "server",
+                    "serviceWorker": "apps/demo/ngsw-config.json",
+                    "tsConfig": "{projectRoot}/tsconfig.app.prod.json"
+                }
+            },
+            "defaultConfiguration": "production",
             "executor": "@nx/angular:application",
-            "outputs": ["{workspaceRoot}/dist/demo"],
             "options": {
-                "baseHref": "/",
-                "outputPath": "dist/{projectName}",
-                "index": "{projectRoot}/src/index.html",
-                "browser": "{projectRoot}/src/main.ts",
-                "polyfills": ["./apps/demo/src/polyfills.ts"],
-                "tsConfig": "{projectRoot}/tsconfig.app.json",
-                "styles": [
-                    "node_modules/@taiga-ui/styles/taiga-ui-fonts.less",
-                    "node_modules/@taiga-ui/styles/taiga-ui-theme.less",
-                    "apps/demo/src/styles.css",
-                    "node_modules/prismjs/themes/prism-okaidia.css"
-                ],
-                "scripts": [
-                    "node_modules/marked/marked.min.js",
-                    "node_modules/prismjs/prism.js",
-                    "node_modules/prismjs/components/prism-less.min.js",
-                    "node_modules/prismjs/components/prism-markup.min.js",
-                    "node_modules/prismjs/components/prism-typescript.min.js"
-                ],
-                "server": "{projectRoot}/src/main.server.ts",
-                "ssr": {
-                    "entry": "{projectRoot}/src/server.ts"
-                },
-                "outputMode": "server",
-                "loader": {
-                    ".md": "text",
-                    ".html": "text",
-                    ".less": "text",
-                    ".svg": "text"
-                },
                 "assets": [
                     {
                         "glob": "**/*",
@@ -61,65 +53,73 @@
                         "output": "/"
                     }
                 ],
+                "baseHref": "/",
+                "browser": "{projectRoot}/src/main.ts",
+                "index": "{projectRoot}/src/index.html",
+                "loader": {
+                    ".html": "text",
+                    ".less": "text",
+                    ".md": "text",
+                    ".svg": "text"
+                },
+                "outputMode": "server",
+                "outputPath": "dist/{projectName}",
                 "plugins": ["apps/demo/esbuild-plugins/ng-web-apis-as-taiga-ui-dep.plugin.js"],
-                "serviceWorker": false
-            },
-            "configurations": {
-                "development": {
-                    "optimization": false,
-                    "extractLicenses": false,
-                    "sourceMap": true,
-                    "server": false,
-                    "ssr": false,
-                    "outputMode": "static"
+                "polyfills": ["./apps/demo/src/polyfills.ts"],
+                "scripts": [
+                    "node_modules/marked/marked.min.js",
+                    "node_modules/prismjs/prism.js",
+                    "node_modules/prismjs/components/prism-less.min.js",
+                    "node_modules/prismjs/components/prism-markup.min.js",
+                    "node_modules/prismjs/components/prism-typescript.min.js"
+                ],
+                "server": "{projectRoot}/src/main.server.ts",
+                "serviceWorker": false,
+                "ssr": {
+                    "entry": "{projectRoot}/src/server.ts"
                 },
-                "production": {
-                    "fileReplacements": [
-                        {
-                            "replace": "apps/demo/src/environments/environment.ts",
-                            "with": "apps/demo/src/environments/environment.prod.ts"
-                        }
-                    ],
-                    "tsConfig": "{projectRoot}/tsconfig.app.prod.json",
-                    "serviceWorker": "apps/demo/ngsw-config.json",
-                    "outputHashing": "all",
-                    "outputMode": "server"
-                }
+                "styles": [
+                    "node_modules/@taiga-ui/styles/taiga-ui-fonts.less",
+                    "node_modules/@taiga-ui/styles/taiga-ui-theme.less",
+                    "apps/demo/src/styles.css",
+                    "node_modules/prismjs/themes/prism-okaidia.css"
+                ],
+                "tsConfig": "{projectRoot}/tsconfig.app.json"
             },
-            "defaultConfiguration": "production"
-        },
-        "serve": {
-            "continuous": true,
-            "executor": "@nx/angular:dev-server",
-            "options": {
-                "prebundle": false
-            },
-            "configurations": {
-                "production": {
-                    "buildTarget": "{projectName}:build:production"
-                },
-                "development": {
-                    "buildTarget": "{projectName}:build:development"
-                }
-            },
-            "defaultConfiguration": "development"
+            "outputs": ["{workspaceRoot}/dist/demo"]
         },
         "build-firebase-preview": {
             "executor": "nx:run-commands",
             "options": {
-                "parallel": false,
-                "commands": ["nx build demo", "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"]
+                "commands": ["nx build demo", "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html"],
+                "parallel": false
             }
         },
         "build-gh-pages": {
             "executor": "nx:run-commands",
             "options": {
-                "parallel": false,
                 "commands": [
                     "nx build demo --base-href /ng-web-apis/",
                     "mv dist/demo/browser/index.csr.html dist/demo/browser/index.html",
                     "cp dist/demo/browser/index.html dist/demo/browser/404.html"
-                ]
+                ],
+                "parallel": false
+            }
+        },
+        "serve": {
+            "configurations": {
+                "development": {
+                    "buildTarget": "{projectName}:build:development"
+                },
+                "production": {
+                    "buildTarget": "{projectName}:build:production"
+                }
+            },
+            "continuous": true,
+            "defaultConfiguration": "development",
+            "executor": "@nx/angular:dev-server",
+            "options": {
+                "prebundle": false
             }
         }
     }

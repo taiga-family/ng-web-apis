@@ -3,8 +3,8 @@
     "extends": ["github>taiga-family/renovate-config"],
     "packageRules": [
         {
-            "matchPackageNames": ["@taiga-ui/browserslist-config"],
-            "enabled": false
+            "enabled": false,
+            "matchPackageNames": ["@taiga-ui/browserslist-config"]
         }
     ]
 }

@@ -1,48 +1,48 @@
 {
-    "name": "workers",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/workers",
+    "name": "workers",
     "projectType": "library",
+    "sourceRoot": "libs/workers",
     "targets": {
-        "test": {
-            "executor": "@angular-devkit/build-angular:karma",
-            "outputs": ["{workspaceRoot}/coverage/workers"],
-            "options": {
-                "main": "libs/workers/test.ts",
-                "tsConfig": "tsconfig.spec.json",
-                "karmaConfig": "libs/workers/karma.conf.js",
-                "codeCoverage": true,
-                "browsers": "ChromeHeadless"
-            }
-        },
         "build": {
-            "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["{workspaceRoot}/dist/workers"],
-            "options": {
-                "tsConfig": "tsconfig.build.json",
-                "project": "libs/workers/ng-package.json"
-            },
             "dependsOn": [
                 {
-                    "target": "build",
+                    "dependencies": true,
                     "params": "forward",
-                    "dependencies": true
+                    "target": "build"
                 }
-            ]
+            ],
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "project": "libs/workers/ng-package.json",
+                "tsConfig": "tsconfig.build.json"
+            },
+            "outputs": ["{workspaceRoot}/dist/workers"]
         },
         "publish": {
-            "executor": "nx:run-commands",
-            "options": {
-                "parallel": false,
-                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"]
-            },
             "dependsOn": [
                 {
-                    "target": "build",
+                    "dependencies": false,
                     "params": "ignore",
-                    "dependencies": false
+                    "target": "build"
                 }
-            ]
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"],
+                "parallel": false
+            }
+        },
+        "test": {
+            "executor": "@angular-devkit/build-angular:karma",
+            "options": {
+                "browsers": "ChromeHeadless",
+                "codeCoverage": true,
+                "karmaConfig": "libs/workers/karma.conf.js",
+                "main": "libs/workers/test.ts",
+                "tsConfig": "tsconfig.spec.json"
+            },
+            "outputs": ["{workspaceRoot}/coverage/workers"]
         }
     }
 }
