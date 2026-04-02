@@ -1,7 +1,13 @@
 {
     "extends": "./tsconfig.json",
-    "exclude": [],
     "compilerOptions": {
-        "types": ["jasmine", "node", "webmidi", "dom-view-transitions", "dom-speech-recognition"]
-    }
+        "types": [
+            "jasmine",
+            "node",
+            "webmidi",
+            "dom-view-transitions",
+            "dom-speech-recognition"
+        ]
+    },
+    "exclude": []
 }

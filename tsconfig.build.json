@@ -1,6 +1,5 @@
 {
     "extends": "./tsconfig.json",
-    "exclude": ["libs/**/test.ts", "**/*.spec.ts"],
     "compilerOptions": {
         "outDir": "./dist/out-tsc/lib",
         "paths": {
@@ -25,5 +24,6 @@
             "@ng-web-apis/notification": ["./dist/notification"],
             "@ng-web-apis/platform": ["./dist/platform"]
         }
-    }
+    },
+    "exclude": ["libs/**/test.ts", "**/*.spec.ts"]
 }

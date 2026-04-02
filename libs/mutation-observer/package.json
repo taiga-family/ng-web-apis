@@ -16,13 +16,13 @@
     },
     "license": "Apache-2.0",
     "author": {
-        "name": "Alexander Inkin",
-        "email": "alexander@inkin.ru"
+        "email": "alexander@inkin.ru",
+        "name": "Alexander Inkin"
     },
     "contributors": [
         {
-            "name": "Roman Sedov",
-            "email": "79601794011@ya.ru"
+            "email": "79601794011@ya.ru",
+            "name": "Roman Sedov"
         }
     ],
     "peerDependencies": {

@@ -1,37 +1,37 @@
 {
-    "name": "experimental",
     "$schema": "../../node_modules/nx/schemas/project-schema.json",
-    "sourceRoot": "libs/experimental",
+    "name": "experimental",
     "projectType": "library",
+    "sourceRoot": "libs/experimental",
     "targets": {
         "build": {
-            "executor": "@angular-devkit/build-angular:ng-packagr",
-            "outputs": ["{workspaceRoot}/dist/{projectName}"],
-            "options": {
-                "tsConfig": "tsconfig.build.json",
-                "project": "libs/{projectName}/ng-package.json"
-            },
             "dependsOn": [
                 {
-                    "target": "build",
+                    "dependencies": true,
                     "params": "forward",
-                    "dependencies": true
+                    "target": "build"
                 }
-            ]
+            ],
+            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "options": {
+                "project": "libs/{projectName}/ng-package.json",
+                "tsConfig": "tsconfig.build.json"
+            },
+            "outputs": ["{workspaceRoot}/dist/{projectName}"]
         },
         "publish": {
-            "executor": "nx:run-commands",
-            "options": {
-                "parallel": false,
-                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"]
-            },
             "dependsOn": [
                 {
-                    "target": "build",
+                    "dependencies": false,
                     "params": "ignore",
-                    "dependencies": false
+                    "target": "build"
                 }
-            ]
+            ],
+            "executor": "nx:run-commands",
+            "options": {
+                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"],
+                "parallel": false
+            }
         }
     }
 }
