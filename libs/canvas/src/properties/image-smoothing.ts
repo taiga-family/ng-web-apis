@@ -5,9 +5,7 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
-        'canvas-draw-image[imageSmoothingEnabled],canvas-draw-image[imageSmoothingQuality],' +
-        'canvas-path[imageSmoothingEnabled],canvas-path[imageSmoothingQuality],' +
-        'canvas-text[imageSmoothingEnabled],canvas-text[imageSmoothingQuality]',
+        'canvas-draw-image[imageSmoothingEnabled],canvas-draw-image[imageSmoothingQuality],canvas-path[imageSmoothingEnabled],canvas-path[imageSmoothingQuality],canvas-text[imageSmoothingEnabled],canvas-text[imageSmoothingQuality]',
     inputs: ['imageSmoothingEnabled', 'imageSmoothingQuality'],
     providers: [asCanvasProperty(WaCanvasImageSmoothing)],
 })

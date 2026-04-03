@@ -5,8 +5,7 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
-        'canvas-path[fillStyle],canvas-path[strokeStyle],' +
-        'canvas-text[fillStyle],canvas-text[strokeStyle]',
+        'canvas-path[fillStyle],canvas-path[strokeStyle],canvas-text[fillStyle],canvas-text[strokeStyle]',
     inputs: ['fillStyle', 'strokeStyle'],
     providers: [asCanvasProperty(WaCanvasFillStrokeStyles)],
 })

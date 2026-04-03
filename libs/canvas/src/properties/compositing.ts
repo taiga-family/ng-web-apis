@@ -5,9 +5,7 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
-        'canvas-draw-image[globalAlpha],canvas-draw-image[globalCompositeOperation],' +
-        'canvas-path[globalAlpha],canvas-path[globalCompositeOperation],' +
-        'canvas-text[globalAlpha],canvas-text[globalCompositeOperation]',
+        'canvas-draw-image[globalAlpha],canvas-draw-image[globalCompositeOperation],canvas-path[globalAlpha],canvas-path[globalCompositeOperation],canvas-text[globalAlpha],canvas-text[globalCompositeOperation]',
     inputs: ['globalAlpha', 'globalCompositeOperation'],
     providers: [asCanvasProperty(WaCanvasCompositing)],
 })
