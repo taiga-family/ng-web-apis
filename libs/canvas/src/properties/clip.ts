@@ -6,9 +6,7 @@ import {asCanvasProperty} from '../tokens/canvas-properties';
 
 @Directive({
     selector:
-        'canvas-draw-image[clip],canvas-draw-image[clipFillRule],' +
-        'canvas-path[clip],canvas-path[clipFillRule],' +
-        'canvas-text[clip],canvas-text[clipFillRule]',
+        'canvas-draw-image[clip],canvas-draw-image[clipFillRule],canvas-path[clip],canvas-path[clipFillRule],canvas-text[clip],canvas-text[clipFillRule]',
     inputs: ['clip', 'clipFillRule'],
     providers: [asCanvasProperty(WaCanvasClip)],
 })
