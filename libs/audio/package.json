@@ -26,7 +26,9 @@
             "name": "Roman Sedov"
         }
     ],
-    "sideEffects": ["polyfill.js"],
+    "sideEffects": [
+        "polyfill.js"
+    ],
     "peerDependencies": {
         "@angular/core": ">=19.0.0",
         "rxjs": ">=7.0.0"
