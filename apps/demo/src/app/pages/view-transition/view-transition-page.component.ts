@@ -68,13 +68,13 @@ export default class ViewTransitionPage {
     protected readonly codeSample = USAGE_SAMPLE;
     protected readonly data = PHOTOS;
     protected readonly activeIndex$ = new BehaviorSubject(-1);
-    protected readonly detailInfo$ = new BehaviorSubject<Photo | undefined>(undefined);
+    protected readonly detailInfo$ = new BehaviorSubject<Photo | null>(null);
 
     protected open(index: number): void {
         this.activeIndex$.next(index);
         this.viewTransitionService
             .startViewTransition(() => {
-                this.detailInfo$.next(this.data[index]);
+                this.detailInfo$.next(this.data[index] ?? null);
                 this.cdr.detectChanges();
             })
             .pipe(takeUntilDestroyed(this.destroyRef))
@@ -84,7 +84,7 @@ export default class ViewTransitionPage {
     protected close(): void {
         this.viewTransitionService
             .startViewTransition(() => {
-                this.detailInfo$.next(undefined);
+                this.detailInfo$.next(null);
                 this.cdr.detectChanges();
                 this.activeIndex$.next(-1);
             })

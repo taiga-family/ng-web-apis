@@ -29,9 +29,9 @@ export class WaOfflineContext extends OfflineAudioContext implements OnInit {
         });
 
         super(
-            parseInt(channels ?? '', 10) || 1,
-            parseInt(length, 10),
-            parseInt(sampleRate, 10),
+            Number.parseInt(channels ?? '', 10) || 1,
+            Number.parseInt(length, 10),
+            Number.parseInt(sampleRate, 10),
         );
     }
 

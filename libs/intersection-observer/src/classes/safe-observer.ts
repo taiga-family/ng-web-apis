@@ -1,7 +1,6 @@
 export const SafeObserver =
-    typeof IntersectionObserver !== 'undefined'
-        ? IntersectionObserver
-        : class implements IntersectionObserver {
+    typeof IntersectionObserver === 'undefined'
+        ? class implements IntersectionObserver {
               public readonly root = null;
               public readonly rootMargin = '';
               public readonly thresholds = [];
@@ -11,4 +10,5 @@ export const SafeObserver =
               public takeRecords(): IntersectionObserverEntry[] {
                   return [];
               }
-          };
+          }
+        : IntersectionObserver;

@@ -76,7 +76,7 @@ export class Demo {
     }
 
     protected getClass(notes: Map<number, number | null>, note: number): string {
-        const className = !notes.get(note) ? '' : '_active';
+        const className = notes.get(note) ? '_active' : '';
         const key = note - 47;
 
         return `${className} key-${key % 12 || 12}`;
