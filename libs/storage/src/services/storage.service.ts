@@ -7,7 +7,7 @@ export class WaStorageService implements Storage {
     private readonly windowRef = inject(WA_WINDOW);
 
     public get length(): number {
-        return this.localStorage?.length ?? NaN;
+        return this.localStorage?.length ?? Number.NaN;
     }
 
     public getItem(key: string): string | null {

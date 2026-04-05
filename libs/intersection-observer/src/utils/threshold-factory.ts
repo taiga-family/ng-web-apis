@@ -7,6 +7,6 @@ export function thresholdFactory(): number[] | number {
         inject(ElementRef)
             .nativeElement.getAttribute('waIntersectionThreshold')
             ?.split(',')
-            .map(parseFloat) || WA_INTERSECTION_THRESHOLD_DEFAULT
+            .map(Number.parseFloat) || WA_INTERSECTION_THRESHOLD_DEFAULT
     );
 }

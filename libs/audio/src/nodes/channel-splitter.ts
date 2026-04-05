@@ -25,7 +25,7 @@ export class WaChannelSplitter extends ChannelSplitterNode {
 
     constructor() {
         const attr = inject(new HostAttributeToken('numberOfOutputs'), {optional: true});
-        const numberOfOutputs = parseInt(attr || '', 10) || 6;
+        const numberOfOutputs = Number.parseInt(attr || '', 10) || 6;
 
         super(inject(WA_AUDIO_CONTEXT), {numberOfOutputs});
 

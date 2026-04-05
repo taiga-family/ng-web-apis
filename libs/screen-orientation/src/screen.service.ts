@@ -30,7 +30,7 @@ export class WaScreenOrientationService extends Observable<OrientationType> {
                    * Its only possible values are -90, 0, 90, and 180.
                    * Positive values are counterclockwise; negative values are clockwise.
                    */
-                  const angle = parseInt(
+                  const angle = Number.parseInt(
                       this.win.orientation as unknown as string,
                       10,
                   ) as -90 | 0 | 90 | 180;

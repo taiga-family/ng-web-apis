@@ -25,7 +25,7 @@ export class WaChannelMerger extends ChannelMergerNode implements OnDestroy {
 
     constructor() {
         const attr = inject(new HostAttributeToken('numberOfInputs'), {optional: true});
-        const numberOfInputs = parseInt(attr || '', 10) || 6;
+        const numberOfInputs = Number.parseInt(attr || '', 10) || 6;
 
         super(inject(WA_AUDIO_CONTEXT), {numberOfInputs});
 
