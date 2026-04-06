@@ -61,7 +61,7 @@ describe('WaWebWorker', () => {
     });
 
     it('should run a worker and return a correct data', async () => {
-        const workerPromise: Promise<TypedMessageEvent<string>> = WaWebWorker.execute<
+        const workerPromise = WaWebWorker.execute<
             string,
             string
             // eslint-disable-next-line @typescript-eslint/promise-function-async

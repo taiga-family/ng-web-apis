@@ -20,7 +20,7 @@ function getArray<T>(): T[] {
     })();
 }
 
-export const NAVIGATOR_MOCK: Navigator = {
+export const NAVIGATOR_MOCK = {
     appCodeName: '',
     appName: '',
     appVersion: '',

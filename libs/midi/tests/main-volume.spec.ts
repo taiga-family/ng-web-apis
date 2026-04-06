@@ -5,7 +5,7 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('mainVolume', () => {
     it('lets main volume events through', () => {
-        const events: WebMidi.MIDIMessageEvent[] = Array.from({length: 3}, (_, i) => {
+        const events = Array.from({length: 3}, (_, i) => {
             const data = new Uint8Array([i + 175, 7, 3]);
             const receivedTime = 1.234;
 

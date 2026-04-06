@@ -13,7 +13,7 @@ export class WaIntersectionObserverService extends Observable<
     private readonly nativeElement: Element = inject(ElementRef).nativeElement;
     private readonly rootMargin = inject(WA_INTERSECTION_ROOT_MARGIN);
     private readonly threshold = inject(WA_INTERSECTION_THRESHOLD);
-    private readonly root: Element | null =
+    private readonly root =
         inject(WA_INTERSECTION_ROOT, {optional: true})?.nativeElement ?? null;
 
     constructor() {
