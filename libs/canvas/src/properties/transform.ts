@@ -16,9 +16,7 @@ export class WaCanvasTransform implements CanvasMethod {
         optional: true,
     });
 
-    public transform: DOMMatrix | null = isPlatformBrowser(inject(PLATFORM_ID))
-        ? new DOMMatrix()
-        : null;
+    public transform = isPlatformBrowser(inject(PLATFORM_ID)) ? new DOMMatrix() : null;
 
     public call(context: CanvasRenderingContext2D): void {
         if (this.transform) {

@@ -20,8 +20,7 @@ export class WaViewTransitionService {
         }
 
         return new Observable((subscriber) => {
-            const transition: ViewTransition =
-                this.document.startViewTransition(callback);
+            const transition = this.document.startViewTransition(callback);
 
             transition.updateCallbackDone.then(
                 () => {

@@ -5,7 +5,7 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('pitchBend', () => {
     it('lets pitch bend events through', () => {
-        const events: WebMidi.MIDIMessageEvent[] = Array.from({length: 3}, (_, i) => {
+        const events = Array.from({length: 3}, (_, i) => {
             const data = new Uint8Array([i + 223, 2, 3]);
             const receivedTime = 1.234;
 

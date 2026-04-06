@@ -5,7 +5,7 @@ window.onbeforeunload = jasmine.createSpy();
 
 describe('notes', () => {
     it('lets note played events through and converts noteOff to noteOn with 0 velocity', () => {
-        const events: WebMidi.MIDIMessageEvent[] = Array.from({length: 3}, (_, i) => {
+        const events = Array.from({length: 3}, (_, i) => {
             const data = new Uint8Array([i * 16 + 127, 7, 3]);
             const receivedTime = 1.234;
 

@@ -26,7 +26,7 @@ export class WaPermissionsService {
     public state(
         nameOrDescriptor: PermissionName | PermissionsQueryArgs,
     ): Observable<PermissionState> {
-        const descriptor: PermissionDescriptor =
+        const descriptor =
             typeof nameOrDescriptor === 'string'
                 ? {name: nameOrDescriptor}
                 : nameOrDescriptor;
