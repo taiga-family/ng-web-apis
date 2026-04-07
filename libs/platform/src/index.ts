@@ -5,6 +5,7 @@ export * from './tokens/is-mobile';
 export * from './tokens/is-touch';
 export * from './tokens/is-webkit';
 export * from './utils/constants';
+export * from './utils/inject-element';
 export * from './utils/is-apple';
 export * from './utils/is-edge';
 export * from './utils/is-firefox';
