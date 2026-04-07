@@ -23,6 +23,6 @@ import {waInjectElement} from '@ng-web-apis/platform';
 
 @Directive({selector: '[myDirective]'})
 export class MyDirective {
-    private readonly element = waInjectElement<HTMLInputElement>();
+  private readonly element = waInjectElement<HTMLInputElement>();
 }
 ```
