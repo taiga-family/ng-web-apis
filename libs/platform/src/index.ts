@@ -4,6 +4,7 @@ export * from './tokens/is-ios';
 export * from './tokens/is-mobile';
 export * from './tokens/is-touch';
 export * from './tokens/is-webkit';
+export * from './tokens/reduced-motion';
 export * from './utils/constants';
 export * from './utils/is-apple';
 export * from './utils/is-edge';
