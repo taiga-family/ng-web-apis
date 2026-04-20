@@ -16,7 +16,6 @@ import {Demo} from './demo/demo.component';
 })
 export default class MidiPage {
     protected readonly supported = inject(WA_MIDI_SUPPORT);
-
     protected started = false;
 
     protected start(): void {

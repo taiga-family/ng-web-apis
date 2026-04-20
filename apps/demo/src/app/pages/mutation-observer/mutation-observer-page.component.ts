@@ -20,13 +20,10 @@ import {TuiButton, TuiGroup, TuiTextfield} from '@taiga-ui/core';
 })
 export default class MutationObserverPage {
     protected toggled = false;
-
     protected disabled: true | null = null; // null so the attribute gets removed
 
     protected title = 'title';
-
     protected text = 'text';
-
     protected ignored = 'Ignored aria-label attribute';
 
     protected toggleDOM(): void {

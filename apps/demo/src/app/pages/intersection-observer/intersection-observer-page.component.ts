@@ -14,7 +14,6 @@ import {
 })
 export default class IntersectionObserverPage {
     protected ratio = 0;
-
     protected readonly support = inject(WA_INTERSECTION_OBSERVER_SUPPORT);
 
     protected onIntersection(intersections: IntersectionObserverEntry[]): void {

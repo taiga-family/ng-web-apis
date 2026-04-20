@@ -7,10 +7,10 @@ import {WA_SPEECH_SYNTHESIS} from '@ng-web-apis/common';
 })
 export class WaTextToSpeech implements OnChanges {
     private readonly speechSynthesisRef = inject(WA_SPEECH_SYNTHESIS);
-
     public paused = input(false, {alias: 'waTextToSpeechPaused'});
     public readonly onend = output<SpeechSynthesisEvent>({alias: 'waTextToSpeechEnd'});
     public readonly onmark = output<SpeechSynthesisEvent>({alias: 'waTextToSpeechMark'});
+
     public readonly onerror = output<SpeechSynthesisErrorEvent>({
         alias: 'waTextToSpeechError',
     });

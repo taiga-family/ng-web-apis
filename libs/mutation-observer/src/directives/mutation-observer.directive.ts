@@ -23,7 +23,6 @@ import {mutationObserverInitFactory} from '../utils/mutation-observer-init-facto
 export class WaMutationObserver extends SafeObserver implements OnDestroy {
     private readonly nativeElement: Node = inject(ElementRef).nativeElement;
     private readonly config = inject(WA_MUTATION_OBSERVER_INIT);
-
     public attributeFilter = '';
     public attributeOldValue = '' as const;
     public attributes = '' as const;
@@ -31,7 +30,6 @@ export class WaMutationObserver extends SafeObserver implements OnDestroy {
     public characterDataOldValue = '' as const;
     public childList = '' as const;
     public subtree = '' as const;
-
     public readonly waMutationObserver = output<MutationRecord[]>();
 
     constructor() {

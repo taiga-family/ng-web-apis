@@ -1,7 +1,6 @@
 export class FakePermissionStatus implements PermissionStatus {
     public readonly name: string = 'fakePermissionStatus';
     public state: PermissionState;
-
     public onchange: ((this: PermissionStatus, ev: Event) => any) | null = null;
 
     constructor(state: PermissionState) {

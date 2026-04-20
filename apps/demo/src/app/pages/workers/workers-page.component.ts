@@ -26,6 +26,7 @@ function startCompute(): number {
 export default class WorkersPage {
     protected readonly platformId = inject(PLATFORM_ID);
     protected readonly isBrowser = isPlatformBrowser(this.platformId);
+
     protected readonly workerThread = WaWebWorker.fromFunction<void, number>(
         startCompute,
     );

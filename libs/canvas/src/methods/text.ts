@@ -9,7 +9,6 @@ import {WaDrawService} from '../services/draw.service';
 })
 export class WaCanvasText {
     private readonly method = inject(WaDrawService);
-
     public text = '';
     public x = 0;
     public y = 0;

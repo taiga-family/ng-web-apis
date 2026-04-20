@@ -11,7 +11,6 @@ import {WA_CANVAS_METHOD} from '../tokens/canvas-method';
 export class WaCanvasPath {
     private readonly pathSteps = contentChildren(WA_CANVAS_METHOD);
     private readonly method = inject(WaDrawService);
-
     public closed = false;
     public fillRule?: CanvasFillRule;
 

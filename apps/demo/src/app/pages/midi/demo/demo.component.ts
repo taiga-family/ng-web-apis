@@ -33,7 +33,6 @@ export class Demo {
     private readonly mousedown$ = new Subject<number>();
     private readonly mouseup$ = new Subject<void>();
     private readonly silent$ = new Subject<number>();
-
     protected readonly octaves = Array.from({length: 24}, (_, i) => i + 48);
     protected readonly notes$: Observable<Map<number, number | null>>;
     protected readonly response = inject(RESPONSE_BUFFER);

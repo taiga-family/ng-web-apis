@@ -12,10 +12,7 @@ export class LocationMock implements Location {
     public port = '';
     public protocol = '';
     public search = '';
-
     public assign = emptyFunction;
-
     public reload = emptyFunction;
-
     public replace = emptyFunction;
 }

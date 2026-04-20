@@ -15,7 +15,6 @@ export class WaCanvasTextDrawingStyles implements CanvasMethod, CanvasTextDrawin
     public textAlign: CanvasTextAlign = 'start';
     public fontKerning: CanvasFontKerning = 'auto';
     public textBaseline: CanvasTextBaseline = 'alphabetic';
-
     declare public fontStretch: CanvasFontStretch;
     declare public fontVariantCaps: CanvasFontVariantCaps;
     declare public letterSpacing: string;

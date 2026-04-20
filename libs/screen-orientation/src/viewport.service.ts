@@ -14,6 +14,7 @@ import {
 @Injectable({providedIn: 'root'})
 export class WaViewportService extends Observable<VisualViewport> {
     private readonly visualViewport = inject(WA_WINDOW).visualViewport;
+
     private readonly stream$ = this.visualViewport
         ? merge(
               fromEvent(this.visualViewport, 'resize'),

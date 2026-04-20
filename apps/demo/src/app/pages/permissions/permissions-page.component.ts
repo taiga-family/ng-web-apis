@@ -16,7 +16,6 @@ import {SAMPLE} from './samples/basic';
 })
 export default class PermissionsPage {
     private readonly navigator: Navigator = inject(WA_NAVIGATOR);
-
     protected error$ = new BehaviorSubject<string | null>(null);
     protected basicSample = SAMPLE;
 

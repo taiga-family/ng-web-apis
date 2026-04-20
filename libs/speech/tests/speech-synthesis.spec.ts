@@ -32,13 +32,9 @@ describe('SpeechSynthesis', () => {
         public text = 'Test 1';
         public paused = true;
         public readonly utterance = new SpeechSynthesisUtterance('Test 2');
-
         public readonly onError = jasmine.createSpy('onError');
-
         public readonly onMark = jasmine.createSpy('onMark');
-
         public readonly onBoundary = jasmine.createSpy('onBoundary');
-
         public readonly onEnd = jasmine.createSpy('onEnd');
     }
 

@@ -18,8 +18,8 @@ export class WaPayment implements PaymentDetailsInit {
     public modifiers?: PaymentDetailsModifier[];
     public shippingOptions?: WaPaymentShippingOption[];
     public displayItems?: PaymentItem[];
-
     protected readonly paymentItems = contentChildren(WaPaymentItem);
+
     protected readonly sync = effect(() => {
         this.displayItems = [...this.paymentItems()];
     });

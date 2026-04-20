@@ -48,13 +48,13 @@ import {filter, map, merge, repeat, retry, share} from 'rxjs';
 export default class SpeechPage {
     private readonly recognition$ = inject(WaSpeechRecognitionService);
     private readonly result$ = this.recognition$.pipe(retry(), repeat(), share());
-
     protected readonly platformId = inject(PLATFORM_ID);
     protected readonly voices$ = inject(WA_SPEECH_SYNTHESIS_VOICES);
     protected readonly isBrowser = isPlatformBrowser(this.platformId);
     protected paused = true;
     protected voice = null;
     protected text = 'Hit play/pause to speak this text';
+
     protected readonly record$ = this.result$.pipe(
         skipUntilSaid('OK Angular'),
         takeUntilSaid('Thank you Angular'),

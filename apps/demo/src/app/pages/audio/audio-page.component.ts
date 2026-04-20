@@ -33,37 +33,21 @@ export default class AudioPage {
     protected readonly chain?: AudioNode;
 
     protected buffers = [Date.now()];
-
     protected selectedChain = 'dry';
-
     protected selectedSource = 'buffer';
-
     protected gain = 1;
-
     protected pan = 0;
-
     protected delayTime = 1;
-
     protected delayGain = 0.5;
-
     protected distortion = 20;
-
     protected frequency = 350;
-
     protected detune = 0;
-
     protected filterGain = 0;
-
     protected q = 1;
-
     protected type: BiquadFilterType = 'lowpass';
-
     protected curve = makeDistortionCurve(this.distortion);
-
     protected started = false;
-
     protected fftSize = 2048;
-
     protected path = '';
 
     protected readonly items = [

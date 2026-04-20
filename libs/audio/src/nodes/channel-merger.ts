@@ -20,7 +20,6 @@ import {asAudioNode} from '../tokens/audio-node';
 })
 export class WaChannelMerger extends ChannelMergerNode implements OnDestroy {
     private readonly channels = contentChildren(WaChannel, {descendants: false});
-
     public readonly inputs = input('', {alias: 'numberOfInputs'});
 
     constructor() {

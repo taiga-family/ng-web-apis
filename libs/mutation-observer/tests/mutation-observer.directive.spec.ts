@@ -31,7 +31,6 @@ describe('MutationObserverDirective', () => {
     })
     class Test {
         public onMutation = jasmine.createSpy('onMutation');
-
         public onAttributes = jasmine.createSpy('onAttributes');
         public observe = true;
         public child = true;

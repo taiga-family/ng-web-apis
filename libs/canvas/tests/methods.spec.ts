@@ -54,11 +54,8 @@ describe('Methods', () => {
         });
 
         public readonly clipPath = viewChild.required(WaCanvasClipPath);
-
         public readonly image = new Image();
-
         public readonly offset = new Image();
-
         public readonly loading?: ImageBitmap;
 
         constructor() {

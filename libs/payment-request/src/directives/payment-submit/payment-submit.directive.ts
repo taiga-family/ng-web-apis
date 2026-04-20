@@ -15,6 +15,7 @@ export class WaPaymentSubmit {
     private readonly nativeElement: HTMLElement = inject(ElementRef).nativeElement;
     private readonly methods = inject(WA_PAYMENT_METHODS);
     private readonly options = inject(WA_PAYMENT_OPTIONS);
+
     private readonly requests$ = fromEvent(this.nativeElement, 'click').pipe(
         switchMap(() =>
             from(

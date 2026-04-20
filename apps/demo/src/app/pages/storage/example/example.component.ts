@@ -27,9 +27,7 @@ export class Example {
     );
 
     protected native = '';
-
     protected service = '';
-
     protected index = 0;
 
     protected withStorage(value: string): void {

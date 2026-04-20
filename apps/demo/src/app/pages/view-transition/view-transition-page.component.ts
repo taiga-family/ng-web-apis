@@ -64,7 +64,6 @@ export default class ViewTransitionPage {
     private readonly viewTransitionService = inject(WaViewTransitionService);
     private readonly cdr = inject(ChangeDetectorRef);
     private readonly destroyRef = inject(DestroyRef);
-
     protected readonly codeSample = USAGE_SAMPLE;
     protected readonly data = PHOTOS;
     protected readonly activeIndex$ = new BehaviorSubject(-1);

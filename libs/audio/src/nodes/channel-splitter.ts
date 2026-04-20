@@ -20,7 +20,6 @@ import {WA_AUDIO_NODE} from '../tokens/audio-node';
 })
 export class WaChannelSplitter extends ChannelSplitterNode {
     private readonly channels = contentChildren(WA_AUDIO_NODE, {descendants: false});
-
     public readonly outputs = input('', {alias: 'numberOfOutputs'});
 
     constructor() {

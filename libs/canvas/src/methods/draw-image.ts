@@ -9,7 +9,6 @@ import {WaDrawService} from '../services/draw.service';
 })
 export class WaCanvasDrawImage {
     private readonly method = inject(WaDrawService);
-
     public image?: CanvasImageSource;
     public dX = 0;
     public dY = 0;

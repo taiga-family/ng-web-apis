@@ -17,9 +17,7 @@ import {SAMPLE_ASYNC} from './samples/sample-async';
 })
 export default class GeolocationPage {
     private readonly sanitizer = inject(DomSanitizer);
-
     protected watch = false;
-
     protected readonly sample = SAMPLE;
     protected readonly sampleAsync = SAMPLE_ASYNC;
     protected readonly geolocation$ = inject(WaGeolocationService);

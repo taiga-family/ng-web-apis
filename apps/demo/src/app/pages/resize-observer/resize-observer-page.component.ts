@@ -12,7 +12,6 @@ import {WA_RESIZE_OBSERVER_SUPPORT, WaResizeObserver} from '@ng-web-apis/resize-
 })
 export default class ResizeObserverPage {
     protected readonly support = inject(WA_RESIZE_OBSERVER_SUPPORT);
-
     protected ratio = 0;
     protected widthPercent = 50;
 
