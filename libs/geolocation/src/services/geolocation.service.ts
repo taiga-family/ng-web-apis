@@ -29,6 +29,6 @@ export class WaGeolocationService extends Observable<GeolocationPosition> {
         return this.pipe(
             finalize(() => geolocationRef.clearWatch(watchPositionId)),
             shareReplay({bufferSize: 1, refCount: true}),
-        ) as WaGeolocationService;
+        );
     }
 }

@@ -57,7 +57,7 @@ describe('WaPermissionsService', () => {
         it('state() provides status', fakeAsync(() => {
             createQuerySpy();
 
-            let actual: PermissionState | null = null as any;
+            let actual: PermissionState | null = null;
 
             service.state('geolocation').subscribe((state) => {
                 actual = state;
@@ -75,7 +75,7 @@ describe('WaPermissionsService', () => {
         it('state() provides status when it changes', fakeAsync(() => {
             createQuerySpy();
 
-            let actual: PermissionState | null = null as any;
+            let actual: PermissionState | null = null;
 
             service.state('geolocation').subscribe((state) => {
                 actual = state;
@@ -93,7 +93,7 @@ describe('WaPermissionsService', () => {
         it('state takes a PermissionDescriptor', fakeAsync(() => {
             createQuerySpy();
 
-            let actual: PermissionState | null = null as any;
+            let actual: PermissionState | null = null;
 
             service.state({name: 'geolocation'}).subscribe((state) => {
                 actual = state;
@@ -128,7 +128,7 @@ describe('WaPermissionsService', () => {
                 'addEventListener',
             ).and.callThrough();
 
-            let actual: PermissionState | null = null as any;
+            let actual: PermissionState | null = null;
 
             const sub = service.state('geolocation').subscribe((state) => {
                 actual = state;

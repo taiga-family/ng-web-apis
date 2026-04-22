@@ -12,5 +12,5 @@ export default class CommonPage {
     protected readonly readme =
         import('../../../../../../libs/experimental/README.md').then((a) =>
             a.default.replace('![logo](logo.svg) ', ''),
-        ) as any as Promise<string>;
+        );
 }
