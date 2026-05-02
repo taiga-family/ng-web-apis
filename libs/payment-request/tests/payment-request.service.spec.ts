@@ -44,7 +44,7 @@ describe('WaPaymentRequestService', () => {
                 requestId: '',
                 complete: async (_?: PaymentComplete) => Promise.resolve(),
                 toJSON: () => '',
-            } as unknown as Partial<PaymentResponse>;
+            };
 
             service = TestBed.inject(WaPaymentRequestService);
         });
