@@ -24,6 +24,7 @@ export class WaOfflineContext extends OfflineAudioContext implements OnInit {
     constructor() {
         const length = inject(new HostAttributeToken('length'));
         const sampleRate = inject(new HostAttributeToken('sampleRate'));
+
         const channels = inject(new HostAttributeToken('numberOfChannels'), {
             optional: true,
         });

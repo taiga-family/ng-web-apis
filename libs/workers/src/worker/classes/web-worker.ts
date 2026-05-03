@@ -71,7 +71,6 @@ export class WaWebWorker<T = any, R = any> extends Observable<TypedMessageEvent<
 
     private static createFnUrl(fn: WorkerFunction): string {
         const script = `(${WORKER_BLANK_FN})(${fn});`;
-
         const blob = new Blob([script], {type: 'text/javascript'});
 
         return URL.createObjectURL(blob);

@@ -30,6 +30,7 @@ export class WaBufferSource extends AudioBufferSourceNode {
 
     constructor() {
         const detune = inject(new HostAttributeToken('detune'), {optional: true});
+
         const playbackRate = inject(new HostAttributeToken('playbackRate'), {
             optional: true,
         });

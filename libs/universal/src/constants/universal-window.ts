@@ -29,17 +29,22 @@ const COMPUTED_STYLES: Partial<CSSStyleDeclaration> = {
     removeProperty: () => '',
     setProperty: emptyFunction,
 };
+
 const COMPUTED_STYLES_HANDLER: ProxyHandler<CSSStyleDeclaration> = {
     get: (obj, key: any) => (key in obj ? obj[key] : null),
 };
+
 const COMPUTED_STYLES_PROXY = new Proxy<CSSStyleDeclaration>(
     COMPUTED_STYLES as any,
     COMPUTED_STYLES_HANDLER,
 );
+
 const CSS_RULES = new (class extends Array<CSSRule> implements CSSRuleList {
     public item = (): null => null;
 })();
+
 const BAR_PROP: BarProp = {visible: false};
+
 const DB_REQUEST: IDBOpenDBRequest = {
     ...EVENT_TARGET,
     onblocked: null,
@@ -52,7 +57,9 @@ const DB_REQUEST: IDBOpenDBRequest = {
     source: null as any, // null for open requests
     transaction: null,
 };
+
 const SELF = ['frames', 'parent', 'self', 'top', 'window'];
+
 const WINDOW_HANDLER: ProxyHandler<Window> = {
     get: (windowRef, key: string) => {
         if (SELF.includes(key)) {

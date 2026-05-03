@@ -11,7 +11,6 @@ export class WaGeolocationService extends Observable<GeolocationPosition> {
         const geolocationRef = inject(WA_GEOLOCATION);
         const geolocationSupported = inject(WA_GEOLOCATION_SUPPORT);
         const positionOptions = inject(WA_POSITION_OPTIONS);
-
         let watchPositionId = 0;
 
         super((subscriber) => {

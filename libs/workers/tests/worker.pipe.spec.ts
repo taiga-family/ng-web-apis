@@ -21,7 +21,6 @@ describe('WaWorkerPipe', () => {
 
     it('should return the same worker for the same function', () => {
         const workerFn = (data: unknown): unknown => data;
-
         const worker = pipe.transform('a', workerFn);
         const theSameWorker = pipe.transform('a', workerFn);
 
