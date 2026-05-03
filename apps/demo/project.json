@@ -67,7 +67,6 @@
                 "plugins": ["apps/demo/esbuild-plugins/ng-web-apis-as-taiga-ui-dep.plugin.js"],
                 "polyfills": ["./apps/demo/src/polyfills.ts"],
                 "scripts": [
-                    "node_modules/marked/marked.min.js",
                     "node_modules/prismjs/prism.js",
                     "node_modules/prismjs/components/prism-less.min.js",
                     "node_modules/prismjs/components/prism-markup.min.js",

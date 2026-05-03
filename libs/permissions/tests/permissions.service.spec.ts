@@ -57,53 +57,49 @@ describe('WaPermissionsService', () => {
         it('state() provides status', fakeAsync(() => {
             createQuerySpy();
 
-            let actual: PermissionState | null = null as any;
+            const actual: PermissionState[] = [];
 
             service.state('geolocation').subscribe((state) => {
-                actual = state;
+                actual.push(state);
             });
 
-            expect(actual).toBeNull();
+            expect(actual).toEqual([]);
 
             tick(QUERY_DELAY);
 
-            const expected: PermissionState = 'prompt';
-
-            expect(actual).toBe(expected);
+            expect(actual).toEqual(['prompt']);
         }));
 
         it('state() provides status when it changes', fakeAsync(() => {
             createQuerySpy();
 
-            let actual: PermissionState | null = null as any;
+            const actual: PermissionState[] = [];
 
             service.state('geolocation').subscribe((state) => {
-                actual = state;
+                actual.push(state);
             });
 
             tick(QUERY_DELAY);
 
             permissionStatus.simulateStateChange('granted');
 
-            const expected: PermissionState = 'granted';
-
-            expect(actual).toBe(expected);
+            expect(actual).toEqual(['prompt', 'granted']);
         }));
 
         it('state takes a PermissionDescriptor', fakeAsync(() => {
             createQuerySpy();
 
-            let actual: PermissionState | null = null as any;
+            const actual: PermissionState[] = [];
 
             service.state({name: 'geolocation'}).subscribe((state) => {
-                actual = state;
+                actual.push(state);
             });
+
+            expect(actual).toEqual([]);
 
             tick(QUERY_DELAY);
 
-            const expected: PermissionState = 'prompt';
-
-            expect(actual).toBe(expected);
+            expect(actual).toEqual(['prompt']);
         }));
 
         it('provides status from cache if other subscriptions exist', () => {
@@ -128,17 +124,17 @@ describe('WaPermissionsService', () => {
                 'addEventListener',
             ).and.callThrough();
 
-            let actual: PermissionState | null = null as any;
+            const actual: PermissionState[] = [];
 
             const sub = service.state('geolocation').subscribe((state) => {
-                actual = state;
+                actual.push(state);
             });
 
             sub.unsubscribe();
 
             tick(QUERY_DELAY);
 
-            expect(actual).toBeNull();
+            expect(actual).toEqual([]);
             expect(addEventListenerSpy).not.toHaveBeenCalled();
         }));
 
@@ -170,24 +166,24 @@ describe('WaPermissionsService', () => {
         }));
 
         it('should throw error', fakeAsync(() => {
-            let actualStatus: PermissionState = null as any;
-            let actualError: Error = null as any;
+            const actualStatus: PermissionState[] = [];
+            let actualError: Error | null = null;
 
             createQuerySpy(true);
 
-            service.state('geolocation').subscribe(
-                (status) => {
-                    actualStatus = status;
+            service.state('geolocation').subscribe({
+                next: (status) => {
+                    actualStatus.push(status);
                 },
-                (error) => {
+                error: (error: Error) => {
                     actualError = error;
                 },
-            );
+            });
 
             tick(QUERY_DELAY);
 
-            expect(actualStatus).toBeNull();
-            expect(new Error('some error')).toEqual(actualError);
+            expect(actualStatus).toEqual([]);
+            expect(new Error('some error')).toEqual(actualError as unknown as Error);
         }));
     });
 
@@ -211,12 +207,12 @@ describe('WaPermissionsService', () => {
             const querySpy = spyOn(permissions, 'query').and.stub();
             let actualError = '';
 
-            service.state('geolocation').subscribe(
-                () => {},
-                (error) => {
+            service.state('geolocation').subscribe({
+                next: () => {},
+                error: (error: string) => {
                     actualError = error;
                 },
-            );
+            });
 
             expect(actualError).toBe('Permissions is not supported in your browser');
             expect(querySpy).not.toHaveBeenCalled();
