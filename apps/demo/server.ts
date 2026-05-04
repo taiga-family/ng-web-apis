@@ -18,6 +18,7 @@ if (moduleFilename === __filename || moduleFilename.includes('iisnode')) {
     const port = Number(process.env['PORT'] ?? 4000);
     const server = express();
     const dist = join(process.cwd(), 'dist/demo/browser');
+
     const indexHtml = existsSync(join(dist, 'index.original.html'))
         ? 'index.original.html'
         : 'index.html';
