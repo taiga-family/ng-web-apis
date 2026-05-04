@@ -17,7 +17,6 @@ describe('WaViewTransitionService', () => {
                 ],
             });
             const service = TestBed.inject(WaViewTransitionService);
-
             const observable = service.startViewTransition(() => {});
 
             observable.subscribe({
@@ -71,6 +70,7 @@ describe('WaViewTransitionService', () => {
 
         it('pass ViewTransition object to the observable after callback called', (done) => {
             let callbackCalled = false;
+
             const observable = service.startViewTransition(() => {
                 callbackCalled = true;
             });
@@ -92,6 +92,7 @@ describe('WaViewTransitionService', () => {
                 ready: Promise.resolve(),
                 skipTransition: () => {},
             };
+
             const mockDocument = {
                 querySelectorAll: () => [],
                 startViewTransition: (callback: () => Promise<void> | void) => {
@@ -111,7 +112,6 @@ describe('WaViewTransitionService', () => {
                 ],
             });
             const service = TestBed.inject(WaViewTransitionService);
-
             const skipSpy = spyOn(viewTransitionValue, 'skipTransition');
             const observable = service.startViewTransition(() => {});
 

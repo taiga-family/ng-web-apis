@@ -68,7 +68,6 @@ describe('WaGeolocationService', () => {
 
         it('clearWatch method is called once when all subscribers are unsubscribed.', (done) => {
             const firstSubscription = service.subscribe();
-
             const secondSubscription = service.subscribe();
 
             firstSubscription.unsubscribe();

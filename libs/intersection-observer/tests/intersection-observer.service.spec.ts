@@ -13,7 +13,6 @@ window.onbeforeunload = jasmine.createSpy();
 describe('IntersectionObserverService', () => {
     it('works', (done) => {
         let called = false;
-
         const nativeElement = document.createElement('div');
 
         TestBed.overrideProvider(ElementRef, {useValue: {nativeElement}})

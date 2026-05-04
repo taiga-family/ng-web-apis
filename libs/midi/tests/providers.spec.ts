@@ -16,14 +16,17 @@ describe('inputById', () => {
         id: 'input-0',
         name: 'Yamaha',
     };
+
     const midiInput2 = {
         id: 'input-1',
         name: 'Roland',
     };
+
     const midiOutput1 = {
         id: 'output-0',
         name: 'Yamaha',
     };
+
     const midiOutput2 = {
         id: 'output-1',
         name: 'Roland',

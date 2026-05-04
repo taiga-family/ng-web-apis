@@ -14,6 +14,7 @@ import {join} from 'node:path';
         join(process.cwd(), 'apps', 'demo', 'src', 'app', 'constants', 'demo-path.ts'),
         'utf-8',
     );
+
     const routes =
         demoPathEnumContent
             .match(/['"`].*['"`]/g)
