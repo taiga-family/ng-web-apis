@@ -18,6 +18,7 @@ import {WA_CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
                 const {nativeElement} = inject(ElementRef);
                 const opaque = nativeElement.getAttribute('waOpaque');
                 const desynchronized = nativeElement.getAttribute('waDesynchronized');
+
                 const context = nativeElement.getContext('2d', {
                     alpha: opaque === null,
                     desynchronized: desynchronized !== null,

@@ -24,6 +24,7 @@ export class WaDelay extends DelayNode {
 
     constructor() {
         const delayTime = inject(new HostAttributeToken('delayTime'), {optional: true});
+
         const maxDelayTime = inject(new HostAttributeToken('maxDelayTime'), {
             optional: true,
         });

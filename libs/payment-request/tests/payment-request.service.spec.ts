@@ -19,7 +19,6 @@ describe('WaPaymentRequestService', () => {
 
     describe('Payment Request Service', () => {
         let service: WaPaymentRequestService;
-
         let canPay = false;
         let response: Partial<PaymentResponse> = {};
 
@@ -93,6 +92,7 @@ describe('WaPaymentRequestService', () => {
             const service: WaPaymentRequestService = TestBed.inject(
                 WaPaymentRequestService,
             );
+
             const promise = service.request(paymentDetails);
 
             promise.then(

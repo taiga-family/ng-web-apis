@@ -104,7 +104,6 @@ describe('WaPermissionsService', () => {
 
         it('provides status from cache if other subscriptions exist', () => {
             const querySpy = createQuerySpy();
-
             const obs = service.state('geolocation');
 
             obs.subscribe();

@@ -19,6 +19,7 @@ export class WaAudioContext extends AudioContext implements OnDestroy {
 
     constructor() {
         const sampleRate = inject(new HostAttributeToken('sampleRate'), {optional: true});
+
         const latencyHint: any = inject(new HostAttributeToken('latencyHint'), {
             optional: true,
         });

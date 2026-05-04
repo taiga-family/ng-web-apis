@@ -34,7 +34,6 @@ describe('Destination', () => {
 
         let fixture: ComponentFixture<Test>;
         let testComponent: Test;
-
         const timeout = jasmine.DEFAULT_TIMEOUT_INTERVAL;
 
         beforeEach(() => {

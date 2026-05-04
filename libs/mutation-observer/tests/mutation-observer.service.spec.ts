@@ -19,7 +19,6 @@ describe('MutationObserver service', () => {
             .overrideProvider(ElementRef, {useValue: elementRef})
             .runInInjectionContext(() => {
                 const service = new WaMutationObserverService();
-
                 let flag = false;
 
                 document.body.appendChild(element);
