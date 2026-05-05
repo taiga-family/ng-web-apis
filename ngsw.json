@@ -1,6 +1,6 @@
 {
   "configVersion": 1,
-  "timestamp": 1777926929721,
+  "timestamp": 1777999940519,
   "index": "/ng-web-apis/index.csr.html",
   "assetGroups": [
     {
@@ -11,6 +11,7 @@
         "ignoreVary": true
       },
       "urls": [
+        "/ng-web-apis/chunk-2AQPU7AE.js",
         "/ng-web-apis/chunk-2FZBE5SW.js",
         "/ng-web-apis/chunk-3C372HH7.js",
         "/ng-web-apis/chunk-3FHQVLLW.js",
@@ -72,7 +73,6 @@
         "/ng-web-apis/chunk-QSHLHHGX.js",
         "/ng-web-apis/chunk-R7PXDLR6.js",
         "/ng-web-apis/chunk-RDANL7P6.js",
-        "/ng-web-apis/chunk-RJBS4UAY.js",
         "/ng-web-apis/chunk-RNHQMYSO.js",
         "/ng-web-apis/chunk-RONVFJK7.js",
         "/ng-web-apis/chunk-SAQUJI3T.js",
@@ -90,7 +90,7 @@
         "/ng-web-apis/chunk-XXJB6N6A.js",
         "/ng-web-apis/chunk-Z64GZVYB.js",
         "/ng-web-apis/chunk-ZMJJWQLN.js",
-        "/ng-web-apis/main-XD427XG5.js",
+        "/ng-web-apis/main-WZQFA4ZU.js",
         "/ng-web-apis/manifest.webmanifest",
         "/ng-web-apis/polyfills-KSEAP45D.js",
         "/ng-web-apis/scripts-2UVXRPUO.js",
@@ -8606,6 +8606,7 @@
     "/ng-web-apis/assets/taiga-ui/icons/zoom-in.svg": "77694245adc57b78fa2cf809181e195ba5f5ad94",
     "/ng-web-apis/assets/taiga-ui/icons/zoom-out-filled.svg": "b3153778b4da57e3b4908068ac00e798fd5727de",
     "/ng-web-apis/assets/taiga-ui/icons/zoom-out.svg": "f0fafcc13b2a8311a8ce16433a0f21cd12b8d42c",
+    "/ng-web-apis/chunk-2AQPU7AE.js": "148ad4b697152bee9869e31a7305ccc769fb97cd",
     "/ng-web-apis/chunk-2FZBE5SW.js": "936e247b5271a64fc4314640826cb4b3c208fbca",
     "/ng-web-apis/chunk-3C372HH7.js": "7859254e779b3566dbb9f5c56cdb7de9b3dcf3b8",
     "/ng-web-apis/chunk-3FHQVLLW.js": "7db961b348f08df12006b6bd93e69f3a9b0fe85e",
@@ -8667,7 +8668,6 @@
     "/ng-web-apis/chunk-QSHLHHGX.js": "c511594f77762ba1647461e3041da6905d8c8bc0",
     "/ng-web-apis/chunk-R7PXDLR6.js": "b63d3743c56fb78ec5cd37850a858dcc0bc1e57d",
     "/ng-web-apis/chunk-RDANL7P6.js": "f441552b9f8df7f701c21561951b3ccadc0add2a",
-    "/ng-web-apis/chunk-RJBS4UAY.js": "3ecf6810b5e2e4aae9edda1d2c18b0cc658888e4",
     "/ng-web-apis/chunk-RNHQMYSO.js": "8d4c6c56eee29a3ea1c95c818a48bb354f5c51ee",
     "/ng-web-apis/chunk-RONVFJK7.js": "68a881c8f44f69236d98ac4780965d3f6c5be2dc",
     "/ng-web-apis/chunk-SAQUJI3T.js": "16c3be70a1e8cfad542c15704351ae73d8befb52",
@@ -8685,7 +8685,7 @@
     "/ng-web-apis/chunk-XXJB6N6A.js": "c898cf2760968a4eaaf96d1971345cfe75fb28c0",
     "/ng-web-apis/chunk-Z64GZVYB.js": "cb77adba1a072e2363a5404f3213f3f51fe65a87",
     "/ng-web-apis/chunk-ZMJJWQLN.js": "16c3be70a1e8cfad542c15704351ae73d8befb52",
-    "/ng-web-apis/main-XD427XG5.js": "a106c6482da3dd199d39c7f6d2d3a6733e6b6f62",
+    "/ng-web-apis/main-WZQFA4ZU.js": "87e59bad57e79f3dfcedbd0ca05a7120e15a8e4c",
     "/ng-web-apis/manifest.webmanifest": "7c2c6821006405e87e1d216c6e47f8f8f4b0d8f7",
     "/ng-web-apis/polyfills-KSEAP45D.js": "5a8abe49a4cbd014795c86b2dff84f25c1592d1d",
     "/ng-web-apis/scripts-2UVXRPUO.js": "11b9eca348dc32514b8f6e55e0f27a3bd73df168",
