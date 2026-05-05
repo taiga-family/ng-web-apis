@@ -13,40 +13,38 @@ export class WaViewTransitionService {
     public startViewTransition(
         callback: () => Promise<void> | void,
     ): Observable<ViewTransition> {
-        if (!this.isSupported) {
-            return throwError(
-                () => new Error('startViewTransition is not supported in your browser'),
-            );
-        }
+        return this.isSupported
+            ? new Observable((subscriber) => {
+                  const transition = this.document.startViewTransition(callback);
 
-        return new Observable((subscriber) => {
-            const transition = this.document.startViewTransition(callback);
+                  transition.updateCallbackDone.then(
+                      () => {
+                          subscriber.next(transition);
+                      },
+                      (error: unknown) => {
+                          subscriber.error(error);
+                      },
+                  );
 
-            transition.updateCallbackDone.then(
-                () => {
-                    subscriber.next(transition);
-                },
-                (error: unknown) => {
-                    subscriber.error(error);
-                },
-            );
+                  transition.ready.catch((error: unknown) => {
+                      subscriber.error(error);
+                  });
 
-            transition.ready.catch((error: unknown) => {
-                subscriber.error(error);
-            });
+                  transition.finished.then(
+                      () => {
+                          subscriber.complete();
+                      },
+                      (error: unknown) => {
+                          subscriber.error(error);
+                      },
+                  );
 
-            transition.finished.then(
-                () => {
-                    subscriber.complete();
-                },
-                (error: unknown) => {
-                    subscriber.error(error);
-                },
-            );
-
-            return () => {
-                transition.skipTransition();
-            };
-        });
+                  return () => {
+                      transition.skipTransition();
+                  };
+              })
+            : throwError(
+                  () => new Error('startViewTransition is not supported in your browser'),
+              );
     }
 }
