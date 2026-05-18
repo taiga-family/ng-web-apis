@@ -16,3 +16,4 @@ export * from './tokens/speech-recognition';
 export * from './tokens/speech-synthesis';
 export * from './tokens/user-agent';
 export * from './tokens/window';
+export * from './utils/inject-element';

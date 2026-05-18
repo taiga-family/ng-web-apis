@@ -27,3 +27,17 @@ A set of common utils for consuming Web APIs with Angular
 - `WA_SPEECH_SYNTHESIS` — provides access to `window.speechSynthesis` object
 - `WA_PAGE_VISIBILITY` — wrapper for `document.addEventListener('visibilityChange')` api
 - `WA_HISTORY` — provides access to `window.history` object
+
+## Functions
+
+- `waInjectElement<T = HTMLElement>()` — injects the host native element via `ElementRef`. Must be called in an
+  injection context (constructor, field initializer, or `inject`-compatible factory).
+
+```ts
+import {waInjectElement} from '@ng-web-apis/common';
+
+@Directive({selector: '[myDirective]'})
+export class MyDirective {
+  private readonly element = waInjectElement<HTMLInputElement>();
+}
+```
