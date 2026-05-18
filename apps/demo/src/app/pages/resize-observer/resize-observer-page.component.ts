@@ -16,6 +16,6 @@ export default class ResizeObserverPage {
     protected widthPercent = 50;
 
     protected onResize(entry: readonly ResizeObserverEntry[]): void {
-        this.ratio = Math.round((entry[0]?.contentRect.width ?? 0) / 110);
+        this.ratio = Math.round((entry.at(0)?.contentRect.width ?? 0) / 110);
     }
 }

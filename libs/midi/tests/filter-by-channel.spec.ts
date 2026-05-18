@@ -20,7 +20,7 @@ describe('aftertouch', () => {
                 processed.push(result);
             });
 
-        expect(processed[0]).toBe(events[1]);
+        expect(processed.at(0)).toBe(events.at(1));
         expect(processed.length).toBe(1);
     });
 });

@@ -8,6 +8,6 @@ import {between} from '../utils/between';
 export function pan(): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
     return (source) =>
         source.pipe(
-            filter(({data}) => between(data[0] ?? 0, 176, 191) && data[1] === 10),
+            filter(({data}) => between(data.at(0) ?? 0, 176, 191) && data.at(1) === 10),
         );
 }
