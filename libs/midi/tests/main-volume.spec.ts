@@ -20,7 +20,7 @@ describe('mainVolume', () => {
                 processed.push(result);
             });
 
-        expect(processed[0]).toBe(events[1]);
-        expect(processed[1]).toBe(events[2]);
+        expect(processed.at(0)).toBe(events.at(1));
+        expect(processed.at(1)).toBe(events.at(2));
     });
 });

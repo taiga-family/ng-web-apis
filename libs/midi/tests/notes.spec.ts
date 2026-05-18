@@ -20,9 +20,9 @@ describe('notes', () => {
                 processed.push(result);
             });
 
-        expect(processed[0].data[0]).toBe(159);
-        expect(processed[0].data[2]).toBe(0);
-        expect(processed[0]).toBe(events[1]);
-        expect(processed[1]).toBe(events[2]);
+        expect(processed.at(0)!.data[0]).toBe(159);
+        expect(processed.at(0)!.data[2]).toBe(0);
+        expect(processed.at(0)).toBe(events.at(1));
+        expect(processed.at(1)).toBe(events.at(2));
     });
 });
