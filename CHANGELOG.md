@@ -1,3 +1,12 @@
+### [5.3.0](https://github.com/taiga-family/ng-web-apis/compare/v5.2.0...v5.3.0) (2026-05-18)
+
+### 🚀 Features
+
+- **platform**: add &#x60;WA_REDUCED_MOTION&#x60; ([#1573](https://github.com/taiga-family/ng-web-apis/pull/1573))
+  [(0a5360f)](https://github.com/taiga-family/ng-web-apis/commit/0a5360f227e503c6f608f9ccbd016546afbffac2)
+- **platform**: add &#x60;waInjectElement&#x60; ([#1596](https://github.com/taiga-family/ng-web-apis/pull/1596))
+  [(e4773fc)](https://github.com/taiga-family/ng-web-apis/commit/e4773fc5a2854cd2421bbda7d69bc50a66670adc)
+
 ### [5.2.0](https://github.com/taiga-family/ng-web-apis/compare/v5.0.4...v5.2.0) (2026-03-23)
 
 ### 🚀 Features
