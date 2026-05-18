@@ -30,8 +30,20 @@
 <li><code>WA_IS_ANDROID</code></li>
 <li><code>WA_IS_WEBKIT</code></li>
 </ul>
+<h2>Functions</h2>
+<ul>
+<li><code>waInjectElement&lt;T = HTMLElement&gt;()</code> — injects the host native element via <code>ElementRef</code>. Must be called in an
+injection context (constructor, field initializer, or <code>inject</code>-compatible factory).</li>
+</ul>
+<pre><code class="language-ts">import {waInjectElement} from '@ng-web-apis/platform';
+
+@Directive({selector: '[myDirective]'})
+export class MyDirective {
+  private readonly element = waInjectElement&lt;HTMLInputElement&gt;();
+}
+</code></pre>
 </markdown><!----><p _ngcontent-ng-c2517510602 class="example"><strong _ngcontent-ng-c2517510602>isIos:</strong> false
 </p></platform-page><!----></main><footer _ngcontent-ng-c3008790120> Icons made by <a _ngcontent-ng-c3008790120 href="https://www.flaticon.com/authors/freepik" title="Freepik"> Freepik </a> from <a _ngcontent-ng-c3008790120 href="https://www.flaticon.com/" title="Flaticon"> www.flaticon.com </a></footer></div></div><tui-scroll-controls class="t-root-scrollbar" _nghost-ng-c1311428672><!----><!----><!----><!----><!----></tui-scroll-controls><!----><tui-popups _nghost-ng-c1547397499><!----></tui-popups><!----></tui-root></app>
-    <link rel="modulepreload" href="chunk-YZCYKM2F.js"><link rel="modulepreload" href="chunk-PULVVJJC.js"><link rel="modulepreload" href="chunk-S7DRXZJJ.js"><link rel="modulepreload" href="chunk-P2GL6ULK.js"><link rel="modulepreload" href="chunk-J47JBKM3.js"><link rel="modulepreload" href="chunk-HVIB2FR6.js"><link rel="modulepreload" href="chunk-6R6ZZZPX.js"><link rel="modulepreload" href="chunk-PIIAEMND.js"><link rel="modulepreload" href="chunk-56SWG2EH.js"><link rel="modulepreload" href="chunk-BZ4LXKB4.js"><script src="polyfills-KSEAP45D.js" type="module"></script><script src="scripts-2UVXRPUO.js" defer></script><script src="main-EU7ISN33.js" type="module"></script>
+    <link rel="modulepreload" href="chunk-P44IXORB.js"><link rel="modulepreload" href="chunk-PULVVJJC.js"><link rel="modulepreload" href="chunk-JJDLRZ23.js"><link rel="modulepreload" href="chunk-P2GL6ULK.js"><link rel="modulepreload" href="chunk-J47JBKM3.js"><link rel="modulepreload" href="chunk-HVIB2FR6.js"><link rel="modulepreload" href="chunk-6R6ZZZPX.js"><link rel="modulepreload" href="chunk-PIIAEMND.js"><link rel="modulepreload" href="chunk-56SWG2EH.js"><link rel="modulepreload" href="chunk-BZ4LXKB4.js"><script src="polyfills-KSEAP45D.js" type="module"></script><script src="scripts-2UVXRPUO.js" defer></script><script src="main-MW7B4QVV.js" type="module"></script>
 
 </body></html>
