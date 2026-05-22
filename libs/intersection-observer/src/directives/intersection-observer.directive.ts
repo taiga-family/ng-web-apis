@@ -12,6 +12,7 @@ import {thresholdFactory} from '../utils/threshold-factory';
 })
 export class WaIntersectionObserverDirective extends SafeObserver implements OnDestroy {
     private readonly callbacks = new Map<Element, IntersectionObserverCallback>();
+
     public margin = '';
     public threshold = '';
 

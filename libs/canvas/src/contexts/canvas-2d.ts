@@ -37,6 +37,7 @@ import {WA_CANVAS_2D_CONTEXT} from '../tokens/canvas-2d-context';
 export class WaCanvas2d {
     private readonly context = inject(WA_CANVAS_2D_CONTEXT);
     private readonly method = inject(WaDrawService);
+
     public waOpaque = '' as const;
     public waDesynchronized = '' as const;
 
