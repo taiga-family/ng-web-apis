@@ -13,6 +13,7 @@ import {WA_AUDIO_NODE} from '../tokens/audio-node';
 @Directive()
 export class WaScheduledSource implements OnInit, OnDestroy {
     private readonly node = inject<AudioScheduledSourceNode>(WA_AUDIO_NODE, {self: true});
+
     public readonly autoplay = input(false, {transform: booleanAttribute});
     public readonly ended = output();
 

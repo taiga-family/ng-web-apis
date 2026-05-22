@@ -9,6 +9,7 @@ import {WaDrawService} from '../services/draw.service';
 })
 export class WaCanvasPath2d {
     private readonly method = inject(WaDrawService);
+
     public path = new Path2D();
     public fillRule?: CanvasFillRule;
 
