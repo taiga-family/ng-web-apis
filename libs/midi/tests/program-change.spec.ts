@@ -10,7 +10,7 @@ describe('programChange', () => {
             const receivedTime = 1.234;
 
             return new MIDIMessageEvent('midimessage', {data, receivedTime} as any);
-        }) as WebMidi.MIDIMessageEvent[];
+        });
 
         const processed: any[] = [];
 
