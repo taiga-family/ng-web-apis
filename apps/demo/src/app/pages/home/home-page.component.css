@@ -7,7 +7,7 @@
 .link {
     display: flex;
     max-inline-size: 23.75rem;
-    color: #444;
+    color: var(--tui-text-primary);
     border-radius: 0.25rem;
     border: 1px solid #dcdcdc;
     font-size: 0.875rem;
