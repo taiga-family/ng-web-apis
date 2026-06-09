@@ -13,5 +13,5 @@ export default class UniversalPage {
     protected readonly readme =
         import('../../../../../../libs/universal/README.md?raw').then((a) =>
             a.default.replace('![logo](logo.svg) ', ''),
-        ) as any as Promise<string>;
+        );
 }

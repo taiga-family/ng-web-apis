@@ -25,7 +25,7 @@ export class WebAudioMediaStreamDestination extends MediaStreamAudioDestinationN
             Object.setPrototypeOf(result, WebAudioMediaStreamDestination.prototype);
             connect(node, result);
 
-            return result as WebAudioMediaStreamDestination;
+            return result;
         }
     }
 }
