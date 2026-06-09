@@ -1,0 +1,36 @@
+import"./chunk-GAL4ENT6.js";var t=`import {CommonModule} from '@angular/common';
+import {ChangeDetectionStrategy, Component, inject} from '@angular/core';
+import {WaNotificationService} from '@ng-web-apis/notification';
+import {isDenied, isGranted, WaPermissionsService} from '@ng-web-apis/permissions';
+import {TuiButton} from '@taiga-ui/core';
+import {filter, map, switchMap, takeUntil, timer} from 'rxjs';
+
+@Component({
+    selector: 'notification-page-example-3',
+    imports: [CommonModule, TuiButton],
+    templateUrl: './index.html',
+    changeDetection: ChangeDetectionStrategy.OnPush,
+})
+export class NotificationPageExample3 {
+    private readonly notifications: WaNotificationService = inject(WaNotificationService);
+
+    protected readonly denied$ = inject(WaPermissionsService)
+        .state('notifications')
+        .pipe(map(isDenied));
+
+    protected sendNotification(): void {
+        this.notifications
+            .requestPermission()
+            .pipe(
+                filter(isGranted),
+                switchMap(() =>
+                    this.notifications.open('Close me, please!', {
+                        requireInteraction: true,
+                    }),
+                ),
+                takeUntil(timer(5_000)), // close stream after 5 seconds
+            )
+            .subscribe({complete: () => console.info('Notification closed!')});
+    }
+}
+`;export{t as default};
