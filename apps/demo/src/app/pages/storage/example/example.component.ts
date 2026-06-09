@@ -8,12 +8,12 @@ import {
     WA_STORAGE_EVENT,
     WaStorageService,
 } from '@ng-web-apis/storage';
-import {TuiGroup, TuiNotification, TuiTextfield} from '@taiga-ui/core';
+import {TuiGroup, TuiInput, TuiNotification} from '@taiga-ui/core';
 import {type Observable} from 'rxjs';
 
 @Component({
     selector: 'example',
-    imports: [CommonModule, FormsModule, TuiGroup, TuiNotification, TuiTextfield],
+    imports: [CommonModule, FormsModule, TuiGroup, TuiInput, TuiNotification],
     templateUrl: './example.template.html',
     changeDetection: ChangeDetectionStrategy.OnPush,
 })
