@@ -16,6 +16,7 @@ function getArray<T>(): T[] {
     return new (class extends Array<T> {
         public item = (): null => null;
         public namedItem = (): null => null;
+
         public refresh(): void {}
     })();
 }
