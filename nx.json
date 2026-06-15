@@ -1,23 +1,10 @@
 {
     "$schema": "./node_modules/nx/schemas/nx-schema.json",
-    "workspaceLayout": {
-        "libsDir": "libs",
-        "appsDir": "apps"
-    },
-    "tui": {
-        "enabled": false
-    },
-    "targetDefaults": {
-        "build": {
-            "inputs": ["production", "^production"],
-            "cache": true
-        },
-        "test": {
-            "cache": true
-        }
-    },
+    "analytics": true,
+    "defaultBase": "origin/main",
     "namedInputs": {
         "default": ["{projectRoot}/**/*", "sharedGlobals"],
+        "production": ["default"],
         "sharedGlobals": [
             "{workspaceRoot}/package-lock.json",
             "{workspaceRoot}/nx.json",
@@ -25,9 +12,22 @@
             "{workspaceRoot}/tsconfig.json",
             "{workspaceRoot}/*.yml",
             "{workspaceRoot}/*.md"
-        ],
-        "production": ["default"]
+        ]
     },
-    "defaultBase": "origin/main",
-    "analytics": true
+    "targetDefaults": {
+        "build": {
+            "cache": true,
+            "inputs": ["production", "^production"]
+        },
+        "test": {
+            "cache": true
+        }
+    },
+    "tui": {
+        "enabled": false
+    },
+    "workspaceLayout": {
+        "appsDir": "apps",
+        "libsDir": "libs"
+    }
 }
