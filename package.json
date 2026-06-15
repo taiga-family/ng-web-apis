@@ -139,7 +139,7 @@
         "@types/express": "5.0.6",
         "@types/jasmine": "5.1.15",
         "@types/jasminewd2": "2.0.13",
-        "@types/react": "19.2.15",
+        "@types/react": "19.2.16",
         "@types/react-dom": "19.2.3",
         "@types/webmidi": "2.1.0",
         "core-js": "3.49.0",
