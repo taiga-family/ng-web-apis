@@ -607,7 +607,9 @@ ${error.stack}`;
      * metadata that are known to be safe.
      *
      * Currently, headers, redirect policy, an explicit `credentials: 'omit'`, and the HTTP cache
-     * mode are preserved.
+     * mode are preserved. On cross-origin redirects, sensitive headers are removed. This includes
+     * `Authorization`, as required by the Fetch redirect algorithm, and forbidden request headers
+     * that could contain credentials.
      *
      * NOTE:
      *   `credentials: 'same-origin'` and `credentials: 'include'` are intentionally not preserved.
@@ -621,8 +623,17 @@ ${error.stack}`;
      *   https://github.com/angular/angular/issues/41931#issuecomment-1227601347.
      */
     newRequestWithMetadata(url, options) {
+      let headers = options.headers;
+      const parsedUrl = this.adapter.parseUrl(url, this.adapter.origin);
+      const hasHeaders = headers.keys().next().done !== true;
+      if (hasHeaders && parsedUrl.origin !== this.adapter.origin) {
+        headers = this.adapter.newHeaders(options.headers);
+        headers.delete("Authorization");
+        headers.delete("Proxy-Authorization");
+        headers.delete("Cookie");
+      }
       const init = {
-        headers: options.headers,
+        headers,
         redirect: options.redirect
       };
       if (options.credentials === "omit") {
@@ -1299,7 +1310,7 @@ ${error.stack}`;
   };
 
   // packages/service-worker/worker/src/debug.js
-  var SW_VERSION = "20.3.24";
+  var SW_VERSION = "20.3.25";
   var DEBUG_LOG_BUFFER_SIZE = 100;
   var DebugHandler = class {
     constructor(driver, adapter2) {
