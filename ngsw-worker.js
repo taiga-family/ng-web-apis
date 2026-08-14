@@ -606,10 +606,10 @@ ${error.stack}`;
      * Create a new `Request` based on the specified URL and `RequestInit` options, preserving only
      * metadata that are known to be safe.
      *
-     * Currently, headers, redirect policy, an explicit `credentials: 'omit'`, and the HTTP cache
-     * mode are preserved. On cross-origin redirects, sensitive headers are removed. This includes
-     * `Authorization`, as required by the Fetch redirect algorithm, and forbidden request headers
-     * that could contain credentials.
+     * Currently, headers, referrer, referrer policy, redirect policy, an explicit
+     * `credentials: 'omit'`, and the HTTP cache mode are preserved. On cross-origin redirects,
+     * sensitive headers are removed. This includes `Authorization`, as required by the Fetch redirect
+     * algorithm, and forbidden request headers that could contain credentials.
      *
      * NOTE:
      *   `credentials: 'same-origin'` and `credentials: 'include'` are intentionally not preserved.
@@ -634,6 +634,8 @@ ${error.stack}`;
       }
       const init = {
         headers,
+        referrer: options.referrer,
+        referrerPolicy: options.referrerPolicy,
         redirect: options.redirect
       };
       if (options.credentials === "omit") {
@@ -1310,7 +1312,7 @@ ${error.stack}`;
   };
 
   // packages/service-worker/worker/src/debug.js
-  var SW_VERSION = "20.3.25";
+  var SW_VERSION = "20.3.27";
   var DEBUG_LOG_BUFFER_SIZE = 100;
   var DebugHandler = class {
     constructor(driver, adapter2) {
