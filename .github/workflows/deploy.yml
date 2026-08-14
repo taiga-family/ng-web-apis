@@ -8,11 +8,11 @@ jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@9c091bb21b7c1c1d1991bb908d89e4e9dddfe3e0 # v7.0.0
-      - uses: taiga-family/actions/setup-node@6b70ab6d36d96e388bdaf4158e6dd841430abe23 # v2.3.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: taiga-family/actions/setup-node@399268333d80c132c3bf9939f33e4db8b7f11be5 # v2.11.0
       - run: npx nx build-gh-pages demo
       - name: Deploy
-        uses: JamesIves/github-pages-deploy-action@d92aa235d04922e8f08b40ce78cc5442fcfbfa2f # v4.8.0
+        uses: JamesIves/github-pages-deploy-action@fa24774553152dd7873cd16ebd8d959b010c5445 # v4.9.0
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
           branch: gh-pages
