@@ -7,7 +7,6 @@
 [![npm bundle size](https://img.shields.io/bundlephobia/minzip/@ng-web-apis/mutation-observer)](https://bundlephobia.com/result?p=@ng-web-apis/mutation-observer)
 [![Travis (.com)](https://img.shields.io/travis/com/ng-web-apis/mutation-observer)](https://travis-ci.com/ng-web-apis/mutation-observer)
 [![codecov](https://codecov.io/github/taiga-family/ng-web-apis/graph/badge.svg?flag=mutation-observer)](https://codecov.io/github/taiga-family/ng-web-apis/tree/main/libs/mutation-observer)
-[![angular-open-source-starter](https://img.shields.io/badge/made%20with-angular--open--source--starter-d81676?logo=angular)](https://github.com/TinkoffCreditSystems/angular-open-source-starter)
 
 This is a library for declarative use of
 [Mutation Observer API](https://developer.mozilla.org/en-US/docs/Web/API/MutationObserver) with Angular.
