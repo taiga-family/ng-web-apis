@@ -7,8 +7,6 @@ export default [
     {
         files: ['**/*.spec.ts'],
         rules: {
-            'jest/no-jasmine-globals': 'off',
-            'jest/no-test-prefixes': 'off',
             'rxjs/no-ignored-observable': 'off',
             'rxjs/no-topromise': 'off',
         },

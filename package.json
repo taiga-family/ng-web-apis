@@ -128,7 +128,7 @@
         "@nx/rollup": "22.7.8",
         "@nx/workspace": "22.7.8",
         "@taiga-ui/addon-doc": "5.22.0",
-        "@taiga-ui/configs": "0.557.0",
+        "@taiga-ui/configs": "0.558.0",
         "@taiga-ui/core": "5.22.0",
         "@taiga-ui/icons": "5.22.0",
         "@taiga-ui/kit": "5.22.0",
