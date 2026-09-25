@@ -11,3 +11,4 @@ export * from './utils/is-edge';
 export * from './utils/is-firefox';
 export * from './utils/is-ios';
 export * from './utils/is-safari';
+export * from './utils/parse-browser';
