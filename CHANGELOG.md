@@ -1,3 +1,11 @@
+## [5.4.0](https://github.com/taiga-family/ng-web-apis/compare/v5.3.0...v5.4.0) (2026-09-29)
+
+### 🚀 Features
+
+- **intersection-obsercer**: add `WA_INTERSECTION_OBSERVER_V2_SUPPORT` token
+  ([#1750](https://github.com/taiga-family/ng-web-apis/pull/1750))
+  [(e6c6ba4)](https://github.com/taiga-family/ng-web-apis/commit/e6c6ba4dd3f45ea205dee23b359614cbf30b4179)
+
 ### [5.3.0](https://github.com/taiga-family/ng-web-apis/compare/v5.2.0...v5.3.0) (2026-05-18)
 
 ### 🚀 Features
