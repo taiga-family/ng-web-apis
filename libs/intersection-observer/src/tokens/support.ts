@@ -10,7 +10,7 @@ export const WA_INTERSECTION_OBSERVER_SUPPORT = new InjectionToken<boolean>(
 );
 
 export const WA_INTERSECTION_OBSERVER_V2_SUPPORT = new InjectionToken<boolean>(
-    ngDevMode ? '[WA_INTERSECTION_OBSERVER_V2_SUPPORT]' : '',
+    '[WA_INTERSECTION_OBSERVER_V2_SUPPORT]: [INTERSECTION_OBSERVER_V2_SUPPORT]',
     {
         factory: () =>
             'isVisible' in
