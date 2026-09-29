@@ -9,6 +9,15 @@ export const WA_INTERSECTION_OBSERVER_SUPPORT = new InjectionToken<boolean>(
     },
 );
 
+export const WA_INTERSECTION_OBSERVER_V2_SUPPORT = new InjectionToken<boolean>(
+    ngDevMode ? '[WA_INTERSECTION_OBSERVER_V2_SUPPORT]' : '',
+    {
+        factory: () =>
+            'isVisible' in
+            (inject<any>(WA_WINDOW).IntersectionObserverEntry?.prototype ?? {}),
+    },
+);
+
 /**
  * @deprecated: drop in v5.0, use {@link WA_INTERSECTION_OBSERVER_SUPPORT}
  */
