@@ -11,8 +11,8 @@ jobs:
     outputs:
       matrix: ${{ steps.matrix.outputs.value }}
     steps:
-      - uses: actions/checkout@v4.3.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.163.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: taiga-family/actions/setup-variables@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
       - id: matrix
         run: echo "value=$JOBS_NAME" >> $GITHUB_OUTPUT
 
@@ -22,9 +22,9 @@ jobs:
     strategy:
       fail-fast: true
       matrix:
-        value: ${{ fromJSON(needs.setup.outputs.matrix) }}
+        value: ${{ fromJSON(needs.setup.outputs.matrix || '[]') }}
     steps:
-      - uses: taiga-family/ci/actions/run/wait-job@v1.163.0
+      - uses: taiga-family/actions/wait-job@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
         with:
           token: ${{ secrets.GITHUB_TOKEN }}
           job: ${{ matrix.value }}
@@ -33,14 +33,14 @@ jobs:
     needs: [wait]
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.3.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.163.0
-      - uses: taiga-family/ci/actions/auto/approve/double@v1.163.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: taiga-family/actions/setup-variables@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
+      - uses: taiga-family/actions/auto-approve-double@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
         if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
         with:
           token1: ${{ secrets.GITHUB_TOKEN }}
           token2: ${{ secrets.TAIGA_FAMILY_APPROVE_BOT_PAT }}
-      - uses: taiga-family/ci/actions/run/merge@v1.163.0
+      - uses: taiga-family/actions/auto-merge@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
         if: env.IS_TAIGA_FAMILY_BOT_PR_AUTHOR == 'true'
         with:
           token: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
