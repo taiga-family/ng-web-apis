@@ -6,12 +6,12 @@ jobs:
     name: Firebase
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v4.3.0
-      - uses: taiga-family/ci/actions/setup/variables@v1.163.0
-      - uses: taiga-family/ci/actions/setup/node@v1.163.0
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
+      - uses: taiga-family/actions/setup-variables@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
+      - uses: taiga-family/actions/setup-node@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
       - run: npx nx build demo
 
-      - uses: FirebaseExtended/action-hosting-deploy@v0
+      - uses: FirebaseExtended/action-hosting-deploy@e2eda2e106cfa35cdbcf4ac9ddaf6c4756df2c8c # v0
         continue-on-error: true
         if: ${{ env.SUPPORT_AUTO_PUSH == 'true' }}
         with:
