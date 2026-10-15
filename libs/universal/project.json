@@ -12,10 +12,10 @@
                     "target": "build"
                 }
             ],
-            "executor": "@angular-devkit/build-angular:ng-packagr",
+            "executor": "nx:run-commands",
             "options": {
-                "project": "libs/{projectName}/ng-package.json",
-                "tsConfig": "tsconfig.build.json"
+                "commands": ["ng-packagr -p libs/{projectName}/ng-package.json -c tsconfig.build.json", "node tools/copy-license.mjs {projectName}"],
+                "parallel": false
             },
             "outputs": ["{workspaceRoot}/dist/{projectName}"]
         },
@@ -29,8 +29,7 @@
             ],
             "executor": "nx:run-commands",
             "options": {
-                "commands": ["cp ./LICENSE ./dist/{projectName}", "npm publish ./dist/{projectName} --ignore-scripts"],
-                "parallel": false
+                "command": "npm publish ./dist/{projectName} --ignore-scripts"
             }
         },
         "test": {
