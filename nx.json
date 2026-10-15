@@ -11,7 +11,8 @@
             "{workspaceRoot}/tsconfig.*.json",
             "{workspaceRoot}/tsconfig.json",
             "{workspaceRoot}/*.yml",
-            "{workspaceRoot}/*.md"
+            "{workspaceRoot}/*.md",
+            "{workspaceRoot}/tools/copy-license.mjs"
         ]
     },
     "targetDefaults": {
