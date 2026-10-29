@@ -10,29 +10,30 @@ on:
           - minor
           - patch
           - major
-  schedule:
-    - cron: '0 7 * * 1'
 
 jobs:
   release:
     runs-on: ubuntu-latest
     if: "!contains(github.event.head_commit.message, 'chore(release)')"
+    permissions:
+      contents: read
+      id-token: write
     steps:
       - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7.0.1
-      - uses: taiga-family/actions/release-it@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
+      - uses: taiga-family/actions/release-it@81cb55a2c1685e45ea591772e6bc9fd1d6b83765 # v2.24.0
         id: release-it
         with:
           ref: ${{ github.ref }}
           mode: ${{ github.event.inputs.mode }}
-          npmToken: ${{ secrets.NPM_TOKEN }}
+          npmTrustedPublishing: true
           githubToken: ${{ secrets.TAIGA_FAMILY_BOT_PAT }}
 
-      - uses: taiga-family/actions/read-package-json@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
+      - uses: taiga-family/actions/read-package-json@81cb55a2c1685e45ea591772e6bc9fd1d6b83765 # v2.24.0
         id: info
 
       - name: Announce to Telegram
         if: steps.release-it.outputs.released == 'true'
-        uses: taiga-family/actions/messenger-telegram-announce@579faa6aea387db865710ec9b7dea3c322f2d118 # v2.19.0
+        uses: taiga-family/actions/messenger-telegram-announce@81cb55a2c1685e45ea591772e6bc9fd1d6b83765 # v2.24.0
         with:
           chatId: ${{ secrets.TAIGA_TELEGRAM_CHAT_ID }}
           topicId: ${{ secrets.TAIGA_TELEGRAM_CHAT_THREAD_ID }}
