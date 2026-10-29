@@ -1,3 +1,7 @@
+## [5.4.1](https://github.com/taiga-family/ng-web-apis/compare/v5.4.0...v5.4.1) (2026-10-29)
+
+This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
+
 ## [5.4.0](https://github.com/taiga-family/ng-web-apis/compare/v5.3.0...v5.4.0) (2026-09-29)
 
 ### 🚀 Features
