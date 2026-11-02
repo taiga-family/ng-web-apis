@@ -142,7 +142,7 @@
         "@types/react": "19.3.0",
         "@types/react-dom": "19.3.0",
         "@types/webmidi": "2.1.0",
-        "core-js": "3.50.0",
+        "core-js": "3.51.0",
         "husky": "9.1.7",
         "jasmine-core": "5.13.0",
         "jasmine-spec-reporter": "7.0.0",
