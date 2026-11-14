@@ -6,7 +6,7 @@ window.onbeforeunload = jasmine.createSpy();
 describe('programChange', () => {
     it('lets program change events through', () => {
         const events = Array.from({length: 3}, (_, i) => {
-            const data = new Uint8Array([i + 207, 2, 3]);
+            const data = new Uint8Array([i + 191, 2, 3]);
             const receivedTime = 1.234;
 
             return new MIDIMessageEvent('midimessage', {data, receivedTime} as any);
@@ -22,5 +22,24 @@ describe('programChange', () => {
 
         expect(processed.at(0)).toBe(events.at(1));
         expect(processed.at(1)).toBe(events.at(2));
+    });
+
+    it('does not let channel pressure events through', () => {
+        const events = Array.from({length: 3}, (_, i) => {
+            const data = new Uint8Array([i + 206, 2, 3]);
+            const receivedTime = 1.234;
+
+            return new MIDIMessageEvent('midimessage', {data, receivedTime} as any);
+        }) as WebMidi.MIDIMessageEvent[];
+
+        const processed: any[] = [];
+
+        from(events)
+            .pipe(programChange())
+            .subscribe((result) => {
+                processed.push(result);
+            });
+
+        expect(processed).toEqual([events.at(0), events.at(1)]);
     });
 });
