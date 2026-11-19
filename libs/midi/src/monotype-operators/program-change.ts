@@ -7,5 +7,5 @@ import {between} from '../utils/between';
  */
 export function programChange(): MonoTypeOperatorFunction<WebMidi.MIDIMessageEvent> {
     return (source) =>
-        source.pipe(filter(({data}) => between(data.at(0) ?? 0, 208, 223)));
+        source.pipe(filter(({data}) => between(data.at(0) ?? 0, 192, 207)));
 }
