@@ -1,3 +1,11 @@
+## [5.5.0](https://github.com/taiga-family/ng-web-apis/compare/v5.4.1...v5.5.0) (2026-11-25)
+
+### 🐞 Bug Fixes
+
+- **midi**: filter Program Change status bytes in `programChange()`
+  ([#1789](https://github.com/taiga-family/ng-web-apis/pull/1789))
+  [(3f7389c)](https://github.com/taiga-family/ng-web-apis/commit/3f7389c0440503d71a3ed4b9bd698a5d088998a0)
+
 ## [5.4.1](https://github.com/taiga-family/ng-web-apis/compare/v5.4.0...v5.4.1) (2026-10-29)
 
 This release contains internal technical improvements only. No changes to functionality, UI, or APIs.
