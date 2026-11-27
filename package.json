@@ -154,7 +154,7 @@
         "ng-packagr": "20.3.2",
         "ngx-markdown": "20.1.0",
         "nx": "22.7.12",
-        "postcss-less": "7.0.1",
+        "postcss-less": "7.1.1",
         "rxjs": "7.8.2",
         "ts-node": "10.9.2",
         "tslib": "2.9.1",
